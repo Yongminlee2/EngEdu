@@ -1,0 +1,250 @@
+{"level":1,"p":"I ___ a student.","c":["am","is","are","be"],"a":0,"e":"주어가 I 일 때는 am 을 써요."}
+{"level":1,"p":"She ___ my sister.","c":["is","am","are","be"],"a":0,"e":"She/He 는 is 를 써요."}
+{"level":1,"p":"They ___ happy.","c":["are","is","am","be"],"a":0,"e":"They/We/You 는 are 를 써요."}
+{"level":1,"p":"This is ___ apple.","c":["an","a","the","two"],"a":0,"e":"모음 소리로 시작하는 단어 앞에는 an."}
+{"level":1,"p":"I have ___ dog.","c":["a","an","am","is"],"a":0,"e":"자음 소리로 시작하면 a 를 써요."}
+{"level":1,"p":"___ is your name?","c":["What","Who","Where","When"],"a":0,"e":"이름을 물을 때는 What."}
+{"level":1,"p":"___ old are you?","c":["How","What","Who","Why"],"a":0,"e":"나이는 How old 로 물어요."}
+{"level":1,"p":"I like ___.","c":["apples","apple like","a apples","apples the"],"a":0,"e":"좋아하는 것 전체는 복수형으로."}
+{"level":1,"p":"He ___ soccer every day.","c":["plays","play","playing","played now"],"a":0,"e":"He/She 뒤 동사에는 s 를 붙여요."}
+{"level":1,"p":"We ___ to school.","c":["go","goes","going","gone"],"a":0,"e":"We 는 동사원형 go."}
+{"level":1,"p":"___ down, please.","c":["Sit","Sits","Sitting","Sat"],"a":0,"e":"명령문은 동사원형으로 시작해요."}
+{"level":1,"p":"The cat is ___ the box.","c":["in","on top at","of","to"],"a":0,"e":"상자 안 = in."}
+{"level":1,"p":"The book is ___ the desk.","c":["on","in","at","of"],"a":0,"e":"표면 위 = on."}
+{"level":1,"p":"I can ___ fast.","c":["run","runs","running","ran"],"a":0,"e":"can 뒤에는 동사원형."}
+{"level":1,"p":"___ you like milk?","c":["Do","Does","Is","Are"],"a":0,"e":"일반동사 의문문은 Do 로 시작해요."}
+{"level":1,"p":"___ she like pizza?","c":["Does","Do","Is","Are"],"a":0,"e":"She 는 Does 를 써요."}
+{"level":1,"p":"I ___ like carrots.","c":["don't","doesn't","am not","isn't"],"a":0,"e":"I 의 부정은 don't."}
+{"level":1,"p":"He ___ like rain.","c":["doesn't","don't","isn't","aren't"],"a":0,"e":"He 의 부정은 doesn't."}
+{"level":1,"p":"These are my ___.","c":["books","book","a book","bookes"],"a":0,"e":"These 뒤에는 복수 명사."}
+{"level":1,"p":"That is ___ bag.","c":["her","she","hers bag","he"],"a":0,"e":"명사 앞 소유격은 her."}
+{"level":1,"p":"Look ___ the sky.","c":["at","in","on","of"],"a":0,"e":"look at = ~을 보다."}
+{"level":1,"p":"I get up ___ seven.","c":["at","in","on","for"],"a":0,"e":"시각 앞에는 at."}
+{"level":1,"p":"My birthday is ___ May.","c":["in","at","on","to"],"a":0,"e":"월 앞에는 in."}
+{"level":1,"p":"We play ___ Sunday.","c":["on","in","at","of"],"a":0,"e":"요일 앞에는 on."}
+{"level":1,"p":"There ___ a cat under the chair.","c":["is","are","am","be"],"a":0,"e":"단수 명사에는 There is."}
+{"level":2,"p":"There ___ many stars in the sky.","c":["are","is","am","was"],"a":0,"e":"복수 명사에는 There are."}
+{"level":2,"p":"She ___ TV last night.","c":["watched","watches","watch","watching"],"a":0,"e":"last night 은 과거 시제."}
+{"level":2,"p":"I ___ to Busan yesterday.","c":["went","go","goes","gone"],"a":0,"e":"go 의 과거형은 went."}
+{"level":2,"p":"___ you at home yesterday?","c":["Were","Was","Are","Do"],"a":0,"e":"you 의 be동사 과거는 were."}
+{"level":2,"p":"He ___ eating lunch now.","c":["is","are","do","does"],"a":0,"e":"현재진행형은 be + ~ing."}
+{"level":2,"p":"They are ___ in the pool.","c":["swimming","swim","swims","swam"],"a":0,"e":"be동사 뒤 진행형은 ~ing."}
+{"level":2,"p":"I will ___ you tomorrow.","c":["call","calls","called","calling"],"a":0,"e":"will 뒤에는 동사원형."}
+{"level":2,"p":"She is ___ than me.","c":["taller","tall","tallest","more tall"],"a":0,"e":"비교급은 -er + than."}
+{"level":2,"p":"This is the ___ cake in the shop.","c":["biggest","bigger","big","most big"],"a":0,"e":"최상급은 the + -est."}
+{"level":2,"p":"I want ___ a doctor.","c":["to be","be","being","been"],"a":0,"e":"want 뒤에는 to부정사."}
+{"level":2,"p":"He likes ___ books.","c":["reading","read","reads","to reading"],"a":0,"e":"like 뒤에는 동명사(~ing)나 to부정사."}
+{"level":2,"p":"___ open the window?","c":["Can you","Do you can","Are you","You can"],"a":0,"e":"부탁은 Can you ~?"}
+{"level":2,"p":"You ___ wash your hands before meals.","c":["should","shoulds","should to","are should"],"a":0,"e":"충고는 should + 동사원형."}
+{"level":2,"p":"I ___ swim when I was five.","c":["couldn't","can't","don't","didn't can"],"a":0,"e":"과거의 능력 부정은 couldn't."}
+{"level":2,"p":"How ___ apples do you want?","c":["many","much","long","often"],"a":0,"e":"셀 수 있는 명사에는 How many."}
+{"level":2,"p":"How ___ water do you drink?","c":["much","many","tall","far"],"a":0,"e":"셀 수 없는 명사에는 How much."}
+{"level":2,"p":"She didn't ___ breakfast today.","c":["have","had","has","having"],"a":0,"e":"didn't 뒤에는 동사원형."}
+{"level":2,"p":"___ is it from here to the park?","c":["How far","How much","How old","How many"],"a":0,"e":"거리는 How far."}
+{"level":2,"p":"Let's ___ to the beach.","c":["go","goes","going","went"],"a":0,"e":"Let's 뒤에는 동사원형."}
+{"level":2,"p":"I bought a gift ___ my mom.","c":["for","to at","on","of"],"a":0,"e":"~을 위해 = for."}
+{"level":2,"p":"We waited ___ the bus.","c":["for","to","at on","of"],"a":0,"e":"wait for = ~을 기다리다."}
+{"level":2,"p":"He is good ___ math.","c":["at","in","for","on"],"a":0,"e":"be good at = ~을 잘하다."}
+{"level":2,"p":"Turn ___ the light before bed.","c":["off","of","down at","away to"],"a":0,"e":"turn off = 끄다."}
+{"level":2,"p":"She takes care ___ her little brother.","c":["of","for","at","to"],"a":0,"e":"take care of = ~을 돌보다."}
+{"level":2,"p":"I'm looking forward ___ the party.","c":["to","for","at","of"],"a":0,"e":"look forward to + 명사."}
+{"level":3,"p":"I have ___ my homework already.","c":["finished","finish","finishing","finishes"],"a":0,"e":"현재완료는 have + 과거분사."}
+{"level":3,"p":"She has ___ in Seoul since 2020.","c":["lived","live","living","lives"],"a":0,"e":"since 와 함께 현재완료를 써요."}
+{"level":3,"p":"Have you ever ___ sushi?","c":["eaten","ate","eat","eating"],"a":0,"e":"경험은 have + 과거분사(eaten)."}
+{"level":3,"p":"I ___ watching TV when mom came home.","c":["was","am","were","be"],"a":0,"e":"과거진행형은 was/were + ~ing."}
+{"level":3,"p":"If it ___ tomorrow, we will stay home.","c":["rains","rain","will rain","rained"],"a":0,"e":"조건절에서는 현재형이 미래를 대신해요."}
+{"level":3,"p":"The letter ___ by Tom.","c":["was written","wrote","was wrote","is writing"],"a":0,"e":"수동태는 be + 과거분사."}
+{"level":3,"p":"English ___ in many countries.","c":["is spoken","speaks","is speaking","spoke"],"a":0,"e":"수동태: is spoken."}
+{"level":3,"p":"I don't know ___ to fix this.","c":["how","what do","which do","why do"],"a":0,"e":"방법은 how + to부정사."}
+{"level":3,"p":"He is ___ young to drive.","c":["too","so much","very much","much"],"a":0,"e":"too + 형용사 + to부정사 = 너무 ~해서 못하다."}
+{"level":3,"p":"She is smart ___ to solve it.","c":["enough","too","very","much"],"a":0,"e":"형용사 + enough + to부정사."}
+{"level":3,"p":"The boy ___ is running is my brother.","c":["who","which","whose","whom the"],"a":0,"e":"사람 주격 관계대명사는 who."}
+{"level":3,"p":"This is the book ___ I bought yesterday.","c":["which","who","whose","what"],"a":0,"e":"사물 목적격 관계대명사는 which/that."}
+{"level":3,"p":"I enjoy ___ to music.","c":["listening","listen","to listen","listened"],"a":0,"e":"enjoy 뒤에는 동명사만 와요."}
+{"level":3,"p":"He decided ___ abroad.","c":["to study","studying","study","studied"],"a":0,"e":"decide 뒤에는 to부정사."}
+{"level":3,"p":"Would you mind ___ the door?","c":["closing","to close","close","closed"],"a":0,"e":"mind 뒤에는 동명사."}
+{"level":3,"p":"I'm interested ___ history.","c":["in","at","on","for"],"a":0,"e":"be interested in."}
+{"level":3,"p":"She is famous ___ her voice.","c":["for","in","at","to"],"a":0,"e":"be famous for = ~로 유명하다."}
+{"level":3,"p":"Math is ___ than English for me.","c":["more difficult","difficulter","most difficult","very difficult"],"a":0,"e":"긴 형용사의 비교급은 more + 원급."}
+{"level":3,"p":"He runs as ___ as his brother.","c":["fast","faster","fastest","more fast"],"a":0,"e":"as + 원급 + as."}
+{"level":3,"p":"You ___ be quiet in the library.","c":["must","must to","have","should to"],"a":0,"e":"must + 동사원형 = 해야 한다."}
+{"level":3,"p":"You ___ bring an umbrella. It's sunny.","c":["don't have to","must","have to","should to"],"a":0,"e":"don't have to = 할 필요 없다."}
+{"level":3,"p":"___ he was tired, he kept working.","c":["Although","Because","So","If only"],"a":0,"e":"양보의 접속사 Although = ~에도 불구하고."}
+{"level":3,"p":"I stayed home ___ it rained.","c":["because","although","but","so that"],"a":0,"e":"이유를 나타내는 because."}
+{"level":3,"p":"Tell me ___ you live.","c":["where","what","who","which house at"],"a":0,"e":"간접의문문: 의문사 + 주어 + 동사."}
+{"level":3,"p":"I wonder ___ she likes the gift.","c":["if","what","who","which one at"],"a":0,"e":"~인지 아닌지 = if/whether."}
+{"level":4,"p":"I have been ___ English for three years.","c":["studying","study","studied","to study"],"a":0,"e":"현재완료진행: have been + ~ing."}
+{"level":4,"p":"By the time we arrived, the movie ___ started.","c":["had already","has already","already","have already"],"a":0,"e":"과거보다 앞선 일은 과거완료(had + p.p.)."}
+{"level":4,"p":"The room ___ cleaned every day.","c":["is","has","does","be"],"a":0,"e":"반복되는 수동은 is + p.p."}
+{"level":4,"p":"I saw him ___ the street.","c":["crossing","crossed","to crossing","crosses"],"a":0,"e":"지각동사 + 목적어 + ~ing/원형."}
+{"level":4,"p":"Mom made me ___ my room.","c":["clean","to clean","cleaning","cleaned"],"a":0,"e":"사역동사 make + 목적어 + 동사원형."}
+{"level":4,"p":"I got my hair ___ yesterday.","c":["cut","to cut","cutting","cuts"],"a":0,"e":"get + 목적어 + 과거분사 = ~되게 하다."}
+{"level":4,"p":"He asked me ___ I could help him.","c":["whether","what","who","which one"],"a":0,"e":"~인지 아닌지 = whether/if."}
+{"level":4,"p":"The man ___ car was stolen called the police.","c":["whose","who","which","whom"],"a":0,"e":"소유격 관계대명사는 whose."}
+{"level":4,"p":"This is the town ___ I was born.","c":["where","which","who","what"],"a":0,"e":"장소의 관계부사는 where."}
+{"level":4,"p":"I remember ___ him at the festival last year.","c":["meeting","to meet","meet","met"],"a":0,"e":"과거의 일을 기억: remember + ~ing."}
+{"level":4,"p":"Don't forget ___ the door when you leave.","c":["to lock","locking","lock","locked"],"a":0,"e":"앞으로 할 일: forget + to부정사."}
+{"level":4,"p":"He stopped ___ because he was full.","c":["eating","to eat","eat","eaten"],"a":0,"e":"stop + ~ing = 하던 것을 멈추다."}
+{"level":4,"p":"It is difficult ___ me to get up early.","c":["for","of","to","with"],"a":0,"e":"to부정사의 의미상 주어는 for + 목적격."}
+{"level":4,"p":"It was kind ___ you to help the old man.","c":["of","for","to","with"],"a":0,"e":"성격 형용사 뒤에는 of + 목적격."}
+{"level":4,"p":"___ in 1443, Hangeul is a scientific alphabet.","c":["Invented","Inventing","Invent","To inventing"],"a":0,"e":"수동 의미의 분사구문은 과거분사로 시작."}
+{"level":4,"p":"___ his homework, he went out to play.","c":["Having finished","Finished","Being finish","To finished"],"a":0,"e":"먼저 일어난 일은 Having + p.p."}
+{"level":4,"p":"The news made everyone ___.","c":["excited","exciting","excite","excites"],"a":0,"e":"사람의 감정은 과거분사(excited)."}
+{"level":4,"p":"The game was really ___.","c":["exciting","excited","excite","excites"],"a":0,"e":"사물의 성질은 현재분사(exciting)."}
+{"level":4,"p":"Neither Tom ___ Jane knew the answer.","c":["nor","or","and","but"],"a":0,"e":"neither A nor B."}
+{"level":4,"p":"Not only he ___ his friends came.","c":["but also","and also","or","nor"],"a":0,"e":"not only A but also B."}
+{"level":4,"p":"You had better ___ now.","c":["leave","to leave","leaving","left"],"a":0,"e":"had better + 동사원형."}
+{"level":4,"p":"I used to ___ in the countryside.","c":["live","living","lived","lives"],"a":0,"e":"used to + 동사원형 = 과거의 습관."}
+{"level":4,"p":"He is used to ___ up early.","c":["getting","get","got","gets"],"a":0,"e":"be used to + ~ing = ~에 익숙하다."}
+{"level":4,"p":"The movie was ___ boring that I left early.","c":["so","too","very","much"],"a":0,"e":"so ~ that 구문."}
+{"level":4,"p":"___ you study, ___ you learn.","c":["The more / the more","More / more","The most / the most","Much / much"],"a":0,"e":"the 비교급, the 비교급."}
+{"level":5,"p":"If I ___ rich, I would travel the world.","c":["were","am","be","will be"],"a":0,"e":"가정법 과거: If + were."}
+{"level":5,"p":"If I had studied, I ___ the test.","c":["would have passed","would pass","passed","will pass"],"a":0,"e":"가정법 과거완료: would have + p.p."}
+{"level":5,"p":"I wish I ___ taller.","c":["were","am","be","will be"],"a":0,"e":"현재 사실의 반대 소망: I wish + 과거형."}
+{"level":5,"p":"He talks as if he ___ everything.","c":["knew","knows","know","will know"],"a":0,"e":"as if + 가정법 과거."}
+{"level":5,"p":"It's time you ___ to bed.","c":["went","go","gone","will go"],"a":0,"e":"It's time + 주어 + 과거형."}
+{"level":5,"p":"She suggested that he ___ early.","c":["leave","leaves","left","leaving"],"a":0,"e":"제안 동사 뒤 that절엔 동사원형."}
+{"level":5,"p":"It is important that everyone ___ the rules.","c":["follow","follows","followed","following"],"a":0,"e":"중요·필요 표현 뒤 that절엔 동사원형."}
+{"level":5,"p":"___ had I opened the door when the phone rang.","c":["Hardly","Rarely much","Almost","Nearly the"],"a":0,"e":"Hardly ~ when 도치 구문."}
+{"level":5,"p":"Never ___ such a beautiful view.","c":["have I seen","I have seen","I saw ever","did I saw"],"a":0,"e":"부정어 도치: Never + 조동사 + 주어."}
+{"level":5,"p":"___ it not for water, nothing could live.","c":["Were","Is","Was being","Be"],"a":0,"e":"Were it not for = ~이 없다면(도치)."}
+{"level":5,"p":"The team ___ of eleven players.","c":["consists","consisting","is consist","consist to"],"a":0,"e":"consist of = ~로 구성되다(능동)."}
+{"level":5,"p":"He must ___ the train. He isn't here.","c":["have missed","miss","missed","be miss"],"a":0,"e":"must have p.p. = ~했음이 틀림없다."}
+{"level":5,"p":"You ___ have told me earlier!","c":["should","must be","will","can be"],"a":0,"e":"should have p.p. = ~했어야 했다."}
+{"level":5,"p":"She can't ___ the news yet.","c":["have heard","hear to","heard","hears"],"a":0,"e":"can't have p.p. = ~했을 리 없다."}
+{"level":5,"p":"The bridge ___ next year.","c":["will be completed","will complete","completes","is completing"],"a":0,"e":"미래 수동태: will be + p.p."}
+{"level":5,"p":"I had my computer ___.","c":["repaired","repair","repairing","repairs"],"a":0,"e":"have + 목적어 + p.p. = ~되게 하다."}
+{"level":5,"p":"___ what to say, I kept silent.","c":["Not knowing","Knowing not","Not known","No knowing"],"a":0,"e":"분사구문의 부정: Not + ~ing."}
+{"level":5,"p":"The weather ___ fine, we went hiking.","c":["being","was","is","been"],"a":0,"e":"독립분사구문: 주어 + being."}
+{"level":5,"p":"He is ___ a liar.","c":["anything but","nothing but only","all but only","but for"],"a":0,"e":"anything but = 결코 ~이 아니다."}
+{"level":5,"p":"___ for your help, I would have failed.","c":["But","Except","Only","Instead"],"a":0,"e":"But for = ~이 없었다면."}
+{"level":5,"p":"It was John ___ broke the window.","c":["that","what","whom","whose"],"a":0,"e":"강조 구문: It is ~ that."}
+{"level":5,"p":"What I need now ___ a long rest.","c":["is","are","were","be"],"a":0,"e":"What절 주어는 단수 취급."}
+{"level":5,"p":"Half of the students ___ from abroad.","c":["are","is","was","be"],"a":0,"e":"half of + 복수명사는 복수 취급."}
+{"level":5,"p":"The number of cars ___ increasing.","c":["is","are","were","be"],"a":0,"e":"The number of ~는 단수 취급."}
+{"level":5,"p":"A number of people ___ waiting outside.","c":["are","is","was","been"],"a":0,"e":"A number of ~는 복수 취급."}
+{"level":6,"p":"Scarcely ___ the station when the train left.","c":["had I reached","I had reached","I reached had","did I reached"],"a":0,"e":"Scarcely had + 주어 + p.p. ~ when."}
+{"level":6,"p":"Not until yesterday ___ the truth.","c":["did I learn","I learned","I did learn","learned I"],"a":0,"e":"Not until 도치: 조동사 + 주어."}
+{"level":6,"p":"Only then ___ how much she cared.","c":["did I realize","I realized","I did realize","realized I had"],"a":0,"e":"Only 부사구 뒤 도치."}
+{"level":6,"p":"So loud ___ that everyone woke up.","c":["was the noise","the noise was","is the noise","the noise is"],"a":0,"e":"So + 형용사 도치 구문."}
+{"level":6,"p":"___ he to fail, his family would support him.","c":["Were","Should be","Would","Is"],"a":0,"e":"가정법 미래 도치: Were + 주어 + to부정사."}
+{"level":6,"p":"___ you need help, call this number.","c":["Should","Would","Could had","Might be"],"a":0,"e":"Should you ~ = 혹시 ~하면(도치)."}
+{"level":6,"p":"The rumor ___ to be false.","c":["turned out","turned on","turned off","turned down"],"a":0,"e":"turn out = ~로 판명되다."}
+{"level":6,"p":"We had to ___ the meeting due to the storm.","c":["call off","call at","call on person","call up to"],"a":0,"e":"call off = 취소하다."}
+{"level":6,"p":"I can't ___ his rude behavior anymore.","c":["put up with","put off with","put on with","put away at"],"a":0,"e":"put up with = 참다."}
+{"level":6,"p":"She takes ___ her mother in many ways.","c":["after","care to","off from","along at"],"a":0,"e":"take after = ~을 닮다."}
+{"level":6,"p":"The plane couldn't take ___ because of fog.","c":["off","after","over people","in it"],"a":0,"e":"take off = 이륙하다."}
+{"level":6,"p":"I came ___ an old photo while cleaning.","c":["across","over to","into being","up with him"],"a":0,"e":"come across = 우연히 발견하다."}
+{"level":6,"p":"He came up ___ a brilliant idea.","c":["with","to","for","across"],"a":0,"e":"come up with = 생각해 내다."}
+{"level":6,"p":"Don't look ___ on people who are different.","c":["down","up much","after them","forward"],"a":0,"e":"look down on = 무시하다."}
+{"level":6,"p":"The car broke ___ on the highway.","c":["down","up","off road","into it"],"a":0,"e":"break down = 고장 나다."}
+{"level":6,"p":"___ being tired, she finished the marathon.","c":["Despite","Although","Because","However"],"a":0,"e":"Despite + 명사/동명사."}
+{"level":6,"p":"___ the heavy rain, the event was held outside.","c":["In spite of","Although","Because","Even"],"a":0,"e":"In spite of + 명사."}
+{"level":6,"p":"He worked hard ___ he could support his family.","c":["so that","in order","because of","despite"],"a":0,"e":"so that + 주어 + can = ~하기 위해."}
+{"level":6,"p":"___ hard he tried, he couldn't open it.","c":["However","Whatever","Whoever","Whichever"],"a":0,"e":"However + 형용사/부사 = 아무리 ~해도."}
+{"level":6,"p":"___ happens, stay calm.","c":["Whatever","However","Whoever is","Wherever at"],"a":0,"e":"Whatever = 무슨 일이 ~하더라도."}
+{"level":6,"p":"This book is worth ___.","c":["reading","to read","read","being read to"],"a":0,"e":"be worth + ~ing."}
+{"level":6,"p":"There is no use ___ about the past.","c":["worrying","to worry","worry","worried"],"a":0,"e":"There is no use + ~ing."}
+{"level":6,"p":"On ___ the news, she burst into tears.","c":["hearing","heard","to hear","hear"],"a":0,"e":"On + ~ing = ~하자마자."}
+{"level":6,"p":"He objected to ___ treated like a child.","c":["being","be","been","is"],"a":0,"e":"object to + 동명사(수동은 being p.p.)."}
+{"level":6,"p":"I'm looking forward to ___ from you.","c":["hearing","hear","heard","be heard"],"a":0,"e":"look forward to + ~ing."}
+{"level":7,"p":"The report, ___ errors, was sent back.","c":["full of","fully","filled to","fill with"],"a":0,"e":"full of = ~로 가득한."}
+{"level":7,"p":"___ is often the case, he was late.","c":["As","It","What","Which"],"a":0,"e":"As is often the case = 흔히 그렇듯."}
+{"level":7,"p":"He is, ___, a walking dictionary.","c":["so to speak","to speak so","speak so to","so speaking"],"a":0,"e":"so to speak = 말하자면."}
+{"level":7,"p":"___ himself, he began to speak slowly.","c":["Composing","Composed","To composed","Being compose"],"a":0,"e":"분사구문: 자신을 가다듬으며."}
+{"level":7,"p":"The project ___ by next month.","c":["will have been finished","will finish","has finished","is finishing"],"a":0,"e":"미래완료 수동: will have been p.p."}
+{"level":7,"p":"By 2030, she ___ here for twenty years.","c":["will have worked","will work","has worked","worked"],"a":0,"e":"미래완료: will have + p.p."}
+{"level":7,"p":"___ that the earth is round was proven long ago.","c":["The fact","What fact","A facts","Fact of"],"a":0,"e":"The fact that = ~라는 사실."}
+{"level":7,"p":"There is little hope ___ he will recover soon.","c":["that","which","what","whose"],"a":0,"e":"동격의 that절."}
+{"level":7,"p":"The question is ___ we can trust the data.","c":["whether","what","who","which of"],"a":0,"e":"보어 자리의 whether절."}
+{"level":7,"p":"He insisted on the plan ___ carried out.","c":["being","be","to be being","been"],"a":0,"e":"전치사 뒤 수동 동명사: being p.p."}
+{"level":7,"p":"Strange ___ it may sound, it's true.","c":["as","so","very","such"],"a":0,"e":"형용사 + as + 주어 + 동사 = ~이지만."}
+{"level":7,"p":"___ a student, she knows a lot about politics.","c":["Though","Despite of","Because","Due"],"a":0,"e":"Though + 명사 보어 구문."}
+{"level":7,"p":"Such ___ his anger that everyone kept silent.","c":["was","is being","did","been"],"a":0,"e":"Such was ~ that 도치 구문."}
+{"level":7,"p":"He would rather stay home ___ go shopping.","c":["than","then","that","to"],"a":0,"e":"would rather A than B."}
+{"level":7,"p":"I couldn't ___ agree with you.","c":["more","much","most","many"],"a":0,"e":"couldn't agree more = 전적으로 동의."}
+{"level":7,"p":"It never rains ___ it pours.","c":["but","and","or","so"],"a":0,"e":"속담: 비가 오면 퍼붓는다."}
+{"level":7,"p":"She is the last person ___ a lie.","c":["to tell","telling","who tells always","for telling"],"a":0,"e":"the last person to ~ = 결코 ~할 사람이 아니다."}
+{"level":7,"p":"The city is famous, ___ its hot springs.","c":["not least for","not last for","no least to","least not in"],"a":0,"e":"not least = 특히."}
+{"level":7,"p":"___ the report, sales have doubled.","c":["According to","According with","Accorded by","According for"],"a":0,"e":"according to = ~에 따르면."}
+{"level":7,"p":"He succeeded ___ his lack of experience.","c":["notwithstanding","although","because","unless"],"a":0,"e":"notwithstanding = ~에도 불구하고(전치사)."}
+{"level":7,"p":"The results vary ___ on the conditions.","c":["depending","depended","to depend","dependence"],"a":0,"e":"depending on = ~에 따라."}
+{"level":7,"p":"___ other things being equal, simpler is better.","c":["All","Every","Each","Some"],"a":0,"e":"all other things being equal = 다른 조건이 같다면."}
+{"level":7,"p":"He lost his wallet, ___ made him upset.","c":["which","that","what","who"],"a":0,"e":"앞 문장 전체를 받는 which."}
+{"level":7,"p":"The house, ___ roof is red, is ours.","c":["whose","which","that","of which the it"],"a":0,"e":"소유격 관계대명사 whose."}
+{"level":7,"p":"This is the very book ___ I was looking for.","c":["that","what","whose","whom"],"a":0,"e":"the very 뒤에는 관계대명사 that."}
+{"level":8,"p":"___ the complexity of the issue, a quick fix is unlikely.","c":["Given","Giving","To give","Give"],"a":0,"e":"Given = ~을 고려하면."}
+{"level":8,"p":"The evidence, ___ carefully, points to a different cause.","c":["examined","examining","to examine","examine"],"a":0,"e":"수동 분사구문: (being) examined."}
+{"level":8,"p":"___ no attention to the noise, she kept writing.","c":["Paying","Paid","To pay being","Pay"],"a":0,"e":"능동 분사구문: Paying."}
+{"level":8,"p":"The theory rests ___ two key assumptions.","c":["on","in","to","for"],"a":0,"e":"rest on = ~에 기초하다."}
+{"level":8,"p":"His argument amounts ___ a denial of the facts.","c":["to","in","for","with"],"a":0,"e":"amount to = ~에 이르다, ~와 같다."}
+{"level":8,"p":"The results are consistent ___ earlier findings.","c":["with","to","for","at"],"a":0,"e":"be consistent with = ~와 일치하다."}
+{"level":8,"p":"The law provides ___ equal treatment of all citizens.","c":["for","to","with","at"],"a":0,"e":"provide for = ~을 규정하다."}
+{"level":8,"p":"Nothing could account ___ the sudden change.","c":["for","to","with","on"],"a":0,"e":"account for = ~을 설명하다."}
+{"level":8,"p":"The committee is composed ___ nine experts.","c":["of","by","with","from"],"a":0,"e":"be composed of = ~로 구성되다."}
+{"level":8,"p":"Success is attributed ___ preparation and luck.","c":["to","for","with","by"],"a":0,"e":"be attributed to = ~ 덕분으로 여겨지다."}
+{"level":8,"p":"The new drug is superior ___ the old one.","c":["to","than","over","above"],"a":0,"e":"superior to (than 아님)."}
+{"level":8,"p":"His theory is ___ to criticism on several grounds.","c":["open","opened","opening","openly"],"a":0,"e":"be open to criticism = 비판의 여지가 있다."}
+{"level":8,"p":"___ we accept the premise, the conclusion follows.","c":["Provided","Providing to","Being provide","To provide"],"a":0,"e":"Provided (that) = ~라는 조건이면."}
+{"level":8,"p":"He spoke slowly ___ everyone should understand.","c":["so that","unless","although","whereas"],"a":0,"e":"so that + 주어 + should/can."}
+{"level":8,"p":"Take notes ___ you forget the details.","c":["lest","so","because","although"],"a":0,"e":"lest = ~하지 않도록."}
+{"level":8,"p":"___ did the audience know what was coming.","c":["Little","Few","Small","Less than"],"a":0,"e":"Little did + 주어 + 동사원형(도치)."}
+{"level":8,"p":"The data, ___ anything, suggests the opposite.","c":["if","when","though","unless"],"a":0,"e":"if anything = 오히려."}
+{"level":8,"p":"___ with the deadline, the team worked overnight.","c":["Faced","Facing to","To face","Face"],"a":0,"e":"faced with = ~에 직면하여."}
+{"level":8,"p":"The city ___ transformed since the Olympics.","c":["has been","was being still","is being always","had being"],"a":0,"e":"since + 현재완료 수동."}
+{"level":8,"p":"Word order ___ meaning in English.","c":["determines","determine","determining","is determine"],"a":0,"e":"주어 3인칭 단수 + s."}
+{"level":8,"p":"Only by practicing daily ___ fluency.","c":["can you achieve","you can achieve","you achieve can","achieve you can"],"a":0,"e":"Only by 도치: 조동사 + 주어."}
+{"level":8,"p":"So central ___ to the argument that it fails without it.","c":["is this premise","this premise is","this is premise","premise this is"],"a":0,"e":"So + 형용사 도치."}
+{"level":8,"p":"The book deals ___ the ethics of technology.","c":["with","in","on","for"],"a":0,"e":"deal with = ~을 다루다."}
+{"level":8,"p":"They differ ___ how to interpret the results.","c":["over","of","against","onto"],"a":0,"e":"differ over = ~을 두고 의견이 다르다."}
+{"level":8,"p":"The findings call ___ a review of the policy.","c":["for","off","out at","away"],"a":0,"e":"call for = ~을 요구하다."}
+{"level":9,"p":"Please find ___ the requested documents.","c":["attached","attaching","attach","attachment of"],"a":0,"e":"비즈니스 이메일: Please find attached."}
+{"level":9,"p":"We would appreciate ___ prompt reply.","c":["your","you","yours","yourself"],"a":0,"e":"appreciate + 소유격 + 명사."}
+{"level":9,"p":"___ receipt of your payment, we will ship the order.","c":["Upon","At once","During","While"],"a":0,"e":"Upon receipt of = ~을 받는 즉시."}
+{"level":9,"p":"The meeting has been moved ___ Thursday.","c":["to","on","in","at"],"a":0,"e":"move to + 요일 = ~로 옮기다."}
+{"level":9,"p":"All staff ___ to complete the survey by Friday.","c":["are required","requires","is requiring","require"],"a":0,"e":"be required to = ~해야 한다."}
+{"level":9,"p":"The offer is valid ___ the end of March.","c":["until","by","in","on"],"a":0,"e":"상태 지속은 until."}
+{"level":9,"p":"Please submit the report ___ noon tomorrow.","c":["by","until","at during","for"],"a":0,"e":"완료 기한은 by."}
+{"level":9,"p":"___ of the applicants has strong references.","c":["Each","All","Both","Many"],"a":0,"e":"Each + 단수 동사."}
+{"level":9,"p":"Neither option ___ acceptable to the board.","c":["is","are","were","be"],"a":0,"e":"Neither + 단수 취급."}
+{"level":9,"p":"The manager, along with her team, ___ attending.","c":["is","are","were","be"],"a":0,"e":"along with 삽입구는 수 일치에 영향 없음."}
+{"level":9,"p":"We look forward to ___ with you.","c":["working","work","worked","be work"],"a":0,"e":"look forward to + ~ing."}
+{"level":9,"p":"The contract is subject ___ approval.","c":["to","for","with","under"],"a":0,"e":"be subject to = ~을 조건으로 하다."}
+{"level":9,"p":"Employees are entitled ___ ten days of leave.","c":["to","for","with","by"],"a":0,"e":"be entitled to = ~을 받을 자격이 있다."}
+{"level":9,"p":"The flight was delayed ___ to bad weather.","c":["due","because","owing at","for"],"a":0,"e":"due to + 명사."}
+{"level":9,"p":"___ further notice, the office remains closed.","c":["Until","By","Since","For"],"a":0,"e":"until further notice = 추후 공지까지."}
+{"level":9,"p":"Prices are ___ to change without notice.","c":["subject","object","reject","project"],"a":0,"e":"be subject to change = 변경될 수 있다."}
+{"level":9,"p":"Kindly ___ that the invoice number is correct.","c":["ensure","insure only","assure him","sure"],"a":0,"e":"ensure that = ~을 확실히 하다."}
+{"level":9,"p":"The seminar has been ___ until next quarter.","c":["postponed","preponed","proposed","imposed"],"a":0,"e":"postpone = 연기하다."}
+{"level":9,"p":"Please ___ from smoking in this area.","c":["refrain","restrain to","retain","remain"],"a":0,"e":"refrain from = ~을 삼가다."}
+{"level":9,"p":"We regret ___ you that the position is filled.","c":["to inform","informing","inform","informed"],"a":0,"e":"regret to inform = 유감스럽지만 알리다."}
+{"level":9,"p":"___ your inquiry, our team will contact you shortly.","c":["Regarding","Regarded","To regard","Regard"],"a":0,"e":"regarding = ~에 관하여."}
+{"level":9,"p":"The warranty does not ___ water damage.","c":["cover","recover","discover","uncover"],"a":0,"e":"cover = (보증이) 보장하다."}
+{"level":9,"p":"Payment is ___ within thirty days.","c":["due","paid off","expired","overdrawn"],"a":0,"e":"due = 지불 기한이 된."}
+{"level":9,"p":"He was promoted ___ regional manager.","c":["to","as being","for","into being"],"a":0,"e":"be promoted to + 직책."}
+{"level":9,"p":"The store will be closed ___ renovations.","c":["for","to","at","on"],"a":0,"e":"closed for renovations = 수리를 위해 휴업."}
+{"level":10,"p":"The results, ___ statistically significant, have limited practical value.","c":["while","despite","because","unless"],"a":0,"e":"while = ~이긴 하지만(양보)."}
+{"level":10,"p":"___ such conditions, cooperation becomes essential.","c":["Under","On","At","By"],"a":0,"e":"under conditions = ~한 조건에서."}
+{"level":10,"p":"The hypothesis, however plausible, ___ empirical support.","c":["lacks","lack","lacking","is lack"],"a":0,"e":"삽입구를 무시하고 수 일치."}
+{"level":10,"p":"Not only ___ the cost, but it also saves time.","c":["does it reduce","it reduces","it does reduce","reduces it"],"a":0,"e":"Not only 도치."}
+{"level":10,"p":"The extent ___ which culture shapes thought is debated.","c":["to","in","for","at"],"a":0,"e":"the extent to which = ~하는 정도."}
+{"level":10,"p":"___ is the case with most theories, exceptions exist.","c":["As","It","What","Such"],"a":0,"e":"As is the case with = ~의 경우처럼."}
+{"level":10,"p":"The study controlled ___ age and income.","c":["for","of","against","onto"],"a":0,"e":"control for = (변수를) 통제하다."}
+{"level":10,"p":"These findings ___ doubt on the standard model.","c":["cast","throw away","put off","give up"],"a":0,"e":"cast doubt on = 의문을 던지다."}
+{"level":10,"p":"The two variables are strongly correlated, ___ causation remains unproven.","c":["though","because","so","for"],"a":0,"e":"though = 그러나(대조)."}
+{"level":10,"p":"The author draws ___ decades of field research.","c":["on","at","against","across from"],"a":0,"e":"draw on = ~을 활용하다."}
+{"level":10,"p":"The paradox lies ___ the definition itself.","c":["in","on","for","across"],"a":0,"e":"lie in = ~에 있다."}
+{"level":10,"p":"Few phenomena are ___ studied as sleep.","c":["as widely","more wide","so much widely","widely more"],"a":0,"e":"as + 부사 + as 비교."}
+{"level":10,"p":"The data lend ___ to the second hypothesis.","c":["support","supporting","supported","supports of"],"a":0,"e":"lend support to = ~을 뒷받침하다."}
+{"level":10,"p":"___ the model predicts, temperatures rose sharply.","c":["As","What","That","Which"],"a":0,"e":"As + 주어 + 동사 = ~하는 대로."}
+{"level":10,"p":"It remains to be ___ whether the effect lasts.","c":["seen","seeing","see","saw"],"a":0,"e":"remain to be seen = 두고 볼 일이다."}
+{"level":10,"p":"The species is confined ___ a single island.","c":["to","in","at","by"],"a":0,"e":"be confined to = ~에 국한되다."}
+{"level":10,"p":"The debate centers ___ the role of government.","c":["on","to","for","into"],"a":0,"e":"center on = ~에 집중되다."}
+{"level":10,"p":"His account is at ___ with the official record.","c":["odds","ends","once","hand"],"a":0,"e":"at odds with = ~와 상충하다."}
+{"level":10,"p":"The reform was implemented ___ strong opposition.","c":["in the face of","in face to","at the face of","on face of"],"a":0,"e":"in the face of = ~에 맞서."}
+{"level":10,"p":"Language, ___ all human institutions, evolves.","c":["like","alike","likely","likeness"],"a":0,"e":"like + 명사 = ~처럼."}
+{"level":10,"p":"The theory has since been ___ by new evidence.","c":["superseded","superstitious","supervised","supplemented at"],"a":0,"e":"supersede = 대체하다."}
+{"level":10,"p":"Rarely ___ so elegant a proof.","c":["does one encounter","one encounters","one does encounter","encounters one"],"a":0,"e":"Rarely 도치."}
+{"level":10,"p":"The findings hold ___ across cultures.","c":["true","truly","truth","truely"],"a":0,"e":"hold true = 유효하다."}
+{"level":10,"p":"___ analysis reveals a subtler pattern.","c":["Closer","More close","Most closely","Close more"],"a":0,"e":"closer analysis = 더 면밀한 분석."}
+{"level":10,"p":"The effect all but ___ after a month.","c":["disappeared","disappear","disappearing","disappears always"],"a":0,"e":"all but = 거의."}

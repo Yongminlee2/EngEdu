@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- 상단 바 -->
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="12dp" android:paddingTop="8dp">
+            <Button android:id="@+id/btnClose" style="?attr/materialIconButtonStyle"
+                android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="✖" />
+            <ProgressBar android:id="@+id/progressBar" style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp" android:layout_height="14dp" android:layout_weight="1"
+                android:layout_marginHorizontal="8dp" android:max="100"
+                android:progressTint="@color/green_ok" android:progressBackgroundTint="@color/cream_dark" />
+            <TextView android:id="@+id/txtHearts" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textSize="16sp" android:text="❤️ 5" />
+        </LinearLayout>
+
+        <!-- 문제 영역 (타입별 뷰 교체) -->
+        <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+            android:fillViewport="true">
+            <FrameLayout android:id="@+id/questionBox"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:padding="16dp" />
+        </ScrollView>
+
+        <!-- 확인 버튼 -->
+        <Button android:id="@+id/btnCheck"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_margin="16dp" android:text="확인" android:textSize="18sp"
+            android:backgroundTint="@color/chick_yellow" android:textColor="@color/brown_text" />
+    </LinearLayout>
+
+    <!-- 정오답 피드백 패널 -->
+    <LinearLayout android:id="@+id/feedbackPanel"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_gravity="bottom" android:orientation="vertical"
+        android:padding="20dp" android:visibility="gone"
+        android:background="@drawable/bg_feedback_ok">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical">
+            <ImageView android:id="@+id/imgFeedback" android:layout_width="56dp" android:layout_height="56dp"
+                android:src="@drawable/chick_happy" android:contentDescription="삐약이" />
+            <TextView android:id="@+id/txtFeedback" android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:layout_marginStart="10dp"
+                android:textSize="18sp" android:textStyle="bold" android:text="삐약! 정답이에요!" />
+        </LinearLayout>
+        <TextView android:id="@+id/txtExplain" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="6dp" android:textSize="14sp" android:visibility="gone" />
+        <Button android:id="@+id/btnContinue"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" android:text="계속하기" android:textSize="17sp"
+            android:backgroundTint="@color/green_ok" android:textColor="@color/white" />
+    </LinearLayout>
+
+    <!-- 결과 화면 -->
+    <LinearLayout android:id="@+id/resultPanel"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:orientation="vertical" android:gravity="center"
+        android:background="@color/cream" android:visibility="gone" android:padding="24dp">
+        <ImageView android:id="@+id/imgResult" android:layout_width="150dp" android:layout_height="150dp"
+            android:src="@drawable/chick_happy" android:contentDescription="삐약이" />
+        <TextView android:id="@+id/txtResultTitle" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:textSize="26sp" android:textStyle="bold" android:text="레슨 완료!" />
+        <TextView android:id="@+id/txtResultStats" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" android:textSize="17sp" android:gravity="center" android:text="" />
+        <Button android:id="@+id/btnDone"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="28dp" android:text="완료" android:textSize="18sp"
+            android:backgroundTint="@color/chick_yellow" android:textColor="@color/brown_text" />
+    </LinearLayout>
+</FrameLayout>

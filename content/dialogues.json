@@ -1,0 +1,440 @@
+{
+  "units": [
+    {
+      "title": "인사와 소개", "emoji": "👋",
+      "scenes": [
+        {
+          "title": "첫 만남",
+          "lines": [
+            ["A", "Hi, I'm Jane. Nice to meet you.", "안녕하세요, 저는 제인이에요. 만나서 반가워요."],
+            ["B", "Nice to meet you too. I'm Minsu.", "저도 만나서 반가워요. 저는 민수예요."],
+            ["A", "Where are you from, Minsu?", "민수 씨는 어디에서 오셨어요?"],
+            ["B", "I'm from Seoul, Korea. How about you?", "한국 서울에서 왔어요. 당신은요?"],
+            ["A", "I'm from London. Is this your first trip here?", "저는 런던에서 왔어요. 여기는 처음 오신 거예요?"],
+            ["B", "Yes, it is. I'm really excited.", "네, 처음이에요. 정말 설레요."]
+          ],
+          "qs": [
+            {"p": "민수는 어디에서 왔나요?", "c": ["서울", "런던", "부산", "뉴욕"], "a": 0, "e": "I'm from Seoul, Korea 라고 했어요."},
+            {"p": "민수에게 이번 여행은?", "c": ["첫 방문이다", "두 번째다", "매년 온다", "출장이다"], "a": 0, "e": "first trip → Yes, it is."}
+          ]
+        },
+        {
+          "title": "안부 묻기",
+          "lines": [
+            ["A", "Hey, long time no see! How have you been?", "이야, 오랜만이야! 어떻게 지냈어?"],
+            ["B", "I've been great. I started a new job.", "잘 지냈어. 새 일을 시작했어."],
+            ["A", "That's wonderful news. Congratulations!", "정말 좋은 소식이다. 축하해!"],
+            ["B", "Thanks. How about you? Anything new?", "고마워. 너는? 새로운 소식 있어?"],
+            ["A", "Not much. Same as always.", "별거 없어. 늘 똑같지."],
+            ["B", "Let's catch up over coffee sometime.", "언제 커피 마시면서 회포 풀자."]
+          ],
+          "qs": [
+            {"p": "B에게 최근 생긴 일은?", "c": ["새 일을 시작했다", "이사했다", "결혼했다", "여행을 다녀왔다"], "a": 0, "e": "I started a new job."}
+          ]
+        },
+        {
+          "title": "자기소개하기",
+          "lines": [
+            ["A", "Let me introduce myself. I'm Sora Kim.", "제 소개를 할게요. 저는 김소라입니다."],
+            ["B", "Hello, Sora. What do you do?", "안녕하세요, 소라 씨. 무슨 일을 하세요?"],
+            ["A", "I'm a graphic designer. I design posters.", "저는 그래픽 디자이너예요. 포스터를 디자인해요."],
+            ["B", "That sounds interesting. Do you enjoy it?", "재미있겠네요. 그 일이 즐거우세요?"],
+            ["A", "I love it. What about you?", "정말 좋아해요. 당신은요?"],
+            ["B", "I teach music at a middle school.", "저는 중학교에서 음악을 가르쳐요."]
+          ],
+          "qs": [
+            {"p": "소라의 직업은 무엇인가요?", "c": ["그래픽 디자이너", "음악 교사", "포스터 판매원", "학생"], "a": 0, "e": "I'm a graphic designer."}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "식당에서", "emoji": "🍽️",
+      "scenes": [
+        {
+          "title": "주문하기",
+          "lines": [
+            ["A", "Are you ready to order?", "주문하시겠어요?"],
+            ["B", "Yes. I'll have the grilled chicken, please.", "네. 그릴드 치킨으로 할게요."],
+            ["A", "Would you like anything to drink?", "마실 것도 드릴까요?"],
+            ["B", "Just water is fine, thank you.", "물이면 충분해요, 감사합니다."],
+            ["A", "Anything for dessert?", "디저트는요?"],
+            ["B", "Maybe later. Thanks.", "나중에 볼게요. 감사해요."]
+          ],
+          "qs": [
+            {"p": "손님이 주문한 음식은?", "c": ["그릴드 치킨", "스테이크", "파스타", "샐러드"], "a": 0, "e": "I'll have the grilled chicken."},
+            {"p": "손님이 마실 것으로 고른 것은?", "c": ["물", "콜라", "커피", "주스"], "a": 0, "e": "Just water is fine."}
+          ]
+        },
+        {
+          "title": "계산하기",
+          "lines": [
+            ["A", "Excuse me, could we get the bill?", "저기요, 계산서 좀 주시겠어요?"],
+            ["B", "Of course. Here you are.", "물론이죠. 여기 있습니다."],
+            ["A", "Do you accept credit cards?", "신용카드 되나요?"],
+            ["B", "Yes, we accept all major cards.", "네, 주요 카드 모두 받습니다."],
+            ["A", "Great. The food was delicious.", "좋아요. 음식이 정말 맛있었어요."],
+            ["B", "Thank you. Please come again!", "감사합니다. 또 오세요!"]
+          ],
+          "qs": [
+            {"p": "손님은 무엇으로 계산하려 하나요?", "c": ["신용카드", "현금", "상품권", "휴대폰"], "a": 0, "e": "Do you accept credit cards?"}
+          ]
+        },
+        {
+          "title": "특별 요청",
+          "lines": [
+            ["A", "Does this dish contain peanuts?", "이 요리에 땅콩이 들어가나요?"],
+            ["B", "Yes, it has a peanut sauce.", "네, 땅콩 소스가 들어가요."],
+            ["A", "I'm allergic to peanuts. Can you make it without?", "제가 땅콩 알레르기가 있어서요. 빼고 만들어 주실 수 있나요?"],
+            ["B", "Certainly. I'll let the chef know.", "물론입니다. 주방장께 전달할게요."],
+            ["A", "Thank you so much.", "정말 감사합니다."],
+            ["B", "No problem. It will take about fifteen minutes.", "별말씀을요. 15분 정도 걸립니다."]
+          ],
+          "qs": [
+            {"p": "손님의 문제는 무엇인가요?", "c": ["땅콩 알레르기가 있다", "매운 것을 못 먹는다", "시간이 없다", "돈이 부족하다"], "a": 0, "e": "I'm allergic to peanuts."}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "쇼핑", "emoji": "🛍️",
+      "scenes": [
+        {
+          "title": "옷 사기",
+          "lines": [
+            ["A", "Can I help you find something?", "찾으시는 것 도와드릴까요?"],
+            ["B", "I'm looking for a jacket for spring.", "봄에 입을 재킷을 찾고 있어요."],
+            ["A", "How about this one? It's very popular.", "이건 어떠세요? 아주 인기가 많아요."],
+            ["B", "I like it. Can I try it on?", "마음에 드네요. 입어 봐도 될까요?"],
+            ["A", "Sure, the fitting room is over there.", "그럼요, 탈의실은 저쪽이에요."],
+            ["B", "It fits perfectly. I'll take it.", "딱 맞네요. 이걸로 살게요."]
+          ],
+          "qs": [
+            {"p": "손님이 찾는 물건은?", "c": ["봄 재킷", "겨울 코트", "운동화", "가방"], "a": 0, "e": "a jacket for spring."}
+          ]
+        },
+        {
+          "title": "환불하기",
+          "lines": [
+            ["A", "I'd like to return this shirt.", "이 셔츠를 반품하고 싶어요."],
+            ["B", "May I ask the reason?", "이유를 여쭤봐도 될까요?"],
+            ["A", "It's too small for me.", "저한테 너무 작아서요."],
+            ["B", "Do you have the receipt?", "영수증 가지고 계세요?"],
+            ["A", "Yes, here it is.", "네, 여기 있어요."],
+            ["B", "Thank you. Would you like a refund or an exchange?", "감사합니다. 환불과 교환 중 어느 것을 원하세요?"],
+            ["A", "A refund, please.", "환불로 부탁드려요."]
+          ],
+          "qs": [
+            {"p": "반품하려는 이유는?", "c": ["너무 작아서", "색이 마음에 안 들어서", "찢어져서", "너무 비싸서"], "a": 0, "e": "It's too small for me."},
+            {"p": "손님이 최종 선택한 것은?", "c": ["환불", "교환", "수선", "포인트 적립"], "a": 0, "e": "A refund, please."}
+          ]
+        },
+        {
+          "title": "가격 흥정",
+          "lines": [
+            ["A", "How much is this handmade bowl?", "이 수제 그릇은 얼마예요?"],
+            ["B", "That one is forty dollars.", "그건 40달러입니다."],
+            ["A", "That's a bit expensive. Can you give me a discount?", "조금 비싸네요. 할인해 주실 수 있나요?"],
+            ["B", "If you buy two, I'll make it seventy dollars.", "두 개 사시면 70달러에 드릴게요."],
+            ["A", "Deal! I'll take two.", "좋아요! 두 개 살게요."],
+            ["B", "Great. Let me wrap them for you.", "좋습니다. 포장해 드릴게요."]
+          ],
+          "qs": [
+            {"p": "그릇 두 개의 최종 가격은?", "c": ["70달러", "80달러", "40달러", "60달러"], "a": 0, "e": "two for seventy dollars."}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "길 찾기", "emoji": "🗺️",
+      "scenes": [
+        {
+          "title": "길 묻기",
+          "lines": [
+            ["A", "Excuse me, how do I get to the city museum?", "실례합니다, 시립 박물관에 어떻게 가나요?"],
+            ["B", "Go straight two blocks and turn right.", "두 블록 직진해서 오른쪽으로 도세요."],
+            ["A", "Is it far from here?", "여기서 먼가요?"],
+            ["B", "No, it's about a ten-minute walk.", "아니요, 걸어서 10분 정도예요."],
+            ["A", "Thank you so much!", "정말 감사합니다!"],
+            ["B", "You're welcome. You can't miss it.", "천만에요. 금방 찾으실 거예요."]
+          ],
+          "qs": [
+            {"p": "박물관까지 걸리는 시간은?", "c": ["걸어서 10분", "걸어서 30분", "버스로 10분", "바로 옆"], "a": 0, "e": "a ten-minute walk."},
+            {"p": "어떻게 가라고 했나요?", "c": ["두 블록 직진 후 우회전", "한 블록 직진 후 좌회전", "지하철 이용", "버스 이용"], "a": 0, "e": "Go straight two blocks and turn right."}
+          ]
+        },
+        {
+          "title": "지하철 타기",
+          "lines": [
+            ["A", "Which line goes to the airport?", "어느 노선이 공항에 가나요?"],
+            ["B", "Take the blue line and transfer at Central Station.", "파란 노선을 타고 중앙역에서 환승하세요."],
+            ["A", "How many stops is that?", "몇 정거장인가요?"],
+            ["B", "Six stops to Central, then four more.", "중앙역까지 여섯, 그다음 네 정거장이요."],
+            ["A", "Where can I buy a ticket?", "표는 어디서 사나요?"],
+            ["B", "The ticket machines are right over there.", "발권기는 바로 저쪽에 있어요."]
+          ],
+          "qs": [
+            {"p": "공항에 가려면 어디서 환승해야 하나요?", "c": ["중앙역", "시청역", "공항역", "종점"], "a": 0, "e": "transfer at Central Station."}
+          ]
+        },
+        {
+          "title": "길을 잃었을 때",
+          "lines": [
+            ["A", "Excuse me, I think I'm lost.", "실례합니다, 길을 잃은 것 같아요."],
+            ["B", "Where are you trying to go?", "어디로 가려고 하세요?"],
+            ["A", "I'm looking for the Grand Hotel.", "그랜드 호텔을 찾고 있어요."],
+            ["B", "Oh, you're on the wrong street. It's one block north.", "아, 길을 잘못 드셨네요. 한 블록 북쪽이에요."],
+            ["A", "Could you point it out on this map?", "이 지도에서 짚어 주시겠어요?"],
+            ["B", "Sure. We are here, and the hotel is right there.", "그럼요. 우리는 여기 있고, 호텔은 바로 저기예요."]
+          ],
+          "qs": [
+            {"p": "A가 찾고 있는 곳은?", "c": ["그랜드 호텔", "기차역", "박물관", "식당"], "a": 0, "e": "I'm looking for the Grand Hotel."}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "공항과 비행기", "emoji": "✈️",
+      "scenes": [
+        {
+          "title": "체크인",
+          "lines": [
+            ["A", "Good morning. May I see your passport?", "안녕하세요. 여권 보여 주시겠어요?"],
+            ["B", "Here you are.", "여기 있습니다."],
+            ["A", "Are you checking any bags?", "부칠 짐이 있으신가요?"],
+            ["B", "Yes, one suitcase, please.", "네, 여행 가방 하나요."],
+            ["A", "Would you like a window or an aisle seat?", "창가와 통로 중 어느 좌석을 원하세요?"],
+            ["B", "A window seat, please.", "창가 좌석으로 부탁해요."],
+            ["A", "Here's your boarding pass. Gate 22, boarding at ten.", "탑승권입니다. 22번 게이트, 10시 탑승입니다."]
+          ],
+          "qs": [
+            {"p": "승객이 원한 좌석은?", "c": ["창가", "통로", "가운데", "비상구"], "a": 0, "e": "A window seat, please."},
+            {"p": "탑승 게이트는 몇 번인가요?", "c": ["22번", "10번", "2번", "12번"], "a": 0, "e": "Gate 22."}
+          ]
+        },
+        {
+          "title": "입국 심사",
+          "lines": [
+            ["A", "What's the purpose of your visit?", "방문 목적이 무엇인가요?"],
+            ["B", "I'm here on vacation.", "휴가로 왔습니다."],
+            ["A", "How long will you stay?", "얼마나 머무르실 건가요?"],
+            ["B", "For ten days.", "열흘 동안이요."],
+            ["A", "Where will you be staying?", "어디에서 묵으실 건가요?"],
+            ["B", "At the Riverside Hotel downtown.", "시내 리버사이드 호텔이요."],
+            ["A", "Enjoy your stay.", "즐거운 여행 되세요."]
+          ],
+          "qs": [
+            {"p": "방문 목적은 무엇인가요?", "c": ["휴가", "출장", "유학", "이민"], "a": 0, "e": "I'm here on vacation."},
+            {"p": "며칠 동안 머무나요?", "c": ["10일", "7일", "한 달", "3일"], "a": 0, "e": "For ten days."}
+          ]
+        },
+        {
+          "title": "기내에서",
+          "lines": [
+            ["A", "Excuse me, could I have a blanket?", "저기요, 담요 하나 주시겠어요?"],
+            ["B", "Of course. Would you like something to drink?", "물론이죠. 마실 것도 드릴까요?"],
+            ["A", "Orange juice, please. No ice.", "오렌지 주스로요. 얼음은 빼 주세요."],
+            ["B", "Here you go. We'll serve the meal in an hour.", "여기 있습니다. 식사는 한 시간 후에 제공됩니다."],
+            ["A", "Great. Could you wake me up for the meal?", "좋아요. 식사 때 깨워 주시겠어요?"],
+            ["B", "Certainly. Have a good rest.", "물론입니다. 편히 쉬세요."]
+          ],
+          "qs": [
+            {"p": "승객이 부탁한 물건은?", "c": ["담요", "베개", "이어폰", "슬리퍼"], "a": 0, "e": "Could I have a blanket?"}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "호텔에서", "emoji": "🏨",
+      "scenes": [
+        {
+          "title": "체크인하기",
+          "lines": [
+            ["A", "Good evening. I have a reservation under Lee.", "안녕하세요. 리로 예약했습니다."],
+            ["B", "Welcome, Mr. Lee. A double room for three nights?", "환영합니다, 리 선생님. 더블룸 3박 맞으시죠?"],
+            ["A", "That's right. Is breakfast included?", "맞아요. 아침 식사가 포함되나요?"],
+            ["B", "Yes, breakfast is served from seven to ten.", "네, 아침은 7시부터 10시까지 제공됩니다."],
+            ["A", "Perfect. What's the Wi-Fi password?", "좋네요. 와이파이 비밀번호는 뭔가요?"],
+            ["B", "It's on your key card. Room 805, eighth floor.", "키 카드에 적혀 있습니다. 8층 805호입니다."]
+          ],
+          "qs": [
+            {"p": "아침 식사 시간은?", "c": ["7시~10시", "6시~9시", "8시~11시", "제공 안 함"], "a": 0, "e": "from seven to ten."},
+            {"p": "배정받은 방은?", "c": ["805호", "508호", "85호", "808호"], "a": 0, "e": "Room 805, eighth floor."}
+          ]
+        },
+        {
+          "title": "문제 해결",
+          "lines": [
+            ["A", "Front desk. How may I help you?", "프런트입니다. 무엇을 도와드릴까요?"],
+            ["B", "The air conditioner in my room isn't working.", "제 방 에어컨이 작동하지 않아요."],
+            ["A", "I'm sorry about that. We'll send someone right up.", "죄송합니다. 바로 사람을 보내겠습니다."],
+            ["B", "Also, could I get extra towels?", "그리고 수건도 좀 더 받을 수 있을까요?"],
+            ["A", "Of course. Anything else?", "물론입니다. 더 필요하신 건요?"],
+            ["B", "That's all. Thank you.", "그게 다예요. 감사합니다."]
+          ],
+          "qs": [
+            {"p": "방에서 생긴 문제는?", "c": ["에어컨 고장", "TV 고장", "온수 안 나옴", "소음"], "a": 0, "e": "The air conditioner isn't working."}
+          ]
+        },
+        {
+          "title": "체크아웃",
+          "lines": [
+            ["A", "I'd like to check out, please. Room 805.", "체크아웃 할게요. 805호입니다."],
+            ["B", "One moment. Did you use the minibar?", "잠시만요. 미니바를 이용하셨나요?"],
+            ["A", "Just one bottle of water.", "물 한 병만요."],
+            ["B", "Your total is 320 dollars. Card or cash?", "총 320달러입니다. 카드인가요, 현금인가요?"],
+            ["A", "Card, please. Could you keep my luggage until noon?", "카드로요. 정오까지 짐을 맡아 주실 수 있나요?"],
+            ["B", "Certainly. Here's your claim tag.", "물론입니다. 보관증 여기 있습니다."]
+          ],
+          "qs": [
+            {"p": "손님이 미니바에서 이용한 것은?", "c": ["물 한 병", "맥주 두 캔", "아무것도 안 씀", "과자"], "a": 0, "e": "Just one bottle of water."}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "교통 이용", "emoji": "🚕",
+      "scenes": [
+        {
+          "title": "택시 타기",
+          "lines": [
+            ["A", "Where to, sir?", "어디로 모실까요?"],
+            ["B", "To the central station, please.", "중앙역으로 가 주세요."],
+            ["A", "Sure. It'll take about twenty minutes.", "네. 20분 정도 걸립니다."],
+            ["B", "I have a train at three. Can we make it?", "3시 기차인데 시간 안에 갈 수 있을까요?"],
+            ["A", "No problem if traffic is smooth.", "차가 안 막히면 문제없습니다."],
+            ["B", "Great. You can drop me off at the main entrance.", "좋아요. 정문에서 내려 주시면 돼요."]
+          ],
+          "qs": [
+            {"p": "손님의 목적지는?", "c": ["중앙역", "공항", "호텔", "박물관"], "a": 0, "e": "To the central station."},
+            {"p": "이동 시간은 얼마나 걸리나요?", "c": ["약 20분", "약 3분", "약 1시간", "약 5분"], "a": 0, "e": "about twenty minutes."}
+          ]
+        },
+        {
+          "title": "버스 묻기",
+          "lines": [
+            ["A", "Does this bus go to the beach?", "이 버스 해변에 가나요?"],
+            ["B", "No, you need bus number 7.", "아니요, 7번 버스를 타셔야 해요."],
+            ["A", "How often does it come?", "얼마나 자주 오나요?"],
+            ["B", "Every fifteen minutes.", "15분마다요."],
+            ["A", "How much is the fare?", "요금은 얼마예요?"],
+            ["B", "Two dollars. You can pay by card.", "2달러요. 카드로 낼 수 있어요."]
+          ],
+          "qs": [
+            {"p": "해변에 가는 버스 번호는?", "c": ["7번", "15번", "2번", "70번"], "a": 0, "e": "bus number 7."}
+          ]
+        },
+        {
+          "title": "렌터카 빌리기",
+          "lines": [
+            ["A", "I'd like to rent a compact car for two days.", "소형차를 이틀 빌리고 싶어요."],
+            ["B", "May I see your driver's license?", "운전면허증을 볼 수 있을까요?"],
+            ["A", "Here it is. Is insurance included?", "여기요. 보험은 포함인가요?"],
+            ["B", "Basic insurance is included. Full coverage is ten dollars more per day.", "기본 보험은 포함이고, 완전 보장은 하루 10달러 추가입니다."],
+            ["A", "I'll take the full coverage.", "완전 보장으로 할게요."],
+            ["B", "Good choice. Please return it with a full tank.", "좋은 선택입니다. 기름을 가득 채워 반납해 주세요."]
+          ],
+          "qs": [
+            {"p": "완전 보장 보험의 추가 비용은?", "c": ["하루 10달러", "하루 2달러", "무료", "하루 20달러"], "a": 0, "e": "ten dollars more per day."}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "긴급 상황", "emoji": "🚨",
+      "scenes": [
+        {
+          "title": "아플 때",
+          "lines": [
+            ["A", "I have a terrible stomachache.", "배가 너무 아파요."],
+            ["B", "How long have you had it?", "얼마나 오래 아프셨어요?"],
+            ["A", "Since last night. I also feel dizzy.", "어젯밤부터요. 어지럽기도 해요."],
+            ["B", "Did you eat anything unusual?", "평소와 다른 걸 드셨나요?"],
+            ["A", "I had seafood at a street market.", "길거리 시장에서 해산물을 먹었어요."],
+            ["B", "I'll prescribe some medicine. Drink plenty of water.", "약을 처방해 드릴게요. 물을 많이 드세요."]
+          ],
+          "qs": [
+            {"p": "환자의 증상은?", "c": ["복통과 어지러움", "두통과 기침", "열과 콧물", "치통"], "a": 0, "e": "stomachache + dizzy."},
+            {"p": "의심되는 원인 음식은?", "c": ["해산물", "우유", "땅콩", "밀가루"], "a": 0, "e": "seafood at a street market."}
+          ]
+        },
+        {
+          "title": "분실 신고",
+          "lines": [
+            ["A", "I'd like to report a lost passport.", "여권 분실 신고를 하고 싶어요."],
+            ["B", "When and where did you lose it?", "언제 어디서 잃어버리셨나요?"],
+            ["A", "This afternoon, maybe on the subway.", "오늘 오후에요, 아마 지하철에서요."],
+            ["B", "Please fill out this form.", "이 양식을 작성해 주세요."],
+            ["A", "What should I do next?", "다음엔 어떻게 해야 하나요?"],
+            ["B", "Contact your embassy for a temporary passport.", "임시 여권을 위해 대사관에 연락하세요."]
+          ],
+          "qs": [
+            {"p": "잃어버린 물건은?", "c": ["여권", "지갑", "휴대폰", "가방"], "a": 0, "e": "a lost passport."},
+            {"p": "다음으로 연락해야 할 곳은?", "c": ["대사관", "경찰서", "은행", "호텔"], "a": 0, "e": "Contact your embassy."}
+          ]
+        },
+        {
+          "title": "약국에서",
+          "lines": [
+            ["A", "Do you have anything for a sore throat?", "목 아픈 데 먹는 약 있나요?"],
+            ["B", "These lozenges work well. Any fever?", "이 사탕형 약이 잘 들어요. 열은 있나요?"],
+            ["A", "A slight fever since this morning.", "오늘 아침부터 미열이 있어요."],
+            ["B", "Then take this every six hours after meals.", "그럼 이걸 6시간마다 식후에 드세요."],
+            ["A", "Are there any side effects?", "부작용이 있나요?"],
+            ["B", "It may make you sleepy, so avoid driving.", "졸릴 수 있으니 운전은 피하세요."]
+          ],
+          "qs": [
+            {"p": "약은 어떻게 복용해야 하나요?", "c": ["6시간마다 식후", "2시간마다 식전", "하루 한 번", "잘 때만"], "a": 0, "e": "every six hours after meals."}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "스몰토크", "emoji": "☕",
+      "scenes": [
+        {
+          "title": "날씨 이야기",
+          "lines": [
+            ["A", "Beautiful day, isn't it?", "날씨 정말 좋죠?"],
+            ["B", "It really is. Perfect for a picnic.", "정말 그러네요. 소풍 가기 딱 좋아요."],
+            ["A", "I heard it might rain this weekend though.", "그런데 주말엔 비가 올 수도 있대요."],
+            ["B", "Oh no, I was planning to go hiking.", "이런, 등산 가려고 했는데."],
+            ["A", "Better check the forecast again tomorrow.", "내일 예보를 다시 확인해 보는 게 좋겠어요."],
+            ["B", "Good idea. Fingers crossed!", "좋은 생각이에요. 행운을 빌어야죠!"]
+          ],
+          "qs": [
+            {"p": "B의 주말 계획은?", "c": ["등산", "소풍", "낚시", "쇼핑"], "a": 0, "e": "I was planning to go hiking."}
+          ]
+        },
+        {
+          "title": "취미 이야기",
+          "lines": [
+            ["A", "What do you usually do on weekends?", "주말엔 보통 뭐 하세요?"],
+            ["B", "I bake bread. It's my new hobby.", "빵을 구워요. 새로 생긴 취미예요."],
+            ["A", "That's cool! Is it difficult?", "멋지네요! 어렵나요?"],
+            ["B", "Not really, but it takes patience.", "그렇진 않은데 인내심이 필요해요."],
+            ["A", "I'd love to try your bread someday.", "언젠가 그 빵을 먹어 보고 싶네요."],
+            ["B", "Sure! I'll bring some next time.", "좋아요! 다음에 좀 가져올게요."]
+          ],
+          "qs": [
+            {"p": "B의 새 취미는?", "c": ["제빵", "등산", "그림", "낚시"], "a": 0, "e": "I bake bread."}
+          ]
+        },
+        {
+          "title": "주말 계획",
+          "lines": [
+            ["A", "Any plans for the holiday?", "연휴에 계획 있어요?"],
+            ["B", "I'm visiting my parents in the countryside.", "시골에 계신 부모님을 뵈러 가요."],
+            ["A", "That sounds relaxing. How long is the drive?", "편안하겠네요. 운전은 얼마나 걸려요?"],
+            ["B", "About three hours if there's no traffic.", "차가 안 막히면 세 시간 정도요."],
+            ["A", "Drive safely and enjoy your time.", "운전 조심하고 좋은 시간 보내요."],
+            ["B", "Thanks! See you after the holiday.", "고마워요! 연휴 끝나고 봐요."]
+          ],
+          "qs": [
+            {"p": "B는 연휴에 어디에 가나요?", "c": ["시골 부모님 댁", "해외여행", "친구 집", "회사"], "a": 0, "e": "visiting my parents in the countryside."}
+          ]
+        }
+      ]
+    }
+  ]
+}

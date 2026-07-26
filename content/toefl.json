@@ -1,0 +1,158 @@
+{
+  "reading": [
+    {
+      "title": "꿀벌의 춤 언어",
+      "passage": "When a honeybee discovers a rich source of nectar, it returns to the hive and performs what scientists call a 'waggle dance.' The dance conveys remarkably precise information: the angle of the dance relative to the vertical comb indicates the direction of the food source relative to the sun, while the duration of the waggle phase signals the distance. Bees watching the dance in the darkness of the hive read these signals through touch and vibration rather than sight. Experiments in which researchers moved feeding stations confirmed that recruits flew to the locations encoded in the dance, not simply to places with floral scent. The waggle dance is therefore often cited as one of the few examples of symbolic communication in non-human animals.",
+      "qs": [
+        {"p": "왁글 댄스에서 춤의 각도가 나타내는 것은?", "c": ["태양 기준 먹이의 방향", "먹이까지의 거리", "꿀의 품질", "벌집의 온도"], "a": 0, "e": "angle → direction relative to the sun."},
+        {"p": "벌들은 어두운 벌집 안에서 춤을 어떻게 읽나요?", "c": ["촉각과 진동으로", "시각으로", "냄새로", "소리로만"], "a": 0, "e": "through touch and vibration rather than sight."},
+        {"p": "왁글 댄스가 자주 인용되는 이유는?", "c": ["비인간 동물의 상징적 의사소통 사례라서", "가장 빠른 의사소통이라서", "인간이 해독하지 못해서", "모든 곤충이 사용해서"], "a": 0, "e": "symbolic communication in non-human animals."}
+      ]
+    },
+    {
+      "title": "로마의 콘크리트",
+      "passage": "Modern concrete typically begins to crack within decades, yet many Roman structures, including harbors exposed to seawater for two thousand years, remain intact. The Romans mixed volcanic ash with lime and seawater, producing a mineral called aluminous tobermorite as the material aged. Rather than weakening the structure, chemical reactions between seawater and the ash actually reinforced it over time, filling cracks as they formed. Engineers today study this 'self-healing' property in hopes of producing more durable and environmentally friendly building materials, since modern cement production accounts for roughly eight percent of global carbon dioxide emissions.",
+      "qs": [
+        {"p": "로마 콘크리트의 핵심 재료는?", "c": ["화산재와 석회, 바닷물", "철근과 모래", "진흙과 짚", "석유와 자갈"], "a": 0, "e": "volcanic ash with lime and seawater."},
+        {"p": "바닷물과의 화학 반응이 가져온 효과는?", "c": ["시간이 지날수록 구조를 강화함", "구조를 약화시킴", "색을 변화시킴", "무게를 줄임"], "a": 0, "e": "reinforced it over time."},
+        {"p": "현대 공학자들이 이를 연구하는 이유는?", "c": ["더 내구성 있고 친환경적인 재료를 위해", "로마 유적 복원을 위해", "화산 예측을 위해", "해수면 상승 연구를 위해"], "a": 0, "e": "more durable and environmentally friendly materials."}
+      ]
+    },
+    {
+      "title": "수면과 기억 강화",
+      "passage": "A growing body of research indicates that sleep plays an active role in consolidating memories. During slow-wave sleep, the hippocampus repeatedly 'replays' patterns of neural activity associated with recent experiences, gradually transferring information to the neocortex for long-term storage. In one influential study, participants who learned word pairs and then slept recalled significantly more pairs than those who remained awake for the same interval. Notably, the benefit was greatest when sleep occurred shortly after learning. These findings challenge the older view of sleep as a passive state and suggest that students who sacrifice sleep to study may be undermining the very process that stabilizes what they have learned.",
+      "qs": [
+        {"p": "서파 수면 중 해마가 하는 일은?", "c": ["최근 경험의 신경 패턴을 재생한다", "새 정보를 차단한다", "신체 온도를 낮춘다", "꿈을 만든다"], "a": 0, "e": "replays patterns of neural activity."},
+        {"p": "단어 쌍 실험의 결과는?", "c": ["잠을 잔 집단이 더 많이 기억했다", "깨어 있던 집단이 더 잘 기억했다", "차이가 없었다", "둘 다 모두 잊었다"], "a": 0, "e": "who slept recalled significantly more."},
+        {"p": "이 글이 시사하는 바는?", "c": ["잠을 줄여 공부하면 기억 안정화가 방해될 수 있다", "수면은 수동적 상태다", "낮잠은 해롭다", "기억은 해마에만 저장된다"], "a": 0, "e": "sacrificing sleep may undermine consolidation."}
+      ]
+    },
+    {
+      "title": "인쇄술과 지식의 확산",
+      "passage": "The introduction of the movable-type printing press in fifteenth-century Europe transformed the economics of knowledge. Before Gutenberg, producing a single book required months of a scribe's labor, making books luxury items owned mainly by monasteries and wealthy elites. Within fifty years of the press's invention, an estimated twenty million volumes had been printed. Falling prices broadened readership, which in turn created incentives for authors to write in vernacular languages rather than Latin. Historians argue that this feedback loop — cheaper books producing more readers producing more books — accelerated the Reformation, the Scientific Revolution, and ultimately the spread of literacy itself.",
+      "qs": [
+        {"p": "인쇄술 발명 이전 책의 특징은?", "c": ["수도원과 부유층의 사치품이었다", "누구나 가질 수 있었다", "대부분 자국어로 쓰였다", "종이가 아닌 천에 인쇄됐다"], "a": 0, "e": "luxury items owned by monasteries and elites."},
+        {"p": "책값 하락이 가져온 변화는?", "c": ["자국어 저술의 증가", "라틴어 사용 증가", "필사가의 증가", "책 생산 감소"], "a": 0, "e": "incentives to write in vernacular languages."},
+        {"p": "글에서 말하는 '피드백 루프'란?", "c": ["싼 책 → 더 많은 독자 → 더 많은 책", "인쇄 → 검열 → 인쇄 감소", "저자 → 출판사 → 서점", "종교 → 과학 → 종교"], "a": 0, "e": "cheaper books producing more readers producing more books."}
+      ]
+    },
+    {
+      "title": "도시 열섬 현상",
+      "passage": "Cities are consistently warmer than the rural areas that surround them, a phenomenon known as the urban heat island effect. Asphalt and concrete absorb solar radiation by day and release it slowly at night, while the scarcity of vegetation reduces cooling through evaporation. Waste heat from vehicles, air conditioners, and industry adds to the burden. The temperature gap, typically one to three degrees Celsius, can exceed ten degrees on calm summer nights. Mitigation strategies include planting street trees, installing reflective 'cool roofs,' and preserving urban parks. Studies show that neighborhoods with abundant tree cover can be several degrees cooler than adjacent districts, which has significant implications for public health during heat waves.",
+      "qs": [
+        {"p": "도시가 교외보다 더운 원인이 아닌 것은?", "c": ["풍부한 가로수", "아스팔트의 열 흡수", "차량과 에어컨의 폐열", "식생 부족"], "a": 0, "e": "가로수는 오히려 완화 전략."},
+        {"p": "열섬 완화 전략으로 언급된 것은?", "c": ["반사형 지붕 설치", "도로 확장", "지하 주차장 건설", "가로등 교체"], "a": 0, "e": "installing reflective cool roofs."},
+        {"p": "나무가 많은 동네의 효과는?", "c": ["인접 지역보다 몇 도 시원함", "소음이 커짐", "습도가 낮아짐", "차이 없음"], "a": 0, "e": "several degrees cooler than adjacent districts."}
+      ]
+    },
+    {
+      "title": "언어 소멸과 다양성",
+      "passage": "Linguists estimate that of the roughly seven thousand languages spoken today, nearly half may disappear by the end of the century. Languages vanish when children cease to learn them, usually because parents perceive a dominant language as the path to economic opportunity. The loss is not merely sentimental: each language encodes unique knowledge of local ecosystems, medicinal plants, and social history, often unrecorded elsewhere. Revitalization efforts — immersion schools, digital archives, and media in minority languages — have had notable successes, including the revival of Hawaiian and Welsh. Such cases demonstrate that decline is not irreversible when communities and institutions commit resources to transmission.",
+      "qs": [
+        {"p": "언어가 사라지는 주된 계기는?", "c": ["아이들이 그 언어를 더 이상 배우지 않을 때", "문자가 없을 때", "사전이 없을 때", "정부가 금지할 때만"], "a": 0, "e": "when children cease to learn them."},
+        {"p": "언어 소멸이 단순한 감상적 손실이 아닌 이유는?", "c": ["생태·의학·역사 지식이 함께 사라져서", "번역가가 실직해서", "관광 수입이 줄어서", "발음이 어려워서"], "a": 0, "e": "encodes unique knowledge of ecosystems, plants, history."},
+        {"p": "부활 성공 사례로 언급된 언어는?", "c": ["하와이어와 웨일스어", "라틴어와 그리스어", "산스크리트어", "고대 이집트어"], "a": 0, "e": "the revival of Hawaiian and Welsh."}
+      ]
+    },
+    {
+      "title": "판게아와 대륙 이동",
+      "passage": "In 1912, Alfred Wegener proposed that the continents had once been joined in a single landmass he called Pangaea. He noted that the coastlines of South America and Africa fit together like puzzle pieces, that identical fossils appeared on both sides of the Atlantic, and that glacial deposits occurred in now-tropical regions. Yet geologists largely rejected his theory for decades because Wegener could not explain what force moved the continents. The mechanism emerged in the 1960s with the theory of plate tectonics: the discovery of seafloor spreading showed that new crust forms at mid-ocean ridges, pushing plates apart at roughly the speed fingernails grow. Wegener's evidence, once dismissed, is now taught as a classic case of data preceding explanation.",
+      "qs": [
+        {"p": "베게너의 이론이 수십 년간 거부된 이유는?", "c": ["대륙을 움직이는 힘을 설명하지 못해서", "화석 증거가 없어서", "해안선이 맞지 않아서", "그가 지질학자가 아니어서"], "a": 0, "e": "could not explain what force moved the continents."},
+        {"p": "1960년대에 밝혀진 이동 메커니즘은?", "c": ["해저 확장(판구조론)", "지구 자전", "달의 인력", "화산 폭발"], "a": 0, "e": "seafloor spreading / plate tectonics."},
+        {"p": "판이 벌어지는 속도는 무엇에 비유되었나요?", "c": ["손톱이 자라는 속도", "머리카락이 자라는 속도", "달팽이의 속도", "빙하의 속도"], "a": 0, "e": "the speed fingernails grow."}
+      ]
+    },
+    {
+      "title": "행동경제학과 넛지",
+      "passage": "Classical economics assumes that individuals weigh costs and benefits rationally, yet behavioral research reveals systematic departures from rationality. People overvalue immediate rewards, follow default options, and are influenced by how choices are framed. 'Nudge' policies exploit these tendencies for public benefit without restricting freedom of choice. When organ donation systems switched from opt-in to opt-out, effective consent rates rose dramatically; when cafeterias placed fruit at eye level, consumption increased. Critics argue that nudging can shade into manipulation, since it operates below conscious awareness. Proponents respond that some choice architecture is unavoidable — every menu has a first item — so designers might as well arrange it to serve people's own long-term interests.",
+      "qs": [
+        {"p": "행동경제학이 밝힌 인간의 특징이 아닌 것은?", "c": ["항상 합리적으로 계산한다", "즉각적 보상을 과대평가한다", "기본 선택지를 따른다", "제시 방식에 영향받는다"], "a": 0, "e": "고전 경제학의 가정이 항상 합리적이라는 것."},
+        {"p": "옵트아웃 장기기증 제도의 효과는?", "c": ["동의율이 크게 올랐다", "동의율이 떨어졌다", "변화가 없었다", "제도가 폐지됐다"], "a": 0, "e": "consent rates rose dramatically."},
+        {"p": "넛지 옹호자들의 반론은?", "c": ["선택 설계는 어차피 불가피하다", "조작은 정당하다", "자유는 중요하지 않다", "비판자들이 무지하다"], "a": 0, "e": "some choice architecture is unavoidable."}
+      ]
+    }
+  ],
+  "lectures": [
+    {
+      "title": "심리학 강의: 기억의 왜곡",
+      "lines": [["A", "Today we'll look at why eyewitness testimony is less reliable than juries tend to assume. Memory is not a video recording. Each time we recall an event, we actually reconstruct it, and new information can slip into the reconstruction. In a famous experiment, participants watched a car accident. Those asked how fast the cars were going when they 'smashed' into each other reported higher speeds than those who heard the word 'hit.' A week later, the 'smashed' group even remembered seeing broken glass — glass that never existed. This is called the misinformation effect, and it has led many courts to treat eyewitness accounts with greater caution."]],
+      "qs": [
+        {"p": "강의의 핵심 주장은?", "c": ["기억은 회상할 때마다 재구성된다", "기억은 비디오처럼 정확하다", "목격자는 항상 거짓말한다", "속도 추정은 쉽다"], "a": 0, "e": "we reconstruct memories each time."},
+        {"p": "'smashed' 단어를 들은 집단에서 나타난 현상은?", "c": ["없던 깨진 유리를 기억했다", "속도를 더 낮게 말했다", "사고를 잊었다", "더 정확해졌다"], "a": 0, "e": "remembered broken glass that never existed."},
+        {"p": "이 현상의 이름은?", "c": ["오정보 효과", "플라시보 효과", "방관자 효과", "후광 효과"], "a": 0, "e": "the misinformation effect."}
+      ]
+    },
+    {
+      "title": "생물학 강의: 문어의 위장",
+      "lines": [["A", "Octopuses are masters of disguise, and what makes this remarkable is that they are almost certainly colorblind. Their skin contains thousands of pigment sacs called chromatophores, each controlled by muscles and nerves, which expand or contract to change color in a fraction of a second. Beneath these lie reflective cells that mimic the brightness and texture of the surroundings. So how does a colorblind animal match colors it cannot see? One hypothesis is that light-sensitive proteins in the skin itself allow the octopus to 'see' with its body. The debate is ongoing, but it reminds us that vision, in the broadest sense, need not be confined to eyes."]],
+      "qs": [
+        {"p": "문어 위장의 역설로 제시된 사실은?", "c": ["문어는 색맹인데 색을 맞춘다", "문어는 눈이 없다", "문어는 밤에만 위장한다", "문어는 피부가 없다"], "a": 0, "e": "colorblind yet matches colors."},
+        {"p": "크로마토포어란 무엇인가요?", "c": ["근육으로 조절되는 색소 주머니", "문어의 눈", "빨판의 일종", "먹물 주머니"], "a": 0, "e": "pigment sacs controlled by muscles."},
+        {"p": "제시된 가설은 무엇인가요?", "c": ["피부의 감광 단백질로 빛을 감지한다", "다른 문어가 도와준다", "색을 기억해 둔다", "위장은 우연이다"], "a": 0, "e": "light-sensitive proteins in the skin."}
+      ]
+    },
+    {
+      "title": "역사 강의: 실크로드",
+      "lines": [["A", "When we say 'Silk Road,' the singular is misleading. It was a shifting network of caravan routes linking China to the Mediterranean, and silk was only one of many goods. Paper, spices, glassware, and horses moved along it — but so did ideas. Buddhism traveled from India into China along these routes, and centuries later, technologies like papermaking moved west, reaching Europe through the Islamic world. Of course, the network also carried disease; many historians believe the plague of the fourteenth century followed trade routes into Europe. So the Silk Road is best understood not as a road at all, but as history's first great information superhighway — with all the benefits and risks that implies."]],
+      "qs": [
+        {"p": "강사가 '실크로드'라는 이름이 오해를 부른다고 한 이유는?", "c": ["하나의 길이 아니라 변화하는 교역망이어서", "비단이 운반되지 않아서", "중국과 무관해서", "바닷길이어서"], "a": 0, "e": "a shifting network, not a single road."},
+        {"p": "실크로드를 따라 중국으로 전해진 종교는?", "c": ["불교", "기독교", "이슬람교", "조로아스터교"], "a": 0, "e": "Buddhism traveled from India into China."},
+        {"p": "강사가 실크로드를 비유한 표현은?", "c": ["최초의 정보 고속도로", "죽음의 길", "황금의 강", "비단 바다"], "a": 0, "e": "history's first great information superhighway."}
+      ]
+    },
+    {
+      "title": "환경과학 강의: 산호 백화",
+      "lines": [["A", "Coral reefs cover less than one percent of the ocean floor, yet they support about a quarter of all marine species. The coral animal itself is nearly transparent; its brilliant colors come from microscopic algae living inside its tissues. The algae photosynthesize and share nutrients with the coral — a textbook case of mutualism. But this partnership is temperature-sensitive. When water warms by even one or two degrees for several weeks, corals expel their algae and turn bone white, a process called bleaching. Bleached corals are not dead, but they are starving, and if the heat persists they die. That's why marine biologists treat mass bleaching events as early warning systems for ocean warming."]],
+      "qs": [
+        {"p": "산호의 화려한 색은 어디서 오나요?", "c": ["조직 속에 사는 미세 조류", "산호의 뼈", "바닷물의 미네랄", "물고기의 배설물"], "a": 0, "e": "colors come from microscopic algae."},
+        {"p": "백화 현상이란?", "c": ["산호가 조류를 내보내 하얗게 되는 것", "산호가 즉시 죽는 것", "조류가 번성하는 것", "산호가 이동하는 것"], "a": 0, "e": "expel their algae and turn white."},
+        {"p": "백화된 산호의 상태는?", "c": ["죽지는 않았지만 굶주리는 상태", "완전히 죽은 상태", "더 건강해진 상태", "번식 중인 상태"], "a": 0, "e": "not dead, but starving."}
+      ]
+    },
+    {
+      "title": "천문학 강의: 외계 행성 찾기",
+      "lines": [["A", "How do we find planets orbiting stars light-years away, when the star outshines the planet a billion to one? Mostly, we don't look for the planet at all — we watch the star. In the transit method, we measure the star's brightness continuously; if a planet crosses in front, the light dips by a tiny, regular amount. The size of the dip tells us the planet's diameter, and the interval between dips gives its orbital period. The radial velocity method instead watches the star wobble: an orbiting planet tugs its star back and forth, shifting the starlight's color slightly toward blue, then red. Combining both methods yields the planet's density — and that tells us whether we're looking at a gas giant or a rocky world like our own."]],
+      "qs": [
+        {"p": "통과(transit) 방법이 측정하는 것은?", "c": ["별 밝기의 규칙적인 감소", "행성의 소리", "별의 온도", "행성의 자기장"], "a": 0, "e": "light dips by a tiny, regular amount."},
+        {"p": "시선속도 방법이 관찰하는 현상은?", "c": ["행성 중력에 의한 별의 흔들림", "행성의 그림자", "별의 폭발", "행성의 고리"], "a": 0, "e": "an orbiting planet tugs its star."},
+        {"p": "두 방법을 결합하면 알 수 있는 것은?", "c": ["행성의 밀도", "행성의 이름", "생명체 존재 여부", "행성의 나이"], "a": 0, "e": "yields the planet's density."}
+      ]
+    },
+    {
+      "title": "예술사 강의: 인상주의의 탄생",
+      "lines": [["A", "In 1874, a group of painters rejected by the official Paris Salon organized their own exhibition. A critic, mocking Monet's 'Impression, Sunrise,' called them mere 'impressionists' — and the insult became a movement's name. What made their work radical? First, they left the studio to paint outdoors, capturing changing light directly. Second, new chemistry gave them portable paint tubes and brighter pigments. Third, they painted modern life — railway stations, cafés, weekend crowds — subjects the academy considered vulgar. Within a generation, the outsiders had redefined what painting could be, and the Salon that rejected them became a historical footnote."]],
+      "qs": [
+        {"p": "'인상주의'라는 이름의 유래는?", "c": ["비평가의 조롱에서 나왔다", "화가들이 직접 지었다", "살롱이 붙였다", "모네의 유언이다"], "a": 0, "e": "a critic mocking Monet's painting."},
+        {"p": "인상주의를 가능하게 한 기술적 변화는?", "c": ["휴대용 물감 튜브와 밝은 안료", "사진기의 발명", "전기 조명", "합성 캔버스"], "a": 0, "e": "portable paint tubes and brighter pigments."},
+        {"p": "아카데미가 저속하다고 여긴 인상주의의 소재는?", "c": ["기차역과 카페 같은 현대 생활", "신화 속 영웅", "종교적 장면", "왕실 초상"], "a": 0, "e": "railway stations, cafés, weekend crowds."}
+      ]
+    }
+  ],
+  "vocabq": [
+    {"p": "The results were consistent across all trials, ___ the hypothesis.", "c": ["corroborating", "contradicting", "abandoning", "delaying"], "a": 0, "e": "corroborate = 확증하다."},
+    {"p": "The drug's effects ___ within hours, requiring repeated doses.", "c": ["dissipate", "accumulate", "solidify", "originate"], "a": 0, "e": "dissipate = 소멸하다."},
+    {"p": "Her argument was so ___ that even critics were persuaded.", "c": ["compelling", "tedious", "obscure", "fragile"], "a": 0, "e": "compelling = 설득력 있는."},
+    {"p": "The species shows a ___ preference for shallow, warm waters.", "c": ["marked", "negligible", "reluctant", "hollow"], "a": 0, "e": "marked = 뚜렷한."},
+    {"p": "The two theories are not mutually ___; both may be partly true.", "c": ["exclusive", "inclusive", "productive", "attractive"], "a": 0, "e": "mutually exclusive = 상호 배타적."},
+    {"p": "Fossil evidence ___ the claim that birds descended from dinosaurs.", "c": ["substantiates", "undermines only", "ridicules", "postpones"], "a": 0, "e": "substantiate = 입증하다."},
+    {"p": "The committee reached a decision only after ___ deliberation.", "c": ["lengthy", "instant", "absent", "casual"], "a": 0, "e": "lengthy deliberation = 긴 숙고."},
+    {"p": "Rising temperatures could ___ the melting of polar ice.", "c": ["accelerate", "decelerate", "terminate", "imitate"], "a": 0, "e": "accelerate = 가속하다."},
+    {"p": "The findings must be interpreted with ___, given the small sample.", "c": ["caution", "applause", "haste", "certainty"], "a": 0, "e": "with caution = 신중하게."},
+    {"p": "The ancient text was ___ deciphered after decades of effort.", "c": ["finally", "barely never", "formerly", "scarcely not"], "a": 0, "e": "finally = 마침내."},
+    {"p": "Urban expansion continues to ___ on natural habitats.", "c": ["encroach", "reflect", "insist", "depend only"], "a": 0, "e": "encroach on = 잠식하다."},
+    {"p": "The study's conclusions are ___ on several untested assumptions.", "c": ["contingent", "independent", "abundant", "generous"], "a": 0, "e": "contingent on = ~에 좌우되는."},
+    {"p": "The professor asked us to ___ the main argument in one sentence.", "c": ["distill", "dilute", "discard", "disturb"], "a": 0, "e": "distill = 핵심을 추려내다."},
+    {"p": "Genetic mutations arise ___, without regard to their usefulness.", "c": ["randomly", "deliberately", "gratefully", "visibly"], "a": 0, "e": "randomly = 무작위로."},
+    {"p": "The bridge's design must ___ extreme wind conditions.", "c": ["withstand", "surrender", "postpone", "diminish"], "a": 0, "e": "withstand = 견디다."},
+    {"p": "The two languages, though related, are mutually ___.", "c": ["unintelligible", "audible", "translatable always", "fluent"], "a": 0, "e": "mutually unintelligible = 서로 알아들을 수 없는."},
+    {"p": "Sea levels are rising at an ___ rate.", "c": ["unprecedented", "expected fully", "invisible", "optional"], "a": 0, "e": "unprecedented = 전례 없는."},
+    {"p": "The theory ___ elegantly for the observed anomalies.", "c": ["accounts", "blames", "argues against", "searches"], "a": 0, "e": "account for = 설명하다."},
+    {"p": "Scholars continue to ___ over the manuscript's authorship.", "c": ["dispute", "agree", "celebrate", "rehearse"], "a": 0, "e": "dispute = 논쟁하다."},
+    {"p": "Efficient irrigation can ___ the effects of drought.", "c": ["mitigate", "aggravate", "duplicate", "ignore"], "a": 0, "e": "mitigate = 완화하다."},
+    {"p": "The data reveal a ___ decline in insect populations.", "c": ["precipitous", "gentle rise of", "welcome", "fictional"], "a": 0, "e": "precipitous = 가파른."},
+    {"p": "His later work ___ significantly from his early style.", "c": ["diverges", "borrows never", "profits", "suffers only"], "a": 0, "e": "diverge from = ~에서 갈라지다."},
+    {"p": "The immune system can ___ between harmless and dangerous bacteria.", "c": ["discriminate", "circulate", "evaporate", "negotiate"], "a": 0, "e": "discriminate between = 구별하다."},
+    {"p": "The historian offered a ___ account of the war's causes.", "c": ["nuanced", "careless", "silent", "monotone"], "a": 0, "e": "nuanced = 섬세한, 미묘한 차이를 담은."}
+  ]
+}

@@ -1,0 +1,256 @@
+{
+  "p5": [
+    {"p": "All employees must ___ their ID badges at all times.", "c": ["wear", "wearing", "wore", "worn"], "a": 0, "e": "조동사 must 뒤에는 동사원형."},
+    {"p": "The report is due ___ Friday afternoon.", "c": ["by", "until", "at since", "on until"], "a": 0, "e": "완료 기한은 by."},
+    {"p": "Ms. Park will be ___ for the new branch office.", "c": ["responsible", "responsibly", "responsibility", "respond"], "a": 0, "e": "be responsible for: 형용사 자리."},
+    {"p": "The seminar was ___ attended than expected.", "c": ["better", "well", "good", "best"], "a": 0, "e": "than 앞에는 비교급."},
+    {"p": "Please review the contract ___ before signing it.", "c": ["carefully", "careful", "care", "caring"], "a": 0, "e": "동사 수식은 부사."},
+    {"p": "The new printer is much more ___ than the old model.", "c": ["efficient", "efficiently", "efficiency", "efficacy of"], "a": 0, "e": "more + 형용사 비교급."},
+    {"p": "___ the meeting starts, please silence your phones.", "c": ["Before", "During", "Until then", "While at"], "a": 0, "e": "절을 이끄는 접속사 Before."},
+    {"p": "The manager asked that the report ___ submitted by noon.", "c": ["be", "is", "was", "were"], "a": 0, "e": "요구 동사 뒤 that절은 동사원형(be)."},
+    {"p": "Our sales have increased ___ 20 percent this quarter.", "c": ["by", "at", "on", "with"], "a": 0, "e": "증감 폭은 by + 수치."},
+    {"p": "The office will be closed ___ the renovation period.", "c": ["during", "while", "since", "between only"], "a": 0, "e": "명사구 앞에는 during."},
+    {"p": "Employees ___ have completed the training may leave early.", "c": ["who", "which", "whose", "whom it"], "a": 0, "e": "사람 주격 관계대명사 who."},
+    {"p": "The shipment arrived ___ than scheduled.", "c": ["later", "late", "latest", "lately"], "a": 0, "e": "than과 함께 비교급 later."},
+    {"p": "Please direct any ___ to the personnel department.", "c": ["inquiries", "inquire", "inquiring", "inquired"], "a": 0, "e": "any 뒤 명사 자리."},
+    {"p": "The CEO announced a ___ increase in salaries.", "c": ["significant", "significantly", "signify", "significance of"], "a": 0, "e": "명사 수식은 형용사."},
+    {"p": "___ of the two proposals was approved.", "c": ["Neither", "None", "Both", "Every"], "a": 0, "e": "of the two → Neither."},
+    {"p": "The conference room is available ___ request.", "c": ["upon", "in", "at", "for the"], "a": 0, "e": "upon request = 요청 시."},
+    {"p": "We apologize for the delay ___ processing your order.", "c": ["in", "at", "on", "to"], "a": 0, "e": "delay in + ~ing."},
+    {"p": "The new policy will take ___ next month.", "c": ["effect", "affect", "effective", "effects on"], "a": 0, "e": "take effect = 시행되다."},
+    {"p": "Ms. Chen was promoted ___ senior analyst last week.", "c": ["to", "for", "at", "into being"], "a": 0, "e": "be promoted to + 직책."},
+    {"p": "Attendance at the workshop is ___ for all interns.", "c": ["mandatory", "voluntary but", "optional or", "tentative if"], "a": 0, "e": "필수 = mandatory."},
+    {"p": "The invoice ___ within thirty days of receipt.", "c": ["must be paid", "must pay", "must paying", "must have pay"], "a": 0, "e": "청구서는 지불되는 대상: 수동태."},
+    {"p": "___ heavy rain, the outdoor event proceeded as planned.", "c": ["Despite", "Although", "Because", "However"], "a": 0, "e": "명사구 앞 전치사 Despite."},
+    {"p": "The hotel offers a free shuttle ___ the airport.", "c": ["to", "for", "at", "in"], "a": 0, "e": "방향의 to."},
+    {"p": "Please keep your receipt ___ you need a refund.", "c": ["in case", "so that only", "even", "despite"], "a": 0, "e": "in case = ~할 경우에 대비해."},
+    {"p": "The factory has been operating ___ 1995.", "c": ["since", "for", "from at", "during"], "a": 0, "e": "현재완료 + since + 시점."},
+    {"p": "___ applicants should submit a cover letter.", "c": ["Interested", "Interesting", "Interest", "Interests"], "a": 0, "e": "지원자가 관심을 느끼는 것: interested."},
+    {"p": "The results were ___ satisfying to the whole team.", "c": ["highly", "high", "height", "higher than"], "a": 0, "e": "형용사 수식 부사 highly."},
+    {"p": "Neither the manager ___ the staff knew about the change.", "c": ["nor", "or", "and", "but"], "a": 0, "e": "neither A nor B."},
+    {"p": "The company is committed ___ reducing waste.", "c": ["to", "for", "with", "at"], "a": 0, "e": "be committed to + ~ing."},
+    {"p": "Sales figures for March were ___ than those for April.", "c": ["higher", "high", "highest", "highly"], "a": 0, "e": "than → 비교급."},
+    {"p": "You may park in any space ___ is not reserved.", "c": ["that", "what", "where", "whom"], "a": 0, "e": "주격 관계대명사 that."},
+    {"p": "The training session has been ___ to next Tuesday.", "c": ["postponed", "canceled into", "expired", "resigned"], "a": 0, "e": "postponed to = ~로 연기되다."},
+    {"p": "Employees are encouraged ___ the online survey.", "c": ["to complete", "completing", "complete", "completed"], "a": 0, "e": "be encouraged to + 동사원형."},
+    {"p": "___ your convenience, we have extended our hours.", "c": ["For", "In", "At", "By"], "a": 0, "e": "for your convenience = 편의를 위해."},
+    {"p": "The contract must be signed by an ___ representative.", "c": ["authorized", "authorizing", "authority", "authorize"], "a": 0, "e": "권한을 부여받은: authorized."},
+    {"p": "The team worked overtime to meet the ___.", "c": ["deadline", "headline", "guideline only", "lifeline"], "a": 0, "e": "마감일 = deadline."},
+    {"p": "Refunds will be issued ___ five business days.", "c": ["within", "until", "by the", "at"], "a": 0, "e": "기간 이내 = within."},
+    {"p": "___ the invoice carefully before approving payment.", "c": ["Review", "Reviews", "Reviewing", "Reviewed"], "a": 0, "e": "명령문은 동사원형."},
+    {"p": "The merger is expected to ___ two hundred new jobs.", "c": ["create", "creation", "creative", "creatively"], "a": 0, "e": "to 뒤 동사원형."},
+    {"p": "Our products are shipped ___ to customers worldwide.", "c": ["directly", "direct to", "direction", "directed at"], "a": 0, "e": "동사 수식 부사 directly."},
+    {"p": "The budget proposal requires ___ from the board.", "c": ["approval", "approve", "approving of", "approved"], "a": 0, "e": "requires + 명사."},
+    {"p": "Passengers should arrive at the gate ___ 30 minutes before departure.", "c": ["at least", "at most only", "at first", "at last"], "a": 0, "e": "at least = 최소한."},
+    {"p": "The report contains detailed ___ about market trends.", "c": ["information", "informations", "inform", "informative"], "a": 0, "e": "information은 불가산 명사."},
+    {"p": "Ms. Lopez handled the client's complaint very ___.", "c": ["professionally", "professional", "profession", "professionalism"], "a": 0, "e": "동사 수식 부사."},
+    {"p": "___ signing the lease, tenants must pay a deposit.", "c": ["Upon", "While being", "Since then", "As soon"], "a": 0, "e": "Upon + ~ing = ~하자마자."},
+    {"p": "The workshop will focus ___ effective communication.", "c": ["on", "to", "for", "with"], "a": 0, "e": "focus on."},
+    {"p": "All visitors must sign in ___ the front desk.", "c": ["at", "on", "in to", "by the way of"], "a": 0, "e": "지점 앞 전치사 at."},
+    {"p": "The new model is ___ with older accessories.", "c": ["compatible", "comparable to all", "compact for", "competitive at"], "a": 0, "e": "compatible with = 호환되는."},
+    {"p": "Due to high demand, the item is temporarily out of ___.", "c": ["stock", "store", "storage of", "stack"], "a": 0, "e": "out of stock = 품절."},
+    {"p": "Please ___ us know if you have any questions.", "c": ["let", "lets", "letting", "to let"], "a": 0, "e": "let us know 관용 표현."},
+    {"p": "The annual banquet ___ at the Grand Ballroom this year.", "c": ["will be held", "will hold", "holds itself", "is holding it"], "a": 0, "e": "행사는 개최되는 대상: 수동태."},
+    {"p": "Applications received ___ the deadline will not be considered.", "c": ["after", "before now", "within", "until"], "a": 0, "e": "마감 이후 = after."},
+    {"p": "The two companies reached an ___ after long talks.", "c": ["agreement", "agree", "agreeable", "agreeably"], "a": 0, "e": "관사 뒤 명사."},
+    {"p": "___ costs, the company switched to digital documents.", "c": ["To reduce", "Reduce", "Reduced by", "Reduction"], "a": 0, "e": "목적의 to부정사."},
+    {"p": "Guests may use the fitness center free of ___.", "c": ["charge", "price", "cost him", "fare"], "a": 0, "e": "free of charge = 무료로."},
+    {"p": "The elevator is ___ of order until further notice.", "c": ["out", "off", "away", "down under"], "a": 0, "e": "out of order = 고장."},
+    {"p": "We value your ___ and look forward to serving you again.", "c": ["patronage", "patron of us", "patriot", "pattern"], "a": 0, "e": "patronage = 애용, 성원."},
+    {"p": "The security code should not be shared with ___ else.", "c": ["anyone", "someone who", "everyone that", "no one but"], "a": 0, "e": "부정문 맥락 + anyone else."},
+    {"p": "Ticket holders are ___ to a complimentary drink.", "c": ["entitled", "entitle", "title", "entitling"], "a": 0, "e": "be entitled to = 받을 자격이 있다."},
+    {"p": "___ we receive your payment, we will ship your order.", "c": ["As soon as", "As long", "So far as much", "Even"], "a": 0, "e": "as soon as = ~하자마자."}
+  ],
+  "p7": [
+    {
+      "title": "사내 공지",
+      "passage": "NOTICE TO ALL STAFF\n\nThe main parking lot will be closed for resurfacing from Monday, May 12 through Wednesday, May 14. During this period, employees are asked to use the overflow lot on Pine Street. Shuttle service will run between the overflow lot and the main entrance every 15 minutes from 7:30 a.m. to 6:30 p.m. We apologize for the inconvenience and thank you for your cooperation.\n\n- Facilities Management",
+      "qs": [
+        {"p": "이 공지의 목적은 무엇인가요?", "c": ["주차장 임시 폐쇄 안내", "새 직원 소개", "회식 일정 공지", "보안 규정 변경"], "a": 0, "e": "parking lot will be closed for resurfacing."},
+        {"p": "셔틀은 얼마나 자주 운행되나요?", "c": ["15분마다", "30분마다", "1시간마다", "하루 2회"], "a": 0, "e": "every 15 minutes."},
+        {"p": "주차장은 며칠 동안 닫히나요?", "c": ["3일", "1일", "일주일", "한 달"], "a": 0, "e": "May 12 ~ May 14 = 3일."}
+      ]
+    },
+    {
+      "title": "제품 광고",
+      "passage": "Introducing the AquaPure 300 — the smallest water purifier in our lineup!\n\nEnjoy clean, great-tasting water at home or in the office. The AquaPure 300 removes 99% of impurities and needs a filter change only twice a year. Order before June 30 and receive a second filter absolutely free, plus free shipping on all orders over $50.\n\nVisit www.aquapure.com or call 555-0177.",
+      "qs": [
+        {"p": "광고하는 제품은 무엇인가요?", "c": ["정수기", "공기청정기", "커피 머신", "가습기"], "a": 0, "e": "water purifier."},
+        {"p": "6월 30일 전에 주문하면 받는 혜택은?", "c": ["필터 하나 무료 증정", "반값 할인", "1년 무상 수리", "설치 무료"], "a": 0, "e": "receive a second filter absolutely free."},
+        {"p": "필터는 얼마나 자주 갈아야 하나요?", "c": ["일 년에 두 번", "매달", "일 년에 한 번", "이 년에 한 번"], "a": 0, "e": "filter change only twice a year."}
+      ]
+    },
+    {
+      "title": "이메일: 회의 일정 변경",
+      "passage": "From: Sandra Kim <s.kim@brightco.com>\nTo: Marketing Team\nSubject: Rescheduled - Quarterly Review\n\nDear team,\n\nDue to a scheduling conflict with the CEO's visit, the quarterly review meeting originally planned for Thursday at 2 p.m. has been moved to Friday at 10 a.m. in Conference Room B. Please update your calendars and bring your progress reports. If you cannot attend, notify me by Wednesday so we can arrange a video link.\n\nBest regards,\nSandra",
+      "qs": [
+        {"p": "회의가 변경된 이유는?", "c": ["CEO 방문과 일정 충돌", "회의실 공사", "발표자 병가", "시스템 점검"], "a": 0, "e": "scheduling conflict with the CEO's visit."},
+        {"p": "변경된 회의 시간은?", "c": ["금요일 오전 10시", "목요일 오후 2시", "수요일 오전 10시", "금요일 오후 2시"], "a": 0, "e": "moved to Friday at 10 a.m."},
+        {"p": "참석 불가 시 언제까지 알려야 하나요?", "c": ["수요일까지", "목요일까지", "금요일 아침까지", "당일까지"], "a": 0, "e": "notify me by Wednesday."}
+      ]
+    },
+    {
+      "title": "구인 광고",
+      "passage": "ASSISTANT STORE MANAGER — GreenLeaf Books\n\nGreenLeaf Books, downtown's favorite independent bookstore, seeks a full-time assistant manager. Responsibilities include scheduling staff, managing inventory, and organizing monthly author events. Candidates should have at least two years of retail experience and strong communication skills. Weekend availability is required. We offer competitive pay, health insurance, and a generous employee discount.\n\nSend your resume to jobs@greenleafbooks.com by August 15.",
+      "qs": [
+        {"p": "모집하는 직책은?", "c": ["부매니저", "계산원", "작가", "배송 기사"], "a": 0, "e": "seeks a full-time assistant manager."},
+        {"p": "지원 요건이 아닌 것은?", "c": ["대학 졸업장", "소매업 경력 2년", "의사소통 능력", "주말 근무 가능"], "a": 0, "e": "학위는 언급되지 않았어요."},
+        {"p": "지원 마감일은?", "c": ["8월 15일", "8월 5일", "9월 15일", "7월 15일"], "a": 0, "e": "by August 15."}
+      ]
+    },
+    {
+      "title": "영수증 겸 안내문",
+      "passage": "THANK YOU FOR SHOPPING AT TECHZONE\n\nItem: Wireless Keyboard K-200 ... $39.99\nExtended Warranty (2 yr) ........ $6.00\nSubtotal ........................ $45.99\nTax ............................. $3.68\nTOTAL ........................... $49.67\n\nReturns accepted within 30 days with receipt. Opened software cannot be returned. For warranty service, call 555-0148 with your receipt number.",
+      "qs": [
+        {"p": "고객이 구매한 물건은?", "c": ["무선 키보드", "무선 마우스", "모니터", "노트북"], "a": 0, "e": "Wireless Keyboard K-200."},
+        {"p": "반품 가능 기간은?", "c": ["30일 이내", "14일 이내", "7일 이내", "1년 이내"], "a": 0, "e": "within 30 days with receipt."}
+      ]
+    },
+    {
+      "title": "호텔 안내문",
+      "passage": "WELCOME TO THE HARBORVIEW HOTEL\n\nBreakfast is served in the Sunrise Room from 6:30 to 10:00 a.m. daily. The fitness center, located on the 3rd floor, is open 24 hours with your room key. Checkout time is 11:00 a.m.; late checkout until 2:00 p.m. is available for a $30 fee. Please note that the rooftop pool is closed for maintenance until further notice. We appreciate your understanding.",
+      "qs": [
+        {"p": "현재 이용할 수 없는 시설은?", "c": ["옥상 수영장", "피트니스 센터", "조식당", "주차장"], "a": 0, "e": "rooftop pool is closed for maintenance."},
+        {"p": "늦은 체크아웃 비용은?", "c": ["30달러", "무료", "20달러", "50달러"], "a": 0, "e": "late checkout ... for a $30 fee."},
+        {"p": "조식 제공 시간은?", "c": ["6:30~10:00", "7:00~11:00", "6:00~9:30", "8:00~10:30"], "a": 0, "e": "from 6:30 to 10:00 a.m."}
+      ]
+    },
+    {
+      "title": "이메일: 배송 지연",
+      "passage": "From: Customer Service <support@homestyle.com>\nSubject: Update on Order #88231\n\nDear Mr. Harris,\n\nThank you for your recent order of the Oakwood Bookshelf. Unfortunately, due to unexpected demand, this item is currently on backorder. We expect to ship it within 10 business days, rather than the usual 3. As an apology, we have applied a 15% discount to your order and upgraded you to express delivery at no extra charge. If you prefer to cancel, simply reply to this email for a full refund.\n\nSincerely,\nHomeStyle Customer Care",
+      "qs": [
+        {"p": "배송이 지연된 이유는?", "c": ["예상보다 많은 주문", "공장 화재", "태풍", "주소 오류"], "a": 0, "e": "due to unexpected demand ... on backorder."},
+        {"p": "사과의 의미로 제공된 것은?", "c": ["15% 할인과 특급 배송", "무료 반품", "사은품", "적립 포인트"], "a": 0, "e": "15% discount + express delivery."},
+        {"p": "취소를 원하면 어떻게 해야 하나요?", "c": ["이메일에 회신", "매장 방문", "전화", "앱에서 신청"], "a": 0, "e": "simply reply to this email."}
+      ]
+    },
+    {
+      "title": "세미나 안내",
+      "passage": "FREE SMALL-BUSINESS SEMINAR\n'Marketing on a Budget'\n\nDate: Saturday, October 5\nTime: 9:00 a.m. - 12:30 p.m.\nLocation: Community Center, Room 204\n\nLearn low-cost strategies to reach new customers, from social media basics to local partnerships. Presented by marketing consultant Dana Ruiz, author of 'Small Budget, Big Impact.' Seating is limited to 40 participants; registration is required at www.bizcenter.org. Coffee and light snacks will be provided.",
+      "qs": [
+        {"p": "세미나의 주제는?", "c": ["저비용 마케팅", "세금 신고", "직원 채용", "온라인 판매법"], "a": 0, "e": "Marketing on a Budget."},
+        {"p": "참가하려면 무엇이 필요한가요?", "c": ["사전 등록", "참가비 지불", "책 구매", "회원 가입비"], "a": 0, "e": "registration is required."},
+        {"p": "발표자는 누구인가요?", "c": ["다나 루이즈", "커뮤니티 센터장", "시장", "은행원"], "a": 0, "e": "Presented by Dana Ruiz."}
+      ]
+    },
+    {
+      "title": "문자 대화",
+      "passage": "Jake (2:14 p.m.): Hey Mia, the client moved our presentation up to 4 o'clock today. Can you finish the slides?\nMia (2:16 p.m.): Almost done. Just need the sales numbers from last month.\nJake (2:17 p.m.): I'll email them right now. Also, can you print 6 copies of the handout?\nMia (2:20 p.m.): Sure. The printer on our floor is broken, so I'll use the one on the 5th floor.\nJake (2:21 p.m.): Perfect. Meet you in the lobby at 3:40.",
+      "qs": [
+        {"p": "발표는 몇 시로 변경되었나요?", "c": ["오후 4시", "오후 3시 40분", "오후 2시", "오후 5시"], "a": 0, "e": "moved our presentation up to 4 o'clock."},
+        {"p": "미아가 5층 프린터를 쓰는 이유는?", "c": ["자기 층 프린터가 고장 나서", "5층이 더 가까워서", "컬러 인쇄 때문에", "종이가 없어서"], "a": 0, "e": "The printer on our floor is broken."}
+      ]
+    },
+    {
+      "title": "회원 안내문",
+      "passage": "CITY GYM MEMBERSHIP RENEWAL\n\nDear Member,\n\nYour annual membership expires on March 31. Renew by March 15 to lock in this year's rate of $420 — after that date, the new rate of $480 applies. As a loyalty bonus, members who renew early will also receive two free personal training sessions and a guest pass valid for one month. Renew online, by phone, or at the front desk.",
+      "qs": [
+        {"p": "3월 15일까지 갱신하면 내는 금액은?", "c": ["420달러", "480달러", "60달러", "400달러"], "a": 0, "e": "Renew by March 15 ... $420."},
+        {"p": "조기 갱신 보너스가 아닌 것은?", "c": ["무료 운동복", "무료 PT 2회", "게스트 패스", "기존 요금 유지"], "a": 0, "e": "운동복은 언급 없음."}
+      ]
+    },
+    {
+      "title": "여행 일정 확인서",
+      "passage": "BOOKING CONFIRMATION — REF: TK4471\n\nPassenger: Ms. Elena Cho\nOutbound: Flight KE905, Seoul (ICN) → Paris (CDG), May 3, 13:35 - 18:20\nReturn: Flight KE906, Paris (CDG) → Seoul (ICN), May 10, 21:05 - 15:10 (+1 day)\nBaggage: 1 checked bag (23 kg) included\nSeat: 34A (window), special meal: vegetarian\n\nOnline check-in opens 48 hours before departure. Changes made within 72 hours of departure incur a $150 fee.",
+      "qs": [
+        {"p": "승객의 좌석은?", "c": ["34A 창가", "34A 통로", "43A 창가", "지정 안 됨"], "a": 0, "e": "Seat: 34A (window)."},
+        {"p": "출발 72시간 이내 변경 시 수수료는?", "c": ["150달러", "무료", "48달러", "23달러"], "a": 0, "e": "incur a $150 fee."},
+        {"p": "온라인 체크인은 언제 열리나요?", "c": ["출발 48시간 전", "출발 72시간 전", "출발 24시간 전", "출발 당일"], "a": 0, "e": "opens 48 hours before departure."}
+      ]
+    },
+    {
+      "title": "사보 기사",
+      "passage": "EMPLOYEE SPOTLIGHT: A GREENER OFFICE\n\nThanks to a suggestion from accountant Raj Patel, our office has cut paper use by nearly 40% this year. Raj proposed switching to double-sided printing by default and moving expense reports fully online. The change saves an estimated $8,000 annually and about 120 boxes of paper. 'It was a small idea,' Raj says, 'but small ideas add up.' The green team is now collecting suggestions for reducing energy use — submit yours by the end of the month to win a $50 gift card.",
+      "qs": [
+        {"p": "라지의 제안으로 줄어든 것은?", "c": ["종이 사용량", "전기 사용량", "출장 비용", "회의 시간"], "a": 0, "e": "cut paper use by nearly 40%."},
+        {"p": "연간 절약 추정액은?", "c": ["8,000달러", "800달러", "4만 달러", "120달러"], "a": 0, "e": "saves an estimated $8,000 annually."},
+        {"p": "이달 말까지 아이디어를 내면 받을 수 있는 것은?", "c": ["50달러 상품권", "유급 휴가", "보너스", "머그컵"], "a": 0, "e": "win a $50 gift card."}
+      ]
+    }
+  ],
+  "lc": [
+    {
+      "lines": [["A", "Hi, I'd like to open a savings account."], ["B", "Certainly. Do you have two forms of ID with you?"], ["A", "I have my passport and a utility bill."], ["B", "Perfect. Please fill out this application while I make copies."]],
+      "qs": [
+        {"p": "대화가 이루어지는 장소는?", "c": ["은행", "우체국", "도서관", "약국"], "a": 0, "e": "savings account를 개설하는 곳 = 은행."},
+        {"p": "남자가 여자에게 요청한 것은?", "c": ["신분증 두 가지", "예금액", "전화번호", "서명"], "a": 0, "e": "two forms of ID."}
+      ]
+    },
+    {
+      "lines": [["A", "The copier on the third floor is jammed again."], ["B", "Did you call the service center?"], ["A", "Yes, but the technician can't come until tomorrow afternoon."], ["B", "Then let's use the one in the mailroom for today."]],
+      "qs": [
+        {"p": "문제가 생긴 것은 무엇인가요?", "c": ["복사기", "프린터", "엘리베이터", "에어컨"], "a": 0, "e": "The copier is jammed."},
+        {"p": "기사님은 언제 오나요?", "c": ["내일 오후", "오늘 오후", "내일 아침", "지금"], "a": 0, "e": "can't come until tomorrow afternoon."}
+      ]
+    },
+    {
+      "lines": [["A", "Are you going to the marketing conference in Chicago next week?"], ["B", "I want to, but I haven't booked a flight yet. Prices are so high."], ["A", "Try the company travel portal. We get a corporate discount."], ["B", "Oh, I didn't know that. I'll check it right after lunch."]],
+      "qs": [
+        {"p": "여자가 아직 하지 못한 일은?", "c": ["항공권 예약", "호텔 예약", "발표 준비", "보고서 제출"], "a": 0, "e": "haven't booked a flight yet."},
+        {"p": "남자가 추천한 방법은?", "c": ["회사 여행 포털 이용", "기차 이용", "일정 변경", "다른 항공사"], "a": 0, "e": "Try the company travel portal."}
+      ]
+    },
+    {
+      "lines": [["A", "Welcome to Bella's. Do you have a reservation?"], ["B", "No, we don't. Is there a table for four?"], ["A", "There's a 20-minute wait for the main dining room, but the terrace is open now."], ["B", "The terrace sounds lovely. We'll sit there."]],
+      "qs": [
+        {"p": "손님 일행은 몇 명인가요?", "c": ["4명", "2명", "3명", "20명"], "a": 0, "e": "a table for four."},
+        {"p": "손님이 앉기로 한 곳은?", "c": ["테라스", "메인 홀", "바", "룸"], "a": 0, "e": "The terrace sounds lovely."}
+      ]
+    },
+    {
+      "lines": [["A", "Did you see the memo about the new vacation policy?"], ["B", "Not yet. What changed?"], ["A", "We can now carry over up to five unused days to next year."], ["B", "That's great news. I always lose mine in December."]],
+      "qs": [
+        {"p": "새 정책의 내용은?", "c": ["미사용 휴가 5일 이월 가능", "휴가 일수 축소", "여름휴가 의무화", "보너스 지급"], "a": 0, "e": "carry over up to five unused days."}
+      ]
+    },
+    {
+      "lines": [["A", "Excuse me, this milk expires today. Do you have fresher stock?"], ["B", "Let me check the back. ... Here's one dated next Friday."], ["A", "Thank you. And where can I find baking powder?"], ["B", "Aisle six, next to the flour."]],
+      "qs": [
+        {"p": "대화 장소는 어디인가요?", "c": ["식료품점", "카페", "빵집", "식당"], "a": 0, "e": "우유·베이킹파우더·통로 → 마트."},
+        {"p": "베이킹파우더는 어디에 있나요?", "c": ["6번 통로", "5번 통로", "계산대 옆", "냉장 코너"], "a": 0, "e": "Aisle six, next to the flour."}
+      ]
+    },
+    {
+      "lines": [["A", "I'm calling about the two-bedroom apartment on Oak Street. Is it still available?"], ["B", "Yes, it is. Would you like to see it this week?"], ["A", "Could I come by Thursday evening, around six?"], ["B", "Six works. I'll meet you at the front gate — bring a photo ID, please."]],
+      "qs": [
+        {"p": "전화의 목적은?", "c": ["아파트 보러 가기 위해", "수리 요청", "임대료 문의만", "계약 해지"], "a": 0, "e": "아파트가 available한지 묻고 방문 약속."},
+        {"p": "약속 시간은 언제인가요?", "c": ["목요일 저녁 6시", "화요일 저녁 6시", "목요일 아침", "주말"], "a": 0, "e": "Thursday evening, around six."}
+      ]
+    },
+    {
+      "lines": [["A", "Your total comes to $84.50. Would you like these delivered?"], ["B", "How much is delivery?"], ["A", "It's free for orders over $80."], ["B", "Perfect, then yes. Can they arrive before Saturday? It's a birthday gift."]],
+      "qs": [
+        {"p": "배송비는 얼마인가요?", "c": ["무료(80달러 초과 주문)", "5달러", "10달러", "84.50달러"], "a": 0, "e": "free for orders over $80."},
+        {"p": "여자가 토요일 전 배송을 원하는 이유는?", "c": ["생일 선물이라서", "이사 때문에", "여행 때문에", "회사 행사라서"], "a": 0, "e": "It's a birthday gift."}
+      ]
+    },
+    {
+      "lines": [["A", "The elevator inspection is scheduled for Monday morning."], ["B", "How long will it be out of service?"], ["A", "About three hours, from nine to noon."], ["B", "I'll post a notice so people can plan to use the stairs."]],
+      "qs": [
+        {"p": "점검은 얼마나 걸리나요?", "c": ["약 3시간", "약 1시간", "하루 종일", "30분"], "a": 0, "e": "About three hours, from nine to noon."},
+        {"p": "여자가 하겠다고 한 일은?", "c": ["안내문 게시", "점검 연기", "계단 청소", "기술자 호출"], "a": 0, "e": "I'll post a notice."}
+      ]
+    },
+    {
+      "lines": [["A", "How was the printing quote from SpeedPress?"], ["B", "They want $2,000 for 500 brochures — that's over our budget."], ["A", "Did you ask InkWell? They did our posters last year for less."], ["B", "Good idea. I'll request a quote from them this afternoon."]],
+      "qs": [
+        {"p": "SpeedPress의 견적 금액은?", "c": ["2,000달러", "500달러", "1,500달러", "200달러"], "a": 0, "e": "$2,000 for 500 brochures."},
+        {"p": "여자가 오후에 할 일은?", "c": ["다른 업체에 견적 요청", "주문 확정", "예산 증액 요청", "브로슈어 디자인"], "a": 0, "e": "request a quote from InkWell."}
+      ]
+    },
+    {
+      "lines": [["A", "Dr. Reed's office. How can I help you?"], ["B", "I'd like to reschedule my appointment on Wednesday. Something came up at work."], ["A", "No problem. We have openings Thursday at 2 or Friday at 9."], ["B", "Friday at 9 would be perfect. Thank you."]],
+      "qs": [
+        {"p": "남자가 전화한 이유는?", "c": ["예약 변경", "처방전 요청", "검사 결과 문의", "신규 등록"], "a": 0, "e": "reschedule my appointment."},
+        {"p": "새 예약 시간은?", "c": ["금요일 9시", "목요일 2시", "수요일 9시", "금요일 2시"], "a": 0, "e": "Friday at 9 would be perfect."}
+      ]
+    },
+    {
+      "lines": [["A", "Attention, passengers on flight BA210 to London. Due to a late-arriving aircraft, boarding will now begin at 7:45 instead of 7:15."], ["B", "Did you hear that? We have an extra half hour."], ["A", "Great, I can grab a coffee. Want anything?"], ["B", "A bottle of water, please. I'll watch the bags."]],
+      "qs": [
+        {"p": "탑승이 지연된 이유는?", "c": ["항공기 도착 지연", "기상 악화", "정비 문제", "승무원 부족"], "a": 0, "e": "Due to a late-arriving aircraft."},
+        {"p": "새 탑승 시작 시간은?", "c": ["7시 45분", "7시 15분", "8시 45분", "7시 30분"], "a": 0, "e": "boarding will now begin at 7:45."}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="16dp">
+
+        <!-- 상단 스탯 바 -->
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical">
+            <TextView android:id="@+id/txtHearts" android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:textSize="16sp" android:text="❤️ 5" />
+            <TextView android:id="@+id/txtStreak" android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:gravity="center" android:textSize="16sp" android:text="🔥 0" />
+            <TextView android:id="@+id/txtLevel" android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:gravity="end" android:textSize="16sp" android:text="⭐ Lv.0" />
+        </LinearLayout>
+
+        <ProgressBar android:id="@+id/xpBar" style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent" android:layout_height="10dp"
+            android:layout_marginTop="6dp" android:max="100"
+            android:progressTint="@color/chick_yellow_deep" android:progressBackgroundTint="@color/cream_dark" />
+
+        <!-- 마스코트 헤더 -->
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginTop="14dp">
+            <ImageView android:id="@+id/imgMascot" android:layout_width="86dp" android:layout_height="86dp"
+                android:src="@drawable/chick_neutral" android:contentDescription="삐약이" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="삐약영어" android:textSize="26sp" android:textStyle="bold" />
+                <TextView android:id="@+id/txtGreeting" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="오늘도 삐약삐약 공부해요!" android:textSize="14sp" android:textColor="@color/brown_soft" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 레벨테스트 배너 -->
+        <LinearLayout
+            android:id="@+id/bannerPlacement"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="14dp" android:background="@drawable/bg_banner"
+            android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="🎯 레벨테스트로 내 위치 찾기!\n25문제로 딱 맞는 레벨을 정해줘요"
+                android:textColor="@color/white" android:textSize="15sp" android:textStyle="bold" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="GO ▶" android:textColor="@color/white" android:textSize="18sp" android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- 트랙 카드 컨테이너 (코드 생성) -->
+        <LinearLayout android:id="@+id/tracksBox"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:layout_marginTop="8dp" />
+
+        <!-- 하단 버튼들 -->
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginTop="12dp">
+            <Button android:id="@+id/btnReview" android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:text="💊 오답 0" />
+            <Button android:id="@+id/btnStats" android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:layout_marginStart="8dp" android:text="📊 통계" />
+            <Button android:id="@+id/btnSettings" android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:layout_marginStart="8dp" android:text="⚙️ 설정" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

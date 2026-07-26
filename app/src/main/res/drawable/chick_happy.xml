@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp" android:height="120dp"
+    android:viewportWidth="200" android:viewportHeight="200">
+    <path android:pathData="M30,110 a70,70 0 1,0 140,0 a70,70 0 1,0 -140,0" android:fillColor="#FFD54F"/>
+    <path android:pathData="M100,42 q-8,-16 2,-22 q0,12 8,10 q10,-6 12,2 q-10,2 -10,10"
+        android:strokeColor="#FFB300" android:strokeWidth="5" android:strokeLineCap="round" android:fillColor="#00000000"/>
+    <!-- 날개 만세 -->
+    <path android:pathData="M22,100 a13,22 0 1,0 26,0 a13,22 0 1,0 -26,0" android:fillColor="#FFC93A"/>
+    <path android:pathData="M152,100 a13,22 0 1,0 26,0 a13,22 0 1,0 -26,0" android:fillColor="#FFC93A"/>
+    <!-- 웃는 눈 ^^ -->
+    <path android:pathData="M65,96 q10,-13 20,0" android:strokeColor="#4E342E" android:strokeWidth="6"
+        android:strokeLineCap="round" android:fillColor="#00000000"/>
+    <path android:pathData="M115,96 q10,-13 20,0" android:strokeColor="#4E342E" android:strokeWidth="6"
+        android:strokeLineCap="round" android:fillColor="#00000000"/>
+    <path android:pathData="M100,106 L113,116 L100,127 L87,116 Z" android:fillColor="#FF8A50"/>
+    <path android:pathData="M50,116 a9,7 0 1,0 18,0 a9,7 0 1,0 -18,0" android:fillColor="#B3FFAB91"/>
+    <path android:pathData="M132,116 a9,7 0 1,0 18,0 a9,7 0 1,0 -18,0" android:fillColor="#B3FFAB91"/>
+    <path android:pathData="M84,179 l-7,11 M84,179 l0,12 M84,179 l7,11 M116,179 l-7,11 M116,179 l0,12 M116,179 l7,11"
+        android:strokeColor="#FF8A50" android:strokeWidth="5" android:strokeLineCap="round"/>
+</vector>

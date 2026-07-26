@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Piyak" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/chick_yellow</item>
+        <item name="colorOnPrimary">@color/brown_text</item>
+        <item name="colorPrimaryContainer">@color/cream_dark</item>
+        <item name="colorOnPrimaryContainer">@color/brown_text</item>
+        <item name="colorSecondary">@color/coral</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:windowBackground">@color/cream</item>
+        <item name="android:statusBarColor">@color/cream</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/cream</item>
+        <item name="android:textColor">@color/brown_text</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+</resources>

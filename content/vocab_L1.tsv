@@ -1,0 +1,119 @@
+# L1 초등 1~2학년: word	pos	ko	example_en	example_ko
+apple	명	사과	I eat an apple.	나는 사과를 먹어요.
+banana	명	바나나	The banana is yellow.	바나나는 노란색이에요.
+dog	명	개	The dog is cute.	그 개는 귀여워요.
+cat	명	고양이	The cat is sleeping.	고양이가 자고 있어요.
+bird	명	새	A bird can fly.	새는 날 수 있어요.
+fish	명	물고기	The fish is in the water.	물고기가 물속에 있어요.
+milk	명	우유	I drink milk every day.	나는 매일 우유를 마셔요.
+water	명	물	Please give me water.	물 좀 주세요.
+bread	명	빵	This bread is soft.	이 빵은 부드러워요.
+egg	명	달걀	I like a boiled egg.	나는 삶은 달걀을 좋아해요.
+rice	명	밥	We eat rice at home.	우리는 집에서 밥을 먹어요.
+book	명	책	This is my book.	이것은 내 책이에요.
+pen	명	펜	Can I use your pen?	네 펜을 써도 될까?
+pencil	명	연필	My pencil is short.	내 연필은 짧아요.
+bag	명	가방	The bag is heavy.	그 가방은 무거워요.
+desk	명	책상	The book is on the desk.	책이 책상 위에 있어요.
+chair	명	의자	Sit on the chair.	의자에 앉으세요.
+door	명	문	Please open the door.	문을 열어 주세요.
+window	명	창문	Close the window.	창문을 닫아 주세요.
+house	명	집	My house is small.	우리 집은 작아요.
+school	명	학교	I go to school.	나는 학교에 가요.
+mom	명	엄마	My mom is kind.	우리 엄마는 친절해요.
+dad	명	아빠	My dad is tall.	우리 아빠는 키가 커요.
+baby	명	아기	The baby is smiling.	아기가 웃고 있어요.
+family	명	가족	I love my family.	나는 가족을 사랑해요.
+friend	명	친구	You are my best friend.	너는 나의 가장 친한 친구야.
+teacher	명	선생님	My teacher is nice.	우리 선생님은 좋아요.
+boy	명	소년	The boy is running.	소년이 달리고 있어요.
+girl	명	소녀	The girl can sing.	그 소녀는 노래할 수 있어요.
+man	명	남자	The man is my uncle.	그 남자는 나의 삼촌이에요.
+woman	명	여자	The woman is a doctor.	그 여자는 의사예요.
+hand	명	손	Wash your hands.	손을 씻으세요.
+foot	명	발	My foot hurts.	발이 아파요.
+eye	명	눈(신체)	Close your eyes.	눈을 감으세요.
+nose	명	코	Touch your nose.	코를 만져 보세요.
+mouth	명	입	Open your mouth.	입을 벌리세요.
+ear	명	귀	A rabbit has long ears.	토끼는 귀가 길어요.
+head	명	머리	Shake your head.	머리를 흔들어 보세요.
+hair	명	머리카락	Her hair is long.	그녀의 머리카락은 길어요.
+face	명	얼굴	Wash your face.	얼굴을 씻으세요.
+arm	명	팔	Raise your arms.	팔을 들어 올리세요.
+leg	명	다리	The dog has four legs.	개는 다리가 네 개예요.
+red	형	빨간	I like the red car.	나는 빨간 차를 좋아해요.
+blue	형	파란	The sky is blue.	하늘은 파래요.
+yellow	형	노란	The lemon is yellow.	레몬은 노란색이에요.
+green	형	초록의	The leaves are green.	잎들은 초록색이에요.
+black	형	검은	I have a black cat.	나는 검은 고양이를 키워요.
+white	형	하얀	Snow is white.	눈은 하얘요.
+pink	형	분홍의	She likes pink flowers.	그녀는 분홍 꽃을 좋아해요.
+brown	형	갈색의	The bear is brown.	그 곰은 갈색이에요.
+one	수	하나	I have one brother.	나는 남동생이 한 명 있어요.
+two	수	둘	I see two birds.	새 두 마리가 보여요.
+three	수	셋	Count to three.	셋까지 세어 보세요.
+big	형	큰	The elephant is big.	코끼리는 커요.
+small	형	작은	The mouse is small.	쥐는 작아요.
+good	형	좋은	This is a good idea.	이것은 좋은 생각이에요.
+bad	형	나쁜	That is a bad habit.	그것은 나쁜 습관이에요.
+hot	형	뜨거운	The soup is hot.	수프가 뜨거워요.
+cold	형	차가운	The water is cold.	물이 차가워요.
+new	형	새로운	I have new shoes.	나는 새 신발이 있어요.
+old	형	오래된	This is an old house.	이것은 오래된 집이에요.
+happy	형	행복한	I am happy today.	나는 오늘 행복해요.
+sad	형	슬픈	Why are you sad?	왜 슬퍼요?
+fast	형	빠른	The train is fast.	기차는 빨라요.
+slow	형	느린	The turtle is slow.	거북이는 느려요.
+tall	형	키가 큰	The tree is tall.	그 나무는 키가 커요.
+short	형	짧은	My hair is short.	내 머리는 짧아요.
+run	동	달리다	I can run fast.	나는 빨리 달릴 수 있어요.
+walk	동	걷다	We walk to school.	우리는 학교에 걸어가요.
+jump	동	점프하다	The frog can jump high.	개구리는 높이 뛸 수 있어요.
+sit	동	앉다	Please sit down.	앉아 주세요.
+stand	동	서다	Stand up, please.	일어서 주세요.
+eat	동	먹다	Let's eat lunch.	점심을 먹자.
+drink	동	마시다	Drink some water.	물을 좀 마셔요.
+sleep	동	자다	I sleep at nine.	나는 아홉 시에 자요.
+play	동	놀다	Let's play together.	같이 놀자.
+sing	동	노래하다	She can sing well.	그녀는 노래를 잘해요.
+dance	동	춤추다	We dance to the music.	우리는 음악에 맞춰 춤을 춰요.
+read	동	읽다	I read a book every night.	나는 매일 밤 책을 읽어요.
+write	동	쓰다	Write your name here.	여기에 이름을 쓰세요.
+draw	동	그리다	I draw a cat.	나는 고양이를 그려요.
+open	동	열다	Open your book.	책을 펴세요.
+close	동	닫다	Close the door, please.	문을 닫아 주세요.
+go	동	가다	I go home at three.	나는 세 시에 집에 가요.
+come	동	오다	Come here, please.	이리 와 주세요.
+see	동	보다	I see a rainbow.	무지개가 보여요.
+look	동	쳐다보다	Look at the sky.	하늘을 봐요.
+like	동	좋아하다	I like ice cream.	나는 아이스크림을 좋아해요.
+love	동	사랑하다	I love you.	나는 너를 사랑해.
+want	동	원하다	I want a new toy.	나는 새 장난감을 원해요.
+have	동	가지고 있다	I have a little sister.	나는 여동생이 있어요.
+give	동	주다	Give me the ball.	공을 나에게 줘.
+make	동	만들다	Let's make a snowman.	눈사람을 만들자.
+hello	감	안녕하세요	Hello, my name is Mina.	안녕하세요, 제 이름은 미나예요.
+goodbye	감	잘 가	Goodbye, see you tomorrow.	잘 가, 내일 보자.
+sorry	감	미안해요	I am sorry.	미안해요.
+sun	명	해	The sun is bright.	해가 밝아요.
+moon	명	달	The moon is round.	달이 둥글어요.
+star	명	별	Stars shine at night.	별은 밤에 빛나요.
+sky	명	하늘	The sky is clear.	하늘이 맑아요.
+rain	명	비	Rain falls from the sky.	비가 하늘에서 내려요.
+snow	명	눈(날씨)	I love snow in winter.	나는 겨울에 오는 눈을 좋아해요.
+tree	명	나무	The bird is in the tree.	새가 나무에 있어요.
+flower	명	꽃	This flower smells good.	이 꽃은 향기가 좋아요.
+ball	명	공	Throw the ball.	공을 던져요.
+toy	명	장난감	The toy is on the bed.	장난감이 침대 위에 있어요.
+car	명	자동차	The car is very fast.	그 차는 아주 빨라요.
+bus	명	버스	I take the bus.	나는 버스를 타요.
+train	명	기차	The train is long.	기차는 길어요.
+cup	명	컵	The cup is empty.	컵이 비어 있어요.
+box	명	상자	What is in the box?	상자 안에 뭐가 있어요?
+hat	명	모자	I wear a hat.	나는 모자를 써요.
+shoe	명	신발	Where is my shoe?	내 신발이 어디 있지?
+bed	명	침대	I sleep in my bed.	나는 침대에서 자요.
+room	명	방	My room is clean.	내 방은 깨끗해요.
+morning	명	아침	Good morning, everyone.	여러분, 좋은 아침이에요.
+night	명	밤	Good night, mom.	엄마, 안녕히 주무세요.
+today	부	오늘	Today is my birthday.	오늘은 내 생일이에요.

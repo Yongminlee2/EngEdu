@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="16dp">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical">
+            <Button android:id="@+id/btnBack" style="?attr/materialIconButtonStyle"
+                android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="◀" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="⚙️ 설정" android:textSize="20sp" android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:text="🔊 발음 속도" android:textSize="16sp" android:textStyle="bold" />
+        <SeekBar android:id="@+id/seekRate" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:max="14" android:progress="7" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="4dp">
+            <TextView android:id="@+id/txtRate" android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:text="1.0x" android:textColor="@color/brown_soft" />
+            <Button android:id="@+id/btnTtsTest" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="🔊 들어보기" android:backgroundTint="@color/sky" android:textColor="@color/brown_text" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="20dp">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="🔓 자유 이동 모드" android:textSize="16sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="모든 레슨을 순서 상관없이 풀 수 있어요" android:textSize="13sp" android:textColor="@color/brown_soft" />
+            </LinearLayout>
+            <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchFree"
+                android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <Button android:id="@+id/btnPlacement" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="24dp" android:text="🎯 레벨테스트 다시 보기"
+            android:backgroundTint="@color/lavender" android:textColor="@color/white" />
+
+        <Button android:id="@+id/btnReset" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:text="🗑 진행도 전체 초기화"
+            android:backgroundTint="@color/coral_deep" android:textColor="@color/white" />
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="24dp" android:gravity="center" android:textSize="13sp"
+            android:textColor="@color/brown_soft"
+            android:text="삐약영어 🐥 나만의 영어 공부 앱\n말하기 채점은 인터넷이 있을 때 더 정확해요" />
+    </LinearLayout>
+</ScrollView>

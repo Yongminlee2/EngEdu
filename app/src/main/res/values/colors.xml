@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="cream">#FFF8E7</color>
+    <color name="cream_dark">#FFF0CC</color>
+    <color name="chick_yellow">#FFD54F</color>
+    <color name="chick_yellow_deep">#FFB300</color>
+    <color name="coral">#FF8A80</color>
+    <color name="coral_deep">#FF5252</color>
+    <color name="mint">#80CBC4</color>
+    <color name="mint_deep">#26A69A</color>
+    <color name="sky">#81D4FA</color>
+    <color name="sky_deep">#29B6F6</color>
+    <color name="lavender">#B39DDB</color>
+    <color name="lavender_deep">#7E57C2</color>
+    <color name="brown_text">#4E342E</color>
+    <color name="brown_soft">#8D6E63</color>
+    <color name="white">#FFFFFF</color>
+    <color name="green_ok">#66BB6A</color>
+    <color name="green_bg">#E8F5E9</color>
+    <color name="red_bg">#FFEBEE</color>
+    <color name="gray_locked">#D7CCC8</color>
+    <color name="tile_bg">#FFFFFF</color>
+    <color name="tile_border">#FFE082</color>
+</resources>
