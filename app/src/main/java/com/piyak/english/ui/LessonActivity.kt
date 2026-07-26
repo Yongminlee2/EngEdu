@@ -449,6 +449,9 @@ class LessonActivity : AppCompatActivity() {
         if (detail.isNotEmpty()) {
             b.txtExplain.visibility = View.VISIBLE
             b.txtExplain.text = detail
+            // 긴 해설은 패널 안에서 스크롤
+            b.txtExplain.movementMethod = android.text.method.ScrollingMovementMethod()
+            b.txtExplain.scrollTo(0, 0)
         } else b.txtExplain.visibility = View.GONE
         b.btnContinue.backgroundTintList = ColorStateList.valueOf(
             Color.parseColor(if (correct) "#66BB6A" else "#FF5252")

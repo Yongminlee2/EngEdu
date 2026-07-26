@@ -51,7 +51,8 @@
                 android:textSize="18sp" android:textStyle="bold" android:text="삐약! 정답이에요!" />
         </LinearLayout>
         <TextView android:id="@+id/txtExplain" android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_marginTop="6dp" android:textSize="14sp" android:visibility="gone" />
+            android:layout_marginTop="6dp" android:textSize="14sp" android:visibility="gone"
+            android:maxLines="11" android:scrollbars="vertical" android:lineSpacingMultiplier="1.15" />
         <Button android:id="@+id/btnContinue"
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="10dp" android:text="계속하기" android:textSize="17sp"

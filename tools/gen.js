@@ -190,31 +190,50 @@ function genBasicUnits() {
     if (!words.length) continue;
     const koPool = words.map((w) => w.ko);
     const enPool = words.map((w) => w.word);
+    // 오답 선택지 해설용 역방향 사전
+    const koToWord = {}; const enToKo = {};
+    for (const w of words) {
+      if (!koToWord[w.ko]) koToWord[w.ko] = w.word;
+      if (!enToKo[w.word]) enToKo[w.word] = w.ko;
+    }
+    const glossK = (kos) => kos.map((k) => `'${k}'는 ${koToWord[k] || "?"}`).join(" · ");
+    const glossE = (ens) => ens.map((e) => `${e}는 '${enToKo[e] || "?"}'`).join(" · ");
+    const exLine = (w) => (w.exEn ? `\n예문: ${w.exEn}\n      ${w.exKo}` : "");
 
     // --- 단어 유닛: 6단어 그룹 → 라운드식 출제 ---
     const stream = [];
     for (const group of chunk(words, 6)) {
       if (group.length < 4) continue;
       // 1R: 뜻 고르기
-      for (const w of group)
-        stream.push(mcq("b", `"${w.word}" 의 뜻은?`, w.ko, pickDistinct(koPool, 3, [w.ko]),
-          w.exEn ? `${w.word}: ${w.ko}\n${w.exEn} — ${w.exKo}` : `${w.word} (${w.pos}) : ${w.ko}`));
+      for (const w of group) {
+        const d = pickDistinct(koPool, 3, [w.ko]);
+        stream.push(mcq("b", `"${w.word}" 의 뜻은?`, w.ko, d,
+          `📌 ${w.word} (${w.pos}) = ${w.ko}${exLine(w)}\n\n다른 선택지는 각각: ${glossK(d)} 의 뜻이라 오답이에요.`));
+      }
       // 2R: 영어로
-      for (const w of group)
-        stream.push(mcq("b", `"${w.ko}" 를 영어로?`, w.word, pickDistinct(enPool, 3, [w.word]),
-          `${w.ko} = ${w.word}`));
+      for (const w of group) {
+        const d = pickDistinct(enPool, 3, [w.word]);
+        stream.push(mcq("b", `"${w.ko}" 를 영어로?`, w.word, d,
+          `📌 ${w.ko} = ${w.word} (${w.pos})${exLine(w)}\n\n다른 선택지는 각각: ${glossE(d)} 라는 뜻이라 오답이에요.`));
+      }
       // 3R: 듣고 고르기
-      for (const w of group)
-        stream.push(listenMcq("b", w.word, "들린 단어의 뜻은?", w.ko,
-          pickDistinct(koPool, 3, [w.ko]), `${w.word} : ${w.ko}`));
+      for (const w of group) {
+        const d = pickDistinct(koPool, 3, [w.ko]);
+        stream.push(listenMcq("b", w.word, "들린 단어의 뜻은?", w.ko, d,
+          `🔊 들려준 단어: ${w.word} = ${w.ko}${exLine(w)}\n\n다른 선택지는 각각: ${glossK(d)} 의 뜻이에요.`));
+      }
       // 4R: 받아쓰기(짧은 단어) / 빈칸(긴 단어)
       for (const w of group) {
         if (w.word.length <= 9 && !w.word.includes(" ")) {
-          stream.push(dictationQ("b", w.word, w.word, w.ko));
+          stream.push(dictationQ("b", w.word, w.word, w.ko,
+            `📌 ${w.word} = ${w.ko}. 철자를 소리와 함께 기억하세요: ${w.word.split("").join("-")}${exLine(w)}`));
         } else if (w.exEn) {
           const blanked = blankOut(w.word, w.exEn);
-          if (blanked) stream.push(mcq("b", `${blanked}\n(${w.exKo})`, w.word,
-            pickDistinct(enPool, 3, [w.word]), `${w.word} : ${w.ko}`));
+          if (blanked) {
+            const d = pickDistinct(enPool, 3, [w.word]);
+            stream.push(mcq("b", `${blanked}\n(${w.exKo})`, w.word, d,
+              `📌 빈칸에는 ${w.word}(${w.ko})가 들어가요.\n완성 문장: ${w.exEn}\n\n다른 선택지는 각각: ${glossE(d)} 라는 뜻이라 문맥에 맞지 않아요.`));
+          }
         }
       }
       // 5R: 짝 맞추기
@@ -227,9 +246,11 @@ function genBasicUnits() {
         const toks = w.exEn.split(" ").filter(Boolean);
         const mode = i % 3;
         if (mode === 0 && toks.length >= 3 && toks.length <= 10)
-          stream.push(orderQ("b", w.exKo, w.exEn, `${w.word} : ${w.ko}`));
+          stream.push(orderQ("b", w.exKo, w.exEn,
+            `📌 핵심 단어: ${w.word} = ${w.ko}\n영어는 [주어+동사+목적어] 순서가 기본이에요.`));
         else if (mode === 1 && w.exEn.length <= 60)
-          stream.push(dictationQ("b", w.exEn, w.exEn, w.exKo));
+          stream.push(dictationQ("b", w.exEn, w.exEn, w.exKo,
+            `📌 핵심 단어: ${w.word} = ${w.ko}`));
         else stream.push(speakQ("b", w.exEn, w.exKo));
       });
     }
@@ -384,13 +405,18 @@ function genToeicUnits() {
   // 토익 어휘 트레이닝 (L9 어휘의 빈칸·예문 받아쓰기)
   const words = vocab[9] || [];
   const enPool = words.map((w) => w.word);
+  const enToKo9 = {}; for (const w of words) if (!enToKo9[w.word]) enToKo9[w.word] = w.ko;
   const tq = [];
   for (const w of words) {
     if (w.exEn) {
       const blanked = blankOut(w.word, w.exEn);
-      if (blanked) tq.push(mcq("t", `${blanked}\n(${w.exKo})`, w.word,
-        pickDistinct(enPool, 3, [w.word]), `${w.word} : ${w.ko}`));
-      if (w.exEn.length <= 60) tq.push(dictationQ("t", w.exEn, w.exEn, w.exKo));
+      if (blanked) {
+        const d = pickDistinct(enPool, 3, [w.word]);
+        tq.push(mcq("t", `${blanked}\n(${w.exKo})`, w.word, d,
+          `📌 정답: ${w.word} = ${w.ko}\n완성 문장: ${w.exEn}\n\n다른 선택지는 각각: ${d.map((e) => `${e}는 '${enToKo9[e] || "?"}'`).join(" · ")} 라는 뜻이라 문맥에 맞지 않아요.`));
+      }
+      if (w.exEn.length <= 60) tq.push(dictationQ("t", w.exEn, w.exEn, w.exKo,
+        `📌 핵심 비즈니스 어휘: ${w.word} = ${w.ko}`));
     }
   }
   if (tq.length) {
@@ -428,13 +454,18 @@ function genToeflUnits() {
   // 학술 어휘
   const words = vocab[10] || [];
   const enPool = words.map((w) => w.word);
+  const enToKo10 = {}; for (const w of words) if (!enToKo10[w.word]) enToKo10[w.word] = w.ko;
   const fq = (data.vocabq || []).map((g) => mcq("f", g.p, g.c[g.a], g.c.filter((_, i) => i !== g.a), g.e));
   for (const w of words) {
     if (w.exEn) {
       const blanked = blankOut(w.word, w.exEn);
-      if (blanked) fq.push(mcq("f", `${blanked}\n(${w.exKo})`, w.word,
-        pickDistinct(enPool, 3, [w.word]), `${w.word} : ${w.ko}`));
-      if (w.exEn.length <= 64) fq.push(dictationQ("f", w.exEn, w.exEn, w.exKo));
+      if (blanked) {
+        const d = pickDistinct(enPool, 3, [w.word]);
+        fq.push(mcq("f", `${blanked}\n(${w.exKo})`, w.word, d,
+          `📌 정답: ${w.word} = ${w.ko}\n완성 문장: ${w.exEn}\n\n다른 선택지는 각각: ${d.map((e) => `${e}는 '${enToKo10[e] || "?"}'`).join(" · ")} 라는 뜻이라 문맥에 맞지 않아요.`));
+      }
+      if (w.exEn.length <= 64) fq.push(dictationQ("f", w.exEn, w.exEn, w.exKo,
+        `📌 핵심 학술 어휘: ${w.word} = ${w.ko}`));
     }
   }
   if (fq.length) {
