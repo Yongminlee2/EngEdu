@@ -55,7 +55,9 @@ class ContentPackTest {
             }
             is Question.Speak -> assertTrue("$where/${q.id}: en", q.en.isNotBlank())
             is Question.ListenDialog -> {
-                assertTrue("$where/${q.id}: 대사 2줄 이상", q.lines.size >= 2)
+                // 토익 대화는 2줄+, 토플 강의는 1인 독백(1줄)도 허용
+                assertTrue("$where/${q.id}: 대사 없음", q.lines.isNotEmpty())
+                assertTrue("$where/${q.id}: 빈 대사", q.lines.all { it.second.isNotBlank() })
                 assertTrue("$where/${q.id}: 선택지 4개", q.choices.size == 4)
                 assertTrue("$where/${q.id}: 정답 범위", q.answer in q.choices.indices)
             }
