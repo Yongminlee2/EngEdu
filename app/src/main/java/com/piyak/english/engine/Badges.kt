@@ -35,7 +35,13 @@ object Badges {
         BadgeDef("mouth_master", "🎤", "입이 트였다", "말하기 실력 Lv.5"),
         BadgeDef("hand_master", "✍️", "손이 풀렸다", "쓰기 실력 Lv.5"),
         BadgeDef("grammar_master", "📖", "문법 도사", "문법 실력 Lv.5"),
-        BadgeDef("all_rounder", "🌈", "만능 삐약이", "모든 영역 Lv.3 이상"),
+        BadgeDef("all_rounder", "🌈", "만능 삐약이", "영어 모든 영역 Lv.3 이상"),
+        // 수학
+        BadgeDef("m_calc_master", "➕", "계산왕", "수학 계산 실력 Lv.5"),
+        BadgeDef("m_shape_master", "🔺", "도형 박사", "수학 도형 실력 Lv.5"),
+        BadgeDef("m_word_master", "🧩", "문장제 해결사", "수학 문장제 실력 Lv.5"),
+        BadgeDef("m_all_rounder", "🧮", "수학 만능", "수학 모든 영역 Lv.3 이상"),
+        BadgeDef("both_subjects", "🎓", "두 과목 척척", "영어·수학 모두 Lv.3 이상 영역 보유"),
     )
 
     fun check(s: StatsSnapshot, already: Set<String>): List<BadgeDef> {
@@ -62,6 +68,15 @@ object Badges {
         give("hand_master", (s.skillLevels["writing"] ?: 0) >= 5)
         give("grammar_master", (s.skillLevels["grammar"] ?: 0) >= 5)
         give("all_rounder", Skills.ALL.all { (s.skillLevels[it.id] ?: 0) >= 3 })
+        give("m_calc_master", (s.skillLevels["m_calc"] ?: 0) >= 5)
+        give("m_shape_master", (s.skillLevels["m_shape"] ?: 0) >= 5)
+        give("m_word_master", (s.skillLevels["m_word"] ?: 0) >= 5)
+        give("m_all_rounder", Skills.MATH.all { (s.skillLevels[it.id] ?: 0) >= 3 })
+        give(
+            "both_subjects",
+            Skills.ALL.any { (s.skillLevels[it.id] ?: 0) >= 3 } &&
+                Skills.MATH.any { (s.skillLevels[it.id] ?: 0) >= 3 }
+        )
         return earned
     }
 }

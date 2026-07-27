@@ -54,8 +54,14 @@ class TrackActivity : AppCompatActivity() {
             b.unitsBox.addView(header)
 
             val flow = FlowLayout(this).apply { setPadding(dp(4), 0, dp(4), 0) }
-            // BASIC 트랙은 배치고사 레벨 이하 유닛 전체 해금
-            val unitUnlockedByPlacement = trackId == "basic" && u.level <= placed
+            // 배치고사 결과 이하는 전체 해금 — 영어는 기초 트랙의 레벨, 수학은 학년 단위
+            val mathLevel = com.piyak.english.model.MathGrades.of(trackId)
+                ?.let { com.piyak.english.model.MathGrades.levelOf(trackId) }
+            val unitUnlockedByPlacement = when {
+                mathLevel != null -> mathLevel <= db.metaInt("math_placement_level", 0)
+                trackId == "basic" -> u.level <= placed
+                else -> false
+            }
 
             for (l in u.lessons) {
                 val isDone = l.id in done

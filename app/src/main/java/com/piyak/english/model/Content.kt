@@ -70,11 +70,12 @@ object ContentRepo {
         )
     }
 
-    /** 배치고사 문제: (난이도 1~10, 문제) 목록 */
+    /** 배치고사 문제: (난이도, 문제) 목록. 과목마다 팩이 다르다. */
     @Synchronized
-    fun placement(ctx: Context): List<Pair<Int, Question>> {
+    fun placement(ctx: Context, subject: Subject = Subject.ENGLISH): List<Pair<Int, Question>> {
+        val file = if (subject == Subject.MATH) "packs/math_placement.json" else "packs/placement.json"
         return try {
-            val json = ctx.assets.open("packs/placement.json").bufferedReader().use { it.readText() }
+            val json = ctx.assets.open(file).bufferedReader().use { it.readText() }
             val arr = JSONObject(json).getJSONArray("questions")
             (0 until arr.length()).map {
                 val q = arr.getJSONObject(it)
@@ -84,6 +85,33 @@ object ContentRepo {
             emptyList()
         }
     }
+
+    /** 트랙 요약(레슨 수·문제 수). 시작 화면에서 팩을 전부 파싱하지 않으려고 미리 구워 둔 색인. */
+    data class TrackSummary(val lessons: Int, val questions: Int)
+
+    private var summaryCache: Map<String, TrackSummary>? = null
+
+    @Synchronized
+    fun summaries(ctx: Context): Map<String, TrackSummary> {
+        summaryCache?.let { return it }
+        val out = HashMap<String, TrackSummary>()
+        try {
+            val json = ctx.assets.open("packs/index.json").bufferedReader().use { it.readText() }
+            val o = JSONObject(json)
+            for (key in o.keys()) {
+                val e = o.getJSONObject(key)
+                out[key] = TrackSummary(e.optInt("lessons"), e.optInt("questions"))
+            }
+        } catch (e: Exception) {
+            // 색인이 없으면 0으로 두고 넘어간다 (진행률만 안 보일 뿐 학습에는 지장 없음)
+        }
+        summaryCache = out
+        return out
+    }
+
+    /** 과목 전체 레슨 수 (색인 기반이라 팩을 열지 않는다) */
+    fun lessonCountOf(ctx: Context, subject: Subject): Int =
+        summaries(ctx).let { s -> subject.tracks.sumOf { s[it]?.lessons ?: 0 } }
 
     /** 오답 복습용: qid 로 문제 찾기 (트랙 전체 스캔, 캐시 활용) */
     fun findQuestion(ctx: Context, trackId: String, lessonId: String, qid: String): Question? {

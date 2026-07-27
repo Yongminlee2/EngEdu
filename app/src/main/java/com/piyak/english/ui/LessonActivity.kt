@@ -802,7 +802,10 @@ class LessonActivity : AppCompatActivity() {
             placementDone = db.meta("placement_done") == "1",
             reviewCleared = db.metaInt("review_cleared"),
             unitsCompleted = unitMap,
-            skillLevels = db.skillStates().associate { it.def.id to it.level },
+            // 배지 판정에는 두 과목의 영역을 모두 넘긴다
+            skillLevels = db.skillStates(
+                com.piyak.english.engine.Skills.ALL + com.piyak.english.engine.Skills.MATH
+            ).associate { it.def.id to it.level },
             goalsMet = db.metaInt("goals_met"),
         )
         val newly = Badges.check(snap, db.earnedBadges())

@@ -49,14 +49,12 @@ class SubjectActivity : AppCompatActivity() {
 
     private fun build(db: Db) {
         b.subjectsBox.removeAllViews()
+        // 완료한 레슨 id 는 접두사로 과목을 구분한다 (팩을 열지 않아도 세어진다)
+        val done = db.completedLessonIds()
         for (s in Subject.entries) {
-            val done = db.completedLessonIds()
-            var total = 0
-            var cleared = 0
-            for (tid in s.tracks) {
-                val t = ContentRepo.track(this, tid) ?: continue
-                total += t.lessonCount
-                cleared += t.units.sumOf { u -> u.lessons.count { it.id in done } }
+            val total = ContentRepo.lessonCountOf(this, s)
+            val cleared = done.count { id ->
+                if (s == Subject.MATH) id.startsWith("ml") else !id.startsWith("ml")
             }
 
             val card = LinearLayout(this).apply {

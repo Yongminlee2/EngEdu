@@ -48,17 +48,33 @@ class StatsActivity : AppCompatActivity() {
         buildBadges(db.earnedBadges())
     }
 
-    /** 영역별 실력 상세: 레벨 · 진행바 · 정답수/시도수 · 다음 레벨까지 */
+    /** 영역별 실력 상세: 레벨 · 진행바 · 정답수/시도수 · 다음 레벨까지 (두 과목 모두) */
     private fun buildSkills(db: Db) {
-        val states = db.skillStates()
-        val overall = com.piyak.english.engine.Skills.overallLevel(states)
+        val states = db.skillStates(
+            com.piyak.english.engine.Skills.ALL + com.piyak.english.engine.Skills.MATH
+        )
+        val overall = com.piyak.english.engine.Skills.overallLevel(db.skillStates())
         val rank = com.piyak.english.engine.Ranks.of(overall)
         val next = com.piyak.english.engine.Ranks.next(overall)
         b.txtRankLine.text = String.format("%s %s · 종합 Lv.%.1f", rank.emoji, rank.title, overall) +
             if (next != null) "  (다음: ${next.title} Lv.${next.minOverall})" else "  (최고 칭호!)"
 
         b.skillDetailBox.removeAllViews()
-        for (st in states) {
+        val mathIds = com.piyak.english.engine.Skills.MATH.map { it.id }.toSet()
+        var mathHeaderShown = false
+        for ((i, st) in states.withIndex()) {
+            // 영어 영역 뒤에 수학 영역이 이어지므로 사이에 제목을 넣는다
+            if (i == 0 || (!mathHeaderShown && st.def.id in mathIds)) {
+                val isMath = st.def.id in mathIds
+                if (isMath) mathHeaderShown = true
+                b.skillDetailBox.addView(TextView(this).apply {
+                    text = if (isMath) "🔢 수학" else "📘 영어"
+                    textSize = 14f
+                    setTypeface(typeface, android.graphics.Typeface.BOLD)
+                    setTextColor(Color.parseColor("#8D6E63"))
+                    setPadding(dp(4), dp(12), 0, dp(2))
+                })
+            }
             val box = LinearLayout(this).apply {
                 orientation = LinearLayout.VERTICAL
                 setPadding(dp(12), dp(10), dp(12), dp(10))

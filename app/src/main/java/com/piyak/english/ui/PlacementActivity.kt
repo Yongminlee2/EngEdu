@@ -26,6 +26,8 @@ class PlacementActivity : AppCompatActivity() {
     private var curLevel = Placement.START_LEVEL
     private var count = 0
     private val TOTAL = Placement.TOTAL
+    private lateinit var subject: com.piyak.english.model.Subject
+    private var maxLevel = Placement.MAX_LEVEL_ENGLISH
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +37,10 @@ class PlacementActivity : AppCompatActivity() {
         tts = Tts(this)
         tts.rate = db.meta("tts_rate", "1.0").toFloatOrNull() ?: 1.0f
 
-        val all = ContentRepo.placement(this)
+        subject = com.piyak.english.model.Subject.of(intent.getStringExtra("subject") ?: "english")
+        maxLevel = Placement.maxLevel(subject)
+
+        val all = ContentRepo.placement(this, subject)
         if (all.isEmpty()) { finish(); return }
         for ((lv, q) in all.shuffled()) pool.getOrPut(lv) { ArrayList() }.add(q)
 
@@ -53,9 +58,11 @@ class PlacementActivity : AppCompatActivity() {
 
     private fun takeQuestion(level: Int): Pair<Int, Question>? {
         // 해당 레벨에 문제가 없으면 가까운 레벨에서 가져온다
-        for (d in 0..9) {
+        for (d in 0..maxLevel) {
             for (lv in listOf(level - d, level + d)) {
-                if (lv in 1..10) pool[lv]?.let { if (it.isNotEmpty()) return lv to it.removeAt(it.size - 1) }
+                if (lv in 1..maxLevel) {
+                    pool[lv]?.let { if (it.isNotEmpty()) return lv to it.removeAt(it.size - 1) }
+                }
             }
         }
         return null
@@ -74,7 +81,17 @@ class PlacementActivity : AppCompatActivity() {
         val (prompt, choices, answer, ttsText) = when (q) {
             is Question.Mcq -> Quad(q.prompt, q.choices, q.answer, null)
             is Question.ListenMcq -> Quad(q.prompt, q.choices, q.answer, q.tts)
-            else -> { showNext(); return } // 배치고사는 선다형만
+            // 수학 배치고사는 선다형과 숫자 답 문제가 섞여 있다 — 숫자 답은 보기로 바꿔 낸다
+            is Question.Math -> when {
+                q.input == "choice" && q.choices.size == 4 ->
+                    Quad(q.prompt, q.choices, q.answerIndex, null)
+                else -> {
+                    val opts = numericOptions(q.answer)
+                    if (opts == null) { showNext(); return }
+                    Quad(q.prompt, opts.first, opts.second, null)
+                }
+            }
+            else -> { showNext(); return }
         }
         b.txtPrompt.text = prompt
         if (ttsText != null) {
@@ -95,7 +112,7 @@ class PlacementActivity : AppCompatActivity() {
             btn.setOnClickListener {
                 val correct = i == answer
                 history.add(lv to correct)
-                curLevel = Placement.nextLevel(lv, correct)
+                curLevel = Placement.nextLevel(lv, correct, maxLevel)
                 btn.backgroundTintList = ColorStateList.valueOf(
                     Color.parseColor(if (correct) "#C8E6C9" else "#FFCDD2")
                 )
@@ -107,24 +124,54 @@ class PlacementActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * 숫자로 답하는 수학 문제를 배치고사용 4지선다로 바꾼다.
+     * 배치고사는 빠르게 넘겨야 해서 키패드 대신 보기를 준다.
+     */
+    private fun numericOptions(answer: String): Pair<List<String>, Int>? {
+        val v = com.piyak.english.engine.MathGrader.parse(answer) ?: return null
+        if (v != Math.floor(v) || Math.abs(v) > 100000) return null
+        val n = v.toInt()
+        val wrong = LinkedHashSet<Int>()
+        var d = 1
+        while (wrong.size < 3 && d < 40) {
+            for (w in listOf(n + d, n - d)) {
+                if (w != n && w >= 0 && wrong.size < 3) wrong.add(w)
+            }
+            d++
+        }
+        if (wrong.size < 3) return null
+        val opts = (listOf(n) + wrong).map { it.toString() }.shuffled()
+        return opts to opts.indexOf(n.toString())
+    }
+
     private fun showResult() {
         val placed = Placement.placeLevel(history)
-        val firstTime = db.meta("placement_done") != "1"
-        db.setMeta("placement_level", placed.toString())
-        db.setMeta("placement_done", "1")
+        val doneKey = Placement.doneKey(subject)
+        val firstTime = db.meta(doneKey) != "1"
+        db.setMeta(Placement.levelKey(subject), placed.toString())
+        db.setMeta(doneKey, "1")
         db.addXp(30)
         db.markToday()
         var coinLine = ""
         if (firstTime) {
             val c = db.earnCoins(
-                com.piyak.english.engine.Wallet.PLACEMENT_BONUS, "PLACEMENT", "레벨테스트 완료"
+                com.piyak.english.engine.Wallet.PLACEMENT_BONUS, "PLACEMENT",
+                "${subject.title} 레벨테스트 완료"
             )
             coinLine = "\n💰 용돈 +${com.piyak.english.engine.Wallet.format(c)}"
         }
         b.resultPanel.visibility = View.VISIBLE
-        b.txtResultTitle.text = "레벨 $placed"
-        b.txtResultDesc.text =
-            "${Placement.LEVEL_NAMES[placed]} 수준이에요!\n기초 트랙 레벨 ${placed}까지 열어 드렸어요.\n+30 XP 🎁$coinLine"
+        val name = Placement.levelName(subject, placed)
+        if (subject == com.piyak.english.model.Subject.MATH) {
+            b.txtResultTitle.text = name
+            b.txtResultDesc.text =
+                "$name 수준이에요!\n${name}까지 모든 단원을 열어 드렸어요.\n+30 XP 🎁$coinLine"
+        } else {
+            b.txtResultTitle.text = "레벨 $placed"
+            b.txtResultDesc.text =
+                "$name 수준이에요!\n기초 트랙 레벨 ${placed}까지 열어 드렸어요.\n+30 XP 🎁$coinLine"
+        }
     }
 
     private fun dp(v: Int): Int = (v * resources.displayMetrics.density).toInt()
