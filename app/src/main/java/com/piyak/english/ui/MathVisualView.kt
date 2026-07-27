@@ -43,6 +43,8 @@ class MathVisualView @JvmOverloads constructor(
         set(v) {
             field = v
             counted.clear()
+            setHour = 12; setMinute = 0
+            draggingClock = false
             requestLayout()
             invalidate()
         }
@@ -71,7 +73,63 @@ class MathVisualView @JvmOverloads constructor(
         invalidate()
     }
 
+    // ---------- 시계 바늘 돌리기 ----------
+    /**
+     * 시각을 "읽는" 것에서 한 걸음 더 나아가 직접 **바늘을 돌려 만들어 보는** 모드.
+     * 짧은 바늘 근처를 잡으면 시침이, 그 밖을 잡으면 분침이 손가락을 따라온다.
+     */
+    private var clockCx = 0f
+    private var clockCy = 0f
+    private var clockR = 0f
+    private var draggingHour = false
+    private var draggingClock = false
+
+    var setHour = 12
+        private set
+    var setMinute = 0
+        private set
+
+    /** 맞춰 놓은 시각이 바뀔 때 (시, 분) */
+    var onClockChanged: ((Int, Int) -> Unit)? = null
+
+    fun resetClock() {
+        setHour = 12; setMinute = 0
+        onClockChanged?.invoke(setHour, setMinute)
+        invalidate()
+    }
+
+    private fun handleClockTouch(event: android.view.MotionEvent): Boolean {
+        val dx = event.x - clockCx
+        val dy = event.y - clockCy
+        val dist = kotlin.math.hypot(dx, dy)
+        when (event.actionMasked) {
+            android.view.MotionEvent.ACTION_DOWN -> {
+                if (dist > clockR * 1.05f) return false
+                // 시침은 짧다 — 안쪽을 잡으면 시침, 바깥을 잡으면 분침
+                draggingHour = dist < clockR * 0.55f
+                draggingClock = true
+                parent?.requestDisallowInterceptTouchEvent(true)
+            }
+            android.view.MotionEvent.ACTION_MOVE -> if (!draggingClock) return false
+            else -> { draggingClock = false; return true }
+        }
+        // 12시 방향이 0도가 되도록 회전
+        var deg = Math.toDegrees(kotlin.math.atan2(dy.toDouble(), dx.toDouble())) + 90.0
+        if (deg < 0) deg += 360.0
+        if (draggingHour) {
+            val h = Math.round(deg / 30.0).toInt() % 12
+            setHour = if (h == 0) 12 else h
+        } else {
+            // 5분 단위로 딱 붙게 — 아이 손가락으로 1분 단위를 맞추긴 어렵다
+            setMinute = (Math.round(deg / 6.0).toInt() / 5 * 5) % 60
+        }
+        onClockChanged?.invoke(setHour, setMinute)
+        invalidate()
+        return true
+    }
+
     override fun onTouchEvent(event: android.view.MotionEvent): Boolean {
+        if (visual?.kind == MathVisual.CLOCK_SET) return handleClockTouch(event)
         if (!countable || event.actionMasked != android.view.MotionEvent.ACTION_DOWN) return false
         var best = -1
         var bestD = Float.MAX_VALUE
@@ -127,6 +185,8 @@ class MathVisualView @JvmOverloads constructor(
             MathVisual.ARRAY -> (w * 0.13f * v.a + dp(30)).toInt().coerceAtLeast(dp(110))
             MathVisual.SHAPES, MathVisual.COMPARE -> (w * 0.38f).toInt()
             MathVisual.CLOCK -> (w * 0.62f).toInt()
+            MathVisual.CLOCK_SET -> (w * 0.78f).toInt()
+            MathVisual.GROUP -> 0          // GroupDragView 가 따로 그린다
             MathVisual.FRACTION -> (w * 0.40f).toInt()
             MathVisual.NUMBER_LINE -> dp(96)
             MathVisual.BAR_GRAPH -> (w * 0.58f).toInt()
@@ -147,7 +207,7 @@ class MathVisualView @JvmOverloads constructor(
             MathVisual.EMOJI_OP -> drawEmojiOp(canvas, v, w, h)
             MathVisual.ARRAY -> drawArray(canvas, v, w, h)
             MathVisual.SHAPES -> drawShapes(canvas, v, w, h)
-            MathVisual.CLOCK -> drawClock(canvas, v, w, h)
+            MathVisual.CLOCK, MathVisual.CLOCK_SET -> drawClock(canvas, v, w, h)
             MathVisual.FRACTION -> drawFraction(canvas, v, w, h)
             MathVisual.NUMBER_LINE -> drawNumberLine(canvas, v, w, h)
             MathVisual.BAR_GRAPH -> drawBarGraph(canvas, v, w, h)
@@ -323,8 +383,11 @@ class MathVisualView @JvmOverloads constructor(
             )
         }
 
-        val hour = v.p
-        val minute = v.q
+        // 마지막으로 그린 판 위치 — 바늘을 끌 때 각도 계산에 쓴다
+        clockCx = cx; clockCy = cy; clockR = r
+
+        val hour = if (v.kind == MathVisual.CLOCK_SET) setHour.toDouble() else v.p
+        val minute = if (v.kind == MathVisual.CLOCK_SET) setMinute.toDouble() else v.q
         // 시침 (분에 따라 조금씩 이동)
         val ha = Math.toRadians(-90.0 + 30.0 * (hour % 12) + 0.5 * minute)
         stroke.strokeWidth = dp(6f).toFloat()
@@ -344,6 +407,22 @@ class MathVisualView @JvmOverloads constructor(
         fill.color = Color.parseColor("#5D4037")
         canvas.drawCircle(cx, cy, dp(5f).toFloat(), fill)
         stroke.color = Color.parseColor("#5D4037")
+
+        if (v.kind == MathVisual.CLOCK_SET) {
+            // 지금 맞춰 놓은 시각을 숫자로도 보여 준다
+            text.textSize = r * 0.22f
+            text.color = Color.parseColor("#4E342E")
+            canvas.drawText(
+                "${setHour}시 ${setMinute}분",
+                cx, cy + r * 1.28f, text
+            )
+            text.textSize = r * 0.15f
+            text.isFakeBoldText = false
+            text.color = Color.parseColor("#8D6E63")
+            canvas.drawText("바늘을 끌어서 맞춰 보세요", cx, cy + r * 1.48f, text)
+            text.isFakeBoldText = true
+            text.color = Color.parseColor("#4E342E")
+        }
     }
 
     // ---------- 분수 (원을 나눈 그림) ----------

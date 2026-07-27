@@ -116,6 +116,57 @@ class InteractionTest {
         assertTrue("저학년인데 버블로 낼 문제가 거의 없다", bubbleable > 300)
     }
 
+    /**
+     * 그림을 직접 조작해 답하는 문제(input=visual)가 앱이 읽을 수 있는 꼴인지.
+     * 시계는 "H:MM", 끌어서 나누기는 나눠떨어지는 정수여야 채점이 성립한다.
+     */
+    @Test fun visualInputQuestionsAreWellFormed() {
+        val dir = packsDir()
+        var clocks = 0
+        var groups = 0
+        for (tid in Subject.MATH.tracks) {
+            val f = File(dir, "$tid.json")
+            if (!f.isFile) continue
+            val t = ContentRepo.parseTrack(JSONObject(f.readText()))
+            for (u in t.units) for (l in u.lessons) for (q in l.questions) {
+                val m = q as? Question.Math ?: continue
+                if (m.input != "visual") continue
+                val v = m.visual ?: error("${m.id}: visual 입력인데 그림이 없다")
+                when (v.kind) {
+                    com.piyak.english.model.MathVisual.CLOCK_SET -> {
+                        val parts = m.answer.split(":")
+                        assertEquals("${m.id}: 답이 H:MM 꼴이 아님", 2, parts.size)
+                        val h = parts[0].toIntOrNull() ?: error("${m.id}: 시 없음")
+                        val mm = parts[1].toIntOrNull() ?: error("${m.id}: 분 없음")
+                        assertTrue("${m.id}: 시 범위", h in 1..12)
+                        assertTrue("${m.id}: 분 범위", mm in 0..59)
+                        // 손가락으로는 5분 단위까지만 맞출 수 있다
+                        assertEquals("${m.id}: 5분 단위가 아니라 맞출 수 없다", 0, mm % 5)
+                        clocks++
+                    }
+                    com.piyak.english.model.MathVisual.GROUP -> {
+                        val per = m.answer.toIntOrNull() ?: error("${m.id}: 답이 정수가 아님")
+                        assertTrue("${m.id}: 묶음 수 범위", v.bb in 2..4)
+                        assertTrue("${m.id}: 화면에 안 들어갈 만큼 많다", v.a in 4..18)
+                        assertEquals("${m.id}: 똑같이 나눠지지 않는다", 0, v.a % v.bb)
+                        assertEquals("${m.id}: 답이 몫과 다르다", v.a / v.bb, per)
+                        groups++
+                    }
+                    else -> error("${m.id}: 조작할 수 없는 그림인데 visual 입력")
+                }
+            }
+        }
+        println("바늘 돌리기 $clocks · 끌어서 나누기 $groups")
+        assertTrue("시계 바늘 돌리기 문제가 없다", clocks > 50)
+        assertTrue("끌어서 나누기 문제가 없다", groups > 50)
+    }
+
+    /** 톡톡 누를 때 나는 소리는 자주 울리므로 정답·오답 소리보다 작아야 한다 */
+    @Test fun tapSoundIsQuieterThanFeedbackSounds() {
+        assertTrue("삐약 소리가 정답 소리만큼 크다", Sfx.TAP_VOLUME_SCALE < 0.5f)
+        assertTrue("삐약 소리가 아예 안 들린다", Sfx.TAP_VOLUME_SCALE > 0f)
+    }
+
     /** 짝 맞추기는 선 잇기로 바뀌었다 — 5쌍이어야 좌우 배치가 맞는다 */
     @Test fun matchQuestionsHaveConsistentPairCount() {
         val dir = packsDir()

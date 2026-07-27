@@ -2,7 +2,7 @@
 // 저학년은 그림(이모지·도형·시계)과 큰 숫자 위주, 고학년으로 갈수록 계산 중심.
 
 const L = require("./lib");
-const { rint, pick, shuffled, numQ, choiceQ, V, FRUITS, ANIMALS, THINGS, ALL_EMOJI,
+const { rint, pick, shuffled, numQ, choiceQ, visualQ, V, FRUITS, ANIMALS, THINGS, ALL_EMOJI,
   nearWrong, makeUnit, gen } = L;
 
 const SK = {
@@ -179,6 +179,20 @@ function grade1() {
     );
   }), 8));
 
+  // 시계를 읽는 것에서 한 걸음 더 — 바늘을 직접 돌려 시각을 만들어 본다
+  units.push(makeUnit("시계 바늘 돌리기", "🕐", 2, gen(30, () => {
+    const h = rint(1, 12);
+    const half = L.rng() < 0.5;
+    const m = half ? 30 : 0;
+    const label = half ? `${h}시 30분` : `${h}시`;
+    return visualQ(
+      `시계 바늘을 끌어서 ${label}을 만들어 보세요.`,
+      `${h}:${m}`,
+      `짧은바늘을 ${h}에, 긴바늘을 ${half ? 6 : 12}에 놓으면 ${label}이에요.`,
+      { visual: V.clockSet(h, m), skill: SK.measure }
+    );
+  }), 6));
+
   return units.filter(Boolean);
 }
 
@@ -232,6 +246,16 @@ function grade2() {
       { visual: V.clock(h, m), unit: "분", skill: SK.measure });
   }), 8));
 
+  units.push(makeUnit("시계 바늘 돌리기 (5분)", "🕐", 3, gen(30, () => {
+    const h = rint(1, 12), m = rint(1, 11) * 5;
+    return visualQ(
+      `시계 바늘을 끌어서 ${h}시 ${m}분을 만들어 보세요.`,
+      `${h}:${m}`,
+      `긴바늘은 ${m} ÷ 5 = ${m / 5}, 즉 숫자 ${m / 5}에 놓아요.\n짧은바늘은 ${h}에 놓으면 ${h}시 ${m}분이에요.`,
+      { visual: V.clockSet(h, m), skill: SK.measure }
+    );
+  }), 6));
+
   units.push(makeUnit("표와 그래프", "📊", 3, gen(30, () => {
     const labels = shuffled(["사과", "포도", "딸기", "바나나"]).slice(0, 4);
     const values = labels.map(() => rint(1, 9));
@@ -257,6 +281,21 @@ function grade3() {
       `${a}개를 ${b}묶음으로 똑같이 나누면 한 묶음에 ${q}개예요.\n확인: ${b} × ${q} = ${a}`,
       { visual: V.array(e, b, q), skill: SK.calc });
   }), 10));
+
+  // 나눗셈을 계산하기 전에 실제로 나눠 담아 본다 (끌어서 바구니에)
+  units.push(makeUnit("끌어서 똑같이 나누기", "🧺", 4, gen(30, () => {
+    const b = rint(2, 4);            // 바구니 수
+    const q = rint(2, 5);            // 한 바구니에 담길 개수
+    const a = b * q;
+    if (a > 18) return null;         // 화면에 한눈에 들어오는 만큼만
+    const e = pick(ANIMALS);
+    return visualQ(
+      `${e} ${a}마리를 바구니 ${b}개에 똑같이 나눠 담아 보세요. (${a} ÷ ${b})`,
+      q,
+      `${a}개를 ${b}묶음으로 똑같이 나누면 한 묶음에 ${q}개예요.\n확인: ${b} × ${q} = ${a}\n그래서 ${a} ÷ ${b} = ${q}예요.`,
+      { visual: V.group(e, a, b), skill: SK.calc }
+    );
+  }), 6));
 
   units.push(makeUnit("두 자리 × 한 자리", "✖️", 4, gen(45, () => {
     const a = rint(11, 99), b = rint(2, 9);

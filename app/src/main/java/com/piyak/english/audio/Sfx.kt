@@ -16,6 +16,12 @@ class Sfx(ctx: Context) {
     companion object {
         /** 기본 30% — 이보다 크면 영어 발음이 잘 안 들린다 */
         const val DEFAULT_VOLUME_PERCENT = 30
+
+        /**
+         * 톡톡 누르는 소리(삐약)의 배율.
+         * 보기를 고를 때·그림을 짚을 때마다 울리므로 정답·오답 소리보다 훨씬 작다.
+         */
+        const val TAP_VOLUME_SCALE = 0.25f
     }
 
     private val pool = SoundPool.Builder()
@@ -56,7 +62,9 @@ class Sfx(ctx: Context) {
         vib?.vibrate(VibrationEffect.createOneShot(110, VibrationEffect.DEFAULT_AMPLITUDE))
     }
     fun done() = play(sDone)
-    fun piyak() = play(sPiyak, 0.8f)
+
+    /** 톡톡 누를 때 나는 소리 */
+    fun piyak() = play(sPiyak, TAP_VOLUME_SCALE)
 
     fun release() = pool.release()
 }

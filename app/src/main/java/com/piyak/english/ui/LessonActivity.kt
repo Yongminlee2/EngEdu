@@ -564,6 +564,8 @@ class LessonActivity : AppCompatActivity() {
         v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
         v.findViewById<TextView>(R.id.txtKind).text = when (q.visual?.kind) {
             com.piyak.english.model.MathVisual.CLOCK -> "🕐 시계 보기"
+            com.piyak.english.model.MathVisual.CLOCK_SET -> "🕐 시계 바늘 돌리기"
+            com.piyak.english.model.MathVisual.GROUP -> "🧺 끌어서 똑같이 나누기"
             com.piyak.english.model.MathVisual.SHAPES -> "🔺 도형"
             com.piyak.english.model.MathVisual.FRACTION -> "🍰 분수"
             com.piyak.english.model.MathVisual.BAR_GRAPH -> "📊 그래프"
@@ -601,6 +603,15 @@ class LessonActivity : AppCompatActivity() {
         sayBtn.setOnClickListener { speakKorean(q.prompt) }
         @Suppress("KotlinConstantConditions")
         if (autoReadMath) b.root.postDelayed({ speakKorean(q.prompt) }, 350)
+
+        // 그림 자체가 답이 되는 문제 — 키패드도 보기도 없이 손으로 만들어 낸다
+        val vk = q.visual?.kind
+        if (vk == com.piyak.english.model.MathVisual.CLOCK_SET) {
+            showClockSet(v, q, visualView); return
+        }
+        if (vk == com.piyak.english.model.MathVisual.GROUP) {
+            showGroupDrag(v, q, visualView); return
+        }
 
         when (q.input) {
             // 숫자 보기는 대부분 짧으니 버블로 (만지는 재미)
@@ -718,6 +729,91 @@ class LessonActivity : AppCompatActivity() {
                     submitAnswer(ok, if (ok) null else "정답: $shown", q.explain)
                 }
             }
+        }
+    }
+
+    /**
+     * 시계 바늘 돌리기.
+     * 시각을 읽어 숫자로 쓰는 대신 바늘을 직접 끌어 "3시 30분"을 만들어 본다.
+     * 답은 "H:MM" 꼴로 저장돼 있다.
+     */
+    private fun showClockSet(v: View, q: Question.Math, visualView: MathVisualView) {
+        val parts = q.answer.split(":")
+        val wantH = (parts.getOrNull(0)?.trim()?.toIntOrNull() ?: 12).let {
+            val m = it % 12; if (m == 0) 12 else m
+        }
+        val wantM = parts.getOrNull(1)?.trim()?.toIntOrNull() ?: 0
+
+        val countBox = v.findViewById<LinearLayout>(R.id.countBox)
+        val txtCount = v.findViewById<TextView>(R.id.txtCount)
+        countBox.visibility = View.VISIBLE
+        txtCount.text = "🕐 바늘을 끌어서 시각을 맞춰 보세요"
+        v.findViewById<Button>(R.id.btnCountReset).apply {
+            text = "12시로"
+            setOnClickListener { visualView.resetClock() }
+        }
+
+        b.btnCheck.isEnabled = false
+        visualView.onClockChanged = { h, m ->
+            txtCount.text = "🕐 지금 맞춘 시각: ${h}시 ${m}분"
+            sfx.piyak()
+            b.btnCheck.isEnabled = true
+        }
+        checkAction = {
+            val ok = visualView.setHour == wantH && visualView.setMinute == wantM
+            submitAnswer(ok, if (ok) null else "정답: ${wantH}시 ${wantM}분", q.explain)
+        }
+    }
+
+    /**
+     * 끌어다 똑같이 나누기.
+     * 12 ÷ 3 을 머리로 계산하기 전에 실제로 사물을 세 묶음에 나눠 담아 본다.
+     * 답은 한 묶음에 들어가는 개수.
+     */
+    private fun showGroupDrag(v: View, q: Question.Math, visualView: MathVisualView) {
+        visualView.visibility = View.GONE
+        val vis = q.visual ?: return
+        val perGroupAnswer = q.answer.trim().toIntOrNull() ?: return
+
+        val grid = v.findViewById<android.widget.GridLayout>(R.id.choicesGrid)
+        grid.visibility = View.VISIBLE
+        val gv = GroupDragView(this).apply {
+            layoutParams = android.widget.GridLayout.LayoutParams().apply {
+                width = android.widget.GridLayout.LayoutParams.MATCH_PARENT
+                height = dp(380)
+                columnSpec = android.widget.GridLayout.spec(0, 2)
+            }
+        }
+        gv.setRound(vis.emoji, vis.a, vis.bb)
+        grid.addView(gv)
+
+        val countBox = v.findViewById<LinearLayout>(R.id.countBox)
+        val txtCount = v.findViewById<TextView>(R.id.txtCount)
+        countBox.visibility = View.VISIBLE
+        txtCount.text = "🧺 ${vis.emoji} 를 끌어서 ${vis.bb}개의 바구니에 똑같이 나눠 담아요"
+        v.findViewById<Button>(R.id.btnCountReset).apply {
+            text = "다시 담기"
+            setOnClickListener { gv.reset(); b.btnCheck.isEnabled = false }
+        }
+
+        b.btnCheck.isEnabled = false
+        gv.onPlace = { sfx.piyak() }
+        gv.onChanged = { counts ->
+            val left = vis.a - counts.sum()
+            txtCount.text = if (left > 0)
+                "🧺 " + counts.joinToString(" · ") { "${it}개" } + "   (남은 것 ${left}개)"
+            else
+                "🧺 " + counts.joinToString(" · ") { "${it}개" } + "   다 담았어요!"
+            b.btnCheck.isEnabled = counts.sum() > 0
+        }
+        checkAction = {
+            val ok = gv.isCorrect() && gv.perGroup() == perGroupAnswer
+            val why = when {
+                ok -> null
+                gv.counts().sum() < vis.a -> "아직 다 담지 않았어요. 정답: 한 바구니에 ${perGroupAnswer}개"
+                else -> "바구니마다 개수가 같아야 해요. 정답: 한 바구니에 ${perGroupAnswer}개"
+            }
+            submitAnswer(ok, why, q.explain)
         }
     }
 

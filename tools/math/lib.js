@@ -43,6 +43,8 @@ let total = 0;
 const VISUAL_KINDS = new Set([
   "emoji", "emoji_op", "array", "shapes", "clock", "fraction",
   "number_line", "bar_graph", "angle", "compare",
+  // 그림을 손으로 조작해서 답하는 종류
+  "clock_set", "group",
 ]);
 
 function validate(q) {
@@ -102,6 +104,21 @@ function choiceQ(prompt, correct, distractors, explain, opts = {}) {
   });
 }
 
+/**
+ * 그림을 직접 조작해서 답하는 문제.
+ * 시계 바늘을 돌리거나 사물을 끌어다 나눠 담으면 앱이 결과를 읽어 채점한다.
+ * answer 는 시계면 "H:MM", 나눠 담기면 한 묶음의 개수.
+ */
+function visualQ(prompt, answer, explain, opts = {}) {
+  return validate({
+    id: qid(), type: "math", prompt,
+    input: "visual", answer: String(answer),
+    ...(opts.visual ? { visual: opts.visual } : {}),
+    ...(opts.skill ? { skill: opts.skill } : {}),
+    explain,
+  });
+}
+
 /** 식·문자로 답하는 문제 (중·고등) */
 function textQ(prompt, answer, explain, opts = {}) {
   return validate({
@@ -126,6 +143,10 @@ const V = {
   barGraph: (labels, values) => ({ kind: "bar_graph", labels, values }),
   angle: (deg) => ({ kind: "angle", p: deg }),
   compare: (emojiA, a, emojiB, b) => ({ kind: "compare", emoji: emojiA, a, b, labels: [emojiB] }),
+  /** 바늘을 끌어 맞추는 시계 — p·q 는 정답 시·분 */
+  clockSet: (h, m) => ({ kind: "clock_set", p: h, q: m }),
+  /** 사물을 끌어다 묶음에 나눠 담기 — a 는 전체 개수, b 는 묶음 수 */
+  group: (emoji, total, groups) => ({ kind: "group", emoji, a: total, b: groups }),
 };
 
 // 아이가 좋아하는 사물 이모지
@@ -206,7 +227,7 @@ function gen(want, fn) {
 
 module.exports = {
   rng, ri, rint, pick, shuffled,
-  numQ, choiceQ, textQ, V,
+  numQ, choiceQ, textQ, visualQ, V,
   FRUITS, ANIMALS, THINGS, ALL_EMOJI,
   nearWrong, packLessons, makeUnit, gen, chunk, SCALE,
   stats: () => ({ total }),
