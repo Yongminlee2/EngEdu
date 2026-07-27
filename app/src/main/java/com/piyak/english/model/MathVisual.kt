@@ -38,10 +38,20 @@ data class MathVisual(
         const val ANGLE = "angle"
         const val COMPARE = "compare"
 
+        /** 바늘을 돌려 시각을 맞추는 시계 (p·q = 정답 시·분) */
+        const val CLOCK_SET = "clock_set"
+
+        /** 사물을 끌어다 묶음에 나눠 담기 (a = 전체 개수, b = 묶음 수) */
+        const val GROUP = "group"
+
         val KINDS = setOf(
             EMOJI, EMOJI_OP, ARRAY, SHAPES, CLOCK, FRACTION,
             NUMBER_LINE, BAR_GRAPH, ANGLE, COMPARE,
+            CLOCK_SET, GROUP,
         )
+
+        /** 그림 자체가 답을 입력받는 종류 (키패드·보기가 필요 없다) */
+        val INPUT_KINDS = setOf(CLOCK_SET, GROUP)
 
         fun fromJson(o: JSONObject?): MathVisual? {
             if (o == null) return null
