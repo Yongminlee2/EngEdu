@@ -62,6 +62,11 @@ class MainActivity : AppCompatActivity() {
         b.cardWallet.setOnClickListener {
             startActivity(Intent(this, WalletActivity::class.java))
         }
+        b.cardPlayground.setOnClickListener {
+            startActivity(
+                Intent(this, PlaygroundActivity::class.java).putExtra("subject", subject.id)
+            )
+        }
     }
 
     private fun pickDailyGoal() {
@@ -118,6 +123,10 @@ class MainActivity : AppCompatActivity() {
         // 알파벳 쓰기는 영어 전용
         b.cardAlphabet.visibility =
             if (subject == com.piyak.english.model.Subject.ENGLISH) View.VISIBLE else View.GONE
+        b.txtPlayground.text =
+            com.piyak.english.engine.MiniGames.forSubject(subject).joinToString(" · ") {
+                "${it.emoji} ${it.title}"
+            }
         buildGrowth(db)
         buildTrackCards(db)
     }

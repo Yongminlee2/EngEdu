@@ -95,6 +95,27 @@
                 android:textColor="@color/brown_text" />
         </LinearLayout>
 
+        <!-- 놀이터 (미니게임) -->
+        <LinearLayout android:id="@+id/cardPlayground"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:background="@drawable/bg_playground"
+            android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="🎮" android:textSize="34sp" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="놀이터" android:textSize="19sp" android:textStyle="bold"
+                    android:textColor="@color/brown_text" />
+                <TextView android:id="@+id/txtPlayground"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="풍선 터뜨리기 · 담기 · 선 잇기" android:textSize="13sp"
+                    android:textColor="@color/brown_soft" />
+            </LinearLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="▶" android:textSize="18sp" android:textColor="@color/brown_text" />
+        </LinearLayout>
+
         <!-- 알파벳 쓰기 연습 -->
         <LinearLayout android:id="@+id/cardAlphabet"
             android:layout_width="match_parent" android:layout_height="wrap_content"
