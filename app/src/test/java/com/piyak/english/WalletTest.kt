@@ -11,9 +11,14 @@ import org.junit.Test
 class WalletTest {
 
     @Test fun oneQuestionIsTenWon() {
-        assertEquals(10, Wallet.PER_QUESTION)
-        // 12문제 레슨을 다 맞히면 120 + 퍼펙트 30
-        assertEquals(150, Wallet.lessonReward(12, perfect = true))
+        // 문제 하나는 1~10원 범위 안이어야 한다
+        assertTrue(Wallet.PER_QUESTION in 1..10)
+        assertTrue("알파벳 한 글자도 문제 하나 수준", Wallet.PER_LETTER in 1..10)
+        assertTrue("반복 쓰기는 더 적게", Wallet.PER_LETTER_REPEAT < Wallet.PER_LETTER)
+        assertEquals(
+            12 * Wallet.PER_QUESTION + Wallet.PERFECT_BONUS,
+            Wallet.lessonReward(12, perfect = true)
+        )
         assertEquals(120, Wallet.lessonReward(12, perfect = false))
         // 틀린 문제는 한 푼도 안 준다 (첫 시도 정답만 계산)
         assertEquals(80, Wallet.lessonReward(8, perfect = false))
@@ -40,7 +45,9 @@ class WalletTest {
         assertTrue("복습 보너스에 하루 한도가 있어야 함", Wallet.REVIEW_DAILY_LIMIT in 1..5)
         // 하루에 보너스로만 벌 수 있는 최대치가 레슨 몇 판 수준을 넘지 않아야 한다
         val maxDailyBonus = Wallet.DAILY_GOAL_BONUS + Wallet.REVIEW_BONUS * Wallet.REVIEW_DAILY_LIMIT
-        assertTrue("보너스만으로 하루 500원 넘게 벌면 안 됨", maxDailyBonus <= 500)
+        assertTrue("보너스만으로 하루 300원 넘게 벌면 안 됨", maxDailyBonus <= 300)
+        // 같은 글자를 반복해서 써도 무한히 벌 수는 없다
+        assertTrue(Wallet.LETTER_REPEAT_LIMIT in 2..10)
     }
 
     @Test fun shopCatalogIsSane() {

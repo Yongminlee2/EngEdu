@@ -20,6 +20,10 @@
             android:backgroundTint="@color/mint" android:textColor="@color/brown_text" />
     </LinearLayout>
 
+    <TextView android:id="@+id/txtBigEmoji" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="6dp" android:gravity="center"
+        android:textSize="76sp" android:visibility="gone" />
+
     <TextView android:id="@+id/txtPrompt" android:layout_width="match_parent" android:layout_height="wrap_content"
         android:layout_marginTop="10dp" android:textSize="21sp" android:textStyle="bold"
         android:lineSpacingMultiplier="1.2" />

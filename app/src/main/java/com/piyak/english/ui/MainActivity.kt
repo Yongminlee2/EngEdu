@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.Gravity
+import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +22,7 @@ import com.piyak.english.model.ContentRepo
 class MainActivity : AppCompatActivity() {
 
     private lateinit var b: ActivityMainBinding
+    private var subject: com.piyak.english.model.Subject = com.piyak.english.model.Subject.ENGLISH
     private val greetings = listOf(
         "오늘도 삐약삐약 공부해요!", "꾸준함이 최고의 재능이에요 🐥",
         "한 문제라도 풀면 오늘은 성공!", "삐약! 영어가 무서우면 저를 봐요!",
@@ -31,10 +33,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         b = ActivityMainBinding.inflate(layoutInflater)
         setContentView(b.root)
+        subject = com.piyak.english.model.Subject.of(
+            intent.getStringExtra("subject") ?: Db.get(this).meta("subject_last", "english")
+        )
 
         b.txtGreeting.text = greetings.random()
+        b.btnSwitchSubject.text = "${subject.emoji} ${subject.title}  ▾"
+        b.btnSwitchSubject.setOnClickListener { finish() }
         b.bannerPlacement.setOnClickListener {
-            startActivity(Intent(this, PlacementActivity::class.java))
+            startActivity(
+                Intent(this, PlacementActivity::class.java).putExtra("subject", subject.id)
+            )
         }
         b.btnReview.setOnClickListener {
             val db = Db.get(this)
@@ -91,8 +100,13 @@ class MainActivity : AppCompatActivity() {
         b.txtLevel.text = "⭐ Lv.$lv"
         b.xpBar.progress = (Economy.levelProgress(xp) * 100).toInt()
         b.btnReview.text = "💊 오답 ${db.wrongCount()}"
-        b.bannerPlacement.visibility =
-            if (db.meta("placement_done") == "1") android.view.View.GONE else android.view.View.VISIBLE
+        // 배치고사 배너: 과목별로 아직 안 본 경우에만
+        val placedKey = if (subject == com.piyak.english.model.Subject.MATH)
+            "math_placement_done" else "placement_done"
+        b.bannerPlacement.visibility = if (db.meta(placedKey) == "1") View.GONE else View.VISIBLE
+        b.txtPlacement.text = if (subject == com.piyak.english.model.Subject.MATH)
+            "🎯 수학 레벨테스트로 내 학년 찾기!\n25문제로 딱 맞는 단계를 정해줘요"
+        else "🎯 레벨테스트로 내 위치 찾기!\n25문제로 딱 맞는 레벨을 정해줘요"
 
         // 상점에서 산 테마 배경 적용
         val theme = Color.parseColor(db.themeColor())
@@ -101,13 +115,16 @@ class MainActivity : AppCompatActivity() {
 
         b.txtCoins.text = com.piyak.english.engine.Wallet.format(db.coins())
         b.txtAlphabetCount.text = "${db.lettersDoneCount()}/${com.piyak.english.engine.Letters.ALL.size * 2}"
+        // 알파벳 쓰기는 영어 전용
+        b.cardAlphabet.visibility =
+            if (subject == com.piyak.english.model.Subject.ENGLISH) View.VISIBLE else View.GONE
         buildGrowth(db)
         buildTrackCards(db)
     }
 
     /** 칭호 · 오늘의 목표 · 영역별 실력 바 */
     private fun buildGrowth(db: Db) {
-        val states = db.skillStates()
+        val states = db.skillStates(Skills.forSubject(subject))
         val overall = Skills.overallLevel(states)
         val rank = Ranks.of(overall)
         val sticker = db.equippedSticker()
@@ -174,9 +191,23 @@ class MainActivity : AppCompatActivity() {
     private fun buildTrackCards(db: Db) {
         b.tracksBox.removeAllViews()
         val done = db.completedLessonIds()
-        for (tid in ContentRepo.TRACK_IDS) {
+        var lastStage: String? = null
+        for (tid in subject.tracks) {
             val t = ContentRepo.track(this, tid) ?: continue
             val doneCount = t.units.sumOf { u -> u.lessons.count { it.id in done } }
+
+            // 수학은 학년이 많아 유치원·초등 / 중학교 / 고등학교로 묶어 보여준다
+            val stage = com.piyak.english.model.MathGrades.of(tid)?.stage
+            if (stage != null && stage != lastStage) {
+                lastStage = stage
+                b.tracksBox.addView(TextView(this).apply {
+                    text = stage
+                    textSize = 14f
+                    setTypeface(typeface, android.graphics.Typeface.BOLD)
+                    setTextColor(Color.parseColor("#8D6E63"))
+                    setPadding(dp(6f).toInt(), dp(14f).toInt(), 0, dp(2f).toInt())
+                })
+            }
 
             val card = LinearLayout(this).apply {
                 orientation = LinearLayout.HORIZONTAL

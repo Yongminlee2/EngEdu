@@ -21,6 +21,7 @@ sealed class Question {
         is Order, is TypeTranslate -> "writing"
         is Speak -> "speaking"
         is Match -> "vocab"
+        is Math -> "m_calc"
     }
 
     /** 4지선다. passage 가 있으면 독해(지문) 문제. */
@@ -31,6 +32,8 @@ sealed class Question {
         val answer: Int,
         val passage: String? = null,
         override val explain: String? = null,
+        /** 문제 위에 크게 띄울 그림 이모지 (초등영어 그림 문제) */
+        val bigEmoji: String? = null,
     ) : Question()
 
     /** TTS 로 tts 를 들려준 뒤 4지선다. */
@@ -88,6 +91,23 @@ sealed class Question {
         override val explain: String? = null,
     ) : Question()
 
+    /**
+     * 수학 문제. 그림(visual)과 입력 방식(input)을 조합해 모든 수학 유형을 표현한다.
+     * input = number(숫자 키패드) / choice(4지선다) / text(식·문자 답)
+     */
+    data class Math(
+        override val id: String,
+        val prompt: String,
+        val visual: MathVisual? = null,
+        val input: String = "number",
+        val answer: String = "",
+        val alts: List<String> = emptyList(),
+        val choices: List<String> = emptyList(),
+        val answerIndex: Int = -1,
+        val unit: String = "",
+        override val explain: String? = null,
+    ) : Question()
+
     /** 2인 대화를 듣고 4지선다 (토익 LC 스타일). */
     data class ListenDialog(
         override val id: String,
@@ -108,7 +128,8 @@ sealed class Question {
             return when (val t = o.getString("type")) {
                 "mcq", "reading" -> Mcq(
                     id, o.getString("prompt"), strList(o.getJSONArray("choices")),
-                    o.getInt("answer"), o.optString("passage").ifEmpty { null }, explain
+                    o.getInt("answer"), o.optString("passage").ifEmpty { null }, explain,
+                    o.optString("bigEmoji").ifEmpty { null }
                 )
                 "listen_mcq" -> ListenMcq(
                     id, o.getString("tts"), o.optString("prompt", "무엇을 들었나요?"),
@@ -135,6 +156,21 @@ sealed class Question {
                     Match(id, pairs, explain)
                 }
                 "speak" -> Speak(id, o.getString("en"), o.optString("ko").ifEmpty { null }, explain)
+                "math" -> {
+                    val choices = strListOpt(o.optJSONArray("choices"))
+                    Math(
+                        id = id,
+                        prompt = o.getString("prompt"),
+                        visual = MathVisual.fromJson(o.optJSONObject("visual")),
+                        input = o.optString("input", if (choices.isEmpty()) "number" else "choice"),
+                        answer = o.optString("answer"),
+                        alts = strListOpt(o.optJSONArray("alts")),
+                        choices = choices,
+                        answerIndex = o.optInt("answerIndex", -1),
+                        unit = o.optString("unit"),
+                        explain = explain,
+                    )
+                }
                 "listen_dialog" -> {
                     val arr = o.getJSONArray("lines")
                     val lines = (0 until arr.length()).map {

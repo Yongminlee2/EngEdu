@@ -22,6 +22,7 @@ data class SkillState(
 object Skills {
     const val MAX_LEVEL = 10
 
+    /** 영어 영역 (배지 판정 기준이기도 하다) */
     val ALL = listOf(
         SkillDef("listening", "🎧", "듣기", "#AEE3F0"),
         SkillDef("speaking", "🎤", "말하기", "#F7C6C7"),
@@ -31,7 +32,21 @@ object Skills {
         SkillDef("vocab", "🔤", "어휘", "#FFE082"),
     )
 
-    fun def(id: String): SkillDef = ALL.firstOrNull { it.id == id } ?: ALL.last()
+    /** 수학 영역 */
+    val MATH = listOf(
+        SkillDef("m_calc", "➕", "계산", "#FFCCBC"),
+        SkillDef("m_number", "🔢", "수 감각", "#FFE082"),
+        SkillDef("m_shape", "🔺", "도형", "#C5E1A5"),
+        SkillDef("m_measure", "📏", "측정", "#B3E5FC"),
+        SkillDef("m_data", "📊", "자료와 확률", "#D1C4E9"),
+        SkillDef("m_word", "🧩", "문장제", "#F8BBD0"),
+    )
+
+    fun forSubject(subject: com.piyak.english.model.Subject): List<SkillDef> =
+        if (subject == com.piyak.english.model.Subject.MATH) MATH else ALL
+
+    fun def(id: String): SkillDef =
+        (ALL + MATH).firstOrNull { it.id == id } ?: ALL.last()
 
     /** 레벨 n 도달에 필요한 누적 정답 수 = 10 * n(n+1)/2 (Lv1=10, Lv2=30, Lv3=60 … Lv10=550) */
     fun correctForLevel(n: Int): Int = 10 * n * (n + 1) / 2

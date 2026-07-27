@@ -56,6 +56,9 @@ class LessonActivity : AppCompatActivity() {
     private var choiceAnswer = -1
     private var hintUsedHere = false
 
+    /** 저학년 수학은 문제를 자동으로 읽어 준다 */
+    private var autoReadMath = true
+
     /** 레슨 시작 시점의 영역별 레벨·칭호 (결과 화면에서 상승분을 보여주려고 기억) */
     private var startSkillLevels: Map<String, Int> = emptyMap()
     private var startRank: com.piyak.english.engine.Rank? = null
@@ -169,6 +172,7 @@ class LessonActivity : AppCompatActivity() {
             is Question.Order -> showOrder(q)
             is Question.Match -> showMatch(q)
             is Question.Speak -> showSpeak(q)
+            is Question.Math -> showMath(q)
         }
         // 선택지가 만들어진 뒤에 힌트 버튼 상태를 갱신한다
         refreshHintButton()
@@ -251,7 +255,17 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showMcq(q: Question.Mcq) {
         val v = inflate(R.layout.view_q_mcq)
-        v.findViewById<TextView>(R.id.txtKind).text = if (q.passage != null) "📖 독해" else "🔤 고르기"
+        v.findViewById<TextView>(R.id.txtKind).text = when {
+            q.passage != null -> "📖 독해"
+            q.bigEmoji != null -> "🎨 그림 문제"
+            else -> "🔤 고르기"
+        }
+        if (q.bigEmoji != null) {
+            v.findViewById<TextView>(R.id.txtBigEmoji).apply {
+                visibility = View.VISIBLE
+                text = q.bigEmoji
+            }
+        }
         if (q.passage != null) {
             v.findViewById<TextView>(R.id.txtPassage).apply { visibility = View.VISIBLE; text = q.passage }
         }
@@ -476,6 +490,106 @@ class LessonActivity : AppCompatActivity() {
             session?.submitNoPenalty(false)
             showFeedback(false, "괜찮아요! 다음에 말해 봐요. 정답 문장: ${q.en}", q.explain, penalty = false)
         }
+    }
+
+    // ---------------- 수학 ----------------
+
+    private fun showMath(q: Question.Math) {
+        val v = inflate(R.layout.view_q_math)
+        v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
+        v.findViewById<TextView>(R.id.txtKind).text = when (q.visual?.kind) {
+            com.piyak.english.model.MathVisual.CLOCK -> "🕐 시계 보기"
+            com.piyak.english.model.MathVisual.SHAPES -> "🔺 도형"
+            com.piyak.english.model.MathVisual.FRACTION -> "🍰 분수"
+            com.piyak.english.model.MathVisual.BAR_GRAPH -> "📊 그래프"
+            com.piyak.english.model.MathVisual.ARRAY -> "✖️ 곱셈"
+            null -> "🔢 수학"
+            else -> "🐥 그림 문제"
+        }
+
+        val visualView = v.findViewById<MathVisualView>(R.id.visual)
+        if (q.visual != null) visualView.visual = q.visual else visualView.visibility = View.GONE
+
+        // 한국어로 문제를 읽어 준다 (아이용)
+        val sayBtn = v.findViewById<Button>(R.id.btnSay)
+        sayBtn.setOnClickListener { speakKorean(q.prompt) }
+        if (autoReadMath) b.root.postDelayed({ speakKorean(q.prompt) }, 350)
+
+        when (q.input) {
+            "choice" -> {
+                val grid = v.findViewById<android.widget.GridLayout>(R.id.choicesGrid)
+                grid.visibility = View.VISIBLE
+                var selected = -1
+                val buttons = ArrayList<Button>()
+                q.choices.forEachIndexed { i, c ->
+                    val btn = Button(this).apply {
+                        text = c
+                        textSize = 19f
+                        isAllCaps = false
+                        setTextColor(Color.parseColor("#4E342E"))
+                        backgroundTintList = ColorStateList.valueOf(Color.WHITE)
+                        layoutParams = android.widget.GridLayout.LayoutParams().apply {
+                            width = 0
+                            height = dp(76)
+                            columnSpec = android.widget.GridLayout.spec(
+                                android.widget.GridLayout.UNDEFINED, 1f
+                            )
+                            setMargins(dp(5), dp(5), dp(5), dp(5))
+                        }
+                        setOnClickListener {
+                            selected = i
+                            buttons.forEach {
+                                it.backgroundTintList = ColorStateList.valueOf(Color.WHITE)
+                            }
+                            backgroundTintList = ColorStateList.valueOf(Color.parseColor("#FFD54F"))
+                            b.btnCheck.isEnabled = true
+                        }
+                    }
+                    buttons.add(btn)
+                    grid.addView(btn)
+                }
+                choiceButtons = buttons
+                choiceAnswer = q.answerIndex
+                checkAction = {
+                    val ok = selected == q.answerIndex
+                    submitAnswer(ok, if (ok) null else "정답: ${q.choices.getOrNull(q.answerIndex)}", q.explain)
+                }
+            }
+            "text" -> {
+                val edit = v.findViewById<EditText>(R.id.editAnswer)
+                edit.visibility = View.VISIBLE
+                edit.addTextChangedListener(SimpleWatcher { b.btnCheck.isEnabled = it.isNotBlank() })
+                checkAction = {
+                    val ok = com.piyak.english.engine.MathGrader.grade(
+                        edit.text.toString(), q.answer, q.alts
+                    )
+                    submitAnswer(ok, if (ok) null else "정답: ${q.answer}", q.explain)
+                }
+            }
+            else -> { // number
+                val box = v.findViewById<LinearLayout>(R.id.numberBox)
+                box.visibility = View.VISIBLE
+                val show = v.findViewById<TextView>(R.id.txtAnswer)
+                val pad = v.findViewById<NumberPadView>(R.id.numberPad)
+                pad.allowFraction = q.answer.contains("/")
+                pad.allowMinus = q.answer.startsWith("-") || q.alts.any { it.startsWith("-") }
+                pad.allowDecimal = q.answer.contains(".") || q.alts.any { it.contains(".") }
+                pad.onChange = { s ->
+                    show.text = if (s.isEmpty()) "" else s + (if (q.unit.isNotEmpty()) " ${q.unit}" else "")
+                    b.btnCheck.isEnabled = s.isNotEmpty()
+                }
+                checkAction = {
+                    val ok = com.piyak.english.engine.MathGrader.grade(pad.value, q.answer, q.alts)
+                    val shown = q.answer + if (q.unit.isNotEmpty()) " ${q.unit}" else ""
+                    submitAnswer(ok, if (ok) null else "정답: $shown", q.explain)
+                }
+            }
+        }
+    }
+
+    /** 한국어 TTS (수학 문제 읽어주기) */
+    private fun speakKorean(s: String) {
+        tts.speakKo(s.replace("___", "몇"))
     }
 
     // ---------------- 채점·피드백 ----------------

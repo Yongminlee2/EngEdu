@@ -9,24 +9,28 @@ package com.piyak.english.engine
  * - 복습·출석 보너스는 하루 한도가 있다
  */
 object Wallet {
-    /** 첫 시도 정답 1문제 */
+    /** 첫 시도 정답 1문제 (문제당 1~10원 범위의 최대값) */
     const val PER_QUESTION = 10
 
     /** 레슨을 다 맞혔을 때 보너스 */
-    const val PERFECT_BONUS = 30
+    const val PERFECT_BONUS = 20
 
-    /** 알파벳 한 글자 첫 완성 */
-    const val PER_LETTER = 50
+    /** 알파벳 한 글자 첫 완성 — 문제 한 개와 같은 값 */
+    const val PER_LETTER = 10
+
+    /** 알파벳을 반복해서 쓸 때 (같은 글자 5회까지만) */
+    const val PER_LETTER_REPEAT = 3
+    const val LETTER_REPEAT_LIMIT = 5
 
     /** 오늘의 목표 달성 (하루 1회) */
-    const val DAILY_GOAL_BONUS = 100
+    const val DAILY_GOAL_BONUS = 50
 
     /** 오답 복습 레슨 완료 (하루 한도 있음) */
-    const val REVIEW_BONUS = 50
+    const val REVIEW_BONUS = 20
     const val REVIEW_DAILY_LIMIT = 3
 
     /** 레벨테스트 첫 완료 */
-    const val PLACEMENT_BONUS = 200
+    const val PLACEMENT_BONUS = 100
 
     /** 레슨 첫 완료 보상 = 첫 시도 정답 수 × 10원 (+ 퍼펙트 보너스) */
     fun lessonReward(firstTryCorrect: Int, perfect: Boolean): Int =

@@ -25,7 +25,7 @@ class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", n
         db.execSQL("CREATE TABLE badges(id TEXT PRIMARY KEY, at INTEGER)")
         db.execSQL("CREATE TABLE meta(k TEXT PRIMARY KEY, v TEXT)")
         db.execSQL("CREATE TABLE skills(skill TEXT PRIMARY KEY, attempts INTEGER DEFAULT 0, correct INTEGER DEFAULT 0)")
-        db.execSQL("CREATE TABLE letters(key TEXT PRIMARY KEY, stars INTEGER DEFAULT 0, at INTEGER)")
+        db.execSQL("CREATE TABLE letters(key TEXT PRIMARY KEY, stars INTEGER DEFAULT 0, writes INTEGER DEFAULT 0, at INTEGER)")
         createWalletTables(db)
     }
 
@@ -45,6 +45,14 @@ class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", n
             db.execSQL("CREATE TABLE IF NOT EXISTS letters(key TEXT PRIMARY KEY, stars INTEGER DEFAULT 0, at INTEGER)")
         }
         if (oldV < 4) createWalletTables(db)
+        if (oldV < 6) {
+            // 알파벳을 여러 번 쓸 수 있게 되면서 쓴 횟수를 센다
+            runCatching {
+                db.execSQL("ALTER TABLE letters ADD COLUMN writes INTEGER DEFAULT 0")
+            }
+            // 이미 완성한 글자는 1회 쓴 것으로 인정
+            db.execSQL("UPDATE letters SET writes = 1 WHERE stars > 0 AND writes = 0")
+        }
         // 용돈 기능이 생기기 전에 이미 해 둔 공부에도 소급해서 보상한다
         if (oldV < 5) grantLegacyRewards(db)
     }
@@ -130,9 +138,11 @@ class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", n
         return out
     }
 
-    fun skillStates(): List<com.piyak.english.engine.SkillState> {
+    fun skillStates(
+        defs: List<com.piyak.english.engine.SkillDef> = com.piyak.english.engine.Skills.ALL,
+    ): List<com.piyak.english.engine.SkillState> {
         val stats = skillStats()
-        return com.piyak.english.engine.Skills.ALL.map { d ->
+        return defs.map { d ->
             val (a, c) = stats[d.id] ?: (0 to 0)
             com.piyak.english.engine.SkillState(d, correct = c, attempts = a)
         }
@@ -352,6 +362,30 @@ class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", n
     fun hasParentPin(): Boolean = parentPin().isNotEmpty()
 
     // ---------- 알파벳 쓰기 ----------
+    /** 이 글자를 몇 번 썼는지 */
+    fun letterWrites(key: String): Int {
+        readableDatabase.rawQuery("SELECT writes FROM letters WHERE key=?", arrayOf(key)).use {
+            return if (it.moveToFirst()) it.getInt(0) else 0
+        }
+    }
+
+    /** 한 번 더 썼다. @return 누적 쓴 횟수 */
+    fun addLetterWrite(key: String): Int {
+        val db = writableDatabase
+        db.execSQL(
+            "INSERT OR IGNORE INTO letters(key, stars, writes, at) VALUES(?, 0, 0, ?)",
+            arrayOf(key, System.currentTimeMillis())
+        )
+        db.execSQL(
+            "UPDATE letters SET writes = writes + 1, at = ? WHERE key = ?",
+            arrayOf(System.currentTimeMillis(), key)
+        )
+        val n = letterWrites(key)
+        // 많이 쓸수록 별이 늘어난다 (1회 ⭐ / 3회 ⭐⭐ / 5회 ⭐⭐⭐)
+        setLetterStars(key, if (n >= 5) 3 else if (n >= 3) 2 else 1)
+        return n
+    }
+
     fun letterStars(key: String): Int {
         readableDatabase.rawQuery("SELECT stars FROM letters WHERE key=?", arrayOf(key)).use {
             return if (it.moveToFirst()) it.getInt(0) else 0

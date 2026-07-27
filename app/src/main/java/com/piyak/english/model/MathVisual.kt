@@ -1,0 +1,69 @@
+package com.piyak.english.model
+
+import org.json.JSONArray
+import org.json.JSONObject
+
+/**
+ * 수학 문제에 붙는 "그림 명세". 이미지 파일 없이 이모지와 Canvas 로 그린다.
+ * 새 그림이 필요하면 kind 를 늘리고 MathVisualView 에 그리는 법만 추가하면 된다.
+ */
+data class MathVisual(
+    val kind: String,
+    /** 이모지 하나 (emoji / emoji_op / array 에서 사용) */
+    val emoji: String = "🍎",
+    /** 개수 (emoji), 왼쪽 개수 (emoji_op), 행 (array) */
+    val a: Int = 0,
+    /** 오른쪽 개수 (emoji_op), 열 (array) */
+    val bb: Int = 0,
+    /** 연산 기호 (emoji_op): + 또는 - */
+    val op: String = "+",
+    /** 도형 이름들 (shapes) / 막대 이름들 (bar_graph) */
+    val labels: List<String> = emptyList(),
+    /** 막대 값들 (bar_graph), 수직선 표시 위치 (number_line) */
+    val values: List<Double> = emptyList(),
+    /** 분자 (fraction), 시(clock), 각도(angle), 수직선 최소(number_line) */
+    val p: Double = 0.0,
+    /** 분모 (fraction), 분(clock), 수직선 최대(number_line) */
+    val q: Double = 1.0,
+) {
+    companion object {
+        const val EMOJI = "emoji"
+        const val EMOJI_OP = "emoji_op"
+        const val ARRAY = "array"
+        const val SHAPES = "shapes"
+        const val CLOCK = "clock"
+        const val FRACTION = "fraction"
+        const val NUMBER_LINE = "number_line"
+        const val BAR_GRAPH = "bar_graph"
+        const val ANGLE = "angle"
+        const val COMPARE = "compare"
+
+        val KINDS = setOf(
+            EMOJI, EMOJI_OP, ARRAY, SHAPES, CLOCK, FRACTION,
+            NUMBER_LINE, BAR_GRAPH, ANGLE, COMPARE,
+        )
+
+        fun fromJson(o: JSONObject?): MathVisual? {
+            if (o == null) return null
+            val kind = o.optString("kind")
+            if (kind.isEmpty() || kind !in KINDS) return null
+            return MathVisual(
+                kind = kind,
+                emoji = o.optString("emoji", "🍎"),
+                a = o.optInt("a", 0),
+                bb = o.optInt("b", 0),
+                op = o.optString("op", "+"),
+                labels = strList(o.optJSONArray("labels")),
+                values = numList(o.optJSONArray("values")),
+                p = o.optDouble("p", 0.0),
+                q = o.optDouble("q", 1.0),
+            )
+        }
+
+        private fun strList(a: JSONArray?): List<String> =
+            if (a == null) emptyList() else (0 until a.length()).map { a.getString(it) }
+
+        private fun numList(a: JSONArray?): List<Double> =
+            if (a == null) emptyList() else (0 until a.length()).map { a.getDouble(it) }
+    }
+}

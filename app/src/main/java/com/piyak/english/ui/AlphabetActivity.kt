@@ -86,8 +86,10 @@ class AlphabetActivity : AppCompatActivity() {
                 setTypeface(typeface, android.graphics.Typeface.BOLD)
                 setTextColor(Color.parseColor("#4E342E"))
             })
+            val writes = db.letterWrites(Letters.key(d, uppercase))
             card.addView(TextView(this).apply {
-                text = if (done) "⭐ 완성" else d.word
+                text = if (done) "${"⭐".repeat(db.letterStars(Letters.key(d, uppercase)))} ${writes}번"
+                else d.word
                 textSize = 11f
                 gravity = Gravity.CENTER
                 setTextColor(Color.parseColor("#8D6E63"))

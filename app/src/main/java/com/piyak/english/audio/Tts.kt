@@ -39,11 +39,26 @@ class Tts(ctx: Context, private val onReady: (Boolean) -> Unit = {}) {
         }
     }
 
+    /**
+     * 한국어로 읽어 준다 (수학 문제 읽어주기).
+     * 언어는 재생 직전에 매번 지정한다 — 끝나고 되돌리는 방식은 타이밍이 어긋나기 쉽다.
+     */
+    fun speakKo(text: String) {
+        val t = tts ?: return
+        pending = emptyList(); onQueueDone = null
+        t.stop()
+        t.setLanguage(Locale.KOREAN)
+        t.setPitch(1.05f)
+        t.setSpeechRate(rate * 0.95f)
+        t.speak(text, TextToSpeech.QUEUE_FLUSH, null, "ko${seq++}")
+    }
+
     /** 단문 재생. slow=true 면 절반 속도(거북이 버튼). */
     fun speak(text: String, slow: Boolean = false, pitch: Float = 1.0f) {
         val t = tts ?: return
         pending = emptyList(); onQueueDone = null
         t.stop()
+        t.setLanguage(Locale.US)
         t.setPitch(pitch)
         t.setSpeechRate(if (slow) rate * 0.55f else rate)
         t.speak(text, TextToSpeech.QUEUE_FLUSH, null, "u${seq++}")
@@ -61,6 +76,7 @@ class Tts(ctx: Context, private val onReady: (Boolean) -> Unit = {}) {
 
     private fun playPending() {
         val t = tts ?: return
+        t.setLanguage(Locale.US)
         if (pendingIdx >= pending.size) {
             pending = emptyList()
             onQueueDone?.invoke(); onQueueDone = null

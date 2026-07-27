@@ -48,6 +48,8 @@ class ContentPackTest {
                 assertTrue("$where/${q.id}: answer", q.answer.isNotBlank())
                 assertTrue("$where/${q.id}: ko", q.ko.isNotBlank())
             }
+            // 수학 문제는 영어 팩에 있으면 안 된다 (MathTest 가 따로 검증한다)
+            is Question.Math -> fail("$where/${q.id}: 영어 팩에 수학 문제가 섞임")
             is Question.Match -> {
                 assertTrue("$where/${q.id}: 5쌍", q.pairs.size == 5)
                 assertTrue("$where/${q.id}: 왼쪽 중복", q.pairs.map { it.first }.toSet().size == 5)
@@ -68,7 +70,7 @@ class ContentPackTest {
         val dir = packsDir()
         val ids = HashSet<String>()
         var total = 0
-        for (tid in ContentRepo.TRACK_IDS) {
+        for (tid in com.piyak.english.model.Subject.ENGLISH.tracks) {
             val f = File(dir, "$tid.json")
             assertTrue("팩 없음: $tid", f.isFile)
             val t = ContentRepo.parseTrack(JSONObject(f.readText()))
@@ -91,13 +93,15 @@ class ContentPackTest {
     @Test fun everyQuestionHasKnownSkill() {
         val dir = packsDir()
         val valid = com.piyak.english.engine.Skills.ALL.map { it.id }.toSet()
+        val mathSkills = com.piyak.english.engine.Skills.MATH.map { it.id }.toSet()
         val counts = HashMap<String, Int>()
-        for (tid in ContentRepo.TRACK_IDS) {
+        for (tid in com.piyak.english.model.Subject.ENGLISH.tracks) {
             val f = File(dir, "$tid.json")
             if (!f.isFile) continue
             val t = ContentRepo.parseTrack(JSONObject(f.readText()))
             for (u in t.units) for (l in u.lessons) for (q in l.questions) {
                 assertTrue("$tid/${q.id}: 알 수 없는 영역 '${q.skill}'", q.skill in valid)
+                assertTrue("$tid/${q.id}: 영어 팩에 수학 영역이 섞임", q.skill !in mathSkills)
                 counts[q.skill] = (counts[q.skill] ?: 0) + 1
             }
         }
@@ -155,7 +159,7 @@ class ContentPackTest {
         // order 문제: extras 에 정답 토큰과 동일한 단어가 섞여도 재구성엔 문제없지만
         // 정답 문장이 타일만으로 만들어지는지 확인
         val dir = packsDir()
-        for (tid in ContentRepo.TRACK_IDS) {
+        for (tid in com.piyak.english.model.Subject.ENGLISH.tracks) {
             val f = File(dir, "$tid.json")
             if (!f.isFile) continue
             val t = ContentRepo.parseTrack(JSONObject(f.readText()))

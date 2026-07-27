@@ -71,7 +71,11 @@ class TraceActivity : AppCompatActivity() {
         b.txtWord.text = d.word
         b.txtWordKo.text = d.ko
         b.donePanel.visibility = View.GONE
-        b.txtHint.text = "초록 ① 부터 길을 따라 그려 보세요!"
+        b.btnAgain.text = "↻ 지우기"
+        val writes = db.letterWrites(Letters.key(d, upper))
+        b.txtHint.text = if (writes > 0)
+            "지금까지 ${writes}번 썼어요. 또 써 볼까요? ✏️"
+        else "초록 ① 부터 길을 따라 그려 보세요!"
         b.traceView.setLetter(d.strokes(upper), d.glyph(upper).toString())
         updateStrokeInfo()
         // 처음 여는 글자는 병아리가 먼저 시범을 보여준다
@@ -88,29 +92,38 @@ class TraceActivity : AppCompatActivity() {
 
     private fun onLetterComplete() {
         sfx.done()
+        val W = com.piyak.english.engine.Wallet
         val key = Letters.key(def(), uppercase)
-        val first = db.letterStars(key) == 0
-        db.setLetterStars(key, 3)
+        val writes = db.addLetterWrite(key)   // 별은 쓴 횟수에 따라 1→2→3개로 늘어난다
+        val first = writes == 1
+        db.recordSkill("writing", true)
+        db.markToday()
+
         var coins = 0
         if (first) {
             db.addXp(Letters.XP_PER_LETTER)
-            db.recordSkill("writing", true)
-            db.markToday()
-            coins = db.earnCoins(
-                com.piyak.english.engine.Wallet.PER_LETTER, "LETTER",
-                "알파벳 ${def().glyph(uppercase)} 쓰기 완성"
-            )
+            coins = db.earnCoins(W.PER_LETTER, "LETTER", "${def().glyph(uppercase)} 처음 쓰기")
+        } else if (writes <= W.LETTER_REPEAT_LIMIT) {
+            db.addXp(2)
+            coins = db.earnCoins(W.PER_LETTER_REPEAT, "LETTER", "${def().glyph(uppercase)} ${writes}번째 쓰기")
         }
+
+        val stars = if (writes >= 5) 3 else if (writes >= 3) 2 else 1
         b.txtDoneBig.text = def().emoji
-        b.txtDoneMsg.text = praises.random()
+        b.txtDoneMsg.text = "${praises.random()}\n${"⭐".repeat(stars)}  ${writes}번 썼어요!"
         b.donePanel.visibility = View.VISIBLE
         b.donePanel.alpha = 0f
         b.donePanel.scaleX = 0.5f; b.donePanel.scaleY = 0.5f
         b.donePanel.animate().alpha(1f).scaleX(1f).scaleY(1f).setDuration(420).start()
-        b.txtHint.text = if (first)
-            "완성! +${Letters.XP_PER_LETTER} XP · 용돈 +${com.piyak.english.engine.Wallet.format(coins)} 🎁"
-        else "완성! 다시 써도 좋아요 😊"
+
+        b.txtHint.text = when {
+            coins > 0 -> "완성! 용돈 +${W.format(coins)} 🎁  · '한 번 더 쓰기'로 연습해요!"
+            writes < 5 -> "완성! 한 번 더 써 볼까요? ✏️"
+            else -> "이 글자는 ${writes}번이나 썼어요! 정말 잘하네요 🌟"
+        }
         b.txtStrokeInfo.text = "${b.traceView.totalStrokes} / ${b.traceView.totalStrokes} 획 ✅"
+        // 반복 연습이 쉽도록 버튼을 '한 번 더 쓰기'로 바꾼다
+        b.btnAgain.text = "✏️ 한 번 더 쓰기"
         sayLetter()
     }
 
