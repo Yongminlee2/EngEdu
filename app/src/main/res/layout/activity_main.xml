@@ -66,6 +66,28 @@
                 android:progressTint="@color/coral" android:progressBackgroundTint="@color/cream_dark" />
         </LinearLayout>
 
+        <!-- 알파벳 쓰기 연습 -->
+        <LinearLayout android:id="@+id/cardAlphabet"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginTop="12dp" android:padding="16dp"
+            android:background="@drawable/bg_alphabet">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="✏️" android:textSize="34sp" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="알파벳 쓰기 (ABC)" android:textSize="17sp" android:textStyle="bold"
+                    android:textColor="@color/brown_text" />
+                <TextView android:id="@+id/txtAlphabetSub" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="손가락·펜으로 A부터 Z까지 따라 써요" android:textSize="12sp"
+                    android:textColor="@color/brown_soft" />
+            </LinearLayout>
+            <TextView android:id="@+id/txtAlphabetCount" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="0/52" android:textSize="15sp" android:textStyle="bold"
+                android:textColor="@color/brown_text" />
+        </LinearLayout>
+
         <!-- 내 실력 대시보드 -->
         <LinearLayout
             android:layout_width="match_parent" android:layout_height="wrap_content"

@@ -47,6 +47,9 @@ class MainActivity : AppCompatActivity() {
         b.btnStats.setOnClickListener { startActivity(Intent(this, StatsActivity::class.java)) }
         b.btnSettings.setOnClickListener { startActivity(Intent(this, SettingsActivity::class.java)) }
         b.txtGoalEdit.setOnClickListener { pickDailyGoal() }
+        b.cardAlphabet.setOnClickListener {
+            startActivity(Intent(this, AlphabetActivity::class.java))
+        }
     }
 
     private fun pickDailyGoal() {
@@ -88,6 +91,7 @@ class MainActivity : AppCompatActivity() {
         b.bannerPlacement.visibility =
             if (db.meta("placement_done") == "1") android.view.View.GONE else android.view.View.VISIBLE
 
+        b.txtAlphabetCount.text = "${db.lettersDoneCount()}/${com.piyak.english.engine.Letters.ALL.size * 2}"
         buildGrowth(db)
         buildTrackCards(db)
     }

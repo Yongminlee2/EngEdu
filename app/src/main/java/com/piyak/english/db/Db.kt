@@ -8,7 +8,7 @@ import com.piyak.english.engine.Economy
 import com.piyak.english.model.Question
 import java.time.LocalDate
 
-class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", null, 2) {
+class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", null, 3) {
 
     companion object {
         @Volatile private var inst: Db? = null
@@ -25,11 +25,15 @@ class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", n
         db.execSQL("CREATE TABLE badges(id TEXT PRIMARY KEY, at INTEGER)")
         db.execSQL("CREATE TABLE meta(k TEXT PRIMARY KEY, v TEXT)")
         db.execSQL("CREATE TABLE skills(skill TEXT PRIMARY KEY, attempts INTEGER DEFAULT 0, correct INTEGER DEFAULT 0)")
+        db.execSQL("CREATE TABLE letters(key TEXT PRIMARY KEY, stars INTEGER DEFAULT 0, at INTEGER)")
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldV: Int, newV: Int) {
         if (oldV < 2) {
             db.execSQL("CREATE TABLE IF NOT EXISTS skills(skill TEXT PRIMARY KEY, attempts INTEGER DEFAULT 0, correct INTEGER DEFAULT 0)")
+        }
+        if (oldV < 3) {
+            db.execSQL("CREATE TABLE IF NOT EXISTS letters(key TEXT PRIMARY KEY, stars INTEGER DEFAULT 0, at INTEGER)")
         }
     }
 
@@ -203,6 +207,27 @@ class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", n
         }
     }
 
+    // ---------- 알파벳 쓰기 ----------
+    fun letterStars(key: String): Int {
+        readableDatabase.rawQuery("SELECT stars FROM letters WHERE key=?", arrayOf(key)).use {
+            return if (it.moveToFirst()) it.getInt(0) else 0
+        }
+    }
+
+    fun setLetterStars(key: String, stars: Int) {
+        val cv = ContentValues().apply {
+            put("key", key); put("stars", stars); put("at", System.currentTimeMillis())
+        }
+        writableDatabase.insertWithOnConflict("letters", null, cv, SQLiteDatabase.CONFLICT_REPLACE)
+    }
+
+    /** 다 쓴 글자 수 (대문자+소문자) */
+    fun lettersDoneCount(): Int {
+        readableDatabase.rawQuery("SELECT COUNT(*) FROM letters WHERE stars > 0", null).use {
+            it.moveToFirst(); return it.getInt(0)
+        }
+    }
+
     // ---------- 스트릭 ----------
     fun markToday() {
         writableDatabase.execSQL("INSERT OR IGNORE INTO days(day) VALUES(?)", arrayOf(today()))
@@ -245,6 +270,6 @@ class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", n
         val db = writableDatabase
         db.execSQL("DELETE FROM progress"); db.execSQL("DELETE FROM wrongs")
         db.execSQL("DELETE FROM days"); db.execSQL("DELETE FROM badges"); db.execSQL("DELETE FROM meta")
-        db.execSQL("DELETE FROM skills")
+        db.execSQL("DELETE FROM skills"); db.execSQL("DELETE FROM letters")
     }
 }

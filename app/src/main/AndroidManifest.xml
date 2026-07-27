@@ -34,5 +34,7 @@
         <activity android:name=".ui.PlacementActivity" android:exported="false" android:screenOrientation="portrait" />
         <activity android:name=".ui.StatsActivity" android:exported="false" android:screenOrientation="portrait" />
         <activity android:name=".ui.SettingsActivity" android:exported="false" android:screenOrientation="portrait" />
+        <activity android:name=".ui.AlphabetActivity" android:exported="false" android:screenOrientation="portrait" />
+        <activity android:name=".ui.TraceActivity" android:exported="false" android:screenOrientation="portrait" />
     </application>
 </manifest>
