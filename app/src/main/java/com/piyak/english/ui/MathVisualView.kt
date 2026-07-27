@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Path
+import android.graphics.PointF
 import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
@@ -41,9 +42,76 @@ class MathVisualView @JvmOverloads constructor(
     var visual: MathVisual? = null
         set(v) {
             field = v
+            counted.clear()
             requestLayout()
             invalidate()
         }
+
+    // ---------- 손가락으로 짚어 세기 ----------
+    /**
+     * 그림의 사물을 하나씩 터치하면 번호가 붙는다.
+     * 아이가 실제로 손가락으로 짚으며 세는 행동을 그대로 옮긴 것 —
+     * 정지된 그림을 보기만 하는 것과 만지며 세는 것은 완전히 다르다.
+     */
+    private val itemCenters = ArrayList<PointF>()
+    private val counted = LinkedHashSet<Int>()
+
+    /** 셀 수 있는 그림인지 (이모지·배열 계열) */
+    val countable: Boolean
+        get() = visual?.kind in setOf(MathVisual.EMOJI, MathVisual.EMOJI_OP, MathVisual.ARRAY)
+
+    /** 지금까지 짚은 개수가 바뀔 때 */
+    var onCountChanged: ((Int) -> Unit)? = null
+
+    val countedSoFar: Int get() = counted.size
+
+    fun clearCount() {
+        counted.clear()
+        onCountChanged?.invoke(0)
+        invalidate()
+    }
+
+    override fun onTouchEvent(event: android.view.MotionEvent): Boolean {
+        if (!countable || event.actionMasked != android.view.MotionEvent.ACTION_DOWN) return false
+        var best = -1
+        var bestD = Float.MAX_VALUE
+        val limit = itemSpacing * 0.6f
+        for (i in itemCenters.indices) {
+            val c = itemCenters[i]
+            val d = kotlin.math.hypot(event.x - c.x, event.y - c.y)
+            if (d < bestD) { bestD = d; best = i }
+        }
+        if (best >= 0 && bestD <= limit) {
+            if (!counted.add(best)) counted.remove(best)   // 다시 누르면 취소
+            onCountChanged?.invoke(counted.size)
+            invalidate()
+            return true
+        }
+        return false
+    }
+
+    /** 항목 사이 간격 (터치 판정 범위 계산용) */
+    private var itemSpacing = 0f
+
+    /** 짚은 순서대로 번호를 그린다 */
+    private fun drawCountMarks(canvas: Canvas) {
+        if (counted.isEmpty()) return
+        val r = itemSpacing * 0.20f
+        text.textSize = r * 1.5f
+        text.isFakeBoldText = true
+        counted.forEachIndexed { order, idx ->
+            val c = itemCenters.getOrNull(idx) ?: return@forEachIndexed
+            fill.color = Color.parseColor("#66BB6A")
+            canvas.drawCircle(c.x + itemSpacing * 0.30f, c.y - itemSpacing * 0.30f, r, fill)
+            text.color = Color.WHITE
+            canvas.drawText(
+                "${order + 1}",
+                c.x + itemSpacing * 0.30f,
+                c.y - itemSpacing * 0.30f + text.textSize * 0.35f, text
+            )
+        }
+        text.color = Color.parseColor("#4E342E")
+    }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val w = MeasureSpec.getSize(widthMeasureSpec)
@@ -73,6 +141,7 @@ class MathVisualView @JvmOverloads constructor(
         val v = visual ?: return
         val w = width.toFloat()
         val h = height.toFloat()
+        itemCenters.clear()
         when (v.kind) {
             MathVisual.EMOJI -> drawEmojiGrid(canvas, v.emoji, v.a, w, h)
             MathVisual.EMOJI_OP -> drawEmojiOp(canvas, v, w, h)
@@ -85,6 +154,7 @@ class MathVisualView @JvmOverloads constructor(
             MathVisual.ANGLE -> drawAngle(canvas, v, w, h)
             MathVisual.COMPARE -> drawCompare(canvas, v, w, h)
         }
+        drawCountMarks(canvas)
     }
 
     // ---------- 이모지 세기 ----------
@@ -93,16 +163,18 @@ class MathVisualView @JvmOverloads constructor(
         val perRow = min(5, n)
         val rows = (n + perRow - 1) / perRow
         val cell = min(w / (perRow + 0.6f), h / (rows + 0.3f))
+        itemSpacing = cell
         emojiPaint.textSize = cell * 0.78f
         val startX = (w - cell * perRow) / 2f + cell / 2f
         val startY = (h - cell * rows) / 2f + cell * 0.78f
-        var i = 0
         for (r in 0 until rows) {
             val cols = min(perRow, n - r * perRow)
             val rowX = startX + (perRow - cols) * cell / 2f
             for (c in 0 until cols) {
-                canvas.drawText(emoji, rowX + c * cell, startY + r * cell, emojiPaint)
-                i++
+                val x = rowX + c * cell
+                val y = startY + r * cell
+                canvas.drawText(emoji, x, y, emojiPaint)
+                itemCenters.add(PointF(x, y - cell * 0.28f))
             }
         }
     }
@@ -111,6 +183,7 @@ class MathVisualView @JvmOverloads constructor(
     private fun drawEmojiOp(canvas: Canvas, v: MathVisual, w: Float, h: Float) {
         val total = v.a + v.bb
         val cell = min(w / (total + 3.2f), h * 0.42f)
+        itemSpacing = cell
         emojiPaint.textSize = cell * 0.85f
         text.textSize = cell * 0.9f
         text.isFakeBoldText = true
@@ -118,10 +191,18 @@ class MathVisualView @JvmOverloads constructor(
         val totalW = v.a * cell + gap + v.bb * cell
         var x = (w - totalW) / 2f + cell / 2f
         val y = h / 2f + cell * 0.3f
-        repeat(v.a) { canvas.drawText(v.emoji, x, y, emojiPaint); x += cell }
+        repeat(v.a) {
+            canvas.drawText(v.emoji, x, y, emojiPaint)
+            itemCenters.add(PointF(x, y - cell * 0.3f))
+            x += cell
+        }
         canvas.drawText(if (v.op == "-") "－" else "＋", x + gap / 2f - cell / 2f, y, text)
         x += gap
-        repeat(v.bb) { canvas.drawText(v.emoji, x, y, emojiPaint); x += cell }
+        repeat(v.bb) {
+            canvas.drawText(v.emoji, x, y, emojiPaint)
+            itemCenters.add(PointF(x, y - cell * 0.3f))
+            x += cell
+        }
     }
 
     // ---------- 곱셈 배열 ----------
@@ -129,11 +210,15 @@ class MathVisualView @JvmOverloads constructor(
         val rows = v.a.coerceAtLeast(1)
         val cols = v.bb.coerceAtLeast(1)
         val cell = min((w - dp(40)) / cols, (h - dp(30)) / rows)
+        itemSpacing = cell
         emojiPaint.textSize = cell * 0.72f
         val startX = (w - cell * cols) / 2f + cell / 2f
         val startY = (h - cell * rows) / 2f + cell * 0.75f
         for (r in 0 until rows) for (c in 0 until cols) {
-            canvas.drawText(v.emoji, startX + c * cell, startY + r * cell, emojiPaint)
+            val x = startX + c * cell
+            val y = startY + r * cell
+            canvas.drawText(v.emoji, x, y, emojiPaint)
+            itemCenters.add(PointF(x, y - cell * 0.26f))
         }
         // 행·열 안내선
         stroke.strokeWidth = dp(1.5f).toFloat()

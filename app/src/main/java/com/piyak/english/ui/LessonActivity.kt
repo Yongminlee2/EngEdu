@@ -57,7 +57,11 @@ class LessonActivity : AppCompatActivity() {
     private var hintUsedHere = false
 
     /** 저학년 수학은 문제를 자동으로 읽어 준다 */
-    private var autoReadMath = true
+    /**
+     * 수학 문제를 열자마자 읽어 주지 않는다.
+     * 읽어 주는 소리가 갑자기 나오면 방해가 되므로 🔊 버튼을 누를 때만 재생한다.
+     */
+    private val autoReadMath = false
 
     /** 레슨 시작 시점의 영역별 레벨·칭호 (결과 화면에서 상승분을 보여주려고 기억) */
     private var startSkillLevels: Map<String, Int> = emptyMap()
@@ -577,9 +581,25 @@ class LessonActivity : AppCompatActivity() {
         val visualView = v.findViewById<MathVisualView>(R.id.visual)
         if (q.visual != null) visualView.visual = q.visual else visualView.visibility = View.GONE
 
+        // 그림을 손가락으로 하나씩 짚어 셀 수 있게 (정지 그림을 보기만 하는 것과 다르다)
+        if (q.visual != null && visualView.countable) {
+            val countBox = v.findViewById<LinearLayout>(R.id.countBox)
+            val txtCount = v.findViewById<TextView>(R.id.txtCount)
+            countBox.visibility = View.VISIBLE
+            visualView.onCountChanged = { n ->
+                txtCount.text = if (n == 0) "👆 그림을 하나씩 짚어 세어 보세요"
+                else "👆 지금까지 $n 개 세었어요"
+                if (n > 0) sfx.piyak()
+            }
+            v.findViewById<Button>(R.id.btnCountReset).setOnClickListener {
+                visualView.clearCount()
+            }
+        }
+
         // 한국어로 문제를 읽어 준다 (아이용)
         val sayBtn = v.findViewById<Button>(R.id.btnSay)
         sayBtn.setOnClickListener { speakKorean(q.prompt) }
+        @Suppress("KotlinConstantConditions")
         if (autoReadMath) b.root.postDelayed({ speakKorean(q.prompt) }, 350)
 
         when (q.input) {
@@ -654,7 +674,33 @@ class LessonActivity : AppCompatActivity() {
                     submitAnswer(ok, if (ok) null else "정답: ${q.answer}", q.explain)
                 }
             }
-            else -> { // number
+            // 저학년은 키패드 대신 버블을 탭한다 (자판을 치는 것보다 만지는 재미가 크다)
+            else -> if (useBubbleForNumber(q)) {
+                val grid = v.findViewById<android.widget.GridLayout>(R.id.choicesGrid)
+                grid.visibility = View.VISIBLE
+                val opts = com.piyak.english.engine.MiniGames
+                    .wrongNumbers(q.answer.toInt(), 4)
+                    .map { it.toString() }
+                val answerIdx = opts.indexOf(q.answer.toInt().toString())
+                val bubbles = com.piyak.english.ui.game.BubbleChoiceView(this).apply {
+                    layoutParams = android.widget.GridLayout.LayoutParams().apply {
+                        width = android.widget.GridLayout.LayoutParams.MATCH_PARENT
+                        height = dp(280)
+                        columnSpec = android.widget.GridLayout.spec(0, 2)
+                    }
+                }
+                var selected = -1
+                bubbles.onPick = { selected = it; sfx.piyak(); b.btnCheck.isEnabled = true }
+                bubbles.setChoices(opts)
+                grid.addView(bubbles)
+                checkAction = {
+                    val ok = selected == answerIdx
+                    bubbles.reveal(answerIdx)
+                    bubbles.lock()
+                    val shown = q.answer + if (q.unit.isNotEmpty()) " ${q.unit}" else ""
+                    submitAnswer(ok, if (ok) null else "정답: $shown", q.explain)
+                }
+            } else {
                 val box = v.findViewById<LinearLayout>(R.id.numberBox)
                 box.visibility = View.VISIBLE
                 val show = v.findViewById<TextView>(R.id.txtAnswer)
@@ -673,6 +719,18 @@ class LessonActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    /**
+     * 숫자 답 문제를 버블로 낼지 결정한다.
+     * 유치원~초3 은 자판을 치는 것보다 만지는 편이 재미도 학습도 낫고,
+     * 초4 이상은 직접 계산해 써 보는 게 중요하므로 키패드를 유지한다.
+     */
+    private fun useBubbleForNumber(q: Question.Math): Boolean {
+        val lowGrade = trackId in setOf("math_k", "math_g1", "math_g2", "math_g3")
+        if (!lowGrade) return false
+        val n = q.answer.toIntOrNull() ?: return false   // 분수·소수는 키패드로
+        return n in 0..200 && q.unit.isEmpty()
     }
 
     /** 한국어 TTS (수학 문제 읽어주기) */

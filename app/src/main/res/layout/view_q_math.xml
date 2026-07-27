@@ -22,6 +22,20 @@
         android:layout_width="match_parent" android:layout_height="wrap_content"
         android:layout_marginTop="10dp" />
 
+    <!-- 그림을 손가락으로 짚어 셀 때 나오는 안내 -->
+    <LinearLayout android:id="@+id/countBox"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:visibility="gone">
+        <TextView android:id="@+id/txtCount" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:textSize="14sp" android:textColor="@color/brown_soft"
+            android:text="👆 그림을 하나씩 짚어 세어 보세요" />
+        <Button android:id="@+id/btnCountReset" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:minWidth="0dp" android:paddingHorizontal="12dp"
+            android:text="다시 세기" android:textSize="12sp"
+            android:backgroundTint="@color/cream_dark" android:textColor="@color/brown_text" />
+    </LinearLayout>
+
     <!-- 숫자 입력 -->
     <LinearLayout android:id="@+id/numberBox"
         android:layout_width="match_parent" android:layout_height="wrap_content"

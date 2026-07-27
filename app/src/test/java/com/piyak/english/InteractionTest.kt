@@ -85,6 +85,37 @@ class InteractionTest {
         assertTrue("모든 문제가 버블이면 문장형 보기가 답답해진다", list > 0)
     }
 
+    /**
+     * 저학년 수학의 숫자 답이 버블 4개로 낼 수 있는 범위인지.
+     * 정수가 아니거나 너무 크면 버블이 아니라 키패드로 가야 한다.
+     */
+    @Test fun lowGradeMathAnswersFitBubbles() {
+        val dir = packsDir()
+        val lowGrades = listOf("math_k", "math_g1", "math_g2", "math_g3")
+        var bubbleable = 0
+        var keypad = 0
+        for (tid in lowGrades) {
+            val f = File(dir, "$tid.json")
+            if (!f.isFile) continue
+            val t = ContentRepo.parseTrack(JSONObject(f.readText()))
+            for (u in t.units) for (l in u.lessons) for (q in l.questions) {
+                val m = q as? Question.Math ?: continue
+                if (m.input != "number") continue
+                val n = m.answer.toIntOrNull()
+                if (n != null && n in 0..200 && m.unit.isEmpty()) {
+                    // 버블로 낼 문제 — 오답 3개를 실제로 만들 수 있어야 한다
+                    val opts = com.piyak.english.engine.MiniGames.wrongNumbers(n, 4)
+                    assertEquals("${m.id}: 보기 4개를 못 만듦", 4, opts.size)
+                    assertEquals("${m.id}: 보기 중복", 4, opts.toSet().size)
+                    assertTrue("${m.id}: 정답이 보기에 없음", opts.contains(n))
+                    bubbleable++
+                } else keypad++
+            }
+        }
+        println("저학년 숫자문제 — 버블 $bubbleable · 키패드 $keypad")
+        assertTrue("저학년인데 버블로 낼 문제가 거의 없다", bubbleable > 300)
+    }
+
     /** 짝 맞추기는 선 잇기로 바뀌었다 — 5쌍이어야 좌우 배치가 맞는다 */
     @Test fun matchQuestionsHaveConsistentPairCount() {
         val dir = packsDir()
