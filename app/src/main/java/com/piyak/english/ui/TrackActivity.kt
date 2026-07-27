@@ -71,6 +71,10 @@ class TrackActivity : AppCompatActivity() {
 
                 val node = Button(this).apply {
                     layoutParams = LinearLayout.LayoutParams(dp(72), dp(72))
+                    // 기본 최소 폭이 크면 원이 타원으로 늘어난다
+                    minWidth = 0; minimumWidth = 0
+                    minHeight = 0; minimumHeight = 0
+                    setPadding(0, 0, 0, 0)
                     background = getDrawable(R.drawable.bg_node)
                     val stars = db.lessonStars(l.id)
                     text = when {

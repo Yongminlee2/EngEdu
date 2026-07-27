@@ -15,6 +15,22 @@ class FlowLayout @JvmOverloads constructor(
 
     private fun dp(v: Int): Int = (v * resources.displayMetrics.density).toInt()
 
+    /**
+     * 자식이 크기를 지정했으면(예: 레슨 노드 72×72) 그 값을 그대로 쓰고,
+     * wrap_content 인 것(단어 타일)만 내용에 맞춰 잰다.
+     * 이걸 빼먹으면 정사각형이어야 할 노드가 가로로 늘어나 타원이 된다.
+     */
+    private fun measureChildForFlow(c: View, maxW: Int) {
+        val lp = c.layoutParams
+        val wSpec = if (lp != null && lp.width > 0)
+            MeasureSpec.makeMeasureSpec(lp.width, MeasureSpec.EXACTLY)
+        else MeasureSpec.makeMeasureSpec(maxW, MeasureSpec.AT_MOST)
+        val hSpec = if (lp != null && lp.height > 0)
+            MeasureSpec.makeMeasureSpec(lp.height, MeasureSpec.EXACTLY)
+        else MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
+        c.measure(wSpec, hSpec)
+    }
+
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val maxW = MeasureSpec.getSize(widthMeasureSpec) - paddingLeft - paddingRight
         var x = 0
@@ -23,10 +39,7 @@ class FlowLayout @JvmOverloads constructor(
         for (i in 0 until childCount) {
             val c = getChildAt(i)
             if (c.visibility == View.GONE) continue
-            c.measure(
-                MeasureSpec.makeMeasureSpec(maxW, MeasureSpec.AT_MOST),
-                MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
-            )
+            measureChildForFlow(c, maxW)
             if (x + c.measuredWidth > maxW && x > 0) {
                 x = 0; y += rowH + vGap; rowH = 0
             }
