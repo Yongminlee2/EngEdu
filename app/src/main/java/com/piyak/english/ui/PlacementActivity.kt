@@ -109,14 +109,22 @@ class PlacementActivity : AppCompatActivity() {
 
     private fun showResult() {
         val placed = Placement.placeLevel(history)
+        val firstTime = db.meta("placement_done") != "1"
         db.setMeta("placement_level", placed.toString())
         db.setMeta("placement_done", "1")
         db.addXp(30)
         db.markToday()
+        var coinLine = ""
+        if (firstTime) {
+            val c = db.earnCoins(
+                com.piyak.english.engine.Wallet.PLACEMENT_BONUS, "PLACEMENT", "레벨테스트 완료"
+            )
+            coinLine = "\n💰 용돈 +${com.piyak.english.engine.Wallet.format(c)}"
+        }
         b.resultPanel.visibility = View.VISIBLE
         b.txtResultTitle.text = "레벨 $placed"
         b.txtResultDesc.text =
-            "${Placement.LEVEL_NAMES[placed]} 수준이에요!\n기초 트랙 레벨 ${placed}까지 열어 드렸어요.\n+30 XP 🎁"
+            "${Placement.LEVEL_NAMES[placed]} 수준이에요!\n기초 트랙 레벨 ${placed}까지 열어 드렸어요.\n+30 XP 🎁$coinLine"
     }
 
     private fun dp(v: Int): Int = (v * resources.displayMetrics.density).toInt()

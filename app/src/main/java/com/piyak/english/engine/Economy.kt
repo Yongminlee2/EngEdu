@@ -30,11 +30,14 @@ object Economy {
      * @param saved 저장된 하트 수, @param savedAtDay 저장 시점의 epochDay, @param savedAt 저장 시각 ms
      * @return 현재 하트 수 (새 날이면 풀 회복, 아니면 30분당 1개)
      */
-    fun heartsNow(saved: Int, savedAt: Long, savedAtDay: Long, now: Long, nowDay: Long): Int {
-        if (saved >= MAX_HEARTS) return MAX_HEARTS
-        if (nowDay > savedAtDay) return MAX_HEARTS
+    fun heartsNow(
+        saved: Int, savedAt: Long, savedAtDay: Long, now: Long, nowDay: Long,
+        max: Int = MAX_HEARTS,
+    ): Int {
+        if (saved >= max) return max
+        if (nowDay > savedAtDay) return max
         val refills = ((now - savedAt) / HEART_REFILL_MS).toInt()
-        return min(MAX_HEARTS, saved + refills)
+        return min(max, saved + refills)
     }
 
     /**

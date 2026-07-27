@@ -8,7 +8,7 @@ import com.piyak.english.engine.Economy
 import com.piyak.english.model.Question
 import java.time.LocalDate
 
-class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", null, 3) {
+class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", null, 5) {
 
     companion object {
         @Volatile private var inst: Db? = null
@@ -26,6 +26,15 @@ class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", n
         db.execSQL("CREATE TABLE meta(k TEXT PRIMARY KEY, v TEXT)")
         db.execSQL("CREATE TABLE skills(skill TEXT PRIMARY KEY, attempts INTEGER DEFAULT 0, correct INTEGER DEFAULT 0)")
         db.execSQL("CREATE TABLE letters(key TEXT PRIMARY KEY, stars INTEGER DEFAULT 0, at INTEGER)")
+        createWalletTables(db)
+    }
+
+    private fun createWalletTables(db: SQLiteDatabase) {
+        db.execSQL(
+            "CREATE TABLE IF NOT EXISTS wallet_log(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, at INTEGER, kind TEXT, amount INTEGER, note TEXT)"
+        )
+        db.execSQL("CREATE TABLE IF NOT EXISTS inventory(item TEXT PRIMARY KEY, count INTEGER DEFAULT 0)")
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldV: Int, newV: Int) {
@@ -35,6 +44,35 @@ class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", n
         if (oldV < 3) {
             db.execSQL("CREATE TABLE IF NOT EXISTS letters(key TEXT PRIMARY KEY, stars INTEGER DEFAULT 0, at INTEGER)")
         }
+        if (oldV < 4) createWalletTables(db)
+        // 용돈 기능이 생기기 전에 이미 해 둔 공부에도 소급해서 보상한다
+        if (oldV < 5) grantLegacyRewards(db)
+    }
+
+    private fun grantLegacyRewards(db: SQLiteDatabase) {
+        var total = 0
+        var letters = 0
+        var lessons = 0
+        db.rawQuery("SELECT COUNT(*) FROM letters WHERE stars > 0", null).use {
+            if (it.moveToFirst()) letters = it.getInt(0)
+        }
+        db.rawQuery("SELECT COUNT(*) FROM progress", null).use {
+            if (it.moveToFirst()) lessons = it.getInt(0)
+        }
+        total += letters * com.piyak.english.engine.Wallet.PER_LETTER
+        // 지난 레슨은 문제별 기록이 없으니 한 판당 100원으로 셈한다
+        total += lessons * 100
+        if (total <= 0) return
+
+        db.execSQL("INSERT OR REPLACE INTO meta(k, v) VALUES('coins', ?)", arrayOf(total.toString()))
+        db.execSQL("INSERT OR REPLACE INTO meta(k, v) VALUES('coins_earned', ?)", arrayOf(total.toString()))
+        db.execSQL(
+            "INSERT INTO wallet_log(at, kind, amount, note) VALUES(?, ?, ?, ?)",
+            arrayOf(
+                System.currentTimeMillis(), "LEGACY", total,
+                "그동안 공부한 보상 (알파벳 ${letters}자 · 레슨 ${lessons}판)"
+            )
+        )
     }
 
     // ---------- meta ----------
@@ -102,17 +140,18 @@ class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", n
 
     // ---------- 하트 ----------
     fun hearts(): Int {
-        val saved = metaInt("hearts", Economy.MAX_HEARTS)
+        val max = maxHearts()
+        val saved = metaInt("hearts", max)
         val savedAt = metaLong("hearts_at", System.currentTimeMillis())
         val savedDay = metaLong("hearts_day", today())
         val now = System.currentTimeMillis()
-        val h = Economy.heartsNow(saved, savedAt, savedDay, now, today())
+        val h = Economy.heartsNow(saved, savedAt, savedDay, now, today(), max)
         if (h != saved) setHearts(h)
         return h
     }
 
     fun setHearts(h: Int) {
-        setMeta("hearts", h.coerceIn(0, Economy.MAX_HEARTS).toString())
+        setMeta("hearts", h.coerceIn(0, maxHearts()).toString())
         setMeta("hearts_at", System.currentTimeMillis().toString())
         setMeta("hearts_day", today().toString())
     }
@@ -207,6 +246,111 @@ class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", n
         }
     }
 
+    // ---------- 지갑 (용돈) ----------
+    fun coins(): Int = metaInt("coins")
+    fun coinsEarned(): Int = metaInt("coins_earned")
+    fun coinsSpent(): Int = metaInt("coins_spent")
+    fun coinsPaidOut(): Int = metaInt("coins_paid")
+
+    /** 코인 적립. amount>0 만 유효. @return 실제 적립액 */
+    fun earnCoins(amount: Int, kind: String, note: String): Int {
+        if (amount <= 0) return 0
+        setMeta("coins", (coins() + amount).toString())
+        setMeta("coins_earned", (coinsEarned() + amount).toString())
+        logWallet(kind, amount, note)
+        return amount
+    }
+
+    /** 코인 사용. 잔액이 모자라면 false */
+    fun spendCoins(amount: Int, kind: String, note: String): Boolean {
+        if (amount <= 0 || coins() < amount) return false
+        setMeta("coins", (coins() - amount).toString())
+        if (kind == "PAYOUT") setMeta("coins_paid", (coinsPaidOut() + amount).toString())
+        else setMeta("coins_spent", (coinsSpent() + amount).toString())
+        logWallet(kind, -amount, note)
+        return true
+    }
+
+    private fun logWallet(kind: String, amount: Int, note: String) {
+        val cv = ContentValues().apply {
+            put("at", System.currentTimeMillis()); put("kind", kind)
+            put("amount", amount); put("note", note)
+        }
+        writableDatabase.insert("wallet_log", null, cv)
+    }
+
+    fun walletLog(limit: Int = 30): List<com.piyak.english.engine.WalletLog> {
+        val out = ArrayList<com.piyak.english.engine.WalletLog>()
+        readableDatabase.rawQuery(
+            "SELECT at, kind, amount, note FROM wallet_log ORDER BY id DESC LIMIT ?",
+            arrayOf(limit.toString())
+        ).use {
+            while (it.moveToNext()) {
+                out.add(
+                    com.piyak.english.engine.WalletLog(
+                        it.getLong(0), it.getString(1), it.getInt(2), it.getString(3) ?: ""
+                    )
+                )
+            }
+        }
+        return out
+    }
+
+    /** 하루 한도가 있는 보너스: 오늘 몇 번 받았는지 */
+    fun bonusCountToday(kind: String): Int {
+        val key = "bonus_${kind}"
+        return if (metaLong("${key}_day", -1) == today()) metaInt(key) else 0
+    }
+
+    fun addBonusCountToday(kind: String) {
+        val key = "bonus_${kind}"
+        val n = bonusCountToday(kind)
+        setMeta("${key}_day", today().toString())
+        setMeta(key, (n + 1).toString())
+    }
+
+    // ---------- 인벤토리 ----------
+    fun itemCount(item: String): Int {
+        readableDatabase.rawQuery("SELECT count FROM inventory WHERE item=?", arrayOf(item)).use {
+            return if (it.moveToFirst()) it.getInt(0) else 0
+        }
+    }
+
+    fun addItem(item: String, n: Int) {
+        val db = writableDatabase
+        db.execSQL("INSERT OR IGNORE INTO inventory(item, count) VALUES(?, 0)", arrayOf(item))
+        db.execSQL("UPDATE inventory SET count = count + ? WHERE item = ?", arrayOf(n, item))
+    }
+
+    /** 소모품 1개 사용. 없으면 false */
+    fun useItem(item: String): Boolean {
+        if (itemCount(item) <= 0) return false
+        writableDatabase.execSQL("UPDATE inventory SET count = count - 1 WHERE item = ?", arrayOf(item))
+        return true
+    }
+
+    fun ownsItem(item: String): Boolean = itemCount(item) > 0
+
+    // ---------- 하트 최대치 / 꾸미기 ----------
+    fun maxHearts(): Int =
+        metaInt("max_hearts", com.piyak.english.engine.Economy.MAX_HEARTS)
+            .coerceIn(com.piyak.english.engine.Economy.MAX_HEARTS, com.piyak.english.engine.Shop.MAX_HEARTS_CAP)
+
+    fun setMaxHearts(v: Int) = setMeta("max_hearts", v.toString())
+
+    fun equippedSticker(): String = meta("sticker")
+    fun setEquippedSticker(emoji: String) = setMeta("sticker", emoji)
+
+    fun themeColor(): String =
+        meta("theme_color").ifEmpty { com.piyak.english.engine.Shop.DEFAULT_THEME_COLOR }
+
+    fun setThemeColor(c: String) = setMeta("theme_color", c)
+
+    // ---------- 부모 잠금 ----------
+    fun parentPin(): String = meta("parent_pin")
+    fun setParentPin(pin: String) = setMeta("parent_pin", pin)
+    fun hasParentPin(): Boolean = parentPin().isNotEmpty()
+
     // ---------- 알파벳 쓰기 ----------
     fun letterStars(key: String): Int {
         readableDatabase.rawQuery("SELECT stars FROM letters WHERE key=?", arrayOf(key)).use {
@@ -271,5 +415,6 @@ class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", n
         db.execSQL("DELETE FROM progress"); db.execSQL("DELETE FROM wrongs")
         db.execSQL("DELETE FROM days"); db.execSQL("DELETE FROM badges"); db.execSQL("DELETE FROM meta")
         db.execSQL("DELETE FROM skills"); db.execSQL("DELETE FROM letters")
+        db.execSQL("DELETE FROM wallet_log"); db.execSQL("DELETE FROM inventory")
     }
 }

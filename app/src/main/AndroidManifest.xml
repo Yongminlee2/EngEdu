@@ -36,5 +36,6 @@
         <activity android:name=".ui.SettingsActivity" android:exported="false" android:screenOrientation="portrait" />
         <activity android:name=".ui.AlphabetActivity" android:exported="false" android:screenOrientation="portrait" />
         <activity android:name=".ui.TraceActivity" android:exported="false" android:screenOrientation="portrait" />
+        <activity android:name=".ui.WalletActivity" android:exported="false" android:screenOrientation="portrait" />
     </application>
 </manifest>

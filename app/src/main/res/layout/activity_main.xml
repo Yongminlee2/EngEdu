@@ -66,6 +66,28 @@
                 android:progressTint="@color/coral" android:progressBackgroundTint="@color/cream_dark" />
         </LinearLayout>
 
+        <!-- 지갑 -->
+        <LinearLayout android:id="@+id/cardWallet"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginTop="12dp" android:padding="16dp"
+            android:background="@drawable/bg_wallet">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="💰" android:textSize="32sp" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
+                <TextView android:id="@+id/txtCoins" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="0원" android:textSize="22sp" android:textStyle="bold"
+                    android:textColor="@color/brown_text" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="상점 · 현금으로 바꾸기" android:textSize="12sp"
+                    android:textColor="@color/brown_soft" />
+            </LinearLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="🛒 ▶" android:textSize="16sp" android:textStyle="bold"
+                android:textColor="@color/brown_text" />
+        </LinearLayout>
+
         <!-- 알파벳 쓰기 연습 -->
         <LinearLayout android:id="@+id/cardAlphabet"
             android:layout_width="match_parent" android:layout_height="wrap_content"

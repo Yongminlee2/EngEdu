@@ -26,6 +26,7 @@ import com.piyak.english.engine.Economy
 import com.piyak.english.engine.Grader
 import com.piyak.english.engine.LessonSession
 import com.piyak.english.engine.StatsSnapshot
+import com.piyak.english.engine.Wallet
 import com.piyak.english.model.ContentRepo
 import com.piyak.english.model.Question
 
@@ -49,6 +50,11 @@ class LessonActivity : AppCompatActivity() {
 
     /** 실력 집계는 문제당 첫 시도만 반영 */
     private val skillRecorded = HashSet<String>()
+
+    /** 힌트권(오답 2개 지우기)을 쓸 수 있는 현재 문제의 선택지 */
+    private var choiceButtons: List<Button> = emptyList()
+    private var choiceAnswer = -1
+    private var hintUsedHere = false
 
     /** 레슨 시작 시점의 영역별 레벨·칭호 (결과 화면에서 상승분을 보여주려고 기억) */
     private var startSkillLevels: Map<String, Int> = emptyMap()
@@ -111,6 +117,7 @@ class LessonActivity : AppCompatActivity() {
         }
 
         b.btnClose.setOnClickListener { confirmQuit() }
+        b.btnHint.setOnClickListener { useHint() }
         b.btnContinue.setOnClickListener { hideFeedback(); showQuestion() }
         b.btnCheck.setOnClickListener { checkAction?.invoke() }
         b.btnDone.setOnClickListener { finish() }
@@ -148,6 +155,9 @@ class LessonActivity : AppCompatActivity() {
         b.btnCheck.visibility = View.VISIBLE
         checkAction = null
         speakFails = 0
+        choiceButtons = emptyList()
+        choiceAnswer = -1
+        hintUsedHere = false
         tts.stop()
 
         when (q) {
@@ -160,6 +170,38 @@ class LessonActivity : AppCompatActivity() {
             is Question.Match -> showMatch(q)
             is Question.Speak -> showSpeak(q)
         }
+        // 선택지가 만들어진 뒤에 힌트 버튼 상태를 갱신한다
+        refreshHintButton()
+    }
+
+    // ---------------- 힌트권 ----------------
+
+    private fun refreshHintButton() {
+        val n = db.itemCount("hint")
+        b.btnHint.text = "💡 $n"
+        b.btnHint.isEnabled = n > 0 && choiceButtons.size >= 4 && !hintUsedHere
+        b.btnHint.alpha = if (b.btnHint.isEnabled) 1f else 0.45f
+    }
+
+    /** 오답 2개를 지워 준다 (4지선다에서만) */
+    private fun useHint() {
+        if (hintUsedHere || choiceButtons.size < 4 || choiceAnswer < 0) return
+        if (db.itemCount("hint") <= 0) {
+            Toast.makeText(this, "힌트권이 없어요. 상점에서 살 수 있어요! 💡", Toast.LENGTH_SHORT).show()
+            return
+        }
+        if (!db.useItem("hint")) return
+        hintUsedHere = true
+        val wrongIdx = choiceButtons.indices.filter { it != choiceAnswer }.shuffled().take(2)
+        for (i in wrongIdx) {
+            choiceButtons[i].apply {
+                isEnabled = false
+                alpha = 0.3f
+                paintFlags = paintFlags or android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
+            }
+        }
+        sfx.piyak()
+        refreshHintButton()
     }
 
     private fun inflate(layout: Int): View {
@@ -190,13 +232,17 @@ class LessonActivity : AppCompatActivity() {
             val btn = choiceButton(c)
             btn.setOnClickListener {
                 selected = i
-                buttons.forEach { it.backgroundTintList = ColorStateList.valueOf(Color.WHITE) }
+                buttons.forEach {
+                    if (it.isEnabled) it.backgroundTintList = ColorStateList.valueOf(Color.WHITE)
+                }
                 btn.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#FFD54F"))
                 b.btnCheck.isEnabled = true
             }
             buttons.add(btn)
             box.addView(btn)
         }
+        choiceButtons = buttons
+        choiceAnswer = answer
         checkAction = {
             val ok = selected == answer
             submitAnswer(ok, if (ok) null else "정답: $answerText", explain)
@@ -501,22 +547,41 @@ class LessonActivity : AppCompatActivity() {
         sfx.done()
         b.imgResult.setImageResource(R.drawable.chick_happy)
         val xp = s.xpEarned()
+        var coins = 0
         if (reviewMode) {
-            val h = (db.hearts() + 1).coerceAtMost(Economy.MAX_HEARTS)
+            val h = (db.hearts() + 1).coerceAtMost(db.maxHearts())
             db.setHearts(h)
             db.addXp(xp)
             db.markToday()
+            // 복습 보너스는 하루 한도까지만 (파밍 방지)
+            if (db.bonusCountToday("review") < Wallet.REVIEW_DAILY_LIMIT) {
+                coins = db.earnCoins(Wallet.REVIEW_BONUS, "REVIEW", "오답 복습 완료")
+                db.addBonusCountToday("review")
+            }
             b.txtResultTitle.text = "복습 완료! 💊"
             b.txtResultStats.text = "정답률 ${(s.accuracy * 100).toInt()}% · +${xp} XP\n하트 1개 회복! ❤️ $h"
         } else {
             db.setHearts(s.hearts)
             db.addXp(xp)
+            // 코인은 이 레슨을 "처음" 깰 때만 — 다시 풀어도 0원이라 반복 파밍이 안 된다
+            val firstClear = db.lessonStars(lessonId) == 0
             db.completeLesson(lessonId, trackId, s.stars(), s.accuracy)
             if (s.isPerfect) db.setMeta("perfect_count", (db.metaInt("perfect_count") + 1).toString())
+            if (firstClear) {
+                coins = db.earnCoins(
+                    Wallet.lessonReward(s.firstTryCorrect, s.isPerfect), "LESSON",
+                    "$lessonTitle (첫 시도 정답 ${s.firstTryCorrect}문제)"
+                )
+            }
             b.txtResultTitle.text = if (s.isPerfect) "퍼펙트! 💯" else "레슨 완료! 🎉"
             b.txtResultStats.text =
                 "$lessonTitle\n${"⭐".repeat(s.stars())}\n정답률 ${(s.accuracy * 100).toInt()}% · +${xp} XP" +
                     if (s.isPerfect) " (퍼펙트 +5 포함)" else ""
+        }
+        if (coins > 0) {
+            b.txtResultStats.append("\n\n💰 용돈 +${Wallet.format(coins)}  (지갑 ${Wallet.format(db.coins())})")
+        } else if (!reviewMode) {
+            b.txtResultStats.append("\n\n💰 이미 깬 레슨이라 용돈은 없어요")
         }
         b.txtResultStats.append(growthReport())
         checkBadges()
@@ -543,10 +608,12 @@ class LessonActivity : AppCompatActivity() {
         sb.append("\n\n🎯 오늘의 목표 $todayXp / $goal XP")
         if (com.piyak.english.engine.DailyGoal.isDone(todayXp, goal)) {
             sb.append("  ✅ 달성!")
-            // 목표 달성은 하루 한 번만 집계
+            // 목표 달성은 하루 한 번만 집계 + 용돈 보너스
             if (db.metaLong("goal_met_day", -1) != Db.today()) {
                 db.setMeta("goal_met_day", Db.today().toString())
                 db.setMeta("goals_met", (db.metaInt("goals_met") + 1).toString())
+                val bonus = db.earnCoins(Wallet.DAILY_GOAL_BONUS, "GOAL", "오늘의 목표 달성")
+                if (bonus > 0) sb.append("\n💰 목표 달성 보너스 +${Wallet.format(bonus)}")
             }
         }
         return sb.toString()

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="16dp">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical">
+            <Button android:id="@+id/btnBack" style="?attr/materialIconButtonStyle"
+                android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="◀" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="💰 내 지갑" android:textSize="20sp" android:textStyle="bold" />
+            <TextView android:id="@+id/btnParent" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="🔒 부모 설정" android:textSize="13sp" android:textColor="@color/sky_deep" />
+        </LinearLayout>
+
+        <!-- 잔액 -->
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:gravity="center"
+            android:layout_marginTop="12dp" android:padding="20dp"
+            android:background="@drawable/bg_wallet">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="모은 용돈" android:textSize="14sp" android:textColor="@color/brown_soft" />
+            <TextView android:id="@+id/txtBalance" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="0원" android:textSize="40sp" android:textStyle="bold"
+                android:textColor="@color/brown_text" />
+            <TextView android:id="@+id/txtSummary" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="6dp" android:gravity="center"
+                android:textSize="12sp" android:textColor="@color/brown_soft" />
+        </LinearLayout>
+
+        <Button android:id="@+id/btnPayout"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:text="💵 현금으로 바꾸기 (부모님)"
+            android:textSize="17sp" android:backgroundTint="@color/green_ok" android:textColor="@color/white" />
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="6dp" android:gravity="center" android:textSize="11sp"
+            android:textColor="@color/brown_soft"
+            android:text="문제 1개를 처음 맞히면 10원! 같은 레슨을 다시 풀면 용돈은 없어요" />
+
+        <!-- 상점 -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" android:text="🛒 상점" android:textSize="18sp" android:textStyle="bold" />
+        <LinearLayout android:id="@+id/shopBox"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:layout_marginTop="6dp" />
+
+        <!-- 내역 -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" android:text="📜 용돈 기록" android:textSize="18sp" android:textStyle="bold" />
+        <LinearLayout android:id="@+id/logBox"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:layout_marginTop="6dp" android:paddingBottom="24dp" />
+    </LinearLayout>
+</ScrollView>

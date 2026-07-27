@@ -91,10 +91,15 @@ class TraceActivity : AppCompatActivity() {
         val key = Letters.key(def(), uppercase)
         val first = db.letterStars(key) == 0
         db.setLetterStars(key, 3)
+        var coins = 0
         if (first) {
             db.addXp(Letters.XP_PER_LETTER)
             db.recordSkill("writing", true)
             db.markToday()
+            coins = db.earnCoins(
+                com.piyak.english.engine.Wallet.PER_LETTER, "LETTER",
+                "알파벳 ${def().glyph(uppercase)} 쓰기 완성"
+            )
         }
         b.txtDoneBig.text = def().emoji
         b.txtDoneMsg.text = praises.random()
@@ -102,7 +107,9 @@ class TraceActivity : AppCompatActivity() {
         b.donePanel.alpha = 0f
         b.donePanel.scaleX = 0.5f; b.donePanel.scaleY = 0.5f
         b.donePanel.animate().alpha(1f).scaleX(1f).scaleY(1f).setDuration(420).start()
-        b.txtHint.text = if (first) "완성! +${Letters.XP_PER_LETTER} XP 🎁" else "완성! 다시 써도 좋아요 😊"
+        b.txtHint.text = if (first)
+            "완성! +${Letters.XP_PER_LETTER} XP · 용돈 +${com.piyak.english.engine.Wallet.format(coins)} 🎁"
+        else "완성! 다시 써도 좋아요 😊"
         b.txtStrokeInfo.text = "${b.traceView.totalStrokes} / ${b.traceView.totalStrokes} 획 ✅"
         sayLetter()
     }

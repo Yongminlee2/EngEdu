@@ -50,6 +50,9 @@ class MainActivity : AppCompatActivity() {
         b.cardAlphabet.setOnClickListener {
             startActivity(Intent(this, AlphabetActivity::class.java))
         }
+        b.cardWallet.setOnClickListener {
+            startActivity(Intent(this, WalletActivity::class.java))
+        }
     }
 
     private fun pickDailyGoal() {
@@ -91,6 +94,12 @@ class MainActivity : AppCompatActivity() {
         b.bannerPlacement.visibility =
             if (db.meta("placement_done") == "1") android.view.View.GONE else android.view.View.VISIBLE
 
+        // 상점에서 산 테마 배경 적용
+        val theme = Color.parseColor(db.themeColor())
+        b.root.setBackgroundColor(theme)
+        window.statusBarColor = theme
+
+        b.txtCoins.text = com.piyak.english.engine.Wallet.format(db.coins())
         b.txtAlphabetCount.text = "${db.lettersDoneCount()}/${com.piyak.english.engine.Letters.ALL.size * 2}"
         buildGrowth(db)
         buildTrackCards(db)
@@ -101,7 +110,8 @@ class MainActivity : AppCompatActivity() {
         val states = db.skillStates()
         val overall = Skills.overallLevel(states)
         val rank = Ranks.of(overall)
-        b.txtRank.text = "${rank.emoji} ${rank.title}"
+        val sticker = db.equippedSticker()
+        b.txtRank.text = "${rank.emoji} ${rank.title}" + if (sticker.isNotEmpty()) " $sticker" else ""
         b.rankBar.progress = (Ranks.progress(overall) * 100).toInt()
         val next = Ranks.next(overall)
         b.txtOverall.text = String.format("종합 실력 Lv.%.1f", overall) +
