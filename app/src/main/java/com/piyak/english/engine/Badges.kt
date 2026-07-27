@@ -11,6 +11,8 @@ data class StatsSnapshot(
     val placementDone: Boolean,
     val reviewCleared: Int,
     val unitsCompleted: Map<String, Int>, // trackId → 완료 유닛 수
+    val skillLevels: Map<String, Int> = emptyMap(), // 영역 id → 레벨
+    val goalsMet: Int = 0, // 일일 목표 달성 횟수
 )
 
 object Badges {
@@ -27,6 +29,13 @@ object Badges {
         BadgeDef("placement", "🎯", "제자리 찾기", "레벨테스트 완료"),
         BadgeDef("review_50", "💊", "오답 청소부", "오답 50개 클리어"),
         BadgeDef("unit_master", "🏆", "유닛 정복자", "한 트랙의 유닛 5개 완료"),
+        BadgeDef("goal_first", "🎯", "목표 달성", "오늘의 목표 첫 달성"),
+        BadgeDef("goal_10", "🎪", "목표 사냥꾼", "일일 목표 10번 달성"),
+        BadgeDef("ear_master", "🎧", "귀가 트였다", "듣기 실력 Lv.5"),
+        BadgeDef("mouth_master", "🎤", "입이 트였다", "말하기 실력 Lv.5"),
+        BadgeDef("hand_master", "✍️", "손이 풀렸다", "쓰기 실력 Lv.5"),
+        BadgeDef("grammar_master", "📖", "문법 도사", "문법 실력 Lv.5"),
+        BadgeDef("all_rounder", "🌈", "만능 삐약이", "모든 영역 Lv.3 이상"),
     )
 
     fun check(s: StatsSnapshot, already: Set<String>): List<BadgeDef> {
@@ -46,6 +55,13 @@ object Badges {
         give("placement", s.placementDone)
         give("review_50", s.reviewCleared >= 50)
         give("unit_master", s.unitsCompleted.values.any { it >= 5 })
+        give("goal_first", s.goalsMet >= 1)
+        give("goal_10", s.goalsMet >= 10)
+        give("ear_master", (s.skillLevels["listening"] ?: 0) >= 5)
+        give("mouth_master", (s.skillLevels["speaking"] ?: 0) >= 5)
+        give("hand_master", (s.skillLevels["writing"] ?: 0) >= 5)
+        give("grammar_master", (s.skillLevels["grammar"] ?: 0) >= 5)
+        give("all_rounder", Skills.ALL.all { (s.skillLevels[it.id] ?: 0) >= 3 })
         return earned
     }
 }

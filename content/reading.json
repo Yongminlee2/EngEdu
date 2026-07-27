@@ -1,0 +1,220 @@
+{
+  "passages": [
+    {
+      "level": 2, "title": "우리 강아지 콩이",
+      "passage": "I have a small dog. His name is Kong. He is brown and white. Kong is three years old. Every morning, I walk with him in the park. He likes to run after the ball. After the walk, he drinks a lot of water and sleeps on my bed. Kong is my best friend.",
+      "qs": [
+        {"p": "콩이는 무슨 색인가요?", "c": ["갈색과 흰색", "검은색", "노란색", "회색"], "a": 0, "e": "He is brown and white 라고 나와요."},
+        {"p": "글쓴이는 아침마다 무엇을 하나요?", "c": ["공원에서 콩이와 산책한다", "콩이를 씻긴다", "학교에 간다", "콩이에게 밥을 준다"], "a": 0, "e": "Every morning, I walk with him in the park."},
+        {"p": "산책 후 콩이는 어디서 자나요?", "c": ["글쓴이의 침대", "소파", "마당", "상자 안"], "a": 0, "e": "sleeps on my bed."}
+      ]
+    },
+    {
+      "level": 2, "title": "내 생일 파티",
+      "passage": "Last Saturday was my birthday. My mom made a big chocolate cake. Five friends came to my house. We played games and sang songs. My best friend gave me a book about animals. I was very happy. It was the best day of the year.",
+      "qs": [
+        {"p": "생일은 언제였나요?", "c": ["지난 토요일", "지난 일요일", "지난달", "내일"], "a": 0, "e": "Last Saturday was my birthday."},
+        {"p": "친구가 준 선물은 무엇인가요?", "c": ["동물에 관한 책", "초콜릿 케이크", "장난감", "공"], "a": 0, "e": "gave me a book about animals."},
+        {"p": "몇 명의 친구가 왔나요?", "c": ["다섯 명", "세 명", "열 명", "한 명"], "a": 0, "e": "Five friends came to my house."}
+      ]
+    },
+    {
+      "level": 3, "title": "학교 도서관 안내",
+      "passage": "The school library is open from 8 a.m. to 5 p.m. on weekdays. Students may borrow up to three books at a time for two weeks. If you return a book late, you cannot borrow books for one week. Eating and drinking are not allowed inside. On Fridays, the library closes early at 3 p.m. for cleaning.",
+      "qs": [
+        {"p": "한 번에 몇 권까지 빌릴 수 있나요?", "c": ["세 권", "두 권", "다섯 권", "제한 없음"], "a": 0, "e": "borrow up to three books at a time."},
+        {"p": "책을 늦게 반납하면 어떻게 되나요?", "c": ["일주일간 대출 금지", "벌금을 낸다", "아무 일 없다", "회원 자격 취소"], "a": 0, "e": "you cannot borrow books for one week."},
+        {"p": "금요일에 도서관은 몇 시에 닫나요?", "c": ["오후 3시", "오후 5시", "오후 8시", "정오"], "a": 0, "e": "On Fridays, the library closes early at 3 p.m."}
+      ]
+    },
+    {
+      "level": 3, "title": "펭귄의 겨울나기",
+      "passage": "Emperor penguins live in Antarctica, the coldest place on Earth. In winter, the temperature falls below minus 50 degrees. To stay warm, hundreds of penguins stand close together in a big group. The birds on the outside slowly move to the middle, and the ones in the middle move out. In this way, every penguin gets a turn in the warm center.",
+      "qs": [
+        {"p": "펭귄들은 어떻게 몸을 따뜻하게 하나요?", "c": ["큰 무리를 지어 붙어 선다", "동굴에 들어간다", "빠르게 달린다", "물속에 들어간다"], "a": 0, "e": "hundreds of penguins stand close together."},
+        {"p": "무리 안에서 펭귄들은 어떻게 움직이나요?", "c": ["바깥과 가운데를 번갈아 이동한다", "가운데에 계속 머문다", "전혀 움직이지 않는다", "무리를 떠난다"], "a": 0, "e": "outside → middle, middle → out 으로 교대해요."},
+        {"p": "이 글의 주제는 무엇인가요?", "c": ["펭귄이 추위를 이기는 방법", "남극의 위치", "펭귄의 먹이", "펭귄의 수영 실력"], "a": 0, "e": "추위 대응 방식이 글 전체의 중심 내용이에요."}
+      ]
+    },
+    {
+      "level": 4, "title": "재활용 캠페인",
+      "passage": "Our town started a new recycling program last month. Residents now separate paper, plastic, glass, and food waste into four different bins. At first, many people found the new rules confusing, so the town hall printed simple guides and put them in every mailbox. After only four weeks, the amount of trash sent to the landfill dropped by almost thirty percent. The mayor says the goal is fifty percent by next year.",
+      "qs": [
+        {"p": "쓰레기를 몇 종류로 분리하나요?", "c": ["네 종류", "두 종류", "세 종류", "여섯 종류"], "a": 0, "e": "paper, plastic, glass, and food waste = 4가지."},
+        {"p": "사람들이 처음에 겪은 문제는?", "c": ["새 규칙이 헷갈렸다", "쓰레기통이 부족했다", "비용이 비쌌다", "수거차가 오지 않았다"], "a": 0, "e": "many people found the new rules confusing."},
+        {"p": "4주 후의 결과는?", "c": ["매립 쓰레기가 약 30% 줄었다", "쓰레기가 50% 줄었다", "변화가 없었다", "쓰레기가 늘었다"], "a": 0, "e": "dropped by almost thirty percent."}
+      ]
+    },
+    {
+      "level": 4, "title": "잠을 자는 이유",
+      "passage": "Scientists once believed that sleep was simply a time when the body rested. Recent studies, however, show that the brain is very busy during sleep. It sorts through the day's events, keeps what matters, and throws away what does not. Teenagers need about nine hours of sleep, but most get fewer than seven. Students who sleep well remember lessons better and feel less stressed during exams.",
+      "qs": [
+        {"p": "잠자는 동안 뇌는 무엇을 하나요?", "c": ["하루의 일을 정리하고 선별한다", "완전히 쉰다", "새 정보를 받아들인다", "체온을 올린다"], "a": 0, "e": "sorts through the day's events, keeps what matters."},
+        {"p": "십 대에게 필요한 수면 시간은?", "c": ["약 9시간", "약 7시간", "약 5시간", "약 12시간"], "a": 0, "e": "Teenagers need about nine hours."},
+        {"p": "잠을 잘 자는 학생의 특징은?", "c": ["수업 내용을 더 잘 기억한다", "더 일찍 일어난다", "성적이 항상 1등이다", "운동을 잘한다"], "a": 0, "e": "remember lessons better and feel less stressed."}
+      ]
+    },
+    {
+      "level": 5, "title": "자원봉사 모집",
+      "passage": "The Riverside Animal Shelter is looking for weekend volunteers. No experience is necessary; training is provided on your first day. Volunteers help feed the animals, clean the cages, and walk the dogs. You must be at least fourteen years old, and anyone under eighteen needs a parent's signature. Volunteers who complete twenty hours receive a certificate that can be used for school records.",
+      "qs": [
+        {"p": "지원 자격 중 맞는 것은?", "c": ["최소 14세 이상", "경험이 반드시 필요", "18세 이상만 가능", "주중에만 가능"], "a": 0, "e": "at least fourteen years old, 경험은 불필요."},
+        {"p": "18세 미만이 추가로 필요한 것은?", "c": ["부모 서명", "학교 추천서", "건강 진단서", "수강료"], "a": 0, "e": "anyone under eighteen needs a parent's signature."},
+        {"p": "20시간을 채우면 받는 것은?", "c": ["학교 기록용 증명서", "급여", "반려동물", "무료 사료"], "a": 0, "e": "receive a certificate for school records."}
+      ]
+    },
+    {
+      "level": 5, "title": "커피의 여행",
+      "passage": "Coffee did not always come in paper cups. The plant was first discovered in Ethiopia, where a goatherd noticed his animals became lively after eating certain red berries. From there, coffee traveled to Arabia, where the first coffee houses opened in the fifteenth century. These shops became centers of conversation and news, so much so that some rulers tried to close them, fearing that people were talking too freely.",
+      "qs": [
+        {"p": "커피가 처음 발견된 곳은?", "c": ["에티오피아", "아라비아", "브라질", "터키"], "a": 0, "e": "first discovered in Ethiopia."},
+        {"p": "염소지기가 알아챈 것은?", "c": ["염소들이 붉은 열매를 먹고 활기차졌다", "열매가 달다", "염소가 병들었다", "열매가 향기롭다"], "a": 0, "e": "became lively after eating certain red berries."},
+        {"p": "일부 통치자들이 커피하우스를 닫으려 한 이유는?", "c": ["사람들이 너무 자유롭게 이야기해서", "커피가 비싸서", "위생 문제 때문에", "세금을 못 걷어서"], "a": 0, "e": "fearing that people were talking too freely."}
+      ]
+    },
+    {
+      "level": 6, "title": "도시의 자전거 공유",
+      "passage": "Bike-sharing systems have spread to more than a thousand cities worldwide. The idea is simple: users unlock a bike with a phone app, ride it, and leave it at any station. Supporters point out that the systems reduce traffic and pollution while improving public health. Critics, however, note that abandoned bikes can block sidewalks, and that in some cities thousands of unused bikes have piled up in vacant lots. The most successful programs are those where the city sets clear limits on how many bikes each company may release.",
+      "qs": [
+        {"p": "자전거 공유의 장점으로 언급된 것은?", "c": ["교통량과 오염 감소", "자동차 판매 증가", "도로 확장", "관광 수입"], "a": 0, "e": "reduce traffic and pollution while improving public health."},
+        {"p": "비판자들이 지적하는 문제는?", "c": ["방치된 자전거가 인도를 막는다", "요금이 비싸다", "속도가 느리다", "앱이 어렵다"], "a": 0, "e": "abandoned bikes can block sidewalks."},
+        {"p": "가장 성공적인 프로그램의 특징은?", "c": ["도시가 자전거 수를 제한한다", "무료로 운영한다", "회사가 많을수록 좋다", "자전거를 크게 만든다"], "a": 0, "e": "the city sets clear limits on how many bikes."}
+      ]
+    },
+    {
+      "level": 6, "title": "소음과 집중력",
+      "passage": "Many students claim they study better with music, but the research is more complicated. Studies suggest that quiet instrumental music can help with repetitive tasks such as copying notes. For work that requires reading and understanding, however, songs with words interfere, because the brain processes the lyrics as language and competes with the text on the page. The safest rule is this: the harder the material, the quieter the room should be.",
+      "qs": [
+        {"p": "반복 작업에 도움이 되는 음악은?", "c": ["조용한 기악곡", "가사 있는 노래", "큰 소리의 록", "라디오 뉴스"], "a": 0, "e": "quiet instrumental music can help with repetitive tasks."},
+        {"p": "가사 있는 노래가 방해가 되는 이유는?", "c": ["뇌가 가사를 언어로 처리해 글과 경쟁해서", "소리가 커서", "박자가 빨라서", "감정을 자극해서"], "a": 0, "e": "the brain processes the lyrics as language."},
+        {"p": "글이 제시한 원칙은?", "c": ["내용이 어려울수록 더 조용해야 한다", "항상 음악을 켜라", "음악은 무조건 해롭다", "소리가 클수록 집중된다"], "a": 0, "e": "the harder the material, the quieter the room."}
+      ]
+    },
+    {
+      "level": 7, "title": "기억의 궁전",
+      "passage": "Long before printing, orators memorized speeches lasting hours by using a technique called the memory palace. The speaker imagines a familiar building and places each idea in a specific room. To recall the speech, he simply walks through the building in his mind. The method works because human memory is far better at storing places and images than abstract words. Modern memory champions still rely on it, and studies of their brains show no unusual structure, only well-practiced habits.",
+      "qs": [
+        {"p": "기억의 궁전 기법의 핵심은?", "c": ["익숙한 건물의 각 방에 생각을 배치한다", "단어를 반복해 외운다", "노래로 만든다", "글로 적는다"], "a": 0, "e": "places each idea in a specific room."},
+        {"p": "이 방법이 효과적인 이유는?", "c": ["인간 기억이 장소와 이미지에 강해서", "말이 짧아져서", "글씨를 안 써도 돼서", "건물이 크기 때문에"], "a": 0, "e": "memory is far better at storing places and images."},
+        {"p": "기억력 챔피언들의 뇌 연구 결과는?", "c": ["구조는 평범하고 훈련된 습관의 결과였다", "뇌가 훨씬 컸다", "특별한 유전자가 있었다", "기억 영역이 두 배였다"], "a": 0, "e": "no unusual structure, only well-practiced habits."}
+      ]
+    },
+    {
+      "level": 7, "title": "사라지는 모래",
+      "passage": "Sand may seem endless, but usable sand is running short. Desert sand, shaped by wind, is too round to bind in concrete, so builders depend on river and coastal sand. As construction booms, illegal mining has stripped riverbeds in several countries, causing bridges to collapse and salt water to seep into farmland. Researchers are testing concrete made with crushed glass and recycled rubble, but scaling such alternatives to the size of the global construction industry remains a distant goal.",
+      "qs": [
+        {"p": "사막 모래를 콘크리트에 쓸 수 없는 이유는?", "c": ["바람에 깎여 너무 둥글어서 잘 붙지 않는다", "너무 뜨거워서", "소금기가 많아서", "양이 부족해서"], "a": 0, "e": "too round to bind in concrete."},
+        {"p": "불법 채취가 초래한 피해가 아닌 것은?", "c": ["사막이 넓어졌다", "다리가 무너졌다", "농지에 바닷물이 스며들었다", "강바닥이 파헤쳐졌다"], "a": 0, "e": "사막 확대는 언급되지 않았어요."},
+        {"p": "대안 연구의 현재 상황은?", "c": ["유리·잔해 활용을 시험 중이나 규모 확대는 멀다", "이미 상용화되었다", "실패로 끝났다", "연구가 없다"], "a": 0, "e": "scaling such alternatives ... remains a distant goal."}
+      ]
+    },
+    {
+      "level": 8, "title": "군중의 지혜",
+      "passage": "In 1906, the statistician Francis Galton attended a country fair where villagers guessed the weight of an ox. No single guess was correct, yet the average of nearly eight hundred guesses fell within one pound of the true weight. Galton, who had expected to demonstrate the foolishness of crowds, instead documented what is now called the wisdom of crowds. The effect holds only under specific conditions: the guessers must be numerous, independent, and diverse. When people can hear one another, the errors stop canceling out and the group drifts toward whatever the loudest voice suggests.",
+      "qs": [
+        {"p": "골턴이 발견한 것은?", "c": ["약 800명 추측의 평균이 실제와 거의 일치했다", "한 사람이 정확히 맞혔다", "군중은 늘 틀린다", "황소가 예상보다 무거웠다"], "a": 0, "e": "the average ... fell within one pound of the true weight."},
+        {"p": "골턴이 원래 증명하려던 것은?", "c": ["군중의 어리석음", "군중의 지혜", "통계의 무용함", "농부들의 전문성"], "a": 0, "e": "had expected to demonstrate the foolishness of crowds."},
+        {"p": "이 효과가 무너지는 조건은?", "c": ["사람들이 서로의 의견을 들을 때", "인원이 많을 때", "배경이 다양할 때", "독립적으로 판단할 때"], "a": 0, "e": "When people can hear one another, the errors stop canceling out."}
+      ]
+    },
+    {
+      "level": 8, "title": "빛 공해",
+      "passage": "Artificial light has extended the working day, but it has also erased the night sky for most of humanity. More than eighty percent of the world's population now lives under skies bright enough to hide the Milky Way. The consequences reach beyond astronomy. Migrating birds, which navigate by stars, collide with illuminated towers; sea turtle hatchlings crawl toward streetlights instead of the ocean. Encouragingly, the remedy is unusually simple and cheap: shielded fixtures that point downward, and warmer bulbs that scatter less. Several cities that adopted such rules reported measurable improvements within a single year.",
+      "qs": [
+        {"p": "인공 빛의 영향으로 언급되지 않은 것은?", "c": ["농작물 수확량 감소", "은하수가 보이지 않음", "철새의 충돌", "바다거북 새끼의 방향 착각"], "a": 0, "e": "농작물은 언급되지 않았어요."},
+        {"p": "제시된 해결책은?", "c": ["아래를 향한 차폐 조명과 따뜻한 색 전구", "가로등 전면 철거", "야간 통행 금지", "더 밝은 조명"], "a": 0, "e": "shielded fixtures that point downward, and warmer bulbs."},
+        {"p": "규정을 도입한 도시들의 결과는?", "c": ["1년 안에 측정 가능한 개선을 보고했다", "변화가 없었다", "비용이 급증했다", "범죄가 늘었다"], "a": 0, "e": "reported measurable improvements within a single year."}
+      ]
+    },
+    {
+      "level": 9, "title": "재택근무 보고서",
+      "passage": "A two-year study of 1,600 employees at a technology firm produced mixed findings on remote work. Productivity on individual tasks rose by roughly thirteen percent, largely because workers took shorter breaks and lost no commuting time. Collaboration, however, suffered: the number of messages exchanged between different departments fell by a quarter, and new employees reported feeling isolated. The company ultimately adopted a hybrid schedule, requiring three office days per week, with Tuesdays reserved for cross-team meetings.",
+      "qs": [
+        {"p": "개인 업무 생산성 변화는?", "c": ["약 13% 상승", "약 13% 하락", "변화 없음", "25% 상승"], "a": 0, "e": "rose by roughly thirteen percent."},
+        {"p": "재택근무의 부정적 결과는?", "c": ["부서 간 소통 감소와 신입의 고립감", "급여 삭감", "근무 시간 증가", "이직률 감소"], "a": 0, "e": "messages between departments fell by a quarter."},
+        {"p": "회사가 최종 채택한 방식은?", "c": ["주 3일 출근하는 하이브리드", "전면 재택", "전면 출근", "주 1일 출근"], "a": 0, "e": "hybrid schedule, requiring three office days per week."}
+      ]
+    },
+    {
+      "level": 9, "title": "고객 만족도 조사 결과",
+      "passage": "Our annual survey collected responses from 4,200 customers. Overall satisfaction reached 87 percent, up four points from last year. Respondents praised the speed of delivery, with 92 percent reporting that orders arrived on or before the promised date. The lowest-rated area was the return process, which only 61 percent described as easy. Written comments frequently mentioned the difficulty of printing return labels at home. In response, the company will introduce label-free returns at partner drop-off points beginning in the third quarter.",
+      "qs": [
+        {"p": "가장 낮은 평가를 받은 영역은?", "c": ["반품 절차", "배송 속도", "가격", "고객 상담"], "a": 0, "e": "The lowest-rated area was the return process (61%)."},
+        {"p": "고객들이 자주 언급한 불편은?", "c": ["집에서 반품 라벨을 출력하기 어렵다", "배송이 느리다", "포장이 부실하다", "가격이 비싸다"], "a": 0, "e": "difficulty of printing return labels at home."},
+        {"p": "회사의 대응책은?", "c": ["3분기부터 라벨 없는 반품 도입", "가격 인하", "배송비 무료화", "고객센터 확대"], "a": 0, "e": "label-free returns at partner drop-off points."}
+      ]
+    },
+    {
+      "level": 10, "title": "관찰자 효과",
+      "passage": "In the 1920s, researchers at a factory tested whether brighter lighting would raise output. It did. Then they dimmed the lights, and output rose again. The unsettling conclusion was that the workers were responding not to illumination but to being studied. Later reanalysis has questioned the original data, and the size of the effect is now considered far smaller than once claimed. Yet the underlying caution endures: in any study of human behavior, the act of measurement may alter the very thing being measured, which is why well-designed trials conceal from participants which group they belong to.",
+      "qs": [
+        {"p": "실험에서 나타난 역설적 결과는?", "c": ["조명을 밝게 해도 어둡게 해도 생산성이 올랐다", "조명이 밝을 때만 올랐다", "생산성이 계속 떨어졌다", "아무 변화가 없었다"], "a": 0, "e": "밝게 → 상승, 어둡게 → 또 상승."},
+        {"p": "후대의 재분석이 밝힌 것은?", "c": ["효과 크기가 예전 주장보다 훨씬 작다", "원래 결론이 완벽히 옳았다", "실험이 조작되었다", "효과가 두 배였다"], "a": 0, "e": "the size of the effect is now considered far smaller."},
+        {"p": "잘 설계된 실험이 참가자에게 감추는 것은?", "c": ["자신이 어느 집단에 속하는지", "연구비 규모", "연구자의 이름", "실험 장소"], "a": 0, "e": "conceal from participants which group they belong to."}
+      ]
+    },
+    {
+      "level": 10, "title": "번역할 수 없는 말",
+      "passage": "Every language contains words that resist translation, not because equivalents are missing but because the surrounding assumptions differ. The Japanese term for the light filtering through leaves compresses an entire aesthetic tradition into three syllables; rendering it in English requires a clause. Some scholars once argued that such gaps constrain thought itself, a strong claim that experiments have largely deflated. What survives is a weaker but more interesting version: language does not build walls around thinking, but it does lay paths, making some ideas quicker to reach than others.",
+      "qs": [
+        {"p": "번역이 어려운 진짜 이유로 글이 제시한 것은?", "c": ["주변의 전제와 맥락이 다르기 때문", "단어 수가 부족해서", "발음이 달라서", "문법이 복잡해서"], "a": 0, "e": "not because equivalents are missing but because the surrounding assumptions differ."},
+        {"p": "'강한 주장'에 대한 실험 결과는?", "c": ["대체로 힘을 잃었다", "완전히 입증되었다", "검증되지 않았다", "더 강화되었다"], "a": 0, "e": "a strong claim that experiments have largely deflated."},
+        {"p": "글이 남긴 결론은?", "c": ["언어는 사고에 길을 놓아 어떤 생각을 더 쉽게 만든다", "언어가 사고를 가둔다", "언어는 사고와 무관하다", "번역은 불가능하다"], "a": 0, "e": "it does lay paths, making some ideas quicker to reach."}
+      ]
+    },
+    {
+      "level": 6, "title": "박물관 관람 안내",
+      "passage": "Welcome to the City History Museum. Photography without flash is permitted in all galleries except the textile room, where light damages the fabric. Guided tours in English begin at 10:30 and 14:00 from the main desk and last about fifty minutes. Backpacks larger than a laptop bag must be left in the free lockers near the entrance. The rooftop café closes thirty minutes before the museum, so plan your visit accordingly.",
+      "qs": [
+        {"p": "사진 촬영이 금지된 곳은?", "c": ["직물 전시실", "옥상 카페", "모든 전시실", "입구"], "a": 0, "e": "except the textile room, where light damages the fabric."},
+        {"p": "영어 가이드 투어는 얼마나 걸리나요?", "c": ["약 50분", "약 30분", "약 90분", "약 2시간"], "a": 0, "e": "last about fifty minutes."},
+        {"p": "큰 배낭은 어떻게 해야 하나요?", "c": ["입구 근처 무료 사물함에 맡긴다", "가지고 들어간다", "차에 둔다", "유료 보관소에 맡긴다"], "a": 0, "e": "must be left in the free lockers near the entrance."}
+      ]
+    },
+    {
+      "level": 5, "title": "우리 학교 텃밭",
+      "passage": "Last spring, our class started a small garden behind the school. We planted tomatoes, lettuce, and strawberries. At first, the plants grew slowly because we watered them too much. Our science teacher explained that roots also need air, and that soaked soil pushes the air out. After we watered less often, the plants became healthy. In June, we harvested enough vegetables to make salads for the whole grade.",
+      "qs": [
+        {"p": "처음에 식물이 잘 자라지 않은 이유는?", "c": ["물을 너무 많이 줘서", "햇빛이 부족해서", "씨앗이 나빠서", "너무 추워서"], "a": 0, "e": "the plants grew slowly because we watered them too much."},
+        {"p": "선생님이 설명한 원리는?", "c": ["뿌리도 공기가 필요하다", "물은 많을수록 좋다", "흙은 마를수록 좋다", "비료가 최고다"], "a": 0, "e": "roots also need air, and soaked soil pushes the air out."},
+        {"p": "6월에 있었던 일은?", "c": ["학년 전체가 먹을 샐러드를 만들 만큼 수확했다", "텃밭을 닫았다", "새 씨앗을 심었다", "대회에 나갔다"], "a": 0, "e": "harvested enough vegetables to make salads for the whole grade."}
+      ]
+    },
+    {
+      "level": 4, "title": "물의 순환",
+      "passage": "Water on Earth never disappears; it only changes form. Heat from the sun turns water in oceans and lakes into vapor, which rises into the air. High above the ground, the vapor cools and becomes tiny drops that form clouds. When the drops grow heavy enough, they fall as rain or snow. Some of this water flows back to the sea, and the cycle begins again. The water you drink today may have fallen as rain a thousand years ago.",
+      "qs": [
+        {"p": "물이 수증기로 변하게 하는 것은?", "c": ["태양의 열", "바람", "구름", "달"], "a": 0, "e": "Heat from the sun turns water ... into vapor."},
+        {"p": "구름은 어떻게 만들어지나요?", "c": ["수증기가 식어 작은 물방울이 되어 모인다", "먼지가 뭉쳐서", "비가 올라가서", "바람이 밀어서"], "a": 0, "e": "the vapor cools and becomes tiny drops that form clouds."},
+        {"p": "글의 마지막 문장이 말하는 것은?", "c": ["물은 사라지지 않고 계속 순환한다", "옛날 비가 더 깨끗했다", "물이 점점 줄어든다", "비는 천 년에 한 번 온다"], "a": 0, "e": "물이 순환한다는 주제를 인상적으로 마무리한 문장이에요."}
+      ]
+    },
+    {
+      "level": 3, "title": "새 이웃",
+      "passage": "A new family moved into the house next door on Monday. They have a daughter named Sujin. She is in my grade but goes to a different school. On Tuesday, my mother made kimchi stew and asked me to bring some to them. Sujin opened the door and smiled. We talked about music for almost an hour. Now we walk to the bus stop together every morning.",
+      "qs": [
+        {"p": "수진이는 글쓴이와 어떤 관계인가요?", "c": ["같은 학년이지만 다른 학교에 다닌다", "같은 학교 같은 반이다", "사촌이다", "선생님이다"], "a": 0, "e": "in my grade but goes to a different school."},
+        {"p": "화요일에 글쓴이가 한 일은?", "c": ["김치찌개를 이웃에게 가져다줬다", "이사를 도왔다", "학교에 결석했다", "음악 수업을 들었다"], "a": 0, "e": "asked me to bring some to them."},
+        {"p": "지금 두 사람은 아침마다 무엇을 하나요?", "c": ["함께 버스 정류장까지 걸어간다", "같이 공부한다", "음악을 듣는다", "요리를 한다"], "a": 0, "e": "we walk to the bus stop together every morning."}
+      ]
+    },
+    {
+      "level": 7, "title": "가짜 뉴스 판별법",
+      "passage": "Professional fact-checkers do not read suspicious articles the way most people do. Rather than studying the page carefully from top to bottom, they leave it almost immediately, opening new tabs to see what other sources say about the site itself. Researchers call this lateral reading. Students trained in the method identified misleading pages far more often than those who relied on surface signals such as a professional design or a long list of references, both of which are easy to fake.",
+      "qs": [
+        {"p": "전문 팩트체커의 방식은?", "c": ["즉시 다른 탭을 열어 그 사이트의 평판을 확인한다", "글을 처음부터 끝까지 정독한다", "디자인을 평가한다", "참고문헌 수를 센다"], "a": 0, "e": "opening new tabs to see what other sources say — lateral reading."},
+        {"p": "이 방법의 이름은?", "c": ["측면 읽기(lateral reading)", "정독", "속독", "역방향 읽기"], "a": 0, "e": "Researchers call this lateral reading."},
+        {"p": "쉽게 위조할 수 있다고 언급된 것은?", "c": ["전문적인 디자인과 긴 참고문헌 목록", "도메인 등록일", "다른 매체의 평가", "저자의 학위"], "a": 0, "e": "both of which are easy to fake."}
+      ]
+    },
+    {
+      "level": 8, "title": "달력의 열한 날",
+      "passage": "In September 1752, Britain went to sleep on the second and woke on the fourteenth. The country was abandoning the Julian calendar, which had drifted eleven days out of step with the sun over the centuries. Popular histories claim that mobs rioted, demanding their lost days back, but historians find little evidence for such protests. What did cause genuine confusion was money: rents and wages had to be recalculated, and workers reasonably asked whether they should be paid for days that no longer existed.",
+      "qs": [
+        {"p": "1752년 9월에 일어난 일은?", "c": ["달력에서 11일이 사라졌다", "새해가 두 번 왔다", "달력이 폐지되었다", "휴일이 11일 늘었다"], "a": 0, "e": "slept on the 2nd, woke on the 14th — 11일이 건너뛰어졌어요."},
+        {"p": "폭동에 관한 이야기에 대해 역사학자들의 견해는?", "c": ["그런 시위의 증거가 거의 없다", "사실로 확인되었다", "더 큰 폭동이 있었다", "정부가 은폐했다"], "a": 0, "e": "historians find little evidence for such protests."},
+        {"p": "실제로 혼란을 일으킨 문제는?", "c": ["임대료와 임금 계산", "종교 행사 날짜", "농사 시기", "학교 학기"], "a": 0, "e": "rents and wages had to be recalculated."}
+      ]
+    }
+  ]
+}

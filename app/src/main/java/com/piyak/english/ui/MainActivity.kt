@@ -1,6 +1,7 @@
 package com.piyak.english.ui
 
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
@@ -10,7 +11,11 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.piyak.english.databinding.ActivityMainBinding
 import com.piyak.english.db.Db
+import com.piyak.english.engine.DailyGoal
 import com.piyak.english.engine.Economy
+import com.piyak.english.engine.Ranks
+import com.piyak.english.engine.SkillState
+import com.piyak.english.engine.Skills
 import com.piyak.english.model.ContentRepo
 
 class MainActivity : AppCompatActivity() {
@@ -41,6 +46,28 @@ class MainActivity : AppCompatActivity() {
         }
         b.btnStats.setOnClickListener { startActivity(Intent(this, StatsActivity::class.java)) }
         b.btnSettings.setOnClickListener { startActivity(Intent(this, SettingsActivity::class.java)) }
+        b.txtGoalEdit.setOnClickListener { pickDailyGoal() }
+    }
+
+    private fun pickDailyGoal() {
+        val db = Db.get(this)
+        val labels = DailyGoal.OPTIONS.map { xp ->
+            val note = when (xp) {
+                20 -> "가볍게 (레슨 1개쯤)"
+                50 -> "보통 (레슨 2~3개)"
+                100 -> "열심히 (레슨 5개쯤)"
+                else -> "빡세게 (레슨 10개쯤)"
+            }
+            "$xp XP — $note"
+        }.toTypedArray()
+        androidx.appcompat.app.AlertDialog.Builder(this)
+            .setTitle("🎯 오늘의 목표 정하기")
+            .setItems(labels) { _, i ->
+                db.setDailyGoal(DailyGoal.OPTIONS[i])
+                refresh()
+            }
+            .setNegativeButton("취소", null)
+            .show()
     }
 
     override fun onResume() {
@@ -61,7 +88,73 @@ class MainActivity : AppCompatActivity() {
         b.bannerPlacement.visibility =
             if (db.meta("placement_done") == "1") android.view.View.GONE else android.view.View.VISIBLE
 
+        buildGrowth(db)
         buildTrackCards(db)
+    }
+
+    /** 칭호 · 오늘의 목표 · 영역별 실력 바 */
+    private fun buildGrowth(db: Db) {
+        val states = db.skillStates()
+        val overall = Skills.overallLevel(states)
+        val rank = Ranks.of(overall)
+        b.txtRank.text = "${rank.emoji} ${rank.title}"
+        b.rankBar.progress = (Ranks.progress(overall) * 100).toInt()
+        val next = Ranks.next(overall)
+        b.txtOverall.text = String.format("종합 실력 Lv.%.1f", overall) +
+            if (next != null) "  →  다음 칭호 ${next.emoji} ${next.title}" else "  (최고 칭호!)"
+
+        val goal = db.dailyGoal()
+        val todayXp = db.xpToday()
+        val done = DailyGoal.isDone(todayXp, goal)
+        b.txtGoal.text = "🎯 오늘의 목표  $todayXp / $goal XP" + if (done) "   ✅ 달성!" else ""
+        b.goalBar.progress = (DailyGoal.progress(todayXp, goal) * 100).toInt()
+        b.goalBar.progressTintList = ColorStateList.valueOf(
+            Color.parseColor(if (done) "#66BB6A" else "#FF8A80")
+        )
+
+        val weak = Skills.weakest(states)
+        b.txtWeakest.text = if (weak != null && weak.attempts >= 0)
+            "약한 영역: ${weak.def.emoji} ${weak.def.title}" else ""
+
+        b.skillsBox.removeAllViews()
+        for (st in states) b.skillsBox.addView(skillRow(st))
+    }
+
+    /** 실력 한 줄: 🎧 듣기  Lv.3  [====----]  정답률 82% */
+    private fun skillRow(st: SkillState): LinearLayout {
+        val row = LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
+            setPadding(0, dp(5f).toInt(), 0, dp(5f).toInt())
+        }
+        row.addView(TextView(this).apply {
+            text = "${st.def.emoji} ${st.def.title}"
+            textSize = 14f
+            width = dp(78f).toInt()
+        })
+        row.addView(TextView(this).apply {
+            text = "Lv.${st.level}"
+            textSize = 14f
+            setTypeface(typeface, android.graphics.Typeface.BOLD)
+            width = dp(46f).toInt()
+        })
+        row.addView(android.widget.ProgressBar(
+            this, null, android.R.attr.progressBarStyleHorizontal
+        ).apply {
+            max = 100
+            progress = (st.progress * 100).toInt()
+            progressTintList = ColorStateList.valueOf(Color.parseColor(st.def.color))
+            progressBackgroundTintList = ColorStateList.valueOf(Color.parseColor("#FFF0CC"))
+            layoutParams = LinearLayout.LayoutParams(0, dp(10f).toInt(), 1f)
+        })
+        row.addView(TextView(this).apply {
+            text = if (st.attempts == 0) "  시작 전" else "  ${st.accuracy}%"
+            textSize = 12f
+            setTextColor(Color.parseColor("#8D6E63"))
+            width = dp(58f).toInt()
+            gravity = Gravity.END
+        })
+        return row
     }
 
     private fun buildTrackCards(db: Db) {

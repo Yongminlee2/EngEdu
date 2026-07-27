@@ -92,7 +92,10 @@ function validate(q) {
 }
 
 // ---------- MCQ 헬퍼 ----------
-function mcq(prefix, prompt, correct, distractors, explain, passage) {
+/** skill 태그를 붙여서 돌려준다 (실력 대시보드 집계용) */
+function tag(q, skill) { if (skill) q.skill = skill; return q; }
+
+function mcq(prefix, prompt, correct, distractors, explain, passage, skill) {
   const choices = shuffled([correct, ...distractors]);
   const q = {
     id: qid(prefix), type: passage ? "reading" : "mcq", prompt,
@@ -100,6 +103,7 @@ function mcq(prefix, prompt, correct, distractors, explain, passage) {
   };
   if (explain) q.explain = explain;
   if (passage) q.passage = passage;
+  if (skill) q.skill = skill;
   return validate(q);
 }
 function listenMcq(prefix, tts, prompt, correct, distractors, explain) {
@@ -260,7 +264,7 @@ function genBasicUnits() {
 
     // --- 문법 유닛 ---
     const gs = grammar.filter((g) => g.level === L).map((g) =>
-      mcq("b", g.p, g.c[g.a], g.c.filter((_, i) => i !== g.a), g.e));
+      mcq("b", g.p, g.c[g.a], g.c.filter((_, i) => i !== g.a), g.e, null, "grammar"));
     if (gs.length >= 8) {
       const gl = packLessons(gs, 10);
       units.push(...packUnits(gl, 6, L, (i) => `${L}단계 문법 클리닉${gl.length > 6 ? " " + (i + 1) : ""}`, ["⚙️"]));
@@ -368,7 +372,7 @@ function genToeicUnits() {
   let lv = 0;
 
   // Part5
-  const p5 = data.p5.map((g) => mcq("t", g.p, g.c[g.a], g.c.filter((_, i) => i !== g.a), g.e));
+  const p5 = data.p5.map((g) => mcq("t", g.p, g.c[g.a], g.c.filter((_, i) => i !== g.a), g.e, null, "grammar"));
   if (p5.length) {
     const ls = packLessons(p5, 10);
     units.push(...packUnits(ls, 5, ++lv, (i) => `Part 5 빈칸 채우기 ${i + 1}`, ["📄"]));
@@ -475,6 +479,210 @@ function genToeflUnits() {
   return units;
 }
 
+// ================= 기능별 트랙 (듣기·말하기·쓰기·문법) =================
+// 같은 원천 데이터를 "영역별 집중 훈련" 관점으로 다시 엮는다. 문제 ID가 달라서
+// 기초·여행 트랙과 진행도가 따로 쌓이고, 실력 대시보드의 영역별 레벨을 올리는 통로가 된다.
+
+const LEVEL_LABEL = {
+  1: "초등 1~2학년", 2: "초등 3~4학년", 3: "초등 5~6학년", 4: "중학 1학년", 5: "중학 2학년",
+  6: "중학 3학년", 7: "고등 1학년", 8: "고등 2~3학년", 9: "성인·비즈니스", 10: "고급·학술",
+};
+
+function allSentences() {
+  return readTsv("sentences.tsv").map((c) => ({ level: +c[0], track: c[1], en: c[2], ko: c[3] }));
+}
+function allDialogueLines() {
+  const data = readJson("dialogues.json") || { units: [] };
+  const out = [];
+  for (const u of data.units)
+    for (const s of u.scenes)
+      out.push({ title: `${u.title} · ${s.title}`, emoji: u.emoji || "💬", lines: s.lines });
+  return out;
+}
+
+// --- 🎧 듣기 트랙 ---
+function genListeningUnits() {
+  const units = [];
+  const sentences = allSentences();
+  let lv = 0;
+
+  // 1) 레벨별 단어 듣기 + 짧은 받아쓰기
+  for (let L = 1; L <= 10; L++) {
+    const words = vocab[L] || [];
+    if (words.length < 12) continue;
+    const koPool = words.map((w) => w.ko);
+    const enToKo = {}; for (const w of words) if (!enToKo[w.word]) enToKo[w.word] = w.ko;
+    const qs = [];
+    for (const w of words) {
+      const d = pickDistinct(koPool, 3, [w.ko]);
+      qs.push(listenMcq("L", w.word, "들린 단어의 뜻은?", w.ko, d,
+        `🔊 ${w.word} = ${w.ko}\n\n다른 선택지: ${d.map((k) => `'${k}'`).join(" · ")}\n귀로 들은 소리와 철자를 함께 떠올려 보세요.`));
+      if (w.word.length <= 10 && !w.word.includes(" "))
+        qs.push(dictationQ("L", w.word, w.word, w.ko, `📌 ${w.word} = ${w.ko}\n철자: ${w.word.split("").join("-")}`));
+    }
+    const ls = packLessons(shuffled(qs), 12);
+    units.push(...packUnits(ls, 4, ++lv, (i) => `귀 트기 ${LEVEL_LABEL[L]} ${i + 1}`, ["👂", "🎧"]));
+  }
+
+  // 2) 문장 받아쓰기 (레벨 순)
+  const sq = [];
+  for (const s of sentences.slice().sort((a, b) => a.level - b.level)) {
+    if (s.en.length <= 70) sq.push(dictationQ("L", s.en, s.en, s.ko, `📝 ${s.ko}\n= ${s.en}`));
+  }
+  units.push(...packUnits(packLessons(sq, 10), 4, ++lv, (i) => `문장 받아쓰기 ${i + 1}`, ["✏️", "🎧"]));
+
+  // 3) 대화 듣기 (일상·여행 27장면)
+  const dq = [];
+  for (const sc of allDialogueLines()) {
+    const dlg = sc.lines.map((l) => [l[0], l[1]]);
+    const koPool = sc.lines.map((l) => l[2]);
+    for (const [, en, ko] of sc.lines) {
+      const d = pickDistinct(koPool.concat(GENERIC_KO), 3, [ko]);
+      if (d.length < 3) continue;
+      dq.push(validate({
+        id: qid("L"), type: "listen_dialog", lines: dlg,
+        prompt: `대화 중 "${en.split(" ").slice(0, 3).join(" ")}..." 문장의 뜻은?`,
+        choices: shuffled([ko, ...d]), answer: 0, skill: "listening",
+        explain: `🔊 ${en}\n= ${ko}\n\n대화 전체를 다시 들으며 흐름을 확인해 보세요.`,
+      }));
+      // shuffled 후 정답 인덱스 보정
+      const last = dq[dq.length - 1];
+      last.answer = last.choices.indexOf(ko);
+    }
+  }
+  units.push(...packUnits(packLessons(dq, 10), 4, ++lv, (i) => `대화 듣기 훈련 ${i + 1}`, ["🗣️", "🎧"]));
+  return units;
+}
+
+// --- 🎤 말하기 트랙 ---
+function genSpeakingUnits() {
+  const units = [];
+  const sentences = allSentences();
+  let lv = 0;
+
+  // 1) 단어·예문 따라 말하기 (레벨별)
+  for (let L = 1; L <= 10; L++) {
+    const words = (vocab[L] || []).filter((w) => w.exEn);
+    if (words.length < 12) continue;
+    const qs = [];
+    for (const w of words) {
+      qs.push(speakQ("S", w.exEn, `${w.exKo}  (핵심어 ${w.word} = ${w.ko})`));
+    }
+    const ls = packLessons(qs, 8);
+    units.push(...packUnits(ls, 4, ++lv, (i) => `입 트기 ${LEVEL_LABEL[L]} ${i + 1}`, ["🗣️", "🎤"]));
+  }
+
+  // 2) 실전 회화 따라 말하기 (대화 장면별)
+  const dq = [];
+  for (const sc of allDialogueLines())
+    for (const [, en, ko] of sc.lines) dq.push(speakQ("S", en, ko));
+  units.push(...packUnits(packLessons(dq, 8), 4, ++lv, (i) => `실전 회화 말하기 ${i + 1}`, ["✈️", "🎤"]));
+
+  // 3) 여행·일상 표현 말하기
+  const tq = sentences.filter((s) => s.track === "daily").map((s) => speakQ("S", s.en, s.ko));
+  units.push(...packUnits(packLessons(tq, 8), 4, ++lv, (i) => `여행 표현 말하기 ${i + 1}`, ["🧳", "🎤"]));
+  return units;
+}
+
+// --- ✍️ 쓰기 트랙 ---
+function genWritingUnits() {
+  const units = [];
+  const sentences = allSentences();
+  let lv = 0;
+
+  // 1) 단어 철자 쓰기 (레벨별)
+  for (let L = 1; L <= 10; L++) {
+    const words = (vocab[L] || []).filter((w) => !w.word.includes(" "));
+    if (words.length < 12) continue;
+    const qs = words.map((w) =>
+      translateQ("W", `"${w.ko}" 를 영어로 쓰세요`, w.word, [],
+        `📌 ${w.ko} = ${w.word} (${w.pos})${w.exEn ? `\n예문: ${w.exEn}` : ""}`));
+    units.push(...packUnits(packLessons(qs, 10), 4, ++lv,
+      (i) => `철자 연습 ${LEVEL_LABEL[L]} ${i + 1}`, ["🔤", "✍️"]));
+  }
+
+  // 2) 어순 배열 (문장 조립)
+  const oq = [];
+  for (const s of sentences.slice().sort((a, b) => a.level - b.level)) {
+    const toks = s.en.split(" ").filter(Boolean);
+    if (toks.length >= 3 && toks.length <= 11)
+      oq.push(orderQ("W", s.ko, s.en, "📌 영어 어순의 기본은 [주어 → 동사 → 목적어] 예요."));
+  }
+  units.push(...packUnits(packLessons(oq, 10), 4, ++lv, (i) => `문장 조립 ${i + 1}`, ["🧩", "✍️"]));
+
+  // 3) 한→영 영작
+  const tq = [];
+  for (const s of sentences.slice().sort((a, b) => a.level - b.level))
+    tq.push(translateQ("W", `영어로 써 보세요: ${s.ko}`, s.en, [], `📌 모범 답안: ${s.en}`));
+  units.push(...packUnits(packLessons(tq, 10), 4, ++lv, (i) => `영작 훈련 ${i + 1}`, ["📝", "✍️"]));
+  return units;
+}
+
+// --- 📚 독해 트랙 ---
+function genReadingUnits() {
+  const data = readJson("reading.json") || { passages: [] };
+  const toeic = readJson("toeic.json") || { p7: [] };
+  const toefl = readJson("toefl.json") || { reading: [] };
+  const units = [];
+  let lv = 0;
+
+  // 1) 레벨별 짧은 지문 (자체 저작)
+  const byLevel = {};
+  for (const p of data.passages) (byLevel[p.level] = byLevel[p.level] || []).push(p);
+  for (const L of Object.keys(byLevel).map(Number).sort((a, b) => a - b)) {
+    const lessons = [];
+    for (const p of byLevel[L]) {
+      const qs = p.qs.map((g) =>
+        mcq("R", g.p, g.c[g.a], g.c.filter((_, i) => i !== g.a), g.e, p.passage, "reading"));
+      // 지문의 핵심 문장 받아쓰기 대신, 지문 이해 문제만으로 레슨 구성
+      if (qs.length >= 2) lessons.push({ id: "ls" + (++lessonSeq), title: p.title, questions: qs });
+    }
+    if (lessons.length)
+      units.push(...packUnits(lessons, 4, ++lv,
+        (i) => `${LEVEL_LABEL[L]} 읽기 ${i + 1}`, ["📚", "📖"]));
+  }
+
+  // 2) 실용문 독해 (토익 P7)
+  const p7 = [];
+  for (const psg of toeic.p7) {
+    const qs = psg.qs.map((g) =>
+      mcq("R", g.p, g.c[g.a], g.c.filter((_, i) => i !== g.a), g.e, psg.passage, "reading"));
+    if (qs.length >= 2) p7.push({ id: "ls" + (++lessonSeq), title: psg.title, questions: qs });
+  }
+  if (p7.length) units.push(...packUnits(p7, 4, ++lv, (i) => `실용문 읽기 ${i + 1}`, ["📰", "📚"]));
+
+  // 3) 학술 지문 독해 (토플)
+  const ac = [];
+  for (const psg of toefl.reading) {
+    const qs = psg.qs.map((g) =>
+      mcq("R", g.p, g.c[g.a], g.c.filter((_, i) => i !== g.a), g.e, psg.passage, "reading"));
+    if (qs.length >= 2) ac.push({ id: "ls" + (++lessonSeq), title: psg.title, questions: qs });
+  }
+  if (ac.length) units.push(...packUnits(ac, 4, ++lv, (i) => `학술 지문 읽기 ${i + 1}`, ["🔬", "📚"]));
+  return units;
+}
+
+// --- 📖 문법 트랙 ---
+function genGrammarUnits() {
+  const grammar = readJsonl("grammar.jsonl");
+  const toeic = readJson("toeic.json") || { p5: [] };
+  const units = [];
+  let lv = 0;
+
+  for (let L = 1; L <= 10; L++) {
+    const gs = grammar.filter((g) => g.level === L)
+      .map((g) => mcq("G", g.p, g.c[g.a], g.c.filter((_, i) => i !== g.a), g.e, null, "grammar"));
+    if (gs.length < 8) continue;
+    units.push(...packUnits(packLessons(gs, 8), 4, ++lv,
+      (i) => `${LEVEL_LABEL[L]} 문법${gs.length > 32 ? " " + (i + 1) : ""}`, ["📖", "⚙️"]));
+  }
+  // 실전 문법 (토익 Part5 유형)
+  const p5 = toeic.p5.map((g) => mcq("G", g.p, g.c[g.a], g.c.filter((_, i) => i !== g.a), g.e, null, "grammar"));
+  if (p5.length >= 8)
+    units.push(...packUnits(packLessons(p5, 8), 4, ++lv, (i) => `실전 문법 (토익형) ${i + 1}`, ["💼", "📖"]));
+  return units;
+}
+
 // ================= 배치고사 =================
 function genPlacement() {
   const grammar = readJsonl("grammar.jsonl");
@@ -514,6 +722,26 @@ const tracks = [
   {
     id: "toefl", title: "토플 (TOEFL)", emoji: "🎓", color: "#D8CBF0",
     subtitle: "학술 독해·리스닝", units: genToeflUnits(),
+  },
+  {
+    id: "listening", title: "듣기 집중", emoji: "🎧", color: "#AEE3F0",
+    subtitle: "단어→문장→대화 귀 트기", units: genListeningUnits(),
+  },
+  {
+    id: "speaking", title: "말하기 집중", emoji: "🎤", color: "#F7C6C7",
+    subtitle: "입 트기·실전 회화 발음 훈련", units: genSpeakingUnits(),
+  },
+  {
+    id: "writing", title: "쓰기 집중", emoji: "✍️", color: "#CFE8B8",
+    subtitle: "철자→어순→영작", units: genWritingUnits(),
+  },
+  {
+    id: "grammar", title: "문법 집중", emoji: "📖", color: "#F3D7B0",
+    subtitle: "be동사부터 도치·가정법까지", units: genGrammarUnits(),
+  },
+  {
+    id: "reading", title: "독해 집중", emoji: "📚", color: "#E3D5F5",
+    subtitle: "짧은 글→실용문→학술 지문", units: genReadingUnits(),
   },
 ];
 

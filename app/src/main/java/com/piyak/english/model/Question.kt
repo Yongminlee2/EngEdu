@@ -8,6 +8,21 @@ sealed class Question {
     abstract val id: String
     abstract val explain: String?
 
+    /** 팩 JSON 의 skill 값(있으면 우선). 문법 문제처럼 유형만으로 구분 못 하는 경우에 쓴다. */
+    var skillTag: String? = null
+
+    /** 실력 영역: vocab / listening / speaking / writing / grammar / reading */
+    val skill: String get() = skillTag ?: defaultSkill()
+
+    private fun defaultSkill(): String = when (this) {
+        is Mcq -> if (passage != null) "reading" else "vocab"
+        is ListenMcq, is ListenDialog -> "listening"
+        is Dictation -> "listening"
+        is Order, is TypeTranslate -> "writing"
+        is Speak -> "speaking"
+        is Match -> "vocab"
+    }
+
     /** 4지선다. passage 가 있으면 독해(지문) 문제. */
     data class Mcq(
         override val id: String,
@@ -84,7 +99,10 @@ sealed class Question {
     ) : Question()
 
     companion object {
-        fun fromJson(o: JSONObject): Question {
+        fun fromJson(o: JSONObject): Question =
+            build(o).apply { skillTag = o.optString("skill").ifEmpty { null } }
+
+        private fun build(o: JSONObject): Question {
             val id = o.getString("id")
             val explain = o.optString("explain").ifEmpty { null }
             return when (val t = o.getString("type")) {

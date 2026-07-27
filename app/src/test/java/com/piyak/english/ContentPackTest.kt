@@ -88,6 +88,49 @@ class ContentPackTest {
         assertTrue("문제가 너무 적음: $total", total >= 5000)
     }
 
+    @Test fun everyQuestionHasKnownSkill() {
+        val dir = packsDir()
+        val valid = com.piyak.english.engine.Skills.ALL.map { it.id }.toSet()
+        val counts = HashMap<String, Int>()
+        for (tid in ContentRepo.TRACK_IDS) {
+            val f = File(dir, "$tid.json")
+            if (!f.isFile) continue
+            val t = ContentRepo.parseTrack(JSONObject(f.readText()))
+            for (u in t.units) for (l in u.lessons) for (q in l.questions) {
+                assertTrue("$tid/${q.id}: 알 수 없는 영역 '${q.skill}'", q.skill in valid)
+                counts[q.skill] = (counts[q.skill] ?: 0) + 1
+            }
+        }
+        println("영역별 문제 수: $counts")
+        // 여섯 영역 모두 Lv.3(누적 정답 60) 이상 올릴 만큼은 있어야
+        // "만능 삐약이" 배지와 종합 레벨이 실제로 달성 가능하다
+        for (s in valid) {
+            val n = counts[s] ?: 0
+            assertTrue("영역 '$s' 문제가 너무 적어 Lv.3 달성 불가: $n", n >= 70)
+        }
+    }
+
+    @Test fun skillTracksExistAndAreFocused() {
+        val dir = packsDir()
+        // 기능별 트랙은 해당 영역 문제가 90% 이상이어야 "집중 훈련"이라 할 수 있다
+        val expect = mapOf(
+            "listening" to "listening", "speaking" to "speaking",
+            "writing" to "writing", "grammar" to "grammar", "reading" to "reading",
+        )
+        for ((track, skill) in expect) {
+            val f = File(dir, "$track.json")
+            assertTrue("기능별 트랙 없음: $track", f.isFile)
+            val t = ContentRepo.parseTrack(JSONObject(f.readText()))
+            val all = t.units.flatMap { u -> u.lessons.flatMap { it.questions } }
+            assertTrue("$track: 문제 없음", all.isNotEmpty())
+            val hit = all.count { it.skill == skill }
+            assertTrue(
+                "$track 트랙의 $skill 비중이 낮음: $hit/${all.size}",
+                hit * 100 / all.size >= 90
+            )
+        }
+    }
+
     @Test fun placementPoolValid() {
         val f = File(packsDir(), "placement.json")
         assertTrue("placement.json 없음", f.isFile)

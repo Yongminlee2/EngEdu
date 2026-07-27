@@ -43,8 +43,57 @@ class StatsActivity : AppCompatActivity() {
             "💊 클리어한 오답  ${db.metaInt("review_cleared")}개\n" +
             "🗓 공부한 날  ${days.size}일"
 
+        buildSkills(db)
         buildCalendar(days)
         buildBadges(db.earnedBadges())
+    }
+
+    /** 영역별 실력 상세: 레벨 · 진행바 · 정답수/시도수 · 다음 레벨까지 */
+    private fun buildSkills(db: Db) {
+        val states = db.skillStates()
+        val overall = com.piyak.english.engine.Skills.overallLevel(states)
+        val rank = com.piyak.english.engine.Ranks.of(overall)
+        val next = com.piyak.english.engine.Ranks.next(overall)
+        b.txtRankLine.text = String.format("%s %s · 종합 Lv.%.1f", rank.emoji, rank.title, overall) +
+            if (next != null) "  (다음: ${next.title} Lv.${next.minOverall})" else "  (최고 칭호!)"
+
+        b.skillDetailBox.removeAllViews()
+        for (st in states) {
+            val box = LinearLayout(this).apply {
+                orientation = LinearLayout.VERTICAL
+                setPadding(dp(12), dp(10), dp(12), dp(10))
+                background = getDrawable(com.piyak.english.R.drawable.bg_tile_ghost)
+                layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
+                ).apply { topMargin = dp(6) }
+            }
+            box.addView(TextView(this).apply {
+                text = "${st.def.emoji} ${st.def.title}   Lv.${st.level}"
+                textSize = 16f
+                setTypeface(typeface, android.graphics.Typeface.BOLD)
+            })
+            box.addView(android.widget.ProgressBar(
+                this, null, android.R.attr.progressBarStyleHorizontal
+            ).apply {
+                max = 100
+                progress = (st.progress * 100).toInt()
+                progressTintList = android.content.res.ColorStateList.valueOf(Color.parseColor(st.def.color))
+                progressBackgroundTintList = android.content.res.ColorStateList.valueOf(Color.parseColor("#FFF0CC"))
+                layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT, dp(10)
+                ).apply { topMargin = dp(6) }
+            })
+            box.addView(TextView(this).apply {
+                text = if (st.attempts == 0) "아직 풀어본 문제가 없어요"
+                else "정답 ${st.correct} / 시도 ${st.attempts}  ·  정답률 ${st.accuracy}%" +
+                    if (st.level < com.piyak.english.engine.Skills.MAX_LEVEL)
+                        "  ·  다음 레벨까지 ${st.nextLevelNeed}문제" else "  ·  최고 레벨!"
+                textSize = 12f
+                setTextColor(Color.parseColor("#8D6E63"))
+                setPadding(0, dp(5), 0, 0)
+            })
+            b.skillDetailBox.addView(box)
+        }
     }
 
     private fun buildCalendar(days: Set<Long>) {

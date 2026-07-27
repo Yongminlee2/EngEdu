@@ -30,7 +30,10 @@ data class TrackData(
 
 /** assets 의 packs 폴더 JSON 로더. 트랙별 lazy 캐시. */
 object ContentRepo {
-    val TRACK_IDS = listOf("basic", "daily", "toeic", "toefl")
+    val TRACK_IDS = listOf(
+        "basic", "daily", "toeic", "toefl",
+        "listening", "speaking", "writing", "grammar", "reading",
+    )
 
     private val cache = HashMap<String, TrackData>()
 

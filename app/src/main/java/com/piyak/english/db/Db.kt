@@ -8,7 +8,7 @@ import com.piyak.english.engine.Economy
 import com.piyak.english.model.Question
 import java.time.LocalDate
 
-class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", null, 1) {
+class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", null, 2) {
 
     companion object {
         @Volatile private var inst: Db? = null
@@ -24,9 +24,14 @@ class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", n
         db.execSQL("CREATE TABLE days(day INTEGER PRIMARY KEY)")
         db.execSQL("CREATE TABLE badges(id TEXT PRIMARY KEY, at INTEGER)")
         db.execSQL("CREATE TABLE meta(k TEXT PRIMARY KEY, v TEXT)")
+        db.execSQL("CREATE TABLE skills(skill TEXT PRIMARY KEY, attempts INTEGER DEFAULT 0, correct INTEGER DEFAULT 0)")
     }
 
-    override fun onUpgrade(db: SQLiteDatabase, oldV: Int, newV: Int) {}
+    override fun onUpgrade(db: SQLiteDatabase, oldV: Int, newV: Int) {
+        if (oldV < 2) {
+            db.execSQL("CREATE TABLE IF NOT EXISTS skills(skill TEXT PRIMARY KEY, attempts INTEGER DEFAULT 0, correct INTEGER DEFAULT 0)")
+        }
+    }
 
     // ---------- meta ----------
     fun meta(k: String, def: String = ""): String {
@@ -45,7 +50,51 @@ class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", n
 
     // ---------- XP ----------
     fun xp(): Int = metaInt("xp")
-    fun addXp(amount: Int) = setMeta("xp", (xp() + amount).toString())
+
+    fun addXp(amount: Int) {
+        setMeta("xp", (xp() + amount).toString())
+        // 오늘 획득 XP (일일 목표용) — 날짜가 바뀌면 리셋
+        val day = today()
+        val savedDay = metaLong("xp_today_day", -1)
+        val base = if (savedDay == day) metaInt("xp_today") else 0
+        setMeta("xp_today_day", day.toString())
+        setMeta("xp_today", (base + amount).toString())
+    }
+
+    /** 오늘 획득한 XP (날짜가 바뀌었으면 0) */
+    fun xpToday(): Int =
+        if (metaLong("xp_today_day", -1) == today()) metaInt("xp_today") else 0
+
+    fun dailyGoal(): Int = metaInt("daily_goal", com.piyak.english.engine.DailyGoal.DEFAULT)
+    fun setDailyGoal(v: Int) = setMeta("daily_goal", v.toString())
+
+    // ---------- 영역별 실력 ----------
+    /** 문제 하나를 풀 때마다 호출. 첫 시도 결과만 반영한다. */
+    fun recordSkill(skill: String, correct: Boolean) {
+        val db = writableDatabase
+        db.execSQL("INSERT OR IGNORE INTO skills(skill, attempts, correct) VALUES(?, 0, 0)", arrayOf(skill))
+        db.execSQL(
+            "UPDATE skills SET attempts = attempts + 1, correct = correct + ? WHERE skill = ?",
+            arrayOf(if (correct) 1 else 0, skill)
+        )
+    }
+
+    /** skill → (attempts, correct) */
+    fun skillStats(): Map<String, Pair<Int, Int>> {
+        val out = HashMap<String, Pair<Int, Int>>()
+        readableDatabase.rawQuery("SELECT skill, attempts, correct FROM skills", null).use {
+            while (it.moveToNext()) out[it.getString(0)] = it.getInt(1) to it.getInt(2)
+        }
+        return out
+    }
+
+    fun skillStates(): List<com.piyak.english.engine.SkillState> {
+        val stats = skillStats()
+        return com.piyak.english.engine.Skills.ALL.map { d ->
+            val (a, c) = stats[d.id] ?: (0 to 0)
+            com.piyak.english.engine.SkillState(d, correct = c, attempts = a)
+        }
+    }
 
     // ---------- 하트 ----------
     fun hearts(): Int {
@@ -196,5 +245,6 @@ class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", n
         val db = writableDatabase
         db.execSQL("DELETE FROM progress"); db.execSQL("DELETE FROM wrongs")
         db.execSQL("DELETE FROM days"); db.execSQL("DELETE FROM badges"); db.execSQL("DELETE FROM meta")
+        db.execSQL("DELETE FROM skills")
     }
 }

@@ -47,6 +47,17 @@ class LessonActivity : AppCompatActivity() {
     private var checkAction: (() -> Unit)? = null
     private var speakFails = 0
 
+    /** 실력 집계는 문제당 첫 시도만 반영 */
+    private val skillRecorded = HashSet<String>()
+
+    /** 레슨 시작 시점의 영역별 레벨·칭호 (결과 화면에서 상승분을 보여주려고 기억) */
+    private var startSkillLevels: Map<String, Int> = emptyMap()
+    private var startRank: com.piyak.english.engine.Rank? = null
+
+    private fun recordSkill(q: Question, correct: Boolean) {
+        if (skillRecorded.add(q.id)) db.recordSkill(q.skill, correct)
+    }
+
     private val okLines = listOf("삐약! 정답이에요!", "완벽해요! 🐥", "역시 천재!", "삐약삐약~ 좋아요!", "굿굿! 최고예요!")
     private val noLines = listOf("아쉬워요 😢", "괜찮아요, 다시 나와요!", "삐약… 다음엔 맞혀요!", "조금만 더 힘내요!")
 
@@ -93,6 +104,11 @@ class LessonActivity : AppCompatActivity() {
             hearts = if (reviewMode) 99 else db.hearts(),
             useHearts = !reviewMode,
         )
+
+        db.skillStates().let { states ->
+            startSkillLevels = states.associate { it.def.id to it.level }
+            startRank = com.piyak.english.engine.Ranks.of(com.piyak.english.engine.Skills.overallLevel(states))
+        }
 
         b.btnClose.setOnClickListener { confirmQuit() }
         b.btnContinue.setOnClickListener { hideFeedback(); showQuestion() }
@@ -337,6 +353,7 @@ class LessonActivity : AppCompatActivity() {
                     matched++
                     if (matched == q.pairs.size) {
                         val ok = mistakes == 0
+                        recordSkill(q, ok)
                         session?.submitNoPenalty(ok)
                         showFeedback(ok,
                             if (ok) null else "오터치 ${mistakes}번! 그래도 다 맞췄어요",
@@ -409,6 +426,7 @@ class LessonActivity : AppCompatActivity() {
             )
         }
         btnSkip.setOnClickListener {
+            recordSkill(q, false)
             session?.submitNoPenalty(false)
             showFeedback(false, "괜찮아요! 다음에 말해 봐요. 정답 문장: ${q.en}", q.explain, penalty = false)
         }
@@ -420,6 +438,7 @@ class LessonActivity : AppCompatActivity() {
     private fun submitAnswer(correct: Boolean, note: String?, explain: String?) {
         val s = session ?: return
         val q = s.current() ?: return
+        recordSkill(q, correct)
         if (reviewMode) {
             val cleared = db.reviewOutcome(q.id, correct)
             s.submit(correct)
@@ -499,7 +518,38 @@ class LessonActivity : AppCompatActivity() {
                 "$lessonTitle\n${"⭐".repeat(s.stars())}\n정답률 ${(s.accuracy * 100).toInt()}% · +${xp} XP" +
                     if (s.isPerfect) " (퍼펙트 +5 포함)" else ""
         }
+        b.txtResultStats.append(growthReport())
         checkBadges()
+    }
+
+    /** 결과 화면 하단: 영역 레벨업·칭호 승급·오늘의 목표 달성 알림 */
+    private fun growthReport(): String {
+        val states = db.skillStates()
+        val sb = StringBuilder()
+
+        for (st in states) {
+            val before = startSkillLevels[st.def.id] ?: 0
+            if (st.level > before) {
+                sb.append("\n\n🎉 ${st.def.emoji} ${st.def.title} 실력이 Lv.${st.level} 로 올랐어요!")
+            }
+        }
+        val overall = com.piyak.english.engine.Skills.overallLevel(states)
+        val rank = com.piyak.english.engine.Ranks.of(overall)
+        if (startRank != null && rank.title != startRank!!.title) {
+            sb.append("\n\n👑 칭호 승급! ${rank.emoji} ${rank.title}")
+        }
+        val goal = db.dailyGoal()
+        val todayXp = db.xpToday()
+        sb.append("\n\n🎯 오늘의 목표 $todayXp / $goal XP")
+        if (com.piyak.english.engine.DailyGoal.isDone(todayXp, goal)) {
+            sb.append("  ✅ 달성!")
+            // 목표 달성은 하루 한 번만 집계
+            if (db.metaLong("goal_met_day", -1) != Db.today()) {
+                db.setMeta("goal_met_day", Db.today().toString())
+                db.setMeta("goals_met", (db.metaInt("goals_met") + 1).toString())
+            }
+        }
+        return sb.toString()
     }
 
     private fun checkBadges() {
@@ -520,6 +570,8 @@ class LessonActivity : AppCompatActivity() {
             placementDone = db.meta("placement_done") == "1",
             reviewCleared = db.metaInt("review_cleared"),
             unitsCompleted = unitMap,
+            skillLevels = db.skillStates().associate { it.def.id to it.level },
+            goalsMet = db.metaInt("goals_met"),
         )
         val newly = Badges.check(snap, db.earnedBadges())
         for (bd in newly) {
