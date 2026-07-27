@@ -121,6 +121,7 @@ class LessonActivity : AppCompatActivity() {
 
         b.btnClose.setOnClickListener { confirmQuit() }
         b.btnHint.setOnClickListener { useHint() }
+        setUpScratchPad()
         b.btnContinue.setOnClickListener { hideFeedback(); showQuestion() }
         b.btnCheck.setOnClickListener { checkAction?.invoke() }
         b.btnDone.setOnClickListener { finish() }
@@ -176,6 +177,49 @@ class LessonActivity : AppCompatActivity() {
         }
         // 선택지가 만들어진 뒤에 힌트 버튼 상태를 갱신한다
         refreshHintButton()
+        // 연습장은 수학 문제에서만 쓴다 (문제가 바뀌면 비운다)
+        resetScratchPad(q is Question.Math)
+    }
+
+    // ---------------- 연습장 ----------------
+
+    /** 문제 위에 겹쳐 식을 쓰거나 그림에 표시할 수 있는 판 */
+    private fun setUpScratchPad() {
+        b.btnScratch.setOnClickListener { showScratch(true) }
+        b.btnClosePad.setOnClickListener { showScratch(false) }
+        b.btnUndo.setOnClickListener { b.scratchPad.undo() }
+        b.btnClearPad.setOnClickListener { b.scratchPad.clearAll() }
+
+        fun pen(color: String) {
+            b.scratchPad.eraserMode = false
+            b.scratchPad.penColor = Color.parseColor(color)
+            b.btnEraser.alpha = 0.5f
+        }
+        b.btnPenDark.setOnClickListener { pen("#3E2723") }
+        b.btnPenRed.setOnClickListener { pen("#E53935") }
+        b.btnPenBlue.setOnClickListener { pen("#1E88E5") }
+        b.btnEraser.setOnClickListener {
+            b.scratchPad.eraserMode = true
+            b.btnEraser.alpha = 1f
+        }
+    }
+
+    private fun showScratch(on: Boolean) {
+        b.scratchPad.visibility = if (on) View.VISIBLE else View.GONE
+        b.scratchBar.visibility = if (on) View.VISIBLE else View.GONE
+        // 연습장을 켜면 문제 화면의 버튼을 잘못 누르지 않도록 확인 버튼을 감춘다
+        b.btnCheck.visibility = if (on) View.GONE else View.VISIBLE
+        if (on) {
+            b.btnEraser.alpha = 0.5f
+            b.scratchPad.eraserMode = false
+        }
+    }
+
+    /** 다음 문제로 넘어가면 연습장을 비운다 */
+    private fun resetScratchPad(show: Boolean) {
+        b.scratchPad.clearAll()
+        showScratch(false)
+        b.btnScratch.visibility = if (show) View.VISIBLE else View.GONE
     }
 
     // ---------------- 힌트권 ----------------
@@ -502,7 +546,13 @@ class LessonActivity : AppCompatActivity() {
             com.piyak.english.model.MathVisual.SHAPES -> "🔺 도형"
             com.piyak.english.model.MathVisual.FRACTION -> "🍰 분수"
             com.piyak.english.model.MathVisual.BAR_GRAPH -> "📊 그래프"
-            com.piyak.english.model.MathVisual.ARRAY -> "✖️ 곱셈"
+            com.piyak.english.model.MathVisual.NUMBER_LINE -> "📏 수직선"
+            com.piyak.english.model.MathVisual.ANGLE -> "📐 각도"
+            // 배열 그림은 곱셈·나눗셈에 모두 쓰인다 — 문제 기호로 구분한다
+            com.piyak.english.model.MathVisual.ARRAY ->
+                if (q.prompt.contains("÷")) "➗ 나눗셈" else "✖️ 곱셈"
+            com.piyak.english.model.MathVisual.EMOJI_OP ->
+                if (q.prompt.contains("-")) "➖ 빼기" else "➕ 더하기"
             null -> "🔢 수학"
             else -> "🐥 그림 문제"
         }
@@ -617,6 +667,7 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showFeedback(correct: Boolean, note: String?, explain: String?, penalty: Boolean) {
         if (correct) sfx.correct() else if (penalty) sfx.wrong()
+        showScratch(false)   // 채점 결과를 가리지 않도록 연습장을 접는다
         b.btnCheck.visibility = View.GONE
         b.feedbackPanel.visibility = View.VISIBLE
         b.feedbackPanel.background = getDrawable(
