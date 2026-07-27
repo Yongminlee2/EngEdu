@@ -274,6 +274,11 @@ class LessonActivity : AppCompatActivity() {
         box: LinearLayout, choices: List<String>, answer: Int,
         explain: String?, answerText: String,
     ) {
+        // 보기가 짧으면 둥둥 떠다니는 버블로 (만지는 재미), 길면 읽기 편한 버튼 목록으로
+        if (com.piyak.english.ui.game.BubbleChoiceView.fits(choices)) {
+            renderBubbleChoices(box, choices, answer, explain, answerText)
+            return
+        }
         var selected = -1
         val buttons = ArrayList<Button>()
         choices.forEachIndexed { i, c ->
@@ -293,6 +298,32 @@ class LessonActivity : AppCompatActivity() {
         choiceAnswer = answer
         checkAction = {
             val ok = selected == answer
+            submitAnswer(ok, if (ok) null else "정답: $answerText", explain)
+        }
+    }
+
+    /** 짧은 보기: 버블로 띄운다. 시간 압박은 없고 움직임과 터치감만 더한다. */
+    private fun renderBubbleChoices(
+        box: LinearLayout, choices: List<String>, answer: Int,
+        explain: String?, answerText: String,
+    ) {
+        val view = com.piyak.english.ui.game.BubbleChoiceView(this).apply {
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, dp(290)
+            )
+        }
+        var selected = -1
+        view.onPick = {
+            selected = it
+            sfx.piyak()
+            b.btnCheck.isEnabled = true
+        }
+        view.setChoices(choices)
+        box.addView(view)
+        checkAction = {
+            val ok = selected == answer
+            view.reveal(answer)
+            view.lock()
             submitAnswer(ok, if (ok) null else "정답: $answerText", explain)
         }
     }
@@ -420,60 +451,46 @@ class LessonActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * 짝 맞추기 — 탭-탭 대신 **손가락으로 선을 그어** 잇는다.
+     * 놀이터의 선 잇기와 같은 조작이라 아이가 한 번 익히면 어디서든 통한다.
+     */
     private fun showMatch(q: Question.Match) {
-        val v = inflate(R.layout.view_q_match)
-        val leftCol = v.findViewById<LinearLayout>(R.id.leftCol)
-        val rightCol = v.findViewById<LinearLayout>(R.id.rightCol)
         b.btnCheck.visibility = View.GONE
 
+        val hint = TextView(this).apply {
+            text = "🔗 짝이 맞는 것끼리 손가락으로 이어요"
+            textSize = 15f
+            setTextColor(Color.parseColor("#8D6E63"))
+            setPadding(dp(4), 0, 0, dp(6))
+        }
+        val view = com.piyak.english.ui.game.LineMatchView(this).apply {
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, dp(400)
+            )
+        }
+        val wrap = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            addView(hint)
+            addView(view)
+        }
+        b.questionBox.addView(wrap)
+
         var mistakes = 0
-        var matched = 0
-        var selLeft: Button? = null
-        var selLeftIdx = -1
-        val rightOrder = q.pairs.indices.shuffled()
-
-        fun colBtn(text: String): Button = choiceButton(text).apply { textSize = 14f }
-
-        val leftBtns = q.pairs.mapIndexed { i, p ->
-            colBtn(p.first).also { btn ->
-                btn.setOnClickListener {
-                    selLeft?.backgroundTintList = ColorStateList.valueOf(Color.WHITE)
-                    selLeft = btn; selLeftIdx = i
-                    btn.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#FFD54F"))
-                }
-                leftCol.addView(btn)
-            }
+        view.onHit = { sfx.piyak() }
+        view.onMiss = { mistakes++; sfx.wrong() }
+        view.onFinish = {
+            val ok = mistakes == 0
+            recordSkill(q, ok)
+            session?.submitNoPenalty(ok)
+            showFeedback(
+                ok,
+                if (ok) null else "${mistakes}번 헷갈렸지만 다 이었어요!",
+                q.explain, penalty = false
+            )
         }
-        for (ri in rightOrder) {
-            val btn = colBtn(q.pairs[ri].second)
-            btn.setOnClickListener {
-                val l = selLeft ?: return@setOnClickListener
-                if (ri == selLeftIdx) {
-                    sfx.piyak()
-                    l.isEnabled = false; btn.isEnabled = false
-                    l.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#C8E6C9"))
-                    btn.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#C8E6C9"))
-                    selLeft = null; selLeftIdx = -1
-                    matched++
-                    if (matched == q.pairs.size) {
-                        val ok = mistakes == 0
-                        recordSkill(q, ok)
-                        session?.submitNoPenalty(ok)
-                        showFeedback(ok,
-                            if (ok) null else "오터치 ${mistakes}번! 그래도 다 맞췄어요",
-                            q.explain, penalty = false)
-                    }
-                } else {
-                    mistakes++
-                    sfx.wrong()
-                    btn.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#FFCDD2"))
-                    btn.postDelayed({
-                        if (btn.isEnabled) btn.backgroundTintList = ColorStateList.valueOf(Color.WHITE)
-                    }, 400)
-                }
-            }
-            rightCol.addView(btn)
-        }
+        view.setPairs(q.pairs)
+        view.startLoop()
     }
 
     private fun showSpeak(q: Question.Speak) {
@@ -566,7 +583,28 @@ class LessonActivity : AppCompatActivity() {
         if (autoReadMath) b.root.postDelayed({ speakKorean(q.prompt) }, 350)
 
         when (q.input) {
-            "choice" -> {
+            // 숫자 보기는 대부분 짧으니 버블로 (만지는 재미)
+            "choice" -> if (com.piyak.english.ui.game.BubbleChoiceView.fits(q.choices)) {
+                val grid = v.findViewById<android.widget.GridLayout>(R.id.choicesGrid)
+                grid.visibility = View.VISIBLE
+                val bubbles = com.piyak.english.ui.game.BubbleChoiceView(this).apply {
+                    layoutParams = android.widget.GridLayout.LayoutParams().apply {
+                        width = android.widget.GridLayout.LayoutParams.MATCH_PARENT
+                        height = dp(280)
+                        columnSpec = android.widget.GridLayout.spec(0, 2)
+                    }
+                }
+                var selected = -1
+                bubbles.onPick = { selected = it; sfx.piyak(); b.btnCheck.isEnabled = true }
+                bubbles.setChoices(q.choices)
+                grid.addView(bubbles)
+                checkAction = {
+                    val ok = selected == q.answerIndex
+                    bubbles.reveal(q.answerIndex)
+                    bubbles.lock()
+                    submitAnswer(ok, if (ok) null else "정답: ${q.choices.getOrNull(q.answerIndex)}", q.explain)
+                }
+            } else {
                 val grid = v.findViewById<android.widget.GridLayout>(R.id.choicesGrid)
                 grid.visibility = View.VISIBLE
                 var selected = -1

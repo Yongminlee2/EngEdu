@@ -25,6 +25,21 @@
                 android:text="🔊 들어보기" android:backgroundTint="@color/sky" android:textColor="@color/brown_text" />
         </LinearLayout>
 
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" android:text="🔔 효과음 크기" android:textSize="16sp" android:textStyle="bold" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="너무 크면 영어 발음이 잘 안 들려요" android:textSize="12sp"
+            android:textColor="@color/brown_soft" />
+        <SeekBar android:id="@+id/seekSfx" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="6dp" android:max="100" android:progress="30" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical">
+            <TextView android:id="@+id/txtSfx" android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:text="30%" android:textColor="@color/brown_soft" />
+            <Button android:id="@+id/btnSfxTest" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="🔔 들어보기" android:backgroundTint="@color/mint" android:textColor="@color/brown_text" />
+        </LinearLayout>
+
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
             android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="20dp">
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"

@@ -14,6 +14,7 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var b: ActivitySettingsBinding
     private lateinit var db: Db
     private lateinit var tts: Tts
+    private lateinit var sfx: com.piyak.english.audio.Sfx
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +22,7 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(b.root)
         db = Db.get(this)
         tts = Tts(this)
+        sfx = com.piyak.english.audio.Sfx(this)
 
         b.btnBack.setOnClickListener { finish() }
 
@@ -41,6 +43,21 @@ class SettingsActivity : AppCompatActivity() {
             tts.rate = db.meta("tts_rate", "1.0").toFloatOrNull() ?: 1.0f
             tts.speak("Hello! Nice to meet you. Let's study English together!")
         }
+
+        // 효과음 크기 (TTS 를 덮지 않게 기본 30%)
+        val sfxPct = db.metaInt("sfx_volume", com.piyak.english.audio.Sfx.DEFAULT_VOLUME_PERCENT)
+        b.seekSfx.progress = sfxPct
+        b.txtSfx.text = "$sfxPct%"
+        b.seekSfx.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(sb: SeekBar?, p: Int, fromUser: Boolean) {
+                b.txtSfx.text = "$p%"
+                db.setMeta("sfx_volume", p.toString())
+                sfx.volume = p / 100f
+            }
+            override fun onStartTrackingTouch(sb: SeekBar?) {}
+            override fun onStopTrackingTouch(sb: SeekBar?) { sfx.correct() }
+        })
+        b.btnSfxTest.setOnClickListener { sfx.correct() }
 
         b.switchFree.isChecked = db.meta("free_mode") == "1"
         b.switchFree.setOnCheckedChangeListener { _, on ->
@@ -63,5 +80,5 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 
-    override fun onDestroy() { super.onDestroy(); tts.shutdown() }
+    override fun onDestroy() { super.onDestroy(); tts.shutdown(); sfx.release() }
 }
