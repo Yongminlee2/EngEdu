@@ -43,6 +43,7 @@ class MathVisualView @JvmOverloads constructor(
         set(v) {
             field = v
             counted.clear()
+            painted.clear()
             setHour = 12; setMinute = 0
             draggingClock = false
             requestLayout()
@@ -130,6 +131,7 @@ class MathVisualView @JvmOverloads constructor(
 
     override fun onTouchEvent(event: android.view.MotionEvent): Boolean {
         if (visual?.kind == MathVisual.CLOCK_SET) return handleClockTouch(event)
+        if (visual?.kind == MathVisual.FRACTION_PAINT) return handlePaintTouch(event)
         if (!countable || event.actionMasked != android.view.MotionEvent.ACTION_DOWN) return false
         var best = -1
         var bestD = Float.MAX_VALUE
@@ -188,6 +190,8 @@ class MathVisualView @JvmOverloads constructor(
             MathVisual.CLOCK_SET -> (w * 0.78f).toInt()
             MathVisual.GROUP -> 0          // GroupDragView 가 따로 그린다
             MathVisual.FRACTION -> (w * 0.40f).toInt()
+            MathVisual.FRACTION_PAINT -> (w * 0.62f).toInt()
+            MathVisual.SHAPE_SORT -> 0     // GroupDragView 가 따로 그린다
             MathVisual.NUMBER_LINE -> dp(96)
             MathVisual.BAR_GRAPH -> (w * 0.58f).toInt()
             MathVisual.ANGLE -> (w * 0.50f).toInt()
@@ -208,7 +212,7 @@ class MathVisualView @JvmOverloads constructor(
             MathVisual.ARRAY -> drawArray(canvas, v, w, h)
             MathVisual.SHAPES -> drawShapes(canvas, v, w, h)
             MathVisual.CLOCK, MathVisual.CLOCK_SET -> drawClock(canvas, v, w, h)
-            MathVisual.FRACTION -> drawFraction(canvas, v, w, h)
+            MathVisual.FRACTION, MathVisual.FRACTION_PAINT -> drawFraction(canvas, v, w, h)
             MathVisual.NUMBER_LINE -> drawNumberLine(canvas, v, w, h)
             MathVisual.BAR_GRAPH -> drawBarGraph(canvas, v, w, h)
             MathVisual.ANGLE -> drawAngle(canvas, v, w, h)
@@ -427,15 +431,20 @@ class MathVisualView @JvmOverloads constructor(
 
     // ---------- 분수 (원을 나눈 그림) ----------
     private fun drawFraction(canvas: Canvas, v: MathVisual, w: Float, h: Float) {
+        val paintMode = v.kind == MathVisual.FRACTION_PAINT
         val denom = v.q.toInt().coerceAtLeast(1)
         val numer = v.p.toInt().coerceIn(0, denom)
         val cx = w / 2f
-        val cy = h / 2f
-        val r = min(w, h) * 0.40f
+        val cy = if (paintMode) h * 0.45f else h / 2f
+        val r = min(w, h * (if (paintMode) 0.9f else 1f)) * 0.40f
         val rect = RectF(cx - r, cy - r, cx + r, cy + r)
         val sweep = 360f / denom
+
+        // 색칠 모드에서는 "아이가 칠한 칸"이, 아니면 "문제가 정해 준 칸"이 색칠된다
+        fun filled(i: Int) = if (paintMode) i in painted else i < numer
+
         for (i in 0 until denom) {
-            fill.color = if (i < numer) Color.parseColor("#FF8A65") else Color.parseColor("#FFF3E0")
+            fill.color = if (filled(i)) Color.parseColor("#FF8A65") else Color.parseColor("#FFF3E0")
             canvas.drawArc(rect, -90f + sweep * i, sweep, true, fill)
         }
         stroke.strokeWidth = dp(3f).toFloat()
@@ -445,6 +454,56 @@ class MathVisualView @JvmOverloads constructor(
             val a = Math.toRadians(-90.0 + sweep * i)
             canvas.drawLine(cx, cy, cx + r * cos(a).toFloat(), cy + r * sin(a).toFloat(), stroke)
         }
+
+        if (paintMode) {
+            pieCx = cx; pieCy = cy; pieR = r; pieSlices = denom
+            text.textSize = r * 0.24f
+            text.isFakeBoldText = true
+            text.color = Color.parseColor("#4E342E")
+            canvas.drawText("칠한 칸 ${painted.size} / $denom", cx, cy + r * 1.32f, text)
+            text.textSize = r * 0.16f
+            text.isFakeBoldText = false
+            text.color = Color.parseColor("#8D6E63")
+            canvas.drawText("조각을 눌러서 색칠해요", cx, cy + r * 1.52f, text)
+            text.isFakeBoldText = true
+            text.color = Color.parseColor("#4E342E")
+        }
+    }
+
+    // ---------- 분수 색칠하기 ----------
+    /**
+     * "3/8 만큼 색칠해 보세요" — 조각을 눌러 칠한다.
+     * 색칠된 그림을 읽고 분수를 답하는 것과 반대 방향이라, 분수를 *만들어* 보게 된다.
+     */
+    private var pieCx = 0f
+    private var pieCy = 0f
+    private var pieR = 0f
+    private var pieSlices = 1
+    private val painted = LinkedHashSet<Int>()
+
+    val paintedCount: Int get() = painted.size
+
+    /** 칠한 칸 수가 바뀔 때 */
+    var onPaintChanged: ((Int) -> Unit)? = null
+
+    fun clearPaint() {
+        painted.clear()
+        onPaintChanged?.invoke(0)
+        invalidate()
+    }
+
+    private fun handlePaintTouch(event: android.view.MotionEvent): Boolean {
+        if (event.actionMasked != android.view.MotionEvent.ACTION_DOWN) return false
+        val dx = event.x - pieCx
+        val dy = event.y - pieCy
+        if (kotlin.math.hypot(dx, dy) > pieR) return false
+        var deg = Math.toDegrees(kotlin.math.atan2(dy.toDouble(), dx.toDouble())) + 90.0
+        if (deg < 0) deg += 360.0
+        val idx = ((deg / (360.0 / pieSlices)).toInt()).coerceIn(0, pieSlices - 1)
+        if (!painted.add(idx)) painted.remove(idx)   // 다시 누르면 지운다
+        onPaintChanged?.invoke(painted.size)
+        invalidate()
+        return true
     }
 
     // ---------- 수직선 ----------

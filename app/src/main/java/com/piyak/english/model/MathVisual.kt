@@ -25,6 +25,10 @@ data class MathVisual(
     val p: Double = 0.0,
     /** 분모 (fraction), 분(clock), 수직선 최대(number_line) */
     val q: Double = 1.0,
+    /** 끌어 옮길 사물들 (shape_sort) */
+    val items: List<String> = emptyList(),
+    /** items 각각이 들어가야 할 바구니 번호 (shape_sort) */
+    val kinds: List<Int> = emptyList(),
 ) {
     companion object {
         const val EMOJI = "emoji"
@@ -44,14 +48,20 @@ data class MathVisual(
         /** 사물을 끌어다 묶음에 나눠 담기 (a = 전체 개수, b = 묶음 수) */
         const val GROUP = "group"
 
+        /** 조각을 탭해서 분수만큼 색칠하기 (p = 목표 분자, q = 분모) */
+        const val FRACTION_PAINT = "fraction_paint"
+
+        /** 도형을 이름 붙은 바구니로 끌어 분류하기 (items·kinds·labels) */
+        const val SHAPE_SORT = "shape_sort"
+
         val KINDS = setOf(
             EMOJI, EMOJI_OP, ARRAY, SHAPES, CLOCK, FRACTION,
             NUMBER_LINE, BAR_GRAPH, ANGLE, COMPARE,
-            CLOCK_SET, GROUP,
+            CLOCK_SET, GROUP, FRACTION_PAINT, SHAPE_SORT,
         )
 
         /** 그림 자체가 답을 입력받는 종류 (키패드·보기가 필요 없다) */
-        val INPUT_KINDS = setOf(CLOCK_SET, GROUP)
+        val INPUT_KINDS = setOf(CLOCK_SET, GROUP, FRACTION_PAINT, SHAPE_SORT)
 
         fun fromJson(o: JSONObject?): MathVisual? {
             if (o == null) return null
@@ -67,6 +77,8 @@ data class MathVisual(
                 values = numList(o.optJSONArray("values")),
                 p = o.optDouble("p", 0.0),
                 q = o.optDouble("q", 1.0),
+                items = strList(o.optJSONArray("items")),
+                kinds = intList(o.optJSONArray("kinds")),
             )
         }
 
@@ -75,5 +87,8 @@ data class MathVisual(
 
         private fun numList(a: JSONArray?): List<Double> =
             if (a == null) emptyList() else (0 until a.length()).map { a.getDouble(it) }
+
+        private fun intList(a: JSONArray?): List<Int> =
+            if (a == null) emptyList() else (0 until a.length()).map { a.getInt(it) }
     }
 }

@@ -3,6 +3,7 @@ package com.piyak.english.ui
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.DashPathEffect
 import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
@@ -12,20 +13,24 @@ import kotlin.math.hypot
 import kotlin.math.min
 
 /**
- * 나눗셈 "똑같이 나누기"를 손으로 해 보는 판.
- * 위에 흩어진 사물을 아래 묶음(바구니)으로 끌어다 담는다.
- * 모든 사물을 담고 묶음마다 개수가 같아지면 정답.
+ * 사물을 손으로 끌어다 바구니에 담는 판. 두 가지로 쓴다.
  *
- * 12 ÷ 3 을 머리로 계산하는 대신 **실제로 나눠 담아 보는** 경험을 준다.
+ * - **나눠 담기**(`setRound`) : 같은 사물을 바구니에 **똑같은 개수**로 나눠 담는다 (나눗셈).
+ * - **분류하기**(`setSort`) : 사물마다 들어갈 바구니가 정해져 있다 (도형 분류).
+ *
+ * 어느 쪽이든 머리로 계산하거나 고르기 전에 **직접 옮겨 보는** 것이 핵심이다.
  */
 class GroupDragView @JvmOverloads constructor(
     ctx: Context, attrs: AttributeSet? = null,
 ) : View(ctx, attrs) {
 
     private class Item(
+        val emoji: String,
+        /** 들어가야 할 바구니. -1 이면 아무 데나 (나눠 담기 모드) */
+        val kind: Int,
         var x: Float, var y: Float,
         var homeX: Float, var homeY: Float,
-        /** -1 이면 아직 안 담김 */
+        /** 지금 담긴 바구니. -1 이면 아직 안 담김 */
         var group: Int = -1,
     )
 
@@ -35,9 +40,12 @@ class GroupDragView @JvmOverloads constructor(
     private var dragDx = 0f
     private var dragDy = 0f
 
-    private var emoji = "🐧"
-    private var total = 12
+    private var specs = ArrayList<Pair<String, Int>>()   // (이모지, 들어갈 바구니)
     private var groups = 3
+    private var labels = emptyList<String>()
+
+    /** 분류 모드인가 (아니면 똑같이 나눠 담기) */
+    private var sortMode = false
 
     private val emojiPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { textAlign = Paint.Align.CENTER }
     private val boxPaint = Paint(Paint.ANTI_ALIAS_FLAG)
@@ -49,29 +57,57 @@ class GroupDragView @JvmOverloads constructor(
 
     private var itemSize = 0f
 
-    /** 담긴 개수가 바뀔 때 (묶음별 개수) */
+    /** 담긴 상태가 바뀔 때 (바구니별 개수) */
     var onChanged: ((List<Int>) -> Unit)? = null
+
+    /** 바구니에 하나 담을 때마다 */
     var onPlace: (() -> Unit)? = null
 
+    /** 똑같이 나눠 담기 — 같은 사물 total 개를 바구니 groups 개에 나눈다 */
     fun setRound(emoji: String, total: Int, groups: Int) {
-        this.emoji = emoji
-        this.total = total
+        sortMode = false
         this.groups = groups.coerceAtLeast(1)
+        labels = (1..this.groups).map { "${it}번" }
+        specs = ArrayList((0 until total).map { emoji to -1 })
+        rebuild()
+    }
+
+    /** 분류하기 — items[i] 는 labels[kinds[i]] 바구니에 들어가야 한다 */
+    fun setSort(items: List<String>, kinds: List<Int>, labels: List<String>) {
+        sortMode = true
+        this.groups = labels.size.coerceAtLeast(1)
+        this.labels = labels
+        specs = ArrayList(items.mapIndexed { i, e -> e to (kinds.getOrNull(i) ?: 0) })
+        rebuild()
+    }
+
+    private fun rebuild() {
+        items.clear()
         layoutAll()
+        onChanged?.invoke(counts())
         invalidate()
     }
 
-    /** 묶음별 담긴 개수 */
+    /** 바구니별 담긴 개수 */
     fun counts(): List<Int> = (0 until groups).map { g -> items.count { it.group == g } }
 
-    /** 다 담았고 묶음마다 개수가 같은가 */
+    /** 아직 안 담은 개수 */
+    fun leftOver(): Int = items.count { it.group < 0 }
+
+    /** 엉뚱한 바구니에 담긴 개수 (분류 모드에서만 의미 있다) */
+    fun misplaced(): Int = items.count { it.group >= 0 && it.kind >= 0 && it.group != it.kind }
+
     fun isCorrect(): Boolean {
-        if (items.any { it.group < 0 }) return false
-        val c = counts()
-        return c.isNotEmpty() && c.all { it == c[0] } && c[0] > 0
+        if (items.isEmpty() || leftOver() > 0) return false
+        return if (sortMode) {
+            misplaced() == 0
+        } else {
+            val c = counts()
+            c.isNotEmpty() && c.all { it == c[0] } && c[0] > 0
+        }
     }
 
-    /** 한 묶음에 담긴 개수 (정답일 때의 몫) */
+    /** 한 바구니에 담긴 개수 (나눠 담기 정답일 때의 몫) */
     fun perGroup(): Int = counts().firstOrNull() ?: 0
 
     fun reset() {
@@ -90,28 +126,28 @@ class GroupDragView @JvmOverloads constructor(
     }
 
     private fun layoutAll() {
-        if (width == 0 || height == 0) return
+        if (width == 0 || height == 0 || specs.isEmpty()) return
         val w = width.toFloat()
         val h = height.toFloat()
+        val total = specs.size
 
-        // 아래쪽 절반을 묶음 바구니로
-        val zoneTop = h * 0.52f
+        // 아래쪽을 바구니 자리로
+        val zoneTop = h * 0.50f
         groupRects = ArrayList()
         val gw = (w - dp(10f) * (groups + 1)) / groups
         for (g in 0 until groups) {
             val left = dp(10f) + (gw + dp(10f)) * g
-            groupRects.add(RectF(left, zoneTop, left + gw, h - dp(24f)))
+            groupRects.add(RectF(left, zoneTop, left + gw, h - dp(8f)))
         }
 
-        // 위쪽에 사물 배치
         val perRow = min(6, total)
         val rows = (total + perRow - 1) / perRow
         itemSize = min(w / (perRow + 1.2f), (zoneTop - dp(16f)) / (rows + 0.6f))
-        emojiPaint.textSize = itemSize
-        textPaint.textSize = itemSize * 0.55f
+        textPaint.textSize = itemSize * 0.48f
 
-        // 화면이 다시 재어질 때 이미 담아 놓은 걸 잃지 않도록 자리만 다시 잡는다
+        // 이미 담아 놓은 걸 잃지 않도록, 크기만 바뀌면 자리만 다시 잡는다
         val keep = items.size == total
+        if (!keep) items.clear()
         for (i in 0 until total) {
             val r = i / perRow
             val c = i % perRow
@@ -124,8 +160,8 @@ class GroupDragView @JvmOverloads constructor(
                 it.homeX = x; it.homeY = y
                 if (it.group < 0) { it.x = x; it.y = y }
             } else {
-                if (i == 0) items.clear()
-                items.add(Item(x, y, x, y))
+                val (e, kind) = specs[i]
+                items.add(Item(e, kind, x, y, x, y))
             }
         }
         if (keep) for (g in 0 until groups) {
@@ -135,35 +171,34 @@ class GroupDragView @JvmOverloads constructor(
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        // 묶음 바구니
+        if (items.isEmpty()) return
+
         for ((g, rect) in groupRects.withIndex()) {
             val n = items.count { it.group == g }
             boxPaint.color = Color.parseColor(if (n > 0) "#FFF3E0" else "#FAFAFA")
             canvas.drawRoundRect(rect, dp(16f), dp(16f), boxPaint)
             strokePaint.color = Color.parseColor("#FFB300")
             strokePaint.strokeWidth = dp(3f)
-            strokePaint.pathEffect = android.graphics.DashPathEffect(
-                floatArrayOf(dp(10f), dp(8f)), 0f
-            )
+            strokePaint.pathEffect = DashPathEffect(floatArrayOf(dp(10f), dp(8f)), 0f)
             canvas.drawRoundRect(rect, dp(16f), dp(16f), strokePaint)
             strokePaint.pathEffect = null
 
+            // 바구니 이름은 위에 (담은 것과 겹치지 않게)
             textPaint.color = Color.parseColor("#8D6E63")
             canvas.drawText(
-                "${g + 1}번  ($n)",
-                rect.centerX(), rect.bottom - dp(6f), textPaint
+                labels.getOrElse(g) { "${g + 1}번" } + if (sortMode) "" else "  ($n)",
+                rect.centerX(), rect.top + textPaint.textSize * 1.1f, textPaint
             )
         }
 
-        // 사물
         for (it in items) {
             if (it === dragging) continue
-            emojiPaint.textSize = if (it.group >= 0) itemSize * 0.78f else itemSize
-            canvas.drawText(emoji, it.x, it.y + emojiPaint.textSize * 0.35f, emojiPaint)
+            emojiPaint.textSize = if (it.group >= 0) itemSize * 0.74f else itemSize
+            canvas.drawText(it.emoji, it.x, it.y + emojiPaint.textSize * 0.35f, emojiPaint)
         }
         dragging?.let {
             emojiPaint.textSize = itemSize * 1.18f
-            canvas.drawText(emoji, it.x, it.y + emojiPaint.textSize * 0.35f, emojiPaint)
+            canvas.drawText(it.emoji, it.x, it.y + emojiPaint.textSize * 0.35f, emojiPaint)
         }
     }
 
@@ -209,13 +244,14 @@ class GroupDragView @JvmOverloads constructor(
 
     /** 바구니 안에서 겹치지 않게 자리 잡기 */
     private fun placeInGroup(item: Item, g: Int) {
-        val rect = groupRects[g]
+        val rect = groupRects.getOrNull(g) ?: return
         val idx = items.filter { it.group == g }.indexOf(item).coerceAtLeast(0)
+        val top = rect.top + textPaint.textSize * 1.5f
         val perRow = 3
         val cw = rect.width() / perRow
-        val ch = (rect.height() - dp(22f)) / 3f
+        val ch = (rect.bottom - top) / 3f
         item.x = rect.left + cw * (idx % perRow + 0.5f)
-        item.y = rect.top + dp(8f) + ch * (idx / perRow + 0.5f)
+        item.y = top + ch * (idx / perRow + 0.5f)
     }
 
     private fun dp(v: Float): Float = v * resources.displayMetrics.density

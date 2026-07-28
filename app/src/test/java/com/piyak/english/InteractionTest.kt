@@ -124,6 +124,8 @@ class InteractionTest {
         val dir = packsDir()
         var clocks = 0
         var groups = 0
+        var paints = 0
+        var sorts = 0
         for (tid in Subject.MATH.tracks) {
             val f = File(dir, "$tid.json")
             if (!f.isFile) continue
@@ -152,13 +154,44 @@ class InteractionTest {
                         assertEquals("${m.id}: 답이 몫과 다르다", v.a / v.bb, per)
                         groups++
                     }
+                    com.piyak.english.model.MathVisual.FRACTION_PAINT -> {
+                        val n = m.answer.toIntOrNull() ?: error("${m.id}: 답이 정수가 아님")
+                        val d = v.q.toInt()
+                        assertTrue("${m.id}: 분모 범위(조각이 너무 잘다)", d in 2..12)
+                        assertTrue("${m.id}: 칠할 칸이 분모보다 많다", n in 1..d)
+                        assertEquals("${m.id}: 답이 분자와 다르다", v.p.toInt(), n)
+                        paints++
+                    }
+                    com.piyak.english.model.MathVisual.SHAPE_SORT -> {
+                        assertEquals(
+                            "${m.id}: 도형 수와 바구니 지정 수가 다르다",
+                            v.items.size, v.kinds.size
+                        )
+                        assertTrue("${m.id}: 바구니가 2~3개여야 화면에 맞는다", v.labels.size in 2..3)
+                        assertTrue("${m.id}: 도형이 너무 많다", v.items.size in 4..12)
+                        assertTrue(
+                            "${m.id}: 없는 바구니를 가리킨다",
+                            v.kinds.all { it in v.labels.indices }
+                        )
+                        // 빈 바구니가 있으면 분류가 아니라 몰아 담기가 된다
+                        assertEquals(
+                            "${m.id}: 아무 도형도 안 들어가는 바구니가 있다",
+                            v.labels.size, v.kinds.toSet().size
+                        )
+                        // 같은 이모지가 두 번 나오면 어느 걸 옮겼는지 헷갈린다
+                        assertEquals("${m.id}: 같은 도형이 중복", v.items.size, v.items.toSet().size)
+                        assertEquals("${m.id}: 답이 도형 수와 다르다", v.items.size, m.answer.toIntOrNull())
+                        sorts++
+                    }
                     else -> error("${m.id}: 조작할 수 없는 그림인데 visual 입력")
                 }
             }
         }
-        println("바늘 돌리기 $clocks · 끌어서 나누기 $groups")
+        println("바늘 돌리기 $clocks · 끌어서 나누기 $groups · 색칠 $paints · 도형 분류 $sorts")
         assertTrue("시계 바늘 돌리기 문제가 없다", clocks > 50)
         assertTrue("끌어서 나누기 문제가 없다", groups > 50)
+        assertTrue("분수 색칠 문제가 없다", paints > 40)
+        assertTrue("도형 분류 문제가 없다", sorts > 40)
     }
 
     /** 톡톡 누를 때 나는 소리는 자주 울리므로 정답·오답 소리보다 작아야 한다 */

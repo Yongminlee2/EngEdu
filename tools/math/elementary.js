@@ -3,7 +3,35 @@
 
 const L = require("./lib");
 const { rint, pick, shuffled, numQ, choiceQ, visualQ, V, FRUITS, ANIMALS, THINGS, ALL_EMOJI,
-  nearWrong, makeUnit, gen } = L;
+  SHAPE_POOL, SHAPE_HINT, nearWrong, makeUnit, gen } = L;
+
+/**
+ * 도형을 이름 붙은 바구니로 끌어 담는 문제.
+ * 같은 종류라도 색과 방향이 다른 이모지를 섞어서, 똑같은 그림을 짝짓는 게 아니라
+ * **모양을 보고 분류**하게 만든다.
+ */
+function shapeSortQ(catNames, perCat, skill) {
+  const items = [];
+  const kinds = [];
+  catNames.forEach((name, gi) => {
+    for (const e of shuffled(SHAPE_POOL[name]).slice(0, perCat)) {
+      items.push(e);
+      kinds.push(gi);
+    }
+  });
+  // 같은 종류가 뭉쳐 있으면 그냥 순서대로 담게 되니 섞는다
+  const order = shuffled(items.map((_, i) => i));
+  return visualQ(
+    `도형을 이름에 맞는 바구니로 끌어 담아 보세요. (${catNames.join(" · ")})`,
+    items.length,
+    catNames.map((n) => `${n}은 ${SHAPE_HINT[n]} 모양이에요.`).join("\n") +
+    `\n색이 달라도 모양이 같으면 같은 바구니예요.`,
+    {
+      visual: V.shapeSort(order.map((i) => items[i]), order.map((i) => kinds[i]), catNames),
+      skill,
+    }
+  );
+}
 
 const SK = {
   calc: "m_calc", number: "m_number", shape: "m_shape",
@@ -67,6 +95,11 @@ function kindergarten() {
       { visual: V.shapes(names), skill: SK.shape }
     );
   }), 8));
+
+  // 4-1) 모양을 손으로 나누어 담기 (바구니 2개 — 6세는 두 가지부터)
+  units.push(makeUnit("모양 나누어 담기", "🧺", 1, gen(24, () =>
+    shapeSortQ(shuffled(모양).slice(0, 2), 3, SK.shape)
+  ), 6));
 
   // 5) 다음에 올 수
   units.push(makeUnit("다음 수는 무엇일까?", "🔢", 1, gen(40, () => {
@@ -311,12 +344,34 @@ function grade3() {
       { visual: V.fraction(n, d), skill: SK.number });
   }), 8));
 
+  // 색칠된 그림을 읽는 것의 반대 — 분수를 듣고 직접 색칠해 만든다
+  units.push(makeUnit("분수만큼 색칠하기", "🍰", 4, gen(35, () => {
+    const d = rint(2, 10), n = rint(1, d - 1);
+    return visualQ(
+      `전체를 똑같이 ${d}로 나눈 그림이에요. ${n}/${d} 만큼 색칠해 보세요.`,
+      n,
+      `${n}/${d} 은 똑같이 나눈 ${d}칸 중 ${n}칸이에요.\n조각을 ${n}개 눌러서 칠하면 돼요.`,
+      { visual: V.fractionPaint(n, d), skill: SK.number }
+    );
+  }), 7));
+
   units.push(makeUnit("소수 알아보기", "0️⃣", 4, gen(35, () => {
     const n = rint(1, 9);
     return numQ(`1을 똑같이 10으로 나눈 것 중 ${n}개는 소수로 얼마일까요?`, `0.${n}`,
       `10칸 중 ${n}칸이니까 ${n}/10 = 0.${n}이에요.`,
       { visual: V.fraction(n, 10), skill: SK.number });
   }), 8));
+
+  // 소수가 분수와 같은 것임을 손으로 확인한다
+  units.push(makeUnit("소수만큼 색칠하기", "0️⃣", 4, gen(12, () => {
+    const n = rint(1, 9);
+    return visualQ(
+      `0.${n} 만큼 색칠해 보세요. (전체를 똑같이 10칸으로 나눴어요)`,
+      n,
+      `0.${n} 은 ${n}/10 과 같아요.\n10칸 중 ${n}칸을 칠하면 돼요.`,
+      { visual: V.fractionPaint(n, 10), skill: SK.number }
+    );
+  }), 4));
 
   units.push(makeUnit("직각과 평면도형", "📐", 4, gen(35, () => {
     const names = shuffled(["삼각형", "사각형", "오각형", "육각형"]).slice(0, 3);
@@ -326,6 +381,11 @@ function grade3() {
       `${target}은 변이 ${sides}개, 꼭짓점도 ${sides}개예요.`,
       { visual: V.shapes(names), skill: SK.shape });
   }), 8));
+
+  // 바구니 3개 — 유치원(2개)보다 한 단계 어렵다
+  units.push(makeUnit("도형 분류하기", "🧺", 4, gen(24, () =>
+    shapeSortQ(shuffled(["삼각형", "사각형", "원"]), 3, SK.shape)
+  ), 6));
 
   units.push(makeUnit("길이와 시간", "⏱️", 4, gen(35, () => {
     if (L.rng() < 0.5) {
