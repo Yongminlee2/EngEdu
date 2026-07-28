@@ -566,6 +566,8 @@ class LessonActivity : AppCompatActivity() {
             com.piyak.english.model.MathVisual.CLOCK -> "🕐 시계 보기"
             com.piyak.english.model.MathVisual.CLOCK_SET -> "🕐 시계 바늘 돌리기"
             com.piyak.english.model.MathVisual.GROUP -> "🧺 끌어서 똑같이 나누기"
+            com.piyak.english.model.MathVisual.FRACTION_PAINT -> "🍰 분수만큼 색칠하기"
+            com.piyak.english.model.MathVisual.SHAPE_SORT -> "🔺 도형 분류하기"
             com.piyak.english.model.MathVisual.SHAPES -> "🔺 도형"
             com.piyak.english.model.MathVisual.FRACTION -> "🍰 분수"
             com.piyak.english.model.MathVisual.BAR_GRAPH -> "📊 그래프"
@@ -611,6 +613,12 @@ class LessonActivity : AppCompatActivity() {
         }
         if (vk == com.piyak.english.model.MathVisual.GROUP) {
             showGroupDrag(v, q, visualView); return
+        }
+        if (vk == com.piyak.english.model.MathVisual.FRACTION_PAINT) {
+            showFractionPaint(v, q, visualView); return
+        }
+        if (vk == com.piyak.english.model.MathVisual.SHAPE_SORT) {
+            showShapeSort(v, q, visualView); return
         }
 
         when (q.input) {
@@ -814,6 +822,85 @@ class LessonActivity : AppCompatActivity() {
                 else -> "바구니마다 개수가 같아야 해요. 정답: 한 바구니에 ${perGroupAnswer}개"
             }
             submitAnswer(ok, why, q.explain)
+        }
+    }
+
+    /**
+     * 분수만큼 색칠하기.
+     * 색칠된 그림을 보고 분수를 답하는 것의 **반대 방향** — 분수를 듣고 직접 만들어 본다.
+     * 답은 칠해야 하는 칸 수(분자).
+     */
+    private fun showFractionPaint(v: View, q: Question.Math, visualView: MathVisualView) {
+        val want = q.answer.trim().toIntOrNull() ?: return
+        val denom = (q.visual?.q ?: 1.0).toInt().coerceAtLeast(1)
+
+        val countBox = v.findViewById<LinearLayout>(R.id.countBox)
+        val txtCount = v.findViewById<TextView>(R.id.txtCount)
+        countBox.visibility = View.VISIBLE
+        txtCount.text = "🍰 조각을 눌러서 색칠해 보세요"
+        v.findViewById<Button>(R.id.btnCountReset).apply {
+            text = "지우기"
+            setOnClickListener { visualView.clearPaint(); b.btnCheck.isEnabled = false }
+        }
+
+        b.btnCheck.isEnabled = false
+        visualView.onPaintChanged = { n ->
+            txtCount.text = "🍰 지금 $n / $denom 칸을 칠했어요"
+            sfx.piyak()
+            b.btnCheck.isEnabled = n > 0
+        }
+        checkAction = {
+            val n = visualView.paintedCount
+            val ok = n == want
+            val why = when {
+                ok -> null
+                n < want -> "${want - n}칸 더 칠해야 해요. 정답: $want / $denom"
+                else -> "${n - want}칸을 더 칠했어요. 정답: $want / $denom"
+            }
+            submitAnswer(ok, why, q.explain)
+        }
+    }
+
+    /**
+     * 도형 분류하기.
+     * 이름이 붙은 바구니에 도형을 끌어 담는다 — 이름과 모양을 짝지어 익힌다.
+     */
+    private fun showShapeSort(v: View, q: Question.Math, visualView: MathVisualView) {
+        visualView.visibility = View.GONE
+        val vis = q.visual ?: return
+
+        val grid = v.findViewById<android.widget.GridLayout>(R.id.choicesGrid)
+        grid.visibility = View.VISIBLE
+        val gv = GroupDragView(this).apply {
+            layoutParams = android.widget.GridLayout.LayoutParams().apply {
+                width = android.widget.GridLayout.LayoutParams.MATCH_PARENT
+                height = dp(380)
+                columnSpec = android.widget.GridLayout.spec(0, 2)
+            }
+        }
+        gv.setSort(vis.items, vis.kinds, vis.labels)
+        grid.addView(gv)
+
+        val countBox = v.findViewById<LinearLayout>(R.id.countBox)
+        val txtCount = v.findViewById<TextView>(R.id.txtCount)
+        countBox.visibility = View.VISIBLE
+        txtCount.text = "🔺 도형을 알맞은 바구니로 끌어 담아요"
+        v.findViewById<Button>(R.id.btnCountReset).apply {
+            text = "다시 담기"
+            setOnClickListener { gv.reset(); b.btnCheck.isEnabled = false }
+        }
+
+        b.btnCheck.isEnabled = false
+        gv.onPlace = { sfx.piyak() }
+        gv.onChanged = { _ ->
+            val left = gv.leftOver()
+            txtCount.text = if (left > 0) "🔺 아직 ${left}개 남았어요" else "🔺 다 담았어요!"
+            b.btnCheck.isEnabled = left == 0
+        }
+        checkAction = {
+            val ok = gv.isCorrect()
+            val bad = gv.misplaced()
+            submitAnswer(ok, if (ok) null else "${bad}개가 다른 바구니에 들어갔어요.", q.explain)
         }
     }
 

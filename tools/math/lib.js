@@ -44,7 +44,7 @@ const VISUAL_KINDS = new Set([
   "emoji", "emoji_op", "array", "shapes", "clock", "fraction",
   "number_line", "bar_graph", "angle", "compare",
   // 그림을 손으로 조작해서 답하는 종류
-  "clock_set", "group",
+  "clock_set", "group", "fraction_paint", "shape_sort",
 ]);
 
 function validate(q) {
@@ -147,6 +147,23 @@ const V = {
   clockSet: (h, m) => ({ kind: "clock_set", p: h, q: m }),
   /** 사물을 끌어다 묶음에 나눠 담기 — a 는 전체 개수, b 는 묶음 수 */
   group: (emoji, total, groups) => ({ kind: "group", emoji, a: total, b: groups }),
+  /** 조각을 눌러 색칠하기 — p 는 칠해야 할 칸 수, q 는 전체 칸 수 */
+  fractionPaint: (n, d) => ({ kind: "fraction_paint", p: n, q: d }),
+  /** 도형을 이름 붙은 바구니로 분류하기 — kinds[i] 는 items[i] 가 들어갈 바구니 */
+  shapeSort: (items, kinds, labels) => ({ kind: "shape_sort", items, kinds, labels }),
+};
+
+/** 모양별 이모지 — 같은 종류라도 색·방향이 달라야 "모양"으로 분류하게 된다 */
+const SHAPE_POOL = {
+  삼각형: ["🔺", "🔻", "🔼", "🔽"],
+  사각형: ["🟥", "🟦", "🟩", "🟨", "🟧", "🟪"],
+  원: ["🔴", "🔵", "🟢", "🟡", "🟠", "🟣"],
+};
+
+const SHAPE_HINT = {
+  삼각형: "뾰족한 곳이 3개",
+  사각형: "뾰족한 곳이 4개",
+  원: "뾰족한 곳이 없고 동그란",
 };
 
 // 아이가 좋아하는 사물 이모지
@@ -228,7 +245,7 @@ function gen(want, fn) {
 module.exports = {
   rng, ri, rint, pick, shuffled,
   numQ, choiceQ, textQ, visualQ, V,
-  FRUITS, ANIMALS, THINGS, ALL_EMOJI,
+  FRUITS, ANIMALS, THINGS, ALL_EMOJI, SHAPE_POOL, SHAPE_HINT,
   nearWrong, packLessons, makeUnit, gen, chunk, SCALE,
   stats: () => ({ total }),
 };
