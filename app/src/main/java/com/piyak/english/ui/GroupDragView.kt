@@ -60,6 +60,11 @@ class GroupDragView @JvmOverloads constructor(
 
     private var itemSize = 0f
 
+    private companion object {
+        /** 줄 간격 배수 — 이모지가 지정 크기보다 크게 그려지는 걸 감안한 값 */
+        const val ROW_STEP = 1.32f
+    }
+
     /** 담긴 상태가 바뀔 때 (바구니별 개수) */
     var onChanged: ((List<Int>) -> Unit)? = null
 
@@ -169,8 +174,11 @@ class GroupDragView @JvmOverloads constructor(
 
         val perRow = min(6, total)
         val rows = (total + perRow - 1) / perRow
-        itemSize = min(w / (perRow + 1.2f), (zoneTop - dp(16f)) / (rows + 0.6f))
-        textPaint.textSize = itemSize * 0.48f
+        // 이모지 글리프는 지정 크기보다 위아래로 더 튀어나온다 (토끼 귀!).
+        // 줄 간격을 1.32배로 벌려야 윗줄과 겹치지 않는다.
+        itemSize = min(w / (perRow + 1.4f), (zoneTop - dp(16f)) / (rows * ROW_STEP + 0.4f))
+        // 바구니 이름은 바구니 폭에 맞춰야 한다 — 이모지 크기에 맞추면 칸 밖으로 넘친다
+        textPaint.textSize = min(itemSize * 0.45f, gw * 0.20f)
 
         // 이미 담아 놓은 걸 잃지 않도록, 크기만 바뀌면 자리만 다시 잡는다
         val keep = items.size == total
@@ -181,7 +189,7 @@ class GroupDragView @JvmOverloads constructor(
             val cols = min(perRow, total - r * perRow)
             val rowW = cols * itemSize * 1.15f
             val x = (w - rowW) / 2f + itemSize * 1.15f * (c + 0.5f)
-            val y = dp(14f) + itemSize * 1.05f * (r + 0.5f)
+            val y = dp(14f) + itemSize * ROW_STEP * (r + 0.5f)
             if (keep) {
                 val it = items[i]
                 it.homeX = x; it.homeY = y
@@ -210,12 +218,19 @@ class GroupDragView @JvmOverloads constructor(
             canvas.drawRoundRect(rect, dp(16f), dp(16f), strokePaint)
             strokePaint.pathEffect = null
 
-            // 바구니 이름은 위에 (담은 것과 겹치지 않게)
+            // 이름은 위, 개수는 아래 — 한 줄로 붙이면 좁은 바구니에서 칸 밖으로 넘친다
             textPaint.color = Color.parseColor("#8D6E63")
             canvas.drawText(
-                labels.getOrElse(g) { "${g + 1}번" } + if (sortMode) "" else "  ($n)",
+                labels.getOrElse(g) { "${g + 1}번" },
                 rect.centerX(), rect.top + textPaint.textSize * 1.1f, textPaint
             )
+            if (!sortMode) {
+                textPaint.color =
+                    if (n > 0) Color.parseColor("#EF6C00") else Color.parseColor("#BCAAA4")
+                canvas.drawText(
+                    "$n", rect.centerX(), rect.bottom - dp(6f), textPaint
+                )
+            }
         }
 
         for (it in items) {
