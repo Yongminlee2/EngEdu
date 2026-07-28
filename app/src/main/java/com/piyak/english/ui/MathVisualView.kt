@@ -45,6 +45,8 @@ class MathVisualView @JvmOverloads constructor(
             counted.clear()
             painted.clear()
             setHour = 12; setMinute = 0
+            setAngle = 0
+            markValue = v?.p ?: 0.0
             draggingClock = false
             requestLayout()
             invalidate()
@@ -130,8 +132,12 @@ class MathVisualView @JvmOverloads constructor(
     }
 
     override fun onTouchEvent(event: android.view.MotionEvent): Boolean {
-        if (visual?.kind == MathVisual.CLOCK_SET) return handleClockTouch(event)
-        if (visual?.kind == MathVisual.FRACTION_PAINT) return handlePaintTouch(event)
+        when (visual?.kind) {
+            MathVisual.CLOCK_SET -> return handleClockTouch(event)
+            MathVisual.FRACTION_PAINT -> return handlePaintTouch(event)
+            MathVisual.NUMBER_LINE_DRAG -> return handleLineTouch(event)
+            MathVisual.ANGLE_SET -> return handleAngleTouch(event)
+        }
         if (!countable || event.actionMasked != android.view.MotionEvent.ACTION_DOWN) return false
         var best = -1
         var bestD = Float.MAX_VALUE
@@ -193,6 +199,9 @@ class MathVisualView @JvmOverloads constructor(
             MathVisual.FRACTION_PAINT -> (w * 0.62f).toInt()
             MathVisual.SHAPE_SORT -> 0     // GroupDragView 가 따로 그린다
             MathVisual.NUMBER_LINE -> dp(96)
+            MathVisual.NUMBER_LINE_DRAG -> dp(150)      // 손잡이·값 표시 자리
+            MathVisual.ANGLE_SET -> (w * 0.62f).toInt()
+            MathVisual.BALANCE, MathVisual.BAR_BUILD -> 0   // 전용 뷰가 따로 그린다
             MathVisual.BAR_GRAPH -> (w * 0.58f).toInt()
             MathVisual.ANGLE -> (w * 0.50f).toInt()
             else -> dp(100)
@@ -213,9 +222,9 @@ class MathVisualView @JvmOverloads constructor(
             MathVisual.SHAPES -> drawShapes(canvas, v, w, h)
             MathVisual.CLOCK, MathVisual.CLOCK_SET -> drawClock(canvas, v, w, h)
             MathVisual.FRACTION, MathVisual.FRACTION_PAINT -> drawFraction(canvas, v, w, h)
-            MathVisual.NUMBER_LINE -> drawNumberLine(canvas, v, w, h)
+            MathVisual.NUMBER_LINE, MathVisual.NUMBER_LINE_DRAG -> drawNumberLine(canvas, v, w, h)
             MathVisual.BAR_GRAPH -> drawBarGraph(canvas, v, w, h)
-            MathVisual.ANGLE -> drawAngle(canvas, v, w, h)
+            MathVisual.ANGLE, MathVisual.ANGLE_SET -> drawAngle(canvas, v, w, h)
             MathVisual.COMPARE -> drawCompare(canvas, v, w, h)
         }
         drawCountMarks(canvas)
@@ -520,13 +529,19 @@ class MathVisualView @JvmOverloads constructor(
         canvas.drawLine(right, y, right - dp(10), y - dp(6), stroke)
         canvas.drawLine(right, y, right - dp(10), y + dp(6), stroke)
 
-        val steps = (hi - lo).toInt().coerceIn(1, 20)
-        text.textSize = h * 0.20f
+        // 구간 수가 지정돼 있으면 그대로 (소수·음수 수직선은 눈금 간격이 1이 아니다)
+        val steps = if (v.a > 0) v.a.coerceAtMost(20) else (hi - lo).toInt().coerceIn(1, 20)
+        text.textSize = h * (if (v.kind == MathVisual.NUMBER_LINE_DRAG) 0.13f else 0.20f)
         text.isFakeBoldText = false
+        // 눈금이 촘촘하면 숫자는 띄엄띄엄 적는다 (겹쳐서 못 읽는다)
+        val labelEvery = if (steps > 10) 2 else 1
         for (i in 0..steps) {
             val x = left + (right - left) * i / steps
             canvas.drawLine(x, y - dp(8), x, y + dp(8), stroke)
-            canvas.drawText("${(lo + i).toInt()}", x, y + h * 0.36f, text)
+            if (i % labelEvery == 0) {
+                val labelY = y + h * (if (v.kind == MathVisual.NUMBER_LINE_DRAG) 0.26f else 0.36f)
+                canvas.drawText(fmt(lo + (hi - lo) * i / steps), x, labelY, text)
+            }
         }
         // 표시할 값
         fill.color = Color.parseColor("#FF7043")
@@ -534,6 +549,68 @@ class MathVisualView @JvmOverloads constructor(
             val x = left + (right - left) * ((value - lo) / (hi - lo)).toFloat()
             canvas.drawCircle(x, y, dp(9f).toFloat(), fill)
         }
+
+        if (v.kind == MathVisual.NUMBER_LINE_DRAG) {
+            lineLeft = left; lineRight = right; lineY = y
+            val x = left + (right - left) * ((markValue - lo) / (hi - lo)).toFloat()
+            // 끌 수 있다는 걸 알 수 있게 큼직한 손잡이로
+            fill.color = Color.parseColor("#42A5F5")
+            canvas.drawCircle(x, y, dp(16f).toFloat(), fill)
+            fill.color = Color.WHITE
+            canvas.drawCircle(x, y, dp(7f).toFloat(), fill)
+
+            text.textSize = h * 0.20f
+            text.isFakeBoldText = true
+            text.color = Color.parseColor("#1565C0")
+            canvas.drawText(fmt(markValue), x, y - dp(24), text)
+            text.color = Color.parseColor("#4E342E")
+        }
+    }
+
+    // ---------- 수직선 위의 점 끌기 ----------
+    /**
+     * 수를 보고 고르는 대신 **수직선 위 어디쯤인지 직접 짚어 본다.**
+     * 눈금에 딱 붙게 해서 손가락으로도 정확히 맞출 수 있다.
+     */
+    private var lineLeft = 0f
+    private var lineRight = 0f
+    private var lineY = 0f
+    private var markValue = 0.0
+
+    /** 지금 짚은 값 */
+    val markedValue: Double get() = markValue
+
+    var onMarkChanged: ((Double) -> Unit)? = null
+
+    fun resetMark() {
+        markValue = visual?.p ?: 0.0
+        onMarkChanged?.invoke(markValue)
+        invalidate()
+    }
+
+    private fun handleLineTouch(event: android.view.MotionEvent): Boolean {
+        val v = visual ?: return false
+        if (event.actionMasked == android.view.MotionEvent.ACTION_UP ||
+            event.actionMasked == android.view.MotionEvent.ACTION_CANCEL
+        ) return true
+        if (lineRight <= lineLeft) return false
+        // 선에서 너무 멀면 무시 (연습장 필기와 헷갈리지 않게)
+        if (kotlin.math.abs(event.y - lineY) > dp(56)) return false
+        parent?.requestDisallowInterceptTouchEvent(true)
+
+        val t = ((event.x - lineLeft) / (lineRight - lineLeft)).coerceIn(0f, 1f)
+        val steps = v.a.coerceAtLeast(1)
+        val raw = v.p + (v.q - v.p) * t
+        // 눈금에 딱 붙인다
+        val stepSize = (v.q - v.p) / steps
+        val snapped = v.p + Math.round((raw - v.p) / stepSize) * stepSize
+        val rounded = Math.round(snapped * 1000.0) / 1000.0
+        if (rounded != markValue) {
+            markValue = rounded
+            onMarkChanged?.invoke(markValue)
+            invalidate()
+        }
+        return true
     }
 
     // ---------- 막대그래프 ----------
@@ -575,21 +652,91 @@ class MathVisualView @JvmOverloads constructor(
 
     // ---------- 각도 ----------
     private fun drawAngle(canvas: Canvas, v: MathVisual, w: Float, h: Float) {
+        val setMode = v.kind == MathVisual.ANGLE_SET
+        val deg = if (setMode) setAngle.toDouble() else v.p
         val cx = w * 0.30f
         val cy = h * 0.72f
         val len = min(w * 0.55f, h * 0.62f)
+        angleCx = cx; angleCy = cy; angleLen = len
+
         stroke.strokeWidth = dp(4f).toFloat()
         canvas.drawLine(cx, cy, cx + len, cy, stroke)
-        val a = Math.toRadians(-v.p)
+        val a = Math.toRadians(-deg)
+        if (setMode) stroke.color = Color.parseColor("#42A5F5")
         canvas.drawLine(cx, cy, cx + len * cos(a).toFloat(), cy + len * sin(a).toFloat(), stroke)
+        stroke.color = Color.parseColor("#5D4037")
         // 각 표시 호
         stroke.strokeWidth = dp(2.5f).toFloat()
         stroke.color = Color.parseColor("#FF7043")
         val r = len * 0.28f
-        canvas.drawArc(RectF(cx - r, cy - r, cx + r, cy + r), 0f, -v.p.toFloat(), false, stroke)
+        canvas.drawArc(RectF(cx - r, cy - r, cx + r, cy + r), 0f, -deg.toFloat(), false, stroke)
         stroke.color = Color.parseColor("#5D4037")
         fill.color = Color.parseColor("#5D4037")
         canvas.drawCircle(cx, cy, dp(4f).toFloat(), fill)
+
+        if (setMode) {
+            // 끝점에 손잡이를 그려서 "여기를 잡아 돌린다"를 알려 준다
+            fill.color = Color.parseColor("#42A5F5")
+            canvas.drawCircle(
+                cx + len * cos(a).toFloat(), cy + len * sin(a).toFloat(),
+                dp(14f).toFloat(), fill
+            )
+            fill.color = Color.WHITE
+            canvas.drawCircle(
+                cx + len * cos(a).toFloat(), cy + len * sin(a).toFloat(),
+                dp(6f).toFloat(), fill
+            )
+            text.textSize = len * 0.20f
+            text.isFakeBoldText = true
+            text.color = Color.parseColor("#1565C0")
+            canvas.drawText("${setAngle}°", cx + len * 0.55f, cy - len * 0.14f, text)
+            text.textSize = len * 0.13f
+            text.isFakeBoldText = false
+            text.color = Color.parseColor("#8D6E63")
+            canvas.drawText("파란 손잡이를 돌려요", w * 0.5f, h - dp(6), text)
+            text.isFakeBoldText = true
+            text.color = Color.parseColor("#4E342E")
+        }
+    }
+
+    // ---------- 각도 만들기 ----------
+    /**
+     * 각도를 **재는** 대신 직접 **만들어 본다.**
+     * 5° 단위로 붙게 해서 60°·90° 같은 목표를 손가락으로 맞출 수 있다.
+     */
+    private var angleCx = 0f
+    private var angleCy = 0f
+    private var angleLen = 0f
+
+    var setAngle = 0
+        private set
+
+    var onAngleChanged: ((Int) -> Unit)? = null
+
+    fun resetAngle() {
+        setAngle = 0
+        onAngleChanged?.invoke(0)
+        invalidate()
+    }
+
+    private fun handleAngleTouch(event: android.view.MotionEvent): Boolean {
+        if (event.actionMasked == android.view.MotionEvent.ACTION_UP ||
+            event.actionMasked == android.view.MotionEvent.ACTION_CANCEL
+        ) return true
+        val dx = event.x - angleCx
+        val dy = event.y - angleCy
+        if (kotlin.math.hypot(dx, dy) > angleLen * 1.35f) return false
+        parent?.requestDisallowInterceptTouchEvent(true)
+        // 위로 열리는 각만 다룬다 (0°~180°)
+        var deg = Math.toDegrees(kotlin.math.atan2(-dy.toDouble(), dx.toDouble()))
+        if (deg < 0) deg = 0.0
+        val snapped = (Math.round(deg / 5.0) * 5).toInt().coerceIn(0, 180)
+        if (snapped != setAngle) {
+            setAngle = snapped
+            onAngleChanged?.invoke(snapped)
+            invalidate()
+        }
+        return true
     }
 
     // ---------- 두 그룹 비교 ----------

@@ -212,6 +212,18 @@ function grade1() {
     );
   }), 8));
 
+  // 수를 고르는 대신 수직선 어디쯤인지 직접 짚어 본다
+  units.push(makeUnit("수직선에서 찾기", "📏", 2, gen(20, () => {
+    const target = rint(1, 20);
+    return visualQ(
+      `수직선에서 ${target} 을 찾아 점을 놓아 보세요.`,
+      target,
+      `0 에서 오른쪽으로 ${target} 칸 간 자리예요.\n` +
+      `${target} 은 ${target < 10 ? "10 보다 작아요" : target === 10 ? "딱 10이에요" : "10 보다 커요"}.`,
+      { visual: V.numberLineDrag(0, 20, 20), skill: SK.number }
+    );
+  }), 5));
+
   // 시계를 읽는 것에서 한 걸음 더 — 바늘을 직접 돌려 시각을 만들어 본다
   units.push(makeUnit("시계 바늘 돌리기", "🕐", 2, gen(30, () => {
     const h = rint(1, 12);
@@ -299,6 +311,30 @@ function grade2() {
       { visual: V.barGraph(labels, values), skill: SK.data });
   }), 8));
 
+  // 그래프를 읽기만 하면 "읽는 것"으로 남는다 — 한 번 세워 보게 한다
+  units.push(makeUnit("그래프 세우기", "📊", 3, gen(24, () => {
+    const labels = shuffled(["사과", "포도", "딸기", "바나나", "귤"]).slice(0, 4);
+    const values = labels.map(() => rint(1, 7));
+    return visualQ(
+      `표를 보고 막대그래프를 완성해 보세요.\n` +
+      labels.map((l, i) => `${l} ${values[i]}개`).join(" · "),
+      values.join(","),
+      `막대의 높이가 곧 개수예요.\n` +
+      labels.map((l, i) => `${l}는 ${values[i]}칸까지 올려요.`).join("\n"),
+      { visual: V.barBuild(labels, values), skill: SK.data }
+    );
+  }), 6));
+
+  units.push(makeUnit("수직선에서 찾기 (100까지)", "📏", 3, gen(20, () => {
+    const target = rint(1, 20) * 5;
+    return visualQ(
+      `수직선에서 ${target} 을 찾아 점을 놓아 보세요.`,
+      target,
+      `눈금 한 칸이 5예요. ${target} ÷ 5 = ${target / 5} 이니까 0 에서 ${target / 5} 칸 가면 돼요.`,
+      { visual: V.numberLineDrag(0, 100, 20), skill: SK.number }
+    );
+  }), 5));
+
   return units.filter(Boolean);
 }
 
@@ -361,6 +397,17 @@ function grade3() {
       `10칸 중 ${n}칸이니까 ${n}/10 = 0.${n}이에요.`,
       { visual: V.fraction(n, 10), skill: SK.number });
   }), 8));
+
+  // 소수가 수직선 어디쯤에 있는지 — 0.7 이 0 과 1 사이라는 감각
+  units.push(makeUnit("수직선에서 소수 찾기", "📏", 4, gen(20, () => {
+    const n = rint(1, 9);
+    return visualQ(
+      `수직선에서 0.${n} 을 찾아 점을 놓아 보세요.`,
+      `0.${n}`,
+      `0 과 1 사이를 똑같이 10칸으로 나눴어요.\n0.${n} 은 0 에서 ${n} 칸 간 자리예요.`,
+      { visual: V.numberLineDrag(0, 1, 10), skill: SK.number }
+    );
+  }), 4));
 
   // 소수가 분수와 같은 것임을 손으로 확인한다
   units.push(makeUnit("소수만큼 색칠하기", "0️⃣", 4, gen(12, () => {
@@ -426,6 +473,22 @@ function grade4() {
       `1만 = 10000, 0이 4개예요. ${man}만 = ${man * 10000}`, { skill: SK.number });
   }), 8));
 
+  // 각을 재기만 하면 각도기 눈금 읽기로 끝난다 — 직접 벌려 만들어 본다
+  units.push(makeUnit("각도 만들기", "📐", 5, gen(24, () => {
+    const deg = rint(2, 34) * 5;      // 10° ~ 170°
+    const kind = deg < 90 ? "예각" : deg === 90 ? "직각" : "둔각";
+    return visualQ(
+      `${deg}° 가 되도록 손잡이를 돌려 보세요.`,
+      deg,
+      `${deg}° 는 ${kind}이에요.\n` +
+      (deg < 90
+        ? `직각(90°)보다 ${90 - deg}° 만큼 좁아요.`
+        : deg === 90 ? `반듯하게 선 각이에요.`
+          : `직각(90°)보다 ${deg - 90}° 만큼 넓어요.`),
+      { visual: V.angleSet(deg), skill: SK.shape }
+    );
+  }), 6));
+
   units.push(makeUnit("각도 재기", "📐", 5, gen(40, () => {
     const deg = rint(2, 34) * 5;
     const kind = deg < 90 ? "예각" : deg === 90 ? "직각" : "둔각";
@@ -463,6 +526,20 @@ function grade4() {
     return numQ(`${a} + ${b} = ?`, ans,
       `소수점 자리를 맞춰 더해요. ${a} + ${b} = ${ans}`, { skill: SK.calc });
   }), 8));
+
+  units.push(makeUnit("그래프 세우기 (큰 수)", "📊", 5, gen(24, () => {
+    const labels = shuffled(["축구", "야구", "농구", "수영", "달리기"]).slice(0, 4);
+    const values = labels.map(() => rint(2, 9));
+    return visualQ(
+      `조사한 결과를 보고 막대그래프를 완성해 보세요.\n` +
+      labels.map((l, i) => `${l} ${values[i]}명`).join(" · "),
+      values.join(","),
+      `막대의 높이가 곧 사람 수예요.\n` +
+      `가장 높은 것은 ${labels[values.indexOf(Math.max(...values))]}, ` +
+      `가장 낮은 것은 ${labels[values.indexOf(Math.min(...values))]}이에요.`,
+      { visual: V.barBuild(labels, values), skill: SK.data }
+    );
+  }), 6));
 
   units.push(makeUnit("막대그래프 읽기", "📊", 5, gen(35, () => {
     const labels = shuffled(["월", "화", "수", "목"]).slice(0, 4);

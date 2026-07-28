@@ -54,14 +54,30 @@ data class MathVisual(
         /** 도형을 이름 붙은 바구니로 끌어 분류하기 (items·kinds·labels) */
         const val SHAPE_SORT = "shape_sort"
 
+        /** 수직선 위의 점을 끌어 수를 찾기 (p·q = 왼쪽·오른쪽 끝, a = 구간 수) */
+        const val NUMBER_LINE_DRAG = "number_line_drag"
+
+        /** 반직선을 돌려 각도를 만들기 (p = 목표 각도) */
+        const val ANGLE_SET = "angle_set"
+
+        /** 양팔 저울을 평형으로 만들기 (a·x + b = p 에서 x 를 찾는다) */
+        const val BALANCE = "balance"
+
+        /** 막대를 끌어 올려 그래프 완성하기 (labels = 항목, values = 목표 높이) */
+        const val BAR_BUILD = "bar_build"
+
         val KINDS = setOf(
             EMOJI, EMOJI_OP, ARRAY, SHAPES, CLOCK, FRACTION,
             NUMBER_LINE, BAR_GRAPH, ANGLE, COMPARE,
             CLOCK_SET, GROUP, FRACTION_PAINT, SHAPE_SORT,
+            NUMBER_LINE_DRAG, ANGLE_SET, BALANCE, BAR_BUILD,
         )
 
         /** 그림 자체가 답을 입력받는 종류 (키패드·보기가 필요 없다) */
-        val INPUT_KINDS = setOf(CLOCK_SET, GROUP, FRACTION_PAINT, SHAPE_SORT)
+        val INPUT_KINDS = setOf(
+            CLOCK_SET, GROUP, FRACTION_PAINT, SHAPE_SORT,
+            NUMBER_LINE_DRAG, ANGLE_SET, BALANCE, BAR_BUILD,
+        )
 
         fun fromJson(o: JSONObject?): MathVisual? {
             if (o == null) return null

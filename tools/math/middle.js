@@ -1,6 +1,6 @@
 // 중학교 1~3학년 수학 생성기
 const L = require("./lib");
-const { rint, pick, shuffled, numQ, choiceQ, textQ, V, nearWrong, makeUnit, gen } = L;
+const { rint, pick, shuffled, numQ, choiceQ, textQ, visualQ, V, nearWrong, makeUnit, gen } = L;
 
 const SK = {
   calc: "m_calc", number: "m_number", shape: "m_shape",
@@ -58,6 +58,38 @@ function middle1() {
       `양변에서 ${b}를 ${b >= 0 ? "빼면" : "더하면"} ${a}x = ${c - b}\n양변을 ${a}로 나누면 x = ${x}예요.`,
       { skill: SK.calc });
   }), 10));
+
+  // 이항을 외우기 전에 "양쪽이 같다"는 등식의 뜻을 저울로 본다
+  units.push(makeUnit("저울로 방정식 풀기", "⚖️", 8, gen(30, () => {
+    const a = rint(2, 5);          // x 상자 개수
+    const x = rint(2, 8);          // 정답
+    const b = rint(1, 9);          // 왼쪽 추
+    const c = a * x + b;           // 오른쪽 추
+    if (c > 45) return null;       // 추가 너무 많으면 접시가 복잡해진다
+    return visualQ(
+      `저울이 평형이 되도록 x 를 맞춰 보세요. (${a}x + ${b} = ${c})`,
+      x,
+      `왼쪽은 x 상자 ${a}개와 1짜리 추 ${b}개, 오른쪽은 1짜리 추 ${c}개예요.\n` +
+      `양쪽에서 ${b}을 덜어내면 ${a}x = ${c - b}\n` +
+      `${a}묶음으로 똑같이 나누면 x = ${x}예요.`,
+      { visual: V.balance(a, b, c), skill: SK.calc }
+    );
+  }), 6));
+
+  // 음수를 "0보다 작은 수"로만 외우지 않도록 수직선 위에서 직접 짚는다
+  units.push(makeUnit("수직선에서 정수 찾기", "📏", 8, gen(24, () => {
+    const target = rint(-10, 10);
+    // 0 은 시작점 표시와 겹치고, -10 은 점이 처음 놓인 자리라 움직이지 않아도 맞아 버린다
+    if (target === 0 || target === -10) return null;
+    return visualQ(
+      `수직선에서 ${target} 을 찾아 점을 놓아 보세요.`,
+      target,
+      target < 0
+        ? `${target} 은 0 보다 ${-target} 만큼 작아요. 0 에서 왼쪽으로 ${-target} 칸 가면 돼요.`
+        : `${target} 은 0 에서 오른쪽으로 ${target} 칸 간 자리예요.`,
+      { visual: V.numberLineDrag(-10, 10, 20), skill: SK.number }
+    );
+  }), 5));
 
   units.push(makeUnit("정비례와 반비례", "📈", 8, gen(35, () => {
     const k = rint(2, 12), x = rint(2, 9);
