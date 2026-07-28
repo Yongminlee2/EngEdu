@@ -22,6 +22,26 @@ class MathVisualView @JvmOverloads constructor(
     ctx: Context, attrs: AttributeSet? = null,
 ) : View(ctx, attrs) {
 
+    companion object {
+        /**
+         * 각 그림의 꼭짓점 가로 위치와 변 길이 (뷰 폭 대비).
+         * 둔각이면 변이 왼쪽으로 뻗으므로 `CX - LEN >= 0` 이고 `CX + LEN <= 1` 이어야
+         * 변이 화면 밖으로 나가지 않는다.
+         */
+        const val ANGLE_CX_RATIO = 0.5f
+        const val ANGLE_LEN_RATIO = 0.44f
+
+        /**
+         * 원(시계·분수) 밑에 붙는 두 줄을 위해 비워 두는 세로 공간(dp).
+         * 아래 두 상수보다 커야 글자가 뷰 밖으로 잘리지 않는다.
+         */
+        const val LABEL_BLOCK_DP = 54f
+
+        /** 첫째 줄(값) 과 둘째 줄(안내) 의 원 아래 위치(dp) */
+        const val LABEL_LINE1_DP = 22f
+        const val LABEL_LINE2_DP = 42f
+    }
+
     private val palette = listOf(
         "#FF8A80", "#FFD54F", "#80CBC4", "#81D4FA", "#B39DDB", "#A5D6A7",
     ).map { Color.parseColor(it) }
@@ -253,14 +273,15 @@ class MathVisualView @JvmOverloads constructor(
             MathVisual.ARRAY -> (w * 0.13f * v.a + dp(30)).toInt().coerceAtLeast(dp(110))
             MathVisual.SHAPES, MathVisual.COMPARE -> (w * 0.38f).toInt()
             MathVisual.CLOCK -> (w * 0.62f).toInt()
-            MathVisual.CLOCK_SET -> (w * 0.78f).toInt()
+            // 밑에 붙는 두 줄까지 들어갈 높이 (그림 그리는 쪽에서 그만큼 빼고 원을 그린다)
+            MathVisual.CLOCK_SET -> (w * 0.85f).toInt()
             MathVisual.GROUP -> 0          // GroupDragView 가 따로 그린다
             MathVisual.FRACTION -> (w * 0.40f).toInt()
-            MathVisual.FRACTION_PAINT -> (w * 0.62f).toInt()
+            MathVisual.FRACTION_PAINT -> (w * 0.70f).toInt()
             MathVisual.SHAPE_SORT -> 0     // GroupDragView 가 따로 그린다
             MathVisual.NUMBER_LINE -> dp(96)
             MathVisual.NUMBER_LINE_DRAG -> dp(150)      // 손잡이·값 표시 자리
-            MathVisual.ANGLE_SET -> (w * 0.62f).toInt()
+            MathVisual.ANGLE_SET -> (w * 0.68f).toInt()
             // 전용 뷰가 따로 그린다
             MathVisual.BALANCE, MathVisual.BAR_BUILD, MathVisual.GATHER -> 0
             MathVisual.BAR_GRAPH -> (w * 0.58f).toInt()
@@ -452,9 +473,12 @@ class MathVisualView @JvmOverloads constructor(
 
     // ---------- 시계 ----------
     private fun drawClock(canvas: Canvas, v: MathVisual, w: Float, h: Float) {
+        val setMode = v.kind == MathVisual.CLOCK_SET
         val cx = w / 2f
-        val cy = h / 2f
-        val r = min(w, h) * 0.42f
+        // 바늘 돌리기는 시계 밑에 두 줄이 붙는다 — 그만큼 자리를 비워 두지 않으면 글자가 잘린다
+        val r = if (setMode) min(w * 0.42f, (h - dp(LABEL_BLOCK_DP)) * 0.5f)
+        else min(w, h) * 0.42f
+        val cy = if (setMode) r + dp(6) else h / 2f
         fill.color = Color.WHITE
         canvas.drawCircle(cx, cy, r, fill)
         stroke.strokeWidth = dp(4f).toFloat()
@@ -506,18 +530,15 @@ class MathVisualView @JvmOverloads constructor(
         canvas.drawCircle(cx, cy, dp(5f).toFloat(), fill)
         stroke.color = Color.parseColor("#5D4037")
 
-        if (v.kind == MathVisual.CLOCK_SET) {
+        if (setMode) {
             // 지금 맞춰 놓은 시각을 숫자로도 보여 준다
-            text.textSize = r * 0.22f
+            text.textSize = dp(19f).toFloat()
             text.color = Color.parseColor("#4E342E")
-            canvas.drawText(
-                "${setHour}시 ${setMinute}분",
-                cx, cy + r * 1.28f, text
-            )
-            text.textSize = r * 0.15f
+            canvas.drawText("${setHour}시 ${setMinute}분", cx, cy + r + dp(LABEL_LINE1_DP), text)
+            text.textSize = dp(13f).toFloat()
             text.isFakeBoldText = false
             text.color = Color.parseColor("#8D6E63")
-            canvas.drawText("바늘을 끌어서 맞춰 보세요", cx, cy + r * 1.48f, text)
+            canvas.drawText("바늘을 끌어서 맞춰 보세요", cx, cy + r + dp(LABEL_LINE2_DP), text)
             text.isFakeBoldText = true
             text.color = Color.parseColor("#4E342E")
         }
@@ -529,8 +550,10 @@ class MathVisualView @JvmOverloads constructor(
         val denom = v.q.toInt().coerceAtLeast(1)
         val numer = v.p.toInt().coerceIn(0, denom)
         val cx = w / 2f
-        val cy = if (paintMode) h * 0.45f else h / 2f
-        val r = min(w, h * (if (paintMode) 0.9f else 1f)) * 0.40f
+        // 색칠 모드는 원 밑에 두 줄이 붙는다 — 자리를 먼저 빼 놓고 원 크기를 정한다
+        val r = if (paintMode) min(w * 0.40f, (h - dp(LABEL_BLOCK_DP)) * 0.5f)
+        else min(w, h) * 0.40f
+        val cy = if (paintMode) r + dp(6) else h / 2f
         val rect = RectF(cx - r, cy - r, cx + r, cy + r)
         val sweep = 360f / denom
 
@@ -551,14 +574,16 @@ class MathVisualView @JvmOverloads constructor(
 
         if (paintMode) {
             pieCx = cx; pieCy = cy; pieR = r; pieSlices = denom
-            text.textSize = r * 0.24f
+            text.textSize = dp(18f).toFloat()
             text.isFakeBoldText = true
             text.color = Color.parseColor("#4E342E")
-            canvas.drawText("칠한 칸 ${painted.size} / $denom", cx, cy + r * 1.32f, text)
-            text.textSize = r * 0.16f
+            canvas.drawText(
+                "칠한 칸 ${painted.size} / $denom", cx, cy + r + dp(LABEL_LINE1_DP), text
+            )
+            text.textSize = dp(13f).toFloat()
             text.isFakeBoldText = false
             text.color = Color.parseColor("#8D6E63")
-            canvas.drawText("조각을 눌러서 색칠해요", cx, cy + r * 1.52f, text)
+            canvas.drawText("조각을 눌러서 색칠해요", cx, cy + r + dp(LABEL_LINE2_DP), text)
             text.isFakeBoldText = true
             text.color = Color.parseColor("#4E342E")
         }
@@ -616,10 +641,16 @@ class MathVisualView @JvmOverloads constructor(
 
         // 구간 수가 지정돼 있으면 그대로 (소수·음수 수직선은 눈금 간격이 1이 아니다)
         val steps = if (v.a > 0) v.a.coerceAtMost(20) else (hi - lo).toInt().coerceIn(1, 20)
-        text.textSize = h * (if (v.kind == MathVisual.NUMBER_LINE_DRAG) 0.13f else 0.20f)
+        val dragMode = v.kind == MathVisual.NUMBER_LINE_DRAG
+        text.textSize = if (dragMode) dp(13f).toFloat() else h * 0.20f
         text.isFakeBoldText = false
-        // 눈금이 촘촘하면 숫자는 띄엄띄엄 적는다 (겹쳐서 못 읽는다)
-        val labelEvery = if (steps > 10) 2 else 1
+        // 눈금이 촘촘하면 숫자는 띄엄띄엄 적는다.
+        // 20칸이면 두 칸 걸러도 "100" 같은 세 자리가 서로 닿는다 — 네 칸 걸러야 읽힌다.
+        val labelEvery = when {
+            steps > 12 -> 4
+            steps > 6 -> 2
+            else -> 1
+        }
         for (i in 0..steps) {
             val x = left + (right - left) * i / steps
             canvas.drawLine(x, y - dp(8), x, y + dp(8), stroke)
@@ -739,9 +770,10 @@ class MathVisualView @JvmOverloads constructor(
     private fun drawAngle(canvas: Canvas, v: MathVisual, w: Float, h: Float) {
         val setMode = v.kind == MathVisual.ANGLE_SET
         val deg = if (setMode) setAngle.toDouble() else v.p
-        val cx = w * 0.30f
-        val cy = h * 0.72f
-        val len = min(w * 0.55f, h * 0.62f)
+        // 꼭짓점을 가운데에 둔다. 왼쪽에 두면 둔각(90°↑)일 때 변이 화면 밖으로 나간다.
+        val cx = w * ANGLE_CX_RATIO
+        val cy = h * 0.78f
+        val len = min(w * ANGLE_LEN_RATIO, cy - dp(14))
         angleCx = cx; angleCy = cy; angleLen = len
 
         stroke.strokeWidth = dp(4f).toFloat()
@@ -774,11 +806,11 @@ class MathVisualView @JvmOverloads constructor(
             text.textSize = len * 0.20f
             text.isFakeBoldText = true
             text.color = Color.parseColor("#1565C0")
-            canvas.drawText("${setAngle}°", cx + len * 0.55f, cy - len * 0.14f, text)
+            canvas.drawText("${setAngle}°", cx + len * 0.42f, cy - len * 0.16f, text)
             text.textSize = len * 0.13f
             text.isFakeBoldText = false
             text.color = Color.parseColor("#8D6E63")
-            canvas.drawText("파란 손잡이를 돌려요", w * 0.5f, h - dp(6), text)
+            canvas.drawText("파란 손잡이를 돌려요", w * 0.5f, h - dp(8), text)
             text.isFakeBoldText = true
             text.color = Color.parseColor("#4E342E")
         }

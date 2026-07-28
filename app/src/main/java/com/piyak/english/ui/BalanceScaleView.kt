@@ -10,6 +10,7 @@ import android.view.MotionEvent
 import android.view.View
 import kotlin.math.abs
 import kotlin.math.cos
+import kotlin.math.min
 import kotlin.math.sin
 
 /**
@@ -48,6 +49,15 @@ class BalanceScaleView @JvmOverloads constructor(
     private var sliderRight = 0f
     private var sliderY = 0f
 
+    companion object {
+        /** 저울대 길이 (뷰 폭 대비) */
+        const val ARM_RATIO = 0.30f
+
+        /** 접시 폭 (뷰 폭 대비). 저울대 끝에 접시 절반이 더 붙으므로
+         *  `ARM_RATIO + PAN_RATIO / 2 < 0.5` 여야 접시가 화면 밖으로 안 나간다. */
+        const val PAN_RATIO = 0.28f
+    }
+
     fun setEquation(coef: Int, leftConst: Int, rightConst: Int) {
         this.coef = coef.coerceAtLeast(1)
         this.leftConst = leftConst
@@ -80,7 +90,7 @@ class BalanceScaleView @JvmOverloads constructor(
 
         val cx = w / 2f
         val pivotY = h * 0.52f
-        val armLen = w * 0.36f
+        val armLen = w * ARM_RATIO
 
         // 기울기 — 무게 차이에 비례하되 너무 눕지 않게 잘라 낸다
         val diff = leftWeight(guess) - rightWeight()
@@ -127,7 +137,7 @@ class BalanceScaleView @JvmOverloads constructor(
     }
 
     private fun drawPan(canvas: Canvas, x: Float, y: Float, w: Float, left: Boolean) {
-        val panW = w * 0.30f
+        val panW = w * PAN_RATIO
         val panY = y + dp(30f)
         stroke.color = Color.parseColor("#A1887F")
         stroke.strokeWidth = dp(2f)
@@ -137,10 +147,14 @@ class BalanceScaleView @JvmOverloads constructor(
             RectF(x - panW / 2f, panY, x + panW / 2f, panY + dp(8f)), dp(4f), dp(4f), fill
         )
 
-        // 접시 위에 무엇이 놓였는지
-        val box = dp(19f)
-        var bx = x - panW / 2f + box * 0.6f
-        val by = panY - box * 0.7f
+        // 접시 위에 무엇이 놓였는지.
+        // x 상자가 5개까지 올 수 있어 상자 크기를 접시 폭에 맞춰 줄인다 — 안 그러면 접시 밖으로 삐져나온다.
+        val slots = if (left) coef + (if (leftConst > 0) 2f else 0f) else 2f
+        val box = min(dp(19f), panW / (slots + 0.6f))
+        val step = box * 1.12f
+        val used = if (left) coef * step + (if (leftConst > 0) box * 2f else 0f) else box * 2f
+        var bx = x - used / 2f + box * 0.5f
+        val by = panY - box * 0.75f
         text.textSize = box * 0.62f
 
         if (left) {
@@ -152,7 +166,7 @@ class BalanceScaleView @JvmOverloads constructor(
                 )
                 text.color = Color.WHITE
                 canvas.drawText("x", bx, by + text.textSize * 0.35f, text)
-                bx += box * 1.12f
+                bx += step
             }
             drawWeights(canvas, leftConst, bx, by, box)
         } else {

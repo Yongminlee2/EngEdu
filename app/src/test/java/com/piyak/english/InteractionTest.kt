@@ -265,6 +265,36 @@ class InteractionTest {
     }
 
     /**
+     * 그림이 뷰 밖으로 삐져나오지 않는지.
+     *
+     * 실기기에서 `끌어서 나누기` 한 화면에만 겹침·넘침이 3건 있었다. 값이 틀린 게 아니라
+     * **자리 계산이 칸을 넘은 것**이라 기존 테스트로는 안 잡혔다. 그래서 자리 계산에 쓰는
+     * 비율을 상수로 빼고, 그 사이의 관계를 여기서 못 박아 둔다.
+     */
+    @Test fun drawingsStayInsideTheirView() {
+        // 각: 둔각이면 변이 왼쪽으로 뻗는다. 꼭짓점에서 변 길이를 뺀 자리가 0 보다 작으면
+        // 화면 밖으로 나가 손잡이를 잡을 수도 없다 (v2.0 부터 있던 버그였다).
+        val cx = com.piyak.english.ui.MathVisualView.ANGLE_CX_RATIO
+        val len = com.piyak.english.ui.MathVisualView.ANGLE_LEN_RATIO
+        assertTrue("180°일 때 변이 왼쪽으로 삐져나온다", cx - len >= 0f)
+        assertTrue("0°일 때 변이 오른쪽으로 삐져나온다", cx + len <= 1f)
+
+        // 저울: 저울대 끝에 접시 절반이 더 붙는다
+        val arm = com.piyak.english.ui.BalanceScaleView.ARM_RATIO
+        val pan = com.piyak.english.ui.BalanceScaleView.PAN_RATIO
+        assertTrue("접시가 화면 밖으로 나간다", arm + pan / 2f <= 0.5f)
+
+        // 시계·분수: 원 밑에 두 줄이 붙는다. 비워 둔 공간이 둘째 줄보다 좁으면 글자가 잘린다
+        val block = com.piyak.english.ui.MathVisualView.LABEL_BLOCK_DP
+        val line2 = com.piyak.english.ui.MathVisualView.LABEL_LINE2_DP
+        assertTrue("둘째 줄이 뷰 밖으로 잘린다", block >= line2 + 8f)
+        assertTrue(
+            "두 줄이 서로 겹친다",
+            line2 - com.piyak.english.ui.MathVisualView.LABEL_LINE1_DP >= 14f
+        )
+    }
+
+    /**
      * 그림을 끌어 옮길 수 있는 건 낱개로 흩어진 이모지뿐이어야 한다.
      * 곱셈 배열은 행·열로 놓인 자리 자체가 뜻이라, 옮기면 안내선과 어긋난다.
      */
