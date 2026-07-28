@@ -96,6 +96,18 @@ function kindergarten() {
     );
   }), 8));
 
+  // 1-1) 손으로 하나씩 옮기며 세기 — 6세는 "옮긴 것 = 센 것"이 가장 확실하다
+  units.push(makeUnit("옮기면서 세기", "📦", 1, gen(24, () => {
+    const n = rint(3, 8);
+    const e = pick(ANIMALS);
+    return visualQ(
+      `${e} 를 모두 상자에 옮겨 담고, 몇 마리인지 세어 보세요.`,
+      n,
+      `하나씩 옮기면서 세면 ${Array.from({ length: n }, (_, i) => i + 1).join(", ")} — 모두 ${n}마리예요.`,
+      { visual: V.gather(e, n, n, "상자"), skill: SK.number }
+    );
+  }), 6));
+
   // 4-1) 모양을 손으로 나누어 담기 (바구니 2개 — 6세는 두 가지부터)
   units.push(makeUnit("모양 나누어 담기", "🧺", 1, gen(24, () =>
     shapeSortQ(shuffled(모양).slice(0, 2), 3, SK.shape)
@@ -145,6 +157,22 @@ function grade1() {
     );
   }), 8));
 
+  // 더하기를 계산하기 전에 실제로 한 상자에 모아 보고 센다
+  units.push(makeUnit("모아서 더하기", "📦", 2, gen(30, () => {
+    const e = pick(ANIMALS);
+    const a = rint(1, 5), b = rint(1, 5);
+    const sum = a + b;
+    // 한 상자에 한눈에 들어올 만큼만. 2마리를 옮기는 건 연습이 안 된다
+    if (sum > 10 || sum < 3) return null;
+    return visualQ(
+      `${e} ${a}마리와 ${b}마리를 모두 상자에 모아 보세요. 모두 몇 마리일까요? (${a} + ${b})`,
+      sum,
+      `${a}마리를 담고 ${b}마리를 더 담으면 상자에 ${sum}마리가 돼요.\n` +
+      `${a}에서 ${b}만큼 더 세면 ${sum}이에요.`,
+      { visual: V.gather(e, sum, sum, "모으는 상자"), skill: SK.calc }
+    );
+  }), 6));
+
   // 한 자리 뺄셈 (그림)
   units.push(makeUnit("그림 뺄셈", "➖", 2, gen(55, () => {
     const e = pick(ALL_EMOJI);
@@ -156,6 +184,19 @@ function grade1() {
       { visual: V.emojiOp(e, a, b, "-"), skill: SK.calc }
     );
   }), 8));
+
+  // 빼기를 계산하기 전에 실제로 덜어내 보고 남은 것을 센다
+  units.push(makeUnit("덜어내고 빼기", "📦", 2, gen(30, () => {
+    const e = pick(ANIMALS);
+    const a = rint(4, 10), b = rint(1, a - 1);
+    return visualQ(
+      `${e} ${a}마리 중 ${b}마리가 집으로 갔어요. ${b}마리를 집으로 보내고, 남은 것을 세어 보세요. (${a} - ${b})`,
+      a - b,
+      `${a}마리에서 ${b}마리를 보내면 ${a - b}마리가 남아요.\n` +
+      `보낸 것과 남은 것을 합치면 다시 ${a}마리예요.`,
+      { visual: V.gather(e, a, b, "집으로"), skill: SK.calc }
+    );
+  }), 6));
 
   // 10 만들기
   units.push(makeUnit("10을 만들어요", "🔟", 2, gen(40, () => {

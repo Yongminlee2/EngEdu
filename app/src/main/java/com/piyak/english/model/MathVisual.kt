@@ -66,17 +66,23 @@ data class MathVisual(
         /** 막대를 끌어 올려 그래프 완성하기 (labels = 항목, values = 목표 높이) */
         const val BAR_BUILD = "bar_build"
 
+        /**
+         * 사물을 상자로 옮겨 담기 (a = 전체 개수, b = 상자에 담아야 할 개수).
+         * 덧셈은 전부 모으고, 뺄셈은 덜어낼 만큼만 담는다. labels[0] 은 상자 이름.
+         */
+        const val GATHER = "gather"
+
         val KINDS = setOf(
             EMOJI, EMOJI_OP, ARRAY, SHAPES, CLOCK, FRACTION,
             NUMBER_LINE, BAR_GRAPH, ANGLE, COMPARE,
             CLOCK_SET, GROUP, FRACTION_PAINT, SHAPE_SORT,
-            NUMBER_LINE_DRAG, ANGLE_SET, BALANCE, BAR_BUILD,
+            NUMBER_LINE_DRAG, ANGLE_SET, BALANCE, BAR_BUILD, GATHER,
         )
 
         /** 그림 자체가 답을 입력받는 종류 (키패드·보기가 필요 없다) */
         val INPUT_KINDS = setOf(
             CLOCK_SET, GROUP, FRACTION_PAINT, SHAPE_SORT,
-            NUMBER_LINE_DRAG, ANGLE_SET, BALANCE, BAR_BUILD,
+            NUMBER_LINE_DRAG, ANGLE_SET, BALANCE, BAR_BUILD, GATHER,
         )
 
         fun fromJson(o: JSONObject?): MathVisual? {

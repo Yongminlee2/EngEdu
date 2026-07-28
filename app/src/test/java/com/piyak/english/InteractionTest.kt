@@ -130,6 +130,7 @@ class InteractionTest {
         var angles = 0
         var balances = 0
         var bars = 0
+        var gathers = 0
         for (tid in Subject.MATH.tracks) {
             val f = File(dir, "$tid.json")
             if (!f.isFile) continue
@@ -233,13 +234,24 @@ class InteractionTest {
                         assertEquals("${m.id}: 항목 이름 중복", v.labels.size, v.labels.toSet().size)
                         bars++
                     }
+                    com.piyak.english.model.MathVisual.GATHER -> {
+                        val ans = m.answer.toIntOrNull() ?: error("${m.id}: 답이 정수가 아님")
+                        assertTrue("${m.id}: 상자에 담을 개수가 전체보다 많다", v.bb <= v.a)
+                        assertTrue("${m.id}: 옮길 게 없다", v.bb >= 1)
+                        assertTrue("${m.id}: 화면에 안 들어갈 만큼 많다", v.a in 3..10)
+                        assertTrue("${m.id}: 상자 이름이 없다", v.labels.isNotEmpty())
+                        // 모으기(전부 담기)면 답은 전체, 덜어내기면 답은 남은 것
+                        val expect = if (v.bb == v.a) v.a else v.a - v.bb
+                        assertEquals("${m.id}: 답이 옮긴 결과와 다르다", expect, ans)
+                        gathers++
+                    }
                     else -> error("${m.id}: 조작할 수 없는 그림인데 visual 입력")
                 }
             }
         }
         println(
             "바늘 $clocks · 나누기 $groups · 색칠 $paints · 분류 $sorts · " +
-                "수직선 $lines · 각도 $angles · 저울 $balances · 그래프 $bars"
+                "수직선 $lines · 각도 $angles · 저울 $balances · 그래프 $bars · 옮겨담기 $gathers"
         )
         assertTrue("시계 바늘 돌리기 문제가 없다", clocks > 50)
         assertTrue("끌어서 나누기 문제가 없다", groups > 50)
@@ -249,6 +261,27 @@ class InteractionTest {
         assertTrue("각도 만들기 문제가 없다", angles > 20)
         assertTrue("저울 문제가 없다", balances > 20)
         assertTrue("그래프 세우기 문제가 없다", bars > 20)
+        assertTrue("옮겨 담기 문제가 없다", gathers > 40)
+    }
+
+    /**
+     * 그림을 끌어 옮길 수 있는 건 낱개로 흩어진 이모지뿐이어야 한다.
+     * 곱셈 배열은 행·열로 놓인 자리 자체가 뜻이라, 옮기면 안내선과 어긋난다.
+     */
+    @Test fun onlyLooseEmojiPicturesAreMovable() {
+        val movable = setOf(
+            com.piyak.english.model.MathVisual.EMOJI,
+            com.piyak.english.model.MathVisual.EMOJI_OP,
+        )
+        val countable = movable + com.piyak.english.model.MathVisual.ARRAY
+        assertTrue(
+            "옮길 수 있는 그림은 셀 수 있는 그림의 일부여야 한다",
+            countable.containsAll(movable)
+        )
+        assertFalse(
+            "곱셈 배열은 옮기면 안내선과 어긋난다",
+            movable.contains(com.piyak.english.model.MathVisual.ARRAY)
+        )
     }
 
     /** 톡톡 누를 때 나는 소리는 자주 울리므로 정답·오답 소리보다 작아야 한다 */
