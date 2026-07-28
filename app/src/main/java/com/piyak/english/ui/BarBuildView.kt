@@ -8,6 +8,7 @@ import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import kotlin.math.min
 
 /**
  * 표를 보고 **막대를 직접 끌어 올려** 그래프를 완성하는 판.
@@ -124,7 +125,8 @@ class BarBuildView @JvmOverloads constructor(
             }
 
             text.isFakeBoldText = true
-            text.textSize = dp(13f)
+            // 막대가 5개면 칸이 좁아진다 — 이름이 옆 칸을 침범하지 않게 칸 폭에 맞춘다
+            text.textSize = min(dp(13f), slot * 0.19f)
             text.color = if (current[i] == target.getOrNull(i))
                 Color.parseColor("#2E7D32") else Color.parseColor("#8D6E63")
             canvas.drawText(

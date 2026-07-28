@@ -289,11 +289,13 @@ class GroupDragView @JvmOverloads constructor(
         val rect = groupRects.getOrNull(g) ?: return
         val idx = items.filter { it.group == g }.indexOf(item).coerceAtLeast(0)
         val top = rect.top + textPaint.textSize * 1.5f
-        val slot = itemSize * 0.84f
+        val stepX = itemSize * 0.84f
+        // 세로는 더 벌린다 — 담긴 이모지도 지정 크기보다 크게 그려져 윗줄과 닿는다
+        val stepY = itemSize * 1.05f
         // 바구니가 넓으면 한 줄에 더 많이 (모으기는 바구니가 하나뿐이라 아주 넓다)
-        val perRow = (rect.width() / slot).toInt().coerceIn(2, 8)
-        item.x = rect.left + slot * (idx % perRow) + slot * 0.6f
-        item.y = top + slot * (idx / perRow) + slot * 0.5f
+        val perRow = (rect.width() / stepX).toInt().coerceIn(2, 8)
+        item.x = rect.left + stepX * (idx % perRow) + stepX * 0.6f
+        item.y = top + stepY * (idx / perRow) + stepY * 0.5f
     }
 
     private fun dp(v: Float): Float = v * resources.displayMetrics.density
