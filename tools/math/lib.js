@@ -45,6 +45,7 @@ const VISUAL_KINDS = new Set([
   "number_line", "bar_graph", "angle", "compare",
   // 그림을 손으로 조작해서 답하는 종류
   "clock_set", "group", "fraction_paint", "shape_sort",
+  "number_line_drag", "angle_set", "balance", "bar_build",
 ]);
 
 function validate(q) {
@@ -151,6 +152,14 @@ const V = {
   fractionPaint: (n, d) => ({ kind: "fraction_paint", p: n, q: d }),
   /** 도형을 이름 붙은 바구니로 분류하기 — kinds[i] 는 items[i] 가 들어갈 바구니 */
   shapeSort: (items, kinds, labels) => ({ kind: "shape_sort", items, kinds, labels }),
+  /** 수직선 위의 점 끌기 — lo~hi 를 steps 칸으로 나눈다 */
+  numberLineDrag: (lo, hi, steps) => ({ kind: "number_line_drag", p: lo, q: hi, a: steps }),
+  /** 반직선을 돌려 각도 만들기 */
+  angleSet: (deg) => ({ kind: "angle_set", p: deg }),
+  /** 양팔 저울 — coef·x + left = right */
+  balance: (coef, left, right) => ({ kind: "balance", a: coef, b: left, p: right }),
+  /** 막대를 끌어 올려 그래프 완성 */
+  barBuild: (labels, values) => ({ kind: "bar_build", labels, values }),
 };
 
 /** 모양별 이모지 — 같은 종류라도 색·방향이 달라야 "모양"으로 분류하게 된다 */

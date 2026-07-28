@@ -126,6 +126,10 @@ class InteractionTest {
         var groups = 0
         var paints = 0
         var sorts = 0
+        var lines = 0
+        var angles = 0
+        var balances = 0
+        var bars = 0
         for (tid in Subject.MATH.tracks) {
             val f = File(dir, "$tid.json")
             if (!f.isFile) continue
@@ -183,15 +187,68 @@ class InteractionTest {
                         assertEquals("${m.id}: 답이 도형 수와 다르다", v.items.size, m.answer.toIntOrNull())
                         sorts++
                     }
+                    com.piyak.english.model.MathVisual.NUMBER_LINE_DRAG -> {
+                        val t = m.answer.toDoubleOrNull() ?: error("${m.id}: 답이 수가 아님")
+                        assertTrue("${m.id}: 수직선 범위가 뒤집혔다", v.q > v.p)
+                        assertTrue("${m.id}: 답이 수직선 밖에 있다", t >= v.p && t <= v.q)
+                        assertTrue("${m.id}: 눈금이 없거나 너무 촘촘하다", v.a in 2..20)
+                        // 눈금에 딱 붙는 값만 손가락으로 만들 수 있다
+                        val step = (v.q - v.p) / v.a
+                        val k = Math.round((t - v.p) / step)
+                        assertTrue(
+                            "${m.id}: 눈금에 없는 값이라 짚을 수 없다",
+                            kotlin.math.abs(v.p + k * step - t) < 1e-6
+                        )
+                        // 점은 왼쪽 끝에서 시작한다 — 답이 거기면 안 움직여도 맞아 버린다
+                        assertTrue("${m.id}: 답이 점의 시작 위치와 같다", t > v.p)
+                        lines++
+                    }
+                    com.piyak.english.model.MathVisual.ANGLE_SET -> {
+                        val deg = m.answer.toIntOrNull() ?: error("${m.id}: 답이 정수가 아님")
+                        assertEquals("${m.id}: 답이 그림의 각도와 다르다", v.p.toInt(), deg)
+                        assertTrue("${m.id}: 각도 범위", deg in 5..180)
+                        // 손가락 조작은 5° 단위로 붙는다
+                        assertEquals("${m.id}: 5° 단위가 아니라 맞출 수 없다", 0, deg % 5)
+                        angles++
+                    }
+                    com.piyak.english.model.MathVisual.BALANCE -> {
+                        val x = m.answer.toIntOrNull() ?: error("${m.id}: 답이 정수가 아님")
+                        val right = v.p.toInt()
+                        assertTrue("${m.id}: x 상자가 없다", v.a >= 1)
+                        assertEquals(
+                            "${m.id}: 저울이 그 값에서 평형이 되지 않는다",
+                            right, v.a * x + v.bb
+                        )
+                        assertTrue("${m.id}: 손잡이 눈금 밖의 답", x in 1..20)
+                        assertTrue("${m.id}: 접시에 추가 너무 많다", right <= 45)
+                        balances++
+                    }
+                    com.piyak.english.model.MathVisual.BAR_BUILD -> {
+                        val want = m.answer.split(",").map { it.trim().toInt() }
+                        assertEquals("${m.id}: 막대 수와 이름 수가 다르다", v.labels.size, v.values.size)
+                        assertEquals("${m.id}: 답이 막대 높이와 다르다", v.values.map { it.toInt() }, want)
+                        assertTrue("${m.id}: 막대가 3~5개여야 화면에 맞는다", v.values.size in 3..5)
+                        // 0 이면 세울 게 없고, 너무 높으면 화면 밖으로 나간다
+                        assertTrue("${m.id}: 막대 높이 범위", v.values.all { it >= 1 && it <= 9 })
+                        assertEquals("${m.id}: 항목 이름 중복", v.labels.size, v.labels.toSet().size)
+                        bars++
+                    }
                     else -> error("${m.id}: 조작할 수 없는 그림인데 visual 입력")
                 }
             }
         }
-        println("바늘 돌리기 $clocks · 끌어서 나누기 $groups · 색칠 $paints · 도형 분류 $sorts")
+        println(
+            "바늘 $clocks · 나누기 $groups · 색칠 $paints · 분류 $sorts · " +
+                "수직선 $lines · 각도 $angles · 저울 $balances · 그래프 $bars"
+        )
         assertTrue("시계 바늘 돌리기 문제가 없다", clocks > 50)
         assertTrue("끌어서 나누기 문제가 없다", groups > 50)
         assertTrue("분수 색칠 문제가 없다", paints > 40)
         assertTrue("도형 분류 문제가 없다", sorts > 40)
+        assertTrue("수직선 점 끌기 문제가 없다", lines > 40)
+        assertTrue("각도 만들기 문제가 없다", angles > 20)
+        assertTrue("저울 문제가 없다", balances > 20)
+        assertTrue("그래프 세우기 문제가 없다", bars > 20)
     }
 
     /** 톡톡 누를 때 나는 소리는 자주 울리므로 정답·오답 소리보다 작아야 한다 */

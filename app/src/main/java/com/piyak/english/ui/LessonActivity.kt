@@ -568,6 +568,10 @@ class LessonActivity : AppCompatActivity() {
             com.piyak.english.model.MathVisual.GROUP -> "🧺 끌어서 똑같이 나누기"
             com.piyak.english.model.MathVisual.FRACTION_PAINT -> "🍰 분수만큼 색칠하기"
             com.piyak.english.model.MathVisual.SHAPE_SORT -> "🔺 도형 분류하기"
+            com.piyak.english.model.MathVisual.NUMBER_LINE_DRAG -> "📏 수직선에서 찾기"
+            com.piyak.english.model.MathVisual.ANGLE_SET -> "📐 각도 만들기"
+            com.piyak.english.model.MathVisual.BALANCE -> "⚖️ 저울 맞추기"
+            com.piyak.english.model.MathVisual.BAR_BUILD -> "📊 그래프 세우기"
             com.piyak.english.model.MathVisual.SHAPES -> "🔺 도형"
             com.piyak.english.model.MathVisual.FRACTION -> "🍰 분수"
             com.piyak.english.model.MathVisual.BAR_GRAPH -> "📊 그래프"
@@ -608,6 +612,10 @@ class LessonActivity : AppCompatActivity() {
 
         // 그림 자체가 답이 되는 문제 — 키패드도 보기도 없이 손으로 만들어 낸다
         val vk = q.visual?.kind
+        if (vk != null && vk in com.piyak.english.model.MathVisual.INPUT_KINDS) {
+            // 연습장이 그림을 덮으면 끌거나 누를 수가 없다
+            b.btnScratch.visibility = View.GONE
+        }
         if (vk == com.piyak.english.model.MathVisual.CLOCK_SET) {
             showClockSet(v, q, visualView); return
         }
@@ -619,6 +627,18 @@ class LessonActivity : AppCompatActivity() {
         }
         if (vk == com.piyak.english.model.MathVisual.SHAPE_SORT) {
             showShapeSort(v, q, visualView); return
+        }
+        if (vk == com.piyak.english.model.MathVisual.NUMBER_LINE_DRAG) {
+            showNumberLineDrag(v, q, visualView); return
+        }
+        if (vk == com.piyak.english.model.MathVisual.ANGLE_SET) {
+            showAngleSet(v, q, visualView); return
+        }
+        if (vk == com.piyak.english.model.MathVisual.BALANCE) {
+            showBalance(v, q, visualView); return
+        }
+        if (vk == com.piyak.english.model.MathVisual.BAR_BUILD) {
+            showBarBuild(v, q, visualView); return
         }
 
         when (q.input) {
@@ -903,6 +923,154 @@ class LessonActivity : AppCompatActivity() {
             submitAnswer(ok, if (ok) null else "${bad}개가 다른 바구니에 들어갔어요.", q.explain)
         }
     }
+
+    /**
+     * 수직선 위의 점 끌기.
+     * 수를 고르는 대신 "수직선 어디쯤인지"를 직접 짚는다 — 수의 크기 감각이 손에 남는다.
+     */
+    private fun showNumberLineDrag(v: View, q: Question.Math, visualView: MathVisualView) {
+        val want = q.answer.trim().toDoubleOrNull() ?: return
+
+        val countBox = v.findViewById<LinearLayout>(R.id.countBox)
+        val txtCount = v.findViewById<TextView>(R.id.txtCount)
+        countBox.visibility = View.VISIBLE
+        txtCount.text = "📏 파란 점을 끌어서 자리를 찾아요"
+        v.findViewById<Button>(R.id.btnCountReset).apply {
+            text = "처음으로"
+            setOnClickListener { visualView.resetMark(); b.btnCheck.isEnabled = false }
+        }
+
+        b.btnCheck.isEnabled = false
+        visualView.onMarkChanged = { value ->
+            txtCount.text = "📏 지금 짚은 곳: ${trimNum(value)}"
+            sfx.piyak()
+            b.btnCheck.isEnabled = true
+        }
+        checkAction = {
+            val got = visualView.markedValue
+            val ok = kotlin.math.abs(got - want) < 1e-6
+            submitAnswer(ok, if (ok) null else "정답: ${q.answer}", q.explain)
+        }
+    }
+
+    /** 각도 만들기 — 각도를 재는 대신 직접 만들어 본다 */
+    private fun showAngleSet(v: View, q: Question.Math, visualView: MathVisualView) {
+        val want = q.answer.trim().toIntOrNull() ?: return
+
+        val countBox = v.findViewById<LinearLayout>(R.id.countBox)
+        val txtCount = v.findViewById<TextView>(R.id.txtCount)
+        countBox.visibility = View.VISIBLE
+        txtCount.text = "📐 파란 손잡이를 돌려서 각을 만들어요"
+        v.findViewById<Button>(R.id.btnCountReset).apply {
+            text = "0°로"
+            setOnClickListener { visualView.resetAngle(); b.btnCheck.isEnabled = false }
+        }
+
+        b.btnCheck.isEnabled = false
+        visualView.onAngleChanged = { deg ->
+            txtCount.text = "📐 지금 만든 각: ${deg}°"
+            sfx.piyak()
+            b.btnCheck.isEnabled = deg > 0
+        }
+        checkAction = {
+            val got = visualView.setAngle
+            val ok = got == want
+            val why = when {
+                ok -> null
+                got < want -> "조금 더 벌려야 해요. 정답: ${want}°"
+                else -> "조금 더 좁혀야 해요. 정답: ${want}°"
+            }
+            submitAnswer(ok, why, q.explain)
+        }
+    }
+
+    /**
+     * 저울 균형 맞추기.
+     * `a·x + b = c` 에서 x 를 바꾸면 저울이 실시간으로 기운다 —
+     * 이항을 외우기 전에 "양쪽이 같다"는 등식의 뜻을 눈으로 본다.
+     */
+    private fun showBalance(v: View, q: Question.Math, visualView: MathVisualView) {
+        visualView.visibility = View.GONE
+        val vis = q.visual ?: return
+        val want = q.answer.trim().toIntOrNull() ?: return
+
+        val grid = v.findViewById<android.widget.GridLayout>(R.id.choicesGrid)
+        grid.visibility = View.VISIBLE
+        val sv = BalanceScaleView(this).apply {
+            layoutParams = android.widget.GridLayout.LayoutParams().apply {
+                width = android.widget.GridLayout.LayoutParams.MATCH_PARENT
+                height = dp(360)
+                columnSpec = android.widget.GridLayout.spec(0, 2)
+            }
+        }
+        sv.setEquation(vis.a, vis.bb, vis.p.toInt())
+        grid.addView(sv)
+
+        val countBox = v.findViewById<LinearLayout>(R.id.countBox)
+        val txtCount = v.findViewById<TextView>(R.id.txtCount)
+        countBox.visibility = View.VISIBLE
+        txtCount.text = "⚖️ 손잡이를 끌어 x 를 바꿔 보세요"
+        v.findViewById<Button>(R.id.btnCountReset).apply {
+            text = "처음으로"
+            setOnClickListener { sv.reset(); b.btnCheck.isEnabled = false }
+        }
+
+        b.btnCheck.isEnabled = false
+        sv.onChanged = { x ->
+            txtCount.text = if (sv.isBalanced())
+                "⚖️ x = $x — 평형이에요!" else "⚖️ 지금 x = $x"
+            sfx.piyak()
+            b.btnCheck.isEnabled = true
+        }
+        checkAction = {
+            val ok = sv.isBalanced() && sv.guess == want
+            submitAnswer(ok, if (ok) null else "저울이 평형이 되는 값은 x = $want 이에요.", q.explain)
+        }
+    }
+
+    /** 막대그래프 세우기 — 표를 보고 막대를 끌어 올려 그래프를 완성한다 */
+    private fun showBarBuild(v: View, q: Question.Math, visualView: MathVisualView) {
+        visualView.visibility = View.GONE
+        val vis = q.visual ?: return
+
+        val grid = v.findViewById<android.widget.GridLayout>(R.id.choicesGrid)
+        grid.visibility = View.VISIBLE
+        val bv = BarBuildView(this).apply {
+            layoutParams = android.widget.GridLayout.LayoutParams().apply {
+                width = android.widget.GridLayout.LayoutParams.MATCH_PARENT
+                height = dp(340)
+                columnSpec = android.widget.GridLayout.spec(0, 2)
+            }
+        }
+        bv.setTarget(vis.labels, vis.values.map { it.toInt() })
+        grid.addView(bv)
+
+        val countBox = v.findViewById<LinearLayout>(R.id.countBox)
+        val txtCount = v.findViewById<TextView>(R.id.txtCount)
+        countBox.visibility = View.VISIBLE
+        txtCount.text = "📊 막대를 위로 끌어 올려요"
+        v.findViewById<Button>(R.id.btnCountReset).apply {
+            text = "다시 세우기"
+            setOnClickListener { bv.reset(); b.btnCheck.isEnabled = false }
+        }
+
+        b.btnCheck.isEnabled = false
+        bv.onBarMoved = { sfx.piyak() }
+        bv.onChanged = { vals ->
+            val left = bv.wrongBars()
+            txtCount.text = if (left == 0) "📊 다 맞췄어요!" else "📊 아직 ${left}개가 안 맞아요"
+            b.btnCheck.isEnabled = vals.any { it > 0 }
+        }
+        checkAction = {
+            val ok = bv.isCorrect()
+            submitAnswer(ok, if (ok) null else "${bv.wrongBars()}개의 막대 높이가 달라요.", q.explain)
+        }
+    }
+
+    /** 소수점 뒤 0 을 떼서 보기 좋게 (3.0 → 3) */
+    private fun trimNum(d: Double): String =
+        if (d == Math.floor(d) && !d.isInfinite()) d.toInt().toString()
+        else (Math.round(d * 1000.0) / 1000.0).toString()
 
     /**
      * 숫자 답 문제를 버블로 낼지 결정한다.
