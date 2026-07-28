@@ -44,6 +44,8 @@ class MathVisualView @JvmOverloads constructor(
             field = v
             counted.clear()
             painted.clear()
+            itemOffsets.clear()
+            dragIndex = -1
             setHour = 12; setMinute = 0
             setAngle = 0
             markValue = v?.p ?: 0.0
@@ -59,11 +61,28 @@ class MathVisualView @JvmOverloads constructor(
      * 정지된 그림을 보기만 하는 것과 만지며 세는 것은 완전히 다르다.
      */
     private val itemCenters = ArrayList<PointF>()
+    private val itemEmojis = ArrayList<String>()
     private val counted = LinkedHashSet<Int>()
+
+    /**
+     * 아이가 끌어 옮긴 거리. 그림을 다시 그릴 때마다 이만큼 더해 준다.
+     *
+     * 배열(곱셈)은 행·열 안내선이 자리의 뜻이라 옮기면 그림이 어긋난다 —
+     * 그래서 낱개로 흩어진 이모지 그림에서만 끌 수 있게 했다.
+     */
+    private val itemOffsets = HashMap<Int, PointF>()
+    private var dragIndex = -1
+    private var dragMoved = false
+    private var dragStartX = 0f
+    private var dragStartY = 0f
 
     /** 셀 수 있는 그림인지 (이모지·배열 계열) */
     val countable: Boolean
         get() = visual?.kind in setOf(MathVisual.EMOJI, MathVisual.EMOJI_OP, MathVisual.ARRAY)
+
+    /** 손으로 옮길 수 있는 그림인지 */
+    val movable: Boolean
+        get() = visual?.kind in setOf(MathVisual.EMOJI, MathVisual.EMOJI_OP)
 
     /** 지금까지 짚은 개수가 바뀔 때 */
     var onCountChanged: ((Int) -> Unit)? = null
@@ -72,6 +91,7 @@ class MathVisualView @JvmOverloads constructor(
 
     fun clearCount() {
         counted.clear()
+        itemOffsets.clear()      // 옮겨 놓은 것도 처음 자리로 되돌린다
         onCountChanged?.invoke(0)
         invalidate()
     }
@@ -138,22 +158,62 @@ class MathVisualView @JvmOverloads constructor(
             MathVisual.NUMBER_LINE_DRAG -> return handleLineTouch(event)
             MathVisual.ANGLE_SET -> return handleAngleTouch(event)
         }
-        if (!countable || event.actionMasked != android.view.MotionEvent.ACTION_DOWN) return false
-        var best = -1
-        var bestD = Float.MAX_VALUE
-        val limit = itemSpacing * 0.6f
-        for (i in itemCenters.indices) {
-            val c = itemCenters[i]
-            val d = kotlin.math.hypot(event.x - c.x, event.y - c.y)
-            if (d < bestD) { bestD = d; best = i }
-        }
-        if (best >= 0 && bestD <= limit) {
-            if (!counted.add(best)) counted.remove(best)   // 다시 누르면 취소
-            onCountChanged?.invoke(counted.size)
-            invalidate()
-            return true
+        if (!countable) return false
+
+        when (event.actionMasked) {
+            android.view.MotionEvent.ACTION_DOWN -> {
+                val hit = nearestItem(event.x, event.y)
+                if (hit < 0) return false
+                dragIndex = hit
+                dragMoved = false
+                dragStartX = event.x
+                dragStartY = event.y
+                if (movable) parent?.requestDisallowInterceptTouchEvent(true)
+                return true
+            }
+            android.view.MotionEvent.ACTION_MOVE -> {
+                if (dragIndex < 0 || !movable) return false
+                val dx = event.x - dragStartX
+                val dy = event.y - dragStartY
+                // 손가락이 조금 흔들린 것까지 끌기로 보면 세기가 안 된다
+                if (!dragMoved && kotlin.math.hypot(dx, dy) < dp(10)) return true
+                dragMoved = true
+                val base = itemOffsets.getOrPut(dragIndex) { PointF(0f, 0f) }
+                base.x += dx
+                base.y += dy
+                dragStartX = event.x
+                dragStartY = event.y
+                invalidate()
+                return true
+            }
+            android.view.MotionEvent.ACTION_UP, android.view.MotionEvent.ACTION_CANCEL -> {
+                val hit = dragIndex
+                val moved = dragMoved
+                dragIndex = -1
+                dragMoved = false
+                if (hit < 0) return false
+                // 끌지 않고 톡 눌렀으면 "세기" — 다시 누르면 취소
+                if (!moved) {
+                    if (!counted.add(hit)) counted.remove(hit)
+                    onCountChanged?.invoke(counted.size)
+                }
+                invalidate()
+                return true
+            }
         }
         return false
+    }
+
+    /** 손가락에 가장 가까운 이모지 (너무 멀면 -1) */
+    private fun nearestItem(x: Float, y: Float): Int {
+        var best = -1
+        var bestD = Float.MAX_VALUE
+        for (i in itemCenters.indices) {
+            val c = itemCenters[i]
+            val d = kotlin.math.hypot(x - c.x, y - c.y)
+            if (d < bestD) { bestD = d; best = i }
+        }
+        return if (best >= 0 && bestD <= itemSpacing * 0.6f) best else -1
     }
 
     /** 항목 사이 간격 (터치 판정 범위 계산용) */
@@ -201,7 +261,8 @@ class MathVisualView @JvmOverloads constructor(
             MathVisual.NUMBER_LINE -> dp(96)
             MathVisual.NUMBER_LINE_DRAG -> dp(150)      // 손잡이·값 표시 자리
             MathVisual.ANGLE_SET -> (w * 0.62f).toInt()
-            MathVisual.BALANCE, MathVisual.BAR_BUILD -> 0   // 전용 뷰가 따로 그린다
+            // 전용 뷰가 따로 그린다
+            MathVisual.BALANCE, MathVisual.BAR_BUILD, MathVisual.GATHER -> 0
             MathVisual.BAR_GRAPH -> (w * 0.58f).toInt()
             MathVisual.ANGLE -> (w * 0.50f).toInt()
             else -> dp(100)
@@ -215,6 +276,7 @@ class MathVisualView @JvmOverloads constructor(
         val w = width.toFloat()
         val h = height.toFloat()
         itemCenters.clear()
+        itemEmojis.clear()
         when (v.kind) {
             MathVisual.EMOJI -> drawEmojiGrid(canvas, v.emoji, v.a, w, h)
             MathVisual.EMOJI_OP -> drawEmojiOp(canvas, v, w, h)
@@ -227,7 +289,35 @@ class MathVisualView @JvmOverloads constructor(
             MathVisual.ANGLE, MathVisual.ANGLE_SET -> drawAngle(canvas, v, w, h)
             MathVisual.COMPARE -> drawCompare(canvas, v, w, h)
         }
+        drawDraggedOnTop(canvas)
         drawCountMarks(canvas)
+    }
+
+    /**
+     * 이모지 하나를 그리고 터치 판정 자리를 등록한다.
+     * 아이가 끌어 옮긴 만큼(`itemOffsets`) 자리를 옮겨서 그리므로,
+     * 그림 속 토끼·펭귄을 실제로 이리저리 움직일 수 있다.
+     */
+    private fun placeEmoji(canvas: Canvas, emoji: String, x: Float, y: Float, centerDy: Float) {
+        val i = itemCenters.size
+        val off = itemOffsets[i]
+        val ox = x + (off?.x ?: 0f)
+        val oy = y + (off?.y ?: 0f)
+        itemCenters.add(PointF(ox, oy - centerDy))
+        itemEmojis.add(emoji)
+        // 지금 끌고 있는 것은 맨 위에 크게 다시 그린다
+        if (i != dragIndex) canvas.drawText(emoji, ox, oy, emojiPaint)
+    }
+
+    /** 끌고 있는 이모지를 가장 위에 (다른 것에 가리지 않게) */
+    private fun drawDraggedOnTop(canvas: Canvas) {
+        val i = dragIndex
+        if (i < 0 || i >= itemCenters.size) return
+        val c = itemCenters[i]
+        val base = emojiPaint.textSize
+        emojiPaint.textSize = base * 1.2f
+        canvas.drawText(itemEmojis[i], c.x, c.y + itemSpacing * 0.28f, emojiPaint)
+        emojiPaint.textSize = base
     }
 
     // ---------- 이모지 세기 ----------
@@ -244,10 +334,7 @@ class MathVisualView @JvmOverloads constructor(
             val cols = min(perRow, n - r * perRow)
             val rowX = startX + (perRow - cols) * cell / 2f
             for (c in 0 until cols) {
-                val x = rowX + c * cell
-                val y = startY + r * cell
-                canvas.drawText(emoji, x, y, emojiPaint)
-                itemCenters.add(PointF(x, y - cell * 0.28f))
+                placeEmoji(canvas, emoji, rowX + c * cell, startY + r * cell, cell * 0.28f)
             }
         }
     }
@@ -265,15 +352,13 @@ class MathVisualView @JvmOverloads constructor(
         var x = (w - totalW) / 2f + cell / 2f
         val y = h / 2f + cell * 0.3f
         repeat(v.a) {
-            canvas.drawText(v.emoji, x, y, emojiPaint)
-            itemCenters.add(PointF(x, y - cell * 0.3f))
+            placeEmoji(canvas, v.emoji, x, y, cell * 0.3f)
             x += cell
         }
         canvas.drawText(if (v.op == "-") "－" else "＋", x + gap / 2f - cell / 2f, y, text)
         x += gap
         repeat(v.bb) {
-            canvas.drawText(v.emoji, x, y, emojiPaint)
-            itemCenters.add(PointF(x, y - cell * 0.3f))
+            placeEmoji(canvas, v.emoji, x, y, cell * 0.3f)
             x += cell
         }
     }

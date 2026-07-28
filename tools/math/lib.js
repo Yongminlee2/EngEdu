@@ -45,7 +45,7 @@ const VISUAL_KINDS = new Set([
   "number_line", "bar_graph", "angle", "compare",
   // 그림을 손으로 조작해서 답하는 종류
   "clock_set", "group", "fraction_paint", "shape_sort",
-  "number_line_drag", "angle_set", "balance", "bar_build",
+  "number_line_drag", "angle_set", "balance", "bar_build", "gather",
 ]);
 
 function validate(q) {
@@ -160,6 +160,9 @@ const V = {
   balance: (coef, left, right) => ({ kind: "balance", a: coef, b: left, p: right }),
   /** 막대를 끌어 올려 그래프 완성 */
   barBuild: (labels, values) => ({ kind: "bar_build", labels, values }),
+  /** 사물을 상자로 옮겨 담기 — total 개 중 need 개를 담는다 */
+  gather: (emoji, total, need, label) =>
+    ({ kind: "gather", emoji, a: total, b: need, labels: [label] }),
 };
 
 /** 모양별 이모지 — 같은 종류라도 색·방향이 달라야 "모양"으로 분류하게 된다 */

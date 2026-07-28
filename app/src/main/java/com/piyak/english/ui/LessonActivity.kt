@@ -572,6 +572,8 @@ class LessonActivity : AppCompatActivity() {
             com.piyak.english.model.MathVisual.ANGLE_SET -> "📐 각도 만들기"
             com.piyak.english.model.MathVisual.BALANCE -> "⚖️ 저울 맞추기"
             com.piyak.english.model.MathVisual.BAR_BUILD -> "📊 그래프 세우기"
+            com.piyak.english.model.MathVisual.GATHER ->
+                if (q.prompt.contains("-")) "➖ 덜어내고 세기" else "➕ 모아서 세기"
             com.piyak.english.model.MathVisual.SHAPES -> "🔺 도형"
             com.piyak.english.model.MathVisual.FRACTION -> "🍰 분수"
             com.piyak.english.model.MathVisual.BAR_GRAPH -> "📊 그래프"
@@ -594,13 +596,18 @@ class LessonActivity : AppCompatActivity() {
             val countBox = v.findViewById<LinearLayout>(R.id.countBox)
             val txtCount = v.findViewById<TextView>(R.id.txtCount)
             countBox.visibility = View.VISIBLE
+            // 옮길 수 있는 그림이면 그렇다고 알려 준다 — 모르면 아무도 안 끌어 본다
+            val hint = if (visualView.movable)
+                "👆 톡 누르면 세어지고, 끌면 옮겨져요"
+            else "👆 그림을 하나씩 짚어 세어 보세요"
+            txtCount.text = hint
             visualView.onCountChanged = { n ->
-                txtCount.text = if (n == 0) "👆 그림을 하나씩 짚어 세어 보세요"
-                else "👆 지금까지 $n 개 세었어요"
+                txtCount.text = if (n == 0) hint else "👆 지금까지 $n 개 세었어요"
                 if (n > 0) sfx.piyak()
             }
-            v.findViewById<Button>(R.id.btnCountReset).setOnClickListener {
-                visualView.clearCount()
+            v.findViewById<Button>(R.id.btnCountReset).apply {
+                text = if (visualView.movable) "처음으로" else "다시 세기"
+                setOnClickListener { visualView.clearCount() }
             }
         }
 
@@ -639,6 +646,9 @@ class LessonActivity : AppCompatActivity() {
         }
         if (vk == com.piyak.english.model.MathVisual.BAR_BUILD) {
             showBarBuild(v, q, visualView); return
+        }
+        if (vk == com.piyak.english.model.MathVisual.GATHER) {
+            showGather(v, q, visualView); return
         }
 
         when (q.input) {
@@ -1064,6 +1074,62 @@ class LessonActivity : AppCompatActivity() {
         checkAction = {
             val ok = bv.isCorrect()
             submitAnswer(ok, if (ok) null else "${bv.wrongBars()}개의 막대 높이가 달라요.", q.explain)
+        }
+    }
+
+    /**
+     * 상자로 옮겨 담기 (모으기·덜어내기).
+     * `5 + 3` 을 머리로 더하기 전에 **여덟 마리를 실제로 한 상자에 모아 보고**,
+     * `8 - 3` 은 **세 마리를 실제로 내보내 보고** 남은 것을 센다.
+     * 답을 계산해서 쓰는 게 아니라, 옮기다 보면 답이 나온다.
+     */
+    private fun showGather(v: View, q: Question.Math, visualView: MathVisualView) {
+        visualView.visibility = View.GONE
+        val vis = q.visual ?: return
+        val total = vis.a
+        val need = vis.bb
+        val label = vis.labels.getOrElse(0) { "상자" }
+        val takeAway = need < total   // 덜어내기면 상자 밖에 남는 게 답
+
+        val grid = v.findViewById<android.widget.GridLayout>(R.id.choicesGrid)
+        grid.visibility = View.VISIBLE
+        val gv = GroupDragView(this).apply {
+            layoutParams = android.widget.GridLayout.LayoutParams().apply {
+                width = android.widget.GridLayout.LayoutParams.MATCH_PARENT
+                height = dp(360)
+                columnSpec = android.widget.GridLayout.spec(0, 2)
+            }
+        }
+        gv.setGather(vis.emoji, total, need, label)
+        grid.addView(gv)
+
+        val countBox = v.findViewById<LinearLayout>(R.id.countBox)
+        val txtCount = v.findViewById<TextView>(R.id.txtCount)
+        countBox.visibility = View.VISIBLE
+        txtCount.text = "👆 ${vis.emoji} 를 끌어서 $label 으로 옮겨요"
+        v.findViewById<Button>(R.id.btnCountReset).apply {
+            text = "다시 옮기기"
+            setOnClickListener { gv.reset(); b.btnCheck.isEnabled = false }
+        }
+
+        b.btnCheck.isEnabled = false
+        gv.onPlace = { sfx.piyak() }
+        gv.onChanged = { _ ->
+            val inBox = gv.inBoxCount()
+            val outside = gv.outsideCount()
+            txtCount.text = if (takeAway)
+                "📦 보낸 것 ${inBox}마리 · 남은 것 ${outside}마리"
+            else
+                "📦 모은 것 ${inBox}마리 · 아직 ${outside}마리"
+            b.btnCheck.isEnabled = inBox > 0
+        }
+        checkAction = {
+            val ok = gv.isCorrect()
+            val why = if (ok) null else if (takeAway)
+                "${label}으로 ${need}마리를 보내야 해요. 그러면 ${total - need}마리가 남아요."
+            else
+                "${total}마리를 모두 모아야 해요."
+            submitAnswer(ok, why, q.explain)
         }
     }
 

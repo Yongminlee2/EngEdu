@@ -47,6 +47,9 @@ class GroupDragView @JvmOverloads constructor(
     /** 분류 모드인가 (아니면 똑같이 나눠 담기) */
     private var sortMode = false
 
+    /** 바구니 하나에 정해진 개수만 담는 모드 (모으기·덜어내기). -1 이면 안 씀 */
+    private var needCount = -1
+
     private val emojiPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { textAlign = Paint.Align.CENTER }
     private val boxPaint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val strokePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { style = Paint.Style.STROKE }
@@ -66,11 +69,32 @@ class GroupDragView @JvmOverloads constructor(
     /** 똑같이 나눠 담기 — 같은 사물 total 개를 바구니 groups 개에 나눈다 */
     fun setRound(emoji: String, total: Int, groups: Int) {
         sortMode = false
+        needCount = -1
         this.groups = groups.coerceAtLeast(1)
         labels = (1..this.groups).map { "${it}번" }
         specs = ArrayList((0 until total).map { emoji to -1 })
         rebuild()
     }
+
+    /**
+     * 바구니 하나에 손으로 옮겨 담기.
+     * 덧셈은 전부 모으고(`need == total`), 뺄셈은 덜어낼 만큼만 담는다.
+     * 수를 계산해서 쓰는 대신 **실제로 옮겨 보고 세는** 방식이다.
+     */
+    fun setGather(emoji: String, total: Int, need: Int, label: String) {
+        sortMode = false
+        needCount = need
+        groups = 1
+        labels = listOf(label)
+        specs = ArrayList((0 until total).map { emoji to -1 })
+        rebuild()
+    }
+
+    /** 아직 바구니 밖에 남아 있는 개수 */
+    fun outsideCount(): Int = items.count { it.group < 0 }
+
+    /** 바구니에 담긴 개수 */
+    fun inBoxCount(): Int = items.count { it.group == 0 }
 
     /** 분류하기 — items[i] 는 labels[kinds[i]] 바구니에 들어가야 한다 */
     fun setSort(items: List<String>, kinds: List<Int>, labels: List<String>) {
@@ -98,7 +122,10 @@ class GroupDragView @JvmOverloads constructor(
     fun misplaced(): Int = items.count { it.group >= 0 && it.kind >= 0 && it.group != it.kind }
 
     fun isCorrect(): Boolean {
-        if (items.isEmpty() || leftOver() > 0) return false
+        if (items.isEmpty()) return false
+        // 모으기·덜어내기는 바구니 밖에 남는 게 정상이다
+        if (needCount >= 0) return inBoxCount() == needCount
+        if (leftOver() > 0) return false
         return if (sortMode) {
             misplaced() == 0
         } else {
@@ -247,11 +274,11 @@ class GroupDragView @JvmOverloads constructor(
         val rect = groupRects.getOrNull(g) ?: return
         val idx = items.filter { it.group == g }.indexOf(item).coerceAtLeast(0)
         val top = rect.top + textPaint.textSize * 1.5f
-        val perRow = 3
-        val cw = rect.width() / perRow
-        val ch = (rect.bottom - top) / 3f
-        item.x = rect.left + cw * (idx % perRow + 0.5f)
-        item.y = top + ch * (idx / perRow + 0.5f)
+        val slot = itemSize * 0.84f
+        // 바구니가 넓으면 한 줄에 더 많이 (모으기는 바구니가 하나뿐이라 아주 넓다)
+        val perRow = (rect.width() / slot).toInt().coerceIn(2, 8)
+        item.x = rect.left + slot * (idx % perRow) + slot * 0.6f
+        item.y = top + slot * (idx / perRow) + slot * 0.5f
     }
 
     private fun dp(v: Float): Float = v * resources.displayMetrics.density
