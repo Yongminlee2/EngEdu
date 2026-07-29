@@ -295,22 +295,27 @@ class InteractionTest {
     }
 
     /**
-     * 그림을 끌어 옮길 수 있는 건 낱개로 흩어진 이모지뿐이어야 한다.
-     * 곱셈 배열은 행·열로 놓인 자리 자체가 뜻이라, 옮기면 안내선과 어긋난다.
+     * 이모지 그림은 **셀 수 있으면 옮길 수도** 있어야 한다.
+     *
+     * 처음엔 곱셈·나눗셈 배열만 빼 놨었다 — 행·열 자리가 그림의 뜻이라 옮기면
+     * 안내선과 어긋난다고 봤기 때문이다. 그런데 `24 ÷ 8` 에서 강아지를 끌어다
+     * 여덟 묶음으로 갈라 보는 것이야말로 그 그림의 본래 뜻이었다.
+     * 지금은 배열도 옮을 수 있고, 하나라도 옮기면 안내선을 지운다.
      */
-    @Test fun onlyLooseEmojiPicturesAreMovable() {
-        val movable = setOf(
+    @Test fun everyCountablePictureIsAlsoMovable() {
+        val countable = setOf(
             com.piyak.english.model.MathVisual.EMOJI,
             com.piyak.english.model.MathVisual.EMOJI_OP,
+            com.piyak.english.model.MathVisual.ARRAY,
         )
-        val countable = movable + com.piyak.english.model.MathVisual.ARRAY
         assertTrue(
-            "옮길 수 있는 그림은 셀 수 있는 그림의 일부여야 한다",
-            countable.containsAll(movable)
+            "나눗셈 배열을 못 옮기면 그림을 갈라 볼 수가 없다",
+            countable.contains(com.piyak.english.model.MathVisual.ARRAY)
         )
-        assertFalse(
-            "곱셈 배열은 옮기면 안내선과 어긋난다",
-            movable.contains(com.piyak.english.model.MathVisual.ARRAY)
+        // 조작해서 답하는 그림은 전용 화면이 따로 있으므로 이 목록에 들어오면 안 된다
+        assertTrue(
+            "조작 전용 그림이 세기·옮기기 대상에 섞였다",
+            countable.none { it in com.piyak.english.model.MathVisual.INPUT_KINDS }
         )
     }
 

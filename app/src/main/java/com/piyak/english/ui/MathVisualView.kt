@@ -87,8 +87,9 @@ class MathVisualView @JvmOverloads constructor(
     /**
      * 아이가 끌어 옮긴 거리. 그림을 다시 그릴 때마다 이만큼 더해 준다.
      *
-     * 배열(곱셈)은 행·열 안내선이 자리의 뜻이라 옮기면 그림이 어긋난다 —
-     * 그래서 낱개로 흩어진 이모지 그림에서만 끌 수 있게 했다.
+     * 곱셈·나눗셈 배열도 옮길 수 있다. `24 ÷ 8` 에서 강아지를 실제로 끌어다
+     * 여덟 묶음으로 갈라 보는 게 이 그림의 본래 뜻이기 때문이다.
+     * 대신 하나라도 옮기면 행·열 안내선을 지운다 (더 이상 맞지 않는 선이라).
      */
     private val itemOffsets = HashMap<Int, PointF>()
     private var dragIndex = -1
@@ -100,9 +101,8 @@ class MathVisualView @JvmOverloads constructor(
     val countable: Boolean
         get() = visual?.kind in setOf(MathVisual.EMOJI, MathVisual.EMOJI_OP, MathVisual.ARRAY)
 
-    /** 손으로 옮길 수 있는 그림인지 */
-    val movable: Boolean
-        get() = visual?.kind in setOf(MathVisual.EMOJI, MathVisual.EMOJI_OP)
+    /** 손으로 옮길 수 있는 그림인지 — 셀 수 있는 그림은 모두 옮길 수도 있다 */
+    val movable: Boolean get() = countable
 
     /** 지금까지 짚은 개수가 바뀔 때 */
     var onCountChanged: ((Int) -> Unit)? = null
@@ -239,6 +239,9 @@ class MathVisualView @JvmOverloads constructor(
     /** 항목 사이 간격 (터치 판정 범위 계산용) */
     private var itemSpacing = 0f
 
+    /** 이모지 기준점과 글자 기준선 사이 거리 (그림 종류마다 다르다) */
+    private var itemCenterDy = 0f
+
     /** 짚은 순서대로 번호를 그린다 */
     private fun drawCountMarks(canvas: Canvas) {
         if (counted.isEmpty()) return
@@ -326,6 +329,7 @@ class MathVisualView @JvmOverloads constructor(
         val oy = y + (off?.y ?: 0f)
         itemCenters.add(PointF(ox, oy - centerDy))
         itemEmojis.add(emoji)
+        itemCenterDy = centerDy
         // 지금 끌고 있는 것은 맨 위에 크게 다시 그린다
         if (i != dragIndex) canvas.drawText(emoji, ox, oy, emojiPaint)
     }
@@ -337,7 +341,7 @@ class MathVisualView @JvmOverloads constructor(
         val c = itemCenters[i]
         val base = emojiPaint.textSize
         emojiPaint.textSize = base * 1.2f
-        canvas.drawText(itemEmojis[i], c.x, c.y + itemSpacing * 0.28f, emojiPaint)
+        canvas.drawText(itemEmojis[i], c.x, c.y + itemCenterDy, emojiPaint)
         emojiPaint.textSize = base
     }
 
@@ -394,12 +398,13 @@ class MathVisualView @JvmOverloads constructor(
         val startX = (w - cell * cols) / 2f + cell / 2f
         val startY = (h - cell * rows) / 2f + cell * 0.75f
         for (r in 0 until rows) for (c in 0 until cols) {
-            val x = startX + c * cell
-            val y = startY + r * cell
-            canvas.drawText(v.emoji, x, y, emojiPaint)
-            itemCenters.add(PointF(x, y - cell * 0.26f))
+            placeEmoji(canvas, v.emoji, startX + c * cell, startY + r * cell, cell * 0.26f)
         }
-        // 행·열 안내선
+
+        // 행·열 안내선.
+        // 하나라도 옮기고 나면 선은 더 이상 맞지 않으므로 지운다 —
+        // 아이가 직접 나눠 놓은 자리를 선이 방해하면 안 된다.
+        if (itemOffsets.isNotEmpty()) return
         stroke.strokeWidth = dp(1.5f).toFloat()
         stroke.color = Color.parseColor("#33795548")
         val left = (w - cell * cols) / 2f
