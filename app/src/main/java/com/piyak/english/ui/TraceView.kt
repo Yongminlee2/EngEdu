@@ -110,6 +110,14 @@ class TraceView @JvmOverloads constructor(
     private val emojiPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { textAlign = Paint.Align.CENTER }
     private val confettiPaint = Paint(Paint.ANTI_ALIAS_FLAG)
 
+    private companion object {
+        /**
+         * 한 번에 몇 칸까지 앞질러 인정할지.
+         * 좁으면 빠르게 그을 때 길을 놓치고, 너무 넓으면 획을 대충 가로질러도 통과한다.
+         */
+        const val LOOK_AHEAD = 10
+    }
+
     // ---- 좌표 변환 ----
     private var box = 0f
     private var offX = 0f
@@ -170,6 +178,13 @@ class TraceView @JvmOverloads constructor(
         // 체크포인트: 획을 일정 간격으로 리샘플링
         val spacing = box * 0.035f
         checkpoints = strokes.map { resample(it.map { pt -> toPx(pt) }, spacing) }
+
+        // 이미 쓴 획은 새 좌표로 다시 만든다 —
+        // 안 그러면 화면이 회전·리사이즈될 때 옛 자리에 그려져 글자가 어긋난다
+        userPaths.clear()
+        for (i in 0 until minOf(strokeIdx, checkpoints.size)) {
+            userPaths.add(pathOf(checkpoints[i]))
+        }
     }
 
     private fun resample(pts: List<PointF>, spacing: Float): List<PointF> {
@@ -275,17 +290,42 @@ class TraceView @JvmOverloads constructor(
     }
 
     // ---- 터치 ----
+    /** 직전 손가락 위치 (선을 부드럽게 잇고, 빠른 획도 놓치지 않으려고 쓴다) */
+    private var lastX = 0f
+    private var lastY = 0f
+
+    /**
+     * 이 획의 판정 반경.
+     * 획이 아주 작으면(i·j 의 점) 넉넉한 반경이 획 전체보다 커져서 툭 스치기만 해도
+     * 완성돼 버린다 — 획 크기에 맞춰 좁힌다.
+     */
+    private fun toleranceFor(pts: List<PointF>): Float {
+        if (pts.isEmpty()) return box * 0.13f
+        var minX = pts[0].x; var maxX = pts[0].x
+        var minY = pts[0].y; var maxY = pts[0].y
+        for (p in pts) {
+            if (p.x < minX) minX = p.x
+            if (p.x > maxX) maxX = p.x
+            if (p.y < minY) minY = p.y
+            if (p.y > maxY) maxY = p.y
+        }
+        val extent = maxOf(maxX - minX, maxY - minY)
+        return (extent * 0.55f).coerceIn(box * 0.05f, box * 0.15f)
+    }
+
     override fun onTouchEvent(event: MotionEvent): Boolean {
         if (isFinished || checkpoints.isEmpty()) return false
         // 시범 중에 손을 대면 시범을 멈추고 바로 쓰기 시작
         if (demoAnim?.isRunning == true) cancelDemo()
 
         val pts = checkpoints.getOrNull(strokeIdx) ?: return false
-        val tol = box * 0.13f
+        if (pts.isEmpty()) return false
+        val tol = toleranceFor(pts)
 
         when (event.actionMasked) {
             MotionEvent.ACTION_DOWN -> {
                 drawing = true
+                lastX = event.x; lastY = event.y
                 currentPath = Path().apply { moveTo(event.x, event.y) }
                 advance(pts, event.x, event.y, tol)
                 parent?.requestDisallowInterceptTouchEvent(true)
@@ -296,24 +336,28 @@ class TraceView @JvmOverloads constructor(
                 if (!drawing) return false
                 // 손가락이 빠르게 움직여도 놓치지 않도록 중간 지점(history)까지 확인
                 for (h in 0 until event.historySize) {
-                    val hx = event.getHistoricalX(h)
-                    val hy = event.getHistoricalY(h)
-                    currentPath?.lineTo(hx, hy)
-                    advance(pts, hx, hy, tol)
+                    extendTo(pts, event.getHistoricalX(h), event.getHistoricalY(h), tol)
                 }
-                currentPath?.lineTo(event.x, event.y)
-                advance(pts, event.x, event.y, tol)
+                extendTo(pts, event.x, event.y, tol)
                 if (checkIdx >= pts.size) finishStroke()
                 invalidate()
                 return true
             }
             MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
                 drawing = false
-                if (checkIdx >= pts.size * 0.92f) finishStroke()
-                else {
-                    // 길을 다 못 지났으면 이 획만 다시
-                    if (checkIdx > 0) onStrokeFail?.invoke()
-                    resetCurrentStroke()
+                currentPath?.lineTo(lastX, lastY)
+                when {
+                    checkIdx >= pts.size * 0.90f -> finishStroke()
+                    // 거의 다 왔으면 지금까지 지나온 자리를 살려 둔다.
+                    // 처음부터 다시 시키면 아이가 금방 포기한다.
+                    checkIdx >= pts.size * 0.25f -> {
+                        onStrokeFail?.invoke()
+                        currentPath = null
+                    }
+                    else -> {
+                        if (checkIdx > 0) onStrokeFail?.invoke()
+                        resetCurrentStroke()
+                    }
                 }
                 invalidate()
                 return true
@@ -322,11 +366,33 @@ class TraceView @JvmOverloads constructor(
         return false
     }
 
+    /**
+     * 손가락이 [lastX],[lastY] 에서 (x, y) 로 움직인 만큼 선을 잇고 길 진행도 확인한다.
+     *
+     * 두 점을 곧바로 잇기만 하면 빠르게 그을 때 중간의 체크포인트를 건너뛰어
+     * "다 그렸는데 완성이 안 되는" 일이 생긴다. 그래서 사이를 잘게 쪼개 확인한다.
+     * 선 자체는 중간점을 지나는 곡선으로 이어 각지지 않게 한다.
+     */
+    private fun extendTo(pts: List<PointF>, x: Float, y: Float, tol: Float) {
+        val dx = x - lastX
+        val dy = y - lastY
+        val dist = hypot(dx, dy)
+        val steps = (dist / (box * 0.02f)).toInt().coerceIn(1, 24)
+        for (s in 1..steps) {
+            val t = s / steps.toFloat()
+            advance(pts, lastX + dx * t, lastY + dy * t, tol)
+        }
+        // 두 점의 중간을 지나는 곡선 — 꺾인 자국 없이 부드럽게 이어진다
+        currentPath?.quadTo(lastX, lastY, (lastX + x) / 2f, (lastY + y) / 2f)
+        lastX = x
+        lastY = y
+    }
+
     private fun advance(pts: List<PointF>, x: Float, y: Float, tol: Float) {
         if (checkIdx >= pts.size) return
-        // 앞쪽 몇 개까지 훑어보며 가장 멀리 닿은 지점으로 전진 (되돌아가진 않음)
+        // 앞쪽을 훑어보며 가장 멀리 닿은 지점으로 전진 (되돌아가진 않는다 = 획 방향을 지킨다)
         var best = -1
-        val look = minOf(pts.size - 1, checkIdx + 6)
+        val look = minOf(pts.size - 1, checkIdx + LOOK_AHEAD)
         for (i in checkIdx..look) {
             if (hypot(pts[i].x - x, pts[i].y - y) < tol) best = i
         }
@@ -335,6 +401,8 @@ class TraceView @JvmOverloads constructor(
 
     private fun finishStroke() {
         val pts = checkpoints.getOrNull(strokeIdx) ?: return
+        // 다 쓴 획은 아이가 그린 삐뚤한 선 대신 반듯한 획으로 바꿔 준다 —
+        // 글자가 예쁘게 완성되는 맛이 있어야 또 쓰고 싶어진다
         userPaths.add(pathOf(pts))
         currentPath = null
         val done = strokeIdx
@@ -342,7 +410,10 @@ class TraceView @JvmOverloads constructor(
         checkIdx = 0
         drawing = false
         onStrokeDone?.invoke(done)
-        if (strokeIdx >= strokes.size) {
+        // 마지막 획이면 축하. strokes 와 checkpoints 는 항상 같은 길이지만
+        // 둘 다 보고 판단해 어느 쪽이 어긋나도 멈추지 않게 한다
+        if (strokeIdx >= strokes.size || strokeIdx >= checkpoints.size) {
+            strokeIdx = maxOf(strokes.size, checkpoints.size)
             celebrate()
             onAllDone?.invoke()
         }
@@ -386,8 +457,9 @@ class TraceView @JvmOverloads constructor(
         currentPath?.let { canvas.drawPath(it, inkPaint) }
 
         // 시작점 표시 (번호)
-        if (!isFinished) {
-            val pts = checkpoints[strokeIdx]
+        val startPts = if (isFinished) null else checkpoints.getOrNull(strokeIdx)
+        if (startPts != null && startPts.isNotEmpty()) {
+            val pts = startPts
             val s = pts.first()
             canvas.drawCircle(s.x, s.y, box * 0.055f, startPaint)
             canvas.drawText(

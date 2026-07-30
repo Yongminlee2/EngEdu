@@ -68,6 +68,28 @@ class SettingsActivity : AppCompatActivity() {
             startActivity(Intent(this, PlacementActivity::class.java))
         }
 
+        // 앱이 죽은 적이 있으면 그 기록을 꺼내 볼 수 있게 (USB 로 로그를 못 뽑을 때가 잦다)
+        val crash = com.piyak.english.PiyakApp.lastCrash(this)
+        if (crash != null) {
+            b.btnCrash.visibility = android.view.View.VISIBLE
+            b.btnCrash.setOnClickListener {
+                AlertDialog.Builder(this)
+                    .setTitle("마지막 오류 기록")
+                    .setMessage(crash.take(3000))
+                    .setPositiveButton("복사") { _, _ ->
+                        val cm = getSystemService(android.content.ClipboardManager::class.java)
+                        cm?.setPrimaryClip(android.content.ClipData.newPlainText("crash", crash))
+                        android.widget.Toast
+                            .makeText(this, "복사했어요", android.widget.Toast.LENGTH_SHORT).show()
+                    }
+                    .setNegativeButton("지우기") { _, _ ->
+                        com.piyak.english.PiyakApp.clearCrash(this)
+                        b.btnCrash.visibility = android.view.View.GONE
+                    }
+                    .show()
+            }
+        }
+
         b.btnReset.setOnClickListener {
             AlertDialog.Builder(this)
                 .setTitle("정말 초기화할까요?")

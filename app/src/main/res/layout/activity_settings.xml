@@ -57,6 +57,11 @@
             android:layout_marginTop="24dp" android:text="🎯 레벨테스트 다시 보기"
             android:backgroundTint="@color/lavender" android:textColor="@color/white" />
 
+        <Button android:id="@+id/btnCrash" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:text="🐞 마지막 오류 기록 보기"
+            android:backgroundTint="@color/cream_dark" android:textColor="@color/brown_text"
+            android:visibility="gone" />
+
         <Button android:id="@+id/btnReset" android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="12dp" android:text="🗑 진행도 전체 초기화"
             android:backgroundTint="@color/coral_deep" android:textColor="@color/white" />
