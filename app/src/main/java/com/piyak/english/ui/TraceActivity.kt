@@ -45,7 +45,9 @@ class TraceActivity : AppCompatActivity() {
             else finish()
         }
 
-        b.traceView.onStrokeDone = { sfx.piyak(); updateStrokeInfo() }
+        // 획마다 소리를 내면 한 글자 쓰는 동안 대여섯 번 울려 시끄럽다.
+        // 소리는 글자를 다 썼을 때 한 번만 (onLetterComplete 의 sfx.done()).
+        b.traceView.onStrokeDone = { updateStrokeInfo() }
         b.traceView.onStrokeFail = {
             b.txtHint.text = "앗, 길을 벗어났어요. 다시 천천히! 🐥"
             b.traceView.startAnimation(AnimationUtils.loadAnimation(this, R.anim.shake))
