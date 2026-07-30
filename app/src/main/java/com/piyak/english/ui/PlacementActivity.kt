@@ -81,16 +81,6 @@ class PlacementActivity : AppCompatActivity() {
         val (prompt, choices, answer, ttsText) = when (q) {
             is Question.Mcq -> Quad(q.prompt, q.choices, q.answer, null)
             is Question.ListenMcq -> Quad(q.prompt, q.choices, q.answer, q.tts)
-            // 수학 배치고사는 선다형과 숫자 답 문제가 섞여 있다 — 숫자 답은 보기로 바꿔 낸다
-            is Question.Math -> when {
-                q.input == "choice" && q.choices.size == 4 ->
-                    Quad(q.prompt, q.choices, q.answerIndex, null)
-                else -> {
-                    val opts = numericOptions(q.answer)
-                    if (opts == null) { showNext(); return }
-                    Quad(q.prompt, opts.first, opts.second, null)
-                }
-            }
             else -> { showNext(); return }
         }
         b.txtPrompt.text = prompt
@@ -122,27 +112,6 @@ class PlacementActivity : AppCompatActivity() {
             }
             b.choicesBox.addView(btn)
         }
-    }
-
-    /**
-     * 숫자로 답하는 수학 문제를 배치고사용 4지선다로 바꾼다.
-     * 배치고사는 빠르게 넘겨야 해서 키패드 대신 보기를 준다.
-     */
-    private fun numericOptions(answer: String): Pair<List<String>, Int>? {
-        val v = com.piyak.english.engine.MathGrader.parse(answer) ?: return null
-        if (v != Math.floor(v) || Math.abs(v) > 100000) return null
-        val n = v.toInt()
-        val wrong = LinkedHashSet<Int>()
-        var d = 1
-        while (wrong.size < 3 && d < 40) {
-            for (w in listOf(n + d, n - d)) {
-                if (w != n && w >= 0 && wrong.size < 3) wrong.add(w)
-            }
-            d++
-        }
-        if (wrong.size < 3) return null
-        val opts = (listOf(n) + wrong).map { it.toString() }.shuffled()
-        return opts to opts.indexOf(n.toString())
     }
 
     private fun showResult() {
