@@ -33,13 +33,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         b = ActivityMainBinding.inflate(layoutInflater)
         setContentView(b.root)
-        subject = com.piyak.english.model.Subject.of(
-            intent.getStringExtra("subject") ?: Db.get(this).meta("subject_last", "english")
-        )
+        // 삐약영어는 영어 전용 앱 — 과목 대문 없이 항상 영어
+        subject = com.piyak.english.model.Subject.ENGLISH
 
         b.txtGreeting.text = greetings.random()
-        b.btnSwitchSubject.text = "${subject.emoji} ${subject.title}  ▾"
-        b.btnSwitchSubject.setOnClickListener { finish() }
+        b.btnSwitchSubject.visibility = View.GONE
         b.bannerPlacement.setOnClickListener {
             startActivity(
                 Intent(this, PlacementActivity::class.java).putExtra("subject", subject.id)
