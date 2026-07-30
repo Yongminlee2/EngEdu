@@ -30,8 +30,8 @@ data class TrackData(
 
 /** assets 의 packs 폴더 JSON 로더. 트랙별 lazy 캐시. */
 object ContentRepo {
-    /** 모든 과목의 트랙 (콘텐츠 전수 검증·오답 조회용) */
-    val TRACK_IDS: List<String> = Subject.entries.flatMap { it.tracks }
+    /** 이 앱이 싣는 트랙 — 삐약영어는 영어만 (Subject.MATH 는 모델로만 남아 있다) */
+    val TRACK_IDS: List<String> = Subject.ENGLISH.tracks
 
     fun tracksOf(subject: Subject): List<String> = subject.tracks
 
