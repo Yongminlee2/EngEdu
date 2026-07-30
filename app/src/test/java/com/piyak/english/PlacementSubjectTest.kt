@@ -46,22 +46,15 @@ class PlacementSubjectTest {
         assertEquals(MathGrades.ALL.last().title, Placement.levelName(Subject.MATH, 13))
     }
 
-    @Test fun mathPlacementPackIsSeparateFromEnglish() {
+    /** 영어 전용 앱 — 수학 배치고사 팩이 섞여 들어오면 안 된다 */
+    @Test fun onlyEnglishPlacementPackShips() {
         val dir = packsDir()
         val eng = JSONObject(File(dir, "placement.json").readText()).getJSONArray("questions")
-        val math = JSONObject(File(dir, "math_placement.json").readText()).getJSONArray("questions")
-        assertTrue(eng.length() > 0 && math.length() > 0)
-
-        val engIds = (0 until eng.length()).map { eng.getJSONObject(it).getString("id") }.toSet()
-        val mathIds = (0 until math.length()).map { math.getJSONObject(it).getString("id") }.toSet()
-        assertTrue("두 배치고사 문제가 겹치면 안 됨", engIds.intersect(mathIds).isEmpty())
-
-        // 영어 배치고사는 1~10, 수학은 1~13 범위여야 한다
+        assertTrue(eng.length() > 0)
+        assertTrue("수학 배치고사 팩은 삐약수학으로 갔다", !File(dir, "math_placement.json").isFile)
+        // 영어 배치고사는 1~10 범위여야 한다
         for (i in 0 until eng.length()) {
             assertTrue(eng.getJSONObject(i).getInt("level") in 1..10)
-        }
-        for (i in 0 until math.length()) {
-            assertTrue(math.getJSONObject(i).getInt("level") in 1..13)
         }
     }
 
@@ -76,8 +69,8 @@ class PlacementSubjectTest {
             assertTrue("$tid: 레슨 수가 0", e.getInt("lessons") > 0)
             assertTrue("$tid: 문제 수가 0", e.getInt("questions") > 0)
         }
-        // 색인의 합이 실제 규모와 맞는지 (대략)
+        // 색인의 합이 실제 규모와 맞는지 (영어만 약 1,490 레슨)
         val totalLessons = ContentRepo.TRACK_IDS.sumOf { idx.getJSONObject(it).getInt("lessons") }
-        assertTrue("전체 레슨 수가 이상함: $totalLessons", totalLessons > 2000)
+        assertTrue("전체 레슨 수가 이상함: $totalLessons", totalLessons > 1000)
     }
 }
