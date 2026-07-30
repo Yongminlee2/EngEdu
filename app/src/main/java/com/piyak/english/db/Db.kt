@@ -8,7 +8,10 @@ import com.piyak.english.engine.Economy
 import com.piyak.english.model.Question
 import java.time.LocalDate
 
-class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", null, 5) {
+// 스키마를 바꾸는 마이그레이션(onUpgrade 의 oldV < N)을 추가하면 **여기 버전도 N 으로 올려야 한다.**
+// v2.0 에서 writes 열 마이그레이션을 써 놓고 버전을 5에 둔 채 내보내는 바람에,
+// 업그레이드된 폰에서만 열이 없어 알파벳 화면이 죽었다 (새 설치는 onCreate 가 커버해서 멀쩡했다).
+class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", null, 6) {
 
     companion object {
         @Volatile private var inst: Db? = null
