@@ -1,21 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  삐약영어 아이콘 — 병아리가 영어책(파란 책, 표지에 A)을 안고 있다.
+  삐약수학은 같은 병아리가 초록 수학책(＋)을 든다 — 홈 화면에서 책 색과 기호로 구분된다.
+
+  적응형 아이콘의 안전 영역(중앙 지름 약 66%) 안에 들어오도록 그룹을 0.60배로 줄였다.
+-->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp" android:height="108dp"
     android:viewportWidth="200" android:viewportHeight="200">
-    <group android:scaleX="0.55" android:scaleY="0.55" android:pivotX="100" android:pivotY="100">
-        <path android:pathData="M30,110 a70,70 0 1,0 140,0 a70,70 0 1,0 -140,0" android:fillColor="#FFD54F"/>
-        <path android:pathData="M100,42 q-8,-16 2,-22 q0,12 8,10 q10,-6 12,2 q-10,2 -10,10"
-            android:strokeColor="#FFB300" android:strokeWidth="5" android:strokeLineCap="round" android:fillColor="#00000000"/>
-        <path android:pathData="M24,122 a13,22 0 1,0 26,0 a13,22 0 1,0 -26,0" android:fillColor="#FFC93A"/>
-        <path android:pathData="M150,122 a13,22 0 1,0 26,0 a13,22 0 1,0 -26,0" android:fillColor="#FFC93A"/>
-        <path android:pathData="M67,94 a8,8 0 1,0 16,0 a8,8 0 1,0 -16,0" android:fillColor="#4E342E"/>
-        <path android:pathData="M117,94 a8,8 0 1,0 16,0 a8,8 0 1,0 -16,0" android:fillColor="#4E342E"/>
-        <path android:pathData="M75,90 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0" android:fillColor="#FFFFFF"/>
-        <path android:pathData="M125,90 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0" android:fillColor="#FFFFFF"/>
-        <path android:pathData="M100,106 L113,116 L100,127 L87,116 Z" android:fillColor="#FF8A50"/>
-        <path android:pathData="M50,116 a9,7 0 1,0 18,0 a9,7 0 1,0 -18,0" android:fillColor="#99FFAB91"/>
-        <path android:pathData="M132,116 a9,7 0 1,0 18,0 a9,7 0 1,0 -18,0" android:fillColor="#99FFAB91"/>
-        <path android:pathData="M84,179 l-7,11 M84,179 l0,12 M84,179 l7,11 M116,179 l-7,11 M116,179 l0,12 M116,179 l7,11"
+    <group android:scaleX="0.60" android:scaleY="0.60" android:pivotX="100" android:pivotY="100">
+
+        <!-- 머리 위 깃털 -->
+        <group android:translateY="-16">
+            <path android:pathData="M100,42 q-8,-16 2,-22 q0,12 8,10 q10,-6 12,2 q-10,2 -10,10"
+                android:strokeColor="#FFB300" android:strokeWidth="5"
+                android:strokeLineCap="round" android:fillColor="#00000000"/>
+        </group>
+
+        <!-- 몸통 -->
+        <path android:pathData="M36,88 a64,64 0 1,0 128,0 a64,64 0 1,0 -128,0"
+            android:fillColor="#FFD54F"/>
+
+        <!-- 눈 -->
+        <path android:pathData="M72,80 a8,8 0 1,0 16,0 a8,8 0 1,0 -16,0" android:fillColor="#4E342E"/>
+        <path android:pathData="M112,80 a8,8 0 1,0 16,0 a8,8 0 1,0 -16,0" android:fillColor="#4E342E"/>
+        <path android:pathData="M79,76 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0" android:fillColor="#FFFFFF"/>
+        <path android:pathData="M119,76 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0" android:fillColor="#FFFFFF"/>
+
+        <!-- 부리 -->
+        <path android:pathData="M100,92 L112,101 L100,111 L88,101 Z" android:fillColor="#FF8A50"/>
+
+        <!-- 볼 -->
+        <path android:pathData="M52,102 a9,7 0 1,0 18,0 a9,7 0 1,0 -18,0" android:fillColor="#99FFAB91"/>
+        <path android:pathData="M130,102 a9,7 0 1,0 18,0 a9,7 0 1,0 -18,0" android:fillColor="#99FFAB91"/>
+
+        <!-- 발 (책 아래로 삐죽) -->
+        <path android:pathData="M82,176 l-7,12 M82,176 l0,13 M82,176 l7,12 M118,176 l-7,12 M118,176 l0,13 M118,176 l7,12"
             android:strokeColor="#FF8A50" android:strokeWidth="5" android:strokeLineCap="round"/>
+
+        <!-- 영어책 (파란 표지) -->
+        <path android:pathData="M44,120 L156,120 A6,6 0 0,1 162,126 L162,170 A6,6 0 0,1 156,176 L44,176 A6,6 0 0,1 38,170 L38,126 A6,6 0 0,1 44,120 Z"
+            android:fillColor="#1E88E5"/>
+        <!-- 책등 -->
+        <path android:pathData="M44,120 L58,120 L58,176 L44,176 A6,6 0 0,1 38,170 L38,126 A6,6 0 0,1 44,120 Z"
+            android:fillColor="#1565C0"/>
+        <!-- 책배(종이) -->
+        <path android:pathData="M150,124 L156,124 A4,4 0 0,1 160,128 L160,168 A4,4 0 0,1 156,172 L150,172 Z"
+            android:fillColor="#FFF8E7"/>
+        <!-- 표지의 A -->
+        <path android:pathData="M96,164 L107,126 M118,164 L107,126 M100,153 L114,153"
+            android:strokeColor="#FFFFFF" android:strokeWidth="6"
+            android:strokeLineCap="round" android:fillColor="#00000000"/>
+
+        <!-- 책을 안은 날개 -->
+        <path android:pathData="M30,140 a13,21 0 1,0 26,0 a13,21 0 1,0 -26,0" android:fillColor="#FFC93A"/>
+        <path android:pathData="M144,140 a13,21 0 1,0 26,0 a13,21 0 1,0 -26,0" android:fillColor="#FFC93A"/>
     </group>
 </vector>
