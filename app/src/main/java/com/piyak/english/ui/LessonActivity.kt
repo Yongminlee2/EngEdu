@@ -41,6 +41,18 @@ class LessonActivity : AppCompatActivity() {
     private var session: LessonSession? = null
     private var reviewMode = false
     private var trackId = ""
+
+    // ---- 연출 상태 ----
+    /** 연속 정답 수 (오답이면 조용히 리셋) */
+    private var combo = 0
+
+    /** 첫 문제는 전환 애니메이션 없이 바로 */
+    private var firstQuestion = true
+
+    /** 15초 동안 손을 안 대면 병아리가 응원한다 */
+    private val encourageRun = Runnable {
+        if (b.chickView.visibility == View.VISIBLE) b.chickView.encourage()
+    }
     private var lessonId = ""
     private var lessonTitle = ""
 
@@ -128,12 +140,18 @@ class LessonActivity : AppCompatActivity() {
         b.btnCheck.setOnClickListener { checkAction?.invoke() }
         b.btnDone.setOnClickListener { finish() }
 
+        // 토익·토플은 캐릭터 없이 깔끔하게 — 아이용 트랙에만 병아리가 함께한다
+        if (trackId in setOf("toeic", "toefl")) {
+            b.chickView.visibility = View.GONE
+        }
+
         showQuestion()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         tts.shutdown(); stt.stop(); sfx.release()
+        b.root.removeCallbacks(encourageRun)
     }
 
     @Deprecated("Deprecated in Java")
@@ -152,6 +170,27 @@ class LessonActivity : AppCompatActivity() {
         val s = session ?: return
         if (s.isFinished) { showResult(); return }
         val q = s.current() ?: run { showResult(); return }
+
+        if (firstQuestion) {
+            firstQuestion = false
+            renderQuestion(q)
+        } else {
+            // 이전 문제가 왼쪽으로 미끄러져 나가고 새 문제가 오른쪽에서 들어온다
+            val slide = b.questionBox.width * 0.22f
+            b.questionBox.animate().translationX(-slide).alpha(0f).setDuration(90L)
+                .withEndAction {
+                    renderQuestion(q)
+                    b.questionBox.translationX = slide
+                    b.questionBox.animate().translationX(0f).alpha(1f).setDuration(110L).start()
+                }.start()
+        }
+    }
+
+    private fun renderQuestion(q: Question) {
+        val s = session ?: return
+        // 응원 타이머 재시작
+        b.root.removeCallbacks(encourageRun)
+        b.root.postDelayed(encourageRun, 15_000L)
 
         b.progressBar.progress = (s.progress * 100).toInt()
         b.txtHearts.text = if (reviewMode) "💊 복습" else "❤️ ${s.hearts}"
@@ -268,7 +307,7 @@ class LessonActivity : AppCompatActivity() {
     ) {
         val view = com.piyak.english.ui.game.BubbleChoiceView(this).apply {
             layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, dp(290)
+                LinearLayout.LayoutParams.MATCH_PARENT, dp(185)
             )
         }
         var selected = -1
@@ -537,6 +576,16 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showFeedback(correct: Boolean, note: String?, explain: String?, penalty: Boolean) {
         if (correct) sfx.correct() else if (penalty) sfx.wrong()
+        // 병아리 리액션 + 콤보 (답을 냈으니 응원 타이머는 멈춘다)
+        b.root.removeCallbacks(encourageRun)
+        if (correct) {
+            combo++
+            b.celebrate.correct(combo)
+            if (b.chickView.visibility == View.VISIBLE) b.chickView.cheer()
+        } else {
+            combo = 0
+            if (penalty && b.chickView.visibility == View.VISIBLE) b.chickView.oops()
+        }
         b.btnCheck.visibility = View.GONE
         b.feedbackPanel.visibility = View.VISIBLE
         b.feedbackPanel.background = getDrawable(
