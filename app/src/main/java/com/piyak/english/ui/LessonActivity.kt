@@ -370,12 +370,25 @@ class LessonActivity : AppCompatActivity() {
             q.bigEmoji != null -> "🎨 그림 문제"
             else -> "🔤 고르기"
         }
-        // 그림이 없는 어휘 문제도, 낱말 사전에 있는 단어면 삽화를 붙여 준다
-        val art = q.bigEmoji ?: findWordArt(q.prompt, q.choices)
-        if (art != null) {
-            v.findViewById<TextView>(R.id.txtBigEmoji).apply {
+        // 지문에 나온 영어 낱말이 그림 사전(199장)에 있으면 진짜 일러스트를 붙인다.
+        // 한글 지문("사과를 영어로?")에는 안 붙인다 — 그림이 정답을 알려주게 되므로.
+        val enWord = Regex("\"([a-z]+)!?\"").find(q.prompt)?.groupValues?.get(1)
+        val imgId = enWord?.let {
+            resources.getIdentifier("word_$it", "drawable", packageName)
+        } ?: 0
+        if (imgId != 0) {
+            v.findViewById<android.widget.ImageView>(R.id.imgWordArt).apply {
                 visibility = View.VISIBLE
-                text = art
+                setImageResource(imgId)
+            }
+        } else {
+            // 그림 사전에 없으면 이모지 폴백
+            val art = q.bigEmoji ?: findWordArt(q.prompt, q.choices)
+            if (art != null) {
+                v.findViewById<TextView>(R.id.txtBigEmoji).apply {
+                    visibility = View.VISIBLE
+                    text = art
+                }
             }
         }
         if (q.passage != null) {
