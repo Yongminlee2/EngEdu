@@ -372,7 +372,7 @@ class LessonActivity : AppCompatActivity() {
         }
         // 지문에 나온 영어 낱말이 그림 사전(199장)에 있으면 진짜 일러스트를 붙인다.
         // 한글 지문("사과를 영어로?")에는 안 붙인다 — 그림이 정답을 알려주게 되므로.
-        val enWord = Regex("\"([a-z]+)!?\"").find(q.prompt)?.groupValues?.get(1)
+        val enWord = Regex("\"([A-Za-z]+)").find(q.prompt)?.groupValues?.get(1)?.lowercase()
         val imgId = enWord?.let {
             resources.getIdentifier("word_$it", "drawable", packageName)
         } ?: 0
