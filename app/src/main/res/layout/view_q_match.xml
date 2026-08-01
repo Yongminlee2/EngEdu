@@ -1,20 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TextView android:id="@+id/txtKind" android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:textSize="13sp" android:textColor="@color/brown_soft" android:text="🎴 짝 맞추기" />
+    <TextView
+        android:id="@+id/txtKind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_chip_coral"
+        android:drawableStart="@drawable/ic_check_circle_rounded"
+        android:drawablePadding="5dp"
+        android:gravity="center_vertical"
+        android:minHeight="32dp"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="5dp"
+        android:text="짝 맞추기"
+        android:textAppearance="@style/TextAppearance.Piyak.Caption"
+        android:textColor="@color/coral_deep" />
 
-    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:layout_marginTop="10dp" android:text="단어와 뜻을 짝지어 주세요"
-        android:textSize="19sp" android:textStyle="bold" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="단어와 뜻을 선으로 이어 주세요"
+        android:textAppearance="@style/TextAppearance.Piyak.Section"
+        android:textColor="@color/ink" />
 
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:orientation="horizontal" android:layout_marginTop="14dp">
-        <LinearLayout android:id="@+id/leftCol" android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_weight="1" android:orientation="vertical" android:layout_marginEnd="6dp" />
-        <LinearLayout android:id="@+id/rightCol" android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="6dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/leftCol"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/rightCol"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_weight="1"
+            android:orientation="vertical" />
     </LinearLayout>
 </LinearLayout>

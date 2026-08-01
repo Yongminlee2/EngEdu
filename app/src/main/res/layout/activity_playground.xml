@@ -1,44 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/paper"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/space_3">
 
     <LinearLayout
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:orientation="horizontal" android:gravity="center_vertical" android:padding="12dp">
-        <Button android:id="@+id/btnBack" style="?attr/materialIconButtonStyle"
-            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="◀" />
-        <TextView android:id="@+id/txtTitle" android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_weight="1" android:text="🎮 놀이터"
-            android:textSize="21sp" android:textStyle="bold" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/space_4">
+
+        <Button
+            android:id="@+id/btnBack"
+            style="@style/Widget.Piyak.IconButton"
+            android:layout_width="@dimen/touch_target"
+            android:layout_height="@dimen/touch_target"
+            android:contentDescription="홈으로 돌아가기"
+            android:drawableStart="@drawable/ic_arrow_back_rounded"
+            android:drawableTint="@color/ink"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_3"
+            android:layout_weight="1"
+            android:drawableStart="@drawable/ic_sports_esports_rounded"
+            android:drawablePadding="@dimen/space_2"
+            android:drawableTint="@color/coral_deep"
+            android:text="놀이터"
+            android:textAppearance="@style/TextAppearance.Piyak.Section" />
     </LinearLayout>
 
-    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:paddingHorizontal="16dp"
-        android:text="손가락으로 만지고 움직이며 노는 게임이에요 🐥"
-        android:textSize="14sp" android:textColor="@color/brown_soft" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/space_4"
+        android:layout_marginTop="@dimen/space_3"
+        android:text="손가락으로 만지고 움직이며 익히는 짧은 게임이에요"
+        android:textAppearance="@style/TextAppearance.Piyak.Caption" />
 
-    <!-- 난이도 -->
     <LinearLayout
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:orientation="horizontal" android:padding="16dp">
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="난이도" android:textSize="15sp" android:textStyle="bold"
-            android:layout_gravity="center_vertical" android:layout_marginEnd="10dp" />
-        <Button android:id="@+id/btnLv1" android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_weight="1" android:text="쉬움" android:textSize="13sp"
-            android:backgroundTint="@color/chick_yellow" android:textColor="@color/brown_text" />
-        <Button android:id="@+id/btnLv2" android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_weight="1" android:layout_marginStart="6dp" android:text="보통" android:textSize="13sp"
-            android:backgroundTint="@color/cream_dark" android:textColor="@color/brown_text" />
-        <Button android:id="@+id/btnLv3" android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_weight="1" android:layout_marginStart="6dp" android:text="어려움" android:textSize="13sp"
-            android:backgroundTint="@color/cream_dark" android:textColor="@color/brown_text" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_4"
+        android:background="@drawable/bg_card_paper"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/space_2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_2"
+            android:text="난이도"
+            android:textAppearance="@style/TextAppearance.Piyak.Stat" />
+
+        <Button
+            android:id="@+id/btnLv1"
+            style="@style/Widget.Piyak.SecondaryButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="1"
+            android:text="쉬움"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btnLv2"
+            style="@style/Widget.Piyak.SecondaryButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginStart="@dimen/space_1"
+            android:layout_weight="1"
+            android:text="보통"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btnLv3"
+            style="@style/Widget.Piyak.SecondaryButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginStart="@dimen/space_1"
+            android:layout_weight="1"
+            android:text="어려움"
+            android:textSize="14sp" />
     </LinearLayout>
 
-    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
-        <LinearLayout android:id="@+id/gamesBox"
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="vertical" android:padding="12dp" android:paddingBottom="28dp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:id="@+id/gamesBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/space_4"
+            android:paddingBottom="@dimen/space_8" />
     </ScrollView>
 </LinearLayout>

@@ -1,24 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TextView android:id="@+id/txtKind" android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:textSize="13sp" android:textColor="@color/brown_soft" android:text="🧩 문장 만들기" />
+    <TextView
+        android:id="@+id/txtKind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_chip_mint"
+        android:drawableStart="@drawable/ic_edit_rounded"
+        android:drawablePadding="5dp"
+        android:gravity="center_vertical"
+        android:minHeight="32dp"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="5dp"
+        android:text="문장 만들기"
+        android:textAppearance="@style/TextAppearance.Piyak.Caption"
+        android:textColor="@color/mint_deep" />
 
-    <TextView android:id="@+id/txtPrompt" android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:layout_marginTop="10dp" android:textSize="21sp" android:textStyle="bold"
-        android:lineSpacingMultiplier="1.2" />
+    <TextView
+        android:id="@+id/txtPrompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:lineSpacingMultiplier="1.25"
+        android:textAppearance="@style/TextAppearance.Piyak.Section"
+        android:textColor="@color/ink" />
 
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:layout_marginTop="14dp" android:text="내 답:" android:textSize="13sp" android:textColor="@color/brown_soft" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="내가 만든 문장"
+        android:textAppearance="@style/TextAppearance.Piyak.Caption"
+        android:textColor="@color/ink_muted" />
 
-    <com.piyak.english.ui.FlowLayout android:id="@+id/answerFlow"
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:minHeight="60dp" android:padding="8dp"
-        android:background="@drawable/bg_tile_ghost" />
+    <com.piyak.english.ui.FlowLayout
+        android:id="@+id/answerFlow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_choice"
+        android:minHeight="64dp"
+        android:padding="8dp" />
 
-    <com.piyak.english.ui.FlowLayout android:id="@+id/bankFlow"
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:layout_marginTop="16dp" android:padding="8dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="단어 스티커"
+        android:textAppearance="@style/TextAppearance.Piyak.Caption"
+        android:textColor="@color/ink_muted" />
+
+    <com.piyak.english.ui.FlowLayout
+        android:id="@+id/bankFlow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="56dp"
+        android:padding="4dp" />
 </LinearLayout>

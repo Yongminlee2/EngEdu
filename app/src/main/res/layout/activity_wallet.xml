@@ -1,58 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/paper"
+    android:orientation="vertical">
+
     <LinearLayout
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:orientation="vertical" android:padding="16dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="72dp"
+        android:orientation="horizontal"
+        android:paddingStart="12dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="8dp">
 
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="horizontal" android:gravity="center_vertical">
-            <Button android:id="@+id/btnBack" style="?attr/materialIconButtonStyle"
-                android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="◀" />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
-                android:text="💰 내 지갑" android:textSize="20sp" android:textStyle="bold" />
-            <TextView android:id="@+id/btnParent" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="🔒 부모 설정" android:textSize="13sp" android:textColor="@color/sky_deep" />
-        </LinearLayout>
+        <ImageButton
+            android:id="@+id/btnBack"
+            style="@style/Widget.Piyak.IconButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription="뒤로 가기"
+            android:src="@drawable/ic_arrow_back_rounded" />
 
-        <!-- 잔액 -->
-        <LinearLayout
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="vertical" android:gravity="center"
-            android:layout_marginTop="12dp" android:padding="20dp"
-            android:background="@drawable/bg_wallet">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="모은 용돈" android:textSize="14sp" android:textColor="@color/brown_soft" />
-            <TextView android:id="@+id/txtBalance" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="0원" android:textSize="40sp" android:textStyle="bold"
-                android:textColor="@color/brown_text" />
-            <TextView android:id="@+id/txtSummary" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:layout_marginTop="6dp" android:gravity="center"
-                android:textSize="12sp" android:textColor="@color/brown_soft" />
-        </LinearLayout>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:text="나의 용돈 지갑"
+            android:textAppearance="@style/TextAppearance.Piyak.Title" />
 
-        <Button android:id="@+id/btnPayout"
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_marginTop="12dp" android:text="💵 현금으로 바꾸기 (부모님)"
-            android:textSize="17sp" android:backgroundTint="@color/green_ok" android:textColor="@color/white" />
-
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_marginTop="6dp" android:gravity="center" android:textSize="11sp"
-            android:textColor="@color/brown_soft"
-            android:text="문제 1개를 처음 맞히면 10원! 같은 레슨을 다시 풀면 용돈은 없어요" />
-
-        <!-- 상점 -->
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginTop="20dp" android:text="🛒 상점" android:textSize="18sp" android:textStyle="bold" />
-        <LinearLayout android:id="@+id/shopBox"
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="vertical" android:layout_marginTop="6dp" />
-
-        <!-- 내역 -->
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginTop="20dp" android:text="📜 용돈 기록" android:textSize="18sp" android:textStyle="bold" />
-        <LinearLayout android:id="@+id/logBox"
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="vertical" android:layout_marginTop="6dp" android:paddingBottom="24dp" />
+        <Button
+            android:id="@+id/btnParent"
+            style="@style/Widget.Piyak.SecondaryButton"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:drawableStart="@drawable/ic_lock_rounded"
+            android:drawablePadding="6dp"
+            android:text="부모 설정"
+            android:textSize="13sp" />
     </LinearLayout>
-</ScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="40dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card_paper"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="20dp">
+
+                <ImageView
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    android:background="@drawable/bg_chip_mint"
+                    android:contentDescription="용돈 지갑"
+                    android:padding="15dp"
+                    android:src="@drawable/ic_account_balance_wallet_rounded" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="모은 용돈"
+                        android:textAppearance="@style/TextAppearance.Piyak.Caption" />
+
+                    <TextView
+                        android:id="@+id/txtBalance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="0원"
+                        android:textAppearance="@style/TextAppearance.Piyak.Display" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_chip_sky"
+                android:gravity="center"
+                android:padding="14dp"
+                android:textAppearance="@style/TextAppearance.Piyak.Caption" />
+
+            <Button
+                android:id="@+id/btnPayout"
+                style="@style/Widget.Piyak.PrimaryButton"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="12dp"
+                android:drawableStart="@drawable/ic_account_balance_wallet_rounded"
+                android:drawablePadding="10dp"
+                android:text="부모님과 현금으로 바꾸기" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="문제를 처음 맞힐 때 용돈이 쌓여요. 다시 풀어도 중복으로 쌓이지 않아요."
+                android:textAppearance="@style/TextAppearance.Piyak.Caption" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:drawableStart="@drawable/ic_shopping_cart_rounded"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:text="스티커 상점"
+                android:textAppearance="@style/TextAppearance.Piyak.Section" />
+
+            <LinearLayout
+                android:id="@+id/shopBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="vertical" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:drawableStart="@drawable/ic_replay_rounded"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:text="용돈 기록"
+                android:textAppearance="@style/TextAppearance.Piyak.Section" />
+
+            <LinearLayout
+                android:id="@+id/logBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_card_paper"
+                android:orientation="vertical"
+                android:padding="10dp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -38,17 +38,17 @@ class BalloonGameView @JvmOverloads constructor(
     private val bits = ArrayList<Bit>()
 
     private val colors = listOf(
-        "#FF8A80", "#FFD54F", "#80CBC4", "#81D4FA", "#B39DDB", "#A5D6A7", "#FFAB91",
+        "#F2766B", "#FFD24A", "#75C9BD", "#77C4EB", "#B79BE4", "#91C788", "#F5A879",
     ).map { Color.parseColor(it) }
 
     private val fill = Paint(Paint.ANTI_ALIAS_FLAG)
     private val stringPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE
-        color = Color.parseColor("#8D6E63")
+        color = Color.parseColor("#705B52")
     }
     private val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         textAlign = Paint.Align.CENTER
-        color = Color.WHITE
+        color = Color.parseColor("#3B2922")
         isFakeBoldText = true
     }
 
@@ -56,6 +56,11 @@ class BalloonGameView @JvmOverloads constructor(
     private var spawnTimer = 0f
     private var round: GameRound? = null
     private var queue = ArrayList<Pair<String, Boolean>>()  // (표시할 글자, 정답인가)
+
+    init {
+        contentDescription = "정답 풍선을 눌러 터뜨리는 게임판"
+        isFocusable = true
+    }
 
     /** 풍선이 떠오르는 속도 (난이도) */
     var riseSpeed = 1f
@@ -175,10 +180,16 @@ class BalloonGameView @JvmOverloads constructor(
         for (i in balloons.indices.reversed()) {
             val b = balloons[i]
             if (hypot(event.x - b.x, event.y - b.y) <= radius * 1.05f) {
+                performClick()
                 pop(b)
                 return true
             }
         }
+        return true
+    }
+
+    override fun performClick(): Boolean {
+        super.performClick()
         return true
     }
 

@@ -51,10 +51,12 @@ class ChickView @JvmOverloads constructor(
         color = Color.parseColor("#4E342E")
         isFakeBoldText = true
     }
-    private val heartPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { textAlign = Paint.Align.CENTER }
+    private val heartIcon = context.getDrawable(resIdOf("ic_favorite_rounded"))?.mutate()?.apply {
+        setTint(Color.parseColor("#E6A900"))
+    }
 
     private var anim: ValueAnimator? = null
-    private var encourageText = "힘내! 🐥"
+    private var encourageText = "힘내!"
 
     private fun resIdOf(name: String): Int =
         resources.getIdentifier(name, "drawable", context.packageName)
@@ -87,7 +89,7 @@ class ChickView @JvmOverloads constructor(
 
     /** 오래 고민 중 — 응원 말풍선 */
     fun encourage() {
-        encourageText = listOf("힘내! 🐥", "천천히 해도 돼!", "삐약! 할 수 있어!").random()
+        encourageText = listOf("힘내!", "천천히 해도 돼!", "삐약! 할 수 있어!").random()
         play(Mood.ENCOURAGE, 2600L)
     }
 
@@ -166,11 +168,16 @@ class ChickView @JvmOverloads constructor(
                 h.y += h.vy
                 h.life = 1f - moodT
                 if (h.life <= 0f) { it2.remove(); continue }
-                heartPaint.textSize = h.size
-                heartPaint.alpha = (255 * h.life).toInt()
-                canvas.drawText("💛", cx - base * 0.5f + h.x * 0.3f, h.y, heartPaint)
+                val size = h.size.toInt().coerceAtLeast(1)
+                val px = (cx - base * 0.5f + h.x * 0.3f).toInt()
+                val py = h.y.toInt()
+                heartIcon?.let { icon ->
+                    icon.alpha = (255 * h.life).toInt()
+                    icon.setBounds(px - size / 2, py - size, px + size / 2, py)
+                    icon.draw(canvas)
+                }
             }
-            heartPaint.alpha = 255
+            heartIcon?.alpha = 255
         }
 
         // 응원 말풍선 — 병아리 왼쪽으로 뻗는다 (위는 자리가 없다)

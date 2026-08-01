@@ -1,14 +1,14 @@
 package com.piyak.english.ui
 
 import android.content.Intent
-import android.content.res.ColorStateList
-import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
 import android.widget.GridLayout
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import com.piyak.english.R
 import com.piyak.english.databinding.ActivityAlphabetBinding
 import com.piyak.english.db.Db
 import com.piyak.english.engine.Letters
@@ -26,6 +26,7 @@ class AlphabetActivity : AppCompatActivity() {
         b.btnBack.setOnClickListener { finish() }
         b.btnUpper.setOnClickListener { uppercase = true; build() }
         b.btnLower.setOnClickListener { uppercase = false; build() }
+        listOf(b.btnBack, b.btnUpper, b.btnLower).forEach(UiKit::addPressMotion)
     }
 
     override fun onResume() {
@@ -35,11 +36,13 @@ class AlphabetActivity : AppCompatActivity() {
 
     private fun build() {
         val db = Db.get(this)
-        b.btnUpper.backgroundTintList = ColorStateList.valueOf(
-            Color.parseColor(if (uppercase) "#FFD54F" else "#FFF0CC")
+        b.btnUpper.background = UiKit.rounded(
+            this, if (uppercase) R.color.primary else R.color.surface,
+            if (uppercase) R.color.primary_deep else R.color.outline, 18, 2
         )
-        b.btnLower.backgroundTintList = ColorStateList.valueOf(
-            Color.parseColor(if (uppercase) "#FFF0CC" else "#FFD54F")
+        b.btnLower.background = UiKit.rounded(
+            this, if (uppercase) R.color.surface else R.color.primary,
+            if (uppercase) R.color.outline else R.color.primary_deep, 18, 2
         )
 
         var doneCount = 0
@@ -56,11 +59,14 @@ class AlphabetActivity : AppCompatActivity() {
                 orientation = LinearLayout.VERTICAL
                 gravity = Gravity.CENTER
                 setPadding(0, dp(12), 0, dp(12))
-                background = android.graphics.drawable.GradientDrawable().apply {
-                    cornerRadius = dp(18).toFloat()
-                    setColor(Color.parseColor(if (done) "#FFE7A8" else "#FFFFFF"))
-                    setStroke(dp(2), Color.parseColor(if (done) "#FFB300" else "#FFE082"))
-                }
+                minimumHeight = dp(104)
+                background = UiKit.rounded(
+                    this@AlphabetActivity,
+                    if (done) R.color.primary_soft else R.color.surface,
+                    if (done) R.color.primary_deep else R.color.outline,
+                    18, 2
+                )
+                contentDescription = "알파벳 ${d.glyph(uppercase)}, ${d.word}"
                 layoutParams = GridLayout.LayoutParams().apply {
                     width = 0
                     columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f)
@@ -74,25 +80,22 @@ class AlphabetActivity : AppCompatActivity() {
                     )
                 }
             }
-            card.addView(TextView(this).apply {
-                text = d.emoji
-                textSize = 26f
-                gravity = Gravity.CENTER
-            })
+            UiKit.addPressMotion(card)
             card.addView(TextView(this).apply {
                 text = d.glyph(uppercase).toString()
-                textSize = 30f
+                textSize = 34f
                 gravity = Gravity.CENTER
                 setTypeface(typeface, android.graphics.Typeface.BOLD)
-                setTextColor(Color.parseColor("#4E342E"))
+                setTextColor(ContextCompat.getColor(this@AlphabetActivity, R.color.ink))
             })
             val writes = db.letterWrites(Letters.key(d, uppercase))
             card.addView(TextView(this).apply {
-                text = if (done) "${"⭐".repeat(db.letterStars(Letters.key(d, uppercase)))} ${writes}번"
+                val stars = db.letterStars(Letters.key(d, uppercase))
+                text = if (done) "별 ${stars} · ${writes}번"
                 else d.word
-                textSize = 11f
+                textSize = 12f
                 gravity = Gravity.CENTER
-                setTextColor(Color.parseColor("#8D6E63"))
+                setTextColor(ContextCompat.getColor(this@AlphabetActivity, R.color.ink_muted))
             })
             b.lettersGrid.addView(card)
         }

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ShapeAppearance.Piyak.Small" parent="ShapeAppearance.Material3.Corner.Small">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/radius_small</item>
+    </style>
+    <style name="ShapeAppearance.Piyak.Medium" parent="ShapeAppearance.Material3.Corner.Medium">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/radius_medium</item>
+    </style>
+    <style name="ShapeAppearance.Piyak.Large" parent="ShapeAppearance.Material3.Corner.Large">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/radius_large</item>
+    </style>
+
+    <style name="TextAppearance.Piyak.Display" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:fontFamily">sans-serif-rounded</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TextAppearance.Piyak.Title" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:fontFamily">sans-serif-rounded</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TextAppearance.Piyak.Section" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">sans-serif-rounded</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TextAppearance.Piyak.Body" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingMultiplier">1.18</item>
+    </style>
+    <style name="TextAppearance.Piyak.Caption" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/ink_muted</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="TextAppearance.Piyak.Stat" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:fontFamily">sans-serif-rounded</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Widget.Piyak.PrimaryButton" parent="Widget.AppCompat.Button">
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:background">@drawable/bg_primary_button</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-rounded</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="Widget.Piyak.SecondaryButton" parent="Widget.AppCompat.Button">
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:paddingLeft">18dp</item>
+        <item name="android:paddingRight">18dp</item>
+        <item name="android:background">@drawable/bg_secondary_button</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-rounded</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="Widget.Piyak.IconButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:minWidth">@dimen/touch_target</item>
+        <item name="android:minHeight">@dimen/touch_target</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:background">@drawable/bg_icon_button</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="Widget.Piyak.ChoiceButton" parent="Widget.AppCompat.Button">
+        <item name="android:minHeight">60dp</item>
+        <item name="android:paddingLeft">18dp</item>
+        <item name="android:paddingRight">18dp</item>
+        <item name="android:background">@drawable/bg_choice</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center_vertical|start</item>
+    </style>
+    <style name="Widget.Piyak.BottomNavButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:minHeight">64dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColor">@color/ink_muted</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="Widget.Piyak.StatPill" parent="TextAppearance.Piyak.Stat">
+        <item name="android:minHeight">40dp</item>
+        <item name="android:paddingLeft">11dp</item>
+        <item name="android:paddingRight">11dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_stat_pill</item>
+    </style>
+</resources>

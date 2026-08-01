@@ -1,36 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TextView android:id="@+id/txtKind" android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:textSize="13sp" android:textColor="@color/brown_soft" android:text="🎤 말하기" />
+    <TextView
+        android:id="@+id/txtKind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_chip_coral"
+        android:drawableStart="@drawable/ic_mic_rounded"
+        android:drawablePadding="5dp"
+        android:gravity="center_vertical"
+        android:minHeight="32dp"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="5dp"
+        android:text="말하기"
+        android:textAppearance="@style/TextAppearance.Piyak.Caption"
+        android:textColor="@color/coral_deep" />
 
     <LinearLayout
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:layout_marginTop="12dp" android:background="@drawable/bg_tile"
-        android:orientation="vertical" android:padding="18dp">
-        <TextView android:id="@+id/txtEn" android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:textSize="22sp" android:textStyle="bold" android:lineSpacingMultiplier="1.2" />
-        <TextView android:id="@+id/txtKo" android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_marginTop="6dp" android:textSize="15sp" android:textColor="@color/brown_soft" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/bg_card_paper"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <TextView
+            android:id="@+id/txtEn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="1.25"
+            android:textAppearance="@style/TextAppearance.Piyak.Section"
+            android:textColor="@color/ink" />
+
+        <TextView
+            android:id="@+id/txtKo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textAppearance="@style/TextAppearance.Piyak.Body"
+            android:textColor="@color/ink_muted" />
     </LinearLayout>
 
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:orientation="horizontal" android:layout_marginTop="14dp" android:gravity="center">
-        <Button android:id="@+id/btnListen" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="🔊 들어보기" android:backgroundTint="@color/sky" android:textColor="@color/brown_text" />
-        <Button android:id="@+id/btnMic" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginStart="10dp" android:text="🎤 말하기" android:textSize="17sp"
-            android:backgroundTint="@color/coral" android:textColor="@color/white" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnListen"
+            style="@style/Widget.Piyak.SecondaryButton"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:drawableStart="@drawable/ic_volume_up_rounded"
+            android:drawablePadding="6dp"
+            android:text="들어보기" />
+
+        <Button
+            android:id="@+id/btnMic"
+            style="@style/Widget.Piyak.PrimaryButton"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:layout_marginStart="10dp"
+            android:drawableStart="@drawable/ic_mic_rounded"
+            android:drawablePadding="6dp"
+            android:text="말하기" />
     </LinearLayout>
 
-    <TextView android:id="@+id/txtHeard" android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:layout_marginTop="12dp" android:gravity="center" android:textSize="15sp"
-        android:textColor="@color/brown_soft" android:text="" />
+    <TextView
+        android:id="@+id/txtHeard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:gravity="center"
+        android:minHeight="40dp"
+        android:text=""
+        android:textAppearance="@style/TextAppearance.Piyak.Body"
+        android:textColor="@color/ink_muted" />
 
-    <Button android:id="@+id/btnCantSpeak" android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:layout_gravity="center" android:layout_marginTop="8dp"
-        style="?attr/borderlessButtonStyle" android:text="지금은 말할 수 없어요 (건너뛰기)"
-        android:textColor="@color/brown_soft" android:visibility="gone" />
+    <Button
+        android:id="@+id/btnCantSpeak"
+        style="@style/Widget.Piyak.SecondaryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:text="지금은 말할 수 없어요"
+        android:visibility="gone" />
 </LinearLayout>

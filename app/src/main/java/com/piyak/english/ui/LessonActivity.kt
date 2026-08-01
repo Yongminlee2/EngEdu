@@ -2,8 +2,6 @@ package com.piyak.english.ui
 
 import android.Manifest
 import android.content.pm.PackageManager
-import android.content.res.ColorStateList
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +10,7 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -82,13 +81,16 @@ class LessonActivity : AppCompatActivity() {
         if (skillRecorded.add(q.id)) db.recordSkill(q.skill, correct)
     }
 
-    private val okLines = listOf("삐약! 정답이에요!", "완벽해요! 🐥", "역시 천재!", "삐약삐약~ 좋아요!", "굿굿! 최고예요!")
-    private val noLines = listOf("아쉬워요 😢", "괜찮아요, 다시 나와요!", "삐약… 다음엔 맞혀요!", "조금만 더 힘내요!")
+    private val okLines = listOf("삐약! 정답이에요!", "완벽해요!", "역시 천재!", "아주 멋진 선택이에요!", "굿굿! 최고예요!")
+    private val noLines = listOf("조금 아쉬워요", "괜찮아요, 다시 만날 거예요!", "다음에는 꼭 맞힐 수 있어요!", "해설을 보고 한 번 더 힘내요!")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         b = ActivityLessonBinding.inflate(layoutInflater)
         setContentView(b.root)
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() = confirmQuit()
+        })
         db = Db.get(this)
         sfx = Sfx(this)
         tts = Tts(this)
@@ -139,6 +141,8 @@ class LessonActivity : AppCompatActivity() {
         b.btnContinue.setOnClickListener { hideFeedback(); showQuestion() }
         b.btnCheck.setOnClickListener { checkAction?.invoke() }
         b.btnDone.setOnClickListener { finish() }
+        b.txtLessonTitle.text = lessonTitle
+        listOf(b.btnClose, b.btnHint, b.btnContinue, b.btnCheck, b.btnDone).forEach(UiKit::addPressMotion)
 
         // 토익·토플은 캐릭터 없이 깔끔하게 — 아이용 트랙에만 병아리가 함께한다
         if (trackId in setOf("toeic", "toefl")) {
@@ -154,12 +158,9 @@ class LessonActivity : AppCompatActivity() {
         b.root.removeCallbacks(encourageRun)
     }
 
-    @Deprecated("Deprecated in Java")
-    override fun onBackPressed() { confirmQuit() }
-
     private fun confirmQuit() {
         AlertDialog.Builder(this)
-            .setMessage("레슨을 그만둘까요?\n진행 상황은 저장되지 않아요 🐥")
+            .setMessage("레슨을 그만둘까요?\n진행 상황은 저장되지 않아요.")
             .setPositiveButton("그만두기") { _, _ -> finish() }
             .setNegativeButton("계속하기", null).show()
     }
@@ -193,7 +194,11 @@ class LessonActivity : AppCompatActivity() {
         b.root.postDelayed(encourageRun, 15_000L)
 
         b.progressBar.progress = (s.progress * 100).toInt()
-        b.txtHearts.text = if (reviewMode) "💊 복습" else "❤️ ${s.hearts}"
+        val step = ((s.progress * s.totalCount).toInt() + 1).coerceAtMost(s.totalCount)
+        b.txtStep.text = "$step / ${s.totalCount}"
+        b.progressBar.contentDescription = "레슨 진행률 ${(s.progress * 100).toInt()}퍼센트"
+        b.txtHearts.text = if (reviewMode) "복습" else s.hearts.toString()
+        b.txtHearts.contentDescription = if (reviewMode) "오답 복습 중" else "남은 하트 ${s.hearts}개"
         b.questionBox.removeAllViews()
         b.btnCheck.isEnabled = false
         b.btnCheck.text = "확인"
@@ -224,7 +229,8 @@ class LessonActivity : AppCompatActivity() {
 
     private fun refreshHintButton() {
         val n = db.itemCount("hint")
-        b.btnHint.text = "💡 $n"
+        b.btnHint.text = n.toString()
+        b.btnHint.contentDescription = "힌트 ${n}개, 눌러서 사용"
         b.btnHint.isEnabled = n > 0 && choiceButtons.size >= 4 && !hintUsedHere
         b.btnHint.alpha = if (b.btnHint.isEnabled) 1f else 0.45f
     }
@@ -233,7 +239,7 @@ class LessonActivity : AppCompatActivity() {
     private fun useHint() {
         if (hintUsedHere || choiceButtons.size < 4 || choiceAnswer < 0) return
         if (db.itemCount("hint") <= 0) {
-            Toast.makeText(this, "힌트권이 없어요. 상점에서 살 수 있어요! 💡", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "힌트권이 없어요. 상점에서 살 수 있어요!", Toast.LENGTH_SHORT).show()
             return
         }
         if (!db.useItem("hint")) return
@@ -258,13 +264,17 @@ class LessonActivity : AppCompatActivity() {
 
     private fun choiceButton(text: String): Button = Button(this).apply {
         this.text = text
-        textSize = 16f
+        textSize = 17f
         isAllCaps = false
-        setTextColor(Color.parseColor("#4E342E"))
-        backgroundTintList = ColorStateList.valueOf(Color.WHITE)
+        setTextColor(getColor(R.color.ink))
+        background = UiKit.choice(this@LessonActivity)
+        minHeight = dp(60)
+        minimumHeight = dp(60)
+        setPadding(dp(18), dp(10), dp(18), dp(10))
+        UiKit.addPressMotion(this)
         layoutParams = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
-        ).apply { topMargin = dp(8) }
+        ).apply { topMargin = dp(10) }
     }
 
     /** 공용 4지선다 렌더링 */
@@ -284,9 +294,9 @@ class LessonActivity : AppCompatActivity() {
             btn.setOnClickListener {
                 selected = i
                 buttons.forEach {
-                    if (it.isEnabled) it.backgroundTintList = ColorStateList.valueOf(Color.WHITE)
+                    if (it.isEnabled) it.background = UiKit.choice(this, selected = false)
                 }
-                btn.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#FFD54F"))
+                btn.background = UiKit.choice(this, selected = true)
                 b.btnCheck.isEnabled = true
             }
             buttons.add(btn)
@@ -329,9 +339,9 @@ class LessonActivity : AppCompatActivity() {
     private fun showMcq(q: Question.Mcq) {
         val v = inflate(R.layout.view_q_mcq)
         v.findViewById<TextView>(R.id.txtKind).text = when {
-            q.passage != null -> "📖 독해"
-            q.bigEmoji != null -> "🎨 그림 문제"
-            else -> "🔤 고르기"
+            q.passage != null -> "이야기 읽기"
+            q.bigEmoji != null -> "그림 문제"
+            else -> "알맞은 답 고르기"
         }
         if (q.bigEmoji != null) {
             v.findViewById<TextView>(R.id.txtBigEmoji).apply {
@@ -348,11 +358,12 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showListenMcq(q: Question.ListenMcq) {
         val v = inflate(R.layout.view_q_mcq)
-        v.findViewById<TextView>(R.id.txtKind).text = "🎧 듣기"
+        v.findViewById<TextView>(R.id.txtKind).text = "듣고 고르기"
         v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
         val play = v.findViewById<Button>(R.id.btnPlay)
         val slow = v.findViewById<Button>(R.id.btnPlaySlow)
         play.visibility = View.VISIBLE; slow.visibility = View.VISIBLE
+        UiKit.addPressMotion(play); UiKit.addPressMotion(slow)
         play.setOnClickListener { tts.speak(q.tts) }
         slow.setOnClickListener { tts.speak(q.tts, slow = true) }
         renderChoices(v.findViewById(R.id.choicesBox), q.choices, q.answer, q.explain,
@@ -362,10 +373,11 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showListenDialog(q: Question.ListenDialog) {
         val v = inflate(R.layout.view_q_mcq)
-        v.findViewById<TextView>(R.id.txtKind).text = "🎧 대화 듣기"
+        v.findViewById<TextView>(R.id.txtKind).text = "대화 듣기"
         v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
         val play = v.findViewById<Button>(R.id.btnPlay)
         play.visibility = View.VISIBLE
+        UiKit.addPressMotion(play)
         val lines = q.lines.map { (spk, text) -> (if (spk == "A") 0.9f else 1.2f) to text }
         play.setOnClickListener { tts.speakLines(lines) }
         val script = q.lines.joinToString("\n") { (s, t) -> "$s: $t" }
@@ -376,7 +388,7 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showDictation(q: Question.Dictation) {
         val v = inflate(R.layout.view_q_type)
-        v.findViewById<TextView>(R.id.txtKind).text = "✍️ 받아쓰기"
+        v.findViewById<TextView>(R.id.txtKind).text = "받아쓰기"
         v.findViewById<TextView>(R.id.txtPrompt).text = "들리는 대로 영어로 써 보세요"
         if (q.hintKo != null) {
             v.findViewById<TextView>(R.id.txtHint).apply { visibility = View.VISIBLE; text = "힌트: ${q.hintKo}" }
@@ -384,6 +396,7 @@ class LessonActivity : AppCompatActivity() {
         val play = v.findViewById<Button>(R.id.btnPlay)
         val slow = v.findViewById<Button>(R.id.btnPlaySlow)
         play.visibility = View.VISIBLE; slow.visibility = View.VISIBLE
+        UiKit.addPressMotion(play); UiKit.addPressMotion(slow)
         play.setOnClickListener { tts.speak(q.tts) }
         slow.setOnClickListener { tts.speak(q.tts, slow = true) }
         val edit = v.findViewById<EditText>(R.id.editAnswer)
@@ -398,7 +411,7 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showTypeTranslate(q: Question.TypeTranslate) {
         val v = inflate(R.layout.view_q_type)
-        v.findViewById<TextView>(R.id.txtKind).text = "✍️ 영작"
+        v.findViewById<TextView>(R.id.txtKind).text = "영어 문장 쓰기"
         v.findViewById<TextView>(R.id.txtPrompt).text = q.ko
         val edit = v.findViewById<EditText>(R.id.editAnswer)
         edit.addTextChangedListener(SimpleWatcher { b.btnCheck.isEnabled = it.isNotBlank() })
@@ -420,11 +433,12 @@ class LessonActivity : AppCompatActivity() {
 
         fun tileButton(word: String): Button = Button(this).apply {
             text = word; textSize = 15f; isAllCaps = false
-            setTextColor(Color.parseColor("#4E342E"))
-            background = getDrawable(R.drawable.bg_tile)
-            backgroundTintList = null
+            setTextColor(getColor(R.color.ink))
+            background = UiKit.choice(this@LessonActivity)
             minWidth = 0; minimumWidth = 0
+            minHeight = dp(48); minimumHeight = dp(48)
             setPadding(dp(14), dp(8), dp(14), dp(8))
+            UiKit.addPressMotion(this)
         }
 
         fun refreshCheck() { b.btnCheck.isEnabled = selected.isNotEmpty() }
@@ -457,9 +471,9 @@ class LessonActivity : AppCompatActivity() {
         b.btnCheck.visibility = View.GONE
 
         val hint = TextView(this).apply {
-            text = "🔗 짝이 맞는 것끼리 손가락으로 이어요"
+            text = "짝이 맞는 것끼리 손가락으로 이어요"
             textSize = 15f
-            setTextColor(Color.parseColor("#8D6E63"))
+            setTextColor(getColor(R.color.ink_muted))
             setPadding(dp(4), 0, 0, dp(6))
         }
         val view = com.piyak.english.ui.game.LineMatchView(this).apply {
@@ -500,7 +514,11 @@ class LessonActivity : AppCompatActivity() {
         val btnSkip = v.findViewById<Button>(R.id.btnCantSpeak)
         b.btnCheck.visibility = View.GONE
 
-        v.findViewById<Button>(R.id.btnListen).setOnClickListener { tts.speak(q.en) }
+        v.findViewById<Button>(R.id.btnListen).apply {
+            UiKit.addPressMotion(this)
+            setOnClickListener { tts.speak(q.en) }
+        }
+        UiKit.addPressMotion(btnMic); UiKit.addPressMotion(btnSkip)
 
         btnMic.setOnClickListener {
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
@@ -510,7 +528,7 @@ class LessonActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             tts.stop()
-            txtHeard.text = "🎙 듣고 있어요… 문장을 읽어 주세요!"
+            txtHeard.text = "듣고 있어요… 문장을 또박또박 읽어 주세요!"
             btnMic.isEnabled = false
             stt.start(
                 onResult = { heard ->
@@ -524,7 +542,7 @@ class LessonActivity : AppCompatActivity() {
                             speakFails++
                             sfx.wrong()
                             if (speakFails >= 2) btnSkip.visibility = View.VISIBLE
-                            Toast.makeText(this, "조금 달라요! 다시 시도해 보세요 🐥", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "조금 달라요! 다시 시도해 보세요.", Toast.LENGTH_SHORT).show()
                         }
                     }
                 },
@@ -589,7 +607,7 @@ class LessonActivity : AppCompatActivity() {
         b.btnCheck.visibility = View.GONE
         b.feedbackPanel.visibility = View.VISIBLE
         b.feedbackPanel.background = getDrawable(
-            if (correct) R.drawable.bg_feedback_ok else R.drawable.bg_feedback_no
+            if (correct) R.drawable.bg_feedback_correct else R.drawable.bg_feedback_wrong
         )
         b.imgFeedback.setImageResource(if (correct) R.drawable.chick_happy else R.drawable.chick_sad)
         b.txtFeedback.text = if (correct) okLines.random() else noLines.random()
@@ -601,10 +619,9 @@ class LessonActivity : AppCompatActivity() {
             b.txtExplain.movementMethod = android.text.method.ScrollingMovementMethod()
             b.txtExplain.scrollTo(0, 0)
         } else b.txtExplain.visibility = View.GONE
-        b.btnContinue.backgroundTintList = ColorStateList.valueOf(
-            Color.parseColor(if (correct) "#66BB6A" else "#FF5252")
-        )
-        b.txtHearts.text = if (reviewMode) "💊 복습" else "❤️ ${session?.hearts ?: 0}"
+        b.btnContinue.text = if (correct) "다음 문제" else "해설 보고 계속"
+        b.txtHearts.text = if (reviewMode) "복습" else (session?.hearts ?: 0).toString()
+        b.txtHearts.contentDescription = if (reviewMode) "오답 복습 중" else "남은 하트 ${session?.hearts ?: 0}개"
     }
 
     private fun hideFeedback() {
@@ -642,7 +659,7 @@ class LessonActivity : AppCompatActivity() {
                 db.addBonusCountToday("review")
             }
             b.txtResultTitle.text = "복습 완료! 💊"
-            b.txtResultStats.text = "정답률 ${(s.accuracy * 100).toInt()}% · +${xp} XP\n하트 1개 회복! ❤️ $h"
+            b.txtResultStats.text = "정답률 ${(s.accuracy * 100).toInt()}% · +${xp} XP\n하트 1개 회복 · 현재 ${h}개"
         } else {
             db.setHearts(s.hearts)
             db.addXp(xp)
@@ -656,15 +673,15 @@ class LessonActivity : AppCompatActivity() {
                     "$lessonTitle (첫 시도 정답 ${s.firstTryCorrect}문제)"
                 )
             }
-            b.txtResultTitle.text = if (s.isPerfect) "퍼펙트! 💯" else "레슨 완료! 🎉"
+            b.txtResultTitle.text = if (s.isPerfect) "완벽해요!" else "레슨 완료!"
             b.txtResultStats.text =
-                "$lessonTitle\n${"⭐".repeat(s.stars())}\n정답률 ${(s.accuracy * 100).toInt()}% · +${xp} XP" +
+                "$lessonTitle\n별 ${s.stars()}개\n정답률 ${(s.accuracy * 100).toInt()}% · +${xp} XP" +
                     if (s.isPerfect) " (퍼펙트 +5 포함)" else ""
         }
         if (coins > 0) {
-            b.txtResultStats.append("\n\n💰 용돈 +${Wallet.format(coins)}  (지갑 ${Wallet.format(db.coins())})")
+            b.txtResultStats.append("\n\n용돈 +${Wallet.format(coins)}  (지갑 ${Wallet.format(db.coins())})")
         } else if (!reviewMode) {
-            b.txtResultStats.append("\n\n💰 이미 깬 레슨이라 용돈은 없어요")
+            b.txtResultStats.append("\n\n이미 깬 레슨이라 용돈은 없어요")
         }
         b.txtResultStats.append(growthReport())
         checkBadges()
@@ -678,7 +695,7 @@ class LessonActivity : AppCompatActivity() {
         for (st in states) {
             val before = startSkillLevels[st.def.id] ?: 0
             if (st.level > before) {
-                sb.append("\n\n🎉 ${st.def.emoji} ${st.def.title} 실력이 Lv.${st.level} 로 올랐어요!")
+                sb.append("\n\n${st.def.title} 실력이 Lv.${st.level} 로 올랐어요!")
             }
         }
         val overall = com.piyak.english.engine.Skills.overallLevel(states)
@@ -690,13 +707,13 @@ class LessonActivity : AppCompatActivity() {
         val todayXp = db.xpToday()
         sb.append("\n\n🎯 오늘의 목표 $todayXp / $goal XP")
         if (com.piyak.english.engine.DailyGoal.isDone(todayXp, goal)) {
-            sb.append("  ✅ 달성!")
+            sb.append("  달성!")
             // 목표 달성은 하루 한 번만 집계 + 용돈 보너스
             if (db.metaLong("goal_met_day", -1) != Db.today()) {
                 db.setMeta("goal_met_day", Db.today().toString())
                 db.setMeta("goals_met", (db.metaInt("goals_met") + 1).toString())
                 val bonus = db.earnCoins(Wallet.DAILY_GOAL_BONUS, "GOAL", "오늘의 목표 달성")
-                if (bonus > 0) sb.append("\n💰 목표 달성 보너스 +${Wallet.format(bonus)}")
+                if (bonus > 0) sb.append("\n목표 달성 보너스 +${Wallet.format(bonus)}")
             }
         }
         return sb.toString()

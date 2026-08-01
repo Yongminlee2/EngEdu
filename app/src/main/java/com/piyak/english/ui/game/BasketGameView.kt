@@ -41,16 +41,21 @@ class BasketGameView @JvmOverloads constructor(
     private val basketPaint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val linePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE
-        color = Color.parseColor("#A1887F")
+        color = Color.parseColor("#C99E65")
     }
     private val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         textAlign = Paint.Align.CENTER
-        color = Color.parseColor("#4E342E")
+        color = Color.parseColor("#3B2922")
         isFakeBoldText = true
     }
 
     private var itemSize = 0f
     private var basket = RectF()
+
+    init {
+        contentDescription = "물건을 바구니로 끌어 담는 게임판"
+        isFocusable = true
+    }
 
     /** 지금 바구니에 담긴 개수 */
     val countInBasket: Int get() = items.count { it.inBasket }
@@ -106,9 +111,9 @@ class BasketGameView @JvmOverloads constructor(
 
     override fun render(canvas: Canvas) {
         // 바구니
-        basketPaint.color = Color.parseColor("#D7A86E")
+        basketPaint.color = Color.parseColor("#E7B873")
         canvas.drawRoundRect(basket, dp(18f), dp(18f), basketPaint)
-        basketPaint.color = Color.parseColor("#C08B4E")
+        basketPaint.color = Color.parseColor("#B97848")
         canvas.drawRoundRect(
             RectF(basket.left, basket.top, basket.right, basket.top + dp(14f)),
             dp(8f), dp(8f), basketPaint
@@ -121,7 +126,7 @@ class BasketGameView @JvmOverloads constructor(
         }
 
         // 담긴 개수 / 목표
-        textPaint.color = Color.parseColor("#4E342E")
+        textPaint.color = Color.parseColor("#3B2922")
         canvas.drawText(
             "$countInBasket / $target",
             basket.centerX(), basket.bottom - dp(14f), textPaint
@@ -162,6 +167,7 @@ class BasketGameView @JvmOverloads constructor(
             MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
                 val d = dragging ?: return true
                 dragging = null
+                if (event.actionMasked == MotionEvent.ACTION_UP) performClick()
                 val inside = basket.contains(d.x, d.y)
                 if (inside) {
                     if (!d.inBasket) {
@@ -184,6 +190,11 @@ class BasketGameView @JvmOverloads constructor(
                 return true
             }
         }
+        return true
+    }
+
+    override fun performClick(): Boolean {
+        super.performClick()
         return true
     }
 

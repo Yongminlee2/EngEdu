@@ -1,12 +1,19 @@
 package com.piyak.english
 
+import android.app.Activity
 import android.app.Application
+import android.os.Bundle
+import android.view.View
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
 import java.io.File
 import java.io.PrintWriter
 import java.io.StringWriter
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import java.util.WeakHashMap
 
 /**
  * 앱이 죽으면 그 이유를 파일에 남긴다.
@@ -24,6 +31,37 @@ class PiyakApp : Application() {
             // 원래 처리(앱 종료·시스템 보고)는 그대로 이어 준다
             previous?.uncaughtException(thread, error)
         }
+        registerActivityLifecycleCallbacks(insetCallbacks)
+    }
+
+    private val insetViews = java.util.Collections.newSetFromMap(WeakHashMap<View, Boolean>())
+
+    private val insetCallbacks = object : ActivityLifecycleCallbacks {
+        override fun onActivityCreated(activity: Activity, state: Bundle?) {
+            WindowCompat.setDecorFitsSystemWindows(activity.window, false)
+            val content = activity.findViewById<View>(android.R.id.content) ?: return
+            if (!insetViews.add(content)) return
+            val initial = intArrayOf(
+                content.paddingLeft, content.paddingTop,
+                content.paddingRight, content.paddingBottom
+            )
+            ViewCompat.setOnApplyWindowInsetsListener(content) { view, insets ->
+                val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+                view.setPadding(
+                    initial[0] + bars.left, initial[1] + bars.top,
+                    initial[2] + bars.right, initial[3] + bars.bottom
+                )
+                insets
+            }
+            ViewCompat.requestApplyInsets(content)
+        }
+
+        override fun onActivityStarted(activity: Activity) = Unit
+        override fun onActivityResumed(activity: Activity) = Unit
+        override fun onActivityPaused(activity: Activity) = Unit
+        override fun onActivityStopped(activity: Activity) = Unit
+        override fun onActivitySaveInstanceState(activity: Activity, state: Bundle) = Unit
+        override fun onActivityDestroyed(activity: Activity) = Unit
     }
 
     private fun save(thread: Thread, error: Throwable) {

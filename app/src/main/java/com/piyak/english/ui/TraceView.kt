@@ -10,6 +10,7 @@ import android.graphics.PointF
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import com.piyak.english.R
 import com.piyak.english.engine.Pt
 import kotlin.math.hypot
 import kotlin.random.Random
@@ -107,7 +108,7 @@ class TraceView @JvmOverloads constructor(
         textAlign = Paint.Align.CENTER
         typeface = android.graphics.Typeface.DEFAULT_BOLD
     }
-    private val emojiPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { textAlign = Paint.Align.CENTER }
+    private val demoChick = context.getDrawable(R.drawable.chick_explorer)?.mutate()
     private val confettiPaint = Paint(Paint.ANTI_ALIAS_FLAG)
 
     private companion object {
@@ -173,7 +174,6 @@ class TraceView @JvmOverloads constructor(
         )
         bgGlyphPaint.textSize = box * 1.15f
         startTextPaint.textSize = box * 0.075f
-        emojiPaint.textSize = box * 0.16f
 
         // 체크포인트: 획을 일정 간격으로 리샘플링
         val spacing = box * 0.035f
@@ -345,6 +345,7 @@ class TraceView @JvmOverloads constructor(
             }
             MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
                 drawing = false
+                if (event.actionMasked == MotionEvent.ACTION_UP) performClick()
                 currentPath?.lineTo(lastX, lastY)
                 when {
                     checkIdx >= pts.size * 0.90f -> finishStroke()
@@ -364,6 +365,11 @@ class TraceView @JvmOverloads constructor(
             }
         }
         return false
+    }
+
+    override fun performClick(): Boolean {
+        super.performClick()
+        return true
     }
 
     /**
@@ -450,7 +456,11 @@ class TraceView @JvmOverloads constructor(
             canvas.drawPath(pathOf(demoTrail), inkPaint)
         }
         demoPos?.let {
-            canvas.drawText("🐥", it.x, it.y + emojiPaint.textSize * 0.35f, emojiPaint)
+            val size = (box * 0.18f).toInt().coerceAtLeast(1)
+            val cx = it.x.toInt()
+            val cy = it.y.toInt()
+            demoChick?.setBounds(cx - size / 2, cy - size / 2, cx + size / 2, cy + size / 2)
+            demoChick?.draw(canvas)
         }
 
         // 지금 쓰고 있는 선

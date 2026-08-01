@@ -1,13 +1,14 @@
 package com.piyak.english.ui
 
-import android.content.res.ColorStateList
-import android.graphics.Color
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import com.piyak.english.R
 import com.piyak.english.audio.Tts
 import com.piyak.english.databinding.ActivityPlacementBinding
 import com.piyak.english.db.Db
@@ -39,6 +40,7 @@ class PlacementActivity : AppCompatActivity() {
 
         subject = com.piyak.english.model.Subject.of(intent.getStringExtra("subject") ?: "english")
         maxLevel = Placement.maxLevel(subject)
+        b.txtScreenTitle.text = "${subject.title} 레벨 찾기"
 
         val all = ContentRepo.placement(this, subject)
         if (all.isEmpty()) { finish(); return }
@@ -51,6 +53,9 @@ class PlacementActivity : AppCompatActivity() {
                 .setNegativeButton("계속", null).show()
         }
         b.btnDone.setOnClickListener { finish() }
+        UiKit.addPressMotion(b.btnClose)
+        UiKit.addPressMotion(b.btnPlay)
+        UiKit.addPressMotion(b.btnDone)
         showNext()
     }
 
@@ -84,6 +89,9 @@ class PlacementActivity : AppCompatActivity() {
             else -> { showNext(); return }
         }
         b.txtPrompt.text = prompt
+        b.questionCard.alpha = 0f
+        b.questionCard.translationY = dp(10).toFloat()
+        b.questionCard.animate().alpha(1f).translationY(0f).setDuration(220).start()
         if (ttsText != null) {
             b.btnPlay.visibility = View.VISIBLE
             b.btnPlay.setOnClickListener { tts.speak(ttsText) }
@@ -92,20 +100,23 @@ class PlacementActivity : AppCompatActivity() {
 
         choices.forEachIndexed { i, c ->
             val btn = Button(this).apply {
-                text = c; textSize = 16f; isAllCaps = false
-                setTextColor(Color.parseColor("#4E342E"))
-                backgroundTintList = ColorStateList.valueOf(Color.WHITE)
+                text = c; textSize = 17f; isAllCaps = false
+                contentDescription = "선택지 ${i + 1}: $c"
+                gravity = Gravity.CENTER_VERTICAL
+                minHeight = dp(60)
+                setPadding(dp(18), dp(8), dp(18), dp(8))
+                setTextColor(ContextCompat.getColor(this@PlacementActivity, R.color.ink))
+                background = UiKit.choice(this@PlacementActivity)
                 layoutParams = LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
                 ).apply { topMargin = dp(8) }
             }
+            UiKit.addPressMotion(btn)
             btn.setOnClickListener {
                 val correct = i == answer
                 history.add(lv to correct)
                 curLevel = Placement.nextLevel(lv, correct, maxLevel)
-                btn.backgroundTintList = ColorStateList.valueOf(
-                    Color.parseColor(if (correct) "#C8E6C9" else "#FFCDD2")
-                )
+                btn.background = UiKit.choice(this, selected = true, correct = correct)
                 b.choicesBox.postDelayed({ showNext() }, 350)
                 // 더블탭 방지
                 for (j in 0 until b.choicesBox.childCount) b.choicesBox.getChildAt(j).isEnabled = false
@@ -128,19 +139,21 @@ class PlacementActivity : AppCompatActivity() {
                 com.piyak.english.engine.Wallet.PLACEMENT_BONUS, "PLACEMENT",
                 "${subject.title} 레벨테스트 완료"
             )
-            coinLine = "\n💰 용돈 +${com.piyak.english.engine.Wallet.format(c)}"
+            coinLine = "\n용돈 +${com.piyak.english.engine.Wallet.format(c)}"
         }
         b.resultPanel.visibility = View.VISIBLE
         val name = Placement.levelName(subject, placed)
         if (subject == com.piyak.english.model.Subject.MATH) {
             b.txtResultTitle.text = name
             b.txtResultDesc.text =
-                "$name 수준이에요!\n${name}까지 모든 단원을 열어 드렸어요.\n+30 XP 🎁$coinLine"
+                "$name 수준이에요!\n${name}까지 모든 단원을 열어 드렸어요.\n경험치 +30$coinLine"
         } else {
             b.txtResultTitle.text = "레벨 $placed"
             b.txtResultDesc.text =
-                "$name 수준이에요!\n기초 트랙 레벨 ${placed}까지 열어 드렸어요.\n+30 XP 🎁$coinLine"
+                "$name 수준이에요!\n기초 트랙 레벨 ${placed}까지 열어 드렸어요.\n경험치 +30$coinLine"
         }
+        b.resultPanel.alpha = 0f
+        b.resultPanel.animate().alpha(1f).setDuration(260).start()
     }
 
     private fun dp(v: Int): Int = (v * resources.displayMetrics.density).toInt()

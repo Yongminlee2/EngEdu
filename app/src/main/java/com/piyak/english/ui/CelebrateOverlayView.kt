@@ -54,12 +54,12 @@ class CelebrateOverlayView @JvmOverloads constructor(
     ).map { Color.parseColor(it) }
 
     /**
-     * 정답 축하. [combo] 가 2 이상이면 "🔥 N연속!" 배지도 띄운다.
+     * 정답 축하. [combo] 가 2 이상이면 연속 정답 배지도 띄운다.
      * 5연속부터는 색종이가 많아진다.
      */
     fun correct(combo: Int) {
         burst(if (combo >= 5) 32 else 18)
-        if (combo >= 2) showCombo("🔥 ${combo}연속!")
+        if (combo >= 2) showCombo("${combo}연속 정답!")
     }
 
     private fun burst(count: Int) {

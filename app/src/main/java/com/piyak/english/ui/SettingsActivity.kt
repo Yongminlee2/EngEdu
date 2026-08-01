@@ -65,7 +65,10 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         b.btnPlacement.setOnClickListener {
-            startActivity(Intent(this, PlacementActivity::class.java))
+            startActivity(
+                Intent(this, PlacementActivity::class.java)
+                    .putExtra("subject", "english")
+            )
         }
 
         // 앱이 죽은 적이 있으면 그 기록을 꺼내 볼 수 있게 (USB 로 로그를 못 뽑을 때가 잦다)
@@ -96,7 +99,7 @@ class SettingsActivity : AppCompatActivity() {
                 .setMessage("모든 진행도·XP·배지·오답이 삭제돼요.\n되돌릴 수 없어요!")
                 .setPositiveButton("초기화") { _, _ ->
                     db.resetAll()
-                    android.widget.Toast.makeText(this, "초기화 완료! 처음부터 삐약! 🐣", android.widget.Toast.LENGTH_SHORT).show()
+                    android.widget.Toast.makeText(this, "초기화 완료! 첫 모험부터 다시 시작해요.", android.widget.Toast.LENGTH_SHORT).show()
                 }
                 .setNegativeButton("취소", null).show()
         }
