@@ -249,6 +249,36 @@ class LessonActivity : AppCompatActivity() {
         refreshHintButton()
     }
 
+    private fun artRes(name: String?): Int =
+        name?.let { resources.getIdentifier(it, "drawable", packageName) } ?: 0
+
+    /** 문장·낱말에서 그림 사전(199장)에 있는 첫 단어의 일러스트 (없으면 0) */
+    private fun sentenceArt(en: String?, ko: String? = null): Int {
+        en?.lowercase()?.split(Regex("[^a-z]+"))?.forEach { w ->
+            com.piyak.english.engine.WordArt.EN[w]?.let { return artRes(it) }
+        }
+        if (ko != null) {
+            for ((kw, res) in com.piyak.english.engine.WordArt.KO) {
+                if (ko.contains(kw)) return artRes(res)
+            }
+        }
+        return 0
+    }
+
+    /** 문제 위쪽에 일러스트를 끼워 넣는다 — 글만 덜렁 있는 화면을 없애는 핵심 */
+    private fun addArt(v: View, resId: Int, sizeDp: Int = 130) {
+        if (resId == 0) return
+        val root = v as? LinearLayout ?: return
+        val img = android.widget.ImageView(this).apply {
+            setImageResource(resId)
+            layoutParams = LinearLayout.LayoutParams(dp(sizeDp), dp(sizeDp)).apply {
+                gravity = android.view.Gravity.CENTER_HORIZONTAL
+                topMargin = dp(6); bottomMargin = dp(4)
+            }
+        }
+        root.addView(img, minOf(1, root.childCount))
+    }
+
     private fun inflate(layout: Int): View {
         val v = LayoutInflater.from(this).inflate(layout, b.questionBox, false)
         // 내용이 화면보다 짧을 때 위로 쏠리지 않도록 세로 중앙에 놓는다
@@ -344,7 +374,7 @@ class LessonActivity : AppCompatActivity() {
     ) {
         val view = com.piyak.english.ui.game.BubbleChoiceView(this).apply {
             layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, dp(185)
+                LinearLayout.LayoutParams.MATCH_PARENT, dp(160)
             )
         }
         var selected = -1
@@ -392,6 +422,7 @@ class LessonActivity : AppCompatActivity() {
             }
         }
         if (q.passage != null) {
+            addArt(v, artRes("ck_book"), 90)
             v.findViewById<TextView>(R.id.txtPassage).apply { visibility = View.VISIBLE; text = q.passage }
         }
         v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
@@ -400,6 +431,7 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showListenMcq(q: Question.ListenMcq) {
         val v = inflate(R.layout.view_q_mcq)
+        addArt(v, artRes("ck_think"), 110)
         v.findViewById<TextView>(R.id.txtKind).text = "🎧 듣기"
         v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
         val play = v.findViewById<Button>(R.id.btnPlay)
@@ -414,6 +446,7 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showListenDialog(q: Question.ListenDialog) {
         val v = inflate(R.layout.view_q_mcq)
+        addArt(v, artRes("ck_think"), 110)
         v.findViewById<TextView>(R.id.txtKind).text = "🎧 대화 듣기"
         v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
         val play = v.findViewById<Button>(R.id.btnPlay)
@@ -428,6 +461,7 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showDictation(q: Question.Dictation) {
         val v = inflate(R.layout.view_q_type)
+        addArt(v, sentenceArt(q.answer))
         v.findViewById<TextView>(R.id.txtKind).text = "✍️ 받아쓰기"
         v.findViewById<TextView>(R.id.txtPrompt).text = "들리는 대로 영어로 써 보세요"
         if (q.hintKo != null) {
@@ -450,6 +484,7 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showTypeTranslate(q: Question.TypeTranslate) {
         val v = inflate(R.layout.view_q_type)
+        addArt(v, sentenceArt(q.answer, q.ko))
         v.findViewById<TextView>(R.id.txtKind).text = "✍️ 영작"
         v.findViewById<TextView>(R.id.txtPrompt).text = q.ko
         val edit = v.findViewById<EditText>(R.id.editAnswer)
@@ -463,6 +498,7 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showOrder(q: Question.Order) {
         val v = inflate(R.layout.view_q_order)
+        addArt(v, sentenceArt(q.en, q.ko), 110)
         v.findViewById<TextView>(R.id.txtPrompt).text = q.ko
         val answerFlow = v.findViewById<FlowLayout>(R.id.answerFlow)
         val bankFlow = v.findViewById<FlowLayout>(R.id.bankFlow)
@@ -545,6 +581,7 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showSpeak(q: Question.Speak) {
         val v = inflate(R.layout.view_q_speak)
+        addArt(v, sentenceArt(q.en, q.ko), 110)
         v.findViewById<TextView>(R.id.txtEn).text = q.en
         v.findViewById<TextView>(R.id.txtKo).text = q.ko ?: ""
         val txtHeard = v.findViewById<TextView>(R.id.txtHeard)
