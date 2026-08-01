@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.piyak.english.R
 import com.piyak.english.databinding.ActivityMainBinding
 import com.piyak.english.db.Db
 import com.piyak.english.engine.DailyGoal
@@ -90,6 +91,20 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        // 시간대에 따라 풍경이 바뀐다 — 아침 하늘, 낮 풀밭, 저녁 교실, 밤엔 별
+        val hour = java.util.Calendar.getInstance().get(java.util.Calendar.HOUR_OF_DAY)
+        val banner = when (hour) {
+            in 6..10 -> R.drawable.banner_sky
+            in 11..16 -> R.drawable.banner_grass
+            in 17..20 -> R.drawable.banner_class
+            else -> R.drawable.banner_night
+        }
+        b.imgBanner.setImageResource(banner)
+        b.imgBanner.clipToOutline = true
+        b.imgBanner.outlineProvider = object : android.view.ViewOutlineProvider() {
+            override fun getOutline(v: View, o: android.graphics.Outline) =
+                o.setRoundRect(0, 0, v.width, v.height, dp(18f))
+        }
         refresh()
     }
 
