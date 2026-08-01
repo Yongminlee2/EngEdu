@@ -142,10 +142,7 @@ class LessonActivity : AppCompatActivity() {
         bouncy(b.btnContinue)
         b.btnDone.setOnClickListener { finish() }
 
-        // 토익·토플은 캐릭터 없이 깔끔하게 — 아이용 트랙에만 병아리가 함께한다
-        if (trackId in setOf("toeic", "toefl")) {
-            b.chickView.visibility = View.GONE
-        }
+        // 병아리는 전 트랙 상주 — 토익·토플도 귀엽게 (사용자 결정: 전부 귀염뽀짝)
 
         showQuestion()
     }
