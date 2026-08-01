@@ -254,6 +254,10 @@ class LessonActivity : AppCompatActivity() {
 
     private fun inflate(layout: Int): View {
         val v = LayoutInflater.from(this).inflate(layout, b.questionBox, false)
+        // 내용이 화면보다 짧을 때 위로 쏠리지 않도록 세로 중앙에 놓는다
+        // (fillViewport 라 questionBox 가 화면을 채우고, 길면 그대로 스크롤된다)
+        (v.layoutParams as? android.widget.FrameLayout.LayoutParams)?.gravity =
+            android.view.Gravity.CENTER_VERTICAL
         b.questionBox.addView(v)
         return v
     }
@@ -273,6 +277,19 @@ class LessonActivity : AppCompatActivity() {
             }
             false
         }
+    }
+
+    /**
+     * 문제·보기에 등장하는 낱말을 놀이터 낱말사전에서 찾아 삽화 이모지로.
+     * 정답 힌트가 되지 않도록 **문제 지문에 있는 낱말만** 본다 (보기는 안 본다 —
+     * 보기 중 하나의 그림을 띄우면 그게 답이라고 알려주는 셈이 된다).
+     */
+    private fun findWordArt(prompt: String, choices: List<String>): String? {
+        val p = prompt.lowercase()
+        for ((emoji, en, ko) in com.piyak.english.engine.MiniGames.WORDS) {
+            if (Regex("\b${Regex.escape(en)}\b").containsMatchIn(p) || prompt.contains(ko)) return emoji
+        }
+        return null
     }
 
     private fun choiceButton(text: String, index: Int = 0): Button = Button(this).apply {
@@ -356,10 +373,12 @@ class LessonActivity : AppCompatActivity() {
             q.bigEmoji != null -> "🎨 그림 문제"
             else -> "🔤 고르기"
         }
-        if (q.bigEmoji != null) {
+        // 그림이 없는 어휘 문제도, 낱말 사전에 있는 단어면 삽화를 붙여 준다
+        val art = q.bigEmoji ?: findWordArt(q.prompt, q.choices)
+        if (art != null) {
             v.findViewById<TextView>(R.id.txtBigEmoji).apply {
                 visibility = View.VISIBLE
-                text = q.bigEmoji
+                text = art
             }
         }
         if (q.passage != null) {
