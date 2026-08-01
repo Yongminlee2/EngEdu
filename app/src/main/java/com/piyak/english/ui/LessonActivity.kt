@@ -630,7 +630,7 @@ class LessonActivity : AppCompatActivity() {
         b.feedbackPanel.background = getDrawable(
             if (correct) R.drawable.bg_feedback_ok else R.drawable.bg_feedback_no
         )
-        b.imgFeedback.setImageResource(if (correct) R.drawable.chick_happy else R.drawable.chick_sad)
+        b.imgFeedback.setImageResource(if (correct) R.drawable.ck_cheer else R.drawable.ck_sad)
         b.txtFeedback.text = if (correct) okLines.random() else noLines.random()
         val detail = listOfNotNull(note, explain).joinToString("\n\n")
         if (detail.isNotEmpty()) {
