@@ -36,9 +36,11 @@ class ChickView @JvmOverloads constructor(
     private class Heart(var x: Float, var y: Float, var vy: Float, var life: Float, val size: Float)
     private val hearts = ArrayList<Heart>()
 
-    private val happy = context.getDrawable(resIdOf("chick_happy"))
-    private val neutral = context.getDrawable(resIdOf("chick_neutral"))
-    private val sad = context.getDrawable(resIdOf("chick_sad"))
+    // codex 가 그린 일러스트 스프라이트 (발주서 #01). 벡터 시절보다 훨씬 귀엽다
+    private val happy = context.getDrawable(resIdOf("ck_cheer"))
+    private val neutral = context.getDrawable(resIdOf("ck_idle"))
+    private val sad = context.getDrawable(resIdOf("ck_sad"))
+    private val cheerup = context.getDrawable(resIdOf("ck_cheerup"))
 
     private val bubblePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.WHITE }
     private val bubbleStroke = Paint(Paint.ANTI_ALIAS_FLAG).apply {
@@ -124,6 +126,7 @@ class ChickView @JvmOverloads constructor(
         val d = when (mood) {
             Mood.CHEER -> happy
             Mood.OOPS -> sad
+            Mood.ENCOURAGE -> cheerup
             else -> neutral
         } ?: return
 
