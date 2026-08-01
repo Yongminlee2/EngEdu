@@ -13,6 +13,12 @@
             android:text="📘 영어  ▾" android:textSize="15sp"
             android:backgroundTint="@color/white" android:textColor="@color/brown_text" />
 
+        <!-- 시간대별 풍경 배너 (codex 발주 #01) — 아침 하늘, 낮 풀밭, 저녁 교실, 밤하늘 -->
+        <ImageView android:id="@+id/imgBanner"
+            android:layout_width="match_parent" android:layout_height="120dp"
+            android:layout_marginTop="8dp" android:scaleType="centerCrop"
+            android:contentDescription="풍경" />
+
         <!-- 상단 스탯 바 -->
         <LinearLayout
             android:layout_width="match_parent" android:layout_height="wrap_content"

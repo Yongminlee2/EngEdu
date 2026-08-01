@@ -35,6 +35,11 @@ class CelebrateOverlayView @JvmOverloads constructor(
     private var comboT = 0f
     private var comboAnim: ValueAnimator? = null
 
+    // 참잘했어요 도장 (codex 발주 #01 스티커) — 콤보 이정표에서 팡 하고 찍힌다
+    private var sticker: android.graphics.drawable.Drawable? = null
+    private var stickerT = 0f
+    private var stickerAnim: ValueAnimator? = null
+
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val comboPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         textAlign = Paint.Align.CENTER
@@ -59,6 +64,7 @@ class CelebrateOverlayView @JvmOverloads constructor(
      */
     fun correct(combo: Int) {
         burst(if (combo >= 5) 32 else 18)
+        if (combo in setOf(3, 5, 7, 10, 15, 20, 30)) showSticker()
         if (combo >= 2) showCombo("🔥 ${combo}연속!")
     }
 
@@ -117,8 +123,41 @@ class CelebrateOverlayView @JvmOverloads constructor(
         }
     }
 
+    private fun showSticker() {
+        val id = resources.getIdentifier(
+            "stk_" + String.format("%02d", Random.nextInt(1, 13)), "drawable", context.packageName
+        )
+        if (id == 0) return
+        sticker = context.getDrawable(id)
+        stickerAnim?.cancel()
+        stickerAnim = ValueAnimator.ofFloat(0f, 1f).apply {
+            duration = 1400L
+            interpolator = OvershootInterpolator(2.4f)
+            addUpdateListener { stickerT = it.animatedValue as Float; invalidate() }
+            addListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    sticker = null; invalidate()
+                }
+            })
+            start()
+        }
+    }
+
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+        sticker?.let { d ->
+            // 도장 찍히듯: 크게 나타나 살짝 기울었다가 사라진다
+            val s = (dp(60f) + dp(70f) * stickerT.coerceAtMost(1f)).toInt()
+            val alpha = if (stickerT > 0.8f) ((1f - stickerT) / 0.2f * 255).toInt() else 255
+            val cx = width / 2
+            val cy = (height * 0.44f).toInt()
+            canvas.save()
+            canvas.rotate(-8f + 8f * stickerT, cx.toFloat(), cy.toFloat())
+            d.setBounds(cx - s / 2, cy - s / 2, cx + s / 2, cy + s / 2)
+            d.alpha = alpha.coerceIn(0, 255)
+            d.draw(canvas)
+            canvas.restore()
+        }
         for (c in confetti) {
             paint.color = c.color
             canvas.save()
@@ -149,6 +188,7 @@ class CelebrateOverlayView @JvmOverloads constructor(
         super.onDetachedFromWindow()
         confettiAnim?.cancel()
         comboAnim?.cancel()
+        stickerAnim?.cancel()
     }
 
     private fun dp(v: Float): Float = v * resources.displayMetrics.density
