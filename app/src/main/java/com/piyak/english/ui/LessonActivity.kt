@@ -138,6 +138,8 @@ class LessonActivity : AppCompatActivity() {
         b.btnHint.setOnClickListener { useHint() }
         b.btnContinue.setOnClickListener { hideFeedback(); showQuestion() }
         b.btnCheck.setOnClickListener { checkAction?.invoke() }
+        bouncy(b.btnCheck)
+        bouncy(b.btnContinue)
         b.btnDone.setOnClickListener { finish() }
 
         // 토익·토플은 캐릭터 없이 깔끔하게 — 아이용 트랙에만 병아리가 함께한다
@@ -256,12 +258,32 @@ class LessonActivity : AppCompatActivity() {
         return v
     }
 
-    private fun choiceButton(text: String): Button = Button(this).apply {
+    /** 보기마다 다른 파스텔 — 아이 눈에 "글 목록"이 아니라 "알록달록 카드"로 보이게 */
+    private val choiceTints = listOf("#FFF3D6", "#E3F4FD", "#E8F6EA", "#F3EDFB")
+
+    /** 누르는 맛 — 눌리면 살짝 줄었다가 튕겨 돌아온다 */
+    private fun bouncy(v: View) {
+        v.setOnTouchListener { view, e ->
+            when (e.actionMasked) {
+                android.view.MotionEvent.ACTION_DOWN ->
+                    view.animate().scaleX(0.95f).scaleY(0.95f).setDuration(60).start()
+                android.view.MotionEvent.ACTION_UP, android.view.MotionEvent.ACTION_CANCEL ->
+                    view.animate().scaleX(1f).scaleY(1f).setDuration(140)
+                        .setInterpolator(android.view.animation.OvershootInterpolator(2f)).start()
+            }
+            false
+        }
+    }
+
+    private fun choiceButton(text: String, index: Int = 0): Button = Button(this).apply {
         this.text = text
-        textSize = 16f
+        textSize = 17f
         isAllCaps = false
         setTextColor(Color.parseColor("#4E342E"))
-        backgroundTintList = ColorStateList.valueOf(Color.WHITE)
+        val base = Color.parseColor(choiceTints[index % choiceTints.size])
+        tag = base
+        backgroundTintList = ColorStateList.valueOf(base)
+        bouncy(this)
         layoutParams = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
         ).apply { topMargin = dp(8) }
@@ -280,11 +302,12 @@ class LessonActivity : AppCompatActivity() {
         var selected = -1
         val buttons = ArrayList<Button>()
         choices.forEachIndexed { i, c ->
-            val btn = choiceButton(c)
+            val btn = choiceButton(c, i)
             btn.setOnClickListener {
                 selected = i
                 buttons.forEach {
-                    if (it.isEnabled) it.backgroundTintList = ColorStateList.valueOf(Color.WHITE)
+                    if (it.isEnabled) it.backgroundTintList =
+                        ColorStateList.valueOf(it.tag as? Int ?: Color.WHITE)
                 }
                 btn.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#FFD54F"))
                 b.btnCheck.isEnabled = true
