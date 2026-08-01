@@ -202,6 +202,31 @@ function genBasicUnits() {
     }
     const glossK = (kos) => kos.map((k) => `'${k}'는 ${koToWord[k] || "?"}`).join(" · ");
     const glossE = (ens) => ens.map((e) => `${e}는 '${enToKo[e] || "?"}'`).join(" · ");
+
+// ---------- 미니 상황 랩핑 ----------
+// "단어만 덜렁 있어 심심하다"는 피드백. 문제마다 작은 장면을 입힌다.
+// 시드 난수 대신 단어 해시로 골라 문제 ID 순서(진행도 호환)를 흔들지 않는다.
+function scenePick(key, arr) {
+  let h = 0;
+  for (const c of String(key)) h = (h * 31 + c.charCodeAt(0)) | 0;
+  return arr[Math.abs(h) % arr.length];
+}
+const SCENE_MEAN = [
+  (w) => `"${w}" 의 뜻은?`,
+  (w) => `삐약이가 "${w}!" 하고 외쳤어요. 무슨 뜻일까요?`,
+  (w) => `칠판에 "${w}" 라고 적혀 있어요. 뜻을 골라 보세요!`,
+  (w) => `토끼가 물었어요. "${w} 가 무슨 뜻이야?"`,
+  (w) => `그림책에서 "${w}" 를 봤어요. 무슨 뜻일까요?`,
+  (w) => `오늘의 단어는 "${w}"! 뜻을 맞혀 볼까요?`,
+];
+const SCENE_TOEN = [
+  (k) => `"${k}" 를 영어로?`,
+  (k) => `삐약이에게 "${k}" 를 영어로 알려 주세요!`,
+  (k) => `펭귄이 궁금해해요. "${k}" 는 영어로?`,
+  (k) => `영어 시간! "${k}" 를 영어로 골라 보세요.`,
+  (k) => `엄마가 물었어요. "${k} 가 영어로 뭐야?"`,
+];
+
     const exLine = (w) => (w.exEn ? `\n예문: ${w.exEn}\n      ${w.exKo}` : "");
 
     // --- 단어 유닛: 6단어 그룹 → 라운드식 출제 ---
@@ -211,13 +236,13 @@ function genBasicUnits() {
       // 1R: 뜻 고르기
       for (const w of group) {
         const d = pickDistinct(koPool, 3, [w.ko]);
-        stream.push(mcq("b", `"${w.word}" 의 뜻은?`, w.ko, d,
+        stream.push(mcq("b", scenePick(w.word, SCENE_MEAN)(w.word), w.ko, d,
           `📌 ${w.word} (${w.pos}) = ${w.ko}${exLine(w)}\n\n다른 선택지는 각각: ${glossK(d)} 의 뜻이라 오답이에요.`));
       }
       // 2R: 영어로
       for (const w of group) {
         const d = pickDistinct(enPool, 3, [w.word]);
-        stream.push(mcq("b", `"${w.ko}" 를 영어로?`, w.word, d,
+        stream.push(mcq("b", scenePick(w.ko, SCENE_TOEN)(w.ko), w.word, d,
           `📌 ${w.ko} = ${w.word} (${w.pos})${exLine(w)}\n\n다른 선택지는 각각: ${glossE(d)} 라는 뜻이라 오답이에요.`));
       }
       // 3R: 듣고 고르기
