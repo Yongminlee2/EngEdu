@@ -113,7 +113,7 @@ class BubbleChoiceView @JvmOverloads constructor(
     private fun placeBubbles() {
         if (width == 0 || height == 0 || bubbles.isEmpty()) return
         // 2 x 2 배치
-        radius = minOf(width / 4.6f, height / 4.6f)
+        radius = minOf(width / 4.2f, height / 4.2f)
         val cols = 2
         val cellW = width / cols.toFloat()
         val rows = (bubbles.size + cols - 1) / cols
