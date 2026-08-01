@@ -1,24 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="cream">#FFF8E7</color>
-    <color name="cream_dark">#FFF0CC</color>
-    <color name="chick_yellow">#FFD54F</color>
-    <color name="chick_yellow_deep">#FFB300</color>
-    <color name="coral">#FF8A80</color>
-    <color name="coral_deep">#FF5252</color>
-    <color name="mint">#80CBC4</color>
-    <color name="mint_deep">#26A69A</color>
-    <color name="sky">#81D4FA</color>
-    <color name="sky_deep">#29B6F6</color>
-    <color name="lavender">#B39DDB</color>
-    <color name="lavender_deep">#7E57C2</color>
-    <color name="brown_text">#4E342E</color>
-    <color name="brown_soft">#8D6E63</color>
+    <!-- Sticker-book design tokens.  Keep legacy names as aliases used by Canvas views. -->
+    <color name="paper">#FFF9ED</color>
+    <color name="paper_alt">#F8EEDB</color>
+    <color name="paper_pressed">#F1E2C4</color>
+    <color name="surface">#FFFFFC</color>
+    <color name="surface_alt">#FFF7E8</color>
+    <color name="ink">#3B2922</color>
+    <color name="ink_muted">#705B52</color>
+    <color name="outline">#E8D8B7</color>
+    <color name="outline_strong">#C99E65</color>
+    <color name="shadow_tan">#D5B783</color>
+    <color name="book_edge">#B97848</color>
+    <color name="primary">#FFD24A</color>
+    <color name="primary_deep">#E6A900</color>
+    <color name="primary_soft">#FFF1A8</color>
+    <color name="mint_soft">#E2F5E5</color>
+    <color name="sky_soft">#E6F4FC</color>
+    <color name="lavender_soft">#F0E9FB</color>
+    <color name="coral_soft">#FDE9E6</color>
+
+    <color name="cream">@color/paper</color>
+    <color name="cream_dark">@color/paper_alt</color>
+    <color name="chick_yellow">@color/primary</color>
+    <color name="chick_yellow_deep">@color/primary_deep</color>
+    <color name="coral">#F2766B</color>
+    <color name="coral_deep">#C83F46</color>
+    <color name="mint">#75C9BD</color>
+    <color name="mint_deep">#187C72</color>
+    <color name="sky">#77C4EB</color>
+    <color name="sky_deep">#207AA7</color>
+    <color name="lavender">#B79BE4</color>
+    <color name="lavender_deep">#66519A</color>
+    <color name="brown_text">@color/ink</color>
+    <color name="brown_soft">@color/ink_muted</color>
     <color name="white">#FFFFFF</color>
-    <color name="green_ok">#66BB6A</color>
-    <color name="green_bg">#E8F5E9</color>
-    <color name="red_bg">#FFEBEE</color>
-    <color name="gray_locked">#D7CCC8</color>
-    <color name="tile_bg">#FFFFFF</color>
-    <color name="tile_border">#FFE082</color>
+    <color name="green_ok">#28794C</color>
+    <color name="green_bg">#E3F4E8</color>
+    <color name="red_bg">#FCE7E5</color>
+    <color name="gray_locked">#D8D0C2</color>
+    <color name="tile_bg">@color/surface</color>
+    <color name="tile_border">@color/outline</color>
 </resources>

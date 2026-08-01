@@ -1,16 +1,20 @@
 package com.piyak.english.ui
 
-import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
 import android.text.InputType
 import android.view.Gravity
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
+import com.piyak.english.R
 import com.piyak.english.databinding.ActivityWalletBinding
 import com.piyak.english.db.Db
 import com.piyak.english.engine.Shop
@@ -67,7 +71,7 @@ class WalletActivity : AppCompatActivity() {
                         ShopKind.THEME -> "테마 (홈 배경 바꾸기)"
                     }
                     textSize = 13f
-                    setTextColor(Color.parseColor("#8D6E63"))
+                    setTextColor(ContextCompat.getColor(this@WalletActivity, R.color.ink_muted))
                     setPadding(dp(4), dp(12), 0, dp(4))
                 })
             }
@@ -76,10 +80,7 @@ class WalletActivity : AppCompatActivity() {
     }
 
     private fun shopRow(item: ShopItem): LinearLayout {
-        val owned = when (item.kind) {
-            ShopKind.STICKER, ShopKind.THEME -> db.ownsItem(item.id)
-            else -> false
-        }
+        val owned = item.kind in listOf(ShopKind.STICKER, ShopKind.THEME) && db.ownsItem(item.id)
         val equipped = when (item.kind) {
             ShopKind.STICKER -> db.equippedSticker() == item.emoji
             ShopKind.THEME -> db.themeColor() == item.color
@@ -90,26 +91,37 @@ class WalletActivity : AppCompatActivity() {
         val row = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            setPadding(dp(12), dp(10), dp(12), dp(10))
-            background = android.graphics.drawable.GradientDrawable().apply {
-                cornerRadius = dp(16).toFloat()
-                setColor(Color.WHITE)
-                setStroke(dp(2), Color.parseColor(if (equipped) "#66BB6A" else "#FFE082"))
-            }
+            setPadding(dp(14), dp(12), dp(14), dp(12))
+            background = ContextCompat.getDrawable(this@WalletActivity, R.drawable.bg_card_paper)
             layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
-            ).apply { topMargin = dp(6) }
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+            ).apply { topMargin = dp(8) }
         }
-        row.addView(TextView(this).apply { text = item.emoji; textSize = 26f })
+        row.addView(ImageView(this).apply {
+            val iconRes = when (item.kind) {
+                ShopKind.CONSUMABLE -> R.drawable.ic_favorite_rounded
+                ShopKind.UPGRADE -> R.drawable.ic_star_rounded
+                ShopKind.STICKER -> R.drawable.ic_trophy_rounded
+                ShopKind.THEME -> R.drawable.ic_draw_rounded
+            }
+            setImageResource(iconRes)
+            setPadding(dp(9), dp(9), dp(9), dp(9))
+            background = ContextCompat.getDrawable(this@WalletActivity, R.drawable.bg_chip_lavender)
+            importantForAccessibility = android.view.View.IMPORTANT_FOR_ACCESSIBILITY_NO
+            layoutParams = LinearLayout.LayoutParams(dp(44), dp(44))
+        })
+
         val col = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
-            setPadding(dp(10), 0, dp(6), 0)
+            setPadding(dp(12), 0, dp(8), 0)
         }
         col.addView(TextView(this).apply {
             text = item.name
             textSize = 15f
-            setTypeface(typeface, android.graphics.Typeface.BOLD)
+            setTypeface(typeface, Typeface.BOLD)
+            setTextColor(ContextCompat.getColor(this@WalletActivity, R.color.ink))
         })
         col.addView(TextView(this).apply {
             text = when {
@@ -118,60 +130,62 @@ class WalletActivity : AppCompatActivity() {
                 else -> item.desc
             }
             textSize = 11f
-            setTextColor(Color.parseColor("#8D6E63"))
+            setTextColor(ContextCompat.getColor(this@WalletActivity, R.color.ink_muted))
         })
         row.addView(col)
 
-        val btn = Button(this).apply {
+        row.addView(Button(this).apply {
             isAllCaps = false
             textSize = 13f
-            minWidth = 0
-            minimumWidth = 0
-            setPadding(dp(14), 0, dp(14), 0)
+            setTypeface(typeface, Typeface.BOLD)
+            minWidth = dp(72)
+            minimumWidth = dp(72)
+            minHeight = dp(48)
+            minimumHeight = dp(48)
+            setPadding(dp(12), 0, dp(12), 0)
+            setTextColor(ContextCompat.getColor(this@WalletActivity, R.color.ink))
             when {
                 maxed -> {
                     text = "최대"
+                    background = ContextCompat.getDrawable(this@WalletActivity, R.drawable.bg_secondary_button)
                     isEnabled = false
+                    alpha = 0.65f
                 }
                 equipped -> {
                     text = "사용 중"
+                    background = ContextCompat.getDrawable(this@WalletActivity, R.drawable.bg_chip_mint)
                     isEnabled = false
-                    setBackgroundColorTint("#66BB6A")
-                    setTextColor(Color.WHITE)
                 }
                 owned -> {
                     text = "적용"
-                    setBackgroundColorTint("#81D4FA")
-                    setTextColor(Color.parseColor("#4E342E"))
+                    background = ContextCompat.getDrawable(this@WalletActivity, R.drawable.bg_chip_sky)
                     setOnClickListener { equip(item) }
                 }
                 else -> {
                     text = Wallet.format(item.price)
                     val affordable = db.coins() >= item.price
-                    setBackgroundColorTint(if (affordable) "#FFD54F" else "#EDE7E0")
-                    setTextColor(Color.parseColor("#4E342E"))
+                    background = ContextCompat.getDrawable(
+                        this@WalletActivity,
+                        if (affordable) R.drawable.bg_primary_button else R.drawable.bg_secondary_button,
+                    )
+                    alpha = if (affordable) 1f else 0.72f
                     setOnClickListener { buy(item) }
                 }
             }
-        }
-        row.addView(btn)
+        })
         return row
-    }
-
-    private fun Button.setBackgroundColorTint(hex: String) {
-        backgroundTintList = android.content.res.ColorStateList.valueOf(Color.parseColor(hex))
     }
 
     private fun buy(item: ShopItem) {
         if (db.coins() < item.price) {
             Toast.makeText(
-                this, "용돈이 ${Wallet.format(item.price - db.coins())} 모자라요. 문제를 더 풀어 봐요! 🐥",
+                this, "용돈이 ${Wallet.format(item.price - db.coins())} 모자라요. 문제를 더 풀어 봐요!",
                 Toast.LENGTH_SHORT
             ).show()
             return
         }
         AlertDialog.Builder(this)
-            .setTitle("${item.emoji} ${item.name}")
+            .setTitle(item.name)
             .setMessage("${item.desc}\n\n${Wallet.format(item.price)}을 쓸까요?\n(남는 돈 ${Wallet.format(db.coins() - item.price)})")
             .setPositiveButton("살래요") { _, _ -> doBuy(item) }
             .setNegativeButton("다음에", null)
@@ -179,32 +193,32 @@ class WalletActivity : AppCompatActivity() {
     }
 
     private fun doBuy(item: ShopItem) {
-        if (!db.spendCoins(item.price, "BUY", "${item.emoji} ${item.name}")) return
+        if (!db.spendCoins(item.price, "BUY", item.name)) return
         when (item.kind) {
             ShopKind.CONSUMABLE -> when (item.id) {
                 "heart_refill" -> {
                     db.setHearts(db.maxHearts())
-                    toast("하트가 가득 찼어요! ❤️ ${db.maxHearts()}")
+                    toast("하트가 ${db.maxHearts()}개로 가득 찼어요!")
                 }
                 "hint3" -> {
                     db.addItem("hint", item.amount)
-                    toast("힌트권 ${item.amount}개를 받았어요! 💡")
+                    toast("힌트권 ${item.amount}개를 받았어요!")
                 }
             }
             ShopKind.UPGRADE -> if (item.id == "heart_up") {
                 db.setMaxHearts((db.maxHearts() + 1).coerceAtMost(Shop.MAX_HEARTS_CAP))
                 db.setHearts(db.maxHearts())
-                toast("이제 하트를 ${db.maxHearts()}개까지 가질 수 있어요! ❤️‍🔥")
+                toast("이제 하트를 ${db.maxHearts()}개까지 가질 수 있어요!")
             }
             ShopKind.STICKER -> {
                 db.addItem(item.id, 1)
                 db.setEquippedSticker(item.emoji)
-                toast("${item.emoji} 스티커를 홈에 붙였어요!")
+                toast("${item.name}를 홈에 붙였어요!")
             }
             ShopKind.THEME -> {
                 db.addItem(item.id, 1)
                 db.setThemeColor(item.color)
-                toast("${item.name}로 바꿨어요! ${item.emoji}")
+                toast("${item.name}로 바꿨어요!")
             }
         }
         refresh()
@@ -212,7 +226,7 @@ class WalletActivity : AppCompatActivity() {
 
     private fun equip(item: ShopItem) {
         when (item.kind) {
-            ShopKind.STICKER -> { db.setEquippedSticker(item.emoji); toast("${item.emoji} 스티커를 붙였어요!") }
+            ShopKind.STICKER -> { db.setEquippedSticker(item.emoji); toast("${item.name}를 붙였어요!") }
             ShopKind.THEME -> { db.setThemeColor(item.color); toast("${item.name} 적용!") }
             else -> {}
         }
@@ -223,14 +237,14 @@ class WalletActivity : AppCompatActivity() {
 
     private fun askPayout() {
         if (db.coins() <= 0) {
-            toast("아직 바꿀 용돈이 없어요 🐣")
+            toast("아직 바꿀 용돈이 없어요")
             return
         }
         val presets = Shop.PAYOUT_PRESETS.filter { it <= db.coins() }
         val labels = (presets.map { Wallet.format(it) } + "전액 ${Wallet.format(db.coins())}" + "직접 입력")
             .toTypedArray()
         AlertDialog.Builder(this)
-            .setTitle("💵 현금으로 바꾸기")
+            .setTitle("현금으로 바꾸기")
             .setItems(labels) { _, i ->
                 when {
                     i < presets.size -> confirmPayout(presets[i])
@@ -264,10 +278,10 @@ class WalletActivity : AppCompatActivity() {
         val doPay = {
             if (db.spendCoins(amount, "PAYOUT", "현금으로 받음")) {
                 AlertDialog.Builder(this)
-                    .setTitle("🎉 ${Wallet.format(amount)} 지급 완료!")
+                    .setTitle("${Wallet.format(amount)} 지급 완료!")
                     .setMessage(
                         "부모님이 ${Wallet.format(amount)}을 현금으로 주셨어요.\n" +
-                            "남은 용돈: ${Wallet.format(db.coins())}\n\n열심히 공부한 보람이 있네요! 🐥"
+                            "남은 용돈: ${Wallet.format(db.coins())}\n\n열심히 공부한 보람이 있네요!"
                     )
                     .setPositiveButton("좋아요!", null)
                     .show()
@@ -296,7 +310,7 @@ class WalletActivity : AppCompatActivity() {
         val options = if (has) arrayOf("비밀번호 바꾸기", "비밀번호 없애기")
         else arrayOf("비밀번호 만들기 (현금 지급 잠금)")
         AlertDialog.Builder(this)
-            .setTitle("🔒 부모 설정")
+            .setTitle("부모 설정")
             .setItems(options) { _, i ->
                 if (!has) newPin()
                 else if (i == 0) askPin("지금 비밀번호") { ok -> if (ok) newPin() }
@@ -317,7 +331,7 @@ class WalletActivity : AppCompatActivity() {
             .setView(input)
             .setPositiveButton("저장") { _, _ ->
                 val p = input.text.toString()
-                if (p.length == 4) { db.setParentPin(p); toast("비밀번호를 저장했어요 🔒") }
+                if (p.length == 4) { db.setParentPin(p); toast("비밀번호를 저장했어요") }
                 else toast("숫자 4자리로 만들어 주세요")
             }
             .setNegativeButton("취소", null)
@@ -349,9 +363,9 @@ class WalletActivity : AppCompatActivity() {
         val logs = db.walletLog(30)
         if (logs.isEmpty()) {
             b.logBox.addView(TextView(this).apply {
-                text = "아직 기록이 없어요. 문제를 풀어 용돈을 모아 봐요! 🐥"
+                text = "아직 기록이 없어요. 문제를 풀어 용돈을 모아 봐요!"
                 textSize = 13f
-                setTextColor(Color.parseColor("#8D6E63"))
+                setTextColor(ContextCompat.getColor(this@WalletActivity, R.color.ink_muted))
                 setPadding(dp(4), dp(8), 0, 0)
             })
             return
@@ -361,17 +375,32 @@ class WalletActivity : AppCompatActivity() {
             val row = LinearLayout(this).apply {
                 orientation = LinearLayout.HORIZONTAL
                 gravity = Gravity.CENTER_VERTICAL
-                setPadding(dp(4), dp(7), dp(4), dp(7))
+                setPadding(dp(10), dp(9), dp(10), dp(9))
+                background = ContextCompat.getDrawable(this@WalletActivity, R.drawable.bg_question_surface)
+                layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                ).apply { topMargin = dp(5) }
             }
-            row.addView(TextView(this).apply {
-                text = when (log.kind) {
-                    "LESSON" -> "📚"; "LETTER" -> "✏️"; "REVIEW" -> "💊"
-                    "GOAL" -> "🎯"; "PLACEMENT" -> "🎓"; "BUY" -> "🛒"; "PAYOUT" -> "💵"
-                    "LEGACY" -> "🎁"
-                    else -> "•"
+            row.addView(ImageView(this).apply {
+                val iconRes = when (log.kind) {
+                    "LESSON" -> R.drawable.ic_menu_book_rounded
+                    "LETTER" -> R.drawable.ic_edit_rounded
+                    "REVIEW" -> R.drawable.ic_replay_rounded
+                    "GOAL" -> R.drawable.ic_flag_rounded
+                    "PLACEMENT" -> R.drawable.ic_school_rounded
+                    "BUY" -> R.drawable.ic_shopping_cart_rounded
+                    "PAYOUT" -> R.drawable.ic_account_balance_wallet_rounded
+                    else -> R.drawable.ic_star_rounded
                 }
-                textSize = 16f
-                width = dp(28)
+                val icon = ContextCompat.getDrawable(this@WalletActivity, iconRes)?.mutate()
+                if (icon != null) {
+                    DrawableCompat.setTint(icon, ContextCompat.getColor(this@WalletActivity, R.color.ink_muted))
+                    setImageDrawable(icon)
+                }
+                setPadding(dp(4), dp(4), dp(4), dp(4))
+                importantForAccessibility = android.view.View.IMPORTANT_FOR_ACCESSIBILITY_NO
+                layoutParams = LinearLayout.LayoutParams(dp(32), dp(32))
             })
             val col = LinearLayout(this).apply {
                 orientation = LinearLayout.VERTICAL
@@ -385,14 +414,19 @@ class WalletActivity : AppCompatActivity() {
             col.addView(TextView(this).apply {
                 text = fmt.format(Date(log.at))
                 textSize = 10f
-                setTextColor(Color.parseColor("#A1887F"))
+                setTextColor(ContextCompat.getColor(this@WalletActivity, R.color.ink_muted))
             })
             row.addView(col)
             row.addView(TextView(this).apply {
                 text = (if (log.isEarn) "+" else "") + Wallet.format(log.amount)
                 textSize = 14f
                 setTypeface(typeface, android.graphics.Typeface.BOLD)
-                setTextColor(Color.parseColor(if (log.isEarn) "#43A047" else "#E53935"))
+                setTextColor(
+                    ContextCompat.getColor(
+                        this@WalletActivity,
+                        if (log.isEarn) R.color.green_ok else R.color.coral_deep,
+                    ),
+                )
             })
             b.logBox.addView(row)
         }

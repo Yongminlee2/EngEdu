@@ -1,14 +1,15 @@
 package com.piyak.english.ui
 
 import android.content.Intent
-import android.content.res.ColorStateList
 import android.graphics.Color
-import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.Gravity
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import com.piyak.english.R
 import com.piyak.english.databinding.ActivityPlaygroundBinding
 import com.piyak.english.db.Db
 import com.piyak.english.engine.GameReward
@@ -30,10 +31,11 @@ class PlaygroundActivity : AppCompatActivity() {
         level = Db.get(this).metaInt("game_level", 2).coerceIn(1, 3)
 
         b.btnBack.setOnClickListener { finish() }
-        b.txtTitle.text = "🎮 ${subject.title} 놀이터"
+        b.txtTitle.text = "${subject.title} 놀이터"
         b.btnLv1.setOnClickListener { setLevel(1) }
         b.btnLv2.setOnClickListener { setLevel(2) }
         b.btnLv3.setOnClickListener { setLevel(3) }
+        listOf(b.btnBack, b.btnLv1, b.btnLv2, b.btnLv3).forEach(UiKit::addPressMotion)
     }
 
     override fun onResume() {
@@ -48,11 +50,13 @@ class PlaygroundActivity : AppCompatActivity() {
     private fun setLevel(v: Int) {
         level = v
         Db.get(this).setMeta("game_level", v.toString())
-        val on = Color.parseColor("#FFD54F")
-        val off = Color.parseColor("#FFF0CC")
-        b.btnLv1.backgroundTintList = ColorStateList.valueOf(if (v == 1) on else off)
-        b.btnLv2.backgroundTintList = ColorStateList.valueOf(if (v == 2) on else off)
-        b.btnLv3.backgroundTintList = ColorStateList.valueOf(if (v == 3) on else off)
+        listOf(b.btnLv1, b.btnLv2, b.btnLv3).forEachIndexed { index, button ->
+            val selected = index + 1 == v
+            button.background = UiKit.rounded(
+                this, if (selected) R.color.primary else R.color.surface,
+                if (selected) R.color.primary_deep else R.color.outline, 18, 2
+            )
+        }
         build()
     }
 
@@ -64,19 +68,20 @@ class PlaygroundActivity : AppCompatActivity() {
         b.gamesBox.addView(TextView(this).apply {
             text = "오늘 용돈 받을 수 있는 판: $paidLeft 판 남음"
             textSize = 12f
-            setTextColor(Color.parseColor("#8D6E63"))
+            setTextColor(ContextCompat.getColor(this@PlaygroundActivity, R.color.ink_muted))
             setPadding(dp(6), 0, 0, dp(8))
         })
 
-        for (g in MiniGames.forSubject(subject)) {
+        val fills = intArrayOf(R.color.sky_soft, R.color.mint_soft, R.color.lavender_soft)
+        for ((index, g) in MiniGames.forSubject(subject).withIndex()) {
             val card = LinearLayout(this).apply {
                 orientation = LinearLayout.HORIZONTAL
                 gravity = Gravity.CENTER_VERTICAL
                 setPadding(dp(18), dp(20), dp(18), dp(20))
-                background = GradientDrawable().apply {
-                    cornerRadius = dp(22).toFloat()
-                    setColor(Color.parseColor(g.color))
-                }
+                background = UiKit.rounded(
+                    this@PlaygroundActivity, fills[index % fills.size],
+                    R.color.outline_strong, 22, 2
+                )
                 layoutParams = LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
                 ).apply { topMargin = dp(10) }
@@ -89,7 +94,14 @@ class PlaygroundActivity : AppCompatActivity() {
                     )
                 }
             }
-            card.addView(TextView(this).apply { text = g.emoji; textSize = 40f })
+            UiKit.addPressMotion(card)
+            card.addView(ImageView(this).apply {
+                setImageResource(R.drawable.ic_sports_esports_rounded)
+                imageTintList = ContextCompat.getColorStateList(this@PlaygroundActivity, R.color.ink)
+                contentDescription = null
+                layoutParams = LinearLayout.LayoutParams(dp(48), dp(48))
+                setPadding(dp(8), dp(8), dp(8), dp(8))
+            })
             val col = LinearLayout(this).apply {
                 orientation = LinearLayout.VERTICAL
                 layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
@@ -99,18 +111,19 @@ class PlaygroundActivity : AppCompatActivity() {
                 text = g.title
                 textSize = 20f
                 setTypeface(typeface, android.graphics.Typeface.BOLD)
-                setTextColor(Color.parseColor("#3E2723"))
+                setTextColor(ContextCompat.getColor(this@PlaygroundActivity, R.color.ink))
             })
             col.addView(TextView(this).apply {
                 text = g.desc
                 textSize = 13f
-                setTextColor(Color.parseColor("#5D4037"))
+                setTextColor(ContextCompat.getColor(this@PlaygroundActivity, R.color.ink_muted))
             })
             card.addView(col)
-            card.addView(TextView(this).apply {
-                text = "▶"
-                textSize = 20f
-                setTextColor(Color.parseColor("#3E2723"))
+            card.addView(ImageView(this).apply {
+                setImageResource(R.drawable.ic_chevron_right_rounded)
+                imageTintList = ContextCompat.getColorStateList(this@PlaygroundActivity, R.color.ink)
+                contentDescription = null
+                layoutParams = LinearLayout.LayoutParams(dp(32), dp(32))
             })
             b.gamesBox.addView(card)
         }

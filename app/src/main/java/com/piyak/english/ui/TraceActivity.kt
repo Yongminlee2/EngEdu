@@ -22,7 +22,7 @@ class TraceActivity : AppCompatActivity() {
     private var index = 0
     private var uppercase = true
 
-    private val praises = listOf("잘했어요! 🎉", "완벽해요! 🌟", "삐약! 최고예요!", "멋져요! 👏", "우와, 예쁘게 썼네요!")
+    private val praises = listOf("잘했어요!", "완벽해요!", "삐약! 최고예요!", "멋져요!", "우와, 예쁘게 썼네요!")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,12 +44,13 @@ class TraceActivity : AppCompatActivity() {
             if (index < Letters.ALL.size - 1) loadLetter(index + 1, uppercase)
             else finish()
         }
+        listOf(b.btnClose, b.btnSay, b.btnDemo, b.btnAgain, b.btnNext).forEach(UiKit::addPressMotion)
 
         // 획마다 소리를 내면 한 글자 쓰는 동안 대여섯 번 울려 시끄럽다.
         // 소리는 글자를 다 썼을 때 한 번만 (onLetterComplete 의 sfx.done()).
         b.traceView.onStrokeDone = { updateStrokeInfo() }
         b.traceView.onStrokeFail = {
-            b.txtHint.text = "앗, 길을 벗어났어요. 다시 천천히! 🐥"
+            b.txtHint.text = "앗, 길을 벗어났어요. 다시 천천히 따라가요."
             b.traceView.startAnimation(AnimationUtils.loadAnimation(this, R.anim.shake))
         }
         b.traceView.onAllDone = { onLetterComplete() }
@@ -69,14 +70,14 @@ class TraceActivity : AppCompatActivity() {
         uppercase = upper
         val d = def()
         b.txtTitle.text = "${d.glyph(true)} ${d.glyph(false)}   (${if (upper) "대문자" else "소문자"})"
-        b.txtEmoji.text = d.emoji
+        b.txtEmoji.text = d.glyph(upper).toString()
         b.txtWord.text = d.word
         b.txtWordKo.text = d.ko
         b.donePanel.visibility = View.GONE
-        b.btnAgain.text = "↻ 지우기"
+        b.btnAgain.text = "지우기"
         val writes = db.letterWrites(Letters.key(d, upper))
         b.txtHint.text = if (writes > 0)
-            "지금까지 ${writes}번 썼어요. 또 써 볼까요? ✏️"
+            "지금까지 ${writes}번 썼어요. 또 써 볼까요?"
         else "초록 ① 부터 길을 따라 그려 보세요!"
         b.traceView.setLetter(d.strokes(upper), d.glyph(upper).toString())
         updateStrokeInfo()
@@ -89,7 +90,7 @@ class TraceActivity : AppCompatActivity() {
         val total = b.traceView.totalStrokes
         val done = b.traceView.doneStrokes
         b.txtStrokeInfo.text = "${minOf(done + 1, total)} / $total 획"
-        if (done in 1 until total) b.txtHint.text = "좋아요! 다음은 ${done + 1}번 획이에요 ✏️"
+        if (done in 1 until total) b.txtHint.text = "좋아요! 다음은 ${done + 1}번 획이에요."
     }
 
     private fun onLetterComplete() {
@@ -111,21 +112,21 @@ class TraceActivity : AppCompatActivity() {
         }
 
         val stars = if (writes >= 5) 3 else if (writes >= 3) 2 else 1
-        b.txtDoneBig.text = def().emoji
-        b.txtDoneMsg.text = "${praises.random()}\n${"⭐".repeat(stars)}  ${writes}번 썼어요!"
+        b.txtDoneBig.text = def().glyph(uppercase).toString()
+        b.txtDoneMsg.text = "${praises.random()}\n별 ${stars}개 · ${writes}번 썼어요!"
         b.donePanel.visibility = View.VISIBLE
         b.donePanel.alpha = 0f
         b.donePanel.scaleX = 0.5f; b.donePanel.scaleY = 0.5f
         b.donePanel.animate().alpha(1f).scaleX(1f).scaleY(1f).setDuration(420).start()
 
         b.txtHint.text = when {
-            coins > 0 -> "완성! 용돈 +${W.format(coins)} 🎁  · '한 번 더 쓰기'로 연습해요!"
-            writes < 5 -> "완성! 한 번 더 써 볼까요? ✏️"
-            else -> "이 글자는 ${writes}번이나 썼어요! 정말 잘하네요 🌟"
+            coins > 0 -> "완성! 용돈 +${W.format(coins)} · '한 번 더 쓰기'로 연습해요!"
+            writes < 5 -> "완성! 한 번 더 써 볼까요?"
+            else -> "이 글자는 ${writes}번이나 썼어요! 정말 잘하네요."
         }
-        b.txtStrokeInfo.text = "${b.traceView.totalStrokes} / ${b.traceView.totalStrokes} 획 ✅"
+        b.txtStrokeInfo.text = "${b.traceView.totalStrokes} / ${b.traceView.totalStrokes} 획"
         // 반복 연습이 쉽도록 버튼을 '한 번 더 쓰기'로 바꾼다
-        b.btnAgain.text = "✏️ 한 번 더 쓰기"
+        b.btnAgain.text = "한 번 더 쓰기"
         sayLetter()
     }
 

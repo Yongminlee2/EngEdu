@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="space_1">4dp</dimen>
+    <dimen name="space_2">8dp</dimen>
+    <dimen name="space_3">12dp</dimen>
+    <dimen name="space_4">16dp</dimen>
+    <dimen name="space_6">24dp</dimen>
+    <dimen name="space_8">32dp</dimen>
+    <dimen name="radius_small">12dp</dimen>
+    <dimen name="radius_medium">18dp</dimen>
+    <dimen name="radius_large">24dp</dimen>
+    <dimen name="radius_hero">28dp</dimen>
+    <dimen name="touch_target">48dp</dimen>
+    <dimen name="button_height">56dp</dimen>
+    <dimen name="journey_node_size">72dp</dimen>
+</resources>

@@ -33,13 +33,13 @@ class LineMatchView @JvmOverloads constructor(
     private var shakeTime = 0f
 
     private val colors = listOf(
-        "#FF8A80", "#FFD54F", "#80CBC4", "#81D4FA", "#B39DDB", "#A5D6A7",
+        "#F2766B", "#FFD24A", "#75C9BD", "#77C4EB", "#B79BE4", "#91C788",
     ).map { Color.parseColor(it) }
 
     private val boxPaint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val strokePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE
-        color = Color.parseColor("#FFE082")
+        color = Color.parseColor("#E8D8B7")
     }
     private val linePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE
@@ -47,11 +47,16 @@ class LineMatchView @JvmOverloads constructor(
     }
     private val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         textAlign = Paint.Align.CENTER
-        color = Color.parseColor("#4E342E")
+        color = Color.parseColor("#3B2922")
         isFakeBoldText = true
     }
 
     val isCleared: Boolean get() = left.isNotEmpty() && matched.size == left.size
+
+    init {
+        contentDescription = "왼쪽과 오른쪽의 짝을 선으로 잇는 게임판"
+        isFocusable = true
+    }
 
     /** (왼쪽, 오른쪽) 짝 목록을 넣는다 */
     fun setPairs(pairs: List<Pair<String, String>>) {
@@ -100,7 +105,7 @@ class LineMatchView @JvmOverloads constructor(
         }
         // 끌고 있는 선
         dragFrom?.let {
-            linePaint.color = Color.parseColor("#8D6E63")
+            linePaint.color = Color.parseColor("#705B52")
             canvas.drawLine(it.box.right, it.box.centerY(), dragX, dragY, linePaint)
         }
 
@@ -118,17 +123,17 @@ class LineMatchView @JvmOverloads constructor(
 
             boxPaint.color = if (done) colors[node.key % colors.size] else Color.WHITE
             canvas.drawRoundRect(box, dp(16f), dp(16f), boxPaint)
-            strokePaint.color = if (done) Color.parseColor("#66BB6A") else Color.parseColor("#FFE082")
+            strokePaint.color = if (done) Color.parseColor("#28794C") else Color.parseColor("#E8D8B7")
             canvas.drawRoundRect(box, dp(16f), dp(16f), strokePaint)
 
             val isEmoji = node.text.isNotEmpty() && node.text[0].code > 0x2000
             textPaint.textSize = if (isEmoji) box.height() * 0.55f else (box.height() * 0.36f)
                 .coerceAtMost(dp(22f))
-            textPaint.color = if (done) Color.WHITE else Color.parseColor("#4E342E")
+            textPaint.color = Color.parseColor("#3B2922")
             canvas.drawText(node.text, box.centerX(), box.centerY() + textPaint.textSize * 0.35f, textPaint)
 
             // 연결점
-            boxPaint.color = if (done) Color.parseColor("#66BB6A") else Color.parseColor("#FFB300")
+            boxPaint.color = if (done) Color.parseColor("#28794C") else Color.parseColor("#E6A900")
             val cx = if (isLeft) box.right else box.left
             canvas.drawCircle(cx, box.centerY(), dp(7f), boxPaint)
         }
@@ -156,6 +161,7 @@ class LineMatchView @JvmOverloads constructor(
             MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
                 val from = dragFrom
                 dragFrom = null
+                if (event.actionMasked == MotionEvent.ACTION_UP && from != null) performClick()
                 if (from != null) {
                     val hit = right.firstOrNull {
                         !matched.containsValue(it.key) && it.box.contains(event.x, event.y)
@@ -176,6 +182,11 @@ class LineMatchView @JvmOverloads constructor(
                 return true
             }
         }
+        return true
+    }
+
+    override fun performClick(): Boolean {
+        super.performClick()
         return true
     }
 

@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.Piyak" parent="Theme.Material3.Light.NoActionBar">
-        <item name="colorPrimary">@color/chick_yellow</item>
-        <item name="colorOnPrimary">@color/brown_text</item>
-        <item name="colorPrimaryContainer">@color/cream_dark</item>
-        <item name="colorOnPrimaryContainer">@color/brown_text</item>
-        <item name="colorSecondary">@color/coral</item>
+    <style name="Base.Theme.Piyak" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/ink</item>
+        <item name="colorPrimaryContainer">@color/primary_soft</item>
+        <item name="colorOnPrimaryContainer">@color/ink</item>
+        <item name="colorSecondary">@color/mint_deep</item>
         <item name="colorOnSecondary">@color/white</item>
-        <item name="android:windowBackground">@color/cream</item>
-        <item name="android:statusBarColor">@color/cream</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/ink</item>
+        <item name="colorOutline">@color/outline_strong</item>
+        <item name="colorError">@color/coral_deep</item>
+        <item name="colorOnError">@color/white</item>
+        <item name="android:colorAccent">@color/mint_deep</item>
+        <item name="android:windowBackground">@color/paper</item>
+        <item name="android:statusBarColor">@color/paper</item>
         <item name="android:windowLightStatusBar">true</item>
-        <item name="android:navigationBarColor">@color/cream</item>
-        <item name="android:textColor">@color/brown_text</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:navigationBarColor">@color/paper</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Piyak.Small</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Piyak.Medium</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Piyak.Large</item>
     </style>
+
+    <style name="Theme.Piyak" parent="Base.Theme.Piyak" />
 </resources>

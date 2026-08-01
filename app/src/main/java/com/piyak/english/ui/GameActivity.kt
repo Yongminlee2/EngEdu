@@ -56,6 +56,7 @@ class GameActivity : AppCompatActivity() {
         b.btnClose.setOnClickListener { finish() }
         b.btnQuit.setOnClickListener { finish() }
         b.btnAgain.setOnClickListener { restart() }
+        listOf(b.btnClose, b.btnQuit, b.btnAgain, b.btnAction).forEach(UiKit::addPressMotion)
 
         start()
     }
@@ -95,8 +96,8 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun updateHud() {
-        b.txtScore.text = "⭐ $score"
-        b.txtLives.text = "❤️".repeat(lives.coerceAtLeast(0))
+        b.txtScore.text = score.toString()
+        b.txtLives.text = lives.coerceAtLeast(0).toString()
     }
 
     private fun hit() {
@@ -230,12 +231,14 @@ class GameActivity : AppCompatActivity() {
             if (coins > 0) db.addBonusCountToday("game")
         }
 
-        b.txtResultTitle.text = "$title ${"⭐".repeat(stars)}"
+        b.txtResultTitle.text = "$title · 별 ${stars}개"
         b.txtResultBody.text = buildString {
             append("점수 ${score}점 · +${xp} XP")
-            if (coins > 0) append("\n💰 용돈 +${Wallet.format(coins)}")
+            if (coins > 0) append("\n용돈 +${Wallet.format(coins)}")
             else append("\n오늘 게임 용돈은 다 받았어요\n(공부하면 더 받을 수 있어요!)")
         }
         b.resultPanel.visibility = View.VISIBLE
+        b.resultPanel.alpha = 0f
+        b.resultPanel.animate().alpha(1f).setDuration(260).start()
     }
 }
