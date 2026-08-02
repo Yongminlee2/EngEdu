@@ -29,6 +29,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".ui.StageActivity" android:exported="false" android:screenOrientation="portrait" />
         <activity android:name=".ui.TrackActivity" android:exported="false" android:screenOrientation="portrait" />
         <activity android:name=".ui.LessonActivity" android:exported="false" android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
