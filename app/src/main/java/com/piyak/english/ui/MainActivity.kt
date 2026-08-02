@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity() {
 
         // 살아있는 마스코트 — 천천히 숨쉬고, 톡 치면 삐약! 하고 점프
         sfx = com.piyak.english.audio.Sfx(this)
+        PoseAnim.applyTo(b.imgMascot, R.drawable.ck_idle)   // 가끔 눈을 깜빡인다
         android.animation.ObjectAnimator.ofPropertyValuesHolder(
             b.imgMascot,
             android.animation.PropertyValuesHolder.ofFloat(View.SCALE_X, 1f, 1.045f),

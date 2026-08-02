@@ -349,10 +349,11 @@ class LessonActivity : AppCompatActivity() {
             root.addView(this, minOf(1, root.childCount))
         }
         val img = android.widget.ImageView(this).apply {
-            setImageResource(resId)
             tag = sizeDp                     // 원래 요청 크기 — 다시 계산할 때 쓴다
             layoutParams = LinearLayout.LayoutParams(dp(sizeDp), dp(sizeDp))
         }
+        // 두 번째 프레임이 있는 포즈는 저절로 움직인다 (듣기 병아리 고개 까딱 등)
+        PoseAnim.applyTo(img, resId)
         row.addView(img)
         fitArtRow(row)
         // 뿅 하고 등장
@@ -815,10 +816,11 @@ class LessonActivity : AppCompatActivity() {
         )
         // 정답 공개 후에는 낱말 그림으로 한 번 더 각인 (없으면 병아리)
         val fbArt = feedbackArtRes
-        b.imgFeedback.setImageResource(
+        PoseAnim.applyTo(
+            b.imgFeedback,
             when {
                 fbArt != 0 -> fbArt
-                correct -> R.drawable.ck_cheer
+                correct -> R.drawable.ck_cheer   // 날갯짓하며 축하
                 else -> R.drawable.ck_sad
             }
         )
@@ -872,7 +874,7 @@ class LessonActivity : AppCompatActivity() {
         }
 
         sfx.done()
-        b.imgResult.setImageResource(if (s.isPerfect) R.drawable.ck_cheer else R.drawable.ck_clap)
+        PoseAnim.applyTo(b.imgResult, if (s.isPerfect) R.drawable.ck_cheer else R.drawable.ck_clap)
         b.celebrate.finale()
         val xp = s.xpEarned()
         var coins = 0
