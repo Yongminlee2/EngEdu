@@ -53,6 +53,11 @@ class LessonActivity : AppCompatActivity() {
     private val encourageRun = Runnable {
         if (b.chickView.visibility == View.VISIBLE) b.chickView.encourage()
     }
+
+    /** 45초까지 조용하면 병아리가 잠든다 — 톡 치면 삐약! 하고 일어난다 */
+    private val sleepRun = Runnable {
+        if (b.chickView.visibility == View.VISIBLE) b.chickView.sleep()
+    }
     private var lessonId = ""
     private var lessonTitle = ""
 
@@ -85,6 +90,9 @@ class LessonActivity : AppCompatActivity() {
     private val okLines = listOf("삐약! 정답이에요!", "완벽해요! 🐥", "역시 천재!", "삐약삐약~ 좋아요!", "굿굿! 최고예요!")
     private val noLines = listOf("아쉬워요 😢", "괜찮아요, 다시 나와요!", "삐약… 다음엔 맞혀요!", "조금만 더 힘내요!")
 
+    /** 정답 공개 후 피드백 패널에 보여줄 낱말 그림 — 문제에서 미리 보여주면 답이 새는 유형용 */
+    private var feedbackArtRes = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         b = ActivityLessonBinding.inflate(layoutInflater)
@@ -94,6 +102,12 @@ class LessonActivity : AppCompatActivity() {
         tts = Tts(this)
         tts.rate = db.meta("tts_rate", "1.0").toFloatOrNull() ?: 1.0f
         stt = Stt(this)
+        // 잠든 병아리를 톡 치면 삐약! 하고 일어난다
+        b.chickView.onWake = {
+            sfx.piyak()
+            b.root.removeCallbacks(sleepRun)
+            b.root.postDelayed(sleepRun, 45_000L)
+        }
 
         reviewMode = intent.getStringExtra("mode") == "review"
         val questions: List<Question>
@@ -151,6 +165,7 @@ class LessonActivity : AppCompatActivity() {
         super.onDestroy()
         tts.shutdown(); stt.stop(); sfx.release()
         b.root.removeCallbacks(encourageRun)
+        b.root.removeCallbacks(sleepRun)
     }
 
     @Deprecated("Deprecated in Java")
@@ -189,7 +204,9 @@ class LessonActivity : AppCompatActivity() {
         val s = session ?: return
         // 응원 타이머 재시작
         b.root.removeCallbacks(encourageRun)
+        b.root.removeCallbacks(sleepRun)
         b.root.postDelayed(encourageRun, 15_000L)
+        b.root.postDelayed(sleepRun, 45_000L)
 
         b.progressBar.progress = (s.progress * 100).toInt()
         b.txtHearts.text = when {
@@ -206,6 +223,7 @@ class LessonActivity : AppCompatActivity() {
         choiceButtons = emptyList()
         choiceAnswer = -1
         hintUsedHere = false
+        feedbackArtRes = 0
         tts.stop()
 
         when (q) {
@@ -404,29 +422,39 @@ class LessonActivity : AppCompatActivity() {
             q.bigEmoji != null -> "🎨 그림 문제"
             else -> "🔤 고르기"
         }
-        // 지문에 나온 영어 낱말이 그림 사전(199장)에 있으면 진짜 일러스트를 붙인다.
-        // 한글 지문("사과를 영어로?")에는 안 붙인다 — 그림이 정답을 알려주게 되므로.
+        // 그림 배선 원칙 (전 레벨 공통):
+        //  · 한→영("사과"를 영어로?): 문제에 이미 낱말이 적혀 있어 그림이 답을 흘리지 않는다 → 문제에 크게
+        //  · 영→한("apple"의 뜻은?): 보기가 한글 뜻이라 그림이 곧 답안지 → 문제에선 빼고 정답 화면에서 보여준다
+        val koWord = Regex("\"([가-힣]+)").find(q.prompt)?.groupValues?.get(1)
+        val koArt = koWord?.let { k -> com.piyak.english.engine.WordArt.KO[k]?.let { artRes(it) } } ?: 0
         val enWord = Regex("\"([A-Za-z]+)").find(q.prompt)?.groupValues?.get(1)?.lowercase()
-        val imgId = enWord?.let {
+        val enArt = enWord?.let {
             resources.getIdentifier("word_$it", "drawable", packageName)
         } ?: 0
-        if (imgId != 0) {
-            v.findViewById<android.widget.ImageView>(R.id.imgWordArt).apply {
+        when {
+            koArt != 0 -> v.findViewById<android.widget.ImageView>(R.id.imgWordArt).apply {
                 visibility = View.VISIBLE
-                setImageResource(imgId)
-                layoutParams = layoutParams.apply {
-                    width = dp(175); height = dp(175)
+                setImageResource(koArt)
+                layoutParams = layoutParams.apply { width = dp(175); height = dp(175) }
+            }
+            enArt != 0 -> {
+                feedbackArtRes = enArt
+                addArt(v, artRes("ck_think"), 120)
+            }
+            q.bigEmoji != null -> v.findViewById<TextView>(R.id.txtBigEmoji).apply {
+                visibility = View.VISIBLE
+                text = q.bigEmoji
+            }
+            enWord == null -> {
+                // 문법·독해 등 일반 문제만 이모지 폴백 (영→한은 이모지도 답을 흘린다)
+                findWordArt(q.prompt, q.choices)?.let { art ->
+                    v.findViewById<TextView>(R.id.txtBigEmoji).apply {
+                        visibility = View.VISIBLE
+                        text = art
+                    }
                 }
             }
-        } else {
-            // 그림 사전에 없으면 이모지 폴백
-            val art = q.bigEmoji ?: findWordArt(q.prompt, q.choices)
-            if (art != null) {
-                v.findViewById<TextView>(R.id.txtBigEmoji).apply {
-                    visibility = View.VISIBLE
-                    text = art
-                }
-            }
+            else -> addArt(v, artRes("ck_think"), 120)
         }
         if (q.passage != null) {
             addArt(v, artRes("ck_book"), 120)
@@ -439,6 +467,8 @@ class LessonActivity : AppCompatActivity() {
     private fun showListenMcq(q: Question.ListenMcq) {
         val v = inflate(R.layout.view_q_mcq)
         addArt(v, artRes("ck_listen"), 150)
+        // 들려준 낱말의 그림은 답 공개 후에 — 미리 보여주면 답이 샌다
+        feedbackArtRes = sentenceArt(q.tts)
         v.findViewById<TextView>(R.id.txtKind).text = "🎧 듣기"
         v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
         val play = v.findViewById<Button>(R.id.btnPlay)
@@ -690,8 +720,26 @@ class LessonActivity : AppCompatActivity() {
         b.feedbackPanel.background = getDrawable(
             if (correct) R.drawable.bg_feedback_ok else R.drawable.bg_feedback_no
         )
-        b.imgFeedback.setImageResource(if (correct) R.drawable.ck_cheer else R.drawable.ck_sad)
+        // 정답 공개 후에는 낱말 그림으로 한 번 더 각인 (없으면 병아리)
+        val fbArt = feedbackArtRes
+        b.imgFeedback.setImageResource(
+            when {
+                fbArt != 0 -> fbArt
+                correct -> R.drawable.ck_cheer
+                else -> R.drawable.ck_sad
+            }
+        )
+        val fbSize = dp(if (fbArt != 0) 84 else 56)
+        b.imgFeedback.layoutParams = b.imgFeedback.layoutParams.apply { width = fbSize; height = fbSize }
         b.txtFeedback.text = if (correct) okLines.random() else noLines.random()
+        // 패널이 아래에서 통통 올라오고, 그림이 뿅 하고 커진다
+        b.feedbackPanel.translationY = dp(48).toFloat()
+        b.feedbackPanel.alpha = 0f
+        b.feedbackPanel.animate().translationY(0f).alpha(1f)
+            .setDuration(240L).setInterpolator(android.view.animation.OvershootInterpolator(1.1f)).start()
+        b.imgFeedback.scaleX = 0.4f; b.imgFeedback.scaleY = 0.4f
+        b.imgFeedback.animate().scaleX(1f).scaleY(1f)
+            .setDuration(340L).setInterpolator(android.view.animation.OvershootInterpolator(2.2f)).start()
         val detail = listOfNotNull(note, explain).joinToString("\n\n")
         if (detail.isNotEmpty()) {
             b.txtExplain.visibility = View.VISIBLE
@@ -723,7 +771,7 @@ class LessonActivity : AppCompatActivity() {
         b.resultPanel.visibility = View.VISIBLE
 
         if (s.failed) {
-            b.imgResult.setImageResource(R.drawable.chick_sad)
+            b.imgResult.setImageResource(R.drawable.ck_cheerup)
             b.txtResultTitle.text = "하트가 다 떨어졌어요 💔"
             b.txtResultStats.text = "오답 복습으로 하트를 채우고\n다시 도전해 봐요!"
             db.setHearts(0)
@@ -731,7 +779,8 @@ class LessonActivity : AppCompatActivity() {
         }
 
         sfx.done()
-        b.imgResult.setImageResource(R.drawable.chick_happy)
+        b.imgResult.setImageResource(if (s.isPerfect) R.drawable.ck_cheer else R.drawable.ck_clap)
+        b.celebrate.finale()
         val xp = s.xpEarned()
         var coins = 0
         if (reviewMode) {

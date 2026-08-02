@@ -69,7 +69,8 @@ class StageActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val (title, entries) = entriesFor(intent.getStringExtra("stage") ?: "skills")
+        val stage = intent.getStringExtra("stage") ?: "skills"
+        val (title, entries) = entriesFor(stage)
 
         val root = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
@@ -95,6 +96,15 @@ class StageActivity : AppCompatActivity() {
             setTextColor(Color.parseColor("#4E342E"))
         })
         root.addView(header)
+
+        // 단계 대표 일러스트 (발주서 #04) — 화면의 얼굴
+        val hero = resources.getIdentifier("stage_$stage", "drawable", packageName)
+        if (hero != 0) root.addView(android.widget.ImageView(this).apply {
+            setImageResource(hero)
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, dp(132)
+            ).apply { topMargin = dp(2); bottomMargin = dp(4) }
+        })
 
         val db = Db.get(this)
         val done = db.completedLessonIds()

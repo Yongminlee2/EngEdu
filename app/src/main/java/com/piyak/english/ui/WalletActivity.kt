@@ -100,7 +100,11 @@ class WalletActivity : AppCompatActivity() {
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
             ).apply { topMargin = dp(6) }
         }
-        row.addView(TextView(this).apply { text = item.emoji; textSize = 26f })
+        val iconRes = shopIconRes(item.id)
+        if (iconRes != 0) row.addView(android.widget.ImageView(this).apply {
+            setImageResource(iconRes)
+            layoutParams = LinearLayout.LayoutParams(dp(46), dp(46))
+        }) else row.addView(TextView(this).apply { text = item.emoji; textSize = 26f })
         val col = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
@@ -399,5 +403,24 @@ class WalletActivity : AppCompatActivity() {
     }
 
     private fun toast(s: String) = Toast.makeText(this, s, Toast.LENGTH_SHORT).show()
+
+    /** codex 상점 일러스트 (발주서 #04) — 그림이 없는 아이템은 이모지로 보여준다 */
+    private fun shopIconRes(id: String): Int {
+        val name = when (id) {
+            "heart_refill" -> "shop_heart"
+            "heart_up" -> "shop_heart_plus"
+            "hint3" -> "shop_hint"
+            "st_star" -> "shop_sticker_star"
+            "st_crown" -> "shop_sticker_crown"
+            "st_rainbow" -> "shop_sticker_rainbow"
+            "st_rocket" -> "shop_sticker_rocket"
+            "th_pink" -> "shop_theme_pink"
+            "th_mint" -> "shop_theme_mint"
+            "th_sky" -> "shop_theme_sky"
+            else -> return 0
+        }
+        return resources.getIdentifier(name, "drawable", packageName)
+    }
+
     private fun dp(v: Int): Int = (v * resources.displayMetrics.density).toInt()
 }

@@ -68,6 +68,12 @@ class CelebrateOverlayView @JvmOverloads constructor(
         if (combo >= 2) showCombo("🔥 ${combo}연속!")
     }
 
+    /** 레슨 완료 축하 — 콤보 배지 없이 색종이만 시차를 두고 두 번 크게 */
+    fun finale() {
+        burst(40)
+        postDelayed({ burst(28) }, 450L)
+    }
+
     private fun burst(count: Int) {
         val cx = width / 2f
         val cy = height * 0.42f

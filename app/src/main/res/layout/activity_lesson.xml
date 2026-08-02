@@ -46,10 +46,6 @@
         android:layout_gravity="top|end"
         android:layout_marginTop="64dp" android:layout_marginEnd="10dp" />
 
-    <!-- 정답 색종이·콤보 오버레이 (전체 화면, 터치 통과) -->
-    <com.piyak.english.ui.CelebrateOverlayView android:id="@+id/celebrate"
-        android:layout_width="match_parent" android:layout_height="match_parent" />
-
     <!-- 정오답 피드백 패널 -->
     <LinearLayout android:id="@+id/feedbackPanel"
         android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -89,4 +85,7 @@
             android:layout_marginTop="28dp" android:text="완료" android:textSize="18sp"
             android:backgroundTint="@color/chick_yellow" android:textColor="@color/brown_text" />
     </LinearLayout>
+    <!-- 정답 색종이·콤보 오버레이 — 결과 화면 위에도 뿌려지도록 맨 마지막(최상단)에 둔다 -->
+    <com.piyak.english.ui.CelebrateOverlayView android:id="@+id/celebrate"
+        android:layout_width="match_parent" android:layout_height="match_parent" />
 </FrameLayout>
