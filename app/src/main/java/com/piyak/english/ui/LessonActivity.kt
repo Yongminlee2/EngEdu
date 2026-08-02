@@ -287,6 +287,46 @@ class LessonActivity : AppCompatActivity() {
         return 0
     }
 
+
+    /**
+     * 문장·지문의 낱말로 상황 장면 그림을 고른다 (발주서 #05, 20장).
+     * 낱말 그림이 없는 문법·회화·대화 문제에 "그 상황의 그림"을 붙이는 용도라
+     * 정답을 집어 주지는 않되 분위기는 잡아 준다.
+     */
+    private fun sceneArt(vararg texts: String?): Int {
+        val t = texts.filterNotNull().joinToString(" ").lowercase()
+        if (t.isBlank()) return 0
+        val table = listOf(
+            "greeting" to listOf("hello", "hi ", "nice to meet", "good morning", "인사", "안녕"),
+            "restaurant" to listOf("restaurant", "menu", "order", "waiter", "식당", "주문", "메뉴"),
+            "airport" to listOf("airport", "flight", "passport", "boarding", "공항", "비행"),
+            "travel" to listOf("travel", "trip", "tour", "hotel", "여행", "호텔"),
+            "shopping" to listOf("shop", "buy", "price", "store", "쇼핑", "가격", "사다"),
+            "school" to listOf("school", "class", "teacher", "student", "homework", "학교", "수업", "선생님"),
+            "hospital" to listOf("hospital", "doctor", "sick", "medicine", "병원", "의사", "아프"),
+            "phone" to listOf("phone", "call", "message", "전화", "통화"),
+            "weather" to listOf("weather", "rain", "sunny", "snow", "cloud", "날씨", "비가", "눈이"),
+            "family" to listOf("family", "mother", "father", "sister", "brother", "가족", "엄마", "아빠"),
+            "home" to listOf("home", "house", "room", "kitchen", "집에", "방에"),
+            "office" to listOf("office", "work", "meeting", "boss", "회사", "회의", "직장"),
+            "market" to listOf("market", "fruit", "vegetable", "시장", "과일"),
+            "sports" to listOf("sport", "soccer", "baseball", "play ball", "운동", "축구", "야구"),
+            "birthday" to listOf("birthday", "cake", "party", "present", "생일", "파티", "선물"),
+            "camping" to listOf("camp", "tent", "campfire", "캠핑", "텐트"),
+            "library" to listOf("library", "book", "read", "도서관", "책을"),
+            "bus" to listOf("bus", "subway", "train", "station", "버스", "지하철", "기차"),
+            "park" to listOf("park", "walk", "bench", "공원", "산책"),
+            "beach" to listOf("beach", "sea", "swim", "바다", "해변", "수영"),
+        )
+        for ((name, keys) in table) {
+            if (keys.any { t.contains(it) }) {
+                val id = artRes("scene_$name")
+                if (id != 0) return id
+            }
+        }
+        return 0
+    }
+
     /** 문제 위쪽에 일러스트를 끼워 넣는다 — 글만 덜렁 있는 화면을 없애는 핵심 */
     private fun addArt(v: View, resId: Int, sizeDp: Int = 165) {
         if (resId == 0) return
@@ -442,9 +482,11 @@ class LessonActivity : AppCompatActivity() {
                 text = q.bigEmoji
             }
             else -> {
-                // 낱말 그림이 없어도 문장 속 아는 낱말의 그림으로 상황 힌트를 준다
+                // 낱말 그림 → 상황 장면 그림 → 이모지 순으로 무조건 뭐라도 붙인다
                 val hint = sentenceArt(q.prompt)
+                val scene = if (hint == 0) sceneArt(q.prompt, q.passage) else 0
                 if (hint != 0) addArt(v, hint, 150)
+                else if (scene != 0) addArt(v, scene, 150)
                 else findWordArt(q.prompt, q.choices)?.let { art ->
                     v.findViewById<TextView>(R.id.txtBigEmoji).apply {
                         visibility = View.VISIBLE
@@ -464,8 +506,10 @@ class LessonActivity : AppCompatActivity() {
     private fun showListenMcq(q: Question.ListenMcq) {
         val v = inflate(R.layout.view_q_mcq)
         // 그림 우선: 들려준 낱말의 그림을 바로 보여준다 (그림-소리 연결도 학습)
-        val heardArt = sentenceArt(q.tts)
-        addArt(v, if (heardArt != 0) heardArt else artRes("ck_listen"), 160)
+        val heardArt = sentenceArt(q.tts).takeIf { it != 0 }
+            ?: sceneArt(q.tts, q.prompt).takeIf { it != 0 }
+            ?: artRes("ck_listen")
+        addArt(v, heardArt, 160)
         v.findViewById<TextView>(R.id.txtKind).text = "🎧 듣기"
         v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
         val play = v.findViewById<Button>(R.id.btnPlay)
@@ -480,8 +524,11 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showListenDialog(q: Question.ListenDialog) {
         val v = inflate(R.layout.view_q_mcq)
-        val dlgArt = q.lines.asSequence().map { (_, t) -> sentenceArt(t) }.firstOrNull { it != 0 } ?: 0
-        addArt(v, if (dlgArt != 0) dlgArt else artRes("ck_listen"), 150)
+        val spoken = q.lines.joinToString(" ") { (_, t) -> t }
+        val dlgArt = q.lines.asSequence().map { (_, t) -> sentenceArt(t) }.firstOrNull { it != 0 }
+            ?: sceneArt(spoken, q.prompt).takeIf { it != 0 }
+            ?: artRes("ck_listen")
+        addArt(v, dlgArt, 150)
         v.findViewById<TextView>(R.id.txtKind).text = "🎧 대화 듣기"
         v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
         val play = v.findViewById<Button>(R.id.btnPlay)
@@ -496,8 +543,10 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showDictation(q: Question.Dictation) {
         val v = inflate(R.layout.view_q_type)
-        val dictArt = sentenceArt(q.answer)
-        addArt(v, if (dictArt != 0) dictArt else artRes("ck_write"))
+        val dictArt = sentenceArt(q.answer).takeIf { it != 0 }
+            ?: sceneArt(q.answer, q.hintKo).takeIf { it != 0 }
+            ?: artRes("ck_write")
+        addArt(v, dictArt)
         v.findViewById<TextView>(R.id.txtKind).text = "✍️ 받아쓰기"
         v.findViewById<TextView>(R.id.txtPrompt).text = "들리는 대로 영어로 써 보세요"
         if (q.hintKo != null) {
@@ -520,8 +569,10 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showTypeTranslate(q: Question.TypeTranslate) {
         val v = inflate(R.layout.view_q_type)
-        val typeArt = sentenceArt(q.answer, q.ko)
-        addArt(v, if (typeArt != 0) typeArt else artRes("ck_write"))
+        val typeArt = sentenceArt(q.answer, q.ko).takeIf { it != 0 }
+            ?: sceneArt(q.answer, q.ko).takeIf { it != 0 }
+            ?: artRes("ck_write")
+        addArt(v, typeArt)
         v.findViewById<TextView>(R.id.txtKind).text = "✍️ 영작"
         v.findViewById<TextView>(R.id.txtPrompt).text = q.ko
         val edit = v.findViewById<EditText>(R.id.editAnswer)
@@ -535,7 +586,10 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showOrder(q: Question.Order) {
         val v = inflate(R.layout.view_q_order)
-        addArt(v, sentenceArt(q.en, q.ko), 150)
+        val orderArt = sentenceArt(q.en, q.ko).takeIf { it != 0 }
+            ?: sceneArt(q.en, q.ko).takeIf { it != 0 }
+            ?: artRes("ck_book")
+        addArt(v, orderArt, 150)
         v.findViewById<TextView>(R.id.txtPrompt).text = q.ko
         val answerFlow = v.findViewById<FlowLayout>(R.id.answerFlow)
         val bankFlow = v.findViewById<FlowLayout>(R.id.bankFlow)
@@ -618,8 +672,10 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showSpeak(q: Question.Speak) {
         val v = inflate(R.layout.view_q_speak)
-        val speakArt = sentenceArt(q.en, q.ko)
-        addArt(v, if (speakArt != 0) speakArt else artRes("ck_speak"), 150)
+        val speakArt = sentenceArt(q.en, q.ko).takeIf { it != 0 }
+            ?: sceneArt(q.en, q.ko).takeIf { it != 0 }
+            ?: artRes("ck_speak")
+        addArt(v, speakArt, 150)
         v.findViewById<TextView>(R.id.txtEn).text = q.en
         v.findViewById<TextView>(R.id.txtKo).text = q.ko ?: ""
         val txtHeard = v.findViewById<TextView>(R.id.txtHeard)

@@ -417,6 +417,11 @@ class WalletActivity : AppCompatActivity() {
             "th_pink" -> "shop_theme_pink"
             "th_mint" -> "shop_theme_mint"
             "th_sky" -> "shop_theme_sky"
+            "th_lav" -> "shop_theme_lavender"
+            "st_dino" -> "shop_sticker_dino"
+            "st_cake" -> "shop_sticker_cake"
+            "st_medal" -> "shop_sticker_medal"
+            "st_unicorn" -> "shop_sticker_unicorn"
             else -> return 0
         }
         return resources.getIdentifier(name, "drawable", packageName)
