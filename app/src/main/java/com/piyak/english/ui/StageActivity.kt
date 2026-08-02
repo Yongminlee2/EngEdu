@@ -28,42 +28,44 @@ class StageActivity : AppCompatActivity() {
         val color: String,
         val track: String? = null, val lvMin: Int = 0, val lvMax: Int = 99,
         val special: String? = null,   // "alphabet" | "playground"
+        /** codex 일러스트 이름 — 비어 있으면 이모지로 그린다 */
+        val art: String = "",
     )
 
     private fun entriesFor(stage: String): Pair<String, List<Entry>> = when (stage) {
         "kinder" -> "🐣 유치원 영어" to listOf(
-            Entry("✏️", "알파벳 쓰기", "A부터 Z까지 손으로 그려요", "#FFF3D6", special = "alphabet"),
-            Entry("🐣", "초등영어 첫걸음", "파닉스 · 그림낱말 · 문장", "#E8F6EA", track = "elem"),
-            Entry("🎠", "놀이터", "풍선 터뜨리기 · 담기 · 선 잇기", "#E3F4FD", special = "playground"),
+            Entry("✏️", "알파벳 쓰기", "A부터 Z까지 손으로 그려요", "#FFF3D6", special = "alphabet", art = "ck_write"),
+            Entry("🐣", "초등영어 첫걸음", "파닉스 · 그림낱말 · 문장", "#E8F6EA", track = "elem", art = "stage_kinder"),
+            Entry("🎠", "놀이터", "풍선 터뜨리기 · 담기 · 선 잇기", "#E3F4FD", special = "playground", art = "scene_park"),
         )
         "elementary" -> "📗 초등 영어" to listOf(
-            Entry("🐣", "초등영어 코스", "알파벳부터 문장까지 놀면서", "#E8F6EA", track = "elem"),
-            Entry("1️⃣", "기초 · 초등 1~2학년", "첫 단어와 인사", "#FFF3D6", track = "basic", lvMin = 1, lvMax = 1),
-            Entry("3️⃣", "기초 · 초등 3~4학년", "일상 단어와 짧은 문장", "#FFE9CF", track = "basic", lvMin = 2, lvMax = 2),
-            Entry("5️⃣", "기초 · 초등 5~6학년", "문장 만들기가 익숙해져요", "#FDE2E2", track = "basic", lvMin = 3, lvMax = 3),
+            Entry("🐣", "초등영어 코스", "알파벳부터 문장까지 놀면서", "#E8F6EA", track = "elem", art = "stage_elementary"),
+            Entry("1️⃣", "기초 · 초등 1~2학년", "첫 단어와 인사", "#FFF3D6", track = "basic", lvMin = 1, lvMax = 1, art = "scene_greeting"),
+            Entry("3️⃣", "기초 · 초등 3~4학년", "일상 단어와 짧은 문장", "#FFE9CF", track = "basic", lvMin = 2, lvMax = 2, art = "scene_home"),
+            Entry("5️⃣", "기초 · 초등 5~6학년", "문장 만들기가 익숙해져요", "#FDE2E2", track = "basic", lvMin = 3, lvMax = 3, art = "word_pencil"),
         )
         "middle" -> "📘 중등 · 고등 영어" to listOf(
-            Entry("🌱", "기초 · 중학 1학년", "", "#E8F6EA", track = "basic", lvMin = 4, lvMax = 4),
-            Entry("🌿", "기초 · 중학 2학년", "", "#DFF2E5", track = "basic", lvMin = 5, lvMax = 5),
-            Entry("🍀", "기초 · 중학 3학년", "", "#D5EEDC", track = "basic", lvMin = 6, lvMax = 6),
-            Entry("🌳", "기초 · 고등 1학년", "", "#E3F4FD", track = "basic", lvMin = 7, lvMax = 7),
-            Entry("🌲", "기초 · 고등 2~3학년", "", "#DBEEFB", track = "basic", lvMin = 8, lvMax = 8),
-            Entry("📖", "문법 집중", "규칙을 확실하게", "#F3EDFB", track = "grammar"),
-            Entry("📚", "독해 집중", "지문 읽고 답하기", "#EFE6FA", track = "reading"),
+            Entry("🌱", "기초 · 중학 1학년", "", "#E8F6EA", track = "basic", lvMin = 4, lvMax = 4, art = "scene_school"),
+            Entry("🌿", "기초 · 중학 2학년", "", "#DFF2E5", track = "basic", lvMin = 5, lvMax = 5, art = "word_book"),
+            Entry("🍀", "기초 · 중학 3학년", "", "#D5EEDC", track = "basic", lvMin = 6, lvMax = 6, art = "ck_think"),
+            Entry("🌳", "기초 · 고등 1학년", "", "#E3F4FD", track = "basic", lvMin = 7, lvMax = 7, art = "word_test"),
+            Entry("🌲", "기초 · 고등 2~3학년", "", "#DBEEFB", track = "basic", lvMin = 8, lvMax = 8, art = "word_graduate"),
+            Entry("📖", "문법 집중", "규칙을 확실하게", "#F3EDFB", track = "grammar", art = "ck_book"),
+            Entry("📚", "독해 집중", "지문 읽고 답하기", "#EFE6FA", track = "reading", art = "scene_library"),
         )
         "adult" -> "✈️ 성인 · 실전 영어" to listOf(
-            Entry("💼", "기초 · 성인 중급", "", "#FFF3D6", track = "basic", lvMin = 9, lvMax = 9),
-            Entry("🎓", "기초 · 고급", "", "#FFE9CF", track = "basic", lvMin = 10, lvMax = 10),
-            Entry("✈️", "일상 · 여행 회화", "혼자 여행 가서 써먹기", "#E3F4FD", track = "daily"),
-            Entry("📊", "토익", "파트별 실전 연습", "#E8F6EA", track = "toeic"),
-            Entry("🏛", "토플", "아카데믹 영어", "#F3EDFB", track = "toefl"),
+            Entry("💼", "기초 · 성인 중급", "", "#FFF3D6", track = "basic", lvMin = 9, lvMax = 9, art = "scene_office"),
+            Entry("🎓", "기초 · 고급", "", "#FFE9CF", track = "basic", lvMin = 10, lvMax = 10, art = "word_graduate"),
+            Entry("✈️", "일상 · 여행 회화", "혼자 여행 가서 써먹기", "#E3F4FD", track = "daily", art = "scene_travel"),
+            Entry("📊", "토익", "파트별 실전 연습", "#E8F6EA", track = "toeic", art = "word_test"),
+            Entry("🏛", "토플", "아카데믹 영어", "#F3EDFB", track = "toefl", art = "scene_school"),
         )
         else -> "🎯 영역별 훈련" to listOf(
-            Entry("🎧", "듣기", "귀가 뚫리는 연습", "#E3F4FD", track = "listening"),
-            Entry("🎤", "말하기", "소리 내어 따라 하기", "#FDE2E2", track = "speaking"),
-            Entry("✍️", "쓰기", "받아쓰기와 영작", "#E8F6EA", track = "writing"),
-            Entry("📖", "문법", "규칙 다지기", "#F3EDFB", track = "grammar"),
-            Entry("📚", "독해", "읽고 이해하기", "#FFF3D6", track = "reading"),
+            Entry("🎧", "듣기", "귀가 뚫리는 연습", "#E3F4FD", track = "listening", art = "ck_listen"),
+            Entry("🎤", "말하기", "소리 내어 따라 하기", "#FDE2E2", track = "speaking", art = "ck_speak"),
+            Entry("✍️", "쓰기", "받아쓰기와 영작", "#E8F6EA", track = "writing", art = "ck_write"),
+            Entry("📖", "문법", "규칙 다지기", "#F3EDFB", track = "grammar", art = "ck_book"),
+            Entry("📚", "독해", "읽고 이해하기", "#FFF3D6", track = "reading", art = "scene_library"),
         )
     }
 
@@ -150,8 +152,19 @@ class StageActivity : AppCompatActivity() {
                     }
                 }
             }
-            // 이모지 동그라미 (아기자기 포인트)
-            card.addView(TextView(this).apply {
+            // 동그라미 안에 일러스트 (없는 것만 이모지)
+            val artId = if (e.art.isEmpty()) 0
+                else resources.getIdentifier(e.art, "drawable", packageName)
+            if (artId != 0) card.addView(android.widget.ImageView(this).apply {
+                setImageResource(artId)
+                background = GradientDrawable().apply {
+                    shape = GradientDrawable.OVAL
+                    setColor(Color.parseColor(e.color))
+                }
+                val pad = dp(4)
+                setPadding(pad, pad, pad, pad)
+                layoutParams = LinearLayout.LayoutParams(dp(64), dp(64))
+            }) else card.addView(TextView(this).apply {
                 text = e.emoji
                 textSize = 26f
                 gravity = Gravity.CENTER
