@@ -30,7 +30,7 @@
         android:visibility="gone" android:contentDescription="낱말 그림" />
 
     <TextView android:id="@+id/txtPrompt" android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:layout_marginTop="10dp" android:textSize="21sp" android:textStyle="bold"
+        android:layout_marginTop="10dp" android:textSize="23sp" android:textStyle="bold"
         android:lineSpacingMultiplier="1.2" />
 
     <LinearLayout android:id="@+id/choicesBox"
