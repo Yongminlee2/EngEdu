@@ -487,10 +487,15 @@ class LessonActivity : AppCompatActivity() {
                 val scene = if (hint == 0) sceneArt(q.prompt, q.passage) else 0
                 if (hint != 0) addArt(v, hint, 150)
                 else if (scene != 0) addArt(v, scene, 150)
-                else findWordArt(q.prompt, q.choices)?.let { art ->
-                    v.findViewById<TextView>(R.id.txtBigEmoji).apply {
+                else {
+                    val emoji = findWordArt(q.prompt, q.choices)
+                    if (emoji != null) v.findViewById<TextView>(R.id.txtBigEmoji).apply {
                         visibility = View.VISIBLE
-                        text = art
+                        text = emoji
+                    } else if (q.passage == null) {
+                        // 아무것도 못 찾으면 생각하는 병아리 — 그림 없는 문제 0% 보장
+                        // (지문 문제는 아래에서 책 읽는 병아리가 붙으니 겹치지 않게 건너뛴다)
+                        addArt(v, artRes("ck_think"), 120)
                     }
                 }
             }
