@@ -248,9 +248,9 @@ class MainActivity : AppCompatActivity() {
                     shape = GradientDrawable.OVAL
                     setColor(Color.parseColor(s.color))
                 }
-                val pad = dp(5f).toInt()
+                val pad = dp(3f).toInt()
                 setPadding(pad, pad, pad, pad)
-                layoutParams = LinearLayout.LayoutParams(dp(66f).toInt(), dp(66f).toInt())
+                layoutParams = LinearLayout.LayoutParams(dp(80f).toInt(), dp(80f).toInt())
             }) else card.addView(TextView(this).apply {
                 text = s.emoji
                 textSize = 28f
