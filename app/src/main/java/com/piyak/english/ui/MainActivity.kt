@@ -112,7 +112,7 @@ class MainActivity : AppCompatActivity() {
         val db = Db.get(this)
         val xp = db.xp()
         val lv = Economy.levelFor(xp)
-        b.txtHearts.text = "❤️ ${db.hearts()}"
+        b.txtHearts.text = if (db.heartsEnabled()) "❤️ ${db.hearts()}" else ""
         val (streak, _) = Economy.streak(db.studyDays(), Db.today())
         b.txtStreak.text = "🔥 $streak"
         b.txtLevel.text = "⭐ Lv.$lv"
