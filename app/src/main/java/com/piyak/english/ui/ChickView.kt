@@ -43,6 +43,13 @@ class ChickView @JvmOverloads constructor(
     private val cheerup = context.getDrawable(resIdOf("ck_cheerup"))
     private val sleepy = context.getDrawable(resIdOf("ck_sleep"))
 
+    // 두 번째 프레임 (발주서 #07) — 있으면 깜빡이고 날갯짓한다
+    private fun frameOrNull(name: String) =
+        resIdOf(name).let { if (it == 0) null else context.getDrawable(it) }
+    private val idleB = frameOrNull("ck_idle_b")
+    private val happyB = frameOrNull("ck_cheer_b")
+    private val sleepyB = frameOrNull("ck_sleep_b")
+
     /** 잠든 병아리를 톡 쳐서 깨웠을 때 알림 (레슨 화면이 삐약 소리를 낸다) */
     var onWake: (() -> Unit)? = null
 
@@ -152,11 +159,12 @@ class ChickView @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         val d = when (mood) {
-            Mood.CHEER -> happy
+            // 환호는 날개를 퍼덕이고, 대기는 가끔 눈을 깜빡이고, 잠은 새근새근
+            Mood.CHEER -> if (happyB != null && (moodT * 5).toInt() % 2 == 1) happyB else happy
             Mood.OOPS -> sad
             Mood.ENCOURAGE -> cheerup
-            Mood.SLEEP -> sleepy ?: neutral
-            else -> neutral
+            Mood.SLEEP -> (if (sleepyB != null && breathe > 0.5f) sleepyB else sleepy) ?: neutral
+            else -> if (idleB != null && breathe > 0.93f) idleB else neutral
         } ?: return
 
         // 병아리는 오른쪽에 붙이고, 말풍선이 왼쪽으로 뻗을 자리를 남긴다
