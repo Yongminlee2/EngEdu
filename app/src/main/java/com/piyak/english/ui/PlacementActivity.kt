@@ -45,8 +45,25 @@ class PlacementActivity : AppCompatActivity() {
         for ((lv, q) in all.shuffled()) pool.getOrPut(lv) { ArrayList() }.add(q)
 
         b.btnClose.setOnClickListener {
+            val den = resources.displayMetrics.density
+            val box = LinearLayout(this).apply {
+                orientation = LinearLayout.VERTICAL
+                gravity = android.view.Gravity.CENTER_HORIZONTAL
+                setPadding((20 * den).toInt(), (20 * den).toInt(), (20 * den).toInt(), (4 * den).toInt())
+            }
+            box.addView(android.widget.ImageView(this).apply {
+                setImageResource(com.piyak.english.R.drawable.ck_cheerup)
+                layoutParams = LinearLayout.LayoutParams((96 * den).toInt(), (96 * den).toInt())
+            })
+            box.addView(android.widget.TextView(this).apply {
+                text = "레벨테스트를 그만둘까요?"
+                textSize = 15f
+                gravity = android.view.Gravity.CENTER
+                setTextColor(Color.parseColor("#4E342E"))
+                setPadding(0, (10 * den).toInt(), 0, 0)
+            })
             AlertDialog.Builder(this)
-                .setMessage("레벨테스트를 그만둘까요?")
+                .setView(box)
                 .setPositiveButton("그만두기") { _, _ -> finish() }
                 .setNegativeButton("계속", null).show()
         }

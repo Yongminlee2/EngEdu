@@ -161,12 +161,17 @@ class StatsActivity : AppCompatActivity() {
             }
             box.addView(TextView(this).apply { text = bd.emoji; textSize = 30f; gravity = Gravity.CENTER })
             box.addView(TextView(this).apply {
-                text = bd.title; textSize = 13f; gravity = Gravity.CENTER
+                text = bd.title; textSize = 12f; gravity = Gravity.CENTER
                 setTypeface(typeface, android.graphics.Typeface.BOLD)
+                maxLines = 1
+                ellipsize = android.text.TextUtils.TruncateAt.END
             })
             box.addView(TextView(this).apply {
-                text = bd.desc; textSize = 11f; gravity = Gravity.CENTER
+                text = bd.desc; textSize = 10.5f; gravity = Gravity.CENTER
                 setTextColor(Color.parseColor("#8D6E63"))
+                maxLines = 2
+                ellipsize = android.text.TextUtils.TruncateAt.END
+                setLineSpacing(0f, 1.05f)
             })
             b.badgesGrid.addView(box)
         }
