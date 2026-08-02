@@ -438,7 +438,7 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showListenMcq(q: Question.ListenMcq) {
         val v = inflate(R.layout.view_q_mcq)
-        addArt(v, artRes("ck_think"), 145)
+        addArt(v, artRes("ck_listen"), 150)
         v.findViewById<TextView>(R.id.txtKind).text = "🎧 듣기"
         v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
         val play = v.findViewById<Button>(R.id.btnPlay)
@@ -453,7 +453,7 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showListenDialog(q: Question.ListenDialog) {
         val v = inflate(R.layout.view_q_mcq)
-        addArt(v, artRes("ck_think"), 145)
+        addArt(v, artRes("ck_listen"), 150)
         v.findViewById<TextView>(R.id.txtKind).text = "🎧 대화 듣기"
         v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
         val play = v.findViewById<Button>(R.id.btnPlay)
@@ -468,7 +468,8 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showDictation(q: Question.Dictation) {
         val v = inflate(R.layout.view_q_type)
-        addArt(v, sentenceArt(q.answer))
+        val dictArt = sentenceArt(q.answer)
+        addArt(v, if (dictArt != 0) dictArt else artRes("ck_write"))
         v.findViewById<TextView>(R.id.txtKind).text = "✍️ 받아쓰기"
         v.findViewById<TextView>(R.id.txtPrompt).text = "들리는 대로 영어로 써 보세요"
         if (q.hintKo != null) {
@@ -491,7 +492,8 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showTypeTranslate(q: Question.TypeTranslate) {
         val v = inflate(R.layout.view_q_type)
-        addArt(v, sentenceArt(q.answer, q.ko))
+        val typeArt = sentenceArt(q.answer, q.ko)
+        addArt(v, if (typeArt != 0) typeArt else artRes("ck_write"))
         v.findViewById<TextView>(R.id.txtKind).text = "✍️ 영작"
         v.findViewById<TextView>(R.id.txtPrompt).text = q.ko
         val edit = v.findViewById<EditText>(R.id.editAnswer)
@@ -588,7 +590,8 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showSpeak(q: Question.Speak) {
         val v = inflate(R.layout.view_q_speak)
-        addArt(v, sentenceArt(q.en, q.ko), 150)
+        val speakArt = sentenceArt(q.en, q.ko)
+        addArt(v, if (speakArt != 0) speakArt else artRes("ck_speak"), 150)
         v.findViewById<TextView>(R.id.txtEn).text = q.en
         v.findViewById<TextView>(R.id.txtKo).text = q.ko ?: ""
         val txtHeard = v.findViewById<TextView>(R.id.txtHeard)
