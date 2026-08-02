@@ -30,7 +30,8 @@ class TrackActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         val t = ContentRepo.track(this, trackId) ?: run { finish(); return }
-        b.txtTitle.text = "${t.emoji} ${t.title}"
+        val stageTitle = intent.getStringExtra("stageTitle")
+        b.txtTitle.text = if (stageTitle != null) "${t.emoji} $stageTitle" else "${t.emoji} ${t.title}"
         build(t)
     }
 
@@ -44,7 +45,11 @@ class TrackActivity : AppCompatActivity() {
         var doneCount = 0
         var prevAllDone = true // 트랙 내 순차 해금 포인터
 
+        // 학년별 진입이면 그 레벨의 유닛만 보여준다 (기초 코스 레벨 = 학년)
+        val lvMin = intent.getIntExtra("lvMin", 0)
+        val lvMax = intent.getIntExtra("lvMax", 99)
         for (u in t.units) {
+            if (u.level < lvMin || u.level > lvMax) continue
             val header = TextView(this).apply {
                 text = "${u.emoji}  ${u.title}"
                 textSize = 17f

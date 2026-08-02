@@ -132,14 +132,12 @@ class MainActivity : AppCompatActivity() {
         window.statusBarColor = theme
 
         b.txtCoins.text = com.piyak.english.engine.Wallet.format(db.coins())
-        b.txtAlphabetCount.text = "${db.lettersDoneCount()}/${com.piyak.english.engine.Letters.ALL.size * 2}"
-        // 알파벳 쓰기는 영어 전용
-        b.cardAlphabet.visibility =
-            if (subject == com.piyak.english.model.Subject.ENGLISH) View.VISIBLE else View.GONE
-        b.txtPlayground.text =
-            com.piyak.english.engine.MiniGames.forSubject(subject).joinToString(" · ") {
-                "${it.emoji} ${it.title}"
-            }
+        // 알파벳·놀이터는 "유치원 영어" 단계 안으로 이사 — 홈을 가볍게
+        b.cardAlphabet.visibility = View.GONE
+        b.cardPlayground.visibility = View.GONE
+        // 영역 6줄도 홈에서 뺀다 (통계 화면에 있음) — 홈은 단계 고르기에 집중
+        b.skillsBox.visibility = View.GONE
+        b.txtWeakest.visibility = View.GONE
         buildGrowth(db)
         buildTrackCards(db)
     }
@@ -210,67 +208,64 @@ class MainActivity : AppCompatActivity() {
         return row
     }
 
+    /** 홈의 단계 카드 5장 — 유치원/초등/중등·고등/성인·실전/영역별 */
     private fun buildTrackCards(db: Db) {
         b.tracksBox.removeAllViews()
-        val done = db.completedLessonIds()
-        var lastStage: String? = null
-        for (tid in subject.tracks) {
-            val t = ContentRepo.track(this, tid) ?: continue
-            val doneCount = t.units.sumOf { u -> u.lessons.count { it.id in done } }
-
-            // 수학은 학년이 많아 유치원·초등 / 중학교 / 고등학교로 묶어 보여준다
-            val stage = com.piyak.english.model.MathGrades.of(tid)?.stage
-            if (stage != null && stage != lastStage) {
-                lastStage = stage
-                b.tracksBox.addView(TextView(this).apply {
-                    text = stage
-                    textSize = 14f
-                    setTypeface(typeface, android.graphics.Typeface.BOLD)
-                    setTextColor(Color.parseColor("#8D6E63"))
-                    setPadding(dp(6f).toInt(), dp(14f).toInt(), 0, dp(2f).toInt())
-                })
-            }
-
+        data class Stage(val emoji: String, val title: String, val sub: String, val color: String, val id: String)
+        val stages = listOf(
+            Stage("🐣", "유치원 영어", "알파벳 쓰기 · 놀이터", "#FFF3D6", "kinder"),
+            Stage("📗", "초등 영어", "초등영어 코스 · 기초 1~6학년", "#E8F6EA", "elementary"),
+            Stage("📘", "중등 · 고등 영어", "학년별 기초 · 문법 · 독해", "#E3F4FD", "middle"),
+            Stage("✈️", "성인 · 실전 영어", "회화 · 토익 · 토플", "#F3EDFB", "adult"),
+            Stage("🎯", "영역별 훈련", "듣기 · 말하기 · 쓰기 · 문법 · 독해", "#FDE2E2", "skills"),
+        )
+        for (s in stages) {
             val card = LinearLayout(this).apply {
                 orientation = LinearLayout.HORIZONTAL
                 gravity = Gravity.CENTER_VERTICAL
-                setPadding(dp(18f).toInt(), dp(16f).toInt(), dp(18f).toInt(), dp(16f).toInt())
+                setPadding(dp(18f).toInt(), dp(18f).toInt(), dp(16f).toInt(), dp(18f).toInt())
                 background = GradientDrawable().apply {
-                    cornerRadius = dp(20f)
-                    setColor(Color.parseColor(t.color))
+                    cornerRadius = dp(26f)
+                    setColor(Color.WHITE)
+                    setStroke(dp(3f).toInt(), Color.parseColor(s.color).let { c ->
+                        Color.rgb((Color.red(c) * 0.82f).toInt(), (Color.green(c) * 0.82f).toInt(), (Color.blue(c) * 0.82f).toInt())
+                    })
                 }
                 layoutParams = LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
-                ).apply { topMargin = dp(10f).toInt() }
+                ).apply { topMargin = dp(12f).toInt() }
                 setOnClickListener {
-                    startActivity(
-                        Intent(this@MainActivity, TrackActivity::class.java).putExtra("track", tid)
-                    )
+                    startActivity(Intent(this@MainActivity, StageActivity::class.java).putExtra("stage", s.id))
                 }
             }
-            val row = card
-            row.addView(TextView(this).apply { text = t.emoji; textSize = 34f })
+            card.addView(TextView(this).apply {
+                text = s.emoji
+                textSize = 28f
+                gravity = Gravity.CENTER
+                background = GradientDrawable().apply {
+                    shape = GradientDrawable.OVAL
+                    setColor(Color.parseColor(s.color))
+                }
+                layoutParams = LinearLayout.LayoutParams(dp(58f).toInt(), dp(58f).toInt())
+            })
             val col = LinearLayout(this).apply {
                 orientation = LinearLayout.VERTICAL
                 layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
-                setPadding(dp(12f).toInt(), 0, 0, 0)
+                setPadding(dp(14f).toInt(), 0, 0, 0)
             }
             col.addView(TextView(this).apply {
-                text = t.title; textSize = 18f
+                text = s.title
+                textSize = 18f
                 setTypeface(typeface, android.graphics.Typeface.BOLD)
                 setTextColor(Color.parseColor("#4E342E"))
             })
             col.addView(TextView(this).apply {
-                text = t.subtitle; textSize = 13f
-                setTextColor(Color.parseColor("#6D4C41"))
+                text = s.sub
+                textSize = 13f
+                setTextColor(Color.parseColor("#8D6E63"))
             })
-            row.addView(col)
-            row.addView(TextView(this).apply {
-                text = "$doneCount/${t.lessonCount}"
-                textSize = 15f
-                setTypeface(typeface, android.graphics.Typeface.BOLD)
-                setTextColor(Color.parseColor("#4E342E"))
-            })
+            card.addView(col)
+            card.addView(TextView(this).apply { text = "▶"; textSize = 16f; setTextColor(Color.parseColor("#C9A25E")) })
             b.tracksBox.addView(card)
         }
     }
