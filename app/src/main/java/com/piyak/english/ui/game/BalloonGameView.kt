@@ -52,6 +52,9 @@ class BalloonGameView @JvmOverloads constructor(
         isFakeBoldText = true
     }
 
+    /** 글자(이모지) → 일러스트. 있으면 풍선 안에 그림을 그린다 */
+    var artResolver: ((String) -> android.graphics.drawable.Drawable?)? = null
+
     private var radius = 0f
     private var spawnTimer = 0f
     private var round: GameRound? = null
@@ -157,11 +160,21 @@ class BalloonGameView @JvmOverloads constructor(
                 b.x - radius * 0.45f, b.y - radius * 0.62f,
                 b.x - radius * 0.1f, b.y - radius * 0.15f, fill
             )
-            // 글자 (이모지면 크게)
-            val isEmoji = b.text.isNotEmpty() && b.text[0].code > 0x2000
-            textPaint.textSize = if (isEmoji) radius * 0.95f else radius * 0.78f
-            textPaint.color = if (isEmoji) Color.WHITE else Color.WHITE
-            canvas.drawText(b.text, b.x, b.y + textPaint.textSize * 0.35f, textPaint)
+            // 일러스트가 있으면 그림을, 없으면 글자를 (이모지면 크게)
+            val art = artResolver?.invoke(b.text)
+            if (art != null) {
+                val half = (radius * 0.62f).toInt()
+                art.setBounds(
+                    (b.x - half).toInt(), (b.y - half).toInt(),
+                    (b.x + half).toInt(), (b.y + half).toInt()
+                )
+                art.draw(canvas)
+            } else {
+                val isEmoji = b.text.isNotEmpty() && b.text[0].code > 0x2000
+                textPaint.textSize = if (isEmoji) radius * 0.95f else radius * 0.78f
+                textPaint.color = Color.WHITE
+                canvas.drawText(b.text, b.x, b.y + textPaint.textSize * 0.35f, textPaint)
+            }
         }
         for (p in bits) {
             fill.color = p.color

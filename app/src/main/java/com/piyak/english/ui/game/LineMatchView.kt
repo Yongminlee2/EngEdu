@@ -54,6 +54,9 @@ class LineMatchView @JvmOverloads constructor(
     val isCleared: Boolean get() = left.isNotEmpty() && matched.size == left.size
 
     /** (왼쪽, 오른쪽) 짝 목록을 넣는다 */
+    /** 항목 글자(이모지) → 일러스트. 있으면 카드에 그림을 그린다 */
+    var artResolver: ((String) -> android.graphics.drawable.Drawable?)? = null
+
     fun setPairs(pairs: List<Pair<String, String>>) {
         left.clear(); right.clear(); matched.clear()
         pairs.forEachIndexed { i, (l, _) -> left.add(Node(l, i)) }
@@ -121,11 +124,21 @@ class LineMatchView @JvmOverloads constructor(
             strokePaint.color = if (done) Color.parseColor("#66BB6A") else Color.parseColor("#FFE082")
             canvas.drawRoundRect(box, dp(16f), dp(16f), strokePaint)
 
-            val isEmoji = node.text.isNotEmpty() && node.text[0].code > 0x2000
-            textPaint.textSize = if (isEmoji) box.height() * 0.55f else (box.height() * 0.36f)
-                .coerceAtMost(dp(22f))
-            textPaint.color = if (done) Color.WHITE else Color.parseColor("#4E342E")
-            canvas.drawText(node.text, box.centerX(), box.centerY() + textPaint.textSize * 0.35f, textPaint)
+            val art = artResolver?.invoke(node.text)
+            if (art != null) {
+                val half = (box.height() * 0.42f).toInt()
+                art.setBounds(
+                    (box.centerX() - half).toInt(), (box.centerY() - half).toInt(),
+                    (box.centerX() + half).toInt(), (box.centerY() + half).toInt()
+                )
+                art.draw(canvas)
+            } else {
+                val isEmoji = node.text.isNotEmpty() && node.text[0].code > 0x2000
+                textPaint.textSize = if (isEmoji) box.height() * 0.55f else (box.height() * 0.36f)
+                    .coerceAtMost(dp(22f))
+                textPaint.color = if (done) Color.WHITE else Color.parseColor("#4E342E")
+                canvas.drawText(node.text, box.centerX(), box.centerY() + textPaint.textSize * 0.35f, textPaint)
+            }
 
             // 연결점
             boxPaint.color = if (done) Color.parseColor("#66BB6A") else Color.parseColor("#FFB300")

@@ -23,6 +23,7 @@ import com.piyak.english.model.ContentRepo
 class MainActivity : AppCompatActivity() {
 
     private lateinit var b: ActivityMainBinding
+    private var sfx: com.piyak.english.audio.Sfx? = null
     private var subject: com.piyak.english.model.Subject = com.piyak.english.model.Subject.ENGLISH
     private val greetings = listOf(
         "오늘도 삐약삐약 공부해요!", "꾸준함이 최고의 재능이에요 🐥",
@@ -55,6 +56,28 @@ class MainActivity : AppCompatActivity() {
         b.btnStats.setOnClickListener { startActivity(Intent(this, StatsActivity::class.java)) }
         b.btnSettings.setOnClickListener { startActivity(Intent(this, SettingsActivity::class.java)) }
         b.txtGoalEdit.setOnClickListener { pickDailyGoal() }
+
+        // 살아있는 마스코트 — 천천히 숨쉬고, 톡 치면 삐약! 하고 점프
+        sfx = com.piyak.english.audio.Sfx(this)
+        android.animation.ObjectAnimator.ofPropertyValuesHolder(
+            b.imgMascot,
+            android.animation.PropertyValuesHolder.ofFloat(View.SCALE_X, 1f, 1.045f),
+            android.animation.PropertyValuesHolder.ofFloat(View.SCALE_Y, 1f, 1.045f),
+        ).apply {
+            duration = 1300L
+            repeatCount = android.animation.ValueAnimator.INFINITE
+            repeatMode = android.animation.ValueAnimator.REVERSE
+            interpolator = android.view.animation.AccelerateDecelerateInterpolator()
+            start()
+        }
+        b.imgMascot.setOnClickListener {
+            sfx?.piyak()
+            b.imgMascot.animate().translationY(-dp(10f)).setDuration(140L)
+                .withEndAction {
+                    b.imgMascot.animate().translationY(0f).setDuration(260L)
+                        .setInterpolator(android.view.animation.BounceInterpolator()).start()
+                }.start()
+        }
         b.cardAlphabet.setOnClickListener {
             startActivity(Intent(this, AlphabetActivity::class.java))
         }
@@ -282,6 +305,8 @@ class MainActivity : AppCompatActivity() {
             b.tracksBox.addView(card)
         }
     }
+
+    override fun onDestroy() { super.onDestroy(); sfx?.release() }
 
     private fun dp(v: Float): Float = v * resources.displayMetrics.density
 }
