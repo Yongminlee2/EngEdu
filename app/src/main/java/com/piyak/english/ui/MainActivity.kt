@@ -219,6 +219,9 @@ class MainActivity : AppCompatActivity() {
             Stage("✈️", "성인 · 실전 영어", "회화 · 토익 · 토플", "#F3EDFB", "adult"),
             Stage("🎯", "영역별 훈련", "듣기 · 말하기 · 쓰기 · 문법 · 독해", "#FDE2E2", "skills"),
         )
+        // codex 단계 일러스트 (발주서 #04) — 없으면 이모지 동그라미로
+        fun stageArt(id: String): Int =
+            resources.getIdentifier("stage_$id", "drawable", packageName)
         for (s in stages) {
             val card = LinearLayout(this).apply {
                 orientation = LinearLayout.HORIZONTAL
@@ -238,7 +241,17 @@ class MainActivity : AppCompatActivity() {
                     startActivity(Intent(this@MainActivity, StageActivity::class.java).putExtra("stage", s.id))
                 }
             }
-            card.addView(TextView(this).apply {
+            val art = stageArt(s.id)
+            if (art != 0) card.addView(android.widget.ImageView(this).apply {
+                setImageResource(art)
+                background = GradientDrawable().apply {
+                    shape = GradientDrawable.OVAL
+                    setColor(Color.parseColor(s.color))
+                }
+                val pad = dp(5f).toInt()
+                setPadding(pad, pad, pad, pad)
+                layoutParams = LinearLayout.LayoutParams(dp(66f).toInt(), dp(66f).toInt())
+            }) else card.addView(TextView(this).apply {
                 text = s.emoji
                 textSize = 28f
                 gravity = Gravity.CENTER

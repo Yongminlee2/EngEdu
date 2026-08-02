@@ -21,13 +21,13 @@ import kotlin.random.Random
  * "옆에서 지켜봐 주는" 존재가 되는 것이 목적 — 그래서 평소에도 가만히 있지 않고
  * 천천히 숨을 쉰다.
  *
- * 상태: 대기(숨쉬기) / 환호(점프+하트) / 아쉬움(처짐, 1초 내 회복) / 응원(말풍선)
+ * 상태: 대기(숨쉬기) / 환호(점프+하트) / 아쉬움(처짐, 1초 내 회복) / 응원(말풍선) / 잠(쿨쿨, 톡 치면 기상)
  */
 class ChickView @JvmOverloads constructor(
     ctx: Context, attrs: AttributeSet? = null,
 ) : View(ctx, attrs) {
 
-    private enum class Mood { IDLE, CHEER, OOPS, ENCOURAGE }
+    private enum class Mood { IDLE, CHEER, OOPS, ENCOURAGE, SLEEP }
 
     private var mood = Mood.IDLE
     private var moodT = 0f          // 현재 무드의 진행도 0~1
@@ -41,6 +41,10 @@ class ChickView @JvmOverloads constructor(
     private val neutral = context.getDrawable(resIdOf("ck_idle"))
     private val sad = context.getDrawable(resIdOf("ck_sad"))
     private val cheerup = context.getDrawable(resIdOf("ck_cheerup"))
+    private val sleepy = context.getDrawable(resIdOf("ck_sleep"))
+
+    /** 잠든 병아리를 톡 쳐서 깨웠을 때 알림 (레슨 화면이 삐약 소리를 낸다) */
+    var onWake: (() -> Unit)? = null
 
     private val bubblePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.WHITE }
     private val bubbleStroke = Paint(Paint.ANTI_ALIAS_FLAG).apply {
@@ -63,6 +67,15 @@ class ChickView @JvmOverloads constructor(
 
     init {
         startIdle()
+        // 평소에는 터치를 통과시키고, 잠들었을 때만 "톡 쳐서 깨우기"를 받는다
+        setOnClickListener {
+            if (mood == Mood.SLEEP) {
+                isClickable = false
+                onWake?.invoke()
+                cheer()
+            }
+        }
+        isClickable = false
     }
 
     // ---------- 상태 전환 ----------
@@ -93,9 +106,24 @@ class ChickView @JvmOverloads constructor(
         play(Mood.ENCOURAGE, 2600L)
     }
 
+    /** 한참 조용하면 잠든다 — 톡 치면 일어난다 (문제를 강요하지 않는 귀여운 신호) */
+    fun sleep() {
+        if (mood == Mood.SLEEP) return
+        anim?.cancel()
+        mood = Mood.SLEEP
+        isClickable = true
+        anim = ValueAnimator.ofFloat(0f, 1f).apply {
+            duration = 3600L
+            repeatCount = ValueAnimator.INFINITE
+            addUpdateListener { breathe = it.animatedValue as Float; invalidate() }
+            start()
+        }
+    }
+
     private fun play(m: Mood, duration: Long) {
         anim?.cancel()
         mood = m
+        isClickable = false
         moodT = 0f
         anim = ValueAnimator.ofFloat(0f, 1f).apply {
             this.duration = duration
@@ -127,6 +155,7 @@ class ChickView @JvmOverloads constructor(
             Mood.CHEER -> happy
             Mood.OOPS -> sad
             Mood.ENCOURAGE -> cheerup
+            Mood.SLEEP -> sleepy ?: neutral
             else -> neutral
         } ?: return
 
@@ -155,6 +184,10 @@ class ChickView @JvmOverloads constructor(
             Mood.ENCOURAGE -> {
                 size *= 1f + 0.03f * sin(moodT * Math.PI * 4).toFloat()
             }
+            Mood.SLEEP -> {
+                // 아주 느린 숨 — 깊이 잠든 느낌
+                size *= 1f + 0.025f * sin(breathe * Math.PI * 2).toFloat()
+            }
         }
 
         val half = (size / 2f).toInt()
@@ -174,6 +207,14 @@ class ChickView @JvmOverloads constructor(
                 canvas.drawText("💛", cx - base * 0.5f + h.x * 0.3f, h.y, heartPaint)
             }
             heartPaint.alpha = 255
+        }
+
+        // 쿨쿨 — 머리 위에서 숨결에 맞춰 깜빡인다
+        if (mood == Mood.SLEEP) {
+            textPaint.textSize = dp(13f)
+            textPaint.alpha = (120 + 135 * sin(breathe * Math.PI * 2)).toInt().coerceIn(60, 255)
+            canvas.drawText("💤", cx - size * 0.55f, cy - size * 0.30f, textPaint)
+            textPaint.alpha = 255
         }
 
         // 응원 말풍선 — 병아리 왼쪽으로 뻗는다 (위는 자리가 없다)
