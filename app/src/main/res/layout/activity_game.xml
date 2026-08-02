@@ -48,7 +48,7 @@
         android:orientation="vertical" android:gravity="center"
         android:background="@color/cream" android:visibility="gone" android:padding="24dp">
         <ImageView android:layout_width="140dp" android:layout_height="140dp"
-            android:src="@drawable/chick_happy" android:contentDescription="삐약이" />
+            android:src="@drawable/ck_cheer" android:contentDescription="삐약이" />
         <TextView android:id="@+id/txtResultTitle" android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:layout_marginTop="14dp" android:textSize="28sp" android:textStyle="bold" android:text="끝!" />
         <TextView android:id="@+id/txtResultBody" android:layout_width="wrap_content" android:layout_height="wrap_content"
