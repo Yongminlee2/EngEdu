@@ -217,6 +217,9 @@ class TraceView @JvmOverloads constructor(
         return path
     }
 
+    /** 시범 병아리 일러스트 (이모지 대신) */
+    private var demoChick: android.graphics.drawable.Drawable? = null
+
     // ---- 시범 애니메이션 (병아리가 길을 걸어감) ----
     fun playDemo() {
         if (isFinished || checkpoints.isEmpty()) return
@@ -450,7 +453,17 @@ class TraceView @JvmOverloads constructor(
             canvas.drawPath(pathOf(demoTrail), inkPaint)
         }
         demoPos?.let {
-            canvas.drawText("🐥", it.x, it.y + emojiPaint.textSize * 0.35f, emojiPaint)
+            val d = demoChick ?: context.getDrawable(
+                resources.getIdentifier("ck_idle", "drawable", context.packageName)
+            )?.also { dr -> demoChick = dr }
+            if (d != null) {
+                val half = (emojiPaint.textSize * 0.62f).toInt()
+                d.setBounds(
+                    (it.x - half).toInt(), (it.y - half).toInt(),
+                    (it.x + half).toInt(), (it.y + half).toInt()
+                )
+                d.draw(canvas)
+            } else canvas.drawText("🐥", it.x, it.y + emojiPaint.textSize * 0.35f, emojiPaint)
         }
 
         // 지금 쓰고 있는 선

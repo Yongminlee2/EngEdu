@@ -176,10 +176,32 @@ class LessonActivity : AppCompatActivity() {
 
     private fun confirmQuit() {
         AlertDialog.Builder(this)
-            .setMessage("레슨을 그만둘까요?\n진행 상황은 저장되지 않아요 🐥")
+            .setView(cuteDialogView("레슨을 그만둘까요?\n진행 상황은 저장되지 않아요"))
             .setPositiveButton("그만두기") { _, _ -> finish() }
             .setNegativeButton("계속하기", null).show()
     }
+
+    /** 응원 병아리가 있는 확인 대화상자 내용 (이모지 대신 진짜 일러스트) */
+    private fun cuteDialogView(msg: String): View {
+        val box = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            gravity = android.view.Gravity.CENTER_HORIZONTAL
+            setPadding(dp(20), dp(20), dp(20), dp(4))
+        }
+        box.addView(android.widget.ImageView(this).apply {
+            setImageResource(R.drawable.ck_cheerup)
+            layoutParams = LinearLayout.LayoutParams(dp(96), dp(96))
+        })
+        box.addView(TextView(this).apply {
+            text = msg
+            textSize = 15f
+            gravity = android.view.Gravity.CENTER
+            setTextColor(Color.parseColor("#4E342E"))
+            setPadding(0, dp(10), 0, 0)
+        })
+        return box
+    }
+
 
     // ---------------- 문제 표시 ----------------
 
