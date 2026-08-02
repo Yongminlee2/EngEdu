@@ -46,6 +46,9 @@ class LessonActivity : AppCompatActivity() {
     /** 연속 정답 수 (오답이면 조용히 리셋) */
     private var combo = 0
 
+    /** 그림을 한 줄에 모아 담는 컨테이너를 찾기 위한 표식 */
+    private val ART_ROW_TAG = "artRow"
+
     /** 첫 문제는 전환 애니메이션 없이 바로 */
     private var firstQuestion = true
 
@@ -327,18 +330,48 @@ class LessonActivity : AppCompatActivity() {
         return 0
     }
 
-    /** 문제 위쪽에 일러스트를 끼워 넣는다 — 글만 덜렁 있는 화면을 없애는 핵심 */
+    /**
+     * 문제 위쪽에 일러스트를 끼워 넣는다 — 글만 덜렁 있는 화면을 없애는 핵심.
+     *
+     * 한 문제에 그림이 두 장 이상 붙을 때(예: 독해 = 낱말 그림 + 책 병아리)
+     * 위아래로 쌓으면 화면을 다 잡아먹어서, 한 줄에 나란히 놓고 폭에 맞춰 같이 줄인다.
+     */
     private fun addArt(v: View, resId: Int, sizeDp: Int = 165) {
         if (resId == 0) return
         val root = v as? LinearLayout ?: return
-        val img = android.widget.ImageView(this).apply {
+        val row = root.findViewWithTag<LinearLayout>(ART_ROW_TAG) ?: LinearLayout(this).apply {
+            tag = ART_ROW_TAG
+            orientation = LinearLayout.HORIZONTAL
+            gravity = android.view.Gravity.CENTER
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
+            ).apply { topMargin = dp(6); bottomMargin = dp(4) }
+            root.addView(this, minOf(1, root.childCount))
+        }
+        row.addView(android.widget.ImageView(this).apply {
             setImageResource(resId)
-            layoutParams = LinearLayout.LayoutParams(dp(sizeDp), dp(sizeDp)).apply {
-                gravity = android.view.Gravity.CENTER_HORIZONTAL
-                topMargin = dp(6); bottomMargin = dp(4)
+            tag = sizeDp                     // 원래 요청 크기 — 다시 계산할 때 쓴다
+            layoutParams = LinearLayout.LayoutParams(dp(sizeDp), dp(sizeDp))
+        })
+        fitArtRow(row)
+    }
+
+    /** 그림 줄이 화면 밖으로 나가지 않게 비율을 지키며 같이 줄인다 */
+    private fun fitArtRow(row: LinearLayout) {
+        val n = row.childCount
+        if (n == 0) return
+        val gap = dp(10)
+        val avail = resources.displayMetrics.widthPixels - dp(32) - gap * (n - 1)
+        var want = 0
+        for (i in 0 until n) want += dp(row.getChildAt(i).tag as? Int ?: 150)
+        val scale = if (want > avail) avail.toFloat() / want else 1f
+        for (i in 0 until n) {
+            val child = row.getChildAt(i)
+            val size = (dp(child.tag as? Int ?: 150) * scale).toInt()
+            child.layoutParams = LinearLayout.LayoutParams(size, size).apply {
+                if (i > 0) marginStart = gap
             }
         }
-        root.addView(img, minOf(1, root.childCount))
     }
 
     private fun inflate(layout: Int): View {
@@ -472,11 +505,7 @@ class LessonActivity : AppCompatActivity() {
         } ?: 0
         val quotedArt = if (koArt != 0) koArt else enArt
         when {
-            quotedArt != 0 -> v.findViewById<android.widget.ImageView>(R.id.imgWordArt).apply {
-                visibility = View.VISIBLE
-                setImageResource(quotedArt)
-                layoutParams = layoutParams.apply { width = dp(175); height = dp(175) }
-            }
+            quotedArt != 0 -> addArt(v, quotedArt, 175)
             q.bigEmoji != null -> v.findViewById<TextView>(R.id.txtBigEmoji).apply {
                 visibility = View.VISIBLE
                 text = q.bigEmoji

@@ -24,11 +24,6 @@
         android:layout_marginTop="6dp" android:gravity="center"
         android:textSize="76sp" android:visibility="gone" />
 
-    <!-- 낱말 그림 사전 일러스트 (codex 발주 #02) — 있으면 이모지 대신 이걸 쓴다 -->
-    <ImageView android:id="@+id/imgWordArt" android:layout_width="150dp" android:layout_height="150dp"
-        android:layout_gravity="center_horizontal" android:layout_marginTop="6dp"
-        android:visibility="gone" android:contentDescription="낱말 그림" />
-
     <TextView android:id="@+id/txtPrompt" android:layout_width="match_parent" android:layout_height="wrap_content"
         android:layout_marginTop="10dp" android:textSize="23sp" android:textStyle="bold"
         android:lineSpacingMultiplier="1.2" />
