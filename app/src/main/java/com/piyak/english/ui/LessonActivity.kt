@@ -378,7 +378,7 @@ class LessonActivity : AppCompatActivity() {
     ) {
         val view = com.piyak.english.ui.game.BubbleChoiceView(this).apply {
             layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, dp(160)
+                LinearLayout.LayoutParams.MATCH_PARENT, dp(230)
             )
         }
         var selected = -1

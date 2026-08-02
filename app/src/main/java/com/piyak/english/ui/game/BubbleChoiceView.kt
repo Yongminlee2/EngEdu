@@ -112,12 +112,13 @@ class BubbleChoiceView @JvmOverloads constructor(
 
     private fun placeBubbles() {
         if (width == 0 || height == 0 || bubbles.isEmpty()) return
-        // 2 x 2 배치
-        radius = minOf(width / 4.2f, height / 4.2f)
+        // 2 x 2 배치. 반지름을 칸 크기에서 뽑아 **말풍선 사이 간격**을 확보한다
+        // (0.42 = 칸의 84%가 지름, 나머지 16%가 서로의 여유 공간)
         val cols = 2
         val cellW = width / cols.toFloat()
         val rows = (bubbles.size + cols - 1) / cols
         val cellH = height / rows.toFloat()
+        radius = minOf(cellW, cellH) * 0.42f
         bubbles.forEachIndexed { i, b ->
             val r = i / cols
             val c = i % cols
