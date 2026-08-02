@@ -89,7 +89,12 @@ class PlaygroundActivity : AppCompatActivity() {
                     )
                 }
             }
-            card.addView(TextView(this).apply { text = g.emoji; textSize = 40f })
+            // 게임에 어울리는 일러스트 (없으면 이모지)
+            val gArt = gameArt(g.id)
+            if (gArt != 0) card.addView(android.widget.ImageView(this).apply {
+                setImageResource(gArt)
+                layoutParams = LinearLayout.LayoutParams(dp(56), dp(56))
+            }) else card.addView(TextView(this).apply { text = g.emoji; textSize = 40f })
             val col = LinearLayout(this).apply {
                 orientation = LinearLayout.VERTICAL
                 layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
@@ -114,6 +119,17 @@ class PlaygroundActivity : AppCompatActivity() {
             })
             b.gamesBox.addView(card)
         }
+    }
+
+    /** 게임 카드 일러스트: 풍선=풍선, 담기=상자, 잇기=게임기 */
+    private fun gameArt(id: String): Int {
+        val name = when {
+            id.startsWith(com.piyak.english.engine.MiniGames.BALLOON) -> "word_balloon"
+            id.startsWith(com.piyak.english.engine.MiniGames.BASKET) -> "word_box"
+            id.startsWith(com.piyak.english.engine.MiniGames.LINE) -> "word_game"
+            else -> return 0
+        }
+        return resources.getIdentifier(name, "drawable", packageName)
     }
 
     private fun dp(v: Int): Int = (v * resources.displayMetrics.density).toInt()
