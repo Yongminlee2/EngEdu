@@ -59,6 +59,9 @@ class SettingsActivity : AppCompatActivity() {
         })
         b.btnSfxTest.setOnClickListener { sfx.correct() }
 
+        b.switchHearts.isChecked = db.heartsEnabled()
+        b.switchHearts.setOnCheckedChangeListener { _, on -> db.setHeartsEnabled(on) }
+
         b.switchFree.isChecked = db.meta("free_mode") == "1"
         b.switchFree.setOnCheckedChangeListener { _, on ->
             db.setMeta("free_mode", if (on) "1" else "0")

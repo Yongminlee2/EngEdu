@@ -113,7 +113,7 @@ class LessonActivity : AppCompatActivity() {
             if (pair == null) { finish(); return }
             lessonTitle = pair.second.title
             questions = pair.second.questions
-            if (db.hearts() <= 0) {
+            if (db.heartsEnabled() && db.hearts() <= 0) {
                 AlertDialog.Builder(this)
                     .setTitle("하트가 없어요 💔")
                     .setMessage("30분마다 하트가 1개씩 차요.\n오답 복습을 완료하면 하트 1개를 받을 수 있어요!")
@@ -125,8 +125,8 @@ class LessonActivity : AppCompatActivity() {
 
         session = LessonSession(
             questions,
-            hearts = if (reviewMode) 99 else db.hearts(),
-            useHearts = !reviewMode,
+            hearts = if (reviewMode || !db.heartsEnabled()) 99 else db.hearts(),
+            useHearts = !reviewMode && db.heartsEnabled(),
         )
 
         db.skillStates().let { states ->
@@ -192,7 +192,11 @@ class LessonActivity : AppCompatActivity() {
         b.root.postDelayed(encourageRun, 15_000L)
 
         b.progressBar.progress = (s.progress * 100).toInt()
-        b.txtHearts.text = if (reviewMode) "💊 복습" else "❤️ ${s.hearts}"
+        b.txtHearts.text = when {
+            reviewMode -> "💊 복습"
+            !db.heartsEnabled() -> ""
+            else -> "❤️ ${s.hearts}"
+        }
         b.questionBox.removeAllViews()
         b.btnCheck.isEnabled = false
         b.btnCheck.text = "확인"
@@ -693,7 +697,11 @@ class LessonActivity : AppCompatActivity() {
         b.btnContinue.backgroundTintList = ColorStateList.valueOf(
             Color.parseColor(if (correct) "#66BB6A" else "#FF5252")
         )
-        b.txtHearts.text = if (reviewMode) "💊 복습" else "❤️ ${session?.hearts ?: 0}"
+        b.txtHearts.text = when {
+            reviewMode -> "💊 복습"
+            !db.heartsEnabled() -> ""
+            else -> "❤️ ${session?.hearts ?: 0}"
+        }
     }
 
     private fun hideFeedback() {
@@ -733,7 +741,7 @@ class LessonActivity : AppCompatActivity() {
             b.txtResultTitle.text = "복습 완료! 💊"
             b.txtResultStats.text = "정답률 ${(s.accuracy * 100).toInt()}% · +${xp} XP\n하트 1개 회복! ❤️ $h"
         } else {
-            db.setHearts(s.hearts)
+            if (db.heartsEnabled()) db.setHearts(s.hearts)
             db.addXp(xp)
             // 코인은 이 레슨을 "처음" 깰 때만 — 다시 풀어도 0원이라 반복 파밍이 안 된다
             val firstClear = db.lessonStars(lessonId) == 0

@@ -152,6 +152,16 @@ class Db private constructor(ctx: Context) : SQLiteOpenHelper(ctx, "piyak.db", n
     }
 
     // ---------- 하트 ----------
+    /**
+     * 하트를 쓸지. 끄면 하트가 줄지 않고 화면에도 안 나온다.
+     *
+     * **기본은 꺼짐** — 콘텐츠를 훑어보며 테스트할 때 하트가 떨어져 막히는 게 더 큰 불편이라
+     * 그렇게 뒀다. 아이에게 줄 때 설정에서 켜면 원래의 하트 규칙(5개, 30분당 1개 회복)이 돌아온다.
+     */
+    fun heartsEnabled(): Boolean = meta("hearts_on") == "1"
+
+    fun setHeartsEnabled(on: Boolean) = setMeta("hearts_on", if (on) "1" else "0")
+
     fun hearts(): Int {
         val max = maxHearts()
         val saved = metaInt("hearts", max)
