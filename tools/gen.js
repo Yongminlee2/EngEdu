@@ -187,6 +187,52 @@ function genBasicUnits() {
   }));
 
   const VOCAB_EMOJIS = ["🐣", "🌸", "🍎", "🌈", "🎈", "🧸", "🍀", "🎨", "🚌", "🏠"];
+
+  // 유닛 이름이 내용(주제)을 말하도록 — 전부 "단어마을"이던 문제 수정.
+  // 유닛에 어떤 단어가 들어갔는지 보고 가장 많은 주제로 이름 붙인다.
+  const THEMES = [
+    ["동물", "🐶", "dog cat bird fish rabbit bear lion tiger elephant monkey horse cow pig duck chicken frog snake mouse sheep fox wolf penguin squirrel zoo animal panda giraffe deer whale dolphin shark ant bee butterfly spider turtle hen goat crab octopus puppy kitten"],
+    ["음식", "🍎", "apple banana milk bread rice egg water juice candy cookie pizza cake orange grape strawberry peach watermelon food fruit vegetable meat soup tea sugar salt cheese butter jam noodle snack lunch dinner breakfast eat drink hungry thirsty delicious cook potato tomato onion carrot corn bean honey chocolate hamburger sandwich"],
+    ["가족과 사람", "👨‍👩‍👧", "mom dad mother father sister brother baby family grandmother grandfather grandma grandpa uncle aunt friend people man woman boy girl child cousin neighbor person king queen prince princess"],
+    ["몸과 건강", "💪", "head eye nose mouth ear hand foot arm leg hair face tooth teeth finger body knee shoulder neck back sick doctor hospital medicine healthy hurt strong weak tired"],
+    ["학교", "🏫", "school teacher student book pencil eraser desk chair class classroom study read write learn lesson test homework crayon scissors glue paper notebook library dictionary question answer word letter"],
+    ["우리 집", "🏠", "house home room door window bed sofa kitchen bathroom table lamp wall roof garden clean wash bath soap towel mirror clock phone computer television key box cup plate spoon knife"],
+    ["옷과 물건", "👕", "shirt pants shoes socks hat dress coat skirt button pocket wear glasses umbrella watch ring bag wallet"],
+    ["색깔과 모양", "🎨", "red blue yellow green black white pink purple brown color circle square triangle shape line round"],
+    ["자연과 날씨", "🌳", "sun moon star sky rain snow wind cloud tree flower grass mountain river sea beach stone leaf weather spring summer fall autumn winter hot cold warm cool rainbow lake forest island world earth fire ice light air rock sand"],
+    ["마을과 탈것", "🚌", "car bus train airplane plane bike bicycle boat ship taxi road park store market shop police town city bridge street subway station travel trip map ticket airport farm church museum bank restaurant"],
+    ["놀이와 운동", "⚽", "play game ball soccer baseball basketball swim run jump dance sing song music toy doll balloon party birthday present gift fun sport tennis badminton ski skate camp picnic piano guitar drum"],
+    ["시간과 하루", "⏰", "time day week month year today tomorrow yesterday morning afternoon evening night hour minute early late calendar season date weekend"],
+    ["마음과 행동", "😊", "happy sad angry love like smile cry laugh good bad big small tall short fast slow open close go come see look listen speak talk walk sit stand sleep wake help want give take make think know feel hope brave kind shy scared surprised worry thank sorry please welcome"],
+  ].map(([name, emoji, ws]) => [name, emoji, new Set(ws.split(" "))]);
+
+  function retitleVocabUnits(vunits, levelWords, L) {
+    if (!vunits.length) return;
+    const per = Math.ceil(levelWords.length / vunits.length);
+    const seen = new Map();
+    vunits.forEach((u, i) => {
+      const slice = levelWords.slice(i * per, (i + 1) * per);
+      const cnt = new Map();
+      for (const w of slice) {
+        const t = THEMES.findIndex(([, , set]) => set.has(String(w.word).toLowerCase()));
+        if (t >= 0) cnt.set(t, (cnt.get(t) || 0) + 1);
+      }
+      let best = -1, bestN = 0;
+      for (const [t, n] of cnt) if (n > bestN) { best = t; bestN = n; }
+      // 주제가 안 잡히는 고급 어휘 유닛은 이름이라도 다양하게 (전부 같은 이름 방지)
+      const FALLBACK = [
+        ["낱말 탐험", "🧭"], ["단어 여행", "✈️"], ["어휘 산책", "🚶"], ["낱말 캠프", "🏕️"],
+        ["단어 보물찾기", "💎"], ["어휘 정원", "🌷"], ["낱말 등대", "🗼"], ["단어 열기구", "🎈"],
+      ];
+      let [name, emoji] = FALLBACK[i % FALLBACK.length];
+      if (best >= 0 && bestN >= 2) { name = THEMES[best][0] + " 마을"; emoji = THEMES[best][1]; }
+      const key = L + "|" + name;
+      const n = (seen.get(key) || 0) + 1;
+      seen.set(key, n);
+      u.title = L + "단계 " + name + (n > 1 ? " " + n : "");
+      u.emoji = emoji;
+    });
+  }
   const units = [];
 
   for (let L = 1; L <= 10; L++) {
@@ -284,8 +330,12 @@ const SCENE_TOEN = [
       });
     }
     const vocabLessons = packLessons(stream, 12);
-    units.push(...packUnits(vocabLessons, 5, L,
-      (i) => `${L}단계 단어마을 ${i + 1}`, VOCAB_EMOJIS));
+    {
+      const before = units.length;
+      units.push(...packUnits(vocabLessons, 5, L,
+        (i) => `${L}단계 단어마을 ${i + 1}`, VOCAB_EMOJIS));
+      retitleVocabUnits(units.slice(before), words, L);
+    }
 
     // --- 문법 유닛 ---
     const gs = grammar.filter((g) => g.level === L).map((g) =>
