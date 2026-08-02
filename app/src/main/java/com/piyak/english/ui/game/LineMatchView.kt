@@ -136,6 +136,11 @@ class LineMatchView @JvmOverloads constructor(
                 val isEmoji = node.text.isNotEmpty() && node.text[0].code > 0x2000
                 textPaint.textSize = if (isEmoji) box.height() * 0.55f else (box.height() * 0.36f)
                     .coerceAtMost(dp(22f))
+                // 긴 한글·영어가 칸 밖으로 나가지 않게 폭에 맞춰 줄인다
+                val maxW = box.width() - dp(18f)
+                if (!isEmoji && textPaint.measureText(node.text) > maxW) {
+                    textPaint.textSize *= maxW / textPaint.measureText(node.text)
+                }
                 textPaint.color = if (done) Color.WHITE else Color.parseColor("#4E342E")
                 canvas.drawText(node.text, box.centerX(), box.centerY() + textPaint.textSize * 0.35f, textPaint)
             }
