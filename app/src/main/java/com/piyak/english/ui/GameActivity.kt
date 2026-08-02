@@ -126,6 +126,16 @@ class GameActivity : AppCompatActivity() {
     private var basket: BasketGameView? = null
     private var lineView: LineMatchView? = null
 
+    /** 게임 속 이모지 → 낱말 일러스트 (그림 사전 1,181장 활용) */
+    private val gameArtCache = HashMap<String, android.graphics.drawable.Drawable?>()
+    private fun wordArtFor(s: String): android.graphics.drawable.Drawable? =
+        gameArtCache.getOrPut(s) {
+            val en = MiniGames.WORDS.firstOrNull { it.first == s }?.second ?: return@getOrPut null
+            val name = com.piyak.english.engine.WordArt.EN[en.lowercase()] ?: return@getOrPut null
+            val id = resources.getIdentifier(name, "drawable", packageName)
+            if (id == 0) null else getDrawable(id)
+        }
+
     private fun buildBoard() {
         b.gameBox.removeAllViews()
         b.btnAction.visibility = View.GONE
@@ -134,6 +144,7 @@ class GameActivity : AppCompatActivity() {
         when {
             gameId.startsWith(MiniGames.BALLOON) -> {
                 val v = BalloonGameView(this)
+                v.artResolver = { s -> wordArtFor(s) }
                 v.riseSpeed = 0.85f + level * 0.12f
                 v.onHit = { hit() }
                 v.onMiss = { miss() }
@@ -159,6 +170,7 @@ class GameActivity : AppCompatActivity() {
             }
             else -> {
                 val v = LineMatchView(this)
+                v.artResolver = { s -> wordArtFor(s) }
                 v.onHit = { hit() }
                 v.onMiss = { miss() }
                 v.onFinish = { nextLineRound() }

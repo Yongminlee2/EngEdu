@@ -348,12 +348,17 @@ class LessonActivity : AppCompatActivity() {
             ).apply { topMargin = dp(6); bottomMargin = dp(4) }
             root.addView(this, minOf(1, root.childCount))
         }
-        row.addView(android.widget.ImageView(this).apply {
+        val img = android.widget.ImageView(this).apply {
             setImageResource(resId)
             tag = sizeDp                     // 원래 요청 크기 — 다시 계산할 때 쓴다
             layoutParams = LinearLayout.LayoutParams(dp(sizeDp), dp(sizeDp))
-        })
+        }
+        row.addView(img)
         fitArtRow(row)
+        // 뿅 하고 등장
+        img.scaleX = 0.7f; img.scaleY = 0.7f; img.alpha = 0f
+        img.animate().scaleX(1f).scaleY(1f).alpha(1f)
+            .setDuration(260L).setInterpolator(android.view.animation.OvershootInterpolator(1.6f)).start()
     }
 
     /** 그림 줄이 화면 밖으로 나가지 않게 비율을 지키며 같이 줄인다 */

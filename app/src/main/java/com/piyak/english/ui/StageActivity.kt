@@ -106,6 +106,16 @@ class StageActivity : AppCompatActivity() {
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, dp(132)
             ).apply { topMargin = dp(2); bottomMargin = dp(4) }
+            // 둥실둥실 떠 있는 느낌
+            android.animation.ObjectAnimator.ofFloat(
+                this, android.view.View.TRANSLATION_Y, 0f, dp(7).toFloat()
+            ).apply {
+                duration = 1700L
+                repeatCount = android.animation.ValueAnimator.INFINITE
+                repeatMode = android.animation.ValueAnimator.REVERSE
+                interpolator = android.view.animation.AccelerateDecelerateInterpolator()
+                start()
+            }
         })
 
         val db = Db.get(this)

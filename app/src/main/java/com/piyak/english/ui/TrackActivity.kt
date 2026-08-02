@@ -84,8 +84,14 @@ class TrackActivity : AppCompatActivity() {
                     val stars = db.lessonStars(l.id)
                     text = when {
                         isDone -> "⭐".repeat(stars.coerceIn(1, 3))
-                        unlocked -> "🐥"
+                        unlocked -> ""      // 아래 foreground 의 병아리가 선다
                         else -> "🥚"
+                    }
+                    if (!isDone && unlocked) {
+                        // 다음에 풀 레슨 위에 병아리가 서 있다 (듀오링고처럼)
+                        foreground = android.graphics.drawable.InsetDrawable(
+                            getDrawable(R.drawable.ck_idle), dp(9)
+                        )
                     }
                     textSize = if (isDone) 11f else 22f
                     gravity = Gravity.CENTER
