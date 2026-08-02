@@ -422,39 +422,36 @@ class LessonActivity : AppCompatActivity() {
             q.bigEmoji != null -> "🎨 그림 문제"
             else -> "🔤 고르기"
         }
-        // 그림 배선 원칙 (전 레벨 공통):
-        //  · 한→영("사과"를 영어로?): 문제에 이미 낱말이 적혀 있어 그림이 답을 흘리지 않는다 → 문제에 크게
-        //  · 영→한("apple"의 뜻은?): 보기가 한글 뜻이라 그림이 곧 답안지 → 문제에선 빼고 정답 화면에서 보여준다
+        // 그림 우선 원칙 (사용자 결정 2026-08-02): 그림이 답을 알려줘도 좋다.
+        // 그림-소리-뜻이 같이 붙는 것이 곧 학습이고, 화면도 훨씬 즐겁다.
         val koWord = Regex("\"([가-힣]+)").find(q.prompt)?.groupValues?.get(1)
         val koArt = koWord?.let { k -> com.piyak.english.engine.WordArt.KO[k]?.let { artRes(it) } } ?: 0
         val enWord = Regex("\"([A-Za-z]+)").find(q.prompt)?.groupValues?.get(1)?.lowercase()
         val enArt = enWord?.let {
             resources.getIdentifier("word_$it", "drawable", packageName)
         } ?: 0
+        val quotedArt = if (koArt != 0) koArt else enArt
         when {
-            koArt != 0 -> v.findViewById<android.widget.ImageView>(R.id.imgWordArt).apply {
+            quotedArt != 0 -> v.findViewById<android.widget.ImageView>(R.id.imgWordArt).apply {
                 visibility = View.VISIBLE
-                setImageResource(koArt)
+                setImageResource(quotedArt)
                 layoutParams = layoutParams.apply { width = dp(175); height = dp(175) }
-            }
-            enArt != 0 -> {
-                feedbackArtRes = enArt
-                addArt(v, artRes("ck_think"), 120)
             }
             q.bigEmoji != null -> v.findViewById<TextView>(R.id.txtBigEmoji).apply {
                 visibility = View.VISIBLE
                 text = q.bigEmoji
             }
-            enWord == null -> {
-                // 문법·독해 등 일반 문제만 이모지 폴백 (영→한은 이모지도 답을 흘린다)
-                findWordArt(q.prompt, q.choices)?.let { art ->
+            else -> {
+                // 낱말 그림이 없어도 문장 속 아는 낱말의 그림으로 상황 힌트를 준다
+                val hint = sentenceArt(q.prompt)
+                if (hint != 0) addArt(v, hint, 150)
+                else findWordArt(q.prompt, q.choices)?.let { art ->
                     v.findViewById<TextView>(R.id.txtBigEmoji).apply {
                         visibility = View.VISIBLE
                         text = art
                     }
                 }
             }
-            else -> addArt(v, artRes("ck_think"), 120)
         }
         if (q.passage != null) {
             addArt(v, artRes("ck_book"), 120)
@@ -466,9 +463,9 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showListenMcq(q: Question.ListenMcq) {
         val v = inflate(R.layout.view_q_mcq)
-        addArt(v, artRes("ck_listen"), 150)
-        // 들려준 낱말의 그림은 답 공개 후에 — 미리 보여주면 답이 샌다
-        feedbackArtRes = sentenceArt(q.tts)
+        // 그림 우선: 들려준 낱말의 그림을 바로 보여준다 (그림-소리 연결도 학습)
+        val heardArt = sentenceArt(q.tts)
+        addArt(v, if (heardArt != 0) heardArt else artRes("ck_listen"), 160)
         v.findViewById<TextView>(R.id.txtKind).text = "🎧 듣기"
         v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
         val play = v.findViewById<Button>(R.id.btnPlay)
@@ -483,7 +480,8 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showListenDialog(q: Question.ListenDialog) {
         val v = inflate(R.layout.view_q_mcq)
-        addArt(v, artRes("ck_listen"), 150)
+        val dlgArt = q.lines.asSequence().map { (_, t) -> sentenceArt(t) }.firstOrNull { it != 0 } ?: 0
+        addArt(v, if (dlgArt != 0) dlgArt else artRes("ck_listen"), 150)
         v.findViewById<TextView>(R.id.txtKind).text = "🎧 대화 듣기"
         v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
         val play = v.findViewById<Button>(R.id.btnPlay)
