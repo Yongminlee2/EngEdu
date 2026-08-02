@@ -7,7 +7,7 @@
         android:textSize="13sp" android:textColor="@color/brown_soft" android:text="🧩 문장 만들기" />
 
     <TextView android:id="@+id/txtPrompt" android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:layout_marginTop="10dp" android:textSize="21sp" android:textStyle="bold"
+        android:layout_marginTop="10dp" android:textSize="23sp" android:textStyle="bold"
         android:lineSpacingMultiplier="1.2" />
 
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -15,10 +15,10 @@
 
     <com.piyak.english.ui.FlowLayout android:id="@+id/answerFlow"
         android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:minHeight="60dp" android:padding="8dp"
+        android:minHeight="76dp" android:padding="10dp"
         android:background="@drawable/bg_tile_ghost" />
 
     <com.piyak.english.ui.FlowLayout android:id="@+id/bankFlow"
         android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:layout_marginTop="16dp" android:padding="8dp" />
+        android:layout_marginTop="18dp" android:padding="8dp" />
 </LinearLayout>
