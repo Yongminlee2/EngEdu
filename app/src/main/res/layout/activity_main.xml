@@ -15,7 +15,7 @@
 
         <!-- 시간대별 풍경 배너 (codex 발주 #01) — 아침 하늘, 낮 풀밭, 저녁 교실, 밤하늘 -->
         <ImageView android:id="@+id/imgBanner"
-            android:layout_width="match_parent" android:layout_height="120dp"
+            android:layout_width="match_parent" android:layout_height="96dp"
             android:layout_marginTop="8dp" android:scaleType="centerCrop"
             android:contentDescription="풍경" />
 
@@ -53,7 +53,7 @@
                 <ProgressBar android:id="@+id/rankBar" style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent" android:layout_height="8dp"
                     android:layout_marginTop="4dp" android:max="100"
-                    android:progressTint="@color/lavender_deep" android:progressBackgroundTint="@color/cream_dark" />
+                    android:progressTint="@color/chick_yellow_deep" android:progressBackgroundTint="@color/cream_dark" />
                 <TextView android:id="@+id/txtGreeting" android:layout_width="wrap_content" android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:text="오늘도 삐약삐약 공부해요!" android:textSize="13sp" android:textColor="@color/brown_soft" />
@@ -187,12 +187,24 @@
         <LinearLayout
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:orientation="horizontal" android:layout_marginTop="12dp">
-            <Button android:id="@+id/btnReview" android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_weight="1" android:text="💊 오답 0" />
-            <Button android:id="@+id/btnStats" android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_weight="1" android:layout_marginStart="8dp" android:text="📊 통계" />
-            <Button android:id="@+id/btnSettings" android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_weight="1" android:layout_marginStart="8dp" android:text="⚙️ 설정" />
+            <Button android:id="@+id/btnReview" android:layout_width="0dp" android:layout_height="52dp"
+                android:layout_weight="1" android:text="💊 오답 0" android:textSize="14sp"
+                android:minWidth="0dp" android:paddingHorizontal="4dp"
+                android:insetTop="0dp" android:insetBottom="0dp"
+                android:background="@drawable/bg_card_soft" android:backgroundTint="@null"
+                android:textColor="@color/brown_text" android:stateListAnimator="@null" />
+            <Button android:id="@+id/btnStats" android:layout_width="0dp" android:layout_height="52dp"
+                android:layout_weight="1" android:layout_marginStart="8dp" android:text="📊 통계" android:textSize="14sp"
+                android:minWidth="0dp" android:paddingHorizontal="4dp"
+                android:insetTop="0dp" android:insetBottom="0dp"
+                android:background="@drawable/bg_card_soft" android:backgroundTint="@null"
+                android:textColor="@color/brown_text" android:stateListAnimator="@null" />
+            <Button android:id="@+id/btnSettings" android:layout_width="0dp" android:layout_height="52dp"
+                android:layout_weight="1" android:layout_marginStart="8dp" android:text="⚙️ 설정" android:textSize="14sp"
+                android:minWidth="0dp" android:paddingHorizontal="4dp"
+                android:insetTop="0dp" android:insetBottom="0dp"
+                android:background="@drawable/bg_card_soft" android:backgroundTint="@null"
+                android:textColor="@color/brown_text" android:stateListAnimator="@null" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

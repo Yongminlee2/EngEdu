@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 홈 하단 버튼(오답·통계·설정): 위쪽 카드들과 같은 흰 둥근 카드 톤 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="@color/white" />
+    <stroke android:width="2dp" android:color="@color/cream_dark" />
+    <corners android:radius="18dp" />
+</shape>
