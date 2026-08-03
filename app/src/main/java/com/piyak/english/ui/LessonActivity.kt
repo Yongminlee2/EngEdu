@@ -546,6 +546,8 @@ class LessonActivity : AppCompatActivity() {
         } ?: 0
         val quotedArt = if (koArt != 0) koArt else enArt
         when {
+            // 독해는 지문·보기가 길다. 그림은 책 병아리 하나만 작게 (아래에서 붙인다)
+            q.passage != null -> Unit
             quotedArt != 0 -> addArt(v, quotedArt, 175)
             // 초등영어처럼 이모지가 붙어 온 문제도 낱말 그림이 있으면 그걸 먼저 쓴다
             q.bigEmoji != null -> {
@@ -576,7 +578,7 @@ class LessonActivity : AppCompatActivity() {
             }
         }
         if (q.passage != null) {
-            addArt(v, artRes("ck_book"), 120)
+            addArt(v, artRes("ck_book"), 84)
             v.findViewById<TextView>(R.id.txtPassage).apply {
                 visibility = View.VISIBLE
                 text = q.passage
