@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 앱 아이콘 (발주 #10) — 앱 안에서 쓰는 병아리와 같은 캐릭터 -->
 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
     <background android:drawable="@color/cream" />
-    <foreground android:drawable="@drawable/ic_launcher_fg" />
+    <foreground android:drawable="@mipmap/ic_launcher_fg" />
+    <monochrome android:drawable="@mipmap/ic_launcher_fg" />
 </adaptive-icon>
