@@ -29,6 +29,9 @@ class LessonSession(
 
     val totalCount: Int get() = total
 
+    /** 지금까지 푼 고유 문제 수 — "3 / 12" 표시에 쓴다 */
+    val solvedCount: Int get() = solved
+
     /** 정답 처리 → true 반환. 오답이면 재출제 큐잉 + 하트 차감 → false. */
     fun submit(correct: Boolean): Boolean {
         val q = queue.removeFirstOrNull() ?: return correct

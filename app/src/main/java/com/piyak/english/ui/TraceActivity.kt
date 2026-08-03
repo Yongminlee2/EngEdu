@@ -69,7 +69,17 @@ class TraceActivity : AppCompatActivity() {
         uppercase = upper
         val d = def()
         b.txtTitle.text = "${d.glyph(true)} ${d.glyph(false)}   (${if (upper) "대문자" else "소문자"})"
-        b.txtEmoji.text = d.emoji
+        // 낱말 그림이 있으면 이모지 대신 (알파벳 23자 전부 있다)
+        val art = resources.getIdentifier("word_" + d.word.lowercase(), "drawable", packageName)
+        if (art != 0) {
+            b.imgWordArt.visibility = View.VISIBLE
+            b.imgWordArt.setImageResource(art)
+            b.txtEmoji.visibility = View.GONE
+        } else {
+            b.imgWordArt.visibility = View.GONE
+            b.txtEmoji.visibility = View.VISIBLE
+            b.txtEmoji.text = d.emoji
+        }
         b.txtWord.text = d.word
         b.txtWordKo.text = d.ko
         b.donePanel.visibility = View.GONE
@@ -111,7 +121,18 @@ class TraceActivity : AppCompatActivity() {
         }
 
         val stars = if (writes >= 5) 3 else if (writes >= 3) 2 else 1
-        b.txtDoneBig.text = def().emoji
+        val doneArt = resources.getIdentifier(
+            "word_" + def().word.lowercase(), "drawable", packageName
+        )
+        if (doneArt != 0) {
+            b.imgDoneBig.visibility = View.VISIBLE
+            b.imgDoneBig.setImageResource(doneArt)
+            b.txtDoneBig.visibility = View.GONE
+        } else {
+            b.imgDoneBig.visibility = View.GONE
+            b.txtDoneBig.visibility = View.VISIBLE
+            b.txtDoneBig.text = def().emoji
+        }
         b.txtDoneMsg.text = "${praises.random()}\n${"⭐".repeat(stars)}  ${writes}번 썼어요!"
         b.donePanel.visibility = View.VISIBLE
         b.donePanel.alpha = 0f

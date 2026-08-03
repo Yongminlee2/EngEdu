@@ -74,7 +74,13 @@ class AlphabetActivity : AppCompatActivity() {
                     )
                 }
             }
-            card.addView(TextView(this).apply {
+            val cardArt = resources.getIdentifier(
+                "word_" + d.word.lowercase(), "drawable", packageName
+            )
+            if (cardArt != 0) card.addView(android.widget.ImageView(this).apply {
+                setImageResource(cardArt)
+                layoutParams = LinearLayout.LayoutParams(dp(38), dp(38))
+            }) else card.addView(TextView(this).apply {
                 text = d.emoji
                 textSize = 26f
                 gravity = Gravity.CENTER

@@ -72,17 +72,26 @@ class TraceView @JvmOverloads constructor(
         textAlign = Paint.Align.CENTER
         typeface = android.graphics.Typeface.create(android.graphics.Typeface.SANS_SERIF, android.graphics.Typeface.BOLD)
     }
+    // 다음에 쓸 획들 — 아주 연하게 (지금 쓸 획과 헷갈리면 안 된다)
     private val roadPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE
         strokeCap = Paint.Cap.ROUND
         strokeJoin = Paint.Join.ROUND
-        color = Color.parseColor("#FFF0CC")
+        color = Color.parseColor("#F0E6D2")
     }
+    // 지금 쓸 획 — 초록 길. 연한 노랑끼리는 구분이 안 돼서 색을 아예 바꿨다
     private val roadActivePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE
         strokeCap = Paint.Cap.ROUND
         strokeJoin = Paint.Join.ROUND
-        color = Color.parseColor("#FFE082")
+        color = Color.parseColor("#A5D6A7")
+    }
+    /** 지금 쓸 획의 테두리 — 어디까지 쓰는지 끝이 분명해진다 */
+    private val roadActiveEdge = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        style = Paint.Style.STROKE
+        strokeCap = Paint.Cap.ROUND
+        strokeJoin = Paint.Join.ROUND
+        color = Color.parseColor("#66BB6A")
     }
     private val dashPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE
@@ -102,6 +111,8 @@ class TraceView @JvmOverloads constructor(
         color = Color.parseColor("#FF7043")
     }
     private val startPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#66BB6A") }
+    /** 획의 끝 — 어디까지 쓰면 되는지 */
+    private val endPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#EF6C00") }
     private val startTextPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = Color.WHITE
         textAlign = Paint.Align.CENTER
@@ -436,13 +447,23 @@ class TraceView @JvmOverloads constructor(
             )
         }
 
-        // 아직 안 쓴 획들 = 길
+        // 아직 안 쓴 획들 = 길.
+        // 다음 획들을 먼저 그리고 지금 쓸 획을 맨 위에 — 순서대로 그리면
+        // 2획이 1획을 덮어 "어디까지 쓰는지" 가 안 보인다
         for (i in checkpoints.indices) {
-            if (i < strokeIdx) continue
-            val paint = if (i == strokeIdx) roadActivePaint else roadPaint
-            val path = pathOf(checkpoints[i])
-            canvas.drawPath(path, paint)
+            if (i <= strokeIdx) continue
+            canvas.drawPath(pathOf(checkpoints[i]), roadPaint)
+        }
+        if (strokeIdx < checkpoints.size) {
+            val path = pathOf(checkpoints[strokeIdx])
+            roadActiveEdge.strokeWidth = roadActivePaint.strokeWidth * 1.22f
+            canvas.drawPath(path, roadActiveEdge)
+            canvas.drawPath(path, roadActivePaint)
             canvas.drawPath(path, dashPaint)
+            // 끝 지점에 깃발처럼 동그라미 — 여기까지 쓰면 된다
+            checkpoints[strokeIdx].lastOrNull()?.let { e ->
+                canvas.drawCircle(e.x, e.y, roadActivePaint.strokeWidth * 0.34f, endPaint)
+            }
         }
 
         // 완성한 획
