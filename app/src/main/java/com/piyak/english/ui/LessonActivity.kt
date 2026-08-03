@@ -231,6 +231,7 @@ class LessonActivity : AppCompatActivity() {
         b.root.postDelayed(sleepRun, 45_000L)
 
         b.progressBar.progress = (s.progress * 100).toInt()
+        b.txtCount.text = "${(s.solvedCount + 1).coerceAtMost(s.totalCount)} / ${s.totalCount}"
         showHearts(if (reviewMode) null else if (db.heartsEnabled()) s.hearts else -1)
         b.questionBox.removeAllViews()
         b.btnCheck.isEnabled = false
