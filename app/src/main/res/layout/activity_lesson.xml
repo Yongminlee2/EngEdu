@@ -11,9 +11,11 @@
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:orientation="horizontal" android:gravity="center_vertical"
             android:paddingHorizontal="12dp" android:paddingTop="8dp">
-            <Button android:id="@+id/btnClose" style="?attr/materialIconButtonStyle"
-                android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="" android:drawableStart="@drawable/ic_close" />
+            <ImageView android:id="@+id/btnClose"
+                android:layout_width="40dp" android:layout_height="40dp" android:padding="8dp"
+                android:src="@drawable/ui_close" android:contentDescription="그만두기"
+                android:background="?attr/selectableItemBackgroundBorderless" android:clickable="true"
+                android:focusable="true" />
             <ProgressBar android:id="@+id/progressBar" style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="0dp" android:layout_height="14dp" android:layout_weight="1"
                 android:layout_marginHorizontal="8dp" android:max="100"

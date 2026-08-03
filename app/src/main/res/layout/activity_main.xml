@@ -15,7 +15,7 @@
 
         <!-- 시간대별 풍경 배너 (codex 발주 #01) — 아침 하늘, 낮 풀밭, 저녁 교실, 밤하늘 -->
         <ImageView android:id="@+id/imgBanner"
-            android:layout_width="match_parent" android:layout_height="96dp"
+            android:layout_width="match_parent" android:layout_height="128dp"
             android:layout_marginTop="8dp" android:scaleType="centerCrop"
             android:contentDescription="풍경" />
 
@@ -88,8 +88,8 @@
             android:orientation="horizontal" android:gravity="center_vertical"
             android:layout_marginTop="12dp" android:padding="16dp"
             android:background="@drawable/bg_wallet">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="" android:drawableStart="@drawable/ic_coin" />
+            <ImageView android:layout_width="38dp" android:layout_height="38dp"
+                android:src="@drawable/ui_coin" android:contentDescription="용돈" />
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                 android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
                 <TextView android:id="@+id/txtCoins" android:layout_width="wrap_content" android:layout_height="wrap_content"
