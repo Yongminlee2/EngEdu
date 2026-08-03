@@ -133,11 +133,17 @@
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:orientation="vertical" android:layout_marginTop="4dp" />
 
+        <!-- 나의 기록 (상점·실력·레벨테스트) -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" android:text="내 실력 · 레벨테스트 · 상점"
+            android:drawableStart="@drawable/ic_level" android:drawablePadding="6dp" android:drawableTint="@null"
+            android:textSize="16sp" android:textStyle="bold" />
+
         <!-- 지갑 -->
         <LinearLayout android:id="@+id/cardWallet"
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:orientation="horizontal" android:gravity="center_vertical"
-            android:layout_marginTop="12dp" android:padding="16dp"
+            android:layout_marginTop="4dp" android:padding="16dp"
             android:background="@drawable/bg_wallet">
             <ImageView android:layout_width="38dp" android:layout_height="38dp"
                 android:src="@drawable/ui_coin" android:contentDescription="용돈" />
