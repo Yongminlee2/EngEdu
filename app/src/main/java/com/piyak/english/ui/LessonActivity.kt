@@ -49,6 +49,9 @@ class LessonActivity : AppCompatActivity() {
     /** 그림을 한 줄에 모아 담는 컨테이너를 찾기 위한 표식 */
     private val ART_ROW_TAG = "artRow"
 
+    /** "3 / 12" — 문제 뷰가 만들어질 때 종류 라벨 옆에 채운다 */
+    private var questionNo = ""
+
     /** 첫 문제는 전환 애니메이션 없이 바로 */
     private var firstQuestion = true
 
@@ -231,7 +234,7 @@ class LessonActivity : AppCompatActivity() {
         b.root.postDelayed(sleepRun, 45_000L)
 
         b.progressBar.progress = (s.progress * 100).toInt()
-        b.txtCount.text = "${(s.solvedCount + 1).coerceAtMost(s.totalCount)} / ${s.totalCount}"
+        questionNo = "${(s.solvedCount + 1).coerceAtMost(s.totalCount)} / ${s.totalCount}"
         showHearts(if (reviewMode) null else if (db.heartsEnabled()) s.hearts else -1)
         b.questionBox.removeAllViews()
         b.btnCheck.isEnabled = false
@@ -404,6 +407,7 @@ class LessonActivity : AppCompatActivity() {
         // 그냥 가운데 정렬하면 진행바와 문제 사이가 손가락 두 마디만큼 벌어진다
         (v.layoutParams as? android.widget.FrameLayout.LayoutParams)?.gravity =
             android.view.Gravity.TOP
+        v.findViewById<TextView>(R.id.txtCountInline)?.text = questionNo
         b.questionBox.addView(v)
         v.addOnLayoutChangeListener(object : View.OnLayoutChangeListener {
             override fun onLayoutChange(
@@ -591,6 +595,7 @@ class LessonActivity : AppCompatActivity() {
         slow.setOnClickListener { tts.speak(q.tts, slow = true) }
         renderChoices(v.findViewById(R.id.choicesBox), q.choices, q.answer, q.explain,
             "${q.choices[q.answer]}  (들려준 말: ${q.tts})")
+        addSkip(v)
         b.root.postDelayed({ tts.speak(q.tts) }, 350)
     }
 
@@ -610,6 +615,7 @@ class LessonActivity : AppCompatActivity() {
         val script = q.lines.joinToString("\n") { (s, t) -> "$s: $t" }
         renderChoices(v.findViewById(R.id.choicesBox), q.choices, q.answer, q.explain,
             "${q.choices[q.answer]}\n\n대본:\n$script")
+        addSkip(v)
         b.root.postDelayed({ tts.speakLines(lines) }, 350)
     }
 
@@ -636,6 +642,7 @@ class LessonActivity : AppCompatActivity() {
             val extra = if (r.typo) "오타가 조금 있었지만 인정! ✔ ${q.answer}" else null
             submitAnswer(r.correct, if (r.correct) extra else "정답: ${q.answer}", q.explain)
         }
+        addSkip(v)
         b.root.postDelayed({ tts.speak(q.tts) }, 350)
     }
 
@@ -778,7 +785,7 @@ class LessonActivity : AppCompatActivity() {
                         } else {
                             speakFails++
                             sfx.wrong()
-                            if (speakFails >= 2) btnSkip.visibility = View.VISIBLE
+                            // 건너뛰기는 처음부터 보인다 (못 할 수도 있으니까)
                             Toast.makeText(this, "조금 달라요! 다시 시도해 보세요 🐥", Toast.LENGTH_SHORT).show()
                         }
                     }
@@ -804,6 +811,38 @@ class LessonActivity : AppCompatActivity() {
             session?.submitNoPenalty(false)
             showFeedback(false, "괜찮아요! 다음에 말해 봐요. 정답 문장: ${q.en}", q.explain, penalty = false)
         }
+    }
+
+
+    /**
+     * 못 풀 수도 있는 문제(듣기·받아쓰기)에 붙이는 건너뛰기.
+     * 하트를 깎지 않고 정답을 알려 준 뒤 다음 문제로 넘어간다.
+     */
+    private fun addSkip(v: View) {
+        val root = v as? LinearLayout ?: return
+        root.addView(Button(this).apply {
+            text = "잘 모르겠어요 (건너뛰기)"
+            isAllCaps = false
+            textSize = 14f
+            setTextColor(Color.parseColor("#8D6E63"))
+            background = null
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
+            ).apply { topMargin = dp(4) }
+            setOnClickListener {
+                val q = session?.current() ?: return@setOnClickListener
+                val note = when (q) {
+                    is Question.ListenMcq ->
+                        "정답: ${q.choices[q.answer]}\n들려준 말: ${q.tts}"
+                    is Question.ListenDialog -> "정답: ${q.choices[q.answer]}"
+                    is Question.Dictation -> "정답: ${q.answer}"
+                    else -> null
+                }
+                recordSkill(q, false)
+                session?.submitNoPenalty(false)
+                showFeedback(false, note, q.explain, penalty = false)
+            }
+        })
     }
 
     // ---------------- 채점·피드백 ----------------

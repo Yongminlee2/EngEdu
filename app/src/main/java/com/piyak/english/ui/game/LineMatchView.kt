@@ -104,7 +104,8 @@ class LineMatchView @JvmOverloads constructor(
         // 끌고 있는 선
         dragFrom?.let {
             linePaint.color = Color.parseColor("#8D6E63")
-            canvas.drawLine(it.box.right, it.box.centerY(), dragX, dragY, linePaint)
+            val sx = if (dragStartedRight) it.box.left else it.box.right
+            canvas.drawLine(sx, it.box.centerY(), dragX, dragY, linePaint)
         }
 
         drawColumn(canvas, left, true)
@@ -155,16 +156,22 @@ class LineMatchView @JvmOverloads constructor(
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when (event.actionMasked) {
             MotionEvent.ACTION_DOWN -> {
-                // 아직 안 이어진 왼쪽 항목에서만 시작.
-                // 칸을 정확히 눌러야만 잡히면 손가락이 조금만 빗나가도 안 잡힌다 —
+                // 아직 안 이어진 항목에서 시작 — 왼쪽·오른쪽 어느 쪽에서 그어도 된다.
+                // 칸을 정확히 눌러야만 잡히면 손가락이 조금만 빗나가도 안 잡히므로
                 // 칸 둘레로 여유를 두고, 그래도 없으면 가장 가까운 칸을 잡아 준다.
-                val free = left.filter { !matched.containsKey(it.key) }
-                dragFrom = free.firstOrNull { grown(it.box).contains(event.x, event.y) }
-                    ?: free.minByOrNull {
-                        hypot(event.x - it.box.centerX(), event.y - it.box.centerY())
-                    }?.takeIf {
-                        hypot(event.x - it.box.centerX(), event.y - it.box.centerY()) < it.box.height() * 1.2f
-                    }
+                val freeLeft = left.filter { !matched.containsKey(it.key) }
+                val freeRight = right.filter { !matched.containsValue(it.key) }
+                fun pick(list: List<Node>) =
+                    list.firstOrNull { grown(it.box).contains(event.x, event.y) }
+                        ?: list.minByOrNull {
+                            hypot(event.x - it.box.centerX(), event.y - it.box.centerY())
+                        }?.takeIf {
+                            hypot(event.x - it.box.centerX(), event.y - it.box.centerY()) < it.box.height() * 1.2f
+                        }
+                // 누른 지점이 어느 쪽에 가까운지 보고 그쪽에서 먼저 찾는다
+                val fromRight = event.x > width / 2f
+                dragFrom = if (fromRight) pick(freeRight) ?: pick(freeLeft) else pick(freeLeft) ?: pick(freeRight)
+                dragStartedRight = dragFrom != null && right.contains(dragFrom)
                 dragX = event.x; dragY = event.y
                 parent?.requestDisallowInterceptTouchEvent(true)
                 invalidate()
@@ -181,10 +188,12 @@ class LineMatchView @JvmOverloads constructor(
                 val from = dragFrom
                 dragFrom = null
                 if (from != null) {
-                    // 놓는 쪽도 마찬가지 — 칸 근처면 인정한다
-                    val freeRight = right.filter { !matched.containsValue(it.key) }
-                    val hit = freeRight.firstOrNull { grown(it.box).contains(event.x, event.y) }
-                        ?: freeRight.minByOrNull {
+                    // 시작한 반대쪽에서 짝을 찾는다 (오른쪽에서 시작했으면 왼쪽에서)
+                    val targets = if (dragStartedRight)
+                        left.filter { !matched.containsKey(it.key) }
+                    else right.filter { !matched.containsValue(it.key) }
+                    val hit = targets.firstOrNull { grown(it.box).contains(event.x, event.y) }
+                        ?: targets.minByOrNull {
                             hypot(event.x - it.box.centerX(), event.y - it.box.centerY())
                         }?.takeIf {
                             hypot(event.x - it.box.centerX(), event.y - it.box.centerY()) < it.box.height() * 1.1f
@@ -207,6 +216,9 @@ class LineMatchView @JvmOverloads constructor(
         }
         return true
     }
+
+    /** 오른쪽 칸에서 선을 시작했는가 (놓을 때 반대쪽에서 짝을 찾는다) */
+    private var dragStartedRight = false
 
     /** 손가락 오차를 감안해 칸을 조금 넓힌 판정 영역 */
     private fun grown(b: RectF): RectF {

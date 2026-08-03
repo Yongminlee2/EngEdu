@@ -144,7 +144,7 @@ class MainActivity : AppCompatActivity() {
         b.txtStreak.text = "$streak"
         b.txtLevel.text = "Lv.$lv"
         b.xpBar.progress = (Economy.levelProgress(xp) * 100).toInt()
-        b.btnReview.text = "오답 ${db.wrongCount()}"
+        b.txtReview.text = "오답 ${db.wrongCount()}"
         // 배치고사 배너: 과목별로 아직 안 본 경우에만
         val placedKey = if (subject == com.piyak.english.model.Subject.MATH)
             "math_placement_done" else "placement_done"
