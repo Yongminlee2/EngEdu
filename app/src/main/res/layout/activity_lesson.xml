@@ -23,7 +23,7 @@
             <TextView android:id="@+id/txtHearts" android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:textSize="16sp" android:text="5"
                 android:drawableStart="@drawable/ic_heart" android:drawablePadding="6dp" android:drawableTint="@null" />
-            <Button android:id="@+id/btnHint" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnHint" android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:layout_marginStart="6dp" android:minWidth="0dp" android:paddingHorizontal="10dp"
                 android:text="0" android:textSize="13sp"
                 android:drawableStart="@drawable/ic_hint" android:drawablePadding="3dp"

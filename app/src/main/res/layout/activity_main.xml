@@ -190,21 +190,21 @@
         <LinearLayout
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:orientation="horizontal" android:layout_marginTop="12dp">
-            <Button android:id="@+id/btnReview" android:layout_width="0dp" android:layout_height="52dp"
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnReview" android:layout_width="0dp" android:layout_height="52dp"
                 android:layout_weight="1" android:text="오답 0" android:textSize="14sp"
                 android:drawableStart="@drawable/ic_review" android:drawablePadding="4dp"
                 android:minWidth="0dp" android:paddingHorizontal="4dp"
                 android:insetTop="0dp" android:insetBottom="0dp"
                 android:background="@drawable/bg_card_soft" android:backgroundTint="@null"
                 android:textColor="@color/brown_text" android:stateListAnimator="@null" />
-            <Button android:id="@+id/btnStats" android:layout_width="0dp" android:layout_height="52dp"
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnStats" android:layout_width="0dp" android:layout_height="52dp"
                 android:layout_weight="1" android:layout_marginStart="8dp" android:text="통계" android:textSize="14sp"
                 android:drawableStart="@drawable/ic_stats" android:drawablePadding="4dp"
                 android:minWidth="0dp" android:paddingHorizontal="4dp"
                 android:insetTop="0dp" android:insetBottom="0dp"
                 android:background="@drawable/bg_card_soft" android:backgroundTint="@null"
                 android:textColor="@color/brown_text" android:stateListAnimator="@null" />
-            <Button android:id="@+id/btnSettings" android:layout_width="0dp" android:layout_height="52dp"
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnSettings" android:layout_width="0dp" android:layout_height="52dp"
                 android:layout_weight="1" android:layout_marginStart="8dp" android:text="설정" android:textSize="14sp"
                 android:drawableStart="@drawable/ic_settings" android:drawablePadding="4dp"
                 android:minWidth="0dp" android:paddingHorizontal="4dp"
