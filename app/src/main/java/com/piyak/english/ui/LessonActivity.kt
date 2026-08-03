@@ -161,6 +161,7 @@ class LessonActivity : AppCompatActivity() {
 
         // 병아리는 전 트랙 상주 — 토익·토플도 귀엽게 (사용자 결정: 전부 귀염뽀짝)
 
+        registerBackHandler()
         showQuestion()
     }
 
@@ -171,8 +172,16 @@ class LessonActivity : AppCompatActivity() {
         b.root.removeCallbacks(sleepRun)
     }
 
-    @Deprecated("Deprecated in Java")
-    override fun onBackPressed() { confirmQuit() }
+    /**
+     * 뒤로가기 — 예전 방식(onBackPressed 재정의)은 안드로이드 13+ 의 예측형 뒤로가기와
+     * 어긋나고 린트 오류도 난다. 콜백을 등록하는 방식으로 바꿨다.
+     */
+    private fun registerBackHandler() {
+        onBackPressedDispatcher.addCallback(this,
+            object : androidx.activity.OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() = confirmQuit()
+            })
+    }
 
     private fun confirmQuit() {
         AlertDialog.Builder(this)
