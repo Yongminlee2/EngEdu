@@ -8,12 +8,16 @@
 
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
         android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="10dp">
-        <Button android:id="@+id/btnPlay" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="🔊 듣기" android:visibility="gone"
-            android:backgroundTint="@color/sky" android:textColor="@color/brown_text" />
-        <Button android:id="@+id/btnPlaySlow" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginStart="8dp" android:text="🐢 천천히" android:visibility="gone"
-            android:backgroundTint="@color/mint" android:textColor="@color/brown_text" />
+        <Button android:id="@+id/btnPlay" android:layout_width="wrap_content" android:layout_height="48dp"
+            android:text="🔊 듣기" android:visibility="gone" android:textSize="16sp"
+            android:paddingHorizontal="22dp" android:minWidth="0dp" android:insetTop="0dp" android:insetBottom="0dp"
+            android:background="@drawable/bg_pill_sky" android:backgroundTint="@null"
+            android:textColor="@color/brown_text" android:stateListAnimator="@null" />
+        <Button android:id="@+id/btnPlaySlow" android:layout_width="wrap_content" android:layout_height="48dp"
+            android:layout_marginStart="10dp" android:text="🐢 천천히" android:visibility="gone" android:textSize="16sp"
+            android:paddingHorizontal="22dp" android:minWidth="0dp" android:insetTop="0dp" android:insetBottom="0dp"
+            android:background="@drawable/bg_pill_mint" android:backgroundTint="@null"
+            android:textColor="@color/brown_text" android:stateListAnimator="@null" />
     </LinearLayout>
 
     <TextView android:id="@+id/txtPrompt" android:layout_width="match_parent" android:layout_height="wrap_content"

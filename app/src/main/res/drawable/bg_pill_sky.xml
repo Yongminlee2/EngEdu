@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 듣기 버튼: 둥근 알약. 기본 Material 버튼은 앱의 둥근 파스텔 톤과 겉돈다 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="@color/sky" />
+    <stroke android:width="2dp" android:color="@color/sky_deep" />
+    <corners android:radius="24dp" />
+</shape>

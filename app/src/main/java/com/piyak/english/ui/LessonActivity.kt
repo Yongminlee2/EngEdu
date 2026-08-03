@@ -403,9 +403,20 @@ class LessonActivity : AppCompatActivity() {
         val v = LayoutInflater.from(this).inflate(layout, b.questionBox, false)
         // 내용이 화면보다 짧을 때 위로 쏠리지 않도록 세로 중앙에 놓는다
         // (fillViewport 라 questionBox 가 화면을 채우고, 길면 그대로 스크롤된다)
+        // 위쪽에 붙이되, 내용이 짧으면 조금만 내려 준다 —
+        // 그냥 가운데 정렬하면 진행바와 문제 사이가 손가락 두 마디만큼 벌어진다
         (v.layoutParams as? android.widget.FrameLayout.LayoutParams)?.gravity =
-            android.view.Gravity.CENTER_VERTICAL
+            android.view.Gravity.TOP
         b.questionBox.addView(v)
+        v.addOnLayoutChangeListener(object : View.OnLayoutChangeListener {
+            override fun onLayoutChange(
+                view: View, l: Int, t: Int, r: Int, bo: Int,
+                ol: Int, ot: Int, or_: Int, ob: Int,
+            ) {
+                val free = b.questionBox.height - view.height
+                view.translationY = (free / 2f).coerceIn(0f, dp(28).toFloat())
+            }
+        })
         return v
     }
 
