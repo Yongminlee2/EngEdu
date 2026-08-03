@@ -32,11 +32,12 @@
         </LinearLayout>
 
         <!-- 문제 영역 (타입별 뷰 교체) -->
-        <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
-            android:fillViewport="true">
+        <ScrollView android:id="@+id/questionScroll"
+            android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+            android:fillViewport="true" android:scrollbars="vertical">
             <FrameLayout android:id="@+id/questionBox"
                 android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:padding="16dp" />
+                android:paddingHorizontal="16dp" android:paddingTop="12dp" android:paddingBottom="24dp" />
         </ScrollView>
 
         <!-- 확인 버튼 -->

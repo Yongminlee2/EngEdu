@@ -408,7 +408,11 @@ class LessonActivity : AppCompatActivity() {
         (v.layoutParams as? android.widget.FrameLayout.LayoutParams)?.gravity =
             android.view.Gravity.TOP
         v.findViewById<TextView>(R.id.txtCountInline)?.text = questionNo
+        // 입력칸(받아쓰기·영작)이 포커스를 채가면 스크롤이 아래로 끌려가 문제 위쪽이 잘린다
+        v.isFocusableInTouchMode = true
         b.questionBox.addView(v)
+        v.requestFocus()
+        b.questionScroll.post { b.questionScroll.scrollTo(0, 0) }
         v.addOnLayoutChangeListener(object : View.OnLayoutChangeListener {
             override fun onLayoutChange(
                 view: View, l: Int, t: Int, r: Int, bo: Int,
@@ -573,7 +577,19 @@ class LessonActivity : AppCompatActivity() {
         }
         if (q.passage != null) {
             addArt(v, artRes("ck_book"), 120)
-            v.findViewById<TextView>(R.id.txtPassage).apply { visibility = View.VISIBLE; text = q.passage }
+            v.findViewById<TextView>(R.id.txtPassage).apply {
+                visibility = View.VISIBLE
+                text = q.passage
+                // 지문이 길면 지문 상자 안에서 굴려 읽는다
+                movementMethod = android.text.method.ScrollingMovementMethod()
+                setOnTouchListener { view, e ->
+                    view.parent.requestDisallowInterceptTouchEvent(true)
+                    if (e.actionMasked == android.view.MotionEvent.ACTION_UP) {
+                        view.parent.requestDisallowInterceptTouchEvent(false)
+                    }
+                    false
+                }
+            }
         }
         v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
         renderChoices(v.findViewById(R.id.choicesBox), q.choices, q.answer, q.explain, q.choices[q.answer])
