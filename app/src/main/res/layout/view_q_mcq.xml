@@ -19,7 +19,7 @@
     <TextView android:id="@+id/txtPassage" android:layout_width="match_parent" android:layout_height="wrap_content"
         android:layout_marginTop="10dp" android:padding="14dp" android:background="@drawable/bg_tile_ghost"
         android:textSize="15sp" android:lineSpacingMultiplier="1.25" android:visibility="gone"
-        android:maxHeight="260dp" android:scrollbars="vertical" />
+        android:maxHeight="200dp" android:scrollbars="vertical" />
 
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
         android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="10dp">
