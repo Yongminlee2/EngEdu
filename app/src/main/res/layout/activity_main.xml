@@ -25,11 +25,14 @@
             android:layout_marginTop="6dp"
             android:orientation="horizontal" android:gravity="center_vertical">
             <TextView android:id="@+id/txtHearts" android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_weight="1" android:textSize="16sp" android:text="❤️ 5" />
+                android:layout_weight="1" android:textSize="16sp" android:text="5"
+                android:drawableStart="@drawable/ic_heart" android:drawablePadding="6dp" android:drawableTint="@null" />
             <TextView android:id="@+id/txtStreak" android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_weight="1" android:gravity="center" android:textSize="16sp" android:text="🔥 0" />
+                android:layout_weight="1" android:gravity="center" android:textSize="16sp" android:text="0"
+                android:drawableStart="@drawable/ic_streak" android:drawablePadding="6dp" android:drawableTint="@null" />
             <TextView android:id="@+id/txtLevel" android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_weight="1" android:gravity="end" android:textSize="16sp" android:text="⭐ Lv.0" />
+                android:layout_weight="1" android:gravity="end" android:textSize="16sp" android:text="Lv.0"
+                android:drawableStart="@drawable/ic_level" android:drawablePadding="6dp" android:drawableTint="@null" />
         </LinearLayout>
 
         <ProgressBar android:id="@+id/xpBar" style="?android:attr/progressBarStyleHorizontal"
@@ -68,7 +71,7 @@
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="horizontal" android:gravity="center_vertical">
                 <TextView android:id="@+id/txtGoal" android:layout_width="0dp" android:layout_height="wrap_content"
-                    android:layout_weight="1" android:text="🎯 오늘의 목표  0 / 50 XP"
+                    android:layout_weight="1" android:text="오늘의 목표  0 / 50 XP" android:drawableStart="@drawable/ic_goal" android:drawablePadding="6dp" android:drawableTint="@null"
                     android:textSize="15sp" android:textStyle="bold" />
                 <TextView android:id="@+id/txtGoalEdit" android:layout_width="wrap_content" android:layout_height="wrap_content"
                     android:text="변경" android:textSize="13sp" android:textColor="@color/sky_deep" />
@@ -86,7 +89,7 @@
             android:layout_marginTop="12dp" android:padding="16dp"
             android:background="@drawable/bg_wallet">
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="💰" android:textSize="32sp" />
+                android:text="" android:drawableStart="@drawable/ic_coin" />
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                 android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
                 <TextView android:id="@+id/txtCoins" android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -152,7 +155,7 @@
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="horizontal" android:gravity="center_vertical">
                 <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
-                    android:text="📊 내 실력" android:textSize="16sp" android:textStyle="bold" />
+                    android:text="내 실력" android:textSize="16sp" android:drawableStart="@drawable/ic_stats" android:drawablePadding="6dp" android:drawableTint="@null" android:textStyle="bold" />
                 <TextView android:id="@+id/txtWeakest" android:layout_width="wrap_content" android:layout_height="wrap_content"
                     android:textSize="12sp" android:textColor="@color/brown_soft" />
             </LinearLayout>
@@ -169,7 +172,7 @@
             android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical">
             <TextView android:id="@+id/txtPlacement"
                 android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
-                android:text="🎯 레벨테스트로 내 위치 찾기!\n25문제로 딱 맞는 레벨을 정해줘요"
+                android:drawableStart="@drawable/ic_goal" android:drawablePadding="6dp" android:drawableTint="@null" android:text="레벨테스트로 내 위치 찾기!\n25문제로 딱 맞는 레벨을 정해줘요"
                 android:textColor="@color/white" android:textSize="15sp" android:textStyle="bold" />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="GO ▶" android:textColor="@color/white" android:textSize="18sp" android:textStyle="bold" />
@@ -177,7 +180,7 @@
 
         <!-- 트랙 카드 컨테이너 (코드 생성) -->
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginTop="18dp" android:text="📚 학습 코스"
+            android:layout_marginTop="18dp" android:text="학습 코스" android:drawableStart="@drawable/ic_course" android:drawablePadding="6dp" android:drawableTint="@null"
             android:textSize="16sp" android:textStyle="bold" />
         <LinearLayout android:id="@+id/tracksBox"
             android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -188,19 +191,22 @@
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:orientation="horizontal" android:layout_marginTop="12dp">
             <Button android:id="@+id/btnReview" android:layout_width="0dp" android:layout_height="52dp"
-                android:layout_weight="1" android:text="💊 오답 0" android:textSize="14sp"
+                android:layout_weight="1" android:text="오답 0" android:textSize="14sp"
+                android:drawableStart="@drawable/ic_review" android:drawablePadding="4dp"
                 android:minWidth="0dp" android:paddingHorizontal="4dp"
                 android:insetTop="0dp" android:insetBottom="0dp"
                 android:background="@drawable/bg_card_soft" android:backgroundTint="@null"
                 android:textColor="@color/brown_text" android:stateListAnimator="@null" />
             <Button android:id="@+id/btnStats" android:layout_width="0dp" android:layout_height="52dp"
-                android:layout_weight="1" android:layout_marginStart="8dp" android:text="📊 통계" android:textSize="14sp"
+                android:layout_weight="1" android:layout_marginStart="8dp" android:text="통계" android:textSize="14sp"
+                android:drawableStart="@drawable/ic_stats" android:drawablePadding="4dp"
                 android:minWidth="0dp" android:paddingHorizontal="4dp"
                 android:insetTop="0dp" android:insetBottom="0dp"
                 android:background="@drawable/bg_card_soft" android:backgroundTint="@null"
                 android:textColor="@color/brown_text" android:stateListAnimator="@null" />
             <Button android:id="@+id/btnSettings" android:layout_width="0dp" android:layout_height="52dp"
-                android:layout_weight="1" android:layout_marginStart="8dp" android:text="⚙️ 설정" android:textSize="14sp"
+                android:layout_weight="1" android:layout_marginStart="8dp" android:text="설정" android:textSize="14sp"
+                android:drawableStart="@drawable/ic_settings" android:drawablePadding="4dp"
                 android:minWidth="0dp" android:paddingHorizontal="4dp"
                 android:insetTop="0dp" android:insetBottom="0dp"
                 android:background="@drawable/bg_card_soft" android:backgroundTint="@null"

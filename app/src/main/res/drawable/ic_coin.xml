@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 글자 옆에 넣기 위한 크기 고정 래퍼 (원본 ui_coin.webp 는 128px) -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:width="34dp" android:height="34dp" android:gravity="center">
+        <bitmap android:src="@drawable/ui_coin" />
+    </item>
+</layer-list>

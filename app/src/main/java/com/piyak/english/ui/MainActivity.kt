@@ -136,19 +136,22 @@ class MainActivity : AppCompatActivity() {
         val db = Db.get(this)
         val xp = db.xp()
         val lv = Economy.levelFor(xp)
-        b.txtHearts.text = if (db.heartsEnabled()) "❤️ ${db.hearts()}" else ""
+        b.txtHearts.text = if (db.heartsEnabled()) "${db.hearts()}" else ""
+        b.txtHearts.setCompoundDrawablesRelativeWithIntrinsicBounds(
+            if (db.heartsEnabled()) R.drawable.ic_heart else 0, 0, 0, 0
+        )
         val (streak, _) = Economy.streak(db.studyDays(), Db.today())
-        b.txtStreak.text = "🔥 $streak"
-        b.txtLevel.text = "⭐ Lv.$lv"
+        b.txtStreak.text = "$streak"
+        b.txtLevel.text = "Lv.$lv"
         b.xpBar.progress = (Economy.levelProgress(xp) * 100).toInt()
-        b.btnReview.text = "💊 오답 ${db.wrongCount()}"
+        b.btnReview.text = "오답 ${db.wrongCount()}"
         // 배치고사 배너: 과목별로 아직 안 본 경우에만
         val placedKey = if (subject == com.piyak.english.model.Subject.MATH)
             "math_placement_done" else "placement_done"
         b.bannerPlacement.visibility = if (db.meta(placedKey) == "1") View.GONE else View.VISIBLE
         b.txtPlacement.text = if (subject == com.piyak.english.model.Subject.MATH)
-            "🎯 수학 레벨테스트로 내 학년 찾기!\n25문제로 딱 맞는 단계를 정해줘요"
-        else "🎯 레벨테스트로 내 위치 찾기!\n25문제로 딱 맞는 레벨을 정해줘요"
+            "수학 레벨테스트로 내 학년 찾기!\n25문제로 딱 맞는 단계를 정해줘요"
+        else "레벨테스트로 내 위치 찾기!\n25문제로 딱 맞는 레벨을 정해줘요"
 
         // 상점에서 산 테마 배경 적용
         val theme = Color.parseColor(db.themeColor())
@@ -181,7 +184,7 @@ class MainActivity : AppCompatActivity() {
         val goal = db.dailyGoal()
         val todayXp = db.xpToday()
         val done = DailyGoal.isDone(todayXp, goal)
-        b.txtGoal.text = "🎯 오늘의 목표  $todayXp / $goal XP" + if (done) "   ✅ 달성!" else ""
+        b.txtGoal.text = "오늘의 목표  $todayXp / $goal XP" + if (done) "   ✅ 달성!" else ""
         b.goalBar.progress = (DailyGoal.progress(todayXp, goal) * 100).toInt()
         b.goalBar.progressTintList = ColorStateList.valueOf(
             Color.parseColor(if (done) "#66BB6A" else "#FF8A80")
