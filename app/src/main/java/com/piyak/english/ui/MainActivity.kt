@@ -162,9 +162,9 @@ class MainActivity : AppCompatActivity() {
         // 알파벳·놀이터는 "유치원 영어" 단계 안으로 이사 — 홈을 가볍게
         b.cardAlphabet.visibility = View.GONE
         b.cardPlayground.visibility = View.GONE
-        // 영역 6줄도 홈에서 뺀다 (통계 화면에 있음) — 홈은 단계 고르기에 집중
-        b.skillsBox.visibility = View.GONE
-        b.txtWeakest.visibility = View.GONE
+        // '내 실력' 카드가 제목만 있고 속이 비어 보여서 영역 줄을 다시 보여준다
+        b.skillsBox.visibility = View.VISIBLE
+        b.txtWeakest.visibility = View.VISIBLE
         buildGrowth(db)
         buildTrackCards(db)
     }

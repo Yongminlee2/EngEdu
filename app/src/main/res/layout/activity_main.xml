@@ -82,28 +82,6 @@
                 android:progressTint="@color/coral" android:progressBackgroundTint="@color/cream_dark" />
         </LinearLayout>
 
-        <!-- 지갑 -->
-        <LinearLayout android:id="@+id/cardWallet"
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="horizontal" android:gravity="center_vertical"
-            android:layout_marginTop="12dp" android:padding="16dp"
-            android:background="@drawable/bg_wallet">
-            <ImageView android:layout_width="38dp" android:layout_height="38dp"
-                android:src="@drawable/ui_coin" android:contentDescription="용돈" />
-            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
-                <TextView android:id="@+id/txtCoins" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="0원" android:textSize="22sp" android:textStyle="bold"
-                    android:textColor="@color/brown_text" />
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="상점 · 현금으로 바꾸기" android:textSize="12sp"
-                    android:textColor="@color/brown_soft" />
-            </LinearLayout>
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="🛒 ▶" android:textSize="16sp" android:textStyle="bold"
-                android:textColor="@color/brown_text" />
-        </LinearLayout>
-
         <!-- 놀이터 (미니게임) -->
         <LinearLayout android:id="@+id/cardPlayground"
             android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -147,6 +125,36 @@
                 android:textColor="@color/brown_text" />
         </LinearLayout>
 
+        <!-- 트랙 카드 컨테이너 (코드 생성) -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="18dp" android:text="학습 코스" android:drawableStart="@drawable/ic_course" android:drawablePadding="6dp" android:drawableTint="@null"
+            android:textSize="16sp" android:textStyle="bold" />
+        <LinearLayout android:id="@+id/tracksBox"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:layout_marginTop="4dp" />
+
+        <!-- 지갑 -->
+        <LinearLayout android:id="@+id/cardWallet"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginTop="12dp" android:padding="16dp"
+            android:background="@drawable/bg_wallet">
+            <ImageView android:layout_width="38dp" android:layout_height="38dp"
+                android:src="@drawable/ui_coin" android:contentDescription="용돈" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
+                <TextView android:id="@+id/txtCoins" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="0원" android:textSize="22sp" android:textStyle="bold"
+                    android:textColor="@color/brown_text" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="상점 · 현금으로 바꾸기" android:textSize="12sp"
+                    android:textColor="@color/brown_soft" />
+            </LinearLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="🛒 ▶" android:textSize="16sp" android:textStyle="bold"
+                android:textColor="@color/brown_text" />
+        </LinearLayout>
+
         <!-- 내 실력 대시보드 -->
         <LinearLayout
             android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -177,14 +185,6 @@
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="GO ▶" android:textColor="@color/white" android:textSize="18sp" android:textStyle="bold" />
         </LinearLayout>
-
-        <!-- 트랙 카드 컨테이너 (코드 생성) -->
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginTop="18dp" android:text="학습 코스" android:drawableStart="@drawable/ic_course" android:drawablePadding="6dp" android:drawableTint="@null"
-            android:textSize="16sp" android:textStyle="bold" />
-        <LinearLayout android:id="@+id/tracksBox"
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="vertical" android:layout_marginTop="4dp" />
 
         <!-- 하단 버튼들 -->
         <LinearLayout
