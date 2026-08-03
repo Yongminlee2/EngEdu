@@ -10,8 +10,8 @@ android {
         applicationId = "com.piyak.english"
         minSdk = 26
         targetSdk = 36
-        versionCode = 61
-        versionName = "3.42"
+        versionCode = 62
+        versionName = "3.43"
     }
 
     buildTypes {

@@ -10,9 +10,9 @@
         <LinearLayout
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:orientation="horizontal" android:gravity="center_vertical"
-            android:paddingHorizontal="12dp" android:paddingTop="2dp" android:paddingBottom="2dp">
+            android:paddingHorizontal="12dp" android:paddingTop="0dp" android:paddingBottom="0dp">
             <ImageView android:id="@+id/btnClose"
-                android:layout_width="40dp" android:layout_height="40dp" android:padding="8dp"
+                android:layout_width="34dp" android:layout_height="34dp" android:padding="6dp"
                 android:src="@drawable/ui_close" android:contentDescription="그만두기"
                 android:background="?attr/selectableItemBackgroundBorderless" android:clickable="true"
                 android:focusable="true" />
@@ -23,8 +23,9 @@
             <TextView android:id="@+id/txtHearts" android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:textSize="16sp" android:text="5"
                 android:drawableStart="@drawable/ic_heart" android:drawablePadding="6dp" android:drawableTint="@null" />
-            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnHint" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:layout_marginStart="6dp" android:minWidth="0dp" android:paddingHorizontal="14dp"
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnHint" android:layout_width="wrap_content" android:layout_height="34dp"
+                android:layout_marginStart="6dp" android:minWidth="0dp" android:minHeight="0dp"
+                android:paddingHorizontal="14dp" android:insetTop="0dp" android:insetBottom="0dp"
                 android:text="0" android:textSize="13sp"
                 android:drawableStart="@drawable/ic_hint" android:drawablePadding="3dp"
                 android:background="@drawable/bg_pill_lavender" android:backgroundTint="@null"
@@ -37,7 +38,7 @@
             android:fillViewport="true" android:scrollbars="vertical">
             <FrameLayout android:id="@+id/questionBox"
                 android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:paddingHorizontal="16dp" android:paddingTop="4dp" android:paddingBottom="24dp" />
+                android:paddingHorizontal="16dp" android:paddingTop="0dp" android:paddingBottom="24dp" />
         </ScrollView>
 
         <!-- 확인 버튼 -->
