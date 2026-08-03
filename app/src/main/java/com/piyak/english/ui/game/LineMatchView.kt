@@ -155,10 +155,16 @@ class LineMatchView @JvmOverloads constructor(
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when (event.actionMasked) {
             MotionEvent.ACTION_DOWN -> {
-                // 아직 안 이어진 왼쪽 항목에서만 시작
-                dragFrom = left.firstOrNull {
-                    !matched.containsKey(it.key) && it.box.contains(event.x, event.y)
-                }
+                // 아직 안 이어진 왼쪽 항목에서만 시작.
+                // 칸을 정확히 눌러야만 잡히면 손가락이 조금만 빗나가도 안 잡힌다 —
+                // 칸 둘레로 여유를 두고, 그래도 없으면 가장 가까운 칸을 잡아 준다.
+                val free = left.filter { !matched.containsKey(it.key) }
+                dragFrom = free.firstOrNull { grown(it.box).contains(event.x, event.y) }
+                    ?: free.minByOrNull {
+                        hypot(event.x - it.box.centerX(), event.y - it.box.centerY())
+                    }?.takeIf {
+                        hypot(event.x - it.box.centerX(), event.y - it.box.centerY()) < it.box.height() * 1.2f
+                    }
                 dragX = event.x; dragY = event.y
                 parent?.requestDisallowInterceptTouchEvent(true)
                 invalidate()
@@ -175,9 +181,14 @@ class LineMatchView @JvmOverloads constructor(
                 val from = dragFrom
                 dragFrom = null
                 if (from != null) {
-                    val hit = right.firstOrNull {
-                        !matched.containsValue(it.key) && it.box.contains(event.x, event.y)
-                    }
+                    // 놓는 쪽도 마찬가지 — 칸 근처면 인정한다
+                    val freeRight = right.filter { !matched.containsValue(it.key) }
+                    val hit = freeRight.firstOrNull { grown(it.box).contains(event.x, event.y) }
+                        ?: freeRight.minByOrNull {
+                            hypot(event.x - it.box.centerX(), event.y - it.box.centerY())
+                        }?.takeIf {
+                            hypot(event.x - it.box.centerX(), event.y - it.box.centerY()) < it.box.height() * 1.1f
+                        }
                     if (hit != null) {
                         if (hit.key == from.key) {
                             matched[from.key] = hit.key
@@ -195,6 +206,12 @@ class LineMatchView @JvmOverloads constructor(
             }
         }
         return true
+    }
+
+    /** 손가락 오차를 감안해 칸을 조금 넓힌 판정 영역 */
+    private fun grown(b: RectF): RectF {
+        val pad = dp(12f)
+        return RectF(b.left - pad, b.top - pad * 0.6f, b.right + pad, b.bottom + pad * 0.6f)
     }
 
     /** 가장 가까운 오른쪽 항목까지의 거리 (테스트·디버깅용) */

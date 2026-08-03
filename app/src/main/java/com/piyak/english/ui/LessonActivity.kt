@@ -105,12 +105,9 @@ class LessonActivity : AppCompatActivity() {
         tts = Tts(this)
         tts.rate = db.meta("tts_rate", "1.0").toFloatOrNull() ?: 1.0f
         stt = Stt(this)
-        // 잠든 병아리를 톡 치면 삐약! 하고 일어난다
-        b.chickView.onWake = {
-            sfx.piyak()
-            b.root.removeCallbacks(sleepRun)
-            b.root.postDelayed(sleepRun, 45_000L)
-        }
+        // 문제 화면 위 상주 병아리는 뺐다 — 무슨 역할인지 알기 어렵고 그림과 겹친다.
+        // 리액션은 정답 패널의 병아리·색종이가 대신한다 (사용자 결정 2026-08-03)
+        b.chickView.visibility = View.GONE
 
         reviewMode = intent.getStringExtra("mode") == "review"
         val questions: List<Question>
@@ -534,9 +531,14 @@ class LessonActivity : AppCompatActivity() {
         val quotedArt = if (koArt != 0) koArt else enArt
         when {
             quotedArt != 0 -> addArt(v, quotedArt, 175)
-            q.bigEmoji != null -> v.findViewById<TextView>(R.id.txtBigEmoji).apply {
-                visibility = View.VISIBLE
-                text = q.bigEmoji
+            // 초등영어처럼 이모지가 붙어 온 문제도 낱말 그림이 있으면 그걸 먼저 쓴다
+            q.bigEmoji != null -> {
+                val emojiArt = sentenceArt(q.prompt)
+                if (emojiArt != 0) addArt(v, emojiArt, 165)
+                else v.findViewById<TextView>(R.id.txtBigEmoji).apply {
+                    visibility = View.VISIBLE
+                    text = q.bigEmoji
+                }
             }
             else -> {
                 // 낱말 그림 → 상황 장면 그림 → 이모지 순으로 무조건 뭐라도 붙인다
@@ -695,7 +697,7 @@ class LessonActivity : AppCompatActivity() {
      * 놀이터의 선 잇기와 같은 조작이라 아이가 한 번 익히면 어디서든 통한다.
      */
     private fun showMatch(q: Question.Match) {
-        b.btnCheck.visibility = View.GONE
+        b.btnCheck.visibility = View.INVISIBLE
 
         val hint = TextView(this).apply {
             text = "🔗 짝이 맞는 것끼리 손가락으로 이어요"
@@ -831,7 +833,8 @@ class LessonActivity : AppCompatActivity() {
             combo = 0
             if (penalty && b.chickView.visibility == View.VISIBLE) b.chickView.oops()
         }
-        b.btnCheck.visibility = View.GONE
+        // GONE 으로 없애면 그만큼 자리가 남아 문제가 아래로 밀린다 — 자리는 남겨 둔다
+        b.btnCheck.visibility = View.INVISIBLE
         b.feedbackPanel.visibility = View.VISIBLE
         b.feedbackPanel.background = getDrawable(
             if (correct) R.drawable.bg_feedback_ok else R.drawable.bg_feedback_no
