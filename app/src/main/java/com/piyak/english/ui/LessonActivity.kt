@@ -231,11 +231,7 @@ class LessonActivity : AppCompatActivity() {
         b.root.postDelayed(sleepRun, 45_000L)
 
         b.progressBar.progress = (s.progress * 100).toInt()
-        b.txtHearts.text = when {
-            reviewMode -> "복습"
-            !db.heartsEnabled() -> ""
-            else -> "${s.hearts}"
-        }
+        showHearts(if (reviewMode) null else if (db.heartsEnabled()) s.hearts else -1)
         b.questionBox.removeAllViews()
         b.btnCheck.isEnabled = false
         b.btnCheck.text = "확인"
@@ -882,10 +878,21 @@ class LessonActivity : AppCompatActivity() {
         b.btnContinue.backgroundTintList = ColorStateList.valueOf(
             Color.parseColor(if (correct) "#66BB6A" else "#FF5252")
         )
+        showHearts(if (reviewMode) null else if (db.heartsEnabled()) (session?.hearts ?: 0) else -1)
+    }
+
+
+    /**
+     * 상단 하트 표시. [n] 이 null 이면 복습 모드, -1 이면 하트 기능 끔.
+     * 아이콘을 레이아웃에 박아 두면 글자만 지워도 하트가 남으므로 코드에서 같이 끈다.
+     */
+    private fun showHearts(n: Int?) {
+        val icon = if (n != null && n >= 0) R.drawable.ic_heart else 0
+        b.txtHearts.setCompoundDrawablesRelativeWithIntrinsicBounds(icon, 0, 0, 0)
         b.txtHearts.text = when {
-            reviewMode -> "복습"
-            !db.heartsEnabled() -> ""
-            else -> "${session?.hearts ?: 0}"
+            n == null -> "복습"
+            n < 0 -> ""
+            else -> "$n"
         }
     }
 
