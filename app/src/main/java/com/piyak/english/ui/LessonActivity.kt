@@ -419,7 +419,7 @@ class LessonActivity : AppCompatActivity() {
                 ol: Int, ot: Int, or_: Int, ob: Int,
             ) {
                 val free = b.questionBox.height - view.height
-                view.translationY = (free / 2f).coerceIn(0f, dp(28).toFloat())
+                view.translationY = (free / 2f).coerceIn(0f, dp(10).toFloat())
             }
         })
         return v
