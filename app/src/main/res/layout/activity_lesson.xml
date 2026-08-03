@@ -24,10 +24,11 @@
                 android:textSize="16sp" android:text="5"
                 android:drawableStart="@drawable/ic_heart" android:drawablePadding="6dp" android:drawableTint="@null" />
             <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnHint" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:layout_marginStart="6dp" android:minWidth="0dp" android:paddingHorizontal="10dp"
+                android:layout_marginStart="6dp" android:minWidth="0dp" android:paddingHorizontal="14dp"
                 android:text="0" android:textSize="13sp"
                 android:drawableStart="@drawable/ic_hint" android:drawablePadding="3dp"
-                android:backgroundTint="@color/lavender" android:textColor="@color/white" />
+                android:background="@drawable/bg_pill_lavender" android:backgroundTint="@null"
+                android:textColor="@color/white" android:stateListAnimator="@null" />
         </LinearLayout>
 
         <!-- 문제 영역 (타입별 뷰 교체) -->
@@ -43,20 +44,6 @@
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_margin="16dp" android:text="확인" android:textSize="18sp"
             android:backgroundTint="@color/chick_yellow" android:textColor="@color/brown_text" />
-    </LinearLayout>
-
-    <!-- 몇 번째 문제인지 — 오른쪽 위 (병아리를 뺀 자리를 채운다) -->
-    <LinearLayout android:id="@+id/badgeCount"
-        android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:layout_gravity="top|end" android:layout_marginTop="58dp" android:layout_marginEnd="14dp"
-        android:orientation="horizontal" android:gravity="center_vertical"
-        android:paddingHorizontal="12dp" android:paddingVertical="6dp"
-        android:background="@drawable/bg_card_soft">
-        <ImageView android:layout_width="26dp" android:layout_height="26dp"
-            android:src="@drawable/ck_idle" android:contentDescription="삐약이" />
-        <TextView android:id="@+id/txtCount" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginStart="6dp" android:textSize="15sp" android:textStyle="bold"
-            android:textColor="@color/brown_text" android:text="1 / 12" />
     </LinearLayout>
 
     <!-- 상주 병아리 — 문제 영역 오른쪽 위에 떠 있다 (터치는 통과) -->

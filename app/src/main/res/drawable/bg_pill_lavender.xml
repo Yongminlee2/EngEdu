@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 힌트 버튼: 네모 박스가 어색해서 둥근 알약으로 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="@color/lavender" />
+    <stroke android:width="2dp" android:color="@color/lavender_deep" />
+    <corners android:radius="20dp" />
+</shape>
