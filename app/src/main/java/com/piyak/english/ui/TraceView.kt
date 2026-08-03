@@ -67,11 +67,6 @@ class TraceView @JvmOverloads constructor(
     private var confettiAnim: ValueAnimator? = null
 
     // ---- 페인트 ----
-    private val bgGlyphPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#22FFB300")
-        textAlign = Paint.Align.CENTER
-        typeface = android.graphics.Typeface.create(android.graphics.Typeface.SANS_SERIF, android.graphics.Typeface.BOLD)
-    }
     // 다음에 쓸 획들 — 아주 연하게 (지금 쓸 획과 헷갈리면 안 된다)
     private val roadPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE
@@ -174,15 +169,14 @@ class TraceView @JvmOverloads constructor(
         offX = (width - box) / 2f
         offY = (height - box) / 2f
 
-        roadPaint.strokeWidth = box * 0.16f
-        roadActivePaint.strokeWidth = box * 0.16f
+        roadPaint.strokeWidth = box * 0.17f
+        roadActivePaint.strokeWidth = box * 0.17f
         donePaint.strokeWidth = box * 0.11f
         inkPaint.strokeWidth = box * 0.10f
         dashPaint.strokeWidth = box * 0.012f
         dashPaint.pathEffect = android.graphics.DashPathEffect(
             floatArrayOf(box * 0.035f, box * 0.045f), 0f
         )
-        bgGlyphPaint.textSize = box * 1.15f
         startTextPaint.textSize = box * 0.075f
         emojiPaint.textSize = box * 0.16f
 
@@ -438,14 +432,9 @@ class TraceView @JvmOverloads constructor(
         super.onDraw(canvas)
         if (checkpoints.isEmpty()) return
 
-        // 배경에 흐린 글자
-        if (glyph.isNotEmpty()) {
-            val fm = bgGlyphPaint.fontMetrics
-            canvas.drawText(
-                glyph, offX + box / 2f,
-                offY + box / 2f - (fm.ascent + fm.descent) / 2f, bgGlyphPaint
-            )
-        }
+        // 배경 글자(폰트)는 그리지 않는다 —
+        // 폰트 글자와 따라 쓰는 길은 모양·크기가 달라서 아이가 어느 쪽을 따라야 할지 헷갈렸다.
+        // 이제 글자 모양은 "길" 하나로만 보여 준다.
 
         // 아직 안 쓴 획들 = 길.
         // 다음 획들을 먼저 그리고 지금 쓸 획을 맨 위에 — 순서대로 그리면
