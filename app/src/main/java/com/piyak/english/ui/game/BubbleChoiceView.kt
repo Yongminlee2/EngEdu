@@ -76,6 +76,9 @@ class BubbleChoiceView @JvmOverloads constructor(
     private var selected = -1
     private var radius = 0f
 
+    /** 위아래로 둥둥 뜨는 폭 (반지름 대비) — placeBubbles 가 이 몫을 미리 빼둔다 */
+    private val BOB_RATIO = 0.10f
+
     private val palette = listOf(
         "#FF8A80", "#FFD54F", "#80CBC4", "#81D4FA", "#B39DDB", "#A5D6A7",
     ).map { Color.parseColor(it) }
@@ -114,11 +117,17 @@ class BubbleChoiceView @JvmOverloads constructor(
         if (width == 0 || height == 0 || bubbles.isEmpty()) return
         // 2 x 2 배치. 반지름을 칸 크기에서 뽑아 **말풍선 사이 간격**을 확보한다
         // (0.42 = 칸의 84%가 지름, 나머지 16%가 서로의 여유 공간)
+        //
+        // ⚠️ 말풍선은 위아래로 둥둥 뜨고(BOB), 고르면 살짝 커진다(POP·선택 강조).
+        //    그 몫을 미리 빼두지 않으면 맨 윗줄·아랫줄이 칸 밖으로 나가 잘린다.
         val cols = 2
         val cellW = width / cols.toFloat()
         val rows = (bubbles.size + cols - 1) / cols
         val cellH = height / rows.toFloat()
-        radius = minOf(cellW, cellH) * 0.42f
+        val raw = minOf(cellW, cellH) * 0.42f
+        // 커진 상태(1.06 × 1.10)에 흔들림(0.10)까지 더해도 칸 안에 들어오도록
+        val grow = 1.06f * 1.10f
+        radius = minOf(raw, (cellH / 2f) / (grow + BOB_RATIO))
         bubbles.forEachIndexed { i, b ->
             val r = i / cols
             val c = i % cols
@@ -132,7 +141,7 @@ class BubbleChoiceView @JvmOverloads constructor(
         for (b in bubbles) {
             b.phase += dt * 1.6f
             // 위아래로 천천히 둥둥
-            b.cy = b.baseY + sin(b.phase.toDouble()).toFloat() * radius * 0.10f
+            b.cy = b.baseY + sin(b.phase.toDouble()).toFloat() * radius * BOB_RATIO
             if (b.pop > 0f) b.pop = (b.pop - dt * 3.2f).coerceAtLeast(0f)
         }
     }
