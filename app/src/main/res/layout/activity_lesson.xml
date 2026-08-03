@@ -12,16 +12,19 @@
             android:orientation="horizontal" android:gravity="center_vertical"
             android:paddingHorizontal="12dp" android:paddingTop="8dp">
             <Button android:id="@+id/btnClose" style="?attr/materialIconButtonStyle"
-                android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="✖" />
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="" android:drawableStart="@drawable/ic_close" />
             <ProgressBar android:id="@+id/progressBar" style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="0dp" android:layout_height="14dp" android:layout_weight="1"
                 android:layout_marginHorizontal="8dp" android:max="100"
                 android:progressTint="@color/green_ok" android:progressBackgroundTint="@color/cream_dark" />
             <TextView android:id="@+id/txtHearts" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:textSize="16sp" android:text="❤️ 5" />
+                android:textSize="16sp" android:text="5"
+                android:drawableStart="@drawable/ic_heart" android:drawablePadding="6dp" android:drawableTint="@null" />
             <Button android:id="@+id/btnHint" android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:layout_marginStart="6dp" android:minWidth="0dp" android:paddingHorizontal="10dp"
-                android:text="💡 0" android:textSize="13sp"
+                android:text="0" android:textSize="13sp"
+                android:drawableStart="@drawable/ic_hint" android:drawablePadding="3dp"
                 android:backgroundTint="@color/lavender" android:textColor="@color/white" />
         </LinearLayout>
 

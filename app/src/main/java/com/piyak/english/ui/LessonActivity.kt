@@ -232,9 +232,9 @@ class LessonActivity : AppCompatActivity() {
 
         b.progressBar.progress = (s.progress * 100).toInt()
         b.txtHearts.text = when {
-            reviewMode -> "💊 복습"
+            reviewMode -> "복습"
             !db.heartsEnabled() -> ""
-            else -> "❤️ ${s.hearts}"
+            else -> "${s.hearts}"
         }
         b.questionBox.removeAllViews()
         b.btnCheck.isEnabled = false
@@ -267,7 +267,7 @@ class LessonActivity : AppCompatActivity() {
 
     private fun refreshHintButton() {
         val n = db.itemCount("hint")
-        b.btnHint.text = "💡 $n"
+        b.btnHint.text = "$n"
         b.btnHint.isEnabled = n > 0 && choiceButtons.size >= 4 && !hintUsedHere
         b.btnHint.alpha = if (b.btnHint.isEnabled) 1f else 0.45f
     }
@@ -883,9 +883,9 @@ class LessonActivity : AppCompatActivity() {
             Color.parseColor(if (correct) "#66BB6A" else "#FF5252")
         )
         b.txtHearts.text = when {
-            reviewMode -> "💊 복습"
+            reviewMode -> "복습"
             !db.heartsEnabled() -> ""
-            else -> "❤️ ${session?.hearts ?: 0}"
+            else -> "${session?.hearts ?: 0}"
         }
     }
 
