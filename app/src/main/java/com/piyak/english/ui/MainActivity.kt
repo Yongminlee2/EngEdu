@@ -175,11 +175,11 @@ class MainActivity : AppCompatActivity() {
         val overall = Skills.overallLevel(states)
         val rank = Ranks.of(overall)
         val sticker = db.equippedSticker()
-        b.txtRank.text = "${rank.emoji} ${rank.title}" + if (sticker.isNotEmpty()) " $sticker" else ""
+        b.txtRank.text = "${rank.emoji} ${getString(rank.titleRes)}" + if (sticker.isNotEmpty()) " $sticker" else ""
         b.rankBar.progress = (Ranks.progress(overall) * 100).toInt()
         val next = Ranks.next(overall)
         b.txtOverall.text = String.format("종합 실력 Lv.%.1f", overall) +
-            if (next != null) "  →  다음 칭호 ${next.emoji} ${next.title}" else "  (최고 칭호!)"
+            if (next != null) "  →  다음 칭호 ${next.emoji} ${getString(next.titleRes)}" else "  (최고 칭호!)"
 
         val goal = db.dailyGoal()
         val todayXp = db.xpToday()
@@ -192,7 +192,7 @@ class MainActivity : AppCompatActivity() {
 
         val weak = Skills.weakest(states)
         b.txtWeakest.text = if (weak != null && weak.attempts >= 0)
-            "약한 영역: ${weak.def.emoji} ${weak.def.title}" else ""
+            "약한 영역: ${weak.def.emoji} ${getString(weak.def.titleRes)}" else ""
 
         b.skillsBox.removeAllViews()
         for (st in states) b.skillsBox.addView(skillRow(st))
@@ -206,7 +206,7 @@ class MainActivity : AppCompatActivity() {
             setPadding(0, dp(5f).toInt(), 0, dp(5f).toInt())
         }
         row.addView(TextView(this).apply {
-            text = "${st.def.emoji} ${st.def.title}"
+            text = "${st.def.emoji} ${getString(st.def.titleRes)}"
             textSize = 14f
             width = dp(78f).toInt()
         })
