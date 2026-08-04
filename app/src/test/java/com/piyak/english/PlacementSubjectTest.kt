@@ -40,10 +40,11 @@ class PlacementSubjectTest {
     }
 
     @Test fun levelNamesMatchTheSubject() {
-        assertEquals("초등 1~2학년", Placement.levelName(Subject.ENGLISH, 1))
+        // 이름은 리소스가 되어 Context 없는 단위테스트에서는 id 존재만 본다
+        assertTrue(Placement.LEVEL_NAMES.getValue(1) != 0)
         // 수학은 학년 이름을 그대로 쓴다
-        assertEquals(MathGrades.ALL.first().title, Placement.levelName(Subject.MATH, 1))
-        assertEquals(MathGrades.ALL.last().title, Placement.levelName(Subject.MATH, 13))
+        assertEquals(MathGrades.ALL.first().title, MathGrades.forLevel(1).title)
+        assertEquals(MathGrades.ALL.last().title, MathGrades.forLevel(13).title)
     }
 
     /** 영어 전용 앱 — 수학 배치고사 팩이 섞여 들어오면 안 된다 */

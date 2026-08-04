@@ -37,7 +37,7 @@
 
         <Button android:id="@+id/btnAction"
             android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_margin="12dp" android:text="다 담았어요!" android:textSize="17sp"
+            android:layout_margin="12dp" android:text="@string/game_basket_done" android:textSize="17sp"
             android:visibility="gone"
             android:backgroundTint="@color/chick_yellow" android:textColor="@color/brown_text" />
     </LinearLayout>
@@ -50,14 +50,14 @@
         <ImageView android:layout_width="140dp" android:layout_height="140dp"
             android:src="@drawable/ck_cheer" android:contentDescription="삐약이" />
         <TextView android:id="@+id/txtResultTitle" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginTop="14dp" android:textSize="28sp" android:textStyle="bold" android:text="끝!" />
+            android:layout_marginTop="14dp" android:textSize="28sp" android:textStyle="bold" android:text="" />
         <TextView android:id="@+id/txtResultBody" android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:layout_marginTop="10dp" android:gravity="center" android:textSize="17sp" android:text="" />
         <Button android:id="@+id/btnAgain" android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_marginTop="24dp" android:text="🔁 한 번 더!" android:textSize="18sp"
+            android:layout_marginTop="24dp" android:text="@string/ly_once_more" android:textSize="18sp"
             android:backgroundTint="@color/chick_yellow" android:textColor="@color/brown_text" />
         <Button android:id="@+id/btnQuit" android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_marginTop="8dp" android:text="그만하기" android:textSize="16sp"
+            android:layout_marginTop="8dp" android:text="@string/ly_stop" android:textSize="16sp"
             android:backgroundTint="@color/cream_dark" android:textColor="@color/brown_text" />
     </LinearLayout>
 </FrameLayout>

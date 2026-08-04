@@ -44,7 +44,7 @@
         <!-- 확인 버튼 -->
         <Button android:id="@+id/btnCheck"
             android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_margin="16dp" android:text="확인" android:textSize="18sp"
+            android:layout_margin="16dp" android:text="@string/lesson_check" android:textSize="18sp"
             android:backgroundTint="@color/chick_yellow" android:textColor="@color/brown_text" />
     </LinearLayout>
 
@@ -66,14 +66,14 @@
                 android:src="@drawable/ck_idle" android:contentDescription="삐약이" />
             <TextView android:id="@+id/txtFeedback" android:layout_width="0dp" android:layout_height="wrap_content"
                 android:layout_weight="1" android:layout_marginStart="10dp"
-                android:textSize="18sp" android:textStyle="bold" android:text="삐약! 정답이에요!" />
+                android:textSize="18sp" android:textStyle="bold" android:text="@string/praise_correct" />
         </LinearLayout>
         <TextView android:id="@+id/txtExplain" android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="6dp" android:textSize="14sp" android:visibility="gone"
             android:maxLines="11" android:scrollbars="vertical" android:lineSpacingMultiplier="1.15" />
         <Button android:id="@+id/btnContinue"
             android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_marginTop="10dp" android:text="계속하기" android:textSize="17sp"
+            android:layout_marginTop="10dp" android:text="@string/quit_no" android:textSize="17sp"
             android:backgroundTint="@color/green_ok" android:textColor="@color/white" />
     </LinearLayout>
 
@@ -85,12 +85,12 @@
         <ImageView android:id="@+id/imgResult" android:layout_width="150dp" android:layout_height="150dp"
             android:src="@drawable/ck_idle" android:contentDescription="삐약이" />
         <TextView android:id="@+id/txtResultTitle" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginTop="16dp" android:textSize="26sp" android:textStyle="bold" android:text="레슨 완료!" />
+            android:layout_marginTop="16dp" android:textSize="26sp" android:textStyle="bold" android:text="" />
         <TextView android:id="@+id/txtResultStats" android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:layout_marginTop="10dp" android:textSize="17sp" android:gravity="center" android:text="" />
         <Button android:id="@+id/btnDone"
             android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_marginTop="28dp" android:text="완료" android:textSize="18sp"
+            android:layout_marginTop="28dp" android:text="@string/done" android:textSize="18sp"
             android:backgroundTint="@color/chick_yellow" android:textColor="@color/brown_text" />
     </LinearLayout>
     <!-- 정답 색종이·콤보 오버레이 — 결과 화면 위에도 뿌려지도록 맨 마지막(최상단)에 둔다 -->

@@ -1,5 +1,6 @@
 package com.piyak.english.ui
 
+import com.piyak.english.R
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -30,7 +31,7 @@ class PlaygroundActivity : AppCompatActivity() {
         level = Db.get(this).metaInt("game_level", 2).coerceIn(1, 3)
 
         b.btnBack.setOnClickListener { finish() }
-        b.txtTitle.text = "🎮 ${subject.title} 놀이터"
+        b.txtTitle.text = "🎮 " + getString(subject.titleRes) + " · " + getString(com.piyak.english.R.string.st_play)
         b.btnLv1.setOnClickListener { setLevel(1) }
         b.btnLv2.setOnClickListener { setLevel(2) }
         b.btnLv3.setOnClickListener { setLevel(3) }
@@ -101,13 +102,13 @@ class PlaygroundActivity : AppCompatActivity() {
                 setPadding(dp(14), 0, 0, 0)
             }
             col.addView(TextView(this).apply {
-                text = g.title
+                text = getString(g.titleRes)
                 textSize = 20f
                 setTypeface(typeface, android.graphics.Typeface.BOLD)
                 setTextColor(Color.parseColor("#3E2723"))
             })
             col.addView(TextView(this).apply {
-                text = g.desc
+                text = getString(g.descRes)
                 textSize = 13f
                 setTextColor(Color.parseColor("#5D4037"))
             })

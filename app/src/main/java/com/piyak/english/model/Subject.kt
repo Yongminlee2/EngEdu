@@ -7,14 +7,16 @@ enum class Subject(
     val title: String,
     val subtitle: String,
     val color: String,
+    /** 화면 표시용 이름 — 폰 언어를 따라간다 */
+    val titleRes: Int,
 ) {
     ENGLISH(
         "english", "📘", "영어",
-        "듣기 · 말하기 · 읽기 · 쓰기", "#AEDCF5"
+        "듣기 · 말하기 · 읽기 · 쓰기", "#AEDCF5", com.piyak.english.R.string.sub_english
     ),
     MATH(
         "math", "🔢", "수학",
-        "유치원부터 고3까지 차근차근", "#F7C6C7"
+        "유치원부터 고3까지 차근차근", "#F7C6C7", com.piyak.english.R.string.sub_math
     );
 
     /** 이 과목의 트랙 id 목록 (팩 파일명과 같다) */

@@ -18,7 +18,7 @@ class MiniGamesTest {
         // id 중복 없음
         assertEquals(MiniGames.ALL.size, MiniGames.ALL.map { it.id }.toSet().size)
         for (g in MiniGames.ALL) {
-            assertTrue(g.title.isNotBlank() && g.desc.isNotBlank() && g.emoji.isNotBlank())
+            assertTrue(g.titleRes != 0 && g.descRes != 0 && g.emoji.isNotBlank())
             assertTrue(g.color.startsWith("#"))
         }
     }

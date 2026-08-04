@@ -10,7 +10,7 @@
             <Button android:id="@+id/btnBack" style="?attr/materialIconButtonStyle"
                 android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="◀" />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="📊 내 통계" android:textSize="20sp" android:textStyle="bold" />
+                android:text="@string/ly_stats" android:textSize="20sp" android:textStyle="bold" />
         </LinearLayout>
 
         <TextView android:id="@+id/txtLevelBig" android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
             android:textSize="15sp" android:lineSpacingMultiplier="1.4" />
 
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginTop="18dp" android:text="📊 영역별 실력" android:textSize="17sp" android:textStyle="bold" />
+            android:layout_marginTop="18dp" android:text="@string/ly_skill_by" android:textSize="17sp" android:textStyle="bold" />
         <TextView android:id="@+id/txtRankLine" android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="4dp" android:textSize="14sp" android:textColor="@color/brown_soft" />
         <LinearLayout android:id="@+id/skillDetailBox"
@@ -35,14 +35,14 @@
             android:orientation="vertical" android:layout_marginTop="8dp" />
 
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginTop="18dp" android:text="🔥 스트릭 달력" android:textSize="17sp" android:textStyle="bold" />
+            android:layout_marginTop="18dp" android:text="@string/ly_streak" android:textSize="17sp" android:textStyle="bold" />
         <TextView android:id="@+id/txtStreakInfo" android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:layout_marginTop="4dp" android:textSize="14sp" android:textColor="@color/brown_soft" />
         <GridLayout android:id="@+id/calGrid" android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="8dp" android:columnCount="7" />
 
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginTop="18dp" android:text="🏆 배지" android:textSize="17sp" android:textStyle="bold" />
+            android:layout_marginTop="18dp" android:text="@string/ly_badges" android:textSize="17sp" android:textStyle="bold" />
         <GridLayout android:id="@+id/badgesGrid" android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="8dp" android:columnCount="3" />
     </LinearLayout>

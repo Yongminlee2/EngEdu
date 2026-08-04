@@ -110,7 +110,7 @@ class TrackActivity : AppCompatActivity() {
                     setOnClickListener {
                         if (!unlocked) {
                             android.widget.Toast.makeText(
-                                this@TrackActivity, "앞의 레슨을 먼저 완료해 주세요! 🥚", android.widget.Toast.LENGTH_SHORT
+                                this@TrackActivity, getString(R.string.locked_lesson), android.widget.Toast.LENGTH_SHORT
                             ).show()
                         } else {
                             startActivity(

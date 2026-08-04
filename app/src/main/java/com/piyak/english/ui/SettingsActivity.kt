@@ -1,5 +1,6 @@
 package com.piyak.english.ui
 
+import com.piyak.english.R
 import android.content.Intent
 import android.os.Bundle
 import android.widget.SeekBar
@@ -77,15 +78,15 @@ class SettingsActivity : AppCompatActivity() {
             b.btnCrash.visibility = android.view.View.VISIBLE
             b.btnCrash.setOnClickListener {
                 AlertDialog.Builder(this)
-                    .setTitle("마지막 오류 기록")
+                    .setTitle(getString(R.string.crash_title))
                     .setMessage(crash.take(3000))
-                    .setPositiveButton("복사") { _, _ ->
+                    .setPositiveButton(getString(R.string.copy)) { _, _ ->
                         val cm = getSystemService(android.content.ClipboardManager::class.java)
                         cm?.setPrimaryClip(android.content.ClipData.newPlainText("crash", crash))
                         android.widget.Toast
-                            .makeText(this, "복사했어요", android.widget.Toast.LENGTH_SHORT).show()
+                            .makeText(this, getString(R.string.copied), android.widget.Toast.LENGTH_SHORT).show()
                     }
-                    .setNegativeButton("지우기") { _, _ ->
+                    .setNegativeButton(getString(R.string.clear)) { _, _ ->
                         com.piyak.english.PiyakApp.clearCrash(this)
                         b.btnCrash.visibility = android.view.View.GONE
                     }
@@ -95,13 +96,13 @@ class SettingsActivity : AppCompatActivity() {
 
         b.btnReset.setOnClickListener {
             AlertDialog.Builder(this)
-                .setTitle("정말 초기화할까요?")
-                .setMessage("모든 진행도·XP·배지·오답이 삭제돼요.\n되돌릴 수 없어요!")
-                .setPositiveButton("초기화") { _, _ ->
+                .setTitle(getString(R.string.reset_ask))
+                .setMessage(getString(R.string.reset_msg))
+                .setPositiveButton(getString(R.string.reset_do)) { _, _ ->
                     db.resetAll()
-                    android.widget.Toast.makeText(this, "초기화 완료! 처음부터 삐약! 🐣", android.widget.Toast.LENGTH_SHORT).show()
+                    android.widget.Toast.makeText(this, getString(R.string.reset_done), android.widget.Toast.LENGTH_SHORT).show()
                 }
-                .setNegativeButton("취소", null).show()
+                .setNegativeButton(getString(R.string.cancel), null).show()
         }
     }
 
