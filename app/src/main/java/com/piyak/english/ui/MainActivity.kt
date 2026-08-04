@@ -151,7 +151,8 @@ class MainActivity : AppCompatActivity() {
         // 배치고사 배너: 과목별로 아직 안 본 경우에만
         val placedKey = if (subject == com.piyak.english.model.Subject.MATH)
             "math_placement_done" else "placement_done"
-        b.bannerPlacement.visibility = if (db.meta(placedKey) == "1") View.GONE else View.VISIBLE
+        b.bannerPlacement.visibility =
+            if (db.meta(placedKey) == "1" || !com.piyak.english.i18n.Tpl.isKorean) View.GONE else View.VISIBLE
         b.txtPlacement.text = if (subject == com.piyak.english.model.Subject.MATH)
             getString(R.string.home_placement_math)
         else getString(R.string.home_placement_en)

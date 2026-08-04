@@ -52,6 +52,7 @@ object ContentRepo {
     }
 
     fun parseTrack(o: JSONObject): TrackData {
+        val abroad = !com.piyak.english.i18n.Tpl.isKorean
         val unitsArr = o.getJSONArray("units")
         val units = (0 until unitsArr.length()).map { ui ->
             val u = unitsArr.getJSONObject(ui)
@@ -59,15 +60,18 @@ object ContentRepo {
             val lessons = (0 until lessonsArr.length()).map { li ->
                 val l = lessonsArr.getJSONObject(li)
                 val qArr = l.getJSONArray("questions")
-                val qs = (0 until qArr.length()).map { qi -> Question.fromJson(qArr.getJSONObject(qi)) }
-                LessonData(l.getString("id"), l.getString("title"), qs)
-            }
-            UnitData(u.getString("id"), u.getString("title"), u.optString("emoji", "🐥"),
+                val all = (0 until qArr.length()).map { qi -> Question.fromJson(qArr.getJSONObject(qi)) }
+                // 비한국어 폰: 한국어 없이는 성립하지 않는 문제(짝맞추기·한국어 독해 등)를 뺀다.
+                // 한국어 폰은 그대로 — 지금까지의 경험이 하나도 안 바뀐다.
+                val qs = if (abroad) all.filter { usableAbroad(it) } else all
+                LessonData(l.getString("id"), title(l), qs)
+            }.filter { it.questions.size >= if (abroad) 1 else 0 }
+            UnitData(u.getString("id"), title(u), u.optString("emoji", "🐥"),
                 u.optInt("level", ui + 1), lessons)
-        }
+        }.filter { !abroad || it.lessons.isNotEmpty() }
         return TrackData(
-            o.getString("id"), o.getString("title"), o.optString("emoji", "🐥"),
-            o.optString("color", "#FFD54F"), o.optString("subtitle", ""), units
+            o.getString("id"), title(o), o.optString("emoji", "🐥"),
+            o.optString("color", "#FFD54F"), title(o, "stk", "sta", "subtitle"), units
         )
     }
 
@@ -81,7 +85,7 @@ object ContentRepo {
             (0 until arr.length()).map {
                 val q = arr.getJSONObject(it)
                 q.getInt("level") to Question.fromJson(q)
-            }
+            }.filter { com.piyak.english.i18n.Tpl.isKorean || usableAbroad(it.second) }
         } catch (e: Exception) {
             emptyList()
         }
@@ -120,4 +124,38 @@ object ContentRepo {
         val lesson = t.findLesson(lessonId)?.second ?: return null
         return lesson.questions.firstOrNull { it.id == qid }
     }
+
+    /** 팩의 tk/ta 를 폰 언어 제목으로 조립한다 (한국어 폰·미태깅 제목은 원문 그대로) */
+    private fun title(o: JSONObject, key: String = "tk", args: String = "ta", field: String = "title"): String {
+        val ko = o.optString(field)
+        val tk = o.optString(key)
+        if (tk.isEmpty()) return ko
+        val ta = o.optJSONArray(args)
+        val list = if (ta == null) emptyList() else (0 until ta.length()).map { ta.getString(it) }
+        return com.piyak.english.i18n.Tpl.sentence(tk, list, ko)
+    }
+
+    /**
+     * 비한국어 폰에서 한국어 없이 풀 수 있는 문제인가.
+     *
+     * - 짝맞추기: 짝의 한쪽이 한국어 뜻이라 성립 불가 → 뺀다
+     * - 독해·대화듣기: 질문·보기가 한국어 → 뺀다
+     * - 4지선다: 문제문이 한국어라도 그림(bigArt)이 있으면 그림 문제로 바뀌므로 통과,
+     *   보기가 한국어라도 그림 보기(choiceArt)가 있으면 통과
+     */
+    private fun usableAbroad(q: Question): Boolean = when (q) {
+        is Question.Match -> q.pairs.none { hasKo(it.first) || hasKo(it.second) }
+        is Question.ListenDialog -> !hasKo(q.prompt) && q.choices.none { hasKo(it) }
+        is Question.Mcq ->
+            (!hasKo(q.prompt) || q.bigArt != null) &&
+                (q.choices.none { hasKo(it) } || q.choiceArt.isNotEmpty())
+        is Question.ListenMcq -> !hasKo(q.prompt) && q.choices.none { hasKo(it) }
+        else -> true
+    }
+
+    private fun hasKo(s: String): Boolean {
+        for (c in s) if (c in '가'..'힣') return true
+        return false
+    }
+
 }

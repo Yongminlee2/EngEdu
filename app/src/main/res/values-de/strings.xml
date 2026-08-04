@@ -480,9 +480,142 @@
     <string name="tpl_887a7a17">Das ist ein Bild von %1$s.\nWas ist der erste Laut von %2$s?</string>
     <string name="tpl_02bc90d3">%1$s (%2$s)\nWelcher Vokal steht in der Mitte?</string>
     <string name="tpl_363ce10c">%1$s</string>
+    <string name="tpl_t_tr_basic">Basis Schritt für Schritt</string>
+    <string name="tpl_t_tr_basic_s">10 Stufen von Grundschule bis Fortgeschritten</string>
+    <string name="tpl_t_tr_daily">Alltags- &amp; Reise-Englisch</string>
+    <string name="tpl_t_tr_daily_s">Bis zu deiner ersten Solo-Reise</string>
+    <string name="tpl_t_tr_elem">Grundschul-Spielplatz</string>
+    <string name="tpl_t_tr_elem_s">Spielend lernen, ab dem ABC</string>
+    <string name="tpl_t_tr_grammar">Grammatik-Fokus</string>
+    <string name="tpl_t_tr_grammar_s">Vom be-Verb bis Inversion und Konditional</string>
+    <string name="tpl_t_tr_listen">Hör-Fokus</string>
+    <string name="tpl_t_tr_listen_s">Wörter → Sätze → Dialoge, Ohren trainieren</string>
+    <string name="tpl_t_tr_reading">Lese-Fokus</string>
+    <string name="tpl_t_tr_reading_s">Kurztexte → Gebrauchstexte → Fachtexte</string>
+    <string name="tpl_t_tr_speak">Sprech-Fokus</string>
+    <string name="tpl_t_tr_speak_s">Mund auf: echtes Konversationstraining</string>
+    <string name="tpl_t_tr_toefl">TOEFL</string>
+    <string name="tpl_t_tr_toefl_s">Akademisches Lesen &amp; Hören</string>
+    <string name="tpl_t_tr_toeic">TOEIC</string>
+    <string name="tpl_t_tr_toeic_s">Jeden Teil Typ für Typ meistern</string>
+    <string name="tpl_t_tr_write">Schreib-Fokus</string>
+    <string name="tpl_t_tr_write_s">Rechtschreibung → Wortstellung → Aufsatz</string>
+    <string name="tpl_t_word">%1$s</string>
+    <string name="tpl_t_stage">Stufe %1$s · %2$s</string>
+    <string name="tpl_t_stage_n">Stufe %1$s · %2$s %3$s</string>
+    <string name="tpl_t_lesson">Lektion %1$s</string>
+    <string name="tpl_t_expr">%1$s · Ausdrücke</string>
+    <string name="tpl_t_talk2">%1$s · Sprechen</string>
+    <string name="tpl_t_num">%1$s %2$s</string>
+    <string name="tpl_t_u_greet">Begrüßung &amp; Vorstellung</string>
+    <string name="tpl_t_u_rest">Im Restaurant</string>
+    <string name="tpl_t_u_shop">Einkaufen</string>
+    <string name="tpl_t_u_way">Den Weg finden</string>
+    <string name="tpl_t_u_air">Flughafen &amp; Flugzeug</string>
+    <string name="tpl_t_u_hotel">Im Hotel</string>
+    <string name="tpl_t_u_trans">Unterwegs</string>
+    <string name="tpl_t_u_emerg">Notfälle</string>
+    <string name="tpl_t_u_small">Smalltalk</string>
+    <string name="tpl_t_u_shop2">Echtsatz-Laden %1$s</string>
+    <string name="tpl_t_g_gram">%1$s Grammatik</string>
+    <string name="tpl_t_g_listen">Ohrentraining · %1$s %2$s</string>
+    <string name="tpl_t_g_read">%1$s Lesen %2$s</string>
+    <string name="tpl_t_g_speak">Sprich los · %1$s %2$s</string>
+    <string name="tpl_t_g_write">Rechtschreibübung · %1$s %2$s</string>
+    <string name="tpl_t_s_gramtoeic">Praxisgrammatik (TOEIC-Stil) %1$s</string>
+    <string name="tpl_t_s_dict">Satzdiktat %1$s</string>
+    <string name="tpl_t_s_dialog">Dialog-Hören %1$s</string>
+    <string name="tpl_t_s_pract">Gebrauchstexte lesen %1$s</string>
+    <string name="tpl_t_s_acad">Fachtexte lesen %1$s</string>
+    <string name="tpl_t_s_conv">Echte Konversation %1$s</string>
+    <string name="tpl_t_s_travel">Reisephrasen sprechen %1$s</string>
+    <string name="tpl_t_s_build">Satzbau %1$s</string>
+    <string name="tpl_t_s_compose">Schreibtraining %1$s</string>
+    <string name="tpl_t_s_acread">Akademisches Lesen %1$s</string>
+    <string name="tpl_t_s_lecture">Vorlesungs-Hören %1$s</string>
+    <string name="tpl_t_s_acvocab">Fachwortschatz-Labor %1$s</string>
+    <string name="tpl_t_s_p5">Part %1$s Lückentext %2$s</string>
+    <string name="tpl_t_s_p7">Part %1$s Lesen %2$s</string>
+    <string name="tpl_t_s_lc">LC Kurzdialoge %1$s</string>
+    <string name="tpl_t_s_bizvocab">Business-Wortschatz-Drill %1$s</string>
+    <string name="tpl_t_s_shortdialog">Kurzdialoge hören</string>
 
     <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
     <string-array name="tpl_words">
+        <item>음식 마을|Essensdorf</item>
+        <item>학교 마을|Schuldorf</item>
+        <item>가족과 사람 마을|Familien- und Menschendorf</item>
+        <item>몸과 건강 마을|Körper- und Gesundheitsdorf</item>
+        <item>색깔과 모양 마을|Farben- und Formendorf</item>
+        <item>마음과 행동 마을|Gefühls- und Handlungsdorf</item>
+        <item>자연과 날씨 마을|Natur- und Wetterdorf</item>
+        <item>우리 집 마을|Mein-Zuhause-Dorf</item>
+        <item>동물 마을|Tierdorf</item>
+        <item>시간과 하루 마을|Zeit- und Tagesdorf</item>
+        <item>놀이와 운동 마을|Spiel- und Sportdorf</item>
+        <item>마을과 탈것 마을|Stadt- und Fahrzeugdorf</item>
+        <item>옷과 물건 마을|Kleider- und Sachendorf</item>
+        <item>낱말 탐험|Wort-Expedition</item>
+        <item>어휘 산책|Wortschatz-Spaziergang</item>
+        <item>낱말 캠프|Wort-Camp</item>
+        <item>어휘 정원|Wortschatz-Garten</item>
+        <item>단어 열기구|Wort-Heißluftballon</item>
+        <item>단어 여행|Wortreise</item>
+        <item>단어 보물찾기|Wort-Schatzsuche</item>
+        <item>낱말 등대|Wort-Leuchtturm</item>
+        <item>단어마을|Wortdorf</item>
+        <item>문법 클리닉|Grammatik-Klinik</item>
+        <item>문장 공방|Satz-Werkstatt</item>
+        <item>초등 1~2학년|Klasse 1–2</item>
+        <item>초등 3~4학년|Klasse 3–4</item>
+        <item>초등 5~6학년|Klasse 5–6</item>
+        <item>중학 1학년|Mittelstufe 1</item>
+        <item>중학 2학년|Mittelstufe 2</item>
+        <item>중학 3학년|Mittelstufe 3</item>
+        <item>고등 1학년|Oberstufe 1</item>
+        <item>고등 2~3학년|Oberstufe 2–3</item>
+        <item>성인·비즈니스|Erwachsene · Business</item>
+        <item>고급·학술|Fortgeschritten · Akademisch</item>
+        <item>알파벳 찾기 (대문자)|Buchstaben finden (groß)</item>
+        <item>대문자와 소문자 짝꿍|Groß-Klein-Paare</item>
+        <item>알파벳 소리 듣기|Buchstabenlaute</item>
+        <item>첫소리 찾기 (파닉스)|Anlaute (Phonics)</item>
+        <item>가운데 소리 (모음)|Mittellaute (Vokale)</item>
+        <item>그림 보고 단어 찾기|Bild dem Wort zuordnen</item>
+        <item>단어 뜻 맞히기|Bedeutung erraten</item>
+        <item>듣고 그림 찾기|Hören und Bild finden</item>
+        <item>자주 나오는 낱말|Häufige Wörter</item>
+        <item>단어 써 보기|Wort schreiben</item>
+        <item>문장 읽기|Sätze lesen</item>
+        <item>따라 말하기|Nachsprechen</item>
+        <item>문장 받아쓰기|Satzdiktat</item>
+        <item>첫 만남|Erstes Treffen</item>
+        <item>안부 묻기|Nach dem Befinden fragen</item>
+        <item>자기소개하기|Sich vorstellen</item>
+        <item>주문하기|Bestellen</item>
+        <item>계산하기|Bezahlen</item>
+        <item>특별 요청|Sonderwünsche</item>
+        <item>옷 사기|Kleidung kaufen</item>
+        <item>환불하기|Geld zurückbekommen</item>
+        <item>가격 흥정|Handeln</item>
+        <item>길 묻기|Nach dem Weg fragen</item>
+        <item>지하철 타기|U-Bahn fahren</item>
+        <item>길을 잃었을 때|Wenn man sich verirrt</item>
+        <item>체크인|Check-in</item>
+        <item>입국 심사|Einreisekontrolle</item>
+        <item>기내에서|Im Flugzeug</item>
+        <item>체크인하기|Einchecken</item>
+        <item>문제 해결|Probleme lösen</item>
+        <item>체크아웃|Check-out</item>
+        <item>택시 타기|Taxi fahren</item>
+        <item>버스 묻기|Nach dem Bus fragen</item>
+        <item>렌터카 빌리기|Auto mieten</item>
+        <item>아플 때|Wenn man krank ist</item>
+        <item>분실 신고|Verlust melden</item>
+        <item>약국에서|In der Apotheke</item>
+        <item>날씨 이야기|Übers Wetter reden</item>
+        <item>취미 이야기|Über Hobbys reden</item>
+        <item>주말 계획|Wochenendpläne</item>
     </string-array>
     <string-array name="tpl_units">
     </string-array>

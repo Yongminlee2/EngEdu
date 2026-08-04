@@ -68,6 +68,7 @@ class SettingsActivity : AppCompatActivity() {
             db.setMeta("free_mode", if (on) "1" else "0")
         }
 
+        if (!com.piyak.english.i18n.Tpl.isKorean) b.btnPlacement.visibility = android.view.View.GONE
         b.btnPlacement.setOnClickListener {
             startActivity(Intent(this, PlacementActivity::class.java))
         }
