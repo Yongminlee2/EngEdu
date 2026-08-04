@@ -616,6 +616,1414 @@
         <item>날씨 이야기|聊天气</item>
         <item>취미 이야기|聊爱好</item>
         <item>주말 계획|周末计划</item>
+        <item>나무|树</item>
+        <item>사과|苹果</item>
+        <item>개|狗</item>
+        <item>우유|牛奶</item>
+        <item>귀|耳朵</item>
+        <item>좋은|好的</item>
+        <item>꽃|花</item>
+        <item>기차|火车</item>
+        <item>소|牛</item>
+        <item>시계|钟表</item>
+        <item>미묘한 차이|细微差别</item>
+        <item>새|鸟</item>
+        <item>엄마|妈妈</item>
+        <item>쿠키|饼干</item>
+        <item>말|马</item>
+        <item>바다|大海</item>
+        <item>반대하다|反对</item>
+        <item>얻다|获得</item>
+        <item>수용력|容量</item>
+        <item>침대|床</item>
+        <item>발|脚</item>
+        <item>작은|小的</item>
+        <item>사탕|糖果</item>
+        <item>피자|披萨</item>
+        <item>사자|狮子</item>
+        <item>우산|雨伞</item>
+        <item>여기|这里</item>
+        <item>다양한|各种各样的</item>
+        <item>가정하다|假设</item>
+        <item>개념|概念</item>
+        <item>금지하다|禁止</item>
+        <item>물고기|鱼</item>
+        <item>고양이|猫</item>
+        <item>파란|蓝色的</item>
+        <item>보다|看见</item>
+        <item>사랑하다|爱</item>
+        <item>해|太阳</item>
+        <item>공|球</item>
+        <item>신발|鞋</item>
+        <item>호랑이|老虎</item>
+        <item>저기|那里</item>
+        <item>이해하다|理解</item>
+        <item>향상시키다|提高</item>
+        <item>자라다|生长</item>
+        <item>방해하다|妨碍</item>
+        <item>감소하다|减少</item>
+        <item>제거하다|去除</item>
+        <item>설득하다|说服</item>
+        <item>설립하다|设立</item>
+        <item>적절한|适当的</item>
+        <item>이익|利益</item>
+        <item>요건|要求条件</item>
+        <item>연봉|年薪</item>
+        <item>주스|果汁</item>
+        <item>배|船</item>
+        <item>그리고|而且</item>
+        <item>학교|学校</item>
+        <item>친구|朋友</item>
+        <item>오다|来</item>
+        <item>좋아하다|喜欢</item>
+        <item>별|星星</item>
+        <item>비|雨</item>
+        <item>토끼|兔子</item>
+        <item>곰|熊</item>
+        <item>보고서|报告</item>
+        <item>포함하다|包含</item>
+        <item>목표|目标</item>
+        <item>발명품|发明</item>
+        <item>영향|影响</item>
+        <item>지배하다|支配</item>
+        <item>호소하다|诉诸</item>
+        <item>아기|宝宝</item>
+        <item>큰|大的</item>
+        <item>응원하다|加油助威</item>
+        <item>본질적인|本质的</item>
+        <item>빵|面包</item>
+        <item>달걀|鸡蛋</item>
+        <item>연필|铅笔</item>
+        <item>의자|椅子</item>
+        <item>집|房子</item>
+        <item>아빠|爸爸</item>
+        <item>선생님|老师</item>
+        <item>가지고 있다|拥有</item>
+        <item>만들다|制作</item>
+        <item>자동차|汽车</item>
+        <item>저녁 식사|晚餐</item>
+        <item>오리|鸭子</item>
+        <item>습관|习惯</item>
+        <item>가격|价格</item>
+        <item>~하게 들리다|听起来</item>
+        <item>결과|结果</item>
+        <item>설명하다|说明</item>
+        <item>외로운|孤独的</item>
+        <item>집중하다|专注</item>
+        <item>가치|价值</item>
+        <item>흔한|常见的</item>
+        <item>입양하다|收养</item>
+        <item>추상적인|抽象的</item>
+        <item>이용 가능한|可用的</item>
+        <item>보장하다|确保</item>
+        <item>기관|机构</item>
+        <item>보증금|押金</item>
+        <item>수하물|行李</item>
+        <item>언어의|语言的</item>
+        <item>포식자|捕食者</item>
+        <item>버스|公交车</item>
+        <item>수박|西瓜</item>
+        <item>가방|包</item>
+        <item>손|手</item>
+        <item>코|鼻子</item>
+        <item>슬픈|伤心的</item>
+        <item>짧은|短的</item>
+        <item>쳐다보다|注视</item>
+        <item>주다|给</item>
+        <item>잘 가|再见</item>
+        <item>점심|午餐</item>
+        <item>돼지|猪</item>
+        <item>구름|云</item>
+        <item>생각하다|思考</item>
+        <item>잊다|忘记</item>
+        <item>공원|公园</item>
+        <item>병원|医院</item>
+        <item>도시|城市</item>
+        <item>피곤한|疲惫的</item>
+        <item>미술|美术</item>
+        <item>요리사|厨师</item>
+        <item>두통|头痛</item>
+        <item>인기 있는|受欢迎的</item>
+        <item>느끼다|感觉</item>
+        <item>기회|机会</item>
+        <item>법|法律</item>
+        <item>손님|客人</item>
+        <item>신이 난|兴奋的</item>
+        <item>현대의|现代的</item>
+        <item>의존하다|依赖</item>
+        <item>모이다|聚集</item>
+        <item>추측하다|猜测</item>
+        <item>상상하다|想象</item>
+        <item>제공하다|提供</item>
+        <item>재료|材料</item>
+        <item>방법|方法</item>
+        <item>취소하다|取消</item>
+        <item>실험|实验</item>
+        <item>경고하다|警告</item>
+        <item>고발하다|控告</item>
+        <item>명백한|明显的</item>
+        <item>자신감|自信</item>
+        <item>대조|对比</item>
+        <item>선포하다|宣布</item>
+        <item>감지하다|检测</item>
+        <item>경제|经济</item>
+        <item>가능하게 하다|使成为可能</item>
+        <item>견디다|忍受</item>
+        <item>전체의|整体的</item>
+        <item>추출하다|提取</item>
+        <item>모욕하다|侮辱</item>
+        <item>조사하다|调查</item>
+        <item>논리적인|合乎逻辑的</item>
+        <item>여백|页边空白</item>
+        <item>다수의|多个的</item>
+        <item>상호의|相互的</item>
+        <item>고귀한|高贵的</item>
+        <item>합병하다|合并</item>
+        <item>통지하다|通知</item>
+        <item>등록하다|注册</item>
+        <item>이력서|简历</item>
+        <item>거래|交易</item>
+        <item>임의의|任意的</item>
+        <item>구성하다|构成</item>
+        <item>암묵적인|含蓄的</item>
+        <item>관성|惯性</item>
+        <item>열쇠|钥匙</item>
+        <item>펭귄|企鹅</item>
+        <item>나의|我的</item>
+        <item>지불하다|支付</item>
+        <item>믿음|信念</item>
+        <item>검증하다|验证</item>
+        <item>가족|家人</item>
+        <item>팔|手臂</item>
+        <item>빨간|红色的</item>
+        <item>검은|黑色的</item>
+        <item>분홍의|粉色的</item>
+        <item>셋|三</item>
+        <item>컵|杯子</item>
+        <item>상자|箱子</item>
+        <item>채소|蔬菜</item>
+        <item>겨울|冬天</item>
+        <item>달(월)|月份</item>
+        <item>시간(단위)|小时</item>
+        <item>배우다|学习</item>
+        <item>찾다|找到</item>
+        <item>울다|哭</item>
+        <item>동물원|动物园</item>
+        <item>화장실|洗手间</item>
+        <item>음식|食物</item>
+        <item>늦게|晚地</item>
+        <item>계획|计划</item>
+        <item>역사|历史</item>
+        <item>숙제|作业</item>
+        <item>시험|考试</item>
+        <item>학년|年级</item>
+        <item>교실|教室</item>
+        <item>경찰|警察</item>
+        <item>꿈|梦想</item>
+        <item>아침밥|早饭</item>
+        <item>기침|咳嗽</item>
+        <item>가장 좋아하는|最喜欢的</item>
+        <item>나르다|搬运</item>
+        <item>서두르다|赶紧</item>
+        <item>조언|建议</item>
+        <item>사고|事故</item>
+        <item>낯선 사람|陌生人</item>
+        <item>메시지|消息</item>
+        <item>생각|想法</item>
+        <item>바꾸다|改变</item>
+        <item>나누다|分享</item>
+        <item>묘사하다|描述</item>
+        <item>나타나다|出现</item>
+        <item>기르다|养育</item>
+        <item>전통적인|传统的</item>
+        <item>성취하다|实现</item>
+        <item>배달하다|配送</item>
+        <item>남다|留下</item>
+        <item>필요로 하다|需要</item>
+        <item>소리치다|喊叫</item>
+        <item>정부|政府</item>
+        <item>책임|责任</item>
+        <item>상황|情况</item>
+        <item>광고하다|做广告</item>
+        <item>파괴하다|破坏</item>
+        <item>탐험하다|探险</item>
+        <item>용서하다|原谅</item>
+        <item>영감을 주다|启发</item>
+        <item>이끌다|引领</item>
+        <item>위치를 찾다|定位</item>
+        <item>녹다|融化</item>
+        <item>홍보하다|宣传</item>
+        <item>가라앉다|下沉</item>
+        <item>궁금하다|好奇</item>
+        <item>태도|态度</item>
+        <item>기후|气候</item>
+        <item>논쟁|争论</item>
+        <item>간결한|简洁的</item>
+        <item>붕괴하다|倒塌</item>
+        <item>복잡한|复杂的</item>
+        <item>수행하다|执行</item>
+        <item>확인하다|确认</item>
+        <item>직면하다|面对</item>
+        <item>호기심 많은|好奇的</item>
+        <item>줄어들다|缩减</item>
+        <item>국내의|国内的</item>
+        <item>요소|要素</item>
+        <item>열정|热情</item>
+        <item>기능|功能</item>
+        <item>수단|手段</item>
+        <item>그럼에도|尽管如此</item>
+        <item>동봉하다|随函附上</item>
+        <item>만료되다|到期</item>
+        <item>정책|政策</item>
+        <item>모집하다|招募</item>
+        <item>갱신하다|更新</item>
+        <item>잠정적인|暂定的</item>
+        <item>미적인|审美的</item>
+        <item>명료하게 말하다|清楚地表达</item>
+        <item>모순되다|矛盾</item>
+        <item>결핍|缺乏</item>
+        <item>역동적인|动态的</item>
+        <item>직관|直觉</item>
+        <item>신진대사|新陈代谢</item>
+        <item>은유|隐喻</item>
+        <item>지각하다|感知</item>
+        <item>현상|现象</item>
+        <item>상당한|相当大的</item>
+        <item>촉발하다|引发</item>
+        <item>아이스크림|冰淇淋</item>
+        <item>케이크|蛋糕</item>
+        <item>눈사람|雪人</item>
+        <item>산|山</item>
+        <item>위로|向上</item>
+        <item>저것|那个</item>
+        <item>미소 짓다|微笑</item>
+        <item>조심하는|小心的</item>
+        <item>취미|爱好</item>
+        <item>사실|事实</item>
+        <item>외국의|外国的</item>
+        <item>답장하다|回复</item>
+        <item>보상하다|补偿</item>
+        <item>명세서|清单</item>
+        <item>모의실험하다|模拟</item>
+        <item>바나나|香蕉</item>
+        <item>여자|女人</item>
+        <item>머리카락|头发</item>
+        <item>얼굴|脸</item>
+        <item>갈색의|棕色的</item>
+        <item>뜨거운|烫的</item>
+        <item>달리다|跑</item>
+        <item>먹다|吃</item>
+        <item>자다|睡觉</item>
+        <item>쓰다|写</item>
+        <item>열다|打开</item>
+        <item>장난감|玩具</item>
+        <item>원숭이|猴子</item>
+        <item>날씨|天气</item>
+        <item>영화|电影</item>
+        <item>나라|国家</item>
+        <item>해변|海滩</item>
+        <item>화난|生气的</item>
+        <item>무서워하는|害怕的</item>
+        <item>똑똑한|聪明的</item>
+        <item>어려운|困难的</item>
+        <item>생일|生日</item>
+        <item>휴일|假日</item>
+        <item>잡지|杂志</item>
+        <item>문제|问题</item>
+        <item>소방관|消防员</item>
+        <item>직업|职业</item>
+        <item>치통|牙疼</item>
+        <item>바지|裤子</item>
+        <item>재킷|夹克</item>
+        <item>특별한|特别的</item>
+        <item>중요한|重要的</item>
+        <item>흥미로운|有趣的</item>
+        <item>더러운|脏的</item>
+        <item>준비된|准备好的</item>
+        <item>떠나다|离开</item>
+        <item>이사하다|搬家</item>
+        <item>보내다|寄送</item>
+        <item>받다|收到</item>
+        <item>고르다|挑选</item>
+        <item>지다|输</item>
+        <item>걱정하다|担心</item>
+        <item>바라다|希望</item>
+        <item>입다|穿</item>
+        <item>자주|经常</item>
+        <item>십 대|青少年</item>
+        <item>기억|记忆</item>
+        <item>환경|环境</item>
+        <item>규칙|规则</item>
+        <item>의견|意见</item>
+        <item>발견하다|发现</item>
+        <item>줄이다|减少</item>
+        <item>따르다|跟随</item>
+        <item>건너다|穿过</item>
+        <item>준비하다|准备</item>
+        <item>소유하다|拥有</item>
+        <item>유용한|有用的</item>
+        <item>조심스럽게|小心地</item>
+        <item>격려하다|鼓励</item>
+        <item>예방하다|预防</item>
+        <item>~처럼 보이다|看起来</item>
+        <item>제공하다(음식)|上菜</item>
+        <item>자원봉사하다|做志愿者</item>
+        <item>업적|成就</item>
+        <item>관객|观众</item>
+        <item>회사|公司</item>
+        <item>관계|关系</item>
+        <item>해결책|解决办法</item>
+        <item>감탄하다|赞叹</item>
+        <item>다가가다|接近</item>
+        <item>숨 쉬다|呼吸</item>
+        <item>계산하다|计算</item>
+        <item>방어하다|防御</item>
+        <item>요구하다|要求</item>
+        <item>벌다|赚</item>
+        <item>탈출하다|逃脱</item>
+        <item>망설이다|犹豫</item>
+        <item>의도하다|打算</item>
+        <item>포함시키다|使参与</item>
+        <item>참가하다|参加</item>
+        <item>긴장을 풀다|放松</item>
+        <item>저항하다|抵抗</item>
+        <item>분리하다|分开</item>
+        <item>신뢰하다|信任</item>
+        <item>성격|性格</item>
+        <item>결론|结论</item>
+        <item>사례|实例</item>
+        <item>흡수하다|吸收</item>
+        <item>동행하다|陪同</item>
+        <item>장벽|障碍</item>
+        <item>결합하다|结合</item>
+        <item>걱정|担忧</item>
+        <item>의무|义务</item>
+        <item>강조하다|强调</item>
+        <item>집행하다|执行</item>
+        <item>필수적인|必不可少的</item>
+        <item>평가하다|评估</item>
+        <item>초과하다|超过</item>
+        <item>확장하다|扩大</item>
+        <item>노출시키다|使暴露</item>
+        <item>극단적인|极端的</item>
+        <item>요인|因素</item>
+        <item>치명적인|致命的</item>
+        <item>비옥한|肥沃的</item>
+        <item>유창한|流利的</item>
+        <item>좌절시키다|使沮丧</item>
+        <item>기금|基金</item>
+        <item>감사하는|感激的</item>
+        <item>적대적인|敌对的</item>
+        <item>부과하다|强加</item>
+        <item>추론하다|推断</item>
+        <item>물려받다|继承</item>
+        <item>통찰|洞察</item>
+        <item>내부의|内部的</item>
+        <item>노동|劳动</item>
+        <item>출시하다|推出</item>
+        <item>제조하다|制造</item>
+        <item>수정하다|修改</item>
+        <item>협약|协议</item>
+        <item>승인|批准</item>
+        <item>회계 감사|审计</item>
+        <item>잔액|余额</item>
+        <item>지점|分店</item>
+        <item>소비자|消费者</item>
+        <item>기업의|企业的</item>
+        <item>유통하다|分销</item>
+        <item>설비|设施</item>
+        <item>기입하다|填写</item>
+        <item>벌금|罚款</item>
+        <item>고용하다|雇用</item>
+        <item>문의|咨询</item>
+        <item>협상|谈判</item>
+        <item>영수증|收据</item>
+        <item>소매|零售</item>
+        <item>제출하다|提交</item>
+        <item>구독하다|订阅</item>
+        <item>행사장|会场</item>
+        <item>유효한|有效的</item>
+        <item>촉매|催化剂</item>
+        <item>상품(원자재)|大宗商品</item>
+        <item>연속적인|连续的</item>
+        <item>합의|共识</item>
+        <item>제약하다|限制</item>
+        <item>신뢰성|可信度</item>
+        <item>생태계|生态系统</item>
+        <item>자세히 설명하다|详细说明</item>
+        <item>깊이 박다|嵌入</item>
+        <item>유행병|流行病</item>
+        <item>행사하다|施加</item>
+        <item>변동하다|波动</item>
+        <item>내재된|固有的</item>
+        <item>관개|灌溉</item>
+        <item>지속하다|持续</item>
+        <item>정밀한|精确的</item>
+        <item>보유하다|保留</item>
+        <item>엄격한|严格的</item>
+        <item>회의적인|怀疑的</item>
+        <item>그 후의|随后的</item>
+        <item>종합|综合</item>
+        <item>유형의|有形的</item>
+        <item>겪다|经历</item>
+        <item>비행기|飞机</item>
+        <item>코끼리|大象</item>
+        <item>옥수수|玉米</item>
+        <item>오렌지|橙子</item>
+        <item>책|书</item>
+        <item>그녀는|她</item>
+        <item>너의|你的</item>
+        <item>안에|在里面</item>
+        <item>나는|我</item>
+        <item>밤|夜晚</item>
+        <item>다리|腿</item>
+        <item>봄|春天</item>
+        <item>물어보다|询问</item>
+        <item>열|发烧</item>
+        <item>심다|种植</item>
+        <item>이유|理由</item>
+        <item>제안하다|建议</item>
+        <item>주인(초대한)|主人(东道主)</item>
+        <item>비교하다|比较</item>
+        <item>지식|知识</item>
+        <item>꾸짖다|责骂</item>
+        <item>투자하다|投资</item>
+        <item>대하다|对待</item>
+        <item>재난|灾难</item>
+        <item>추구하다|追求</item>
+        <item>간청하다|恳求</item>
+        <item>뚜렷한|明显的</item>
+        <item>상담하다|咨询</item>
+        <item>빈번한|频繁的</item>
+        <item>지시하다|指示</item>
+        <item>발생시키다|产生</item>
+        <item>도매|批发</item>
+        <item>자산|资产</item>
+        <item>규정|规定</item>
+        <item>예약|预订</item>
+        <item>중립의|中立的</item>
+        <item>눈(신체)|眼睛</item>
+        <item>노란|黄色的</item>
+        <item>초록의|绿色的</item>
+        <item>둘|二</item>
+        <item>나쁜|坏的</item>
+        <item>차가운|冰冷的</item>
+        <item>놀다|玩</item>
+        <item>노래하다|唱歌</item>
+        <item>읽다|读</item>
+        <item>그리다|画</item>
+        <item>달|月亮</item>
+        <item>하늘|天空</item>
+        <item>모자|帽子</item>
+        <item>아침 식사|早餐</item>
+        <item>설탕|糖</item>
+        <item>여름|夏天</item>
+        <item>가을|秋天</item>
+        <item>주|星期</item>
+        <item>숫자|数字</item>
+        <item>게임|游戏</item>
+        <item>축구|足球</item>
+        <item>타다|骑乘</item>
+        <item>돕다|帮助</item>
+        <item>씻다|洗</item>
+        <item>기억하다|记得</item>
+        <item>웃다|笑</item>
+        <item>거리|街道</item>
+        <item>강|河</item>
+        <item>예쁜|漂亮的</item>
+        <item>귀여운|可爱的</item>
+        <item>강한|强壮的</item>
+        <item>방학|假期</item>
+        <item>편지|信</item>
+        <item>과학|科学</item>
+        <item>건강|健康</item>
+        <item>안경|眼镜</item>
+        <item>장갑|手套</item>
+        <item>돈|钱</item>
+        <item>시끄러운|吵闹的</item>
+        <item>시작하다|开始</item>
+        <item>연습하다|练习</item>
+        <item>즐기다|享受</item>
+        <item>보통|通常</item>
+        <item>정보|信息</item>
+        <item>경험|经验</item>
+        <item>언어|语言</item>
+        <item>외국인|外国人</item>
+        <item>어린이|儿童</item>
+        <item>순간|瞬间</item>
+        <item>평화|和平</item>
+        <item>행성|行星</item>
+        <item>사막|沙漠</item>
+        <item>온도|温度</item>
+        <item>상|奖</item>
+        <item>짓다|建造</item>
+        <item>해결하다|解决</item>
+        <item>모으다|收集</item>
+        <item>소개하다|介绍</item>
+        <item>오르다|攀登</item>
+        <item>출구|出口</item>
+        <item>쓸모없는|无用的</item>
+        <item>기념하다|庆祝</item>
+        <item>불평하다|抱怨</item>
+        <item>고려하다|考虑</item>
+        <item>덮다|覆盖</item>
+        <item>교육하다|教育</item>
+        <item>교환하다|交换</item>
+        <item>다루다|处理</item>
+        <item>도입하다|引入</item>
+        <item>언급하다|提及</item>
+        <item>선호하다|更喜欢</item>
+        <item>수리하다|修理</item>
+        <item>교체하다|更换</item>
+        <item>고통받다|受苦</item>
+        <item>공급하다|供应</item>
+        <item>살아남다|幸存</item>
+        <item>능력|能力</item>
+        <item>에너지|能量</item>
+        <item>세대|一代人</item>
+        <item>인구|人口</item>
+        <item>기술|技能</item>
+        <item>전통|传统</item>
+        <item>주요한|主要的</item>
+        <item>여유가 되다|负担得起</item>
+        <item>뒤쫓다|追赶</item>
+        <item>혼란스럽게 하다|使困惑</item>
+        <item>연결하다|连接</item>
+        <item>비판하다|批评</item>
+        <item>실망시키다|使失望</item>
+        <item>겁먹게 하다|吓唬</item>
+        <item>무시하다|无视</item>
+        <item>감동시키다|打动</item>
+        <item>출판하다|出版</item>
+        <item>풀어주다|释放</item>
+        <item>구조하다|救援</item>
+        <item>분투하다|奋斗</item>
+        <item>대기|大气</item>
+        <item>보조하다|协助</item>
+        <item>장담하다|保证</item>
+        <item>기초|基础</item>
+        <item>유대|纽带</item>
+        <item>경계|边界</item>
+        <item>유능한|有能力的</item>
+        <item>원인|原因</item>
+        <item>중단하다|停止</item>
+        <item>분류하다|分类</item>
+        <item>경쟁하다|竞争</item>
+        <item>작곡하다|作曲</item>
+        <item>동시대의|当代的</item>
+        <item>위기|危机</item>
+        <item>결정적인|关键的</item>
+        <item>재배하다|栽培</item>
+        <item>토론|辩论</item>
+        <item>장치|装置</item>
+        <item>진화하다|进化</item>
+        <item>실행하다|执行</item>
+        <item>연장하다|延长</item>
+        <item>시설|设施</item>
+        <item>재정|财政</item>
+        <item>겸손한|谦虚的</item>
+        <item>피할 수 없는|不可避免的</item>
+        <item>고립시키다|孤立</item>
+        <item>전설|传说</item>
+        <item>자유|自由</item>
+        <item>성숙한|成熟的</item>
+        <item>감시하다|监视</item>
+        <item>더욱이|而且</item>
+        <item>협상하다|谈判</item>
+        <item>장애물|障碍物</item>
+        <item>차지하다|占据</item>
+        <item>입찰|投标</item>
+        <item>동료|同事</item>
+        <item>고용주|雇主</item>
+        <item>임원|高管</item>
+        <item>본사|总部</item>
+        <item>여행 일정표|行程表</item>
+        <item>임대차 계약|租约</item>
+        <item>초과 근무|加班</item>
+        <item>급여|工资</item>
+        <item>제안서|提案</item>
+        <item>자격|资格</item>
+        <item>수익|收益</item>
+        <item>교대 근무|轮班</item>
+        <item>이체하다|转账</item>
+        <item>품질 보증|质保</item>
+        <item>구상하다|构想</item>
+        <item>연역하다|演绎推断</item>
+        <item>동등한|同等的</item>
+        <item>파편|碎片</item>
+        <item>유전의|遗传的</item>
+        <item>시행하다|实施</item>
+        <item>억제하다|抑制</item>
+        <item>쓸모없게 된|过时的</item>
+        <item>우세하다|占优势</item>
+        <item>비율|比例</item>
+        <item>합리적인|理性的</item>
+        <item>튼튼한|坚固的</item>
+        <item>퇴적물|沉积物</item>
+        <item>보조금|补贴</item>
+        <item>약화시키다|削弱</item>
+        <item>주문하시겠어요?|您要点餐了吗?</item>
+        <item>부칠 짐이 있으신가요?|您有要托运的行李吗?</item>
+        <item>딸기|草莓</item>
+        <item>얼룩말|斑马</item>
+        <item>자전거|自行车</item>
+        <item>무지개|彩虹</item>
+        <item>당근|胡萝卜</item>
+        <item>풍선|气球</item>
+        <item>크레용|蜡笔</item>
+        <item>개구리|青蛙</item>
+        <item>가다|去</item>
+        <item>그것|它</item>
+        <item>네|是的</item>
+        <item>~이다(나)|是(我)</item>
+        <item>~이다|是</item>
+        <item>가지다|有</item>
+        <item>아니요|不是</item>
+        <item>그|他</item>
+        <item>~이다(복수)|是(复数)</item>
+        <item>할 수 있다|能够</item>
+        <item>또는|或者</item>
+        <item>새로운|新的</item>
+        <item>입|嘴</item>
+        <item>아침|早上</item>
+        <item>서다|站立</item>
+        <item>남자|男人</item>
+        <item>시간|时间</item>
+        <item>쉬운|容易的</item>
+        <item>믿다|相信</item>
+        <item>미래|未来</item>
+        <item>정말|真的</item>
+        <item>박물관|博物馆</item>
+        <item>구하다|拯救</item>
+        <item>약속|约定</item>
+        <item>안전한|安全的</item>
+        <item>긴장한|紧张的</item>
+        <item>목적|目的</item>
+        <item>최근에|最近</item>
+        <item>쓰다(시간·돈)|花费</item>
+        <item>숨다|躲藏</item>
+        <item>선언하다|宣告</item>
+        <item>의지하다|依靠</item>
+        <item>선택지|选项</item>
+        <item>선출하다|选举</item>
+        <item>빽빽한|稠密的</item>
+        <item>완수하다|完成</item>
+        <item>윤리적인|伦理的</item>
+        <item>동기를 부여하다|激励</item>
+        <item>막대한|巨大的</item>
+        <item>설문조사|问卷调查</item>
+        <item>자격이 있는|符合条件的</item>
+        <item>절차|程序</item>
+        <item>변수|变量</item>
+        <item>회복력 있는|有韧性的</item>
+        <item>펜|钢笔</item>
+        <item>책상|书桌</item>
+        <item>창문|窗户</item>
+        <item>머리|头</item>
+        <item>하나|一</item>
+        <item>오래된|旧的</item>
+        <item>행복한|幸福的</item>
+        <item>빠른|快的</item>
+        <item>점프하다|跳</item>
+        <item>앉다|坐</item>
+        <item>닫다|关闭</item>
+        <item>안녕하세요|你好</item>
+        <item>과일|水果</item>
+        <item>소금|盐</item>
+        <item>계절|季节</item>
+        <item>해(년)|年</item>
+        <item>노래|歌曲</item>
+        <item>운동 경기|体育运动</item>
+        <item>수영하다|游泳</item>
+        <item>가르치다|教</item>
+        <item>대답하다|回答</item>
+        <item>요리하다|做饭</item>
+        <item>팔다|卖</item>
+        <item>이야기하다|交谈</item>
+        <item>말하다|说话</item>
+        <item>산책|散步</item>
+        <item>시장|市场</item>
+        <item>도서관|图书馆</item>
+        <item>식당|餐厅</item>
+        <item>마을|村镇</item>
+        <item>세계|世界</item>
+        <item>맛있는|好吃的</item>
+        <item>목마른|口渴的</item>
+        <item>용감한|勇敢的</item>
+        <item>약한|弱的</item>
+        <item>일찍|早地</item>
+        <item>선물|礼物</item>
+        <item>여행|旅行</item>
+        <item>일기|日记</item>
+        <item>신문|报纸</item>
+        <item>극장|剧场</item>
+        <item>농부|农民</item>
+        <item>운동|运动锻炼</item>
+        <item>유명한|有名的</item>
+        <item>같은|相同的</item>
+        <item>끝내다|完成</item>
+        <item>도착하다|到达</item>
+        <item>방문하다|拜访</item>
+        <item>가져오다|带来</item>
+        <item>돌려주다|归还</item>
+        <item>결정하다|决定</item>
+        <item>기다리다|等待</item>
+        <item>냄새가 나다|闻起来</item>
+        <item>곧|很快</item>
+        <item>문화|文化</item>
+        <item>노력|努力</item>
+        <item>비밀|秘密</item>
+        <item>실수|错误</item>
+        <item>곤란|麻烦</item>
+        <item>전쟁|战争</item>
+        <item>지구|地球</item>
+        <item>섬|岛</item>
+        <item>기상|气象</item>
+        <item>화재|火灾</item>
+        <item>대회|比赛</item>
+        <item>동아리|社团</item>
+        <item>이웃 사람|邻居</item>
+        <item>발명하다|发明</item>
+        <item>창조하다|创造</item>
+        <item>초대하다|邀请</item>
+        <item>존중하다|尊重</item>
+        <item>일어나다|发生</item>
+        <item>사라지다|消失</item>
+        <item>계속하다|继续</item>
+        <item>멈추다|停下</item>
+        <item>들어가다|进入</item>
+        <item>먹이를 주다|喂食</item>
+        <item>놀란|吃惊的</item>
+        <item>실망한|失望的</item>
+        <item>심각한|严重的</item>
+        <item>마침내|终于</item>
+        <item>참석하다|出席</item>
+        <item>세다|数数</item>
+        <item>증가하다|增加</item>
+        <item>관리하다|管理</item>
+        <item>알아차리다|注意到</item>
+        <item>깨닫다|意识到</item>
+        <item>거절하다|拒绝</item>
+        <item>검색하다|搜索</item>
+        <item>훔치다|偷</item>
+        <item>지지하다|支持</item>
+        <item>공동체|社区</item>
+        <item>용기|勇气</item>
+        <item>관습|习俗</item>
+        <item>방향|方向</item>
+        <item>버릇|习惯(毛病)</item>
+        <item>성공|成功</item>
+        <item>충분한|足够的</item>
+        <item>지역의|当地的</item>
+        <item>지원하다|申请</item>
+        <item>탓하다|责怪</item>
+        <item>구성되다|由…构成</item>
+        <item>받을 자격이 있다|值得</item>
+        <item>식별하다|识别</item>
+        <item>고집하다|坚持</item>
+        <item>판단하다|判断</item>
+        <item>측정하다|测量</item>
+        <item>공연하다|表演</item>
+        <item>~인 척하다|假装</item>
+        <item>증명하다|证明</item>
+        <item>알아보다|认出</item>
+        <item>회복하다|恢复</item>
+        <item>응답하다|回应</item>
+        <item>만족시키다|使满意</item>
+        <item>도전|挑战</item>
+        <item>세부 사항|细节</item>
+        <item>증거|证据</item>
+        <item>버리다|抛弃</item>
+        <item>학업의|学业的</item>
+        <item>정확한|准确的</item>
+        <item>전진하다|前进</item>
+        <item>대안|替代方案</item>
+        <item>배정하다|分配</item>
+        <item>주장하다|主张</item>
+        <item>논평|评论</item>
+        <item>저지르다|犯下</item>
+        <item>구성 요소|组成部分</item>
+        <item>건설하다|建设</item>
+        <item>전환하다|转换</item>
+        <item>전달하다|传达</item>
+        <item>대처하다|应对</item>
+        <item>유래하다|源自</item>
+        <item>구별하다|区分</item>
+        <item>간절히 바라는|渴望的</item>
+        <item>장비를 갖추다|配备</item>
+        <item>추정하다|估计</item>
+        <item>제외하다|排除</item>
+        <item>희미해지다|褪色变淡</item>
+        <item>특징|特点</item>
+        <item>격식 있는|正式的</item>
+        <item>근본적인|根本的</item>
+        <item>게다가|此外</item>
+        <item>진짜의|真正的</item>
+        <item>속이 빈|空心的</item>
+        <item>즉각적인|立即的</item>
+        <item>암시하다|暗示</item>
+        <item>나타내다|表明</item>
+        <item>혁신|创新</item>
+        <item>강렬한|强烈的</item>
+        <item>상호작용하다|互动</item>
+        <item>해석하다|解释(解读)</item>
+        <item>마찬가지로|同样地</item>
+        <item>문학|文学</item>
+        <item>단지 ~에 불과한|仅仅的</item>
+        <item>최소화하다|最小化</item>
+        <item>적당한|适度的</item>
+        <item>지원자|申请人</item>
+        <item>약속(업무)|预约</item>
+        <item>고객|客户</item>
+        <item>수수료|手续费</item>
+        <item>통근하다|通勤</item>
+        <item>회의(대규모)|大型会议</item>
+        <item>직원|员工</item>
+        <item>청구서|发票账单</item>
+        <item>대출|贷款</item>
+        <item>인사(부)|人事</item>
+        <item>승진|升职</item>
+        <item>구매하다|购买</item>
+        <item>환불|退款</item>
+        <item>상환하다|报销</item>
+        <item>평판|名声</item>
+        <item>사임하다|辞职</item>
+        <item>연례의|年度的</item>
+        <item>경쟁력 있는|有竞争力的</item>
+        <item>능률적인|高效的</item>
+        <item>의무적인|强制的</item>
+        <item>신속한|迅速的</item>
+        <item>옹호하다|拥护</item>
+        <item>개정하다|修订</item>
+        <item>고고학|考古学</item>
+        <item>~의 탓으로 돌리다|归因于</item>
+        <item>편향|偏见</item>
+        <item>응축하다|浓缩</item>
+        <item>기준(단수)|标准</item>
+        <item>딜레마|两难困境</item>
+        <item>담론|话语</item>
+        <item>대체하다|取代</item>
+        <item>왜곡하다|歪曲</item>
+        <item>위계|等级制度</item>
+        <item>진실성|正直诚信</item>
+        <item>상쇄하다|抵消</item>
+        <item>선행하다|先于</item>
+        <item>전망|前景</item>
+        <item>~하게 만들다|使成为</item>
+        <item>몇 정거장인가요?|要坐几站?</item>
+        <item>얼마나 자주 오나요?|多久来一班?</item>
+        <item>요금은 얼마예요?|车费多少钱?</item>
+        <item>날씨 정말 좋죠?|天气真好，对吧?</item>
+        <item>닭|鸡</item>
+        <item>나비|蝴蝶</item>
+        <item>이것|这个</item>
+        <item>그러나|但是</item>
+        <item>~였다|是(过去)</item>
+        <item>아래로|向下</item>
+        <item>원하다|想要</item>
+        <item>문|门</item>
+        <item>춤추다|跳舞</item>
+        <item>동물|动物</item>
+        <item>바람|风</item>
+        <item>야구|棒球</item>
+        <item>음악|音乐</item>
+        <item>보다(시청하다)|观看</item>
+        <item>회원|会员</item>
+        <item>이웃|邻居</item>
+        <item>자연|自然</item>
+        <item>다다르다|抵达</item>
+        <item>번역하다|翻译</item>
+        <item>통제하다|控制</item>
+        <item>추천하다|推荐</item>
+        <item>갈등|冲突</item>
+        <item>합법적인|合法的</item>
+        <item>후보자|候选人</item>
+        <item>성과|成果</item>
+        <item>착취하다|剥削</item>
+        <item>배치|配置</item>
+        <item>풍부하게 하다|使丰富</item>
+        <item>그럴듯한|貌似合理的</item>
+        <item>수렴하다|汇聚</item>
+        <item>저하시키다|使退化</item>
+        <item>모호한|模棱两可的</item>
+        <item>취약한|脆弱的</item>
+        <item>물|水</item>
+        <item>밥|米饭</item>
+        <item>소년|男孩</item>
+        <item>소녀|女孩</item>
+        <item>걷다|走路</item>
+        <item>마시다|喝</item>
+        <item>공부하다|学习(用功)</item>
+        <item>청소하다|打扫</item>
+        <item>듣다|听</item>
+        <item>알다|知道</item>
+        <item>항상|总是</item>
+        <item>가끔|有时</item>
+        <item>절대 ~않다|从不</item>
+        <item>체육관|体育馆</item>
+        <item>빵집|面包店</item>
+        <item>의사|医生</item>
+        <item>치과의사|牙医</item>
+        <item>치마|裙子</item>
+        <item>목도리|围巾</item>
+        <item>지갑|钱包</item>
+        <item>신나는|令人兴奋的</item>
+        <item>웃긴|搞笑的</item>
+        <item>조용한|安静的</item>
+        <item>다른|不同的</item>
+        <item>아픈|生病的</item>
+        <item>다시|再次</item>
+        <item>어른|大人</item>
+        <item>선택|选择</item>
+        <item>지도자|领导者</item>
+        <item>영웅|英雄</item>
+        <item>과제|课题项目</item>
+        <item>주제|主题</item>
+        <item>보호하다|保护</item>
+        <item>낭비하다|浪费</item>
+        <item>재활용하다|回收利用</item>
+        <item>표현하다|表达</item>
+        <item>동의하다|同意</item>
+        <item>말다툼하다|争吵</item>
+        <item>위험한|危险的</item>
+        <item>완벽한|完美的</item>
+        <item>훌륭한|精彩的</item>
+        <item>갑자기|突然</item>
+        <item>귀찮게 하다|打扰</item>
+        <item>완료하다|完成</item>
+        <item>소통하다|沟通</item>
+        <item>손상시키다|损坏</item>
+        <item>기부하다|捐赠</item>
+        <item>주문하다|订购</item>
+        <item>상태|状态</item>
+        <item>거리(간격)|距离</item>
+        <item>교육|教育</item>
+        <item>감정|情感</item>
+        <item>반응|反应</item>
+        <item>몇몇의|几个的</item>
+        <item>사과하다|道歉</item>
+        <item>감사하다|感激</item>
+        <item>끌어들이다|吸引</item>
+        <item>다치게 하다|使受伤</item>
+        <item>놓다|放置</item>
+        <item>관찰하다|观察</item>
+        <item>처벌하다|惩罚</item>
+        <item>후회하다|后悔</item>
+        <item>대표하다|代表</item>
+        <item>선택하다|选定</item>
+        <item>정착하다|定居</item>
+        <item>성공하다|成功</item>
+        <item>~하는 경향이 있다|倾向于</item>
+        <item>위협하다|威胁</item>
+        <item>효과|效果</item>
+        <item>습득하다|习得</item>
+        <item>분석하다|分析</item>
+        <item>고대의|古代的</item>
+        <item>승인하다|批准</item>
+        <item>배열하다|排列</item>
+        <item>첨부하다|附上</item>
+        <item>권위|权威</item>
+        <item>알고 있는|意识到的</item>
+        <item>인용하다|引用</item>
+        <item>보존하다|保护保存</item>
+        <item>끊임없는|不断的</item>
+        <item>소비하다|消费</item>
+        <item>기여하다|贡献</item>
+        <item>협력하다|合作</item>
+        <item>현재의|当前的</item>
+        <item>헌신하다|献身</item>
+        <item>정의하다|定义</item>
+        <item>보여주다|演示证明</item>
+        <item>바치다|奉献</item>
+        <item>분배하다|分配</item>
+        <item>효율적인|效率高的</item>
+        <item>마주치다|遭遇</item>
+        <item>거대한|庞大的</item>
+        <item>비용|费用</item>
+        <item>외부의|外部的</item>
+        <item>이전의|以前的</item>
+        <item>토대|基础根基</item>
+        <item>가혹한|严酷的</item>
+        <item>가설|假说</item>
+        <item>사건|事件</item>
+        <item>산업|产业</item>
+        <item>초기의|最初的</item>
+        <item>점검하다|检查</item>
+        <item>즉각의|即刻的</item>
+        <item>정당화하다|辩护证明</item>
+        <item>수많은|众多的</item>
+        <item>영양|营养</item>
+        <item>안건|议程</item>
+        <item>예산|预算</item>
+        <item>마감일|截止日期</item>
+        <item>부서|部门</item>
+        <item>장비|设备</item>
+        <item>견적|报价估算</item>
+        <item>상품|商品</item>
+        <item>연기하다|推迟</item>
+        <item>견적(가)|报价</item>
+        <item>독촉장|催款单</item>
+        <item>은퇴하다|退休</item>
+        <item>일정|日程</item>
+        <item>선적|发货</item>
+        <item>직원(전체)|全体职员</item>
+        <item>감독관|主管</item>
+        <item>공급업체|供应商</item>
+        <item>워크숍|研讨会</item>
+        <item>사전의|事先的</item>
+        <item>축적하다|积累</item>
+        <item>인접한|相邻的</item>
+        <item>할당하다|分配拨给</item>
+        <item>유추|类比</item>
+        <item>자율성|自主性</item>
+        <item>일관성 있는|连贯的</item>
+        <item>엮다|汇编</item>
+        <item>상관관계가 있다|相关联</item>
+        <item>흩어지다|散开</item>
+        <item>경험적인|实证的</item>
+        <item>침식하다|侵蚀</item>
+        <item>불러일으키다|唤起</item>
+        <item>촉진하다|促进</item>
+        <item>실현 가능한|可行的</item>
+        <item>통합하다|整合</item>
+        <item>정당한|正当的</item>
+        <item>조작하다|操纵</item>
+        <item>분자|分子</item>
+        <item>추진력|势头动量</item>
+        <item>~에도 불구하고|尽管</item>
+        <item>광합성|光合作用</item>
+        <item>강화하다|加强</item>
+        <item>정말 감사합니다!|非常感谢!</item>
+        <item>표는 어디서 사나요?|在哪里买票?</item>
+        <item>어디로 가려고 하세요?|您要去哪里?</item>
+        <item>어디로 모실까요?|请问去哪儿?</item>
+        <item>연휴에 계획 있어요?|假期有什么计划吗?</item>
+        <item>눈|眼睛</item>
+        <item>포도|葡萄</item>
+        <item>셔츠|衬衫</item>
+        <item>하나의|一个</item>
+        <item>위에|在上面</item>
+        <item>그래서|所以</item>
+        <item>우리는|我们</item>
+        <item>눈(날씨)|雪</item>
+        <item>미안해요|对不起</item>
+        <item>오늘|今天</item>
+        <item>배고픈|饥饿的</item>
+        <item>가게|商店</item>
+        <item>사다|买</item>
+        <item>여행하다|旅行</item>
+        <item>이기다|赢</item>
+        <item>지루한|无聊的</item>
+        <item>맛이 나다|尝起来</item>
+        <item>무료의|免费的</item>
+        <item>옷|衣服</item>
+        <item>수학|数学</item>
+        <item>간호사|护士</item>
+        <item>가입하다|加入</item>
+        <item>디자인하다|设计</item>
+        <item>발전시키다|发展</item>
+        <item>축제|庆典</item>
+        <item>행동|行为</item>
+        <item>빌려주다|借给</item>
+        <item>사회|社会</item>
+        <item>세계적인|全球的</item>
+        <item>작동하다|运转</item>
+        <item>알리다|告知</item>
+        <item>이행하다|履行</item>
+        <item>유지하다|维持</item>
+        <item>결심하다|下决心</item>
+        <item>퍼지다|扩散</item>
+        <item>발표하다|宣布</item>
+        <item>십 년|十年</item>
+        <item>기준|标准(复数)</item>
+        <item>인공의|人工的</item>
+        <item>시도하다|尝试</item>
+        <item>명확히 하다|澄清</item>
+        <item>지평선|地平线</item>
+        <item>주도권|主动权</item>
+        <item>이상한|奇怪的</item>
+        <item>개인|个人</item>
+        <item>멸종된|灭绝的</item>
+        <item>이주하다|迁移</item>
+        <item>검토하다|审查</item>
+        <item>피드백|反馈</item>
+        <item>기밀의|机密的</item>
+        <item>재고|库存</item>
+        <item>~을 경유하여|经由</item>
+        <item>패러다임|范式</item>
+        <item>생존 가능한|可存活的</item>
+        <item>규모|规模</item>
+        <item>미묘한|微妙的</item>
+        <item>유도하다|诱导</item>
+        <item>느린|慢的</item>
+        <item>분|分钟</item>
+        <item>색깔|颜色</item>
+        <item>그림|图画</item>
+        <item>만나다|见面</item>
+        <item>주말|周末</item>
+        <item>과목|科目</item>
+        <item>운동장|操场</item>
+        <item>과학자|科学家</item>
+        <item>약|药</item>
+        <item>싼|便宜的</item>
+        <item>비싼|贵的</item>
+        <item>노력하다|努力尝试</item>
+        <item>우주|宇宙</item>
+        <item>자랑스러운|自豪的</item>
+        <item>끔찍한|糟糕的</item>
+        <item>피하다|避免</item>
+        <item>졸업하다|毕业</item>
+        <item>생산하다|生产</item>
+        <item>주의|注意</item>
+        <item>수준|水平</item>
+        <item>인정하다|承认</item>
+        <item>부인하다|否认</item>
+        <item>검사하다|检验</item>
+        <item>발생하다|发生</item>
+        <item>극복하다|克服</item>
+        <item>쟁점|争议问题</item>
+        <item>적응하다|适应</item>
+        <item>예상하다|预期</item>
+        <item>계약|合同</item>
+        <item>편집하다|编辑</item>
+        <item>요금|费用</item>
+        <item>배당금|股息</item>
+        <item>전략|战略</item>
+        <item>판매업체|卖方供货商</item>
+        <item>업무량|工作量</item>
+        <item>유인책|激励措施</item>
+        <item>최적의|最佳的</item>
+        <item>역설|悖论</item>
+        <item>정밀 조사|细察审查</item>
+        <item>영역|领域</item>
+        <item>마실 것도 드릴까요?|要来点喝的吗?</item>
+        <item>디저트는요?|要甜点吗?</item>
+        <item>영수증 가지고 계세요?|您有收据吗?</item>
+        <item>여기서 먼가요?|离这里远吗?</item>
+        <item>부작용이 있나요?|有副作用吗?</item>
+        <item>멋지네요! 어렵나요?|真棒! 难吗?</item>
+        <item>복숭아|桃子</item>
+        <item>곰인형|泰迪熊</item>
+        <item>그는|他</item>
+        <item>너는|你</item>
+        <item>하얀|白色的</item>
+        <item>방|房间</item>
+        <item>친절한|亲切的</item>
+        <item>빌리다|借入</item>
+        <item>건강한|健康的</item>
+        <item>주머니|口袋</item>
+        <item>안전|安全</item>
+        <item>허락하다|允许</item>
+        <item>기대하다|期待</item>
+        <item>사실은|其实</item>
+        <item>결정|决定</item>
+        <item>예측하다|预测</item>
+        <item>존재하다|存在</item>
+        <item>극적인|戏剧性的</item>
+        <item>조정하다|调整</item>
+        <item>불안한|焦虑的</item>
+        <item>유연한|灵活的</item>
+        <item>충성스러운|忠诚的</item>
+        <item>전시하다|展出</item>
+        <item>설명서|说明书</item>
+        <item>할인|折扣</item>
+        <item>중력|重力</item>
+        <item>지속 시간|持续时间</item>
+        <item>저명한|杰出的</item>
+        <item>신용카드 되나요?|可以刷信用卡吗?</item>
+        <item>키가 큰|高个子的</item>
+        <item>함께|一起</item>
+        <item>부엌|厨房</item>
+        <item>질문|问题(提问)</item>
+        <item>숲|森林</item>
+        <item>관례|惯例</item>
+        <item>범주|范畴</item>
+        <item>규범|规范</item>
+        <item>침략하다|侵略</item>
+        <item>분기|季度</item>
+        <item>동시에 일어나다|同时发生</item>
+        <item>물고기가 물속에 있어요.|鱼在水里。</item>
+        <item>그 나무는 커요.|那棵树很大。</item>
+        <item>해는 뜨거워요.|太阳很热。</item>
+        <item>아기가 자고 있어요.|宝宝在睡觉。</item>
+        <item>그 자동차는 빨라요.|那辆车很快。</item>
+        <item>그 고양이는 작아요.|那只猫很小。</item>
+        <item>그 개는 갈색이에요.|那只狗是棕色的。</item>
+        <item>우리 아빠는 키가 커요.|我爸爸个子很高。</item>
+        <item>나는 빵을 먹어요.|我吃面包。</item>
+        <item>달을 봐요.|看月亮。</item>
+        <item>나는 아이스크림을 좋아해요.|我喜欢冰淇淋。</item>
+        <item>나는 손이 두 개예요.|我有两只手。</item>
+        <item>내 신발은 새것이에요.|我的鞋是新的。</item>
+        <item>고마워. 너는? 새로운 소식 있어?|谢谢。你呢? 有什么新鲜事吗?</item>
+        <item>정말 좋아해요. 당신은요?|我很喜欢。你呢?</item>
+        <item>저는 중학교에서 음악을 가르쳐요.|我在初中教音乐。</item>
+        <item>물론이죠. 여기 있습니다.|当然。给您。</item>
+        <item>찾으시는 것 도와드릴까요?|需要帮您找什么吗?</item>
+        <item>이 수제 그릇은 얼마예요?|这个手工碗多少钱?</item>
+        <item>실례합니다, 시립 박물관에 어떻게 가나요?|打扰一下，市立博物馆怎么走?</item>
+        <item>파란 노선을 타고 중앙역에서 환승하세요.|坐蓝线，在中央站换乘。</item>
+        <item>이 지도에서 짚어 주시겠어요?|能在这张地图上指给我看吗?</item>
+        <item>아, 길을 잘못 드셨네요. 한 블록 북쪽이에요.|啊，您走错路了。在北边一个街区。</item>
+        <item>오렌지 주스로요. 얼음은 빼 주세요.|要橙汁。请不要加冰。</item>
+        <item>죄송합니다. 바로 사람을 보내겠습니다.|非常抱歉。我们马上派人过去。</item>
+        <item>3시 기차인데 시간 안에 갈 수 있을까요?|我要赶三点的火车，来得及吗?</item>
+        <item>좋아요. 정문에서 내려 주시면 돼요.|好的。在正门放我下来就行。</item>
+        <item>평소와 다른 걸 드셨나요?|您吃了什么不一样的东西吗?</item>
+        <item>다음엔 어떻게 해야 하나요?|接下来我该怎么做?</item>
+        <item>졸릴 수 있으니 운전은 피하세요.|可能会犯困，请避免开车。</item>
+        <item>이런, 등산 가려고 했는데.|哎呀，我本来打算去爬山的。</item>
+        <item>시골에 계신 부모님을 뵈러 가요.|我要去乡下看父母。</item>
+        <item>나는 행복해요.|我很幸福。</item>
+        <item>나는 자전거를 타요.|我骑自行车。</item>
+        <item>우리는 함께 놀아요.|我们一起玩。</item>
+        <item>나는 무지개를 볼 수 있어요.|我能看见彩虹。</item>
+        <item>나는 별을 봐요.|我看星星。</item>
+        <item>저도 만나서 반가워요. 저는 민수예요.|我也很高兴认识你。我是民秀。</item>
+        <item>민수 씨는 어디에서 오셨어요?|民秀，你来自哪里?</item>
+        <item>이야, 오랜만이야! 어떻게 지냈어?|哇，好久不见! 最近怎么样?</item>
+        <item>재미있겠네요. 그 일이 즐거우세요?|听起来很有意思。你喜欢这份工作吗?</item>
+        <item>나중에 볼게요. 감사해요.|我等会儿再看。谢谢。</item>
+        <item>물이면 충분해요, 감사합니다.|水就够了，谢谢。</item>
+        <item>좋아요. 음식이 정말 맛있었어요.|很好。菜真的很好吃。</item>
+        <item>감사합니다. 또 오세요!|谢谢。欢迎再来!</item>
+        <item>정말 감사합니다.|非常感谢。</item>
+        <item>물론입니다. 주방장께 전달할게요.|当然。我会转告主厨。</item>
+        <item>이건 어떠세요? 아주 인기가 많아요.|这个怎么样? 非常受欢迎。</item>
+        <item>딱 맞네요. 이걸로 살게요.|正合适。就买这个了。</item>
+        <item>이유를 여쭤봐도 될까요?|可以问一下原因吗?</item>
+        <item>환불로 부탁드려요.|请给我退款。</item>
+        <item>좋아요! 두 개 살게요.|好! 我买两个。</item>
+        <item>좋습니다. 포장해 드릴게요.|好的。我给您包起来。</item>
+        <item>아니요, 걸어서 10분 정도예요.|不远，走路大概十分钟。</item>
+        <item>발권기는 바로 저쪽에 있어요.|售票机就在那边。</item>
+        <item>실례합니다, 길을 잃은 것 같아요.|打扰一下，我好像迷路了。</item>
+        <item>탑승권입니다. 22번 게이트, 10시 탑승입니다.|这是您的登机牌。22号登机口，十点登机。</item>
+        <item>시내 리버사이드 호텔이요.|去市中心的河畔酒店。</item>
+        <item>저기요, 담요 하나 주시겠어요?|打扰一下，能给我一条毯子吗?</item>
+        <item>좋아요. 식사 때 깨워 주시겠어요?|好的。用餐时能叫醒我吗?</item>
+        <item>환영합니다, 리 선생님. 더블룸 3박 맞으시죠?|欢迎光临，李先生。双人房三晚对吗?</item>
+        <item>네, 아침은 7시부터 10시까지 제공됩니다.|是的，早餐从七点供应到十点。</item>
+        <item>그리고 수건도 좀 더 받을 수 있을까요?|另外能再要几条毛巾吗?</item>
+        <item>그게 다예요. 감사합니다.|就这些。谢谢。</item>
+        <item>체크아웃 할게요. 805호입니다.|我要退房。805房。</item>
+        <item>물 한 병만요.|只要一瓶水。</item>
+        <item>이 버스 해변에 가나요?|这趟公交去海滩吗?</item>
+        <item>아니요, 7번 버스를 타셔야 해요.|不，您得坐7路公交。</item>
+        <item>기본 보험은 포함이고, 완전 보장은 하루 10달러 추가입니다.|含基本保险，全险每天加十美元。</item>
+        <item>여기요. 보험은 포함인가요?|给您。含保险吗?</item>
+        <item>길거리 시장에서 해산물을 먹었어요.|我在街边市场吃了海鲜。</item>
+        <item>약을 처방해 드릴게요. 물을 많이 드세요.|我给您开点药。请多喝水。</item>
+        <item>언제 어디서 잃어버리셨나요?|您什么时候在哪里丢的?</item>
+        <item>목 아픈 데 먹는 약 있나요?|有治嗓子疼的药吗?</item>
+        <item>내일 예보를 다시 확인해 보는 게 좋겠어요.|最好明天再看看天气预报。</item>
+        <item>언젠가 그 빵을 먹어 보고 싶네요.|真想哪天尝尝那个面包。</item>
+        <item>그렇진 않은데 인내심이 필요해요.|倒也不难，但需要耐心。</item>
+        <item>좋아요! 다음에 좀 가져올게요.|好啊! 下次我带点来。</item>
+        <item>차가 안 막히면 세 시간 정도요.|不堵车的话大约三小时。</item>
+        <item>편안하겠네요. 운전은 얼마나 걸려요?|听起来很惬意。开车要多久?</item>
+        <item>새는 날 수 있어요.|鸟会飞。</item>
+        <item>그 버스는 커요.|那辆公交车很大。</item>
+        <item>이것은 내 개예요.|这是我的狗。</item>
+        <item>안녕하세요, 저는 제인이에요. 만나서 반가워요.|你好，我是简。很高兴认识你。</item>
+        <item>한국 서울에서 왔어요. 당신은요?|我来自韩国首尔。你呢?</item>
+        <item>네, 처음이에요. 정말 설레요.|是的，第一次来。真的很期待。</item>
+        <item>저는 런던에서 왔어요. 여기는 처음 오신 거예요?|我来自伦敦。你是第一次来这里吗?</item>
+        <item>언제 커피 마시면서 회포 풀자.|改天喝杯咖啡好好聊聊吧。</item>
+        <item>잘 지냈어. 새 일을 시작했어.|我挺好的。开始了一份新工作。</item>
+        <item>정말 좋은 소식이다. 축하해!|真是好消息。恭喜!</item>
+        <item>안녕하세요, 소라 씨. 무슨 일을 하세요?|你好，素罗。你是做什么工作的?</item>
+        <item>네. 그릴드 치킨으로 할게요.|好的。我要烤鸡。</item>
+        <item>저기요, 계산서 좀 주시겠어요?|服务员，请给我们账单。</item>
+        <item>네, 주요 카드 모두 받습니다.|是的，主要银行卡都收。</item>
+        <item>이 요리에 땅콩이 들어가나요?|这道菜里有花生吗?</item>
+        <item>별말씀을요. 15분 정도 걸립니다.|不客气。大约需要十五分钟。</item>
+        <item>네, 땅콩 소스가 들어가요.|是的，里面有花生酱。</item>
+        <item>제가 땅콩 알레르기가 있어서요. 빼고 만들어 주실 수 있나요?|我对花生过敏。能不放花生做吗?</item>
+        <item>봄에 입을 재킷을 찾고 있어요.|我在找春天穿的夹克。</item>
+        <item>네, 여기 있어요.|好的，给您。</item>
+        <item>감사합니다. 환불과 교환 중 어느 것을 원하세요?|谢谢。您要退款还是换货?</item>
+        <item>조금 비싸네요. 할인해 주실 수 있나요?|有点贵。能便宜点吗?</item>
+        <item>천만에요. 금방 찾으실 거예요.|不客气。您很快就能找到。</item>
+        <item>두 블록 직진해서 오른쪽으로 도세요.|直走两个街区然后右转。</item>
+        <item>어느 노선이 공항에 가나요?|哪条线路去机场?</item>
+        <item>여기 있습니다.|给您。</item>
+        <item>창가 좌석으로 부탁해요.|请给我靠窗的座位。</item>
+        <item>휴가로 왔습니다.|我是来度假的。</item>
+        <item>얼마나 머무르실 건가요?|您要停留多久?</item>
+        <item>방문 목적이 무엇인가요?|您来访的目的是什么?</item>
+        <item>어디에서 묵으실 건가요?|您住在哪里?</item>
+        <item>여기 있습니다. 식사는 한 시간 후에 제공됩니다.|给您。餐点一小时后供应。</item>
+        <item>맞아요. 아침 식사가 포함되나요?|对。含早餐吗?</item>
+        <item>안녕하세요. 리로 예약했습니다.|您好。我用李的名字订了房。</item>
+        <item>키 카드에 적혀 있습니다. 8층 805호입니다.|写在房卡上。八楼805房。</item>
+        <item>좋네요. 와이파이 비밀번호는 뭔가요?|太好了。Wi-Fi密码是什么?</item>
+        <item>물론입니다. 더 필요하신 건요?|当然。还需要别的吗?</item>
+        <item>제 방 에어컨이 작동하지 않아요.|我房间的空调不工作。</item>
+        <item>카드로요. 정오까지 짐을 맡아 주실 수 있나요?|刷卡。能帮我把行李寄存到中午吗?</item>
+        <item>총 320달러입니다. 카드인가요, 현금인가요?|总共320美元。刷卡还是现金?</item>
+        <item>물론입니다. 보관증 여기 있습니다.|当然。这是您的寄存凭证。</item>
+        <item>잠시만요. 미니바를 이용하셨나요?|稍等。您用过迷你吧吗?</item>
+        <item>차가 안 막히면 문제없습니다.|不堵车的话没问题。</item>
+        <item>15분마다요.|每十五分钟一班。</item>
+        <item>좋은 선택입니다. 기름을 가득 채워 반납해 주세요.|选得好。请加满油后归还。</item>
+        <item>소형차를 이틀 빌리고 싶어요.|我想租两天小型车。</item>
+        <item>운전면허증을 볼 수 있을까요?|能看一下您的驾照吗?</item>
+        <item>완전 보장으로 할게요.|我要全险。</item>
+        <item>얼마나 오래 아프셨어요?|疼多久了?</item>
+        <item>어젯밤부터요. 어지럽기도 해요.|从昨晚开始。还觉得头晕。</item>
+        <item>오늘 오후에요, 아마 지하철에서요.|今天下午，可能在地铁上。</item>
+        <item>여권 분실 신고를 하고 싶어요.|我想挂失护照。</item>
+        <item>임시 여권을 위해 대사관에 연락하세요.|请联系大使馆办理临时护照。</item>
+        <item>그럼 이걸 6시간마다 식후에 드세요.|那请饭后每六小时吃一次这个。</item>
+        <item>오늘 아침부터 미열이 있어요.|从今早开始有点低烧。</item>
+        <item>이 사탕형 약이 잘 들어요. 열은 있나요?|这种含片很有效。发烧吗?</item>
+        <item>정말 그러네요. 소풍 가기 딱 좋아요.|确实。正适合去野餐。</item>
+        <item>좋은 생각이에요. 행운을 빌어야죠!|好主意。祝我们好运!</item>
+        <item>주말엔 보통 뭐 하세요?|周末你一般做什么?</item>
+        <item>빵을 구워요. 새로 생긴 취미예요.|我烤面包。这是我的新爱好。</item>
+        <item>나는 엄마를 사랑해요.|我爱妈妈。</item>
+        <item>나는 책이 있어요.|我有一本书。</item>
+        <item>그녀는 고양이가 있어요.|她有一只猫。</item>
+        <item>나는 풍선을 원해요.|我想要气球。</item>
+        <item>나는 사과를 좋아해요.|我喜欢苹果。</item>
+        <item>그 상자는 작아요.|那个箱子很小。</item>
+        <item>비가 오고 있어요.|正在下雨。</item>
+        <item>나는 우유를 마셔요.|我喝牛奶。</item>
+        <item>나는 내 친구를 좋아해요.|我喜欢我的朋友。</item>
+        <item>나는 뛸 수 있어요.|我会跑。</item>
+        <item>나는 학교에 가요.|我去上学。</item>
+        <item>별거 없어. 늘 똑같지.|没什么。老样子。</item>
+        <item>제 소개를 할게요. 저는 김소라입니다.|我来自我介绍一下。我是金素罗。</item>
+        <item>마음에 드네요. 입어 봐도 될까요?|我很喜欢。可以试穿吗?</item>
+        <item>그럼요, 탈의실은 저쪽이에요.|当然，试衣间在那边。</item>
+        <item>이 셔츠를 반품하고 싶어요.|我想退这件衬衫。</item>
+        <item>저한테 너무 작아서요.|对我来说太小了。</item>
+        <item>그건 40달러입니다.|那个是四十美元。</item>
+        <item>두 개 사시면 70달러에 드릴게요.|买两个的话算您七十美元。</item>
+        <item>그랜드 호텔을 찾고 있어요.|我在找格兰德酒店。</item>
+        <item>안녕하세요. 여권 보여 주시겠어요?|您好。请出示护照。</item>
+        <item>네, 여행 가방 하나요.|是的，一个行李箱。</item>
+        <item>열흘 동안이요.|十天。</item>
+        <item>즐거운 여행 되세요.|祝您旅途愉快。</item>
+        <item>물론이죠. 마실 것도 드릴까요?|当然。要不要来点喝的?</item>
+        <item>물론입니다. 편히 쉬세요.|当然。请好好休息。</item>
+        <item>중앙역으로 가 주세요.|请到中央车站。</item>
+        <item>네. 20분 정도 걸립니다.|好的。大约需要二十分钟。</item>
+        <item>이 양식을 작성해 주세요.|请填写这张表格。</item>
+        <item>운전 조심하고 좋은 시간 보내요.|小心开车，玩得开心。</item>
+        <item>고마워요! 연휴 끝나고 봐요.|谢谢! 假期结束后见。</item>
+        <item>저는 그래픽 디자이너예요. 포스터를 디자인해요.|我是平面设计师。我设计海报。</item>
+        <item>중앙역까지 여섯, 그다음 네 정거장이요.|到中央站六站，然后再四站。</item>
+        <item>그럼요. 우리는 여기 있고, 호텔은 바로 저기예요.|当然。我们在这里，酒店就在那里。</item>
+        <item>창가와 통로 중 어느 좌석을 원하세요?|您要靠窗还是靠过道的座位?</item>
+        <item>프런트입니다. 무엇을 도와드릴까요?|这里是前台。有什么可以帮您?</item>
+        <item>2달러요. 카드로 낼 수 있어요.|两美元。可以刷卡。</item>
+        <item>배가 너무 아파요.|我肚子很疼。</item>
+        <item>그런데 주말엔 비가 올 수도 있대요.|不过听说周末可能下雨。</item>
+        <item>그것은 꽃이에요.|那是一朵花。</item>
+        <item>내 가방은 빨간색이에요.|我的包是红色的。</item>
+        <item>나는 책을 읽어요.|我读书。</item>
     </string-array>
     <string-array name="tpl_units">
     </string-array>

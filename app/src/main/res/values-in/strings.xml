@@ -616,6 +616,1414 @@
         <item>날씨 이야기|Bicara soal cuaca</item>
         <item>취미 이야기|Bicara soal hobi</item>
         <item>주말 계획|Rencana akhir pekan</item>
+        <item>나무|pohon</item>
+        <item>사과|apel</item>
+        <item>개|anjing</item>
+        <item>우유|susu</item>
+        <item>귀|telinga</item>
+        <item>좋은|baik</item>
+        <item>꽃|bunga</item>
+        <item>기차|kereta</item>
+        <item>소|sapi</item>
+        <item>시계|jam</item>
+        <item>미묘한 차이|nuansa</item>
+        <item>새|burung</item>
+        <item>엄마|ibu</item>
+        <item>쿠키|kue kering</item>
+        <item>말|kuda</item>
+        <item>바다|laut</item>
+        <item>반대하다|menentang</item>
+        <item>얻다|memperoleh</item>
+        <item>수용력|kapasitas</item>
+        <item>침대|tempat tidur</item>
+        <item>발|kaki</item>
+        <item>작은|kecil</item>
+        <item>사탕|permen</item>
+        <item>피자|piza</item>
+        <item>사자|singa</item>
+        <item>우산|payung</item>
+        <item>여기|di sini</item>
+        <item>다양한|beragam</item>
+        <item>가정하다|mengandaikan</item>
+        <item>개념|konsep</item>
+        <item>금지하다|melarang</item>
+        <item>물고기|ikan</item>
+        <item>고양이|kucing</item>
+        <item>파란|biru</item>
+        <item>보다|melihat</item>
+        <item>사랑하다|mencintai</item>
+        <item>해|matahari</item>
+        <item>공|bola</item>
+        <item>신발|sepatu</item>
+        <item>호랑이|harimau</item>
+        <item>저기|di sana</item>
+        <item>이해하다|memahami</item>
+        <item>향상시키다|meningkatkan</item>
+        <item>자라다|tumbuh</item>
+        <item>방해하다|menghalangi</item>
+        <item>감소하다|menurun</item>
+        <item>제거하다|menghilangkan</item>
+        <item>설득하다|meyakinkan</item>
+        <item>설립하다|mendirikan</item>
+        <item>적절한|memadai</item>
+        <item>이익|manfaat</item>
+        <item>요건|persyaratan</item>
+        <item>연봉|gaji</item>
+        <item>주스|jus</item>
+        <item>배|kapal</item>
+        <item>그리고|dan</item>
+        <item>학교|sekolah</item>
+        <item>친구|teman</item>
+        <item>오다|datang</item>
+        <item>좋아하다|menyukai</item>
+        <item>별|bintang</item>
+        <item>비|hujan</item>
+        <item>토끼|kelinci</item>
+        <item>곰|beruang</item>
+        <item>보고서|laporan</item>
+        <item>포함하다|mencakup</item>
+        <item>목표|tujuan</item>
+        <item>발명품|penemuan</item>
+        <item>영향|pengaruh</item>
+        <item>지배하다|mendominasi</item>
+        <item>호소하다|menyerukan</item>
+        <item>아기|bayi</item>
+        <item>큰|besar</item>
+        <item>응원하다|menyemangati</item>
+        <item>본질적인|hakiki</item>
+        <item>빵|roti</item>
+        <item>달걀|telur</item>
+        <item>연필|pensil</item>
+        <item>의자|kursi</item>
+        <item>집|rumah</item>
+        <item>아빠|ayah</item>
+        <item>선생님|guru</item>
+        <item>가지고 있다|mempunyai</item>
+        <item>만들다|membuat</item>
+        <item>자동차|mobil</item>
+        <item>저녁 식사|makan malam</item>
+        <item>오리|bebek</item>
+        <item>습관|kebiasaan</item>
+        <item>가격|harga</item>
+        <item>~하게 들리다|terdengar</item>
+        <item>결과|hasil</item>
+        <item>설명하다|menjelaskan</item>
+        <item>외로운|kesepian</item>
+        <item>집중하다|berfokus</item>
+        <item>가치|nilai</item>
+        <item>흔한|umum</item>
+        <item>입양하다|mengadopsi</item>
+        <item>추상적인|abstrak</item>
+        <item>이용 가능한|tersedia</item>
+        <item>보장하다|menjamin</item>
+        <item>기관|lembaga</item>
+        <item>보증금|uang jaminan</item>
+        <item>수하물|bagasi</item>
+        <item>언어의|kebahasaan</item>
+        <item>포식자|predator</item>
+        <item>버스|bus</item>
+        <item>수박|semangka</item>
+        <item>가방|tas</item>
+        <item>손|tangan</item>
+        <item>코|hidung</item>
+        <item>슬픈|sedih</item>
+        <item>짧은|pendek</item>
+        <item>쳐다보다|memandang</item>
+        <item>주다|memberi</item>
+        <item>잘 가|selamat tinggal</item>
+        <item>점심|makan siang</item>
+        <item>돼지|babi</item>
+        <item>구름|awan</item>
+        <item>생각하다|berpikir</item>
+        <item>잊다|melupakan</item>
+        <item>공원|taman</item>
+        <item>병원|rumah sakit</item>
+        <item>도시|kota</item>
+        <item>피곤한|lelah</item>
+        <item>미술|seni</item>
+        <item>요리사|juru masak</item>
+        <item>두통|sakit kepala</item>
+        <item>인기 있는|populer</item>
+        <item>느끼다|merasa</item>
+        <item>기회|kesempatan</item>
+        <item>법|hukum</item>
+        <item>손님|tamu</item>
+        <item>신이 난|bersemangat</item>
+        <item>현대의|modern</item>
+        <item>의존하다|bergantung</item>
+        <item>모이다|berkumpul</item>
+        <item>추측하다|menebak</item>
+        <item>상상하다|membayangkan</item>
+        <item>제공하다|menyediakan</item>
+        <item>재료|bahan</item>
+        <item>방법|metode</item>
+        <item>취소하다|membatalkan</item>
+        <item>실험|eksperimen</item>
+        <item>경고하다|memperingatkan</item>
+        <item>고발하다|menuduh</item>
+        <item>명백한|jelas</item>
+        <item>자신감|kepercayaan diri</item>
+        <item>대조|kontras</item>
+        <item>선포하다|mendeklarasikan</item>
+        <item>감지하다|mendeteksi</item>
+        <item>경제|ekonomi</item>
+        <item>가능하게 하다|memungkinkan</item>
+        <item>견디다|menahan</item>
+        <item>전체의|seluruh</item>
+        <item>추출하다|mengekstrak</item>
+        <item>모욕하다|menghina</item>
+        <item>조사하다|menyelidiki</item>
+        <item>논리적인|logis</item>
+        <item>여백|margin</item>
+        <item>다수의|berganda</item>
+        <item>상호의|saling</item>
+        <item>고귀한|mulia</item>
+        <item>합병하다|menggabungkan</item>
+        <item>통지하다|memberitahukan</item>
+        <item>등록하다|mendaftar</item>
+        <item>이력서|riwayat hidup</item>
+        <item>거래|transaksi</item>
+        <item>임의의|sembarang</item>
+        <item>구성하다|menyusun</item>
+        <item>암묵적인|tersirat</item>
+        <item>관성|inersia</item>
+        <item>열쇠|kunci</item>
+        <item>펭귄|penguin</item>
+        <item>나의|milikku</item>
+        <item>지불하다|membayar</item>
+        <item>믿음|keyakinan</item>
+        <item>검증하다|memverifikasi</item>
+        <item>가족|keluarga</item>
+        <item>팔|lengan</item>
+        <item>빨간|merah</item>
+        <item>검은|hitam</item>
+        <item>분홍의|merah muda</item>
+        <item>셋|tiga</item>
+        <item>컵|cangkir</item>
+        <item>상자|kotak</item>
+        <item>채소|sayur</item>
+        <item>겨울|musim dingin</item>
+        <item>달(월)|bulan</item>
+        <item>시간(단위)|jam</item>
+        <item>배우다|belajar</item>
+        <item>찾다|menemukan</item>
+        <item>울다|menangis</item>
+        <item>동물원|kebun binatang</item>
+        <item>화장실|kamar mandi</item>
+        <item>음식|makanan</item>
+        <item>늦게|terlambat</item>
+        <item>계획|rencana</item>
+        <item>역사|sejarah</item>
+        <item>숙제|PR</item>
+        <item>시험|ujian</item>
+        <item>학년|kelas</item>
+        <item>교실|ruang kelas</item>
+        <item>경찰|polisi</item>
+        <item>꿈|mimpi</item>
+        <item>아침밥|sarapan</item>
+        <item>기침|batuk</item>
+        <item>가장 좋아하는|favorit</item>
+        <item>나르다|membawa</item>
+        <item>서두르다|bergegas</item>
+        <item>조언|nasihat</item>
+        <item>사고|kecelakaan</item>
+        <item>낯선 사람|orang asing</item>
+        <item>메시지|pesan</item>
+        <item>생각|gagasan</item>
+        <item>바꾸다|mengubah</item>
+        <item>나누다|berbagi</item>
+        <item>묘사하다|menggambarkan</item>
+        <item>나타나다|muncul</item>
+        <item>기르다|memelihara</item>
+        <item>전통적인|tradisional</item>
+        <item>성취하다|mencapai</item>
+        <item>배달하다|mengantar</item>
+        <item>남다|tersisa</item>
+        <item>필요로 하다|memerlukan</item>
+        <item>소리치다|berteriak</item>
+        <item>정부|pemerintah</item>
+        <item>책임|tanggung jawab</item>
+        <item>상황|situasi</item>
+        <item>광고하다|mengiklankan</item>
+        <item>파괴하다|menghancurkan</item>
+        <item>탐험하다|menjelajah</item>
+        <item>용서하다|memaafkan</item>
+        <item>영감을 주다|menginspirasi</item>
+        <item>이끌다|memimpin</item>
+        <item>위치를 찾다|menemukan lokasi</item>
+        <item>녹다|meleleh</item>
+        <item>홍보하다|mempromosikan</item>
+        <item>가라앉다|tenggelam</item>
+        <item>궁금하다|penasaran</item>
+        <item>태도|sikap</item>
+        <item>기후|iklim</item>
+        <item>논쟁|perdebatan</item>
+        <item>간결한|ringkas</item>
+        <item>붕괴하다|runtuh</item>
+        <item>복잡한|rumit</item>
+        <item>수행하다|melaksanakan</item>
+        <item>확인하다|mengonfirmasi</item>
+        <item>직면하다|menghadapi</item>
+        <item>호기심 많은|ingin tahu</item>
+        <item>줄어들다|berkurang</item>
+        <item>국내의|dalam negeri</item>
+        <item>요소|unsur</item>
+        <item>열정|antusiasme</item>
+        <item>기능|fungsi</item>
+        <item>수단|sarana</item>
+        <item>그럼에도|meski begitu</item>
+        <item>동봉하다|melampirkan</item>
+        <item>만료되다|kedaluwarsa</item>
+        <item>정책|kebijakan</item>
+        <item>모집하다|merekrut</item>
+        <item>갱신하다|memperbarui</item>
+        <item>잠정적인|sementara</item>
+        <item>미적인|estetis</item>
+        <item>명료하게 말하다|mengutarakan dengan jelas</item>
+        <item>모순되다|bertentangan</item>
+        <item>결핍|kekurangan</item>
+        <item>역동적인|dinamis</item>
+        <item>직관|intuisi</item>
+        <item>신진대사|metabolisme</item>
+        <item>은유|metafora</item>
+        <item>지각하다|mempersepsikan</item>
+        <item>현상|fenomena</item>
+        <item>상당한|cukup besar</item>
+        <item>촉발하다|memicu</item>
+        <item>아이스크림|es krim</item>
+        <item>케이크|kue</item>
+        <item>눈사람|manusia salju</item>
+        <item>산|gunung</item>
+        <item>위로|ke atas</item>
+        <item>저것|itu</item>
+        <item>미소 짓다|tersenyum</item>
+        <item>조심하는|berhati-hati</item>
+        <item>취미|hobi</item>
+        <item>사실|fakta</item>
+        <item>외국의|asing</item>
+        <item>답장하다|membalas</item>
+        <item>보상하다|mengompensasi</item>
+        <item>명세서|laporan rincian</item>
+        <item>모의실험하다|menyimulasikan</item>
+        <item>바나나|pisang</item>
+        <item>여자|wanita</item>
+        <item>머리카락|rambut</item>
+        <item>얼굴|wajah</item>
+        <item>갈색의|cokelat</item>
+        <item>뜨거운|panas</item>
+        <item>달리다|berlari</item>
+        <item>먹다|makan</item>
+        <item>자다|tidur</item>
+        <item>쓰다|menulis</item>
+        <item>열다|membuka</item>
+        <item>장난감|mainan</item>
+        <item>원숭이|monyet</item>
+        <item>날씨|cuaca</item>
+        <item>영화|film</item>
+        <item>나라|negara</item>
+        <item>해변|pantai</item>
+        <item>화난|marah</item>
+        <item>무서워하는|ketakutan</item>
+        <item>똑똑한|pintar</item>
+        <item>어려운|sulit</item>
+        <item>생일|ulang tahun</item>
+        <item>휴일|hari libur</item>
+        <item>잡지|majalah</item>
+        <item>문제|masalah</item>
+        <item>소방관|pemadam kebakaran</item>
+        <item>직업|pekerjaan</item>
+        <item>치통|sakit gigi</item>
+        <item>바지|celana</item>
+        <item>재킷|jaket</item>
+        <item>특별한|istimewa</item>
+        <item>중요한|penting</item>
+        <item>흥미로운|menarik</item>
+        <item>더러운|kotor</item>
+        <item>준비된|siap</item>
+        <item>떠나다|pergi</item>
+        <item>이사하다|pindah rumah</item>
+        <item>보내다|mengirim</item>
+        <item>받다|menerima</item>
+        <item>고르다|memilih</item>
+        <item>지다|kalah</item>
+        <item>걱정하다|khawatir</item>
+        <item>바라다|berharap</item>
+        <item>입다|memakai</item>
+        <item>자주|sering</item>
+        <item>십 대|remaja</item>
+        <item>기억|ingatan</item>
+        <item>환경|lingkungan</item>
+        <item>규칙|aturan</item>
+        <item>의견|pendapat</item>
+        <item>발견하다|menemukan (hal baru)</item>
+        <item>줄이다|mengurangi</item>
+        <item>따르다|mengikuti</item>
+        <item>건너다|menyeberang</item>
+        <item>준비하다|menyiapkan</item>
+        <item>소유하다|memiliki</item>
+        <item>유용한|berguna</item>
+        <item>조심스럽게|dengan hati-hati</item>
+        <item>격려하다|mendorong semangat</item>
+        <item>예방하다|mencegah</item>
+        <item>~처럼 보이다|tampak</item>
+        <item>제공하다(음식)|menyajikan</item>
+        <item>자원봉사하다|menjadi relawan</item>
+        <item>업적|prestasi</item>
+        <item>관객|penonton</item>
+        <item>회사|perusahaan</item>
+        <item>관계|hubungan</item>
+        <item>해결책|solusi</item>
+        <item>감탄하다|mengagumi</item>
+        <item>다가가다|mendekati</item>
+        <item>숨 쉬다|bernapas</item>
+        <item>계산하다|menghitung</item>
+        <item>방어하다|mempertahankan</item>
+        <item>요구하다|menuntut</item>
+        <item>벌다|mendapatkan uang</item>
+        <item>탈출하다|melarikan diri</item>
+        <item>망설이다|ragu-ragu</item>
+        <item>의도하다|berniat</item>
+        <item>포함시키다|melibatkan</item>
+        <item>참가하다|berpartisipasi</item>
+        <item>긴장을 풀다|bersantai</item>
+        <item>저항하다|melawan</item>
+        <item>분리하다|memisahkan</item>
+        <item>신뢰하다|memercayai</item>
+        <item>성격|karakter</item>
+        <item>결론|kesimpulan</item>
+        <item>사례|contoh kasus</item>
+        <item>흡수하다|menyerap</item>
+        <item>동행하다|menemani</item>
+        <item>장벽|penghalang</item>
+        <item>결합하다|menggabungkan</item>
+        <item>걱정|kekhawatiran</item>
+        <item>의무|kewajiban</item>
+        <item>강조하다|menekankan</item>
+        <item>집행하다|menegakkan</item>
+        <item>필수적인|esensial</item>
+        <item>평가하다|menilai</item>
+        <item>초과하다|melebihi</item>
+        <item>확장하다|memperluas</item>
+        <item>노출시키다|memaparkan</item>
+        <item>극단적인|ekstrem</item>
+        <item>요인|faktor</item>
+        <item>치명적인|fatal</item>
+        <item>비옥한|subur</item>
+        <item>유창한|fasih</item>
+        <item>좌절시키다|membuat frustrasi</item>
+        <item>기금|dana</item>
+        <item>감사하는|bersyukur</item>
+        <item>적대적인|bermusuhan</item>
+        <item>부과하다|mengenakan</item>
+        <item>추론하다|menyimpulkan</item>
+        <item>물려받다|mewarisi</item>
+        <item>통찰|wawasan</item>
+        <item>내부의|internal</item>
+        <item>노동|tenaga kerja</item>
+        <item>출시하다|meluncurkan</item>
+        <item>제조하다|memproduksi</item>
+        <item>수정하다|memodifikasi</item>
+        <item>협약|perjanjian</item>
+        <item>승인|persetujuan</item>
+        <item>회계 감사|audit</item>
+        <item>잔액|saldo</item>
+        <item>지점|cabang</item>
+        <item>소비자|konsumen</item>
+        <item>기업의|korporat</item>
+        <item>유통하다|mendistribusikan</item>
+        <item>설비|fasilitas</item>
+        <item>기입하다|mengisi</item>
+        <item>벌금|denda</item>
+        <item>고용하다|mempekerjakan</item>
+        <item>문의|pertanyaan</item>
+        <item>협상|negosiasi</item>
+        <item>영수증|kuitansi</item>
+        <item>소매|ritel</item>
+        <item>제출하다|menyerahkan</item>
+        <item>구독하다|berlangganan</item>
+        <item>행사장|tempat acara</item>
+        <item>유효한|berlaku</item>
+        <item>촉매|katalisator</item>
+        <item>상품(원자재)|komoditas</item>
+        <item>연속적인|berturut-turut</item>
+        <item>합의|konsensus</item>
+        <item>제약하다|membatasi</item>
+        <item>신뢰성|kredibilitas</item>
+        <item>생태계|ekosistem</item>
+        <item>자세히 설명하다|menjabarkan</item>
+        <item>깊이 박다|menanamkan</item>
+        <item>유행병|wabah</item>
+        <item>행사하다|mengerahkan</item>
+        <item>변동하다|berfluktuasi</item>
+        <item>내재된|melekat</item>
+        <item>관개|irigasi</item>
+        <item>지속하다|bertahan</item>
+        <item>정밀한|presisi</item>
+        <item>보유하다|mempertahankan</item>
+        <item>엄격한|ketat</item>
+        <item>회의적인|skeptis</item>
+        <item>그 후의|berikutnya</item>
+        <item>종합|sintesis</item>
+        <item>유형의|berwujud</item>
+        <item>겪다|mengalami</item>
+        <item>비행기|pesawat</item>
+        <item>코끼리|gajah</item>
+        <item>옥수수|jagung</item>
+        <item>오렌지|jeruk</item>
+        <item>책|buku</item>
+        <item>그녀는|dia (perempuan)</item>
+        <item>너의|milikmu</item>
+        <item>안에|di dalam</item>
+        <item>나는|aku</item>
+        <item>밤|malam</item>
+        <item>다리|kaki (tungkai)</item>
+        <item>봄|musim semi</item>
+        <item>물어보다|bertanya</item>
+        <item>열|demam</item>
+        <item>심다|menanam</item>
+        <item>이유|alasan</item>
+        <item>제안하다|menyarankan</item>
+        <item>주인(초대한)|tuan rumah</item>
+        <item>비교하다|membandingkan</item>
+        <item>지식|pengetahuan</item>
+        <item>꾸짖다|memarahi</item>
+        <item>투자하다|berinvestasi</item>
+        <item>대하다|memperlakukan</item>
+        <item>재난|bencana</item>
+        <item>추구하다|mengejar</item>
+        <item>간청하다|memohon</item>
+        <item>뚜렷한|jelas berbeda</item>
+        <item>상담하다|berkonsultasi</item>
+        <item>빈번한|kerap</item>
+        <item>지시하다|menginstruksikan</item>
+        <item>발생시키다|menghasilkan</item>
+        <item>도매|grosir</item>
+        <item>자산|aset</item>
+        <item>규정|peraturan</item>
+        <item>예약|reservasi</item>
+        <item>중립의|netral</item>
+        <item>눈(신체)|mata</item>
+        <item>노란|kuning</item>
+        <item>초록의|hijau</item>
+        <item>둘|dua</item>
+        <item>나쁜|buruk</item>
+        <item>차가운|dingin</item>
+        <item>놀다|bermain</item>
+        <item>노래하다|bernyanyi</item>
+        <item>읽다|membaca</item>
+        <item>그리다|menggambar</item>
+        <item>달|bulan (langit)</item>
+        <item>하늘|langit</item>
+        <item>모자|topi</item>
+        <item>아침 식사|sarapan</item>
+        <item>설탕|gula</item>
+        <item>여름|musim panas</item>
+        <item>가을|musim gugur</item>
+        <item>주|minggu</item>
+        <item>숫자|angka</item>
+        <item>게임|gim</item>
+        <item>축구|sepak bola</item>
+        <item>타다|menaiki</item>
+        <item>돕다|membantu</item>
+        <item>씻다|mencuci</item>
+        <item>기억하다|mengingat</item>
+        <item>웃다|tertawa</item>
+        <item>거리|jalan</item>
+        <item>강|sungai</item>
+        <item>예쁜|cantik</item>
+        <item>귀여운|imut</item>
+        <item>강한|kuat</item>
+        <item>방학|liburan</item>
+        <item>편지|surat</item>
+        <item>과학|sains</item>
+        <item>건강|kesehatan</item>
+        <item>안경|kacamata</item>
+        <item>장갑|sarung tangan</item>
+        <item>돈|uang</item>
+        <item>시끄러운|berisik</item>
+        <item>시작하다|memulai</item>
+        <item>연습하다|berlatih</item>
+        <item>즐기다|menikmati</item>
+        <item>보통|biasanya</item>
+        <item>정보|informasi</item>
+        <item>경험|pengalaman</item>
+        <item>언어|bahasa</item>
+        <item>외국인|orang asing (WNA)</item>
+        <item>어린이|anak</item>
+        <item>순간|momen</item>
+        <item>평화|perdamaian</item>
+        <item>행성|planet</item>
+        <item>사막|gurun</item>
+        <item>온도|suhu</item>
+        <item>상|hadiah</item>
+        <item>짓다|membangun</item>
+        <item>해결하다|memecahkan</item>
+        <item>모으다|mengumpulkan</item>
+        <item>소개하다|memperkenalkan</item>
+        <item>오르다|memanjat</item>
+        <item>출구|pintu keluar</item>
+        <item>쓸모없는|tidak berguna</item>
+        <item>기념하다|merayakan</item>
+        <item>불평하다|mengeluh</item>
+        <item>고려하다|mempertimbangkan</item>
+        <item>덮다|menutupi</item>
+        <item>교육하다|mendidik</item>
+        <item>교환하다|menukar</item>
+        <item>다루다|menangani</item>
+        <item>도입하다|memperkenalkan (sistem)</item>
+        <item>언급하다|menyebutkan</item>
+        <item>선호하다|lebih suka</item>
+        <item>수리하다|memperbaiki</item>
+        <item>교체하다|mengganti</item>
+        <item>고통받다|menderita</item>
+        <item>공급하다|memasok</item>
+        <item>살아남다|bertahan hidup</item>
+        <item>능력|kemampuan</item>
+        <item>에너지|energi</item>
+        <item>세대|generasi</item>
+        <item>인구|populasi</item>
+        <item>기술|keterampilan</item>
+        <item>전통|tradisi</item>
+        <item>주요한|utama</item>
+        <item>여유가 되다|mampu membeli</item>
+        <item>뒤쫓다|mengejar</item>
+        <item>혼란스럽게 하다|membingungkan</item>
+        <item>연결하다|menghubungkan</item>
+        <item>비판하다|mengkritik</item>
+        <item>실망시키다|mengecewakan</item>
+        <item>겁먹게 하다|menakuti</item>
+        <item>무시하다|mengabaikan</item>
+        <item>감동시키다|mengesankan</item>
+        <item>출판하다|menerbitkan</item>
+        <item>풀어주다|melepaskan</item>
+        <item>구조하다|menyelamatkan</item>
+        <item>분투하다|berjuang</item>
+        <item>대기|atmosfer</item>
+        <item>보조하다|membantu (mendampingi)</item>
+        <item>장담하다|menjamin (meyakinkan)</item>
+        <item>기초|dasar</item>
+        <item>유대|ikatan</item>
+        <item>경계|batas</item>
+        <item>유능한|cakap</item>
+        <item>원인|penyebab</item>
+        <item>중단하다|menghentikan</item>
+        <item>분류하다|mengklasifikasikan</item>
+        <item>경쟁하다|bersaing</item>
+        <item>작곡하다|menggubah</item>
+        <item>동시대의|kontemporer</item>
+        <item>위기|krisis</item>
+        <item>결정적인|krusial</item>
+        <item>재배하다|membudidayakan</item>
+        <item>토론|debat</item>
+        <item>장치|perangkat</item>
+        <item>진화하다|berevolusi</item>
+        <item>실행하다|mengeksekusi</item>
+        <item>연장하다|memperpanjang</item>
+        <item>시설|sarana</item>
+        <item>재정|keuangan</item>
+        <item>겸손한|rendah hati</item>
+        <item>피할 수 없는|tak terhindarkan</item>
+        <item>고립시키다|mengisolasi</item>
+        <item>전설|legenda</item>
+        <item>자유|kebebasan</item>
+        <item>성숙한|dewasa</item>
+        <item>감시하다|memantau</item>
+        <item>더욱이|terlebih lagi</item>
+        <item>협상하다|bernegosiasi</item>
+        <item>장애물|rintangan</item>
+        <item>차지하다|menempati</item>
+        <item>입찰|penawaran tender</item>
+        <item>동료|rekan kerja</item>
+        <item>고용주|pemberi kerja</item>
+        <item>임원|eksekutif</item>
+        <item>본사|kantor pusat</item>
+        <item>여행 일정표|rencana perjalanan</item>
+        <item>임대차 계약|kontrak sewa</item>
+        <item>초과 근무|lembur</item>
+        <item>급여|gaji</item>
+        <item>제안서|proposal</item>
+        <item>자격|kualifikasi</item>
+        <item>수익|pendapatan</item>
+        <item>교대 근무|sif kerja</item>
+        <item>이체하다|mentransfer</item>
+        <item>품질 보증|garansi</item>
+        <item>구상하다|menggagas</item>
+        <item>연역하다|mendeduksi</item>
+        <item>동등한|setara</item>
+        <item>파편|pecahan</item>
+        <item>유전의|genetik</item>
+        <item>시행하다|menerapkan</item>
+        <item>억제하다|menghambat</item>
+        <item>쓸모없게 된|usang</item>
+        <item>우세하다|berjaya</item>
+        <item>비율|proporsi</item>
+        <item>합리적인|rasional</item>
+        <item>튼튼한|kokoh</item>
+        <item>퇴적물|sedimen</item>
+        <item>보조금|subsidi</item>
+        <item>약화시키다|melemahkan</item>
+        <item>주문하시겠어요?|Sudah siap memesan?</item>
+        <item>부칠 짐이 있으신가요?|Ada bagasi yang mau dititipkan?</item>
+        <item>딸기|stroberi</item>
+        <item>얼룩말|zebra</item>
+        <item>자전거|sepeda</item>
+        <item>무지개|pelangi</item>
+        <item>당근|wortel</item>
+        <item>풍선|balon</item>
+        <item>크레용|krayon</item>
+        <item>개구리|katak</item>
+        <item>가다|pergi</item>
+        <item>그것|itu (benda)</item>
+        <item>네|ya</item>
+        <item>~이다(나)|adalah (aku)</item>
+        <item>~이다|adalah</item>
+        <item>가지다|punya</item>
+        <item>아니요|tidak</item>
+        <item>그|dia (laki-laki)</item>
+        <item>~이다(복수)|adalah (jamak)</item>
+        <item>할 수 있다|bisa</item>
+        <item>또는|atau</item>
+        <item>새로운|baru</item>
+        <item>입|mulut</item>
+        <item>아침|pagi</item>
+        <item>서다|berdiri</item>
+        <item>남자|pria</item>
+        <item>시간|waktu</item>
+        <item>쉬운|mudah</item>
+        <item>믿다|percaya</item>
+        <item>미래|masa depan</item>
+        <item>정말|sungguh</item>
+        <item>박물관|museum</item>
+        <item>구하다|menyelamatkan</item>
+        <item>약속|janji</item>
+        <item>안전한|aman</item>
+        <item>긴장한|gugup</item>
+        <item>목적|maksud</item>
+        <item>최근에|baru-baru ini</item>
+        <item>쓰다(시간·돈)|menghabiskan</item>
+        <item>숨다|bersembunyi</item>
+        <item>선언하다|menyatakan</item>
+        <item>의지하다|mengandalkan</item>
+        <item>선택지|pilihan</item>
+        <item>선출하다|memilih (pemilu)</item>
+        <item>빽빽한|padat</item>
+        <item>완수하다|menuntaskan</item>
+        <item>윤리적인|etis</item>
+        <item>동기를 부여하다|memotivasi</item>
+        <item>막대한|sangat besar</item>
+        <item>설문조사|survei</item>
+        <item>자격이 있는|memenuhi syarat</item>
+        <item>절차|prosedur</item>
+        <item>변수|variabel</item>
+        <item>회복력 있는|tangguh</item>
+        <item>펜|pena</item>
+        <item>책상|meja belajar</item>
+        <item>창문|jendela</item>
+        <item>머리|kepala</item>
+        <item>하나|satu</item>
+        <item>오래된|tua</item>
+        <item>행복한|bahagia</item>
+        <item>빠른|cepat</item>
+        <item>점프하다|melompat</item>
+        <item>앉다|duduk</item>
+        <item>닫다|menutup</item>
+        <item>안녕하세요|halo</item>
+        <item>과일|buah</item>
+        <item>소금|garam</item>
+        <item>계절|musim</item>
+        <item>해(년)|tahun</item>
+        <item>노래|lagu</item>
+        <item>운동 경기|olahraga</item>
+        <item>수영하다|berenang</item>
+        <item>가르치다|mengajar</item>
+        <item>대답하다|menjawab</item>
+        <item>요리하다|memasak</item>
+        <item>팔다|menjual</item>
+        <item>이야기하다|berbincang</item>
+        <item>말하다|berbicara</item>
+        <item>산책|jalan-jalan</item>
+        <item>시장|pasar</item>
+        <item>도서관|perpustakaan</item>
+        <item>식당|restoran</item>
+        <item>마을|kota kecil</item>
+        <item>세계|dunia</item>
+        <item>맛있는|lezat</item>
+        <item>목마른|haus</item>
+        <item>용감한|berani</item>
+        <item>약한|lemah</item>
+        <item>일찍|lebih awal</item>
+        <item>선물|hadiah (kado)</item>
+        <item>여행|perjalanan wisata</item>
+        <item>일기|buku harian</item>
+        <item>신문|koran</item>
+        <item>극장|teater</item>
+        <item>농부|petani</item>
+        <item>운동|olahraga (latihan)</item>
+        <item>유명한|terkenal</item>
+        <item>같은|sama</item>
+        <item>끝내다|menyelesaikan</item>
+        <item>도착하다|tiba</item>
+        <item>방문하다|mengunjungi</item>
+        <item>가져오다|membawakan</item>
+        <item>돌려주다|mengembalikan</item>
+        <item>결정하다|memutuskan</item>
+        <item>기다리다|menunggu</item>
+        <item>냄새가 나다|berbau</item>
+        <item>곧|segera</item>
+        <item>문화|budaya</item>
+        <item>노력|usaha</item>
+        <item>비밀|rahasia</item>
+        <item>실수|kesalahan</item>
+        <item>곤란|kesulitan</item>
+        <item>전쟁|perang</item>
+        <item>지구|Bumi</item>
+        <item>섬|pulau</item>
+        <item>기상|keadaan cuaca</item>
+        <item>화재|kebakaran</item>
+        <item>대회|kontes</item>
+        <item>동아리|klub</item>
+        <item>이웃 사람|tetangga</item>
+        <item>발명하다|menciptakan (temuan)</item>
+        <item>창조하다|menciptakan</item>
+        <item>초대하다|mengundang</item>
+        <item>존중하다|menghormati</item>
+        <item>일어나다|terjadi</item>
+        <item>사라지다|menghilang</item>
+        <item>계속하다|melanjutkan</item>
+        <item>멈추다|berhenti</item>
+        <item>들어가다|masuk</item>
+        <item>먹이를 주다|memberi makan</item>
+        <item>놀란|terkejut</item>
+        <item>실망한|kecewa</item>
+        <item>심각한|serius</item>
+        <item>마침내|akhirnya</item>
+        <item>참석하다|menghadiri</item>
+        <item>세다|menghitung (jumlah)</item>
+        <item>증가하다|meningkat</item>
+        <item>관리하다|mengelola</item>
+        <item>알아차리다|menyadari</item>
+        <item>깨닫다|tersadar</item>
+        <item>거절하다|menolak</item>
+        <item>검색하다|mencari</item>
+        <item>훔치다|mencuri</item>
+        <item>지지하다|mendukung</item>
+        <item>공동체|komunitas</item>
+        <item>용기|keberanian</item>
+        <item>관습|adat</item>
+        <item>방향|arah</item>
+        <item>버릇|kebiasaan (perangai)</item>
+        <item>성공|kesuksesan</item>
+        <item>충분한|cukup</item>
+        <item>지역의|lokal</item>
+        <item>지원하다|melamar</item>
+        <item>탓하다|menyalahkan</item>
+        <item>구성되다|terdiri</item>
+        <item>받을 자격이 있다|pantas mendapat</item>
+        <item>식별하다|mengidentifikasi</item>
+        <item>고집하다|bersikeras</item>
+        <item>판단하다|menilai (memutuskan)</item>
+        <item>측정하다|mengukur</item>
+        <item>공연하다|tampil</item>
+        <item>~인 척하다|berpura-pura</item>
+        <item>증명하다|membuktikan</item>
+        <item>알아보다|mengenali</item>
+        <item>회복하다|pulih</item>
+        <item>응답하다|merespons</item>
+        <item>만족시키다|memuaskan</item>
+        <item>도전|tantangan</item>
+        <item>세부 사항|detail</item>
+        <item>증거|bukti</item>
+        <item>버리다|menelantarkan</item>
+        <item>학업의|akademis</item>
+        <item>정확한|akurat</item>
+        <item>전진하다|maju</item>
+        <item>대안|alternatif</item>
+        <item>배정하다|menugaskan</item>
+        <item>주장하다|mengeklaim</item>
+        <item>논평|komentar</item>
+        <item>저지르다|melakukan (kesalahan)</item>
+        <item>구성 요소|komponen</item>
+        <item>건설하다|membangun (konstruksi)</item>
+        <item>전환하다|mengonversi</item>
+        <item>전달하다|menyampaikan</item>
+        <item>대처하다|mengatasi</item>
+        <item>유래하다|berasal</item>
+        <item>구별하다|membedakan</item>
+        <item>간절히 바라는|sangat ingin</item>
+        <item>장비를 갖추다|melengkapi</item>
+        <item>추정하다|memperkirakan</item>
+        <item>제외하다|mengecualikan</item>
+        <item>희미해지다|memudar</item>
+        <item>특징|fitur</item>
+        <item>격식 있는|formal</item>
+        <item>근본적인|mendasar</item>
+        <item>게다가|lagi pula</item>
+        <item>진짜의|asli</item>
+        <item>속이 빈|berongga</item>
+        <item>즉각적인|segera (langsung)</item>
+        <item>암시하다|menyiratkan</item>
+        <item>나타내다|menunjukkan</item>
+        <item>혁신|inovasi</item>
+        <item>강렬한|intens</item>
+        <item>상호작용하다|berinteraksi</item>
+        <item>해석하다|menafsirkan</item>
+        <item>마찬가지로|demikian pula</item>
+        <item>문학|sastra</item>
+        <item>단지 ~에 불과한|sekadar</item>
+        <item>최소화하다|meminimalkan</item>
+        <item>적당한|sedang (moderat)</item>
+        <item>지원자|pelamar</item>
+        <item>약속(업무)|janji temu</item>
+        <item>고객|klien</item>
+        <item>수수료|komisi</item>
+        <item>통근하다|pulang-pergi kerja</item>
+        <item>회의(대규모)|konferensi</item>
+        <item>직원|karyawan</item>
+        <item>청구서|faktur</item>
+        <item>대출|pinjaman</item>
+        <item>인사(부)|personalia</item>
+        <item>승진|kenaikan jabatan</item>
+        <item>구매하다|membeli</item>
+        <item>환불|pengembalian dana</item>
+        <item>상환하다|mengganti biaya</item>
+        <item>평판|reputasi</item>
+        <item>사임하다|mengundurkan diri</item>
+        <item>연례의|tahunan</item>
+        <item>경쟁력 있는|kompetitif</item>
+        <item>능률적인|efisien</item>
+        <item>의무적인|wajib</item>
+        <item>신속한|sigap</item>
+        <item>옹호하다|mengadvokasi</item>
+        <item>개정하다|mengamandemen</item>
+        <item>고고학|arkeologi</item>
+        <item>~의 탓으로 돌리다|mengaitkan dengan</item>
+        <item>편향|bias</item>
+        <item>응축하다|mengembunkan</item>
+        <item>기준(단수)|kriteria</item>
+        <item>딜레마|dilema</item>
+        <item>담론|wacana</item>
+        <item>대체하다|menggeser</item>
+        <item>왜곡하다|mendistorsi</item>
+        <item>위계|hierarki</item>
+        <item>진실성|integritas</item>
+        <item>상쇄하다|mengimbangi</item>
+        <item>선행하다|mendahului</item>
+        <item>전망|prospek</item>
+        <item>~하게 만들다|menjadikan</item>
+        <item>몇 정거장인가요?|Berapa pemberhentian?</item>
+        <item>얼마나 자주 오나요?|Seberapa sering datang?</item>
+        <item>요금은 얼마예요?|Berapa ongkosnya?</item>
+        <item>날씨 정말 좋죠?|Cuacanya bagus, ya?</item>
+        <item>닭|ayam</item>
+        <item>나비|kupu-kupu</item>
+        <item>이것|ini</item>
+        <item>그러나|tetapi</item>
+        <item>~였다|dulunya</item>
+        <item>아래로|ke bawah</item>
+        <item>원하다|mau</item>
+        <item>문|pintu</item>
+        <item>춤추다|menari</item>
+        <item>동물|hewan</item>
+        <item>바람|angin</item>
+        <item>야구|bisbol</item>
+        <item>음악|musik</item>
+        <item>보다(시청하다)|menonton</item>
+        <item>회원|anggota</item>
+        <item>이웃|tetangga</item>
+        <item>자연|alam</item>
+        <item>다다르다|sampai</item>
+        <item>번역하다|menerjemahkan</item>
+        <item>통제하다|mengendalikan</item>
+        <item>추천하다|merekomendasikan</item>
+        <item>갈등|konflik</item>
+        <item>합법적인|legal</item>
+        <item>후보자|kandidat</item>
+        <item>성과|capaian</item>
+        <item>착취하다|mengeksploitasi</item>
+        <item>배치|konfigurasi</item>
+        <item>풍부하게 하다|memperkaya</item>
+        <item>그럴듯한|masuk akal</item>
+        <item>수렴하다|berkonvergensi</item>
+        <item>저하시키다|menurunkan mutu</item>
+        <item>모호한|ambigu</item>
+        <item>취약한|rentan</item>
+        <item>물|air</item>
+        <item>밥|nasi</item>
+        <item>소년|anak laki-laki</item>
+        <item>소녀|anak perempuan</item>
+        <item>걷다|berjalan</item>
+        <item>마시다|minum</item>
+        <item>공부하다|belajar (menekuni)</item>
+        <item>청소하다|membersihkan</item>
+        <item>듣다|mendengarkan</item>
+        <item>알다|tahu</item>
+        <item>항상|selalu</item>
+        <item>가끔|kadang-kadang</item>
+        <item>절대 ~않다|tidak pernah</item>
+        <item>체육관|gimnasium</item>
+        <item>빵집|toko roti</item>
+        <item>의사|dokter</item>
+        <item>치과의사|dokter gigi</item>
+        <item>치마|rok</item>
+        <item>목도리|syal</item>
+        <item>지갑|dompet</item>
+        <item>신나는|seru</item>
+        <item>웃긴|lucu</item>
+        <item>조용한|tenang</item>
+        <item>다른|berbeda</item>
+        <item>아픈|sakit</item>
+        <item>다시|lagi</item>
+        <item>어른|orang dewasa</item>
+        <item>선택|pilihan</item>
+        <item>지도자|pemimpin</item>
+        <item>영웅|pahlawan</item>
+        <item>과제|proyek</item>
+        <item>주제|topik</item>
+        <item>보호하다|melindungi</item>
+        <item>낭비하다|memboroskan</item>
+        <item>재활용하다|mendaur ulang</item>
+        <item>표현하다|mengekspresikan</item>
+        <item>동의하다|setuju</item>
+        <item>말다툼하다|bertengkar</item>
+        <item>위험한|berbahaya</item>
+        <item>완벽한|sempurna</item>
+        <item>훌륭한|luar biasa</item>
+        <item>갑자기|tiba-tiba</item>
+        <item>귀찮게 하다|mengganggu</item>
+        <item>완료하다|merampungkan</item>
+        <item>소통하다|berkomunikasi</item>
+        <item>손상시키다|merusak</item>
+        <item>기부하다|menyumbang</item>
+        <item>주문하다|memesan</item>
+        <item>상태|kondisi</item>
+        <item>거리(간격)|jarak</item>
+        <item>교육|pendidikan</item>
+        <item>감정|emosi</item>
+        <item>반응|tanggapan</item>
+        <item>몇몇의|beberapa</item>
+        <item>사과하다|meminta maaf</item>
+        <item>감사하다|menghargai</item>
+        <item>끌어들이다|menarik (memikat)</item>
+        <item>다치게 하다|melukai</item>
+        <item>놓다|meletakkan</item>
+        <item>관찰하다|mengamati</item>
+        <item>처벌하다|menghukum</item>
+        <item>후회하다|menyesal</item>
+        <item>대표하다|mewakili</item>
+        <item>선택하다|menyeleksi</item>
+        <item>정착하다|menetap</item>
+        <item>성공하다|berhasil</item>
+        <item>~하는 경향이 있다|cenderung</item>
+        <item>위협하다|mengancam</item>
+        <item>효과|efek</item>
+        <item>습득하다|memperoleh (menguasai)</item>
+        <item>분석하다|menganalisis</item>
+        <item>고대의|kuno</item>
+        <item>승인하다|menyetujui</item>
+        <item>배열하다|menata</item>
+        <item>첨부하다|melampirkan</item>
+        <item>권위|otoritas</item>
+        <item>알고 있는|menyadari</item>
+        <item>인용하다|mengutip</item>
+        <item>보존하다|melestarikan</item>
+        <item>끊임없는|terus-menerus</item>
+        <item>소비하다|mengonsumsi</item>
+        <item>기여하다|berkontribusi</item>
+        <item>협력하다|bekerja sama</item>
+        <item>현재의|terkini</item>
+        <item>헌신하다|mendedikasikan</item>
+        <item>정의하다|mendefinisikan</item>
+        <item>보여주다|mendemonstrasikan</item>
+        <item>바치다|mengabdikan</item>
+        <item>분배하다|membagikan</item>
+        <item>효율적인|berdaya guna</item>
+        <item>마주치다|menjumpai</item>
+        <item>거대한|raksasa</item>
+        <item>비용|biaya</item>
+        <item>외부의|eksternal</item>
+        <item>이전의|mantan (sebelumnya)</item>
+        <item>토대|fondasi</item>
+        <item>가혹한|keras (kejam)</item>
+        <item>가설|hipotesis</item>
+        <item>사건|insiden</item>
+        <item>산업|industri</item>
+        <item>초기의|awal</item>
+        <item>점검하다|menginspeksi</item>
+        <item>즉각의|seketika</item>
+        <item>정당화하다|membenarkan</item>
+        <item>수많은|banyak sekali</item>
+        <item>영양|nutrisi</item>
+        <item>안건|agenda</item>
+        <item>예산|anggaran</item>
+        <item>마감일|tenggat</item>
+        <item>부서|departemen</item>
+        <item>장비|peralatan</item>
+        <item>견적|estimasi biaya</item>
+        <item>상품|barang dagangan</item>
+        <item>연기하다|menunda</item>
+        <item>견적(가)|kutipan harga</item>
+        <item>독촉장|surat pengingat</item>
+        <item>은퇴하다|pensiun</item>
+        <item>일정|jadwal</item>
+        <item>선적|pengiriman</item>
+        <item>직원(전체)|staf</item>
+        <item>감독관|supervisor</item>
+        <item>공급업체|pemasok</item>
+        <item>워크숍|lokakarya</item>
+        <item>사전의|sebelumnya</item>
+        <item>축적하다|mengakumulasi</item>
+        <item>인접한|bersebelahan</item>
+        <item>할당하다|mengalokasikan</item>
+        <item>유추|analogi</item>
+        <item>자율성|otonomi</item>
+        <item>일관성 있는|koheren</item>
+        <item>엮다|menyusun (kompilasi)</item>
+        <item>상관관계가 있다|berkorelasi</item>
+        <item>흩어지다|berpencar</item>
+        <item>경험적인|empiris</item>
+        <item>침식하다|mengikis</item>
+        <item>불러일으키다|membangkitkan</item>
+        <item>촉진하다|memfasilitasi</item>
+        <item>실현 가능한|layak dilakukan</item>
+        <item>통합하다|mengintegrasikan</item>
+        <item>정당한|sah</item>
+        <item>조작하다|memanipulasi</item>
+        <item>분자|molekul</item>
+        <item>추진력|momentum</item>
+        <item>~에도 불구하고|kendati</item>
+        <item>광합성|fotosintesis</item>
+        <item>강화하다|memperkuat</item>
+        <item>정말 감사합니다!|Terima kasih banyak!</item>
+        <item>표는 어디서 사나요?|Beli tiket di mana?</item>
+        <item>어디로 가려고 하세요?|Anda mau ke mana?</item>
+        <item>어디로 모실까요?|Mau diantar ke mana?</item>
+        <item>연휴에 계획 있어요?|Ada rencana buat liburan?</item>
+        <item>눈|mata</item>
+        <item>포도|anggur</item>
+        <item>셔츠|kemeja</item>
+        <item>하나의|sebuah</item>
+        <item>위에|di atas</item>
+        <item>그래서|jadi</item>
+        <item>우리는|kami</item>
+        <item>눈(날씨)|salju</item>
+        <item>미안해요|maaf</item>
+        <item>오늘|hari ini</item>
+        <item>배고픈|lapar</item>
+        <item>가게|toko</item>
+        <item>사다|membeli</item>
+        <item>여행하다|bepergian</item>
+        <item>이기다|menang</item>
+        <item>지루한|membosankan</item>
+        <item>맛이 나다|terasa</item>
+        <item>무료의|gratis</item>
+        <item>옷|pakaian</item>
+        <item>수학|matematika</item>
+        <item>간호사|perawat</item>
+        <item>가입하다|bergabung</item>
+        <item>디자인하다|mendesain</item>
+        <item>발전시키다|mengembangkan</item>
+        <item>축제|festival</item>
+        <item>행동|perilaku</item>
+        <item>빌려주다|meminjamkan</item>
+        <item>사회|masyarakat</item>
+        <item>세계적인|global</item>
+        <item>작동하다|beroperasi</item>
+        <item>알리다|memberitahu</item>
+        <item>이행하다|memenuhi</item>
+        <item>유지하다|mempertahankan (menjaga)</item>
+        <item>결심하다|bertekad</item>
+        <item>퍼지다|menyebar</item>
+        <item>발표하다|mengumumkan</item>
+        <item>십 년|dasawarsa</item>
+        <item>기준|kriteria-kriteria</item>
+        <item>인공의|buatan</item>
+        <item>시도하다|mencoba</item>
+        <item>명확히 하다|memperjelas</item>
+        <item>지평선|cakrawala</item>
+        <item>주도권|inisiatif</item>
+        <item>이상한|aneh</item>
+        <item>개인|individu</item>
+        <item>멸종된|punah</item>
+        <item>이주하다|bermigrasi</item>
+        <item>검토하다|meninjau</item>
+        <item>피드백|umpan balik</item>
+        <item>기밀의|rahasia (konfidensial)</item>
+        <item>재고|inventaris</item>
+        <item>~을 경유하여|melalui</item>
+        <item>패러다임|paradigma</item>
+        <item>생존 가능한|dapat bertahan</item>
+        <item>규모|besaran</item>
+        <item>미묘한|halus (samar)</item>
+        <item>유도하다|menginduksi</item>
+        <item>느린|lambat</item>
+        <item>분|menit</item>
+        <item>색깔|warna</item>
+        <item>그림|gambar</item>
+        <item>만나다|bertemu</item>
+        <item>주말|akhir pekan</item>
+        <item>과목|mata pelajaran</item>
+        <item>운동장|lapangan bermain</item>
+        <item>과학자|ilmuwan</item>
+        <item>약|obat</item>
+        <item>싼|murah</item>
+        <item>비싼|mahal</item>
+        <item>노력하다|berusaha</item>
+        <item>우주|antariksa</item>
+        <item>자랑스러운|bangga</item>
+        <item>끔찍한|mengerikan</item>
+        <item>피하다|menghindari</item>
+        <item>졸업하다|lulus</item>
+        <item>생산하다|memproduksi</item>
+        <item>주의|perhatian</item>
+        <item>수준|tingkat</item>
+        <item>인정하다|mengakui</item>
+        <item>부인하다|menyangkal</item>
+        <item>검사하다|memeriksa</item>
+        <item>발생하다|terjadi (timbul)</item>
+        <item>극복하다|mengatasi (menaklukkan)</item>
+        <item>쟁점|isu</item>
+        <item>적응하다|beradaptasi</item>
+        <item>예상하다|mengantisipasi</item>
+        <item>계약|kontrak</item>
+        <item>편집하다|menyunting</item>
+        <item>요금|tarif</item>
+        <item>배당금|dividen</item>
+        <item>전략|strategi</item>
+        <item>판매업체|vendor</item>
+        <item>업무량|beban kerja</item>
+        <item>유인책|insentif</item>
+        <item>최적의|optimal</item>
+        <item>역설|paradoks</item>
+        <item>정밀 조사|penelaahan cermat</item>
+        <item>영역|ranah</item>
+        <item>마실 것도 드릴까요?|Mau minum sesuatu?</item>
+        <item>디저트는요?|Mau pencuci mulut?</item>
+        <item>영수증 가지고 계세요?|Ada kuitansinya?</item>
+        <item>여기서 먼가요?|Jauh dari sini?</item>
+        <item>부작용이 있나요?|Ada efek sampingnya?</item>
+        <item>멋지네요! 어렵나요?|Keren! Susah nggak?</item>
+        <item>복숭아|persik</item>
+        <item>곰인형|boneka beruang</item>
+        <item>그는|dia (pria)</item>
+        <item>너는|kamu</item>
+        <item>하얀|putih</item>
+        <item>방|kamar</item>
+        <item>친절한|ramah</item>
+        <item>빌리다|meminjam</item>
+        <item>건강한|sehat</item>
+        <item>주머니|saku</item>
+        <item>안전|keselamatan</item>
+        <item>허락하다|mengizinkan</item>
+        <item>기대하다|mengharapkan</item>
+        <item>사실은|sebenarnya</item>
+        <item>결정|keputusan</item>
+        <item>예측하다|memprediksi</item>
+        <item>존재하다|ada (eksis)</item>
+        <item>극적인|dramatis</item>
+        <item>조정하다|menyesuaikan</item>
+        <item>불안한|cemas</item>
+        <item>유연한|fleksibel</item>
+        <item>충성스러운|setia</item>
+        <item>전시하다|memamerkan</item>
+        <item>설명서|buku petunjuk</item>
+        <item>할인|diskon</item>
+        <item>중력|gravitasi</item>
+        <item>지속 시간|durasi</item>
+        <item>저명한|terkemuka</item>
+        <item>신용카드 되나요?|Terima kartu kredit?</item>
+        <item>키가 큰|tinggi</item>
+        <item>함께|bersama</item>
+        <item>부엌|dapur</item>
+        <item>질문|pertanyaan</item>
+        <item>숲|hutan</item>
+        <item>관례|konvensi</item>
+        <item>범주|kategori</item>
+        <item>규범|norma</item>
+        <item>침략하다|menginvasi</item>
+        <item>분기|kuartal</item>
+        <item>동시에 일어나다|bertepatan</item>
+        <item>물고기가 물속에 있어요.|Ikan ada di dalam air.</item>
+        <item>그 나무는 커요.|Pohon itu besar.</item>
+        <item>해는 뜨거워요.|Matahari itu panas.</item>
+        <item>아기가 자고 있어요.|Bayinya sedang tidur.</item>
+        <item>그 자동차는 빨라요.|Mobil itu cepat.</item>
+        <item>그 고양이는 작아요.|Kucing itu kecil.</item>
+        <item>그 개는 갈색이에요.|Anjing itu cokelat.</item>
+        <item>우리 아빠는 키가 커요.|Ayahku tinggi.</item>
+        <item>나는 빵을 먹어요.|Aku makan roti.</item>
+        <item>달을 봐요.|Lihat bulannya.</item>
+        <item>나는 아이스크림을 좋아해요.|Aku suka es krim.</item>
+        <item>나는 손이 두 개예요.|Aku punya dua tangan.</item>
+        <item>내 신발은 새것이에요.|Sepatuku baru.</item>
+        <item>고마워. 너는? 새로운 소식 있어?|Makasih. Kamu gimana? Ada kabar baru?</item>
+        <item>정말 좋아해요. 당신은요?|Aku suka banget. Kalau kamu?</item>
+        <item>저는 중학교에서 음악을 가르쳐요.|Aku mengajar musik di SMP.</item>
+        <item>물론이죠. 여기 있습니다.|Tentu. Ini dia.</item>
+        <item>찾으시는 것 도와드릴까요?|Boleh saya bantu carikan sesuatu?</item>
+        <item>이 수제 그릇은 얼마예요?|Mangkuk buatan tangan ini berapa?</item>
+        <item>실례합니다, 시립 박물관에 어떻게 가나요?|Permisi, bagaimana ke museum kota?</item>
+        <item>파란 노선을 타고 중앙역에서 환승하세요.|Naik jalur biru lalu transit di Stasiun Sentral.</item>
+        <item>이 지도에서 짚어 주시겠어요?|Bisa tunjukkan di peta ini?</item>
+        <item>아, 길을 잘못 드셨네요. 한 블록 북쪽이에요.|Oh, Anda salah jalan. Satu blok ke utara.</item>
+        <item>오렌지 주스로요. 얼음은 빼 주세요.|Jus jeruk, ya. Tanpa es.</item>
+        <item>죄송합니다. 바로 사람을 보내겠습니다.|Mohon maaf. Kami segera kirim orang.</item>
+        <item>3시 기차인데 시간 안에 갈 수 있을까요?|Kereta saya jam tiga. Keburu nggak ya?</item>
+        <item>좋아요. 정문에서 내려 주시면 돼요.|Baik. Turunkan saya di gerbang utama saja.</item>
+        <item>평소와 다른 걸 드셨나요?|Apa Anda makan sesuatu yang tidak biasa?</item>
+        <item>다음엔 어떻게 해야 하나요?|Selanjutnya saya harus bagaimana?</item>
+        <item>졸릴 수 있으니 운전은 피하세요.|Bisa bikin ngantuk, jadi hindari menyetir.</item>
+        <item>이런, 등산 가려고 했는데.|Yah, padahal aku mau mendaki.</item>
+        <item>시골에 계신 부모님을 뵈러 가요.|Aku mau mengunjungi orang tua di desa.</item>
+        <item>나는 행복해요.|Aku bahagia.</item>
+        <item>나는 자전거를 타요.|Aku naik sepeda.</item>
+        <item>우리는 함께 놀아요.|Kami bermain bersama.</item>
+        <item>나는 무지개를 볼 수 있어요.|Aku bisa melihat pelangi.</item>
+        <item>나는 별을 봐요.|Aku melihat bintang.</item>
+        <item>저도 만나서 반가워요. 저는 민수예요.|Senang juga bertemu. Aku Minsu.</item>
+        <item>민수 씨는 어디에서 오셨어요?|Minsu dari mana asalnya?</item>
+        <item>이야, 오랜만이야! 어떻게 지냈어?|Wah, lama tak jumpa! Apa kabar?</item>
+        <item>재미있겠네요. 그 일이 즐거우세요?|Kedengarannya menarik. Kamu menikmatinya?</item>
+        <item>나중에 볼게요. 감사해요.|Nanti saya lihat-lihat. Terima kasih.</item>
+        <item>물이면 충분해요, 감사합니다.|Air putih saja cukup, terima kasih.</item>
+        <item>좋아요. 음식이 정말 맛있었어요.|Bagus. Makanannya lezat sekali.</item>
+        <item>감사합니다. 또 오세요!|Terima kasih. Datang lagi ya!</item>
+        <item>정말 감사합니다.|Terima kasih banyak.</item>
+        <item>물론입니다. 주방장께 전달할게요.|Tentu. Akan saya sampaikan ke koki.</item>
+        <item>이건 어떠세요? 아주 인기가 많아요.|Bagaimana dengan yang ini? Sangat populer.</item>
+        <item>딱 맞네요. 이걸로 살게요.|Pas banget. Aku ambil yang ini.</item>
+        <item>이유를 여쭤봐도 될까요?|Boleh tahu alasannya?</item>
+        <item>환불로 부탁드려요.|Saya minta pengembalian dana.</item>
+        <item>좋아요! 두 개 살게요.|Setuju! Aku ambil dua.</item>
+        <item>좋습니다. 포장해 드릴게요.|Baik. Saya bungkuskan ya.</item>
+        <item>아니요, 걸어서 10분 정도예요.|Tidak, jalan kaki sekitar sepuluh menit.</item>
+        <item>발권기는 바로 저쪽에 있어요.|Mesin tiket ada di sebelah sana.</item>
+        <item>실례합니다, 길을 잃은 것 같아요.|Permisi, sepertinya saya tersesat.</item>
+        <item>탑승권입니다. 22번 게이트, 10시 탑승입니다.|Ini boarding pass Anda. Gerbang 22, naik jam sepuluh.</item>
+        <item>시내 리버사이드 호텔이요.|Ke Hotel Riverside di pusat kota, ya.</item>
+        <item>저기요, 담요 하나 주시겠어요?|Permisi, boleh minta selimut?</item>
+        <item>좋아요. 식사 때 깨워 주시겠어요?|Baik. Tolong bangunkan saat makan ya.</item>
+        <item>환영합니다, 리 선생님. 더블룸 3박 맞으시죠?|Selamat datang, Pak Lee. Kamar double tiga malam, benar?</item>
+        <item>네, 아침은 7시부터 10시까지 제공됩니다.|Ya, sarapan tersedia jam tujuh sampai sepuluh.</item>
+        <item>그리고 수건도 좀 더 받을 수 있을까요?|Dan boleh minta handuk tambahan?</item>
+        <item>그게 다예요. 감사합니다.|Itu saja. Terima kasih.</item>
+        <item>체크아웃 할게요. 805호입니다.|Saya mau check-out. Kamar 805.</item>
+        <item>물 한 병만요.|Cuma satu botol air.</item>
+        <item>이 버스 해변에 가나요?|Bus ini ke pantai, tidak?</item>
+        <item>아니요, 7번 버스를 타셔야 해요.|Tidak, Anda harus naik bus nomor 7.</item>
+        <item>기본 보험은 포함이고, 완전 보장은 하루 10달러 추가입니다.|Asuransi dasar sudah termasuk. Perlindungan penuh tambah sepuluh dolar per hari.</item>
+        <item>여기요. 보험은 포함인가요?|Ini dia. Asuransinya termasuk?</item>
+        <item>길거리 시장에서 해산물을 먹었어요.|Aku makan hidangan laut di pasar kaki lima.</item>
+        <item>약을 처방해 드릴게요. 물을 많이 드세요.|Saya resepkan obat. Minum air yang banyak.</item>
+        <item>언제 어디서 잃어버리셨나요?|Kapan dan di mana hilangnya?</item>
+        <item>목 아픈 데 먹는 약 있나요?|Ada obat untuk sakit tenggorokan?</item>
+        <item>내일 예보를 다시 확인해 보는 게 좋겠어요.|Sebaiknya cek ramalan cuaca lagi besok.</item>
+        <item>언젠가 그 빵을 먹어 보고 싶네요.|Suatu saat aku ingin mencoba roti itu.</item>
+        <item>그렇진 않은데 인내심이 필요해요.|Tidak juga, tapi butuh kesabaran.</item>
+        <item>좋아요! 다음에 좀 가져올게요.|Boleh! Lain kali kubawakan.</item>
+        <item>차가 안 막히면 세 시간 정도요.|Sekitar tiga jam kalau tidak macet.</item>
+        <item>편안하겠네요. 운전은 얼마나 걸려요?|Kedengarannya santai. Nyetirnya berapa lama?</item>
+        <item>새는 날 수 있어요.|Burung bisa terbang.</item>
+        <item>그 버스는 커요.|Bus itu besar.</item>
+        <item>이것은 내 개예요.|Ini anjingku.</item>
+        <item>안녕하세요, 저는 제인이에요. 만나서 반가워요.|Hai, aku Jane. Senang bertemu denganmu.</item>
+        <item>한국 서울에서 왔어요. 당신은요?|Aku dari Seoul, Korea. Kalau kamu?</item>
+        <item>네, 처음이에요. 정말 설레요.|Ya, ini pertama kalinya. Aku senang sekali.</item>
+        <item>저는 런던에서 왔어요. 여기는 처음 오신 거예요?|Aku dari London. Ini kunjungan pertamamu ke sini?</item>
+        <item>언제 커피 마시면서 회포 풀자.|Kapan-kapan ngopi sambil ngobrol yuk.</item>
+        <item>잘 지냈어. 새 일을 시작했어.|Kabar baik. Aku mulai kerja baru.</item>
+        <item>정말 좋은 소식이다. 축하해!|Kabar yang bagus. Selamat ya!</item>
+        <item>안녕하세요, 소라 씨. 무슨 일을 하세요?|Halo, Sora. Kerjamu apa?</item>
+        <item>네. 그릴드 치킨으로 할게요.|Ya. Saya pesan ayam panggang.</item>
+        <item>저기요, 계산서 좀 주시겠어요?|Permisi, boleh minta bonnya?</item>
+        <item>네, 주요 카드 모두 받습니다.|Ya, kami terima semua kartu utama.</item>
+        <item>이 요리에 땅콩이 들어가나요?|Masakan ini mengandung kacang?</item>
+        <item>별말씀을요. 15분 정도 걸립니다.|Sama-sama. Butuh sekitar lima belas menit.</item>
+        <item>네, 땅콩 소스가 들어가요.|Ya, pakai saus kacang.</item>
+        <item>제가 땅콩 알레르기가 있어서요. 빼고 만들어 주실 수 있나요?|Saya alergi kacang. Bisa dibuat tanpa kacang?</item>
+        <item>봄에 입을 재킷을 찾고 있어요.|Saya cari jaket untuk musim semi.</item>
+        <item>네, 여기 있어요.|Ya, ini dia.</item>
+        <item>감사합니다. 환불과 교환 중 어느 것을 원하세요?|Terima kasih. Mau refund atau tukar barang?</item>
+        <item>조금 비싸네요. 할인해 주실 수 있나요?|Agak mahal. Bisa diskon?</item>
+        <item>천만에요. 금방 찾으실 거예요.|Sama-sama. Pasti cepat ketemu.</item>
+        <item>두 블록 직진해서 오른쪽으로 도세요.|Lurus dua blok lalu belok kanan.</item>
+        <item>어느 노선이 공항에 가나요?|Jalur mana yang ke bandara?</item>
+        <item>여기 있습니다.|Ini dia.</item>
+        <item>창가 좌석으로 부탁해요.|Minta kursi dekat jendela, ya.</item>
+        <item>휴가로 왔습니다.|Saya ke sini untuk liburan.</item>
+        <item>얼마나 머무르실 건가요?|Berapa lama Anda tinggal?</item>
+        <item>방문 목적이 무엇인가요?|Apa tujuan kunjungan Anda?</item>
+        <item>어디에서 묵으실 건가요?|Anda akan menginap di mana?</item>
+        <item>여기 있습니다. 식사는 한 시간 후에 제공됩니다.|Ini dia. Makanan disajikan satu jam lagi.</item>
+        <item>맞아요. 아침 식사가 포함되나요?|Benar. Sarapannya termasuk?</item>
+        <item>안녕하세요. 리로 예약했습니다.|Selamat malam. Ada reservasi atas nama Lee.</item>
+        <item>키 카드에 적혀 있습니다. 8층 805호입니다.|Tertera di kartu kunci. Kamar 805 lantai delapan.</item>
+        <item>좋네요. 와이파이 비밀번호는 뭔가요?|Bagus. Kata sandi Wi-Fi-nya apa?</item>
+        <item>물론입니다. 더 필요하신 건요?|Tentu. Ada lagi?</item>
+        <item>제 방 에어컨이 작동하지 않아요.|AC di kamar saya tidak berfungsi.</item>
+        <item>카드로요. 정오까지 짐을 맡아 주실 수 있나요?|Pakai kartu. Bisa titip bagasi sampai siang?</item>
+        <item>총 320달러입니다. 카드인가요, 현금인가요?|Totalnya 320 dolar. Kartu atau tunai?</item>
+        <item>물론입니다. 보관증 여기 있습니다.|Tentu. Ini tanda terimanya.</item>
+        <item>잠시만요. 미니바를 이용하셨나요?|Sebentar. Anda pakai minibar?</item>
+        <item>차가 안 막히면 문제없습니다.|Tidak masalah kalau lalu lintas lancar.</item>
+        <item>15분마다요.|Setiap lima belas menit.</item>
+        <item>좋은 선택입니다. 기름을 가득 채워 반납해 주세요.|Pilihan bagus. Kembalikan dengan tangki penuh ya.</item>
+        <item>소형차를 이틀 빌리고 싶어요.|Saya mau sewa mobil kecil dua hari.</item>
+        <item>운전면허증을 볼 수 있을까요?|Boleh lihat SIM Anda?</item>
+        <item>완전 보장으로 할게요.|Saya ambil perlindungan penuh.</item>
+        <item>얼마나 오래 아프셨어요?|Sudah berapa lama sakitnya?</item>
+        <item>어젯밤부터요. 어지럽기도 해요.|Sejak tadi malam. Kepala juga pusing.</item>
+        <item>오늘 오후에요, 아마 지하철에서요.|Siang tadi, mungkin di kereta bawah tanah.</item>
+        <item>여권 분실 신고를 하고 싶어요.|Saya mau melaporkan paspor hilang.</item>
+        <item>임시 여권을 위해 대사관에 연락하세요.|Hubungi kedutaan untuk paspor sementara.</item>
+        <item>그럼 이걸 6시간마다 식후에 드세요.|Kalau begitu minum ini tiap enam jam setelah makan.</item>
+        <item>오늘 아침부터 미열이 있어요.|Demam ringan sejak pagi tadi.</item>
+        <item>이 사탕형 약이 잘 들어요. 열은 있나요?|Permen pelega ini manjur. Ada demam?</item>
+        <item>정말 그러네요. 소풍 가기 딱 좋아요.|Benar sekali. Pas buat piknik.</item>
+        <item>좋은 생각이에요. 행운을 빌어야죠!|Ide bagus. Semoga beruntung!</item>
+        <item>주말엔 보통 뭐 하세요?|Biasanya akhir pekan ngapain?</item>
+        <item>빵을 구워요. 새로 생긴 취미예요.|Aku membuat roti. Hobi baruku.</item>
+        <item>나는 엄마를 사랑해요.|Aku sayang ibu.</item>
+        <item>나는 책이 있어요.|Aku punya buku.</item>
+        <item>그녀는 고양이가 있어요.|Dia punya kucing.</item>
+        <item>나는 풍선을 원해요.|Aku mau balon.</item>
+        <item>나는 사과를 좋아해요.|Aku suka apel.</item>
+        <item>그 상자는 작아요.|Kotak itu kecil.</item>
+        <item>비가 오고 있어요.|Sedang hujan.</item>
+        <item>나는 우유를 마셔요.|Aku minum susu.</item>
+        <item>나는 내 친구를 좋아해요.|Aku suka temanku.</item>
+        <item>나는 뛸 수 있어요.|Aku bisa berlari.</item>
+        <item>나는 학교에 가요.|Aku pergi ke sekolah.</item>
+        <item>별거 없어. 늘 똑같지.|Tidak ada. Seperti biasa.</item>
+        <item>제 소개를 할게요. 저는 김소라입니다.|Perkenalkan, saya Sora Kim.</item>
+        <item>마음에 드네요. 입어 봐도 될까요?|Aku suka. Boleh dicoba?</item>
+        <item>그럼요, 탈의실은 저쪽이에요.|Tentu, kamar pasnya di sebelah sana.</item>
+        <item>이 셔츠를 반품하고 싶어요.|Saya mau mengembalikan kemeja ini.</item>
+        <item>저한테 너무 작아서요.|Terlalu kecil untuk saya.</item>
+        <item>그건 40달러입니다.|Yang itu empat puluh dolar.</item>
+        <item>두 개 사시면 70달러에 드릴게요.|Kalau beli dua, jadi tujuh puluh dolar.</item>
+        <item>그랜드 호텔을 찾고 있어요.|Saya mencari Hotel Grand.</item>
+        <item>안녕하세요. 여권 보여 주시겠어요?|Selamat pagi. Boleh lihat paspor Anda?</item>
+        <item>네, 여행 가방 하나요.|Ya, satu koper.</item>
+        <item>열흘 동안이요.|Selama sepuluh hari.</item>
+        <item>즐거운 여행 되세요.|Selamat menikmati perjalanan.</item>
+        <item>물론이죠. 마실 것도 드릴까요?|Tentu. Mau minum sesuatu?</item>
+        <item>물론입니다. 편히 쉬세요.|Tentu. Silakan istirahat.</item>
+        <item>중앙역으로 가 주세요.|Ke stasiun sentral, ya.</item>
+        <item>네. 20분 정도 걸립니다.|Baik. Sekitar dua puluh menit.</item>
+        <item>이 양식을 작성해 주세요.|Silakan isi formulir ini.</item>
+        <item>운전 조심하고 좋은 시간 보내요.|Hati-hati menyetir dan selamat bersenang-senang.</item>
+        <item>고마워요! 연휴 끝나고 봐요.|Makasih! Sampai jumpa setelah liburan.</item>
+        <item>저는 그래픽 디자이너예요. 포스터를 디자인해요.|Aku desainer grafis. Aku mendesain poster.</item>
+        <item>중앙역까지 여섯, 그다음 네 정거장이요.|Enam pemberhentian ke Sentral, lalu empat lagi.</item>
+        <item>그럼요. 우리는 여기 있고, 호텔은 바로 저기예요.|Tentu. Kita di sini, hotelnya persis di sana.</item>
+        <item>창가와 통로 중 어느 좌석을 원하세요?|Mau kursi dekat jendela atau lorong?</item>
+        <item>프런트입니다. 무엇을 도와드릴까요?|Resepsionis. Ada yang bisa dibantu?</item>
+        <item>2달러요. 카드로 낼 수 있어요.|Dua dolar. Bisa bayar pakai kartu.</item>
+        <item>배가 너무 아파요.|Perut saya sakit sekali.</item>
+        <item>그런데 주말엔 비가 올 수도 있대요.|Tapi katanya akhir pekan mungkin hujan.</item>
+        <item>그것은 꽃이에요.|Itu bunga.</item>
+        <item>내 가방은 빨간색이에요.|Tasku berwarna merah.</item>
+        <item>나는 책을 읽어요.|Aku membaca buku.</item>
     </string-array>
     <string-array name="tpl_units">
     </string-array>

@@ -144,7 +144,7 @@ sealed class Question {
                 ?.let { com.piyak.english.i18n.Tpl.textOrNull(it) }
             return when (val t = o.getString("type")) {
                 "mcq", "reading" -> Mcq(
-                    id, tpl(o), strList(o.getJSONArray("choices")),
+                    id, tpl(o), com.piyak.english.i18n.Tpl.words(strList(o.getJSONArray("choices"))),
                     o.getInt("answer"), o.optString("passage").ifEmpty { null }, explain,
                     o.optString("bigEmoji").ifEmpty { null },
                     strListOpt(o.optJSONArray("choiceArt")),
@@ -152,7 +152,7 @@ sealed class Question {
                 )
                 "listen_mcq" -> ListenMcq(
                     id, o.getString("tts"), tpl(o, o.optString("prompt", "무엇을 들었나요?")),
-                    strList(o.getJSONArray("choices")), o.getInt("answer"), explain
+                    com.piyak.english.i18n.Tpl.words(strList(o.getJSONArray("choices"))), o.getInt("answer"), explain
                 )
                 "dictation" -> Dictation(
                     id, o.getString("tts"), o.getString("answer"),
@@ -170,7 +170,7 @@ sealed class Question {
                     val arr = o.getJSONArray("pairs")
                     val pairs = (0 until arr.length()).map {
                         val p = arr.getJSONArray(it)
-                        p.getString(0) to p.getString(1)
+                        p.getString(0) to com.piyak.english.i18n.Tpl.word(p.getString(1))
                     }
                     Match(id, pairs, explain)
                 }
