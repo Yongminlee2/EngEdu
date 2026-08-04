@@ -416,7 +416,9 @@ const SCENE_TOEN = [
           const blanked = blankOut(w.word, w.exEn);
           if (blanked) {
             const d = pickDistinct(enPool, 3, [w.word]);
-            stream.push(mcq("b", `${blanked}\n(${w.exKo})`, w.word, d,
+            // 뼈대에 한글이 없고 값(exKo)에만 있다 — keyify 가 못 잡으므로 손으로 감싼다.
+            // 다른 언어 번역은 "%1$s" 만 남겨 한국어 해석 줄을 떨어뜨린다
+            stream.push(mcq("b", tp("363ce10c", [blanked, w.exKo], `${blanked}\n(${w.exKo})`), w.word, d,
               `📌 빈칸에는 ${w.word}(${w.ko})가 들어가요.\n완성 문장: ${w.exEn}\n\n다른 선택지는 각각: ${glossE(d)} 라는 뜻이라 문맥에 맞지 않아요.`));
           }
         }
@@ -726,7 +728,7 @@ function genListeningUnits() {
       if (d.length < 3) continue;
       dq.push(validate({
         id: qid("L"), type: "listen_dialog", lines: dlg,
-        prompt: `대화 중 "${en.split(" ").slice(0, 3).join(" ")}..." 문장의 뜻은?`,
+        prompt: tp("018ef4e1", [en.split(" ").slice(0, 3).join(" ")], `대화 중 "${en.split(" ").slice(0, 3).join(" ")}..." 문장의 뜻은?`),
         choices: shuffled([ko, ...d]), answer: 0, skill: "listening",
         explain: `🔊 ${en}\n= ${ko}\n\n대화 전체를 다시 들으며 흐름을 확인해 보세요.`,
       }));

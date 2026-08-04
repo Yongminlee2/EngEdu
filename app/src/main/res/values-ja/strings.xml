@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 자동 생성: node tools/i18n/gen_strings.js — 직접 고치지 말 것 -->
+<resources>
+    <string name="app_name">ピヤックえいご</string>
+    <string name="ask_pic_en">この えは えいごで なに?</string>
+    <string name="listen_arrange">きいて じゅんばんに ならべよう</string>
+    <string name="listen_type">きいて えいごで かいてみよう</string>
+    <string name="play_again">🔊 もういちど きく</string>
+
+    <!-- 문제·해설 뼈대 -->
+    <string name="tpl_c8b5801d">きこえた たんごの いみは?</string>
+    <string name="tpl_366dec85">きこえた ぶんの いみは?</string>
+    <string name="tpl_4d6281c4">なにが きこえた?</string>
+    <string name="tpl_c087bfe9">どの アルファベットが きこえた?</string>
+    <string name="tpl_018ef4e1">かいわの 中の「%1$s...」の いみは?</string>
+    <string name="tpl_a933e669">「%1$s」の いみは?</string>
+    <string name="tpl_e320ea2b">「%1$s」は どういう いみ?</string>
+    <string name="tpl_12f8c41c">「%1$s」\nどういう いみ?</string>
+    <string name="tpl_55f8727e">ピヤックが「%1$s!」と さけんだよ。どういう いみ?</string>
+    <string name="tpl_452676ab">こくばんに「%1$s」と かいてあるよ。いみを えらぼう!</string>
+    <string name="tpl_01751329">うさぎが きいたよ。「%1$s って どういう いみ?」</string>
+    <string name="tpl_98393c1b">えほんで「%1$s」を みつけたよ。どういう いみ?</string>
+    <string name="tpl_f3b29e08">きょうの たんごは「%1$s」! いみを あててみよう!</string>
+    <string name="tpl_375f518e">「%1$s」は どの え?</string>
+    <string name="tpl_ad76c0d4">えの 中から「%1$s」を さがそう!</string>
+    <string name="tpl_6dc70e58">ピヤックが「%1$s」を さがしているよ。どの え?</string>
+    <string name="tpl_a0168b2f">「%1$s」に あう えを えらぼう。</string>
+    <string name="tpl_1aa85738">この えは えいごで なに?</string>
+    <string name="tpl_b797909f">「%1$s」は えいごで?</string>
+    <string name="tpl_21a6d4b2">ピヤックに「%1$s」を えいごで おしえてあげよう!</string>
+    <string name="tpl_4002700b">ペンギンが しりたがっているよ。「%1$s」は えいごで?</string>
+    <string name="tpl_b5f5d7a9">えいごの じかん!「%1$s」の えいごを えらぼう。</string>
+    <string name="tpl_b2ecaffb">ママが きいたよ。「%1$s って えいごで なに?」</string>
+    <string name="tpl_2310939c">%1$s (%2$s)\nさいしょの もじは?</string>
+    <string name="tpl_20ff9e96">おおもじ %1$s の こもじは?</string>
+    <string name="tpl_887a7a17">%1$s の えだよ。\n%2$s の さいしょの おとは?</string>
+    <string name="tpl_02bc90d3">%1$s (%2$s)\nまんなかの ぼいんは?</string>
+    <string name="tpl_363ce10c">%1$s</string>
+
+    <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
+    <string-array name="tpl_words">
+    </string-array>
+    <string-array name="tpl_units">
+    </string-array>
+</resources>

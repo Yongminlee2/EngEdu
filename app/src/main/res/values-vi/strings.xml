@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 자동 생성: node tools/i18n/gen_strings.js — 직접 고치지 말 것 -->
+<resources>
+    <string name="app_name">Piyak English</string>
+    <string name="ask_pic_en">Hình này tiếng Anh là gì?</string>
+    <string name="listen_arrange">Nghe và sắp xếp các từ theo thứ tự</string>
+    <string name="listen_type">Nghe và gõ lại những gì bạn nghe</string>
+    <string name="play_again">🔊 Nghe lại</string>
+
+    <!-- 문제·해설 뼈대 -->
+    <string name="tpl_c8b5801d">Từ vừa nghe nghĩa là gì?</string>
+    <string name="tpl_366dec85">Câu vừa nghe nghĩa là gì?</string>
+    <string name="tpl_4d6281c4">Bạn nghe thấy gì?</string>
+    <string name="tpl_c087bfe9">Bạn nghe thấy chữ cái nào?</string>
+    <string name="tpl_018ef4e1">Trong hội thoại, \"%1$s...\" nghĩa là gì?</string>
+    <string name="tpl_a933e669">\"%1$s\" nghĩa là gì?</string>
+    <string name="tpl_e320ea2b">\"%1$s\" có nghĩa là gì nhỉ?</string>
+    <string name="tpl_12f8c41c">\"%1$s\"\nNghĩa là gì?</string>
+    <string name="tpl_55f8727e">Piyak hét lên \"%1$s!\" Nghĩa là gì?</string>
+    <string name="tpl_452676ab">Trên bảng viết \"%1$s\". Hãy chọn nghĩa của nó!</string>
+    <string name="tpl_01751329">Thỏ hỏi: \"%1$s nghĩa là gì thế?\"</string>
+    <string name="tpl_98393c1b">Bạn thấy \"%1$s\" trong truyện tranh. Nghĩa là gì?</string>
+    <string name="tpl_f3b29e08">Từ hôm nay là \"%1$s\"! Đoán nghĩa xem nào!</string>
+    <string name="tpl_375f518e">\"%1$s\" là hình nào?</string>
+    <string name="tpl_ad76c0d4">Tìm \"%1$s\" trong các hình!</string>
+    <string name="tpl_6dc70e58">Piyak đang tìm \"%1$s\". Là hình nào nhỉ?</string>
+    <string name="tpl_a0168b2f">Chọn hình phù hợp với \"%1$s\".</string>
+    <string name="tpl_1aa85738">Hình này tiếng Anh là gì?</string>
+    <string name="tpl_b797909f">\"%1$s\" tiếng Anh nói thế nào?</string>
+    <string name="tpl_21a6d4b2">Hãy chỉ cho Piyak cách nói \"%1$s\" bằng tiếng Anh!</string>
+    <string name="tpl_4002700b">Chim cánh cụt thắc mắc: \"%1$s\" tiếng Anh là gì?</string>
+    <string name="tpl_b5f5d7a9">Giờ tiếng Anh! Chọn từ tiếng Anh cho \"%1$s\".</string>
+    <string name="tpl_b2ecaffb">Mẹ hỏi: \"%1$s tiếng Anh là gì?\"</string>
+    <string name="tpl_2310939c">%1$s (%2$s)\nChữ cái đầu tiên là gì?</string>
+    <string name="tpl_20ff9e96">Chữ thường của chữ hoa %1$s là gì?</string>
+    <string name="tpl_887a7a17">Đây là hình %1$s.\nÂm đầu của %2$s là gì?</string>
+    <string name="tpl_02bc90d3">%1$s (%2$s)\nNguyên âm ở giữa là gì?</string>
+    <string name="tpl_363ce10c">%1$s</string>
+
+    <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
+    <string-array name="tpl_words">
+    </string-array>
+    <string-array name="tpl_units">
+    </string-array>
+</resources>

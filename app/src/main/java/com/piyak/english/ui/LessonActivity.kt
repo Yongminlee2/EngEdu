@@ -677,7 +677,12 @@ class LessonActivity : AppCompatActivity() {
                 }
             }
         }
-        v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
+        // "…를 영어로?" 문제의 인자는 한국어 뜻이라, 번역된 프레임에 넣어도 한국어가 샌다.
+        // 그림이 붙은 문제는 한국어를 못 읽는 폰에서 **그림 자체를 문제**로 쓴다.
+        v.findViewById<TextView>(R.id.txtPrompt).text =
+            if (q.bigArt != null && !com.piyak.english.i18n.Tpl.isKorean && artRes(q.bigArt) != 0)
+                getString(R.string.ask_pic_en)
+            else q.prompt
         // 한국 폰은 예전 그대로 한국어 글자 보기로 푼다.
         // 한국어를 못 읽는 폰에서만 같은 문제를 그림 보기로 바꿔 준다 (정답 자리는 같다).
         if (q.choiceArt.isNotEmpty() && !com.piyak.english.i18n.Tpl.isKorean) {
@@ -738,7 +743,8 @@ class LessonActivity : AppCompatActivity() {
         addArt(v, dictArt)
         v.findViewById<TextView>(R.id.txtKind).text = "✍️ 받아쓰기"
         v.findViewById<TextView>(R.id.txtPrompt).text = "들리는 대로 영어로 써 보세요"
-        if (q.hintKo != null) {
+        // 한국어 힌트는 한국 폰에서만 — 다른 언어 폰에서는 위의 그림이 힌트를 대신한다
+        if (q.hintKo != null && com.piyak.english.i18n.Tpl.isKorean) {
             v.findViewById<TextView>(R.id.txtHint).apply { visibility = View.VISIBLE; text = "힌트: ${q.hintKo}" }
         }
         val play = v.findViewById<Button>(R.id.btnPlay)
@@ -764,7 +770,18 @@ class LessonActivity : AppCompatActivity() {
             ?: artRes("ck_write")
         addArt(v, typeArt)
         v.findViewById<TextView>(R.id.txtKind).text = "✍️ 영작"
-        v.findViewById<TextView>(R.id.txtPrompt).text = q.ko
+        // 한국어를 못 읽는 폰에서는 "한국어 → 영작"이 성립하지 않는다.
+        // 대신 영어 문장을 **들려 주고 받아 적게** 한다 — 번역 없이 같은 문장을 익힌다.
+        if (com.piyak.english.i18n.Tpl.isKorean) {
+            v.findViewById<TextView>(R.id.txtPrompt).text = q.ko
+        } else {
+            v.findViewById<TextView>(R.id.txtPrompt).text = getString(R.string.listen_type)
+            val play = v.findViewById<Button>(R.id.btnPlay)
+            play.visibility = View.VISIBLE
+            play.text = getString(R.string.play_again)
+            play.setOnClickListener { tts.speak(q.answer) }
+            b.root.postDelayed({ tts.speak(q.answer) }, 350)
+        }
         val edit = v.findViewById<EditText>(R.id.editAnswer)
         edit.addTextChangedListener(SimpleWatcher { b.btnCheck.isEnabled = it.isNotBlank() })
         checkAction = {
@@ -780,7 +797,16 @@ class LessonActivity : AppCompatActivity() {
             ?: sceneArt(q.en, q.ko).takeIf { it != 0 }
             ?: artRes("ck_book")
         addArt(v, orderArt, 150)
-        v.findViewById<TextView>(R.id.txtPrompt).text = q.ko
+        // 한국어를 못 읽는 폰에서는 뜻 대신 **영어 문장을 들려 주고** 순서를 맞추게 한다.
+        // 듣기+어순 연습이 되므로 번역 없이도 문제가 성립한다. 문구를 누르면 다시 들려 준다.
+        val orderPrompt = v.findViewById<TextView>(R.id.txtPrompt)
+        if (com.piyak.english.i18n.Tpl.isKorean) {
+            orderPrompt.text = q.ko
+        } else {
+            orderPrompt.text = getString(R.string.listen_arrange)
+            orderPrompt.setOnClickListener { tts.speak(q.en) }
+            b.root.postDelayed({ tts.speak(q.en) }, 350)
+        }
         val answerFlow = v.findViewById<FlowLayout>(R.id.answerFlow)
         val bankFlow = v.findViewById<FlowLayout>(R.id.bankFlow)
 
@@ -867,7 +893,9 @@ class LessonActivity : AppCompatActivity() {
             ?: artRes("ck_speak")
         addArt(v, speakArt, 150)
         v.findViewById<TextView>(R.id.txtEn).text = q.en
-        v.findViewById<TextView>(R.id.txtKo).text = q.ko ?: ""
+        // 한국어 해석은 한국 폰에서만 — 읽을 문장(영어)은 어차피 위에 있다
+        v.findViewById<TextView>(R.id.txtKo).text =
+            if (com.piyak.english.i18n.Tpl.isKorean) q.ko ?: "" else ""
         val txtHeard = v.findViewById<TextView>(R.id.txtHeard)
         val btnMic = v.findViewById<Button>(R.id.btnMic)
         val btnSkip = v.findViewById<Button>(R.id.btnCantSpeak)

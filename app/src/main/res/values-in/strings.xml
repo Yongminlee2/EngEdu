@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 자동 생성: node tools/i18n/gen_strings.js — 직접 고치지 말 것 -->
+<resources>
+    <string name="app_name">Piyak English</string>
+    <string name="ask_pic_en">Gambar ini bahasa Inggrisnya apa?</string>
+    <string name="listen_arrange">Dengarkan lalu susun kata-katanya</string>
+    <string name="listen_type">Dengarkan lalu ketik yang kamu dengar</string>
+    <string name="play_again">🔊 Putar lagi</string>
+
+    <!-- 문제·해설 뼈대 -->
+    <string name="tpl_c8b5801d">Apa arti kata yang kamu dengar?</string>
+    <string name="tpl_366dec85">Apa arti kalimat yang kamu dengar?</string>
+    <string name="tpl_4d6281c4">Apa yang kamu dengar?</string>
+    <string name="tpl_c087bfe9">Huruf apa yang kamu dengar?</string>
+    <string name="tpl_018ef4e1">Dalam dialog, apa arti \"%1$s...\"?</string>
+    <string name="tpl_a933e669">Apa arti \"%1$s\"?</string>
+    <string name="tpl_e320ea2b">Kira-kira apa arti \"%1$s\"?</string>
+    <string name="tpl_12f8c41c">\"%1$s\"\nApa artinya?</string>
+    <string name="tpl_55f8727e">Piyak berteriak \"%1$s!\" Apa artinya?</string>
+    <string name="tpl_452676ab">Di papan tertulis \"%1$s\". Pilih artinya!</string>
+    <string name="tpl_01751329">Kelinci bertanya, \"Apa arti %1$s?\"</string>
+    <string name="tpl_98393c1b">Kamu melihat \"%1$s\" di buku bergambar. Apa artinya?</string>
+    <string name="tpl_f3b29e08">Kata hari ini \"%1$s\"! Bisa tebak artinya?</string>
+    <string name="tpl_375f518e">Gambar mana yang \"%1$s\"?</string>
+    <string name="tpl_ad76c0d4">Cari \"%1$s\" di antara gambar-gambar!</string>
+    <string name="tpl_6dc70e58">Piyak sedang mencari \"%1$s\". Gambar yang mana ya?</string>
+    <string name="tpl_a0168b2f">Pilih gambar yang cocok dengan \"%1$s\".</string>
+    <string name="tpl_1aa85738">Gambar ini bahasa Inggrisnya apa?</string>
+    <string name="tpl_b797909f">Bagaimana mengatakan \"%1$s\" dalam bahasa Inggris?</string>
+    <string name="tpl_21a6d4b2">Beritahu Piyak cara mengatakan \"%1$s\" dalam bahasa Inggris!</string>
+    <string name="tpl_4002700b">Penguin penasaran: apa bahasa Inggrisnya \"%1$s\"?</string>
+    <string name="tpl_b5f5d7a9">Waktunya bahasa Inggris! Pilih kata Inggris untuk \"%1$s\".</string>
+    <string name="tpl_b2ecaffb">Ibu bertanya, \"Apa bahasa Inggrisnya %1$s?\"</string>
+    <string name="tpl_2310939c">%1$s (%2$s)\nApa huruf pertamanya?</string>
+    <string name="tpl_20ff9e96">Apa huruf kecil dari huruf besar %1$s?</string>
+    <string name="tpl_887a7a17">Ini gambar %1$s.\nApa bunyi pertama dari %2$s?</string>
+    <string name="tpl_02bc90d3">%1$s (%2$s)\nApa vokal di tengahnya?</string>
+    <string name="tpl_363ce10c">%1$s</string>
+
+    <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
+    <string-array name="tpl_words">
+    </string-array>
+    <string-array name="tpl_units">
+    </string-array>
+</resources>

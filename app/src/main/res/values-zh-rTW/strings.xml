@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 자동 생성: node tools/i18n/gen_strings.js — 직접 고치지 말 것 -->
+<resources>
+    <string name="app_name">啾啾英语</string>
+    <string name="ask_pic_en">這張圖用英语怎麼说?</string>
+    <string name="listen_arrange">聽一聽，把單词按順序排好</string>
+    <string name="listen_type">聽一聽，把聽到的用英语寫下來</string>
+    <string name="play_again">🔊 再聽一遍</string>
+
+    <!-- 문제·해설 뼈대 -->
+    <string name="tpl_c8b5801d">聽到的單词是什麼意思?</string>
+    <string name="tpl_366dec85">聽到的句子是什麼意思?</string>
+    <string name="tpl_4d6281c4">你聽到了什麼?</string>
+    <string name="tpl_c087bfe9">你聽到了哪個字母?</string>
+    <string name="tpl_018ef4e1">對话中 \"%1$s...\" 這句话是什麼意思?</string>
+    <string name="tpl_a933e669">\"%1$s\" 是什麼意思?</string>
+    <string name="tpl_e320ea2b">\"%1$s\" 是什麼意思呢?</string>
+    <string name="tpl_12f8c41c">\"%1$s\"\n是什麼意思?</string>
+    <string name="tpl_55f8727e">啾啾喊了一声 \"%1$s!\"。是什麼意思?</string>
+    <string name="tpl_452676ab">黑板上寫著 \"%1$s\"。選出它的意思吧!</string>
+    <string name="tpl_01751329">兔子問: \"%1$s 是什麼意思呀?\"</string>
+    <string name="tpl_98393c1b">你在圖畫書裡看到了 \"%1$s\"。是什麼意思?</string>
+    <string name="tpl_f3b29e08">今天的單词是 \"%1$s\"! 猜猜它的意思吧!</string>
+    <string name="tpl_375f518e">\"%1$s\" 是哪張圖?</string>
+    <string name="tpl_ad76c0d4">在圖片中找出 \"%1$s\" 吧!</string>
+    <string name="tpl_6dc70e58">啾啾在找 \"%1$s\"。是哪張圖呢?</string>
+    <string name="tpl_a0168b2f">選出和 \"%1$s\" 相配的圖。</string>
+    <string name="tpl_1aa85738">這張圖用英语怎麼说?</string>
+    <string name="tpl_b797909f">\"%1$s\" 用英语怎麼说?</string>
+    <string name="tpl_21a6d4b2">告诉啾啾 \"%1$s\" 的英语说法吧!</string>
+    <string name="tpl_4002700b">企鵝很好奇: \"%1$s\" 的英语是什麼?</string>
+    <string name="tpl_b5f5d7a9">英语時間! 選出 \"%1$s\" 的英语。</string>
+    <string name="tpl_b2ecaffb">妈妈問: \"%1$s 用英语怎麼说?\"</string>
+    <string name="tpl_2310939c">%1$s (%2$s)\n第一個字母是什麼?</string>
+    <string name="tpl_20ff9e96">大寫 %1$s 的小寫是什麼?</string>
+    <string name="tpl_887a7a17">這是%1$s的圖。\n%2$s 的第一個音是什麼?</string>
+    <string name="tpl_02bc90d3">%1$s (%2$s)\n中間的元音是什麼?</string>
+    <string name="tpl_363ce10c">%1$s</string>
+
+    <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
+    <string-array name="tpl_words">
+    </string-array>
+    <string-array name="tpl_units">
+    </string-array>
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 자동 생성: node tools/i18n/gen_strings.js — 직접 고치지 말 것 -->
+<resources>
+    <string name="app_name">Piyak English</string>
+    <string name="ask_pic_en">รูปนี้ภาษาอังกฤษเรียกว่าอะไร?</string>
+    <string name="listen_arrange">ฟังแล้วเรียงคำตามลำดับ</string>
+    <string name="listen_type">ฟังแล้วพิมพ์สิ่งที่ได้ยิน</string>
+    <string name="play_again">🔊 ฟังอีกครั้ง</string>
+
+    <!-- 문제·해설 뼈대 -->
+    <string name="tpl_c8b5801d">คำที่ได้ยินแปลว่าอะไร?</string>
+    <string name="tpl_366dec85">ประโยคที่ได้ยินแปลว่าอะไร?</string>
+    <string name="tpl_4d6281c4">ได้ยินอะไร?</string>
+    <string name="tpl_c087bfe9">ได้ยินตัวอักษรตัวไหน?</string>
+    <string name="tpl_018ef4e1">ในบทสนทนา \"%1$s...\" หมายความว่าอะไร?</string>
+    <string name="tpl_a933e669">\"%1$s\" แปลว่าอะไร?</string>
+    <string name="tpl_e320ea2b">\"%1$s\" หมายความว่าอย่างไรนะ?</string>
+    <string name="tpl_12f8c41c">\"%1$s\"\nแปลว่าอะไร?</string>
+    <string name="tpl_55f8727e">พียัคตะโกนว่า \"%1$s!\" หมายความว่าอะไร?</string>
+    <string name="tpl_452676ab">บนกระดานเขียนว่า \"%1$s\" เลือกความหมายกัน!</string>
+    <string name="tpl_01751329">กระต่ายถามว่า \"%1$s แปลว่าอะไรเหรอ?\"</string>
+    <string name="tpl_98393c1b">เจอคำว่า \"%1$s\" ในหนังสือภาพ แปลว่าอะไร?</string>
+    <string name="tpl_f3b29e08">คำวันนี้คือ \"%1$s\"! ทายความหมายดูสิ!</string>
+    <string name="tpl_375f518e">\"%1$s\" คือรูปไหน?</string>
+    <string name="tpl_ad76c0d4">หา \"%1$s\" จากรูปภาพ!</string>
+    <string name="tpl_6dc70e58">พียัคกำลังหา \"%1$s\" คือรูปไหนนะ?</string>
+    <string name="tpl_a0168b2f">เลือกรูปที่เข้ากับ \"%1$s\"</string>
+    <string name="tpl_1aa85738">รูปนี้ภาษาอังกฤษเรียกว่าอะไร?</string>
+    <string name="tpl_b797909f">\"%1$s\" ภาษาอังกฤษพูดว่าอย่างไร?</string>
+    <string name="tpl_21a6d4b2">บอกพียัคหน่อยว่า \"%1$s\" ภาษาอังกฤษพูดว่าอะไร!</string>
+    <string name="tpl_4002700b">เพนกวินสงสัยว่า \"%1$s\" ภาษาอังกฤษคืออะไร?</string>
+    <string name="tpl_b5f5d7a9">ชั่วโมงภาษาอังกฤษ! เลือกคำภาษาอังกฤษของ \"%1$s\"</string>
+    <string name="tpl_b2ecaffb">แม่ถามว่า \"%1$s ภาษาอังกฤษว่าอะไร?\"</string>
+    <string name="tpl_2310939c">%1$s (%2$s)\nตัวอักษรตัวแรกคืออะไร?</string>
+    <string name="tpl_20ff9e96">ตัวพิมพ์เล็กของ %1$s คืออะไร?</string>
+    <string name="tpl_887a7a17">นี่คือรูป %1$s\nเสียงแรกของ %2$s คืออะไร?</string>
+    <string name="tpl_02bc90d3">%1$s (%2$s)\nสระตรงกลางคืออะไร?</string>
+    <string name="tpl_363ce10c">%1$s</string>
+
+    <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
+    <string-array name="tpl_words">
+    </string-array>
+    <string-array name="tpl_units">
+    </string-array>
+</resources>

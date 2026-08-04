@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 자동 생성: node tools/i18n/gen_strings.js — 직접 고치지 말 것 -->
+<resources>
+    <string name="app_name">삐약영어</string>
+    <string name="ask_pic_en">이 그림은 영어로 무엇일까요?</string>
+    <string name="listen_arrange">듣고 순서대로 배열해 보세요</string>
+    <string name="listen_type">듣고 영어로 써 보세요</string>
+    <string name="play_again">🔊 다시 듣기</string>
+</resources>

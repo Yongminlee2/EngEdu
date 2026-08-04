@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 자동 생성: node tools/i18n/gen_strings.js — 직접 고치지 말 것 -->
+<resources>
+    <string name="app_name">Piyak English</string>
+    <string name="ask_pic_en">Comment dit-on cette image en anglais ?</string>
+    <string name="listen_arrange">Écoute et mets les mots dans l\'ordre</string>
+    <string name="listen_type">Écoute et écris ce que tu entends</string>
+    <string name="play_again">🔊 Réécouter</string>
+
+    <!-- 문제·해설 뼈대 -->
+    <string name="tpl_c8b5801d">Que veut dire le mot entendu ?</string>
+    <string name="tpl_366dec85">Que veut dire la phrase entendue ?</string>
+    <string name="tpl_4d6281c4">Qu\'as-tu entendu ?</string>
+    <string name="tpl_c087bfe9">Quelle lettre as-tu entendue ?</string>
+    <string name="tpl_018ef4e1">Dans le dialogue, que veut dire « %1$s... » ?</string>
+    <string name="tpl_a933e669">Que veut dire « %1$s » ?</string>
+    <string name="tpl_e320ea2b">Que peut bien vouloir dire « %1$s » ?</string>
+    <string name="tpl_12f8c41c">« %1$s »\nQue veut-elle dire ?</string>
+    <string name="tpl_55f8727e">Piyak a crié « %1$s ! ». Qu\'est-ce que ça veut dire ?</string>
+    <string name="tpl_452676ab">« %1$s » est écrit au tableau. Choisis son sens !</string>
+    <string name="tpl_01751329">Le lapin a demandé : « Que veut dire %1$s ? »</string>
+    <string name="tpl_98393c1b">Tu as vu « %1$s » dans un livre d\'images. Que veut-il dire ?</string>
+    <string name="tpl_f3b29e08">Le mot du jour est « %1$s » ! Devine son sens !</string>
+    <string name="tpl_375f518e">Quelle image est « %1$s » ?</string>
+    <string name="tpl_ad76c0d4">Trouve « %1$s » parmi les images !</string>
+    <string name="tpl_6dc70e58">Piyak cherche « %1$s ». Quelle image est-ce ?</string>
+    <string name="tpl_a0168b2f">Choisis l\'image qui correspond à « %1$s ».</string>
+    <string name="tpl_1aa85738">Comment dit-on cette image en anglais ?</string>
+    <string name="tpl_b797909f">Comment dit-on « %1$s » en anglais ?</string>
+    <string name="tpl_21a6d4b2">Dis à Piyak comment dire « %1$s » en anglais !</string>
+    <string name="tpl_4002700b">Le pingouin se demande : comment dit-on « %1$s » en anglais ?</string>
+    <string name="tpl_b5f5d7a9">C\'est l\'heure d\'anglais ! Choisis le mot anglais pour « %1$s ».</string>
+    <string name="tpl_b2ecaffb">Maman a demandé : « Comment dit-on %1$s en anglais ? »</string>
+    <string name="tpl_2310939c">%1$s (%2$s)\nQuelle est la première lettre ?</string>
+    <string name="tpl_20ff9e96">Quelle est la minuscule de la majuscule %1$s ?</string>
+    <string name="tpl_887a7a17">C\'est une image de %1$s.\nQuel est le premier son de %2$s ?</string>
+    <string name="tpl_02bc90d3">%1$s (%2$s)\nQuelle est la voyelle du milieu ?</string>
+    <string name="tpl_363ce10c">%1$s</string>
+
+    <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
+    <string-array name="tpl_words">
+    </string-array>
+    <string-array name="tpl_units">
+    </string-array>
+</resources>

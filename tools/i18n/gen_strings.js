@@ -130,14 +130,19 @@ for (const key of Object.keys(tplKo)) {
   }
 }
 
+// 번역은 원문 자리값의 **부분집합**만 쓰면 된다.
+// 빈칸 예문처럼 한국어 해석 줄(%2$s)을 일부러 떨어뜨리는 번역이 있다 —
+// 없는 자리를 쓰는 것만 사고다 (안드로이드 getString 은 남는 인자를 무시한다).
 for (const [key, byLang] of Object.entries(tplTr)) {
   const src = tplKo[key];
   if (!src) { console.log(`  ⚠ 없는 뼈대: ${key}`); bad++; continue; }
-  const want = slots(src.ko);
+  const srcSlots = new Set(src.ko.match(/%\d+\$s/g) || []);
   for (const [lg, v] of Object.entries(byLang)) {
-    if (slots(v) !== want) {
-      console.log(`  ⚠ ${key}(${lg}) 자리값 ${slots(v)}개 — 원문은 ${want}개`);
-      bad++;
+    for (const slot of v.match(/%\d+\$s/g) || []) {
+      if (!srcSlots.has(slot)) {
+        console.log(`  ⚠ ${key}(${lg}) 원문에 없는 자리값 ${slot}`);
+        bad++;
+      }
     }
   }
 }

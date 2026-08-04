@@ -21,8 +21,15 @@ const crypto = require("crypto");
 const DIR = path.join(__dirname, "..");
 const FILES = ["gen.js", "gen_elem_english.js"];
 
-/** 문제를 만드는 함수 → 문제문이 몇 번째 인자인지 (0부터) */
-const PROMPT_SLOT = { mcq: 1, listenMcq: 2 };
+/**
+ * 파일마다 같은 이름의 빌더가 **인자 순서가 다르다.**
+ *   gen.js              : mcq(prefix, prompt, …)  listenMcq(prefix, tts, prompt, …)
+ *   gen_elem_english.js : mcq(prompt, …)          listenMcq(tts, prompt, …)
+ */
+const PROMPT_SLOT_BY_FILE = {
+  "gen.js": { mcq: 1, listenMcq: 2 },
+  "gen_elem_english.js": { mcq: 0, listenMcq: 1 },
+};
 
 const BT = String.fromCharCode(96);
 const WRITE = process.argv.includes("--write");
@@ -113,6 +120,14 @@ for (const f of FILES) {
   if (!fs.existsSync(p)) continue;
   let src = fs.readFileSync(p, "utf8");
   const edits = [];
+  const PROMPT_SLOT = PROMPT_SLOT_BY_FILE[f] || {};
+
+  /**
+   * 이 위치의 템플릿이 **이미 tp(...) 안에 있는지** — 우리가 감싼 모양 그대로를 본다.
+   * 이 검사가 없으면 두 번째 실행에서 tp(tp(...)) 로 이중 포장된다 (실제로 났던 사고).
+   */
+  const alreadyWrapped = (i) =>
+    /tp\("[0-9a-f]{8}",\s*\[[^\]]*\],\s*$/.test(src.slice(Math.max(0, i - 120), i));
 
   const call = new RegExp("\\b(" + Object.keys(PROMPT_SLOT).join("|") + ")\\s*\\(", "g");
   let m;
@@ -148,6 +163,26 @@ for (const f of FILES) {
     nWrapped++;
   }
 
+  // ---- 객체 리터럴의 prompt: 필드 ----
+  // listen_dialog 처럼 빌더 없이 validate({ prompt: `...` }) 로 만드는 문제용.
+  // 감싼 뒤에는 필드값이 tp( 로 시작하므로(백틱이 아님) 자연히 다시 안 잡힌다.
+  const pf = /\bprompt:\s*/g;
+  let pm;
+  while ((pm = pf.exec(src))) {
+    const a0 = pm.index + pm[0].length;
+    if (src[a0] !== BT) continue;
+    const end = skipTemplate(src, a0);
+    const text = src.slice(a0, end);
+    if (!/[가-힣]/.test(text)) { pf.lastIndex = end; continue; }
+    const { skeleton, exprs } = toSkeleton(text);
+    const key = keyOf(skeleton);
+    if (manifest[key]) manifest[key].n++;
+    else manifest[key] = { ko: skeleton, args: exprs.length, n: 1 };
+    edits.push([a0, end, `tp("${key}", [${exprs.join(", ")}], ${text})`]);
+    nWrapped++;
+    pf.lastIndex = end;
+  }
+
   // ---- 문제문 모음 배열도 훑는다 ----
   // 대부분의 문제문은 `scenePick(key, SCENE_MEAN)(w)` 처럼 **배열에 담긴 화살표 함수**라
   // 호출 자리에서는 안 보인다. SCENE_* / PROMPT_* 배열 안의 템플릿을 직접 감싼다.
@@ -163,7 +198,7 @@ for (const f of FILES) {
       if (c === BT) {
         const end = skipTemplate(src, i);
         const text = src.slice(i, end);
-        if (/[가-힣]/.test(text)) {
+        if (/[가-힣]/.test(text) && !alreadyWrapped(i)) {
           const { skeleton, exprs } = toSkeleton(text);
           const key = keyOf(skeleton);
           if (manifest[key]) manifest[key].n++;
@@ -189,8 +224,12 @@ for (const f of FILES) {
 
 console.log(`\n감싼 문제문 ${nWrapped}곳 / 뼈대 ${Object.keys(manifest).length}종 · 통짜가 아니라 건너뜀 ${nSkipped}곳`);
 if (WRITE) {
-  fs.writeFileSync(path.join(__dirname, "templates.json"), JSON.stringify(manifest, null, 1), "utf8");
-  console.log("→ tools/i18n/templates.json 저장");
+  // 이전 실행에서 이미 감싼 뼈대는 이번 manifest 에 없다 —
+  // 기존 파일과 **합쳐서** 저장해야 목록이 줄어들지 않는다.
+  const out = path.join(__dirname, "templates.json");
+  const prev = fs.existsSync(out) ? JSON.parse(fs.readFileSync(out, "utf8")) : {};
+  fs.writeFileSync(out, JSON.stringify({ ...prev, ...manifest }, null, 1), "utf8");
+  console.log(`→ templates.json 저장 (기존 ${Object.keys(prev).length} + 신규 ${Object.keys(manifest).length})`);
 } else {
   console.log("(미리보기입니다. 실제로 고치려면 --write)");
 }
