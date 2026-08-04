@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.piyak.english.R
 import com.piyak.english.db.Db
 import com.piyak.english.model.ContentRepo
 
@@ -24,7 +25,7 @@ class StageActivity : AppCompatActivity() {
 
     /** 카드 한 장: 이모지, 제목, 부제, 눌렀을 때 (트랙 id, 레벨범위) 또는 특수 화면 */
     private data class Entry(
-        val emoji: String, val title: String, val sub: String,
+        val emoji: String, val title: Int, val sub: Int,
         val color: String,
         val track: String? = null, val lvMin: Int = 0, val lvMax: Int = 99,
         val special: String? = null,   // "alphabet" | "playground"
@@ -33,39 +34,39 @@ class StageActivity : AppCompatActivity() {
     )
 
     private fun entriesFor(stage: String): Pair<String, List<Entry>> = when (stage) {
-        "kinder" -> "🐣 유치원 영어" to listOf(
-            Entry("✏️", "알파벳 쓰기", "A부터 Z까지 손으로 그려요", "#FFF3D6", special = "alphabet", art = "ck_write"),
-            Entry("🐣", "초등영어 첫걸음", "파닉스 · 그림낱말 · 문장", "#E8F6EA", track = "elem", art = "stage_kinder"),
-            Entry("🎠", "놀이터", "풍선 터뜨리기 · 담기 · 선 잇기", "#E3F4FD", special = "playground", art = "scene_park"),
+        "kinder" -> "🐣 " + getString(R.string.stage_kinder) to listOf(
+            Entry("✏️", R.string.st_alpha, R.string.st_alpha_sub, "#FFF3D6", special = "alphabet", art = "ck_write"),
+            Entry("🐣", R.string.st_first, R.string.st_first_sub, "#E8F6EA", track = "elem", art = "stage_kinder"),
+            Entry("🎠", R.string.st_play, R.string.st_play_sub, "#E3F4FD", special = "playground", art = "scene_park"),
         )
-        "elementary" -> "📗 초등 영어" to listOf(
-            Entry("🐣", "초등영어 코스", "알파벳부터 문장까지 놀면서", "#E8F6EA", track = "elem", art = "stage_elementary"),
-            Entry("1️⃣", "기초 · 초등 1~2학년", "첫 단어와 인사", "#FFF3D6", track = "basic", lvMin = 1, lvMax = 1, art = "scene_greeting"),
-            Entry("3️⃣", "기초 · 초등 3~4학년", "일상 단어와 짧은 문장", "#FFE9CF", track = "basic", lvMin = 2, lvMax = 2, art = "scene_home"),
-            Entry("5️⃣", "기초 · 초등 5~6학년", "문장 만들기가 익숙해져요", "#FDE2E2", track = "basic", lvMin = 3, lvMax = 3, art = "word_pencil"),
+        "elementary" -> "📗 " + getString(R.string.stage_elem) to listOf(
+            Entry("🐣", R.string.st_elem_course, R.string.st_elem_course_sub, "#E8F6EA", track = "elem", art = "stage_elementary"),
+            Entry("1️⃣", R.string.st_g12, R.string.st_g12_sub, "#FFF3D6", track = "basic", lvMin = 1, lvMax = 1, art = "scene_greeting"),
+            Entry("3️⃣", R.string.st_g34, R.string.st_g34_sub, "#FFE9CF", track = "basic", lvMin = 2, lvMax = 2, art = "scene_home"),
+            Entry("5️⃣", R.string.st_g56, R.string.st_g56_sub, "#FDE2E2", track = "basic", lvMin = 3, lvMax = 3, art = "word_pencil"),
         )
-        "middle" -> "📘 중등 · 고등 영어" to listOf(
-            Entry("🌱", "기초 · 중학 1학년", "", "#E8F6EA", track = "basic", lvMin = 4, lvMax = 4, art = "scene_school"),
-            Entry("🌿", "기초 · 중학 2학년", "", "#DFF2E5", track = "basic", lvMin = 5, lvMax = 5, art = "word_book"),
-            Entry("🍀", "기초 · 중학 3학년", "", "#D5EEDC", track = "basic", lvMin = 6, lvMax = 6, art = "ck_think"),
-            Entry("🌳", "기초 · 고등 1학년", "", "#E3F4FD", track = "basic", lvMin = 7, lvMax = 7, art = "word_test"),
-            Entry("🌲", "기초 · 고등 2~3학년", "", "#DBEEFB", track = "basic", lvMin = 8, lvMax = 8, art = "word_graduate"),
-            Entry("📖", "문법 집중", "규칙을 확실하게", "#F3EDFB", track = "grammar", art = "ck_book"),
-            Entry("📚", "독해 집중", "지문 읽고 답하기", "#EFE6FA", track = "reading", art = "scene_library"),
+        "middle" -> "📘 " + getString(R.string.stage_middle) to listOf(
+            Entry("🌱", R.string.st_m1, 0, "#E8F6EA", track = "basic", lvMin = 4, lvMax = 4, art = "scene_school"),
+            Entry("🌿", R.string.st_m2, 0, "#DFF2E5", track = "basic", lvMin = 5, lvMax = 5, art = "word_book"),
+            Entry("🍀", R.string.st_m3, 0, "#D5EEDC", track = "basic", lvMin = 6, lvMax = 6, art = "ck_think"),
+            Entry("🌳", R.string.st_h1, 0, "#E3F4FD", track = "basic", lvMin = 7, lvMax = 7, art = "word_test"),
+            Entry("🌲", R.string.st_h23, 0, "#DBEEFB", track = "basic", lvMin = 8, lvMax = 8, art = "word_graduate"),
+            Entry("📖", R.string.st_grammar, R.string.st_grammar_sub, "#F3EDFB", track = "grammar", art = "ck_book"),
+            Entry("📚", R.string.st_reading, R.string.st_reading_sub, "#EFE6FA", track = "reading", art = "scene_library"),
         )
-        "adult" -> "✈️ 성인 · 실전 영어" to listOf(
-            Entry("💼", "기초 · 성인 중급", "", "#FFF3D6", track = "basic", lvMin = 9, lvMax = 9, art = "scene_office"),
-            Entry("🎓", "기초 · 고급", "", "#FFE9CF", track = "basic", lvMin = 10, lvMax = 10, art = "word_graduate"),
-            Entry("✈️", "일상 · 여행 회화", "혼자 여행 가서 써먹기", "#E3F4FD", track = "daily", art = "scene_travel"),
-            Entry("📊", "토익", "파트별 실전 연습", "#E8F6EA", track = "toeic", art = "word_test"),
-            Entry("🏛", "토플", "아카데믹 영어", "#F3EDFB", track = "toefl", art = "scene_school"),
+        "adult" -> "✈️ " + getString(R.string.stage_adult) to listOf(
+            Entry("💼", R.string.st_adult_mid, 0, "#FFF3D6", track = "basic", lvMin = 9, lvMax = 9, art = "scene_office"),
+            Entry("🎓", R.string.st_adult_adv, 0, "#FFE9CF", track = "basic", lvMin = 10, lvMax = 10, art = "word_graduate"),
+            Entry("✈️", R.string.st_travel, R.string.st_travel_sub, "#E3F4FD", track = "daily", art = "scene_travel"),
+            Entry("📊", R.string.st_toeic, R.string.st_toeic_sub, "#E8F6EA", track = "toeic", art = "word_test"),
+            Entry("🏛", R.string.st_toefl, R.string.st_toefl_sub, "#F3EDFB", track = "toefl", art = "scene_school"),
         )
-        else -> "🎯 영역별 훈련" to listOf(
-            Entry("🎧", "듣기", "귀가 뚫리는 연습", "#E3F4FD", track = "listening", art = "ck_listen"),
-            Entry("🎤", "말하기", "소리 내어 따라 하기", "#FDE2E2", track = "speaking", art = "ck_speak"),
-            Entry("✍️", "쓰기", "받아쓰기와 영작", "#E8F6EA", track = "writing", art = "ck_write"),
-            Entry("📖", "문법", "규칙 다지기", "#F3EDFB", track = "grammar", art = "ck_book"),
-            Entry("📚", "독해", "읽고 이해하기", "#FFF3D6", track = "reading", art = "scene_library"),
+        else -> "🎯 " + getString(R.string.stage_skills) to listOf(
+            Entry("🎧", R.string.sk_listen, R.string.st_listen_sub, "#E3F4FD", track = "listening", art = "ck_listen"),
+            Entry("🎤", R.string.sk_speak, R.string.st_speak_sub, "#FDE2E2", track = "speaking", art = "ck_speak"),
+            Entry("✍️", R.string.sk_write, R.string.st_write_sub, "#E8F6EA", track = "writing", art = "ck_write"),
+            Entry("📖", R.string.sk_grammar, R.string.st_gram_sub, "#F3EDFB", track = "grammar", art = "ck_book"),
+            Entry("📚", R.string.sk_read, R.string.st_read_sub, "#FFF3D6", track = "reading", art = "scene_library"),
         )
     }
 
@@ -129,7 +130,7 @@ class StageActivity : AppCompatActivity() {
                     val units = t.units.filter { it.level in e.lvMin..e.lvMax }
                     val total = units.sumOf { it.lessons.size }
                     val d = units.sumOf { u -> u.lessons.count { it.id in done } }
-                    if (total > 0) progress = "$d / $total 레슨"
+                    if (total > 0) progress = getString(R.string.stage_progress, d, total)
                 }
             }
 
@@ -157,7 +158,7 @@ class StageActivity : AppCompatActivity() {
                                 .putExtra("track", e.track)
                                 .putExtra("lvMin", e.lvMin)
                                 .putExtra("lvMax", e.lvMax)
-                                .putExtra("stageTitle", e.title)
+                                .putExtra("stageTitle", getString(e.title))
                         )
                     }
                 }
@@ -190,12 +191,13 @@ class StageActivity : AppCompatActivity() {
                 setPadding(dp(14), 0, 0, 0)
             }
             col.addView(TextView(this).apply {
-                text = e.title
+                text = getString(e.title)
                 textSize = 17f
                 setTypeface(typeface, android.graphics.Typeface.BOLD)
                 setTextColor(Color.parseColor("#4E342E"))
             })
-            val subLine = listOf(e.sub, progress).filter { it.isNotEmpty() }.joinToString("  ·  ")
+            val subLine = listOf(if (e.sub != 0) getString(e.sub) else "", progress)
+                .filter { it.isNotEmpty() }.joinToString("  ·  ")
             if (subLine.isNotEmpty()) col.addView(TextView(this).apply {
                 text = subLine
                 textSize = 13f
