@@ -215,7 +215,7 @@ class MainActivity : AppCompatActivity() {
             textSize = 14f
             maxLines = 1
             ellipsize = android.text.TextUtils.TruncateAt.END
-            layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.3f)
+            layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.7f)
         })
         row.addView(TextView(this).apply {
             text = "Lv.${st.level}"
