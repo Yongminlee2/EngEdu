@@ -1155,13 +1155,13 @@ class LessonActivity : AppCompatActivity() {
         for (st in states) {
             val before = startSkillLevels[st.def.id] ?: 0
             if (st.level > before) {
-                sb.append("\n\n" + getString(R.string.result_skill_up, st.def.emoji, st.def.title, st.level))
+                sb.append("\n\n" + getString(R.string.result_skill_up, st.def.emoji, getString(st.def.titleRes), st.level))
             }
         }
         val overall = com.piyak.english.engine.Skills.overallLevel(states)
         val rank = com.piyak.english.engine.Ranks.of(overall)
-        if (startRank != null && rank.title != startRank!!.title) {
-            sb.append("\n\n" + getString(R.string.result_rank_up, rank.emoji, rank.title))
+        if (startRank != null && rank.titleRes != startRank!!.titleRes) {
+            sb.append("\n\n" + getString(R.string.result_rank_up, rank.emoji, getString(rank.titleRes)))
         }
         val goal = db.dailyGoal()
         val todayXp = db.xpToday()
@@ -1206,7 +1206,7 @@ class LessonActivity : AppCompatActivity() {
         val newly = Badges.check(snap, db.earnedBadges())
         for (bd in newly) {
             db.earnBadge(bd.id)
-            Toast.makeText(this, getString(R.string.badge_earned, bd.emoji, bd.title), Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.badge_earned, bd.emoji, getString(bd.titleRes)), Toast.LENGTH_LONG).show()
         }
     }
 

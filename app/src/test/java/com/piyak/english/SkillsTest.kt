@@ -65,11 +65,11 @@ class SkillsTest {
     }
 
     @Test fun ranksProgressWithOverallLevel() {
-        assertEquals("알 속의 새싹", Ranks.of(0f).title)
-        assertEquals("삐약이", Ranks.of(1.5f).title)
-        assertEquals("영어 마스터", Ranks.of(10f).title)
+        assertEquals("🥚", Ranks.of(0f).emoji)
+        assertEquals("🐥", Ranks.of(1.5f).emoji)
+        assertEquals("👑", Ranks.of(10f).emoji)
         // 다음 칭호와 진행률
-        assertEquals("갓 깬 병아리", Ranks.next(0f)!!.title)
+        assertEquals("🐣", Ranks.next(0f)!!.emoji)
         assertTrue(Ranks.next(10f) == null)
         assertEquals(0f, Ranks.progress(0f), 0.001f)
         assertEquals(1f, Ranks.progress(10f), 0.001f)

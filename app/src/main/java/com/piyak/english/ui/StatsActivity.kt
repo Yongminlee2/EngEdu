@@ -60,8 +60,8 @@ class StatsActivity : AppCompatActivity() {
         val overall = com.piyak.english.engine.Skills.overallLevel(states)
         val rank = com.piyak.english.engine.Ranks.of(overall)
         val next = com.piyak.english.engine.Ranks.next(overall)
-        b.txtRankLine.text = String.format("%s %s · 종합 Lv.%.1f", rank.emoji, rank.title, overall) +
-            if (next != null) "  (다음: ${next.title} Lv.${next.minOverall})" else "  (최고 칭호!)"
+        b.txtRankLine.text = String.format("%s %s · 종합 Lv.%.1f", rank.emoji, getString(rank.titleRes), overall) +
+            if (next != null) "  (다음: ${getString(next.titleRes)} Lv.${next.minOverall})" else "  (최고 칭호!)"
 
         b.skillDetailBox.removeAllViews()
         for (st in states) {
@@ -74,7 +74,7 @@ class StatsActivity : AppCompatActivity() {
                 ).apply { topMargin = dp(6) }
             }
             box.addView(TextView(this).apply {
-                text = "${st.def.emoji} ${st.def.title}   Lv.${st.level}"
+                text = "${st.def.emoji} ${getString(st.def.titleRes)}   Lv.${st.level}"
                 textSize = 16f
                 setTypeface(typeface, android.graphics.Typeface.BOLD)
             })
@@ -151,13 +151,13 @@ class StatsActivity : AppCompatActivity() {
             }
             box.addView(TextView(this).apply { text = bd.emoji; textSize = 30f; gravity = Gravity.CENTER })
             box.addView(TextView(this).apply {
-                text = bd.title; textSize = 12f; gravity = Gravity.CENTER
+                text = getString(bd.titleRes); textSize = 12f; gravity = Gravity.CENTER
                 setTypeface(typeface, android.graphics.Typeface.BOLD)
                 maxLines = 1
                 ellipsize = android.text.TextUtils.TruncateAt.END
             })
             box.addView(TextView(this).apply {
-                text = bd.desc; textSize = 10.5f; gravity = Gravity.CENTER
+                text = getString(bd.descRes); textSize = 10.5f; gravity = Gravity.CENTER
                 setTextColor(Color.parseColor("#8D6E63"))
                 maxLines = 2
                 ellipsize = android.text.TextUtils.TruncateAt.END
