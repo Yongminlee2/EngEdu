@@ -43,10 +43,10 @@ class WalletActivity : AppCompatActivity() {
     }
 
     private fun refresh() {
-        b.txtBalance.text = Wallet.format(db.coins())
+        b.txtBalance.text = Wallet.format(this@WalletActivity, db.coins())
         b.txtSummary.text =
-            "지금까지 모은 돈 ${Wallet.format(db.coinsEarned())}\n" +
-                "상점에서 쓴 돈 ${Wallet.format(db.coinsSpent())} · 현금으로 받은 돈 ${Wallet.format(db.coinsPaidOut())}"
+            "지금까지 모은 돈 ${Wallet.format(this@WalletActivity, db.coinsEarned())}\n" +
+                "상점에서 쓴 돈 ${Wallet.format(this@WalletActivity, db.coinsSpent())} · 현금으로 받은 돈 ${Wallet.format(this@WalletActivity, db.coinsPaidOut())}"
         buildShop()
         buildLog()
     }
@@ -150,7 +150,7 @@ class WalletActivity : AppCompatActivity() {
                     setOnClickListener { equip(item) }
                 }
                 else -> {
-                    text = Wallet.format(item.price)
+                    text = Wallet.format(this@WalletActivity, item.price)
                     val affordable = db.coins() >= item.price
                     setBackgroundColorTint(if (affordable) "#FFD54F" else "#EDE7E0")
                     setTextColor(Color.parseColor("#4E342E"))
@@ -169,14 +169,14 @@ class WalletActivity : AppCompatActivity() {
     private fun buy(item: ShopItem) {
         if (db.coins() < item.price) {
             Toast.makeText(
-                this, "용돈이 ${Wallet.format(item.price - db.coins())} 모자라요. 문제를 더 풀어 봐요! 🐥",
+                this, "용돈이 ${Wallet.format(this@WalletActivity, item.price - db.coins())} 모자라요. 문제를 더 풀어 봐요! 🐥",
                 Toast.LENGTH_SHORT
             ).show()
             return
         }
         AlertDialog.Builder(this)
             .setTitle("${item.emoji} ${item.name}")
-            .setMessage("${item.desc}\n\n${Wallet.format(item.price)}을 쓸까요?\n(남는 돈 ${Wallet.format(db.coins() - item.price)})")
+            .setMessage("${item.desc}\n\n${Wallet.format(this@WalletActivity, item.price)}을 쓸까요?\n(남는 돈 ${Wallet.format(this@WalletActivity, db.coins() - item.price)})")
             .setPositiveButton("살래요") { _, _ -> doBuy(item) }
             .setNegativeButton("다음에", null)
             .show()
@@ -231,7 +231,7 @@ class WalletActivity : AppCompatActivity() {
             return
         }
         val presets = Shop.PAYOUT_PRESETS.filter { it <= db.coins() }
-        val labels = (presets.map { Wallet.format(it) } + "전액 ${Wallet.format(db.coins())}" + "직접 입력")
+        val labels = (presets.map { Wallet.format(this@WalletActivity, it) } + "전액 ${Wallet.format(this@WalletActivity, db.coins())}" + "직접 입력")
             .toTypedArray()
         AlertDialog.Builder(this)
             .setTitle("💵 현금으로 바꾸기")
@@ -268,10 +268,10 @@ class WalletActivity : AppCompatActivity() {
         val doPay = {
             if (db.spendCoins(amount, "PAYOUT", "현금으로 받음")) {
                 AlertDialog.Builder(this)
-                    .setTitle("🎉 ${Wallet.format(amount)} 지급 완료!")
+                    .setTitle("🎉 ${Wallet.format(this@WalletActivity, amount)} 지급 완료!")
                     .setMessage(
-                        "부모님이 ${Wallet.format(amount)}을 현금으로 주셨어요.\n" +
-                            "남은 용돈: ${Wallet.format(db.coins())}\n\n열심히 공부한 보람이 있네요! 🐥"
+                        "부모님이 ${Wallet.format(this@WalletActivity, amount)}을 현금으로 주셨어요.\n" +
+                            "남은 용돈: ${Wallet.format(this@WalletActivity, db.coins())}\n\n열심히 공부한 보람이 있네요! 🐥"
                     )
                     .setPositiveButton("좋아요!", null)
                     .show()
@@ -283,7 +283,7 @@ class WalletActivity : AppCompatActivity() {
             AlertDialog.Builder(this)
                 .setTitle("부모님 확인")
                 .setMessage(
-                    "${Wallet.format(amount)}을 현금으로 주시겠어요?\n" +
+                    "${Wallet.format(this@WalletActivity, amount)}을 현금으로 주시겠어요?\n" +
                         "확인을 누르면 지갑에서 빠지고 기록에 남아요.\n\n" +
                         "(설정에서 비밀번호를 걸면 아이가 혼자 누를 수 없어요)"
                 )
@@ -393,7 +393,7 @@ class WalletActivity : AppCompatActivity() {
             })
             row.addView(col)
             row.addView(TextView(this).apply {
-                text = (if (log.isEarn) "+" else "") + Wallet.format(log.amount)
+                text = (if (log.isEarn) "+" else "") + Wallet.format(this@WalletActivity, log.amount)
                 textSize = 14f
                 setTypeface(typeface, android.graphics.Typeface.BOLD)
                 setTextColor(Color.parseColor(if (log.isEarn) "#43A047" else "#E53935"))

@@ -27,3 +27,7 @@ module.exports = {
     play_again: { ko: "🔊 다시 듣기", en: "🔊 Play again", ja: "🔊 もういちど きく", zh: "🔊 再听一遍", es: "🔊 Escuchar otra vez", fr: "🔊 Réécouter", de: "🔊 Noch mal anhören", pt: "🔊 Ouvir de novo", ru: "🔊 Прослушать ещё раз", vi: "🔊 Nghe lại", th: "🔊 ฟังอีกครั้ง", in: "🔊 Putar lagi" },
   },
 };
+
+// 문제 화면 문자열 — 수학 앱과 같은 코드에서 갈라져 한국어 원문이 동일하다.
+// 같은 원장을 재사용한다 (안 쓰는 키는 리소스로만 남고 무해하다).
+Object.assign(module.exports.strings, require("./ui_lesson"), require("./ui_en_lesson"), require("./ui_result"));

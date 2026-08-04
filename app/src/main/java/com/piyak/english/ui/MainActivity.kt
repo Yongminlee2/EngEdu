@@ -158,7 +158,7 @@ class MainActivity : AppCompatActivity() {
         b.root.setBackgroundColor(theme)
         window.statusBarColor = theme
 
-        b.txtCoins.text = com.piyak.english.engine.Wallet.format(db.coins())
+        b.txtCoins.text = com.piyak.english.engine.Wallet.format(this, db.coins())
         // 알파벳·놀이터는 "유치원 영어" 단계 안으로 이사 — 홈을 가볍게
         b.cardAlphabet.visibility = View.GONE
         b.cardPlayground.visibility = View.GONE

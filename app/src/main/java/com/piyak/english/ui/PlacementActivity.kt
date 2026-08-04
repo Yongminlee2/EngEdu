@@ -145,7 +145,7 @@ class PlacementActivity : AppCompatActivity() {
                 com.piyak.english.engine.Wallet.PLACEMENT_BONUS, "PLACEMENT",
                 "${subject.title} 레벨테스트 완료"
             )
-            coinLine = "\n💰 용돈 +${com.piyak.english.engine.Wallet.format(c)}"
+            coinLine = "\n💰 용돈 +${com.piyak.english.engine.Wallet.format(this@PlacementActivity, c)}"
         }
         b.resultPanel.visibility = View.VISIBLE
         val name = Placement.levelName(subject, placed)

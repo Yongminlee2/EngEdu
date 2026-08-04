@@ -93,8 +93,15 @@ class LessonActivity : AppCompatActivity() {
         if (skillRecorded.add(q.id)) db.recordSkill(q.skill, correct)
     }
 
-    private val okLines = listOf("삐약! 정답이에요!", "완벽해요! 🐥", "역시 천재!", "삐약삐약~ 좋아요!", "굿굿! 최고예요!")
-    private val noLines = listOf("아쉬워요 😢", "괜찮아요, 다시 나와요!", "삐약… 다음엔 맞혀요!", "조금만 더 힘내요!")
+    // 필드 초기화 시점에는 Context 가 아직 없다 — 처음 쓸 때 리소스에서 읽는다
+    private val okLines by lazy {
+        listOf(getString(R.string.praise_correct), getString(R.string.praise_perfect),
+            getString(R.string.praise_genius), getString(R.string.praise_nice), getString(R.string.praise_great))
+    }
+    private val noLines by lazy {
+        listOf(getString(R.string.cheer_close), getString(R.string.cheer_again),
+            getString(R.string.cheer_next), getString(R.string.cheer_more))
+    }
 
     /** 정답 공개 후 피드백 패널에 보여줄 낱말 그림 — 문제에서 미리 보여주면 답이 새는 유형용 */
     private var feedbackArtRes = 0
@@ -117,9 +124,9 @@ class LessonActivity : AppCompatActivity() {
         if (reviewMode) {
             val wrongs = db.wrongList(12)
             questions = wrongs.mapNotNull { (qid, lid, tid) -> ContentRepo.findQuestion(this, tid, lid, qid) }
-            lessonTitle = "오답 복습"
+            lessonTitle = getString(R.string.review_mode)
             if (questions.isEmpty()) {
-                Toast.makeText(this, "복습할 오답이 없어요!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.lesson_no_review), Toast.LENGTH_SHORT).show()
                 finish(); return
             }
         } else {
@@ -132,9 +139,9 @@ class LessonActivity : AppCompatActivity() {
             questions = pair.second.questions
             if (db.heartsEnabled() && db.hearts() <= 0) {
                 AlertDialog.Builder(this)
-                    .setTitle("하트가 없어요 💔")
-                    .setMessage("30분마다 하트가 1개씩 차요.\n오답 복습을 완료하면 하트 1개를 받을 수 있어요!")
-                    .setPositiveButton("확인") { _, _ -> finish() }
+                    .setTitle(getString(R.string.heart_empty_title))
+                    .setMessage(getString(R.string.heart_empty_msg))
+                    .setPositiveButton(getString(R.string.confirm)) { _, _ -> finish() }
                     .setCancelable(false).show()
                 return
             }
@@ -185,9 +192,9 @@ class LessonActivity : AppCompatActivity() {
 
     private fun confirmQuit() {
         AlertDialog.Builder(this)
-            .setView(cuteDialogView("레슨을 그만둘까요?\n진행 상황은 저장되지 않아요"))
-            .setPositiveButton("그만두기") { _, _ -> finish() }
-            .setNegativeButton("계속하기", null).show()
+            .setView(cuteDialogView(getString(R.string.quit_ask)))
+            .setPositiveButton(getString(R.string.quit_yes)) { _, _ -> finish() }
+            .setNegativeButton(getString(R.string.quit_no), null).show()
     }
 
     /** 응원 병아리가 있는 확인 대화상자 내용 (이모지 대신 진짜 일러스트) */
@@ -247,7 +254,7 @@ class LessonActivity : AppCompatActivity() {
         showHearts(if (reviewMode) null else if (db.heartsEnabled()) s.hearts else -1)
         b.questionBox.removeAllViews()
         b.btnCheck.isEnabled = false
-        b.btnCheck.text = "확인"
+        b.btnCheck.text = getString(R.string.lesson_check)
         b.btnCheck.visibility = View.VISIBLE
         checkAction = null
         speakFails = 0
@@ -285,7 +292,7 @@ class LessonActivity : AppCompatActivity() {
     private fun useHint() {
         if (hintUsedHere || choiceButtons.size < 4 || choiceAnswer < 0) return
         if (db.itemCount("hint") <= 0) {
-            Toast.makeText(this, "힌트권이 없어요. 상점에서 살 수 있어요! 💡", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.hint_none), Toast.LENGTH_SHORT).show()
             return
         }
         if (!db.useItem("hint")) return
@@ -508,7 +515,7 @@ class LessonActivity : AppCompatActivity() {
         choiceAnswer = answer
         checkAction = {
             val ok = selected == answer
-            submitAnswer(ok, if (ok) null else "정답: $answerText", explain)
+            submitAnswer(ok, if (ok) null else getString(R.string.fb_answer, answerText), explain)
         }
     }
 
@@ -580,7 +587,7 @@ class LessonActivity : AppCompatActivity() {
         box.addView(grid)
         checkAction = {
             val ok = selected == answer
-            submitAnswer(ok, if (ok) null else "정답: $answerText", explain)
+            submitAnswer(ok, if (ok) null else getString(R.string.fb_answer, answerText), explain)
         }
     }
 
@@ -606,16 +613,16 @@ class LessonActivity : AppCompatActivity() {
             val ok = selected == answer
             view.reveal(answer)
             view.lock()
-            submitAnswer(ok, if (ok) null else "정답: $answerText", explain)
+            submitAnswer(ok, if (ok) null else getString(R.string.fb_answer, answerText), explain)
         }
     }
 
     private fun showMcq(q: Question.Mcq) {
         val v = inflate(R.layout.view_q_mcq)
         v.findViewById<TextView>(R.id.txtKind).text = when {
-            q.passage != null -> "📖 독해"
-            q.bigEmoji != null -> "🎨 그림 문제"
-            else -> "🔤 고르기"
+            q.passage != null -> getString(R.string.kind_reading)
+            q.bigEmoji != null -> getString(R.string.kind_pic)
+            else -> getString(R.string.kind_choose)
         }
         // 그림 우선 원칙 (사용자 결정 2026-08-02): 그림이 답을 알려줘도 좋다.
         // 그림-소리-뜻이 같이 붙는 것이 곧 학습이고, 화면도 훨씬 즐겁다.
@@ -702,7 +709,7 @@ class LessonActivity : AppCompatActivity() {
             ?: sceneArt(q.tts, q.prompt).takeIf { it != 0 }
             ?: artRes("ck_listen")
         addArt(v, heardArt, 160)
-        v.findViewById<TextView>(R.id.txtKind).text = "🎧 듣기"
+        v.findViewById<TextView>(R.id.txtKind).text = getString(R.string.kind_listen)
         v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
         val play = v.findViewById<Button>(R.id.btnPlay)
         val slow = v.findViewById<Button>(R.id.btnPlaySlow)
@@ -710,7 +717,7 @@ class LessonActivity : AppCompatActivity() {
         play.setOnClickListener { tts.speak(q.tts) }
         slow.setOnClickListener { tts.speak(q.tts, slow = true) }
         renderChoices(v.findViewById(R.id.choicesBox), q.choices, q.answer, q.explain,
-            "${q.choices[q.answer]}  (들려준 말: ${q.tts})")
+            getString(R.string.heard_was, q.choices[q.answer], q.tts))
         addSkip(v)
         b.root.postDelayed({ tts.speak(q.tts) }, 350)
     }
@@ -722,7 +729,7 @@ class LessonActivity : AppCompatActivity() {
             ?: sceneArt(spoken, q.prompt).takeIf { it != 0 }
             ?: artRes("ck_listen")
         addArt(v, dlgArt, 150)
-        v.findViewById<TextView>(R.id.txtKind).text = "🎧 대화 듣기"
+        v.findViewById<TextView>(R.id.txtKind).text = getString(R.string.kind_dialog)
         v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
         val play = v.findViewById<Button>(R.id.btnPlay)
         play.visibility = View.VISIBLE
@@ -730,7 +737,7 @@ class LessonActivity : AppCompatActivity() {
         play.setOnClickListener { tts.speakLines(lines) }
         val script = q.lines.joinToString("\n") { (s, t) -> "$s: $t" }
         renderChoices(v.findViewById(R.id.choicesBox), q.choices, q.answer, q.explain,
-            "${q.choices[q.answer]}\n\n대본:\n$script")
+            getString(R.string.dialog_script, q.choices[q.answer], script))
         addSkip(v)
         b.root.postDelayed({ tts.speakLines(lines) }, 350)
     }
@@ -741,11 +748,11 @@ class LessonActivity : AppCompatActivity() {
             ?: sceneArt(q.answer, q.hintKo).takeIf { it != 0 }
             ?: artRes("ck_write")
         addArt(v, dictArt)
-        v.findViewById<TextView>(R.id.txtKind).text = "✍️ 받아쓰기"
-        v.findViewById<TextView>(R.id.txtPrompt).text = "들리는 대로 영어로 써 보세요"
+        v.findViewById<TextView>(R.id.txtKind).text = getString(R.string.kind_dictation)
+        v.findViewById<TextView>(R.id.txtPrompt).text = getString(R.string.dictation_prompt)
         // 한국어 힌트는 한국 폰에서만 — 다른 언어 폰에서는 위의 그림이 힌트를 대신한다
         if (q.hintKo != null && com.piyak.english.i18n.Tpl.isKorean) {
-            v.findViewById<TextView>(R.id.txtHint).apply { visibility = View.VISIBLE; text = "힌트: ${q.hintKo}" }
+            v.findViewById<TextView>(R.id.txtHint).apply { visibility = View.VISIBLE; text = getString(R.string.hint_prefix, q.hintKo) }
         }
         val play = v.findViewById<Button>(R.id.btnPlay)
         val slow = v.findViewById<Button>(R.id.btnPlaySlow)
@@ -756,8 +763,8 @@ class LessonActivity : AppCompatActivity() {
         edit.addTextChangedListener(SimpleWatcher { b.btnCheck.isEnabled = it.isNotBlank() })
         checkAction = {
             val r = Grader.grade(edit.text.toString(), q.answer, q.alts)
-            val extra = if (r.typo) "오타가 조금 있었지만 인정! ✔ ${q.answer}" else null
-            submitAnswer(r.correct, if (r.correct) extra else "정답: ${q.answer}", q.explain)
+            val extra = if (r.typo) getString(R.string.typo_ok, q.answer) else null
+            submitAnswer(r.correct, if (r.correct) extra else getString(R.string.fb_answer, q.answer), q.explain)
         }
         addSkip(v)
         b.root.postDelayed({ tts.speak(q.tts) }, 350)
@@ -769,7 +776,7 @@ class LessonActivity : AppCompatActivity() {
             ?: sceneArt(q.answer, q.ko).takeIf { it != 0 }
             ?: artRes("ck_write")
         addArt(v, typeArt)
-        v.findViewById<TextView>(R.id.txtKind).text = "✍️ 영작"
+        v.findViewById<TextView>(R.id.txtKind).text = getString(R.string.kind_compose)
         // 한국어를 못 읽는 폰에서는 "한국어 → 영작"이 성립하지 않는다.
         // 대신 영어 문장을 **들려 주고 받아 적게** 한다 — 번역 없이 같은 문장을 익힌다.
         if (com.piyak.english.i18n.Tpl.isKorean) {
@@ -786,8 +793,8 @@ class LessonActivity : AppCompatActivity() {
         edit.addTextChangedListener(SimpleWatcher { b.btnCheck.isEnabled = it.isNotBlank() })
         checkAction = {
             val r = Grader.grade(edit.text.toString(), q.answer, q.alts)
-            val extra = if (r.typo) "오타가 조금 있었지만 인정! ✔ ${q.answer}" else null
-            submitAnswer(r.correct, if (r.correct) extra else "정답: ${q.answer}", q.explain)
+            val extra = if (r.typo) getString(R.string.typo_ok, q.answer) else null
+            submitAnswer(r.correct, if (r.correct) extra else getString(R.string.fb_answer, q.answer), q.explain)
         }
     }
 
@@ -840,7 +847,7 @@ class LessonActivity : AppCompatActivity() {
         }
         checkAction = {
             val ok = Grader.gradeOrder(selected.toList(), q.tokens)
-            submitAnswer(ok, if (ok) null else "정답: ${q.en}", q.explain)
+            submitAnswer(ok, if (ok) null else getString(R.string.fb_answer, q.en), q.explain)
         }
     }
 
@@ -852,7 +859,7 @@ class LessonActivity : AppCompatActivity() {
         b.btnCheck.visibility = View.INVISIBLE
 
         val hint = TextView(this).apply {
-            text = "🔗 짝이 맞는 것끼리 손가락으로 이어요"
+            text = getString(R.string.match_hint)
             textSize = 15f
             setTextColor(Color.parseColor("#8D6E63"))
             setPadding(dp(4), 0, 0, dp(6))
@@ -878,7 +885,7 @@ class LessonActivity : AppCompatActivity() {
             session?.submitNoPenalty(ok)
             showFeedback(
                 ok,
-                if (ok) null else "${mistakes}번 헷갈렸지만 다 이었어요!",
+                if (ok) null else getString(R.string.match_mistakes, mistakes),
                 q.explain, penalty = false
             )
         }
@@ -911,21 +918,21 @@ class LessonActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             tts.stop()
-            txtHeard.text = "🎙 듣고 있어요… 문장을 읽어 주세요!"
+            txtHeard.text = getString(R.string.speak_listening)
             btnMic.isEnabled = false
             stt.start(
                 onResult = { heard ->
                     runOnUiThread {
                         btnMic.isEnabled = true
                         val score = Grader.speakScore(heard, q.en)
-                        txtHeard.text = "들린 말: \"$heard\" (유사도 ${score}%)"
+                        txtHeard.text = getString(R.string.speak_heard, heard, score)
                         if (Grader.gradeSpeak(heard, q.en)) {
-                            submitAnswer(true, "발음 인식 성공! 유사도 ${score}%", q.explain)
+                            submitAnswer(true, getString(R.string.speak_success, score), q.explain)
                         } else {
                             speakFails++
                             sfx.wrong()
                             // 건너뛰기는 처음부터 보인다 (못 할 수도 있으니까)
-                            Toast.makeText(this, "조금 달라요! 다시 시도해 보세요 🐥", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, getString(R.string.speak_retry), Toast.LENGTH_SHORT).show()
                         }
                     }
                 },
@@ -937,9 +944,9 @@ class LessonActivity : AppCompatActivity() {
                         txtHeard.text = when (code) {
                             android.speech.SpeechRecognizer.ERROR_NO_MATCH,
                             android.speech.SpeechRecognizer.ERROR_SPEECH_TIMEOUT ->
-                                "잘 안 들렸어요. 다시 눌러서 또박또박 읽어 주세요!"
-                            -1 -> "이 기기에서 음성인식을 쓸 수 없어요."
-                            else -> "음성인식 오류($code). 다시 시도해 주세요."
+                                getString(R.string.speak_not_heard)
+                            -1 -> getString(R.string.speak_unavailable)
+                            else -> getString(R.string.speak_error, code)
                         }
                     }
                 }
@@ -948,7 +955,7 @@ class LessonActivity : AppCompatActivity() {
         btnSkip.setOnClickListener {
             recordSkill(q, false)
             session?.submitNoPenalty(false)
-            showFeedback(false, "괜찮아요! 다음에 말해 봐요. 정답 문장: ${q.en}", q.explain, penalty = false)
+            showFeedback(false, getString(R.string.speak_giveup, q.en), q.explain, penalty = false)
         }
     }
 
@@ -960,7 +967,7 @@ class LessonActivity : AppCompatActivity() {
     private fun addSkip(v: View) {
         val root = v as? LinearLayout ?: return
         root.addView(Button(this).apply {
-            text = "잘 모르겠어요 (건너뛰기)"
+            text = getString(R.string.skip_btn)
             isAllCaps = false
             textSize = 14f
             setTextColor(Color.parseColor("#8D6E63"))
@@ -972,9 +979,9 @@ class LessonActivity : AppCompatActivity() {
                 val q = session?.current() ?: return@setOnClickListener
                 val note = when (q) {
                     is Question.ListenMcq ->
-                        "정답: ${q.choices[q.answer]}\n들려준 말: ${q.tts}"
-                    is Question.ListenDialog -> "정답: ${q.choices[q.answer]}"
-                    is Question.Dictation -> "정답: ${q.answer}"
+                        getString(R.string.heard_was, q.choices[q.answer], q.tts)
+                    is Question.ListenDialog -> getString(R.string.fb_answer, q.choices[q.answer])
+                    is Question.Dictation -> getString(R.string.fb_answer, q.answer)
                     else -> null
                 }
                 recordSkill(q, false)
@@ -995,8 +1002,8 @@ class LessonActivity : AppCompatActivity() {
             val cleared = db.reviewOutcome(q.id, correct)
             s.submit(correct)
             val msg = when {
-                correct && cleared -> "이 오답은 완전히 클리어! 💊✨"
-                correct -> "좋아요! 한 번 더 맞히면 클리어!"
+                correct && cleared -> getString(R.string.review_cleared)
+                correct -> getString(R.string.review_one_more)
                 else -> note
             }
             showFeedback(correct, msg, explain, penalty = false)
@@ -1069,7 +1076,7 @@ class LessonActivity : AppCompatActivity() {
         val icon = if (n != null && n >= 0) R.drawable.ic_heart else 0
         b.txtHearts.setCompoundDrawablesRelativeWithIntrinsicBounds(icon, 0, 0, 0)
         b.txtHearts.text = when {
-            n == null -> "복습"
+            n == null -> getString(R.string.lesson_review_mode)
             n < 0 -> ""
             else -> "$n"
         }
@@ -1089,8 +1096,8 @@ class LessonActivity : AppCompatActivity() {
 
         if (s.failed) {
             b.imgResult.setImageResource(R.drawable.ck_cheerup)
-            b.txtResultTitle.text = "하트가 다 떨어졌어요 💔"
-            b.txtResultStats.text = "오답 복습으로 하트를 채우고\n다시 도전해 봐요!"
+            b.txtResultTitle.text = getString(R.string.result_no_heart_title)
+            b.txtResultStats.text = getString(R.string.result_no_heart_msg)
             db.setHearts(0)
             return
         }
@@ -1107,11 +1114,11 @@ class LessonActivity : AppCompatActivity() {
             db.markToday()
             // 복습 보너스는 하루 한도까지만 (파밍 방지)
             if (db.bonusCountToday("review") < Wallet.REVIEW_DAILY_LIMIT) {
-                coins = db.earnCoins(Wallet.REVIEW_BONUS, "REVIEW", "오답 복습 완료")
+                coins = db.earnCoins(Wallet.REVIEW_BONUS, "REVIEW", getString(R.string.review_done))
                 db.addBonusCountToday("review")
             }
-            b.txtResultTitle.text = "복습 완료! 💊"
-            b.txtResultStats.text = "정답률 ${(s.accuracy * 100).toInt()}% · +${xp} XP\n하트 1개 회복! ❤️ $h"
+            b.txtResultTitle.text = getString(R.string.result_review_title)
+            b.txtResultStats.text = getString(R.string.result_review_stats, (s.accuracy * 100).toInt(), xp, h)
         } else {
             if (db.heartsEnabled()) db.setHearts(s.hearts)
             db.addXp(xp)
@@ -1122,18 +1129,19 @@ class LessonActivity : AppCompatActivity() {
             if (firstClear) {
                 coins = db.earnCoins(
                     Wallet.lessonReward(s.firstTryCorrect, s.isPerfect), "LESSON",
-                    "$lessonTitle (첫 시도 정답 ${s.firstTryCorrect}문제)"
+                    getString(R.string.result_lesson_sub, lessonTitle, s.firstTryCorrect)
                 )
             }
-            b.txtResultTitle.text = if (s.isPerfect) "퍼펙트! 💯" else "레슨 완료! 🎉"
+            b.txtResultTitle.text = if (s.isPerfect) getString(R.string.result_perfect_title) else getString(R.string.result_lesson_title)
             b.txtResultStats.text =
-                "$lessonTitle\n${"⭐".repeat(s.stars())}\n정답률 ${(s.accuracy * 100).toInt()}% · +${xp} XP" +
-                    if (s.isPerfect) " (퍼펙트 +5 포함)" else ""
+                "$lessonTitle\n${"⭐".repeat(s.stars())}\n" +
+                    getString(R.string.result_stats, (s.accuracy * 100).toInt(), xp) +
+                    if (s.isPerfect) getString(R.string.result_perfect_bonus) else ""
         }
         if (coins > 0) {
-            b.txtResultStats.append("\n\n💰 용돈 +${Wallet.format(coins)}  (지갑 ${Wallet.format(db.coins())})")
+            b.txtResultStats.append("\n\n" + getString(R.string.result_coins, Wallet.format(this, coins), Wallet.format(this, db.coins())))
         } else if (!reviewMode) {
-            b.txtResultStats.append("\n\n💰 이미 깬 레슨이라 용돈은 없어요")
+            b.txtResultStats.append("\n\n" + getString(R.string.result_no_coins))
         }
         b.txtResultStats.append(growthReport())
         checkBadges()
@@ -1147,25 +1155,25 @@ class LessonActivity : AppCompatActivity() {
         for (st in states) {
             val before = startSkillLevels[st.def.id] ?: 0
             if (st.level > before) {
-                sb.append("\n\n🎉 ${st.def.emoji} ${st.def.title} 실력이 Lv.${st.level} 로 올랐어요!")
+                sb.append("\n\n" + getString(R.string.result_skill_up, st.def.emoji, st.def.title, st.level))
             }
         }
         val overall = com.piyak.english.engine.Skills.overallLevel(states)
         val rank = com.piyak.english.engine.Ranks.of(overall)
         if (startRank != null && rank.title != startRank!!.title) {
-            sb.append("\n\n👑 칭호 승급! ${rank.emoji} ${rank.title}")
+            sb.append("\n\n" + getString(R.string.result_rank_up, rank.emoji, rank.title))
         }
         val goal = db.dailyGoal()
         val todayXp = db.xpToday()
-        sb.append("\n\n🎯 오늘의 목표 $todayXp / $goal XP")
+        sb.append("\n\n" + getString(R.string.result_goal, todayXp, goal))
         if (com.piyak.english.engine.DailyGoal.isDone(todayXp, goal)) {
-            sb.append("  ✅ 달성!")
+            sb.append(getString(R.string.result_goal_done))
             // 목표 달성은 하루 한 번만 집계 + 용돈 보너스
             if (db.metaLong("goal_met_day", -1) != Db.today()) {
                 db.setMeta("goal_met_day", Db.today().toString())
                 db.setMeta("goals_met", (db.metaInt("goals_met") + 1).toString())
-                val bonus = db.earnCoins(Wallet.DAILY_GOAL_BONUS, "GOAL", "오늘의 목표 달성")
-                if (bonus > 0) sb.append("\n💰 목표 달성 보너스 +${Wallet.format(bonus)}")
+                val bonus = db.earnCoins(Wallet.DAILY_GOAL_BONUS, "GOAL", getString(R.string.goal_reached))
+                if (bonus > 0) sb.append("\n" + getString(R.string.result_goal_bonus, Wallet.format(this, bonus)))
             }
         }
         return sb.toString()
@@ -1198,7 +1206,7 @@ class LessonActivity : AppCompatActivity() {
         val newly = Badges.check(snap, db.earnedBadges())
         for (bd in newly) {
             db.earnBadge(bd.id)
-            Toast.makeText(this, "🏆 배지 획득: ${bd.emoji} ${bd.title}!", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.badge_earned, bd.emoji, bd.title), Toast.LENGTH_LONG).show()
         }
     }
 
