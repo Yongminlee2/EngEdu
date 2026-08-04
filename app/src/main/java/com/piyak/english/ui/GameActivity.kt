@@ -1,5 +1,6 @@
 package com.piyak.english.ui
 
+import com.piyak.english.R
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
@@ -90,7 +91,7 @@ class GameActivity : AppCompatActivity() {
             override fun onTick(left: Long) {
                 b.timeBar.progress = (left * 100 / TIME_MS).toInt()
             }
-            override fun onFinish() = end("시간 끝!")
+            override fun onFinish() = end(getString(R.string.game_time_up))
         }.start()
     }
 
@@ -111,7 +112,7 @@ class GameActivity : AppCompatActivity() {
         sfx.wrong()
         updateHud()
         recordSkill(false)
-        if (lives <= 0) end("아쉬워요!")
+        if (lives <= 0) end(getString(R.string.game_lost))
     }
 
     /** 게임도 진짜 연습이므로 실력에 반영한다 */
@@ -164,7 +165,7 @@ class GameActivity : AppCompatActivity() {
                 b.gameBox.addView(v)
                 v.startLoop()
                 b.btnAction.visibility = View.VISIBLE
-                b.btnAction.text = "다 담았어요!"
+                b.btnAction.text = getString(R.string.game_basket_done)
                 b.btnAction.setOnClickListener { basket?.check() }
                 nextBasketRound(first = true)
             }
@@ -184,7 +185,7 @@ class GameActivity : AppCompatActivity() {
 
     private fun countRound(): Boolean {
         roundsDone++
-        if (roundsDone >= ROUNDS) { end("다 풀었어요!"); return false }
+        if (roundsDone >= ROUNDS) { end(getString(R.string.game_all_done)); return false }
         return true
     }
 
@@ -211,8 +212,8 @@ class GameActivity : AppCompatActivity() {
         if (!first) { roundsDone += 3; if (!countRound()) return }
         val pairs = if (subject == Subject.MATH) MiniGames.lineMath(level)
         else MiniGames.lineEnglish()
-        b.txtQuestion.text = if (subject == Subject.MATH) "짝이 맞는 것끼리 이어요"
-        else "그림과 낱말을 이어요"
+        b.txtQuestion.text = if (subject == Subject.MATH) getString(R.string.game_match_math)
+        else getString(R.string.game_match_en)
         lineView?.setPairs(pairs)
     }
 
@@ -237,16 +238,16 @@ class GameActivity : AppCompatActivity() {
         if (paidToday < GameReward.DAILY_PAID_ROUNDS) {
             coins = db.earnCoins(
                 GameReward.coinsFor(score, maxScore), "GAME",
-                "${MiniGames.byId(gameId)?.title ?: "미니게임"} (${score}점)"
+                (MiniGames.byId(gameId)?.titleRes?.let { getString(it) } ?: getString(R.string.game_minigame)) + " ($score)"
             )
             if (coins > 0) db.addBonusCountToday("game")
         }
 
         b.txtResultTitle.text = "$title ${"⭐".repeat(stars)}"
         b.txtResultBody.text = buildString {
-            append("점수 ${score}점 · +${xp} XP")
-            if (coins > 0) append("\n💰 용돈 +${Wallet.format(this@GameActivity, coins)}")
-            else append("\n오늘 게임 용돈은 다 받았어요\n(공부하면 더 받을 수 있어요!)")
+            append(getString(R.string.game_score, score, xp))
+            if (coins > 0) append("\n" + getString(R.string.placement_coins, Wallet.format(this@GameActivity, coins)))
+            else append("\n" + getString(R.string.game_no_more_coins))
         }
         b.resultPanel.visibility = View.VISIBLE
     }

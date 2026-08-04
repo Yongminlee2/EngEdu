@@ -10,7 +10,7 @@
         <Button android:id="@+id/btnBack" style="?attr/materialIconButtonStyle"
             android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="◀" />
         <TextView android:id="@+id/txtTitle" android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_weight="1" android:textSize="20sp" android:textStyle="bold" android:text="트랙" />
+            android:layout_weight="1" android:textSize="20sp" android:textStyle="bold" android:text="@string/ly_track" />
         <TextView android:id="@+id/txtTrackProgress" android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:textSize="14sp" android:textColor="@color/brown_soft" android:text="0/0" />
     </LinearLayout>

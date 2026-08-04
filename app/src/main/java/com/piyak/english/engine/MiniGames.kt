@@ -1,5 +1,6 @@
 package com.piyak.english.engine
 
+import com.piyak.english.R
 import com.piyak.english.model.Subject
 import kotlin.random.Random
 
@@ -7,8 +8,9 @@ import kotlin.random.Random
 data class GameDef(
     val id: String,
     val emoji: String,
-    val title: String,
-    val desc: String,
+    /** 이름·설명은 문자열 리소스 id — 폰 언어를 따라간다 */
+    val titleRes: Int,
+    val descRes: Int,
     val subject: Subject,
     val color: String,
 )
@@ -33,24 +35,24 @@ object MiniGames {
 
     val ALL = listOf(
         GameDef(
-            BALLOON, "🎈", "풍선 터뜨리기",
-            "떠오르는 풍선 중 정답을 터뜨려요", Subject.MATH, "#FFCDD2"
+            BALLOON, "🎈", R.string.game_balloon,
+            R.string.game_balloon_math_d, Subject.MATH, "#FFCDD2"
         ),
         GameDef(
-            BASKET, "🧺", "바구니에 담기",
-            "손가락으로 끌어서 개수만큼 담아요", Subject.MATH, "#C8E6C9"
+            BASKET, "🧺", R.string.game_basket,
+            R.string.game_basket_d, Subject.MATH, "#C8E6C9"
         ),
         GameDef(
-            LINE, "🔗", "선으로 잇기",
-            "짝이 맞는 것끼리 손가락으로 이어요", Subject.MATH, "#B3E5FC"
+            LINE, "🔗", R.string.game_line,
+            R.string.game_line_math_d, Subject.MATH, "#B3E5FC"
         ),
         GameDef(
-            "${BALLOON}_en", "🎈", "풍선 터뜨리기",
-            "들리는 낱말의 그림 풍선을 터뜨려요", Subject.ENGLISH, "#FFCDD2"
+            "${BALLOON}_en", "🎈", R.string.game_balloon,
+            R.string.game_balloon_en_d, Subject.ENGLISH, "#FFCDD2"
         ),
         GameDef(
-            "${LINE}_en", "🔗", "선으로 잇기",
-            "그림과 낱말을 손가락으로 이어요", Subject.ENGLISH, "#B3E5FC"
+            "${LINE}_en", "🔗", R.string.game_line,
+            R.string.game_line_en_d, Subject.ENGLISH, "#B3E5FC"
         ),
     )
 

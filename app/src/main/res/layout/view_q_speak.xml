@@ -7,7 +7,7 @@
         android:orientation="horizontal" android:gravity="center_vertical">
         <TextView android:id="@+id/txtKind" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
             android:maxLines="1" android:ellipsize="end"
-            android:textSize="13sp" android:textColor="@color/brown_soft" android:text="🔤 뜻 고르기" />
+            android:textSize="13sp" android:textColor="@color/brown_soft" android:text="" />
         <ImageView android:layout_width="22dp" android:layout_height="22dp"
             android:src="@drawable/ck_idle" android:contentDescription="삐약이" />
         <TextView android:id="@+id/txtCountInline" android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -28,9 +28,9 @@
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
         android:orientation="horizontal" android:layout_marginTop="14dp" android:gravity="center">
         <Button android:id="@+id/btnListen" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="🔊 들어보기" android:backgroundTint="@color/sky" android:textColor="@color/brown_text" />
+            android:text="@string/ly_tts_try" android:backgroundTint="@color/sky" android:textColor="@color/brown_text" />
         <Button android:id="@+id/btnMic" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginStart="10dp" android:text="🎤 말하기" android:textSize="17sp"
+            android:layout_marginStart="10dp" android:text="@string/ly_speak_btn" android:textSize="17sp"
             android:backgroundTint="@color/coral" android:textColor="@color/white" />
     </LinearLayout>
 
@@ -40,6 +40,6 @@
 
     <Button android:id="@+id/btnCantSpeak" android:layout_width="wrap_content" android:layout_height="wrap_content"
         android:layout_gravity="center" android:layout_marginTop="8dp"
-        style="?attr/borderlessButtonStyle" android:text="지금은 말할 수 없어요 (건너뛰기)"
+        style="?attr/borderlessButtonStyle" android:text="@string/ly_skip_speak"
         android:textColor="@color/brown_soft" />
 </LinearLayout>

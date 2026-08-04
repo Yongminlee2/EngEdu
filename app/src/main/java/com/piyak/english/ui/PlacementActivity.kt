@@ -1,5 +1,6 @@
 package com.piyak.english.ui
 
+import com.piyak.english.R
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
@@ -56,7 +57,7 @@ class PlacementActivity : AppCompatActivity() {
                 layoutParams = LinearLayout.LayoutParams((96 * den).toInt(), (96 * den).toInt())
             })
             box.addView(android.widget.TextView(this).apply {
-                text = "레벨테스트를 그만둘까요?"
+                text = getString(R.string.placement_quit_ask)
                 textSize = 15f
                 gravity = android.view.Gravity.CENTER
                 setTextColor(Color.parseColor("#4E342E"))
@@ -64,8 +65,8 @@ class PlacementActivity : AppCompatActivity() {
             })
             AlertDialog.Builder(this)
                 .setView(box)
-                .setPositiveButton("그만두기") { _, _ -> finish() }
-                .setNegativeButton("계속", null).show()
+                .setPositiveButton(getString(R.string.quit_yes)) { _, _ -> finish() }
+                .setNegativeButton(getString(R.string.quit_no), null).show()
         }
         b.btnDone.setOnClickListener { finish() }
         showNext()
@@ -143,20 +144,20 @@ class PlacementActivity : AppCompatActivity() {
         if (firstTime) {
             val c = db.earnCoins(
                 com.piyak.english.engine.Wallet.PLACEMENT_BONUS, "PLACEMENT",
-                "${subject.title} 레벨테스트 완료"
+                getString(R.string.placement_done, getString(subject.titleRes))
             )
-            coinLine = "\n💰 용돈 +${com.piyak.english.engine.Wallet.format(this@PlacementActivity, c)}"
+            coinLine = "\n" + getString(R.string.placement_coins, com.piyak.english.engine.Wallet.format(this@PlacementActivity, c))
         }
         b.resultPanel.visibility = View.VISIBLE
-        val name = Placement.levelName(subject, placed)
+        val name = Placement.levelName(this, subject, placed)
         if (subject == com.piyak.english.model.Subject.MATH) {
             b.txtResultTitle.text = name
             b.txtResultDesc.text =
-                "$name 수준이에요!\n${name}까지 모든 단원을 열어 드렸어요.\n+30 XP 🎁$coinLine"
+                getString(R.string.placement_msg_math, name) + coinLine
         } else {
-            b.txtResultTitle.text = "레벨 $placed"
+            b.txtResultTitle.text = getString(R.string.placement_level, placed)
             b.txtResultDesc.text =
-                "$name 수준이에요!\n기초 트랙 레벨 ${placed}까지 열어 드렸어요.\n+30 XP 🎁$coinLine"
+                getString(R.string.placement_msg_en, name, placed) + coinLine
         }
     }
 

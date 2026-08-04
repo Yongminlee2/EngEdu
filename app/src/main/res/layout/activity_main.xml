@@ -10,7 +10,7 @@
         <!-- 과목 전환 -->
         <Button android:id="@+id/btnSwitchSubject"
             android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="📘 영어  ▾" android:textSize="15sp"
+            android:text="" android:textSize="15sp"
             android:backgroundTint="@color/white" android:textColor="@color/brown_text" />
 
         <!-- 시간대별 풍경 배너 (codex 발주 #01) — 아침 하늘, 낮 풀밭, 저녁 교실, 밤하늘 -->
@@ -50,16 +50,16 @@
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                 android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
                 <TextView android:id="@+id/txtRank" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="🥚 알 속의 새싹" android:textSize="22sp" android:textStyle="bold" />
+                    android:text="" android:textSize="22sp" android:textStyle="bold" />
                 <TextView android:id="@+id/txtOverall" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="종합 실력 Lv.0" android:textSize="14sp" android:textColor="@color/brown_soft" />
+                    android:text="" android:textSize="14sp" android:textColor="@color/brown_soft" />
                 <ProgressBar android:id="@+id/rankBar" style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent" android:layout_height="8dp"
                     android:layout_marginTop="4dp" android:max="100"
                     android:progressTint="@color/chick_yellow_deep" android:progressBackgroundTint="@color/cream_dark" />
                 <TextView android:id="@+id/txtGreeting" android:layout_width="wrap_content" android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="오늘도 삐약삐약 공부해요!" android:textSize="13sp" android:textColor="@color/brown_soft" />
+                    android:text="@string/home_greeting" android:textSize="13sp" android:textColor="@color/brown_soft" />
             </LinearLayout>
         </LinearLayout>
 
@@ -71,10 +71,10 @@
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="horizontal" android:gravity="center_vertical">
                 <TextView android:id="@+id/txtGoal" android:layout_width="0dp" android:layout_height="wrap_content"
-                    android:layout_weight="1" android:text="오늘의 목표  0 / 50 XP" android:drawableStart="@drawable/ic_goal" android:drawablePadding="6dp" android:drawableTint="@null"
+                    android:layout_weight="1" android:text="" android:drawableStart="@drawable/ic_goal" android:drawablePadding="6dp" android:drawableTint="@null"
                     android:textSize="15sp" android:textStyle="bold" />
                 <TextView android:id="@+id/txtGoalEdit" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="변경" android:textSize="13sp" android:textColor="@color/sky_deep" />
+                    android:text="@string/ly_change" android:textSize="13sp" android:textColor="@color/sky_deep" />
             </LinearLayout>
             <ProgressBar android:id="@+id/goalBar" style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent" android:layout_height="12dp"
@@ -92,11 +92,11 @@
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                 android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="놀이터" android:textSize="19sp" android:textStyle="bold"
+                    android:text="@string/st_play" android:textSize="19sp" android:textStyle="bold"
                     android:textColor="@color/brown_text" />
                 <TextView android:id="@+id/txtPlayground"
                     android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="풍선 터뜨리기 · 담기 · 선 잇기" android:textSize="13sp"
+                    android:text="@string/st_play_sub" android:textSize="13sp"
                     android:textColor="@color/brown_soft" />
             </LinearLayout>
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -114,10 +114,10 @@
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                 android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="알파벳 쓰기 (ABC)" android:textSize="17sp" android:textStyle="bold"
+                    android:text="@string/ly_alpha_full" android:textSize="17sp" android:textStyle="bold"
                     android:textColor="@color/brown_text" />
                 <TextView android:id="@+id/txtAlphabetSub" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="손가락·펜으로 A부터 Z까지 따라 써요" android:textSize="12sp"
+                    android:text="@string/ly_alpha_sub2" android:textSize="12sp"
                     android:textColor="@color/brown_soft" />
             </LinearLayout>
             <TextView android:id="@+id/txtAlphabetCount" android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -127,7 +127,7 @@
 
         <!-- 트랙 카드 컨테이너 (코드 생성) -->
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginTop="18dp" android:text="학습 코스" android:drawableStart="@drawable/ic_course" android:drawablePadding="6dp" android:drawableTint="@null"
+            android:layout_marginTop="18dp" android:text="@string/home_courses" android:drawableStart="@drawable/ic_course" android:drawablePadding="6dp" android:drawableTint="@null"
             android:textSize="16sp" android:textStyle="bold" />
         <LinearLayout android:id="@+id/tracksBox"
             android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -135,7 +135,7 @@
 
         <!-- 나의 기록 (상점·실력·레벨테스트) -->
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginTop="20dp" android:text="내 실력 · 상점 · 레벨테스트"
+            android:layout_marginTop="20dp" android:text="@string/ly_quick"
             android:drawableStart="@drawable/ic_level" android:drawablePadding="6dp" android:drawableTint="@null"
             android:textSize="16sp" android:textStyle="bold" />
 
@@ -147,7 +147,7 @@
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="horizontal" android:gravity="center_vertical">
                 <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
-                    android:text="내 실력" android:textSize="16sp" android:drawableStart="@drawable/ic_stats" android:drawablePadding="6dp" android:drawableTint="@null" android:textStyle="bold" />
+                    android:text="@string/home_my_skill" android:textSize="16sp" android:drawableStart="@drawable/ic_stats" android:drawablePadding="6dp" android:drawableTint="@null" android:textStyle="bold" />
                 <TextView android:id="@+id/txtWeakest" android:layout_width="wrap_content" android:layout_height="wrap_content"
                     android:textSize="12sp" android:textColor="@color/brown_soft" />
             </LinearLayout>
@@ -167,10 +167,10 @@
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                 android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
                 <TextView android:id="@+id/txtCoins" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="0원" android:textSize="22sp" android:textStyle="bold"
+                    android:text="0" android:textSize="22sp" android:textStyle="bold"
                     android:textColor="@color/brown_text" />
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="상점 · 현금으로 바꾸기" android:textSize="12sp"
+                    android:text="@string/ly_shop_cash" android:textSize="12sp"
                     android:textColor="@color/brown_soft" />
             </LinearLayout>
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -186,7 +186,7 @@
             android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical">
             <TextView android:id="@+id/txtPlacement"
                 android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
-                android:drawableStart="@drawable/ic_goal" android:drawablePadding="6dp" android:drawableTint="@null" android:text="레벨테스트로 내 위치 찾기!\n25문제로 딱 맞는 레벨을 정해줘요"
+                android:drawableStart="@drawable/ic_goal" android:drawablePadding="6dp" android:drawableTint="@null" android:text=""
                 android:textColor="@color/white" android:textSize="15sp" android:textStyle="bold" />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="GO ▶" android:textColor="@color/white" android:textSize="18sp" android:textStyle="bold" />
@@ -204,7 +204,7 @@
                 <ImageView android:layout_width="22dp" android:layout_height="22dp"
                     android:src="@drawable/ui_review" android:contentDescription="오답 0" />
                 <TextView android:id="@+id/txtReview" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp" android:text="오답 0" android:textSize="14sp"
+                    android:layout_marginStart="5dp" android:text="" android:textSize="14sp"
                     android:textColor="@color/brown_text" />
             </LinearLayout>
             <LinearLayout android:id="@+id/btnStats" android:layout_width="0dp" android:layout_height="52dp"
@@ -215,7 +215,7 @@
                 <ImageView android:layout_width="22dp" android:layout_height="22dp"
                     android:src="@drawable/ui_stats" android:contentDescription="통계" />
                 <TextView android:id="@+id/txtStats" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp" android:text="통계" android:textSize="14sp"
+                    android:layout_marginStart="5dp" android:text="@string/home_stats" android:textSize="14sp"
                     android:textColor="@color/brown_text" />
             </LinearLayout>
             <LinearLayout android:id="@+id/btnSettings" android:layout_width="0dp" android:layout_height="52dp"
@@ -226,7 +226,7 @@
                 <ImageView android:layout_width="22dp" android:layout_height="22dp"
                     android:src="@drawable/ui_settings" android:contentDescription="설정" />
                 <TextView android:id="@+id/txtSettings" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp" android:text="설정" android:textSize="14sp"
+                    android:layout_marginStart="5dp" android:text="@string/home_settings" android:textSize="14sp"
                     android:textColor="@color/brown_text" />
             </LinearLayout>
         </LinearLayout>

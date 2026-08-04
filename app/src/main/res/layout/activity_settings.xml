@@ -10,11 +10,11 @@
             <Button android:id="@+id/btnBack" style="?attr/materialIconButtonStyle"
                 android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="◀" />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="⚙️ 설정" android:textSize="20sp" android:textStyle="bold" />
+                android:text="@string/ly_settings" android:textSize="20sp" android:textStyle="bold" />
         </LinearLayout>
 
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginTop="16dp" android:text="🔊 발음 속도" android:textSize="16sp" android:textStyle="bold" />
+            android:layout_marginTop="16dp" android:text="@string/ly_tts_speed" android:textSize="16sp" android:textStyle="bold" />
         <SeekBar android:id="@+id/seekRate" android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="8dp" android:max="14" android:progress="7" />
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -22,13 +22,13 @@
             <TextView android:id="@+id/txtRate" android:layout_width="0dp" android:layout_height="wrap_content"
                 android:layout_weight="1" android:text="1.0x" android:textColor="@color/brown_soft" />
             <Button android:id="@+id/btnTtsTest" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="🔊 들어보기" android:backgroundTint="@color/sky" android:textColor="@color/brown_text" />
+                android:text="@string/ly_tts_try" android:backgroundTint="@color/sky" android:textColor="@color/brown_text" />
         </LinearLayout>
 
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginTop="20dp" android:text="🔔 효과음 크기" android:textSize="16sp" android:textStyle="bold" />
+            android:layout_marginTop="20dp" android:text="@string/ly_sfx" android:textSize="16sp" android:textStyle="bold" />
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="너무 크면 영어 발음이 잘 안 들려요" android:textSize="12sp"
+            android:text="@string/ly_sfx_note" android:textSize="12sp"
             android:textColor="@color/brown_soft" />
         <SeekBar android:id="@+id/seekSfx" android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="6dp" android:max="100" android:progress="30" />
@@ -37,7 +37,7 @@
             <TextView android:id="@+id/txtSfx" android:layout_width="0dp" android:layout_height="wrap_content"
                 android:layout_weight="1" android:text="30%" android:textColor="@color/brown_soft" />
             <Button android:id="@+id/btnSfxTest" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="🔔 들어보기" android:backgroundTint="@color/mint" android:textColor="@color/brown_text" />
+                android:text="@string/ly_sfx_try" android:backgroundTint="@color/mint" android:textColor="@color/brown_text" />
         </LinearLayout>
 
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -45,9 +45,9 @@
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
                 android:orientation="vertical">
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="🔓 자유 이동 모드" android:textSize="16sp" android:textStyle="bold" />
+                    android:text="@string/ly_free_move" android:textSize="16sp" android:textStyle="bold" />
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="모든 레슨을 순서 상관없이 풀 수 있어요" android:textSize="13sp" android:textColor="@color/brown_soft" />
+                    android:text="@string/ly_track_free" android:textSize="13sp" android:textColor="@color/brown_soft" />
             </LinearLayout>
             <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchFree"
                 android:layout_width="wrap_content" android:layout_height="wrap_content" />
@@ -58,9 +58,9 @@
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
                 android:orientation="vertical">
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="❤️ 하트 쓰기" android:textSize="16sp" android:textStyle="bold" />
+                    android:text="@string/ly_heart_use" android:textSize="16sp" android:textStyle="bold" />
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="끄면 틀려도 하트가 줄지 않아요 (마음껏 연습)" android:textSize="13sp"
+                    android:text="@string/ly_hearts_free" android:textSize="13sp"
                     android:textColor="@color/brown_soft" />
             </LinearLayout>
             <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchHearts"
@@ -68,21 +68,21 @@
         </LinearLayout>
 
         <Button android:id="@+id/btnPlacement" android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_marginTop="24dp" android:text="🎯 레벨테스트 다시 보기"
+            android:layout_marginTop="24dp" android:text="@string/ly_retest"
             android:backgroundTint="@color/lavender" android:textColor="@color/white" />
 
         <Button android:id="@+id/btnCrash" android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_marginTop="12dp" android:text="🐞 마지막 오류 기록 보기"
+            android:layout_marginTop="12dp" android:text="@string/ly_errlog"
             android:backgroundTint="@color/cream_dark" android:textColor="@color/brown_text"
             android:visibility="gone" />
 
         <Button android:id="@+id/btnReset" android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_marginTop="12dp" android:text="🗑 진행도 전체 초기화"
+            android:layout_marginTop="12dp" android:text="@string/ly_reset_all"
             android:backgroundTint="@color/coral_deep" android:textColor="@color/white" />
 
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="24dp" android:gravity="center" android:textSize="13sp"
             android:textColor="@color/brown_soft"
-            android:text="삐약영어 🐥 나만의 영어 공부 앱\n말하기 채점은 인터넷이 있을 때 더 정확해요" />
+            android:text="@string/ly_about" />
     </LinearLayout>
 </ScrollView>

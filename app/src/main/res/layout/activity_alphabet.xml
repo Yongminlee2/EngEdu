@@ -9,7 +9,7 @@
         <Button android:id="@+id/btnBack" style="?attr/materialIconButtonStyle"
             android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="◀" />
         <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
-            android:text="✏️ 알파벳 쓰기" android:textSize="20sp" android:textStyle="bold" />
+            android:text="@string/ly_alpha_write" android:textSize="20sp" android:textStyle="bold" />
         <TextView android:id="@+id/txtDone" android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:textSize="14sp" android:textColor="@color/brown_soft" android:text="0/52" />
     </LinearLayout>
@@ -19,10 +19,10 @@
         android:layout_width="match_parent" android:layout_height="wrap_content"
         android:orientation="horizontal" android:paddingHorizontal="12dp">
         <Button android:id="@+id/btnUpper" android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_weight="1" android:text="대문자 ABC" android:textSize="16sp"
+            android:layout_weight="1" android:text="@string/ly_upper" android:textSize="16sp"
             android:backgroundTint="@color/chick_yellow" android:textColor="@color/brown_text" />
         <Button android:id="@+id/btnLower" android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_weight="1" android:layout_marginStart="8dp" android:text="소문자 abc" android:textSize="16sp"
+            android:layout_weight="1" android:layout_marginStart="8dp" android:text="@string/ly_lower" android:textSize="16sp"
             android:backgroundTint="@color/cream_dark" android:textColor="@color/brown_text" />
     </LinearLayout>
 
