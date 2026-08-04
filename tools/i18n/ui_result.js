@@ -21,10 +21,7 @@ result_stats: { ko:"정답률 %1$d%% · +%2$d XP", en:"%1$d%% correct · +%2$d X
 lesson_check: { ko:"확인", en:"Check", ja:"こたえあわせ", zh:"确认", es:"Comprobar", fr:"Vérifier", de:"Prüfen", pt:"Verificar", ru:"Проверить", vi:"Kiểm tra", th:"ตรวจคำตอบ", in:"Periksa" },
 lesson_review_mode: { ko:"복습", en:"Review", ja:"ふくしゅう", zh:"复习", es:"Repaso", fr:"Révision", de:"Wiederholung", pt:"Revisão", ru:"Повтор", vi:"Ôn tập", th:"ทบทวน", in:"Ulangan" },
 hint_none: { ko:"힌트권이 없어요. 상점에서 살 수 있어요! 💡", en:"No hint tickets. You can buy them in the shop! 💡", ja:"ヒント券がありません。ショップで買えます! 💡", zh:"没有提示券了。可以在商店购买! 💡", es:"No tienes pistas. ¡Puedes comprarlas en la tienda! 💡", fr:"Plus d'indices. Tu peux en acheter dans la boutique ! 💡", de:"Keine Tipp-Tickets. Im Shop erhältlich! 💡", pt:"Sem dicas. Você pode comprar na loja! 💡", ru:"Подсказок нет. Их можно купить в магазине! 💡", vi:"Hết vé gợi ý. Bạn có thể mua ở cửa hàng! 💡", th:"ไม่มีบัตรคำใบ้ ซื้อได้ที่ร้านค้า! 💡", in:"Tidak ada tiket petunjuk. Beli di toko! 💡" },
-confirm: { ko:"확인", en:"OK", ja:"OK", zh:"确定", es:"Aceptar", fr:"OK", de:"OK", pt:"OK", ru:"OK", vi:"Đồng ý", th:"ตกลง", in:"OK" },
 
-// ---------- 지갑 금액 표기 ----------
 // 통화는 원(₩) 그대로 — 부모가 실제로 주는 돈이 원화라서 언어마다 "1,200 won" 처럼 읽는다
-wallet_amount: { ko:"%1$s원", en:"%1$s won", ja:"%1$s ウォン", zh:"%1$s 韩元", es:"%1$s wones", fr:"%1$s wons", de:"%1$s Won", pt:"%1$s wons", ru:"%1$s вон", vi:"%1$s won", th:"%1$s วอน", in:"%1$s won" },
 
 };

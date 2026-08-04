@@ -56,7 +56,7 @@ class WalletTest {
         assertEquals(Shop.ITEMS.size, Shop.ITEMS.map { it.id }.toSet().size)
         for (i in Shop.ITEMS) {
             assertTrue("${i.id}: 가격이 0 이하", i.price > 0)
-            assertTrue("${i.id}: 이름 없음", i.name.isNotBlank())
+            assertTrue("${i.id}: 이름 리소스 없음", i.nameRes != 0)
             assertTrue("${i.id}: 이모지 없음", i.emoji.isNotBlank())
             if (i.kind == ShopKind.THEME) {
                 assertTrue("${i.id}: 테마인데 색이 없음", i.color.startsWith("#"))

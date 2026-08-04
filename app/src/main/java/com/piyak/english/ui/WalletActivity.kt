@@ -1,5 +1,7 @@
 package com.piyak.english.ui
 
+import com.piyak.english.R
+
 import android.graphics.Color
 import android.os.Bundle
 import android.text.InputType
@@ -43,10 +45,10 @@ class WalletActivity : AppCompatActivity() {
     }
 
     private fun refresh() {
-        b.txtBalance.text = Wallet.format(this@WalletActivity, db.coins())
+        b.txtBalance.text = Wallet.format(this, db.coins())
         b.txtSummary.text =
-            "지금까지 모은 돈 ${Wallet.format(this@WalletActivity, db.coinsEarned())}\n" +
-                "상점에서 쓴 돈 ${Wallet.format(this@WalletActivity, db.coinsSpent())} · 현금으로 받은 돈 ${Wallet.format(this@WalletActivity, db.coinsPaidOut())}"
+            getString(R.string.wallet_earned, Wallet.format(this, db.coinsEarned())) + "\n" +
+                getString(R.string.wallet_spent, Wallet.format(this, db.coinsSpent()), Wallet.format(this, db.coinsPaidOut()))
         buildShop()
         buildLog()
     }
@@ -61,10 +63,10 @@ class WalletActivity : AppCompatActivity() {
                 lastKind = item.kind
                 b.shopBox.addView(TextView(this).apply {
                     text = when (item.kind) {
-                        ShopKind.CONSUMABLE -> "쓰면 없어지는 것"
-                        ShopKind.UPGRADE -> "영원히 남는 것"
-                        ShopKind.STICKER -> "스티커 (홈에 자랑하기)"
-                        ShopKind.THEME -> "테마 (홈 배경 바꾸기)"
+                        ShopKind.CONSUMABLE -> getString(R.string.shop_g_consumable)
+                        ShopKind.UPGRADE -> getString(R.string.shop_g_upgrade)
+                        ShopKind.STICKER -> getString(R.string.shop_g_sticker)
+                        ShopKind.THEME -> getString(R.string.shop_g_theme)
                     }
                     textSize = 13f
                     setTextColor(Color.parseColor("#8D6E63"))
@@ -111,15 +113,15 @@ class WalletActivity : AppCompatActivity() {
             setPadding(dp(10), 0, dp(6), 0)
         }
         col.addView(TextView(this).apply {
-            text = item.name
+            text = getString(item.nameRes)
             textSize = 15f
             setTypeface(typeface, android.graphics.Typeface.BOLD)
         })
         col.addView(TextView(this).apply {
             text = when {
-                item.id == "hint3" -> "${item.desc}  (가진 힌트권 ${db.itemCount("hint")}개)"
-                item.id == "heart_up" -> "${item.desc}  (현재 최대 ${db.maxHearts()}개)"
-                else -> item.desc
+                item.id == "hint3" -> getString(R.string.shop_hint_have, getString(item.descRes), db.itemCount("hint"))
+                item.id == "heart_up" -> getString(R.string.shop_heart_have, getString(item.descRes), db.maxHearts())
+                else -> getString(item.descRes)
             }
             textSize = 11f
             setTextColor(Color.parseColor("#8D6E63"))
@@ -134,17 +136,17 @@ class WalletActivity : AppCompatActivity() {
             setPadding(dp(14), 0, dp(14), 0)
             when {
                 maxed -> {
-                    text = "최대"
+                    text = getString(R.string.shop_maxed)
                     isEnabled = false
                 }
                 equipped -> {
-                    text = "사용 중"
+                    text = getString(R.string.shop_in_use)
                     isEnabled = false
                     setBackgroundColorTint("#66BB6A")
                     setTextColor(Color.WHITE)
                 }
                 owned -> {
-                    text = "적용"
+                    text = getString(R.string.shop_apply)
                     setBackgroundColorTint("#81D4FA")
                     setTextColor(Color.parseColor("#4E342E"))
                     setOnClickListener { equip(item) }
@@ -169,46 +171,46 @@ class WalletActivity : AppCompatActivity() {
     private fun buy(item: ShopItem) {
         if (db.coins() < item.price) {
             Toast.makeText(
-                this, "용돈이 ${Wallet.format(this@WalletActivity, item.price - db.coins())} 모자라요. 문제를 더 풀어 봐요! 🐥",
+                this, getString(R.string.shop_not_enough, Wallet.format(this, item.price - db.coins())),
                 Toast.LENGTH_SHORT
             ).show()
             return
         }
         AlertDialog.Builder(this)
-            .setTitle("${item.emoji} ${item.name}")
-            .setMessage("${item.desc}\n\n${Wallet.format(this@WalletActivity, item.price)}을 쓸까요?\n(남는 돈 ${Wallet.format(this@WalletActivity, db.coins() - item.price)})")
-            .setPositiveButton("살래요") { _, _ -> doBuy(item) }
-            .setNegativeButton("다음에", null)
+            .setTitle("${item.emoji} " + getString(item.nameRes))
+            .setMessage(getString(R.string.shop_buy_ask, getString(item.descRes), Wallet.format(this, item.price), Wallet.format(this, db.coins() - item.price)))
+            .setPositiveButton(getString(R.string.shop_buy_yes)) { _, _ -> doBuy(item) }
+            .setNegativeButton(getString(R.string.shop_buy_later), null)
             .show()
     }
 
     private fun doBuy(item: ShopItem) {
-        if (!db.spendCoins(item.price, "BUY", "${item.emoji} ${item.name}")) return
+        if (!db.spendCoins(item.price, "BUY", "${item.emoji} " + getString(item.nameRes))) return
         when (item.kind) {
             ShopKind.CONSUMABLE -> when (item.id) {
                 "heart_refill" -> {
                     db.setHearts(db.maxHearts())
-                    toast("하트가 가득 찼어요! ❤️ ${db.maxHearts()}")
+                    toast(getString(R.string.shop_heart_full, db.maxHearts()))
                 }
                 "hint3" -> {
                     db.addItem("hint", item.amount)
-                    toast("힌트권 ${item.amount}개를 받았어요! 💡")
+                    toast(getString(R.string.shop_got_hints, item.amount))
                 }
             }
             ShopKind.UPGRADE -> if (item.id == "heart_up") {
                 db.setMaxHearts((db.maxHearts() + 1).coerceAtMost(Shop.MAX_HEARTS_CAP))
                 db.setHearts(db.maxHearts())
-                toast("이제 하트를 ${db.maxHearts()}개까지 가질 수 있어요! ❤️‍🔥")
+                toast(getString(R.string.shop_heart_up_done, db.maxHearts()))
             }
             ShopKind.STICKER -> {
                 db.addItem(item.id, 1)
                 db.setEquippedSticker(item.emoji)
-                toast("${item.emoji} 스티커를 홈에 붙였어요!")
+                toast(getString(R.string.shop_sticker_on, item.emoji))
             }
             ShopKind.THEME -> {
                 db.addItem(item.id, 1)
                 db.setThemeColor(item.color)
-                toast("${item.name}로 바꿨어요! ${item.emoji}")
+                toast(getString(R.string.shop_theme_on, getString(item.nameRes), item.emoji))
             }
         }
         refresh()
@@ -216,8 +218,8 @@ class WalletActivity : AppCompatActivity() {
 
     private fun equip(item: ShopItem) {
         when (item.kind) {
-            ShopKind.STICKER -> { db.setEquippedSticker(item.emoji); toast("${item.emoji} 스티커를 붙였어요!") }
-            ShopKind.THEME -> { db.setThemeColor(item.color); toast("${item.name} 적용!") }
+            ShopKind.STICKER -> { db.setEquippedSticker(item.emoji); toast(getString(R.string.shop_sticker_on, item.emoji)) }
+            ShopKind.THEME -> { db.setThemeColor(item.color); toast(getString(R.string.shop_applied, getString(item.nameRes))) }
             else -> {}
         }
         refresh()
@@ -227,14 +229,14 @@ class WalletActivity : AppCompatActivity() {
 
     private fun askPayout() {
         if (db.coins() <= 0) {
-            toast("아직 바꿀 용돈이 없어요 🐣")
+            toast(getString(R.string.pay_no_money))
             return
         }
         val presets = Shop.PAYOUT_PRESETS.filter { it <= db.coins() }
-        val labels = (presets.map { Wallet.format(this@WalletActivity, it) } + "전액 ${Wallet.format(this@WalletActivity, db.coins())}" + "직접 입력")
+        val labels = (presets.map { Wallet.format(this, it) } + getString(R.string.pay_all, Wallet.format(this, db.coins())) + getString(R.string.pay_custom))
             .toTypedArray()
         AlertDialog.Builder(this)
-            .setTitle("💵 현금으로 바꾸기")
+            .setTitle(getString(R.string.wallet_cash_out))
             .setItems(labels) { _, i ->
                 when {
                     i < presets.size -> confirmPayout(presets[i])
@@ -242,53 +244,52 @@ class WalletActivity : AppCompatActivity() {
                     else -> customPayout()
                 }
             }
-            .setNegativeButton("취소", null)
+            .setNegativeButton(getString(R.string.cancel), null)
             .show()
     }
 
     private fun customPayout() {
         val input = EditText(this).apply {
             inputType = InputType.TYPE_CLASS_NUMBER
-            hint = "얼마를 드릴까요? (최대 ${db.coins()})"
+            hint = getString(R.string.pay_how_much, db.coins())
             setPadding(dp(20), dp(16), dp(20), dp(16))
         }
         AlertDialog.Builder(this)
-            .setTitle("금액 입력")
+            .setTitle(getString(R.string.pay_enter_amount))
             .setView(input)
-            .setPositiveButton("확인") { _, _ ->
+            .setPositiveButton(getString(R.string.confirm)) { _, _ ->
                 val v = input.text.toString().toIntOrNull() ?: 0
                 if (v in 1..db.coins()) confirmPayout(v)
-                else toast("금액을 다시 확인해 주세요")
+                else toast(getString(R.string.pay_bad_amount))
             }
-            .setNegativeButton("취소", null)
+            .setNegativeButton(getString(R.string.cancel), null)
             .show()
     }
 
     private fun confirmPayout(amount: Int) {
         val doPay = {
-            if (db.spendCoins(amount, "PAYOUT", "현금으로 받음")) {
+            if (db.spendCoins(amount, "PAYOUT", getString(R.string.pay_log))) {
                 AlertDialog.Builder(this)
-                    .setTitle("🎉 ${Wallet.format(this@WalletActivity, amount)} 지급 완료!")
+                    .setTitle(getString(R.string.pay_done_title, Wallet.format(this, amount)))
                     .setMessage(
-                        "부모님이 ${Wallet.format(this@WalletActivity, amount)}을 현금으로 주셨어요.\n" +
-                            "남은 용돈: ${Wallet.format(this@WalletActivity, db.coins())}\n\n열심히 공부한 보람이 있네요! 🐥"
+                        getString(R.string.pay_done_msg, Wallet.format(this, amount), Wallet.format(this, db.coins())) + "" +
+                            ""
                     )
-                    .setPositiveButton("좋아요!", null)
+                    .setPositiveButton(getString(R.string.ok_nice), null)
                     .show()
                 refresh()
             }
         }
-        if (db.hasParentPin()) askPin("부모님 비밀번호를 넣어 주세요") { ok -> if (ok) doPay() }
+        if (db.hasParentPin()) askPin(getString(R.string.pin_ask)) { ok -> if (ok) doPay() }
         else {
             AlertDialog.Builder(this)
-                .setTitle("부모님 확인")
+                .setTitle(getString(R.string.pay_confirm_title))
                 .setMessage(
-                    "${Wallet.format(this@WalletActivity, amount)}을 현금으로 주시겠어요?\n" +
-                        "확인을 누르면 지갑에서 빠지고 기록에 남아요.\n\n" +
-                        "(설정에서 비밀번호를 걸면 아이가 혼자 누를 수 없어요)"
+                    getString(R.string.pay_confirm_msg, Wallet.format(this, amount)) + "" +
+                        ""
                 )
-                .setPositiveButton("현금 줬어요") { _, _ -> doPay() }
-                .setNegativeButton("취소", null)
+                .setPositiveButton(getString(R.string.pay_gave)) { _, _ -> doPay() }
+                .setNegativeButton(getString(R.string.cancel), null)
                 .show()
         }
     }
@@ -297,52 +298,52 @@ class WalletActivity : AppCompatActivity() {
 
     private fun parentSettings() {
         val has = db.hasParentPin()
-        val options = if (has) arrayOf("비밀번호 바꾸기", "비밀번호 없애기")
-        else arrayOf("비밀번호 만들기 (현금 지급 잠금)")
+        val options = if (has) arrayOf(getString(R.string.pin_change), getString(R.string.pin_remove))
+        else arrayOf(getString(R.string.pin_create))
         AlertDialog.Builder(this)
-            .setTitle("🔒 부모 설정")
+            .setTitle(getString(R.string.set_parent))
             .setItems(options) { _, i ->
                 if (!has) newPin()
-                else if (i == 0) askPin("지금 비밀번호") { ok -> if (ok) newPin() }
-                else askPin("지금 비밀번호") { ok -> if (ok) { db.setParentPin(""); toast("비밀번호를 없앴어요") } }
+                else if (i == 0) askPin(getString(R.string.pin_current)) { ok -> if (ok) newPin() }
+                else askPin(getString(R.string.pin_current)) { ok -> if (ok) { db.setParentPin(""); toast(getString(R.string.pin_removed)) } }
             }
-            .setNegativeButton("닫기", null)
+            .setNegativeButton(getString(R.string.close), null)
             .show()
     }
 
     private fun newPin() {
         val input = EditText(this).apply {
             inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_VARIATION_PASSWORD
-            hint = "숫자 4자리"
+            hint = getString(R.string.pin_hint)
             setPadding(dp(20), dp(16), dp(20), dp(16))
         }
         AlertDialog.Builder(this)
-            .setTitle("새 비밀번호")
+            .setTitle(getString(R.string.pin_new))
             .setView(input)
-            .setPositiveButton("저장") { _, _ ->
+            .setPositiveButton(getString(R.string.save)) { _, _ ->
                 val p = input.text.toString()
-                if (p.length == 4) { db.setParentPin(p); toast("비밀번호를 저장했어요 🔒") }
-                else toast("숫자 4자리로 만들어 주세요")
+                if (p.length == 4) { db.setParentPin(p); toast(getString(R.string.pin_saved)) }
+                else toast(getString(R.string.pin_need4))
             }
-            .setNegativeButton("취소", null)
+            .setNegativeButton(getString(R.string.cancel), null)
             .show()
     }
 
     private fun askPin(title: String, cb: (Boolean) -> Unit) {
         val input = EditText(this).apply {
             inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_VARIATION_PASSWORD
-            hint = "숫자 4자리"
+            hint = getString(R.string.pin_hint)
             setPadding(dp(20), dp(16), dp(20), dp(16))
         }
         AlertDialog.Builder(this)
             .setTitle(title)
             .setView(input)
-            .setPositiveButton("확인") { _, _ ->
+            .setPositiveButton(getString(R.string.confirm)) { _, _ ->
                 val ok = input.text.toString() == db.parentPin()
-                if (!ok) toast("비밀번호가 달라요")
+                if (!ok) toast(getString(R.string.pin_wrong))
                 cb(ok)
             }
-            .setNegativeButton("취소") { _, _ -> cb(false) }
+            .setNegativeButton(getString(R.string.cancel)) { _, _ -> cb(false) }
             .show()
     }
 
@@ -353,7 +354,7 @@ class WalletActivity : AppCompatActivity() {
         val logs = db.walletLog(30)
         if (logs.isEmpty()) {
             b.logBox.addView(TextView(this).apply {
-                text = "아직 기록이 없어요. 문제를 풀어 용돈을 모아 봐요! 🐥"
+                text = getString(R.string.wallet_no_log)
                 textSize = 13f
                 setTextColor(Color.parseColor("#8D6E63"))
                 setPadding(dp(4), dp(8), 0, 0)

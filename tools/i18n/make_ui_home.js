@@ -18,7 +18,6 @@ const COPY = {
   goal_normal: "보통 (레슨 2~3개)",
   goal_hard: "열심히 (레슨 5개쯤)",
   goal_beast: "빡세게 (레슨 10개쯤)",
-  goal_set_title: "🎯 오늘의 목표 정하기",
   cancel: "취소",
   home_wrong_count: "오답 %d",
   home_overall_lv: "종합 실력 Lv.%s",
@@ -30,14 +29,7 @@ const COPY = {
   weak_area: "약한 영역: %1$s %2$s",
   not_started: "  시작 전",
   home_placement_math: "레벨테스트로 내 학년 찾기!\n25문제로 딱 맞는 단계를 정해줘요",
-  stats_level_big: "⭐ Lv.%1$d",
-  stats_xp_detail: "누적 %1$d XP · 다음 레벨까지 %2$d XP",
-  stats_streak_info: "현재 %1$d일 연속 · 최고 %2$d일",
   stats_counters: "📚 완료한 레슨  %1$d개\n💯 퍼펙트 레슨  %2$d개\n💊 클리어한 오답  %3$d개\n🗓 공부한 날  %4$d일",
-  stats_none_yet: "아직 풀어본 문제가 없어요",
-  stats_skill_line: "정답 %1$d / 시도 %2$d  ·  정답률 %3$d%%",
-  stats_next_level: "  ·  다음 레벨까지 %1$d문제",
-  stats_max_level: "  ·  최고 레벨!",
 };
 
 const EXTRA = `
