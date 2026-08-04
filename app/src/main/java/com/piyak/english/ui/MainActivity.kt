@@ -208,16 +208,20 @@ class MainActivity : AppCompatActivity() {
             gravity = Gravity.CENTER_VERTICAL
             setPadding(0, dp(5f).toInt(), 0, dp(5f).toInt())
         }
+        // 영역 이름은 언어마다 길이가 3배까지 차이 난다("듣기" vs "Аудирование").
+        // 고정 폭으로 두면 글자가 접히면서 막대와 어긋나므로 **가변 폭 + 한 줄**로 둔다.
         row.addView(TextView(this).apply {
             text = "${st.def.emoji} ${getString(st.def.titleRes)}"
             textSize = 14f
-            width = dp(78f).toInt()
+            maxLines = 1
+            ellipsize = android.text.TextUtils.TruncateAt.END
+            layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.3f)
         })
         row.addView(TextView(this).apply {
             text = "Lv.${st.level}"
             textSize = 14f
             setTypeface(typeface, android.graphics.Typeface.BOLD)
-            width = dp(46f).toInt()
+            minWidth = dp(42f).toInt()
         })
         row.addView(android.widget.ProgressBar(
             this, null, android.R.attr.progressBarStyleHorizontal

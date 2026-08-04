@@ -441,6 +441,8 @@
     <string name="ly_track_free">เรียนบทไหนก่อนก็ได้</string>
     <string name="ly_match_pairs">จับคู่คำกับความหมาย</string>
     <string name="ly_play_desc">เกมที่เล่นด้วยการแตะและลาก 🐥</string>
+    <string name="btn_play">ฟัง</string>
+    <string name="btn_play_slow">ช้า</string>
     <string-array name="weekday_short">
         <item>อา</item>
         <item>จ</item>

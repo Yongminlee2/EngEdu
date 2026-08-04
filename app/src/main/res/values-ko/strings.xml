@@ -441,6 +441,8 @@
     <string name="ly_track_free">모든 레슨을 순서 상관없이 풀 수 있어요</string>
     <string name="ly_match_pairs">단어와 뜻을 짝지어 주세요</string>
     <string name="ly_play_desc">손가락으로 만지고 움직이며 노는 게임이에요 🐥</string>
+    <string name="btn_play">듣기</string>
+    <string name="btn_play_slow">천천히</string>
     <string-array name="weekday_short">
         <item>일</item>
         <item>월</item>

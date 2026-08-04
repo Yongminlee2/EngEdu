@@ -441,6 +441,8 @@
     <string name="ly_track_free">所有课程可以任意顺序学</string>
     <string name="ly_match_pairs">请把单词和意思配对</string>
     <string name="ly_play_desc">用手指触摸移动来玩的游戏 🐥</string>
+    <string name="btn_play">听</string>
+    <string name="btn_play_slow">慢速</string>
     <string-array name="weekday_short">
         <item>日</item>
         <item>一</item>

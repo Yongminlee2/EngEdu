@@ -441,6 +441,8 @@
     <string name="ly_track_free">Fais les leçons dans l\'ordre que tu veux</string>
     <string name="ly_match_pairs">Associe chaque mot à son sens</string>
     <string name="ly_play_desc">Des jeux où l\'on touche et déplace 🐥</string>
+    <string name="btn_play">Écouter</string>
+    <string name="btn_play_slow">Lentement</string>
     <string-array name="weekday_short">
         <item>Dim</item>
         <item>Lun</item>
