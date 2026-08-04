@@ -138,5 +138,300 @@
   "ko": "%1$s\n(%2$s)",
   "args": 2,
   "n": 0
+ },
+ "t_tr_basic": {
+  "ko": "기초 차근차근",
+  "args": 0,
+  "n": 0
+ },
+ "t_tr_basic_s": {
+  "ko": "초등부터 고급까지 10단계",
+  "args": 0,
+  "n": 0
+ },
+ "t_tr_daily": {
+  "ko": "일상·여행 영어",
+  "args": 0,
+  "n": 0
+ },
+ "t_tr_daily_s": {
+  "ko": "혼자 해외여행 가는 그날까지",
+  "args": 0,
+  "n": 0
+ },
+ "t_tr_elem": {
+  "ko": "초등영어 놀이터",
+  "args": 0,
+  "n": 0
+ },
+ "t_tr_elem_s": {
+  "ko": "알파벳부터 놀면서 배우기",
+  "args": 0,
+  "n": 0
+ },
+ "t_tr_grammar": {
+  "ko": "문법 집중",
+  "args": 0,
+  "n": 0
+ },
+ "t_tr_grammar_s": {
+  "ko": "be동사부터 도치·가정법까지",
+  "args": 0,
+  "n": 0
+ },
+ "t_tr_listen": {
+  "ko": "듣기 집중",
+  "args": 0,
+  "n": 0
+ },
+ "t_tr_listen_s": {
+  "ko": "단어→문장→대화 귀 트기",
+  "args": 0,
+  "n": 0
+ },
+ "t_tr_reading": {
+  "ko": "독해 집중",
+  "args": 0,
+  "n": 0
+ },
+ "t_tr_reading_s": {
+  "ko": "짧은 글→실용문→학술 지문",
+  "args": 0,
+  "n": 0
+ },
+ "t_tr_speak": {
+  "ko": "말하기 집중",
+  "args": 0,
+  "n": 0
+ },
+ "t_tr_speak_s": {
+  "ko": "입 트기·실전 회화 발음 훈련",
+  "args": 0,
+  "n": 0
+ },
+ "t_tr_toefl": {
+  "ko": "토플 (TOEFL)",
+  "args": 0,
+  "n": 0
+ },
+ "t_tr_toefl_s": {
+  "ko": "학술 독해·리스닝",
+  "args": 0,
+  "n": 0
+ },
+ "t_tr_toeic": {
+  "ko": "토익 (TOEIC)",
+  "args": 0,
+  "n": 0
+ },
+ "t_tr_toeic_s": {
+  "ko": "파트별 유형 정복",
+  "args": 0,
+  "n": 0
+ },
+ "t_tr_write": {
+  "ko": "쓰기 집중",
+  "args": 0,
+  "n": 0
+ },
+ "t_tr_write_s": {
+  "ko": "철자→어순→영작",
+  "args": 0,
+  "n": 0
+ },
+ "t_word": {
+  "ko": "%1$s",
+  "args": 1,
+  "n": 0
+ },
+ "t_stage": {
+  "ko": "%1$s단계 %2$s",
+  "args": 2,
+  "n": 0
+ },
+ "t_stage_n": {
+  "ko": "%1$s단계 %2$s %3$s",
+  "args": 3,
+  "n": 0
+ },
+ "t_lesson": {
+  "ko": "레슨 %1$s",
+  "args": 1,
+  "n": 0
+ },
+ "t_expr": {
+  "ko": "%1$s · 표현",
+  "args": 1,
+  "n": 0
+ },
+ "t_talk2": {
+  "ko": "%1$s · 말하기",
+  "args": 1,
+  "n": 0
+ },
+ "t_num": {
+  "ko": "%1$s %2$s",
+  "args": 2,
+  "n": 0
+ },
+ "t_u_greet": {
+  "ko": "인사와 소개",
+  "args": 0,
+  "n": 0
+ },
+ "t_u_rest": {
+  "ko": "식당에서",
+  "args": 0,
+  "n": 0
+ },
+ "t_u_shop": {
+  "ko": "쇼핑",
+  "args": 0,
+  "n": 0
+ },
+ "t_u_way": {
+  "ko": "길 찾기",
+  "args": 0,
+  "n": 0
+ },
+ "t_u_air": {
+  "ko": "공항과 비행기",
+  "args": 0,
+  "n": 0
+ },
+ "t_u_hotel": {
+  "ko": "호텔에서",
+  "args": 0,
+  "n": 0
+ },
+ "t_u_trans": {
+  "ko": "교통 이용",
+  "args": 0,
+  "n": 0
+ },
+ "t_u_emerg": {
+  "ko": "긴급 상황",
+  "args": 0,
+  "n": 0
+ },
+ "t_u_small": {
+  "ko": "스몰토크",
+  "args": 0,
+  "n": 0
+ },
+ "t_u_shop2": {
+  "ko": "실전 문장 잡화점 %1$s",
+  "args": 1,
+  "n": 0
+ },
+ "t_g_gram": {
+  "ko": "%1$s 문법",
+  "args": 1,
+  "n": 0
+ },
+ "t_g_listen": {
+  "ko": "귀 트기 %1$s %2$s",
+  "args": 2,
+  "n": 0
+ },
+ "t_g_read": {
+  "ko": "%1$s 읽기 %2$s",
+  "args": 2,
+  "n": 0
+ },
+ "t_g_speak": {
+  "ko": "입 트기 %1$s %2$s",
+  "args": 2,
+  "n": 0
+ },
+ "t_g_write": {
+  "ko": "철자 연습 %1$s %2$s",
+  "args": 2,
+  "n": 0
+ },
+ "t_s_gramtoeic": {
+  "ko": "실전 문법 (토익형) %1$s",
+  "args": 1,
+  "n": 0
+ },
+ "t_s_dict": {
+  "ko": "문장 받아쓰기 %1$s",
+  "args": 1,
+  "n": 0
+ },
+ "t_s_dialog": {
+  "ko": "대화 듣기 훈련 %1$s",
+  "args": 1,
+  "n": 0
+ },
+ "t_s_pract": {
+  "ko": "실용문 읽기 %1$s",
+  "args": 1,
+  "n": 0
+ },
+ "t_s_acad": {
+  "ko": "학술 지문 읽기 %1$s",
+  "args": 1,
+  "n": 0
+ },
+ "t_s_conv": {
+  "ko": "실전 회화 말하기 %1$s",
+  "args": 1,
+  "n": 0
+ },
+ "t_s_travel": {
+  "ko": "여행 표현 말하기 %1$s",
+  "args": 1,
+  "n": 0
+ },
+ "t_s_build": {
+  "ko": "문장 조립 %1$s",
+  "args": 1,
+  "n": 0
+ },
+ "t_s_compose": {
+  "ko": "영작 훈련 %1$s",
+  "args": 1,
+  "n": 0
+ },
+ "t_s_acread": {
+  "ko": "학술 독해 %1$s",
+  "args": 1,
+  "n": 0
+ },
+ "t_s_lecture": {
+  "ko": "강의 듣기 %1$s",
+  "args": 1,
+  "n": 0
+ },
+ "t_s_acvocab": {
+  "ko": "학술 어휘 연구소 %1$s",
+  "args": 1,
+  "n": 0
+ },
+ "t_s_p5": {
+  "ko": "Part %1$s 빈칸 채우기 %2$s",
+  "args": 2,
+  "n": 0
+ },
+ "t_s_p7": {
+  "ko": "Part %1$s 독해 %2$s",
+  "args": 2,
+  "n": 0
+ },
+ "t_s_lc": {
+  "ko": "LC 짧은 대화 %1$s",
+  "args": 1,
+  "n": 0
+ },
+ "t_s_bizvocab": {
+  "ko": "비즈니스 어휘 특훈 %1$s",
+  "args": 1,
+  "n": 0
+ },
+ "t_s_shortdialog": {
+  "ko": "짧은 대화 듣기",
+  "args": 0,
+  "n": 0
  }
 }

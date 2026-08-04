@@ -141,16 +141,17 @@ sealed class Question {
         private fun build(o: JSONObject): Question {
             val id = o.getString("id")
             val explain = o.optString("explain").ifEmpty { null }
+                ?.let { com.piyak.english.i18n.Tpl.textOrNull(it) }
             return when (val t = o.getString("type")) {
                 "mcq", "reading" -> Mcq(
-                    id, o.getString("prompt"), strList(o.getJSONArray("choices")),
+                    id, tpl(o), strList(o.getJSONArray("choices")),
                     o.getInt("answer"), o.optString("passage").ifEmpty { null }, explain,
                     o.optString("bigEmoji").ifEmpty { null },
                     strListOpt(o.optJSONArray("choiceArt")),
                     o.optString("bigArt").ifEmpty { null }
                 )
                 "listen_mcq" -> ListenMcq(
-                    id, o.getString("tts"), o.optString("prompt", "무엇을 들었나요?"),
+                    id, o.getString("tts"), tpl(o, o.optString("prompt", "무엇을 들었나요?")),
                     strList(o.getJSONArray("choices")), o.getInt("answer"), explain
                 )
                 "dictation" -> Dictation(

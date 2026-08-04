@@ -480,9 +480,142 @@
     <string name="tpl_887a7a17">É uma figura de %1$s.\nQual é o primeiro som de %2$s?</string>
     <string name="tpl_02bc90d3">%1$s (%2$s)\nQual é a vogal do meio?</string>
     <string name="tpl_363ce10c">%1$s</string>
+    <string name="tpl_t_tr_basic">Básico passo a passo</string>
+    <string name="tpl_t_tr_basic_s">10 etapas do fundamental ao avançado</string>
+    <string name="tpl_t_tr_daily">Inglês diário e de viagem</string>
+    <string name="tpl_t_tr_daily_s">Até o dia de viajar sozinho</string>
+    <string name="tpl_t_tr_elem">Parquinho do fundamental</string>
+    <string name="tpl_t_tr_elem_s">Aprenda brincando desde o ABC</string>
+    <string name="tpl_t_tr_grammar">Foco em gramática</string>
+    <string name="tpl_t_tr_grammar_s">Do verbo be à inversão e condicionais</string>
+    <string name="tpl_t_tr_listen">Foco em escuta</string>
+    <string name="tpl_t_tr_listen_s">Palavras → frases → diálogos, treine o ouvido</string>
+    <string name="tpl_t_tr_reading">Foco em leitura</string>
+    <string name="tpl_t_tr_reading_s">Textos curtos → práticos → acadêmicos</string>
+    <string name="tpl_t_tr_speak">Foco em fala</string>
+    <string name="tpl_t_tr_speak_s">Solte a voz: prática real de conversação</string>
+    <string name="tpl_t_tr_toefl">TOEFL</string>
+    <string name="tpl_t_tr_toefl_s">Leitura e escuta acadêmicas</string>
+    <string name="tpl_t_tr_toeic">TOEIC</string>
+    <string name="tpl_t_tr_toeic_s">Domine cada parte, tipo a tipo</string>
+    <string name="tpl_t_tr_write">Foco em escrita</string>
+    <string name="tpl_t_tr_write_s">Ortografia → ordem → redação</string>
+    <string name="tpl_t_word">%1$s</string>
+    <string name="tpl_t_stage">Etapa %1$s · %2$s</string>
+    <string name="tpl_t_stage_n">Etapa %1$s · %2$s %3$s</string>
+    <string name="tpl_t_lesson">Lição %1$s</string>
+    <string name="tpl_t_expr">%1$s · Frases</string>
+    <string name="tpl_t_talk2">%1$s · Fala</string>
+    <string name="tpl_t_num">%1$s %2$s</string>
+    <string name="tpl_t_u_greet">Cumprimentos e apresentações</string>
+    <string name="tpl_t_u_rest">No restaurante</string>
+    <string name="tpl_t_u_shop">Compras</string>
+    <string name="tpl_t_u_way">Achando o caminho</string>
+    <string name="tpl_t_u_air">Aeroporto e avião</string>
+    <string name="tpl_t_u_hotel">No hotel</string>
+    <string name="tpl_t_u_trans">Transporte</string>
+    <string name="tpl_t_u_emerg">Emergências</string>
+    <string name="tpl_t_u_small">Conversa fiada</string>
+    <string name="tpl_t_u_shop2">Loja de frases reais %1$s</string>
+    <string name="tpl_t_g_gram">Gramática %1$s</string>
+    <string name="tpl_t_g_listen">Treino de ouvido · %1$s %2$s</string>
+    <string name="tpl_t_g_read">Leitura %1$s %2$s</string>
+    <string name="tpl_t_g_speak">Solte a voz · %1$s %2$s</string>
+    <string name="tpl_t_g_write">Ortografia · %1$s %2$s</string>
+    <string name="tpl_t_s_gramtoeic">Gramática real (estilo TOEIC) %1$s</string>
+    <string name="tpl_t_s_dict">Ditado de frases %1$s</string>
+    <string name="tpl_t_s_dialog">Escuta de diálogos %1$s</string>
+    <string name="tpl_t_s_pract">Leitura prática %1$s</string>
+    <string name="tpl_t_s_acad">Textos acadêmicos %1$s</string>
+    <string name="tpl_t_s_conv">Conversação real %1$s</string>
+    <string name="tpl_t_s_travel">Frases de viagem %1$s</string>
+    <string name="tpl_t_s_build">Montagem de frases %1$s</string>
+    <string name="tpl_t_s_compose">Prática de escrita %1$s</string>
+    <string name="tpl_t_s_acread">Leitura acadêmica %1$s</string>
+    <string name="tpl_t_s_lecture">Escuta de aulas %1$s</string>
+    <string name="tpl_t_s_acvocab">Laboratório de vocabulário acadêmico %1$s</string>
+    <string name="tpl_t_s_p5">Part %1$s Preencher lacunas %2$s</string>
+    <string name="tpl_t_s_p7">Part %1$s Leitura %2$s</string>
+    <string name="tpl_t_s_lc">LC Diálogos curtos %1$s</string>
+    <string name="tpl_t_s_bizvocab">Vocabulário de negócios %1$s</string>
+    <string name="tpl_t_s_shortdialog">Escuta de diálogos curtos</string>
 
     <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
     <string-array name="tpl_words">
+        <item>음식 마을|Vila da Comida</item>
+        <item>학교 마을|Vila da Escola</item>
+        <item>가족과 사람 마을|Vila da Família e Pessoas</item>
+        <item>몸과 건강 마을|Vila do Corpo e Saúde</item>
+        <item>색깔과 모양 마을|Vila das Cores e Formas</item>
+        <item>마음과 행동 마을|Vila dos Sentimentos e Ações</item>
+        <item>자연과 날씨 마을|Vila da Natureza e Clima</item>
+        <item>우리 집 마을|Vila da Minha Casa</item>
+        <item>동물 마을|Vila dos Animais</item>
+        <item>시간과 하루 마을|Vila do Tempo e do Dia</item>
+        <item>놀이와 운동 마을|Vila dos Jogos e Esportes</item>
+        <item>마을과 탈것 마을|Vila da Cidade e Veículos</item>
+        <item>옷과 물건 마을|Vila das Roupas e Objetos</item>
+        <item>낱말 탐험|Expedição de palavras</item>
+        <item>어휘 산책|Passeio de vocabulário</item>
+        <item>낱말 캠프|Acampamento de palavras</item>
+        <item>어휘 정원|Jardim de vocabulário</item>
+        <item>단어 열기구|Balão de palavras</item>
+        <item>단어 여행|Viagem de palavras</item>
+        <item>단어 보물찾기|Caça ao tesouro de palavras</item>
+        <item>낱말 등대|Farol de palavras</item>
+        <item>단어마을|Vila de palavras</item>
+        <item>문법 클리닉|Clínica de gramática</item>
+        <item>문장 공방|Oficina de frases</item>
+        <item>초등 1~2학년|1º–2º ano</item>
+        <item>초등 3~4학년|3º–4º ano</item>
+        <item>초등 5~6학년|5º–6º ano</item>
+        <item>중학 1학년|Ginásio 1</item>
+        <item>중학 2학년|Ginásio 2</item>
+        <item>중학 3학년|Ginásio 3</item>
+        <item>고등 1학년|Colegial 1</item>
+        <item>고등 2~3학년|Colegial 2–3</item>
+        <item>성인·비즈니스|Adulto · Negócios</item>
+        <item>고급·학술|Avançado · Acadêmico</item>
+        <item>알파벳 찾기 (대문자)|Ache a letra (maiúsculas)</item>
+        <item>대문자와 소문자 짝꿍|Pares maiúscula–minúscula</item>
+        <item>알파벳 소리 듣기|Sons das letras</item>
+        <item>첫소리 찾기 (파닉스)|Primeiro som (fonética)</item>
+        <item>가운데 소리 (모음)|Som do meio (vogais)</item>
+        <item>그림 보고 단어 찾기|Ligue figura e palavra</item>
+        <item>단어 뜻 맞히기|Adivinhe o significado</item>
+        <item>듣고 그림 찾기|Ouça e ache a figura</item>
+        <item>자주 나오는 낱말|Palavras frequentes</item>
+        <item>단어 써 보기|Escreva a palavra</item>
+        <item>문장 읽기|Leia frases</item>
+        <item>따라 말하기|Repita comigo</item>
+        <item>문장 받아쓰기|Ditado de frases</item>
+        <item>첫 만남|Primeiro encontro</item>
+        <item>안부 묻기|Perguntar como vai</item>
+        <item>자기소개하기|Apresentar-se</item>
+        <item>주문하기|Fazer o pedido</item>
+        <item>계산하기|Pagar a conta</item>
+        <item>특별 요청|Pedidos especiais</item>
+        <item>옷 사기|Comprar roupas</item>
+        <item>환불하기|Pedir reembolso</item>
+        <item>가격 흥정|Pechinchar</item>
+        <item>길 묻기|Pedir informações</item>
+        <item>지하철 타기|Pegar o metrô</item>
+        <item>길을 잃었을 때|Quando você se perde</item>
+        <item>체크인|Check-in</item>
+        <item>입국 심사|Imigração</item>
+        <item>기내에서|No avião</item>
+        <item>체크인하기|Fazer check-in</item>
+        <item>문제 해결|Resolver problemas</item>
+        <item>체크아웃|Check-out</item>
+        <item>택시 타기|Pegar um táxi</item>
+        <item>버스 묻기|Perguntar sobre o ônibus</item>
+        <item>렌터카 빌리기|Alugar um carro</item>
+        <item>아플 때|Quando você adoece</item>
+        <item>분실 신고|Registrar perda</item>
+        <item>약국에서|Na farmácia</item>
+        <item>날씨 이야기|Falar do tempo</item>
+        <item>취미 이야기|Falar de hobbies</item>
+        <item>주말 계획|Planos do fim de semana</item>
     </string-array>
     <string-array name="tpl_units">
     </string-array>

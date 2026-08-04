@@ -118,6 +118,9 @@ object Tpl {
         return units[s] ?: word(s)
     }
 
+    /** 해설처럼 없어도 되는 글: 비한국어 폰에서 한국어가 섞여 있으면 감춘다 */
+    fun textOrNull(s: String): String? = if (!passthrough && hasHangul(s)) null else s
+
     fun words(list: List<String>): List<String> =
         if (passthrough) list else list.map { word(it) }
 

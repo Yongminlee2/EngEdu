@@ -125,14 +125,18 @@ class StageActivity : AppCompatActivity() {
         for (e in entries) {
             // 진행률: 트랙 전체 또는 학년(레벨) 범위만 센다
             var progress = ""
+            var lessonTotal = -1
             if (e.track != null) {
                 ContentRepo.track(this, e.track)?.let { t ->
                     val units = t.units.filter { it.level in e.lvMin..e.lvMax }
                     val total = units.sumOf { it.lessons.size }
+                    lessonTotal = total
                     val d = units.sumOf { u -> u.lessons.count { it.id in done } }
                     if (total > 0) progress = getString(R.string.stage_progress, d, total)
                 }
             }
+            // 비한국어 폰: 걸러져서 풀 문제가 하나도 없는 트랙 카드는 숨긴다 (예: 한국어 독해)
+            if (!com.piyak.english.i18n.Tpl.isKorean && lessonTotal == 0) continue
 
             val card = LinearLayout(this).apply {
                 orientation = LinearLayout.HORIZONTAL
