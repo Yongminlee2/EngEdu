@@ -441,6 +441,8 @@
     <string name="ly_track_free">Học bài nào trước cũng được</string>
     <string name="ly_match_pairs">Ghép từ với nghĩa của nó</string>
     <string name="ly_play_desc">Trò chơi chạm và kéo bằng ngón tay 🐥</string>
+    <string name="btn_play">Nghe</string>
+    <string name="btn_play_slow">Chậm</string>
     <string-array name="weekday_short">
         <item>CN</item>
         <item>T2</item>

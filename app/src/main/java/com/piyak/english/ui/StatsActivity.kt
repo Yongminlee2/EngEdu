@@ -151,13 +151,15 @@ class StatsActivity : AppCompatActivity() {
             box.addView(TextView(this).apply {
                 text = getString(bd.titleRes); textSize = 12f; gravity = Gravity.CENTER
                 setTypeface(typeface, android.graphics.Typeface.BOLD)
-                maxLines = 1
+                // 칸이 화면 1/3 이라 한 줄로는 "Estudiante ejemplar" 같은 이름이 잘린다
+                maxLines = 2
                 ellipsize = android.text.TextUtils.TruncateAt.END
             })
             box.addView(TextView(this).apply {
                 text = getString(bd.descRes); textSize = 10.5f; gravity = Gravity.CENTER
                 setTextColor(Color.parseColor("#8D6E63"))
-                maxLines = 2
+                // 러시아어·인니어 설명은 두 줄로는 안 들어간다
+                maxLines = 3
                 ellipsize = android.text.TextUtils.TruncateAt.END
                 setLineSpacing(0f, 1.05f)
             })

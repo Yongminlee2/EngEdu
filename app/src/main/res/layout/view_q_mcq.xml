@@ -24,13 +24,13 @@
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
         android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="10dp">
         <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnPlay" android:layout_width="wrap_content" android:layout_height="48dp"
-            android:text="@string/sk_listen" android:drawableStart="@drawable/ic_listen" android:drawablePadding="6dp" android:visibility="gone" android:textSize="16sp"
-            android:paddingHorizontal="22dp" android:minWidth="0dp" android:insetTop="0dp" android:insetBottom="0dp"
+            android:text="@string/btn_play" android:drawableStart="@drawable/ic_listen" android:drawablePadding="6dp" android:visibility="gone" android:textSize="16sp"
+            android:paddingHorizontal="18dp" android:minWidth="0dp" android:insetTop="0dp" android:insetBottom="0dp"
             android:background="@drawable/bg_pill_sky" android:backgroundTint="@null"
             android:textColor="@color/brown_text" android:stateListAnimator="@null" />
         <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnPlaySlow" android:layout_width="wrap_content" android:layout_height="48dp"
-            android:layout_marginStart="10dp" android:text="@string/ly_slow" android:drawableStart="@drawable/ic_slow" android:drawablePadding="6dp" android:visibility="gone" android:textSize="16sp"
-            android:paddingHorizontal="22dp" android:minWidth="0dp" android:insetTop="0dp" android:insetBottom="0dp"
+            android:layout_marginStart="10dp" android:text="@string/btn_play_slow" android:drawableStart="@drawable/ic_slow" android:drawablePadding="6dp" android:visibility="gone" android:textSize="16sp"
+            android:paddingHorizontal="18dp" android:minWidth="0dp" android:insetTop="0dp" android:insetBottom="0dp"
             android:background="@drawable/bg_pill_mint" android:backgroundTint="@null"
             android:textColor="@color/brown_text" android:stateListAnimator="@null" />
     </LinearLayout>

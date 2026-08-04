@@ -441,6 +441,8 @@
     <string name="ly_track_free">どの レッスンからでも できるよ</string>
     <string name="ly_match_pairs">たんごと いみを くみあわせてね</string>
     <string name="ly_play_desc">ゆびで さわって うごかして あそぶ ゲームだよ 🐥</string>
+    <string name="btn_play">きく</string>
+    <string name="btn_play_slow">ゆっくり</string>
     <string-array name="weekday_short">
         <item>日</item>
         <item>月</item>

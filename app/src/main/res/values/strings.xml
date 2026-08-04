@@ -441,6 +441,8 @@
     <string name="ly_track_free">Play any lesson in any order</string>
     <string name="ly_match_pairs">Match each word with its meaning</string>
     <string name="ly_play_desc">Games you play by touching and moving 🐥</string>
+    <string name="btn_play">Listen</string>
+    <string name="btn_play_slow">Slow</string>
     <string-array name="weekday_short">
         <item>Sun</item>
         <item>Mon</item>

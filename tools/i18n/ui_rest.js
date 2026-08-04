@@ -131,4 +131,10 @@ ly_track_free: { ko:"모든 레슨을 순서 상관없이 풀 수 있어요", en
 ly_match_pairs: { ko:"단어와 뜻을 짝지어 주세요", en:"Match each word with its meaning", ja:"たんごと いみを くみあわせてね", zh:"请把单词和意思配对", es:"Empareja cada palabra con su significado", fr:"Associe chaque mot à son sens", de:"Ordne jedem Wort seine Bedeutung zu", pt:"Combine cada palavra com seu significado", ru:"Соедини слова с их значениями", vi:"Ghép từ với nghĩa của nó", th:"จับคู่คำกับความหมาย", in:"Jodohkan kata dengan artinya" },
 ly_play_desc: { ko:"손가락으로 만지고 움직이며 노는 게임이에요 🐥", en:"Games you play by touching and moving 🐥", ja:"ゆびで さわって うごかして あそぶ ゲームだよ 🐥", zh:"用手指触摸移动来玩的游戏 🐥", es:"Juegos para tocar y mover con el dedo 🐥", fr:"Des jeux où l'on touche et déplace 🐥", de:"Spiele zum Anfassen und Bewegen 🐥", pt:"Jogos de tocar e mover 🐥", ru:"Игры, где трогаешь и двигаешь 🐥", vi:"Trò chơi chạm và kéo bằng ngón tay 🐥", th:"เกมที่เล่นด้วยการแตะและลาก 🐥", in:"Gim yang dimainkan dengan sentuhan 🐥" },
 
+
+// ---------- 재생 버튼 (아이콘이 따로 있으므로 이모지 없이, 짧은 동사로) ----------
+// 영역 이름(sk_listen="Аудирование")을 쓰면 버튼 두 개가 화면 폭을 넘긴다
+btn_play: { ko:"듣기", en:"Listen", ja:"きく", zh:"听", es:"Escuchar", fr:"Écouter", de:"Anhören", pt:"Ouvir", ru:"Слушать", vi:"Nghe", th:"ฟัง", in:"Dengarkan" },
+btn_play_slow: { ko:"천천히", en:"Slow", ja:"ゆっくり", zh:"慢速", es:"Despacio", fr:"Lentement", de:"Langsam", pt:"Devagar", ru:"Медленно", vi:"Chậm", th:"ช้า", in:"Pelan" },
+
 };

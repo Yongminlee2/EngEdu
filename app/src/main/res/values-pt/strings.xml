@@ -441,6 +441,8 @@
     <string name="ly_track_free">Faça as lições em qualquer ordem</string>
     <string name="ly_match_pairs">Combine cada palavra com seu significado</string>
     <string name="ly_play_desc">Jogos de tocar e mover 🐥</string>
+    <string name="btn_play">Ouvir</string>
+    <string name="btn_play_slow">Devagar</string>
     <string-array name="weekday_short">
         <item>Dom</item>
         <item>Seg</item>

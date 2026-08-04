@@ -441,6 +441,8 @@
     <string name="ly_track_free">Kerjakan pelajaran dalam urutan bebas</string>
     <string name="ly_match_pairs">Jodohkan kata dengan artinya</string>
     <string name="ly_play_desc">Gim yang dimainkan dengan sentuhan 🐥</string>
+    <string name="btn_play">Dengarkan</string>
+    <string name="btn_play_slow">Pelan</string>
     <string-array name="weekday_short">
         <item>Min</item>
         <item>Sen</item>
