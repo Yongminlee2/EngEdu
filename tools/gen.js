@@ -10,6 +10,23 @@ const path = require("path");
 const ROOT = path.join(__dirname, "..");
 const CONTENT = path.join(ROOT, "content");
 const OUT = path.join(ROOT, "app", "src", "main", "assets", "packs");
+const DRAWABLE = path.join(ROOT, "app", "src", "main", "res", "drawable-nodpi");
+
+/**
+ * 그림이 있는 영어 단어 목록.
+ *
+ * 뜻을 **한국어 낱말**로 물으면 그 문제는 한국어 화자 전용이 된다.
+ * 그림이 있는 단어는 그림으로 물어서 어느 나라 아이도 풀 수 있게 만든다.
+ */
+const HAS_ART = new Set(
+  fs.readdirSync(DRAWABLE)
+    .filter((f) => f.startsWith("word_") && f.endsWith(".webp"))
+    .map((f) => f.slice(5, -5))
+);
+const artOf = (w) => {
+  const k = String(w).trim().toLowerCase().replace(/[^a-z ]/g, "").replace(/ /g, "_");
+  return HAS_ART.has(k) ? "word_" + k : null;
+};
 
 // ---------- 시드 난수 (재현 가능) ----------
 function mulberry32(a) {
@@ -95,21 +112,32 @@ function validate(q) {
 /** skill 태그를 붙여서 돌려준다 (실력 대시보드 집계용) */
 function tag(q, skill) { if (skill) q.skill = skill; return q; }
 
-function mcq(prefix, prompt, correct, distractors, explain, passage, skill) {
+function mcq(prefix, prompt, correct, distractors, explain, passage, skill, art) {
   const choices = shuffled([correct, ...distractors]);
   const q = {
     id: qid(prefix), type: passage ? "reading" : "mcq", prompt,
     choices, answer: choices.indexOf(correct),
   };
+  // art 가 오면 보기를 그림으로 보여 준다 (보기 순서를 섞은 뒤에 맞춰 붙인다).
+  // 하나라도 그림이 없으면 통째로 포기한다 — 그림·글자가 섞인 보기는 읽기 어렵다.
+  if (art) {
+    const arts = choices.map(art);
+    if (arts.every(Boolean)) q.choiceArt = arts;
+  }
   if (explain) q.explain = explain;
   if (passage) q.passage = passage;
   if (skill) q.skill = skill;
   return validate(q);
 }
-function listenMcq(prefix, tts, prompt, correct, distractors, explain) {
+function listenMcq(prefix, tts, prompt, correct, distractors, explain, art) {
   const choices = shuffled([correct, ...distractors]);
   const q = { id: qid(prefix), type: "listen_mcq", tts, prompt, choices, answer: choices.indexOf(correct) };
   if (explain) q.explain = explain;
+    // 보기를 그림으로 (하나라도 그림이 없으면 통째로 포기 — 섞이면 읽기 어렵다)
+  if (art) {
+    const arts = choices.map(art);
+    if (arts.every(Boolean)) q.choiceArt = arts;
+  }
   return validate(q);
 }
 
@@ -123,12 +151,17 @@ function orderQ(prefix, ko, en, explain) {
   return validate(q);
 }
 function dictationQ(prefix, tts, answer, hintKo, explain) {
+  // 그림이 있으면 한국어 힌트를 빼고 그림에 맡긴다 — 언어를 안 타는 문제가 된다.
+  // 받아쓰기의 본질은 "들은 대로 쓰기"라 뜻풀이는 거들 뿐이다.
+  if (artOf(answer) || artOf(tts)) hintKo = null;
   const q = { id: qid(prefix), type: "dictation", tts, answer };
   if (hintKo) q.hintKo = hintKo;
   if (explain) q.explain = explain;
   return validate(q);
 }
 function speakQ(prefix, en, ko) {
+  // 읽을 문장은 영어다. 그림이 있으면 한국어 해석은 빼도 된다
+  if (artOf(en)) ko = null;
   return validate({ id: qid(prefix), type: "speak", en, ko });
 }
 function translateQ(prefix, ko, answer, alts, explain) {
@@ -265,6 +298,22 @@ const SCENE_MEAN = [
   (w) => `그림책에서 "${w}" 를 봤어요. 무슨 뜻일까요?`,
   (w) => `오늘의 단어는 "${w}"! 뜻을 맞혀 볼까요?`,
 ];
+/**
+ * 그림 보기 문제의 문제문.
+ *
+ * 따옴표 안에 들어가는 것은 **영어 단어뿐**이라, 이 문장만 번역하면
+ * 어느 언어에서도 그대로 쓸 수 있다 (뜻을 한국어로 적지 않는다).
+ */
+/** 그림을 보여 주고 영어를 묻는다 — 문장 안에 한국어 낱말이 없다 */
+const PROMPT_WHAT_EN = "이 그림을 영어로 뭐라고 할까요?";
+/** 듣고 그림을 고른다 */
+const PROMPT_HEARD_PIC = "들린 단어의 그림은?";
+const SCENE_PICK_ART = [
+  (w) => `"${w}" 는 어떤 그림일까요?`,
+  (w) => `"${w}" 를 그림에서 찾아 보세요!`,
+  (w) => `삐약이가 "${w}" 를 찾고 있어요. 어떤 그림일까요?`,
+  (w) => `"${w}" 에 어울리는 그림을 골라 보세요.`,
+];
 const SCENE_TOEN = [
   (k) => `"${k}" 를 영어로?`,
   (k) => `삐약이에게 "${k}" 를 영어로 알려 주세요!`,
@@ -281,6 +330,17 @@ const SCENE_TOEN = [
       if (group.length < 4) continue;
       // 1R: 뜻 고르기
       for (const w of group) {
+        // 그림이 있는 단어는 **그림 보기**로 낸다 — 뜻을 한국어로 안 물어도 되고,
+        // 어느 나라 아이든 그대로 풀 수 있다. 오답도 그림 있는 단어로만 고른다.
+        if (artOf(w.word)) {
+          const dEn = pickDistinct(enPool.filter(artOf), 3, [w.word]);
+          if (dEn.length === 3) {
+            stream.push(mcq("b", scenePick(w.word, SCENE_PICK_ART)(w.word), w.word, dEn,
+              `📌 ${w.word} (${w.pos}) = ${w.ko}${exLine(w)}`,
+              null, null, artOf));
+            continue;
+          }
+        }
         const d = pickDistinct(koPool, 3, [w.ko]);
         stream.push(mcq("b", scenePick(w.word, SCENE_MEAN)(w.word), w.ko, d,
           `📌 ${w.word} (${w.pos}) = ${w.ko}${exLine(w)}\n\n다른 선택지는 각각: ${glossK(d)} 의 뜻이라 오답이에요.`));
@@ -288,11 +348,30 @@ const SCENE_TOEN = [
       // 2R: 영어로
       for (const w of group) {
         const d = pickDistinct(enPool, 3, [w.word]);
+        // 그림이 있으면 **그림을 보여 주고** 영어를 고르게 한다.
+        // 문제문에 한국어 뜻을 적지 않으므로 어느 나라 아이도 그대로 풀 수 있다.
+        const art = artOf(w.word);
+        if (art) {
+          const q = mcq("b", PROMPT_WHAT_EN, w.word, d,
+            `📌 ${w.ko} = ${w.word} (${w.pos})${exLine(w)}`);
+          q.bigArt = art;
+          stream.push(q);
+          continue;
+        }
         stream.push(mcq("b", scenePick(w.ko, SCENE_TOEN)(w.ko), w.word, d,
           `📌 ${w.ko} = ${w.word} (${w.pos})${exLine(w)}\n\n다른 선택지는 각각: ${glossE(d)} 라는 뜻이라 오답이에요.`));
       }
       // 3R: 듣고 고르기
       for (const w of group) {
+        // 듣고 **그림**을 고르면 뜻을 한국어로 늘어놓지 않아도 된다
+        if (artOf(w.word)) {
+          const dEn = pickDistinct(enPool.filter(artOf), 3, [w.word]);
+          if (dEn.length === 3) {
+            stream.push(listenMcq("b", w.word, PROMPT_HEARD_PIC, w.word, dEn,
+              `🔊 들려준 단어: ${w.word} = ${w.ko}${exLine(w)}`, artOf));
+            continue;
+          }
+        }
         const d = pickDistinct(koPool, 3, [w.ko]);
         stream.push(listenMcq("b", w.word, "들린 단어의 뜻은?", w.ko, d,
           `🔊 들려준 단어: ${w.word} = ${w.ko}${exLine(w)}\n\n다른 선택지는 각각: ${glossK(d)} 의 뜻이에요.`));
