@@ -168,8 +168,12 @@ class StatsActivity : AppCompatActivity() {
                 // 러시아어·인니어 설명은 두 줄로는 안 들어간다
                 maxLines = 3
                 ellipsize = android.text.TextUtils.TruncateAt.END
+                // 일본어 설명이 작은 가나(ょ)를 줄 앞으로 넘기며 끊기던 것 — 줄바꿈 규칙을
+                // 지키게 하고, 안 들어가면 글자를 더 줄여서 맞춘다
+                breakStrategy = android.text.Layout.BREAK_STRATEGY_BALANCED
+                hyphenationFrequency = android.text.Layout.HYPHENATION_FREQUENCY_NONE
                 androidx.core.widget.TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(
-                    this, 8, 10, 1, android.util.TypedValue.COMPLEX_UNIT_SP)
+                    this, 7, 10, 1, android.util.TypedValue.COMPLEX_UNIT_SP)
 
                 setLineSpacing(0f, 1.05f)
             })
