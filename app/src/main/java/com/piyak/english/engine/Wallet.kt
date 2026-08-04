@@ -1,5 +1,7 @@
 package com.piyak.english.engine
 
+import com.piyak.english.R
+
 /**
  * 용돈 지갑. 단위는 원(₩).
  *
@@ -36,6 +38,7 @@ object Wallet {
     fun lessonReward(firstTryCorrect: Int, perfect: Boolean): Int =
         firstTryCorrect * PER_QUESTION + if (perfect) PERFECT_BONUS else 0
 
+    /** 1,234 → "1,234원" */
     /**
      * 자릿수만 넣은 숫자 ("1,234"). 안드로이드에 기대지 않으므로 단위테스트가 쓴다.
      */
@@ -46,7 +49,7 @@ object Wallet {
      * 달러로 바꾸면 오히려 거짓말이 된다. 대신 언어마다 "1,200 won" 처럼 읽어 준다.
      */
     fun format(ctx: android.content.Context, won: Int): String =
-        ctx.getString(com.piyak.english.R.string.wallet_amount, formatNumber(won))
+        ctx.getString(R.string.wallet_amount, formatNumber(won))
 }
 
 enum class ShopKind { CONSUMABLE, UPGRADE, STICKER, THEME }
@@ -54,8 +57,9 @@ enum class ShopKind { CONSUMABLE, UPGRADE, STICKER, THEME }
 data class ShopItem(
     val id: String,
     val emoji: String,
-    val name: String,
-    val desc: String,
+    /** 화면에 뜰 이름·설명은 **문자열 리소스 id** 다 — 폰 언어를 따라가야 하므로 */
+    val nameRes: Int,
+    val descRes: Int,
     val price: Int,
     val kind: ShopKind,
     /** 소모품이 한 번에 몇 개 들어오는지 */
@@ -70,32 +74,32 @@ object Shop {
     val ITEMS: List<ShopItem> = listOf(
         // --- 소모품 ---
         ShopItem(
-            "heart_refill", "💖", "하트 가득 채우기",
-            "하트를 최대치까지 즉시 회복해요", 300, ShopKind.CONSUMABLE
+            "heart_refill", "💖", R.string.shop_heart_refill,
+            R.string.shop_heart_refill_d, 300, ShopKind.CONSUMABLE
         ),
         ShopItem(
-            "hint3", "💡", "힌트권 3개",
-            "4지선다에서 오답 2개를 지워 줘요", 200, ShopKind.CONSUMABLE, amount = 3
+            "hint3", "💡", R.string.shop_hint3,
+            R.string.shop_hint3_d, 200, ShopKind.CONSUMABLE, amount = 3
         ),
         // --- 영구 업그레이드 ---
         ShopItem(
-            "heart_up", "❤️‍🔥", "하트 최대치 +1",
-            "하트를 한 개 더 가질 수 있어요 (최대 8개)", 1500, ShopKind.UPGRADE
+            "heart_up", "❤️‍🔥", R.string.shop_heart_up,
+            R.string.shop_heart_up_d, 1500, ShopKind.UPGRADE
         ),
         // --- 스티커 (홈 칭호 옆에 자랑) ---
-        ShopItem("st_star", "🌟", "반짝 별 스티커", "홈 화면에 붙일 수 있어요", 400, ShopKind.STICKER),
-        ShopItem("st_rocket", "🚀", "로켓 스티커", "홈 화면에 붙일 수 있어요", 400, ShopKind.STICKER),
-        ShopItem("st_crown", "👑", "왕관 스티커", "홈 화면에 붙일 수 있어요", 600, ShopKind.STICKER),
-        ShopItem("st_rainbow", "🌈", "무지개 스티커", "홈 화면에 붙일 수 있어요", 400, ShopKind.STICKER),
-        ShopItem("st_dino", "🦕", "공룡 스티커", "홈 화면에 붙일 수 있어요", 600, ShopKind.STICKER),
-        ShopItem("st_cake", "🎂", "케이크 스티커", "홈 화면에 붙일 수 있어요", 400, ShopKind.STICKER),
-        ShopItem("st_medal", "🏅", "금메달 스티커", "홈 화면에 붙일 수 있어요", 800, ShopKind.STICKER),
-        ShopItem("st_unicorn", "🦄", "유니콘 스티커", "홈 화면에 붙일 수 있어요", 1000, ShopKind.STICKER),
+        ShopItem("st_star", "🌟", R.string.shop_st_star, R.string.shop_sticker_d, 400, ShopKind.STICKER),
+        ShopItem("st_rocket", "🚀", R.string.shop_st_rocket, R.string.shop_sticker_d, 400, ShopKind.STICKER),
+        ShopItem("st_crown", "👑", R.string.shop_st_crown, R.string.shop_sticker_d, 600, ShopKind.STICKER),
+        ShopItem("st_rainbow", "🌈", R.string.shop_st_rainbow, R.string.shop_sticker_d, 400, ShopKind.STICKER),
+        ShopItem("st_dino", "🦕", R.string.shop_st_dino, R.string.shop_sticker_d, 600, ShopKind.STICKER),
+        ShopItem("st_cake", "🎂", R.string.shop_st_cake, R.string.shop_sticker_d, 400, ShopKind.STICKER),
+        ShopItem("st_medal", "🏅", R.string.shop_st_medal, R.string.shop_sticker_d, 800, ShopKind.STICKER),
+        ShopItem("st_unicorn", "🦄", R.string.shop_st_unicorn, R.string.shop_sticker_d, 1000, ShopKind.STICKER),
         // --- 테마 (홈 배경색) ---
-        ShopItem("th_sky", "🩵", "하늘 테마", "홈 배경이 하늘색이 돼요", 800, ShopKind.THEME, color = "#E3F4FD"),
-        ShopItem("th_mint", "🍃", "민트 테마", "홈 배경이 민트색이 돼요", 800, ShopKind.THEME, color = "#E4F6EF"),
-        ShopItem("th_pink", "🌸", "벚꽃 테마", "홈 배경이 분홍색이 돼요", 800, ShopKind.THEME, color = "#FDECF1"),
-        ShopItem("th_lav", "💜", "라벤더 테마", "홈 배경이 보라색이 돼요", 800, ShopKind.THEME, color = "#F0EAFB"),
+        ShopItem("th_sky", "🩵", R.string.shop_th_sky, R.string.shop_th_sky_d, 800, ShopKind.THEME, color = "#E3F4FD"),
+        ShopItem("th_mint", "🍃", R.string.shop_th_mint, R.string.shop_th_mint_d, 800, ShopKind.THEME, color = "#E4F6EF"),
+        ShopItem("th_pink", "🌸", R.string.shop_th_pink, R.string.shop_th_pink_d, 800, ShopKind.THEME, color = "#FDECF1"),
+        ShopItem("th_lav", "💜", R.string.shop_th_lav, R.string.shop_th_lav_d, 800, ShopKind.THEME, color = "#F0EAFB"),
     )
 
     fun byId(id: String): ShopItem? = ITEMS.firstOrNull { it.id == id }
