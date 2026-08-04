@@ -616,6 +616,1414 @@
         <item>날씨 이야기|Chuyện thời tiết</item>
         <item>취미 이야기|Chuyện sở thích</item>
         <item>주말 계획|Kế hoạch cuối tuần</item>
+        <item>나무|cây</item>
+        <item>사과|quả táo</item>
+        <item>개|con chó</item>
+        <item>우유|sữa</item>
+        <item>귀|tai</item>
+        <item>좋은|tốt</item>
+        <item>꽃|bông hoa</item>
+        <item>기차|tàu hỏa</item>
+        <item>소|con bò</item>
+        <item>시계|đồng hồ</item>
+        <item>미묘한 차이|sắc thái</item>
+        <item>새|con chim</item>
+        <item>엄마|mẹ</item>
+        <item>쿠키|bánh quy</item>
+        <item>말|con ngựa</item>
+        <item>바다|biển</item>
+        <item>반대하다|phản đối</item>
+        <item>얻다|đạt được</item>
+        <item>수용력|sức chứa</item>
+        <item>침대|giường</item>
+        <item>발|bàn chân</item>
+        <item>작은|nhỏ</item>
+        <item>사탕|kẹo</item>
+        <item>피자|pizza</item>
+        <item>사자|sư tử</item>
+        <item>우산|cái ô</item>
+        <item>여기|ở đây</item>
+        <item>다양한|đa dạng</item>
+        <item>가정하다|giả định</item>
+        <item>개념|khái niệm</item>
+        <item>금지하다|cấm</item>
+        <item>물고기|con cá</item>
+        <item>고양이|con mèo</item>
+        <item>파란|màu xanh dương</item>
+        <item>보다|nhìn thấy</item>
+        <item>사랑하다|yêu</item>
+        <item>해|mặt trời</item>
+        <item>공|quả bóng</item>
+        <item>신발|giày</item>
+        <item>호랑이|con hổ</item>
+        <item>저기|đằng kia</item>
+        <item>이해하다|hiểu</item>
+        <item>향상시키다|cải thiện</item>
+        <item>자라다|lớn lên</item>
+        <item>방해하다|cản trở</item>
+        <item>감소하다|giảm</item>
+        <item>제거하다|loại bỏ</item>
+        <item>설득하다|thuyết phục</item>
+        <item>설립하다|thành lập</item>
+        <item>적절한|thích hợp</item>
+        <item>이익|lợi ích</item>
+        <item>요건|yêu cầu</item>
+        <item>연봉|lương</item>
+        <item>주스|nước ép</item>
+        <item>배|con tàu</item>
+        <item>그리고|và</item>
+        <item>학교|trường học</item>
+        <item>친구|bạn bè</item>
+        <item>오다|đến</item>
+        <item>좋아하다|thích</item>
+        <item>별|ngôi sao</item>
+        <item>비|mưa</item>
+        <item>토끼|con thỏ</item>
+        <item>곰|con gấu</item>
+        <item>보고서|báo cáo</item>
+        <item>포함하다|bao gồm</item>
+        <item>목표|mục tiêu</item>
+        <item>발명품|phát minh</item>
+        <item>영향|ảnh hưởng</item>
+        <item>지배하다|chi phối</item>
+        <item>호소하다|kêu gọi</item>
+        <item>아기|em bé</item>
+        <item>큰|to</item>
+        <item>응원하다|cổ vũ</item>
+        <item>본질적인|bản chất</item>
+        <item>빵|bánh mì</item>
+        <item>달걀|quả trứng</item>
+        <item>연필|bút chì</item>
+        <item>의자|cái ghế</item>
+        <item>집|ngôi nhà</item>
+        <item>아빠|bố</item>
+        <item>선생님|giáo viên</item>
+        <item>가지고 있다|có</item>
+        <item>만들다|làm ra</item>
+        <item>자동차|ô tô</item>
+        <item>저녁 식사|bữa tối</item>
+        <item>오리|con vịt</item>
+        <item>습관|thói quen</item>
+        <item>가격|giá</item>
+        <item>~하게 들리다|nghe có vẻ</item>
+        <item>결과|kết quả</item>
+        <item>설명하다|giải thích</item>
+        <item>외로운|cô đơn</item>
+        <item>집중하다|tập trung</item>
+        <item>가치|giá trị</item>
+        <item>흔한|phổ biến</item>
+        <item>입양하다|nhận nuôi</item>
+        <item>추상적인|trừu tượng</item>
+        <item>이용 가능한|có sẵn</item>
+        <item>보장하다|đảm bảo</item>
+        <item>기관|cơ quan</item>
+        <item>보증금|tiền đặt cọc</item>
+        <item>수하물|hành lý</item>
+        <item>언어의|thuộc ngôn ngữ</item>
+        <item>포식자|động vật săn mồi</item>
+        <item>버스|xe buýt</item>
+        <item>수박|dưa hấu</item>
+        <item>가방|cái túi</item>
+        <item>손|bàn tay</item>
+        <item>코|cái mũi</item>
+        <item>슬픈|buồn</item>
+        <item>짧은|ngắn</item>
+        <item>쳐다보다|nhìn</item>
+        <item>주다|cho</item>
+        <item>잘 가|tạm biệt</item>
+        <item>점심|bữa trưa</item>
+        <item>돼지|con lợn</item>
+        <item>구름|đám mây</item>
+        <item>생각하다|suy nghĩ</item>
+        <item>잊다|quên</item>
+        <item>공원|công viên</item>
+        <item>병원|bệnh viện</item>
+        <item>도시|thành phố</item>
+        <item>피곤한|mệt</item>
+        <item>미술|mỹ thuật</item>
+        <item>요리사|đầu bếp</item>
+        <item>두통|đau đầu</item>
+        <item>인기 있는|được ưa chuộng</item>
+        <item>느끼다|cảm thấy</item>
+        <item>기회|cơ hội</item>
+        <item>법|luật</item>
+        <item>손님|khách</item>
+        <item>신이 난|háo hức</item>
+        <item>현대의|hiện đại</item>
+        <item>의존하다|phụ thuộc</item>
+        <item>모이다|tụ họp</item>
+        <item>추측하다|đoán</item>
+        <item>상상하다|tưởng tượng</item>
+        <item>제공하다|cung cấp</item>
+        <item>재료|nguyên liệu</item>
+        <item>방법|phương pháp</item>
+        <item>취소하다|hủy</item>
+        <item>실험|thí nghiệm</item>
+        <item>경고하다|cảnh báo</item>
+        <item>고발하다|tố cáo</item>
+        <item>명백한|rõ ràng</item>
+        <item>자신감|sự tự tin</item>
+        <item>대조|sự tương phản</item>
+        <item>선포하다|tuyên bố</item>
+        <item>감지하다|phát hiện</item>
+        <item>경제|kinh tế</item>
+        <item>가능하게 하다|cho phép</item>
+        <item>견디다|chịu đựng</item>
+        <item>전체의|toàn bộ</item>
+        <item>추출하다|chiết xuất</item>
+        <item>모욕하다|xúc phạm</item>
+        <item>조사하다|điều tra</item>
+        <item>논리적인|hợp lý</item>
+        <item>여백|lề</item>
+        <item>다수의|nhiều</item>
+        <item>상호의|lẫn nhau</item>
+        <item>고귀한|cao quý</item>
+        <item>합병하다|sáp nhập</item>
+        <item>통지하다|thông báo</item>
+        <item>등록하다|đăng ký</item>
+        <item>이력서|sơ yếu lý lịch</item>
+        <item>거래|giao dịch</item>
+        <item>임의의|tùy ý</item>
+        <item>구성하다|cấu thành</item>
+        <item>암묵적인|ngầm hiểu</item>
+        <item>관성|quán tính</item>
+        <item>열쇠|chìa khóa</item>
+        <item>펭귄|chim cánh cụt</item>
+        <item>나의|của tôi</item>
+        <item>지불하다|trả tiền</item>
+        <item>믿음|niềm tin</item>
+        <item>검증하다|xác minh</item>
+        <item>가족|gia đình</item>
+        <item>팔|cánh tay</item>
+        <item>빨간|màu đỏ</item>
+        <item>검은|màu đen</item>
+        <item>분홍의|màu hồng</item>
+        <item>셋|ba</item>
+        <item>컵|cái cốc</item>
+        <item>상자|cái hộp</item>
+        <item>채소|rau củ</item>
+        <item>겨울|mùa đông</item>
+        <item>달(월)|tháng</item>
+        <item>시간(단위)|giờ</item>
+        <item>배우다|học</item>
+        <item>찾다|tìm</item>
+        <item>울다|khóc</item>
+        <item>동물원|sở thú</item>
+        <item>화장실|nhà vệ sinh</item>
+        <item>음식|thức ăn</item>
+        <item>늦게|muộn</item>
+        <item>계획|kế hoạch</item>
+        <item>역사|lịch sử</item>
+        <item>숙제|bài tập về nhà</item>
+        <item>시험|bài kiểm tra</item>
+        <item>학년|khối lớp</item>
+        <item>교실|phòng học</item>
+        <item>경찰|cảnh sát</item>
+        <item>꿈|giấc mơ</item>
+        <item>아침밥|bữa sáng</item>
+        <item>기침|ho</item>
+        <item>가장 좋아하는|yêu thích nhất</item>
+        <item>나르다|mang</item>
+        <item>서두르다|vội vàng</item>
+        <item>조언|lời khuyên</item>
+        <item>사고|tai nạn</item>
+        <item>낯선 사람|người lạ</item>
+        <item>메시지|tin nhắn</item>
+        <item>생각|ý tưởng</item>
+        <item>바꾸다|thay đổi</item>
+        <item>나누다|chia sẻ</item>
+        <item>묘사하다|miêu tả</item>
+        <item>나타나다|xuất hiện</item>
+        <item>기르다|nuôi</item>
+        <item>전통적인|truyền thống</item>
+        <item>성취하다|đạt được</item>
+        <item>배달하다|giao hàng</item>
+        <item>남다|còn lại</item>
+        <item>필요로 하다|cần đến</item>
+        <item>소리치다|hét lên</item>
+        <item>정부|chính phủ</item>
+        <item>책임|trách nhiệm</item>
+        <item>상황|tình huống</item>
+        <item>광고하다|quảng cáo</item>
+        <item>파괴하다|phá hủy</item>
+        <item>탐험하다|thám hiểm</item>
+        <item>용서하다|tha thứ</item>
+        <item>영감을 주다|truyền cảm hứng</item>
+        <item>이끌다|dẫn dắt</item>
+        <item>위치를 찾다|định vị</item>
+        <item>녹다|tan chảy</item>
+        <item>홍보하다|quảng bá</item>
+        <item>가라앉다|chìm</item>
+        <item>궁금하다|tự hỏi</item>
+        <item>태도|thái độ</item>
+        <item>기후|khí hậu</item>
+        <item>논쟁|cuộc tranh luận</item>
+        <item>간결한|ngắn gọn</item>
+        <item>붕괴하다|sụp đổ</item>
+        <item>복잡한|phức tạp</item>
+        <item>수행하다|tiến hành</item>
+        <item>확인하다|xác nhận</item>
+        <item>직면하다|đối mặt</item>
+        <item>호기심 많은|tò mò</item>
+        <item>줄어들다|giảm bớt</item>
+        <item>국내의|trong nước</item>
+        <item>요소|yếu tố</item>
+        <item>열정|nhiệt huyết</item>
+        <item>기능|chức năng</item>
+        <item>수단|phương tiện</item>
+        <item>그럼에도|tuy vậy</item>
+        <item>동봉하다|đính kèm</item>
+        <item>만료되다|hết hạn</item>
+        <item>정책|chính sách</item>
+        <item>모집하다|tuyển dụng</item>
+        <item>갱신하다|gia hạn</item>
+        <item>잠정적인|tạm thời</item>
+        <item>미적인|thẩm mỹ</item>
+        <item>명료하게 말하다|diễn đạt rõ ràng</item>
+        <item>모순되다|mâu thuẫn</item>
+        <item>결핍|sự thiếu hụt</item>
+        <item>역동적인|năng động</item>
+        <item>직관|trực giác</item>
+        <item>신진대사|trao đổi chất</item>
+        <item>은유|ẩn dụ</item>
+        <item>지각하다|nhận thức</item>
+        <item>현상|hiện tượng</item>
+        <item>상당한|đáng kể</item>
+        <item>촉발하다|kích hoạt</item>
+        <item>아이스크림|kem</item>
+        <item>케이크|bánh kem</item>
+        <item>눈사람|người tuyết</item>
+        <item>산|núi</item>
+        <item>위로|lên trên</item>
+        <item>저것|cái kia</item>
+        <item>미소 짓다|mỉm cười</item>
+        <item>조심하는|cẩn thận</item>
+        <item>취미|sở thích</item>
+        <item>사실|sự thật</item>
+        <item>외국의|nước ngoài</item>
+        <item>답장하다|trả lời</item>
+        <item>보상하다|bồi thường</item>
+        <item>명세서|bảng kê</item>
+        <item>모의실험하다|mô phỏng</item>
+        <item>바나나|quả chuối</item>
+        <item>여자|phụ nữ</item>
+        <item>머리카락|tóc</item>
+        <item>얼굴|khuôn mặt</item>
+        <item>갈색의|màu nâu</item>
+        <item>뜨거운|nóng</item>
+        <item>달리다|chạy</item>
+        <item>먹다|ăn</item>
+        <item>자다|ngủ</item>
+        <item>쓰다|viết</item>
+        <item>열다|mở</item>
+        <item>장난감|đồ chơi</item>
+        <item>원숭이|con khỉ</item>
+        <item>날씨|thời tiết</item>
+        <item>영화|bộ phim</item>
+        <item>나라|đất nước</item>
+        <item>해변|bãi biển</item>
+        <item>화난|tức giận</item>
+        <item>무서워하는|sợ hãi</item>
+        <item>똑똑한|thông minh</item>
+        <item>어려운|khó</item>
+        <item>생일|sinh nhật</item>
+        <item>휴일|ngày nghỉ</item>
+        <item>잡지|tạp chí</item>
+        <item>문제|vấn đề</item>
+        <item>소방관|lính cứu hỏa</item>
+        <item>직업|nghề nghiệp</item>
+        <item>치통|đau răng</item>
+        <item>바지|quần</item>
+        <item>재킷|áo khoác</item>
+        <item>특별한|đặc biệt</item>
+        <item>중요한|quan trọng</item>
+        <item>흥미로운|thú vị</item>
+        <item>더러운|bẩn</item>
+        <item>준비된|sẵn sàng</item>
+        <item>떠나다|rời đi</item>
+        <item>이사하다|chuyển nhà</item>
+        <item>보내다|gửi</item>
+        <item>받다|nhận</item>
+        <item>고르다|chọn</item>
+        <item>지다|thua</item>
+        <item>걱정하다|lo lắng</item>
+        <item>바라다|hy vọng</item>
+        <item>입다|mặc</item>
+        <item>자주|thường xuyên</item>
+        <item>십 대|thanh thiếu niên</item>
+        <item>기억|trí nhớ</item>
+        <item>환경|môi trường</item>
+        <item>규칙|quy tắc</item>
+        <item>의견|ý kiến</item>
+        <item>발견하다|khám phá</item>
+        <item>줄이다|giảm bớt</item>
+        <item>따르다|đi theo</item>
+        <item>건너다|băng qua</item>
+        <item>준비하다|chuẩn bị</item>
+        <item>소유하다|sở hữu</item>
+        <item>유용한|hữu ích</item>
+        <item>조심스럽게|một cách cẩn thận</item>
+        <item>격려하다|khích lệ</item>
+        <item>예방하다|phòng ngừa</item>
+        <item>~처럼 보이다|có vẻ</item>
+        <item>제공하다(음식)|phục vụ</item>
+        <item>자원봉사하다|tình nguyện</item>
+        <item>업적|thành tựu</item>
+        <item>관객|khán giả</item>
+        <item>회사|công ty</item>
+        <item>관계|mối quan hệ</item>
+        <item>해결책|giải pháp</item>
+        <item>감탄하다|ngưỡng mộ</item>
+        <item>다가가다|tiếp cận</item>
+        <item>숨 쉬다|thở</item>
+        <item>계산하다|tính toán</item>
+        <item>방어하다|phòng thủ</item>
+        <item>요구하다|đòi hỏi</item>
+        <item>벌다|kiếm tiền</item>
+        <item>탈출하다|trốn thoát</item>
+        <item>망설이다|do dự</item>
+        <item>의도하다|dự định</item>
+        <item>포함시키다|liên quan đến</item>
+        <item>참가하다|tham gia</item>
+        <item>긴장을 풀다|thư giãn</item>
+        <item>저항하다|kháng cự</item>
+        <item>분리하다|tách ra</item>
+        <item>신뢰하다|tin tưởng</item>
+        <item>성격|tính cách</item>
+        <item>결론|kết luận</item>
+        <item>사례|trường hợp</item>
+        <item>흡수하다|hấp thụ</item>
+        <item>동행하다|đi cùng</item>
+        <item>장벽|rào cản</item>
+        <item>결합하다|kết hợp</item>
+        <item>걱정|mối lo</item>
+        <item>의무|nghĩa vụ</item>
+        <item>강조하다|nhấn mạnh</item>
+        <item>집행하다|thi hành</item>
+        <item>필수적인|thiết yếu</item>
+        <item>평가하다|đánh giá</item>
+        <item>초과하다|vượt quá</item>
+        <item>확장하다|mở rộng</item>
+        <item>노출시키다|phơi bày</item>
+        <item>극단적인|cực đoan</item>
+        <item>요인|nhân tố</item>
+        <item>치명적인|chí mạng</item>
+        <item>비옥한|màu mỡ</item>
+        <item>유창한|lưu loát</item>
+        <item>좌절시키다|làm nản lòng</item>
+        <item>기금|quỹ</item>
+        <item>감사하는|biết ơn</item>
+        <item>적대적인|thù địch</item>
+        <item>부과하다|áp đặt</item>
+        <item>추론하다|suy luận</item>
+        <item>물려받다|thừa kế</item>
+        <item>통찰|sự thấu hiểu</item>
+        <item>내부의|bên trong</item>
+        <item>노동|lao động</item>
+        <item>출시하다|ra mắt</item>
+        <item>제조하다|chế tạo</item>
+        <item>수정하다|chỉnh sửa</item>
+        <item>협약|thỏa thuận</item>
+        <item>승인|sự phê duyệt</item>
+        <item>회계 감사|kiểm toán</item>
+        <item>잔액|số dư</item>
+        <item>지점|chi nhánh</item>
+        <item>소비자|người tiêu dùng</item>
+        <item>기업의|thuộc doanh nghiệp</item>
+        <item>유통하다|phân phối</item>
+        <item>설비|cơ sở vật chất</item>
+        <item>기입하다|điền vào</item>
+        <item>벌금|tiền phạt</item>
+        <item>고용하다|thuê</item>
+        <item>문의|sự hỏi đáp</item>
+        <item>협상|đàm phán</item>
+        <item>영수증|hóa đơn</item>
+        <item>소매|bán lẻ</item>
+        <item>제출하다|nộp</item>
+        <item>구독하다|đăng ký theo dõi</item>
+        <item>행사장|địa điểm tổ chức</item>
+        <item>유효한|hợp lệ</item>
+        <item>촉매|chất xúc tác</item>
+        <item>상품(원자재)|hàng hóa nguyên liệu</item>
+        <item>연속적인|liên tiếp</item>
+        <item>합의|sự đồng thuận</item>
+        <item>제약하다|ràng buộc</item>
+        <item>신뢰성|độ tin cậy</item>
+        <item>생태계|hệ sinh thái</item>
+        <item>자세히 설명하다|trình bày chi tiết</item>
+        <item>깊이 박다|gắn sâu vào</item>
+        <item>유행병|dịch bệnh</item>
+        <item>행사하다|thi triển</item>
+        <item>변동하다|dao động</item>
+        <item>내재된|vốn có</item>
+        <item>관개|tưới tiêu</item>
+        <item>지속하다|kiên trì</item>
+        <item>정밀한|chính xác</item>
+        <item>보유하다|giữ lại</item>
+        <item>엄격한|nghiêm ngặt</item>
+        <item>회의적인|hoài nghi</item>
+        <item>그 후의|sau đó</item>
+        <item>종합|sự tổng hợp</item>
+        <item>유형의|hữu hình</item>
+        <item>겪다|trải qua</item>
+        <item>비행기|máy bay</item>
+        <item>코끼리|con voi</item>
+        <item>옥수수|ngô</item>
+        <item>오렌지|quả cam</item>
+        <item>책|quyển sách</item>
+        <item>그녀는|cô ấy</item>
+        <item>너의|của bạn</item>
+        <item>안에|ở trong</item>
+        <item>나는|tôi</item>
+        <item>밤|ban đêm</item>
+        <item>다리|chân</item>
+        <item>봄|mùa xuân</item>
+        <item>물어보다|hỏi</item>
+        <item>열|sốt</item>
+        <item>심다|trồng</item>
+        <item>이유|lý do</item>
+        <item>제안하다|đề xuất</item>
+        <item>주인(초대한)|chủ nhà</item>
+        <item>비교하다|so sánh</item>
+        <item>지식|kiến thức</item>
+        <item>꾸짖다|la mắng</item>
+        <item>투자하다|đầu tư</item>
+        <item>대하다|đối xử</item>
+        <item>재난|thảm họa</item>
+        <item>추구하다|theo đuổi</item>
+        <item>간청하다|van xin</item>
+        <item>뚜렷한|rõ rệt</item>
+        <item>상담하다|tư vấn</item>
+        <item>빈번한|thường xuyên</item>
+        <item>지시하다|chỉ thị</item>
+        <item>발생시키다|tạo ra</item>
+        <item>도매|bán buôn</item>
+        <item>자산|tài sản</item>
+        <item>규정|quy định</item>
+        <item>예약|đặt chỗ</item>
+        <item>중립의|trung lập</item>
+        <item>눈(신체)|mắt</item>
+        <item>노란|màu vàng</item>
+        <item>초록의|màu xanh lá</item>
+        <item>둘|hai</item>
+        <item>나쁜|xấu</item>
+        <item>차가운|lạnh</item>
+        <item>놀다|chơi</item>
+        <item>노래하다|hát</item>
+        <item>읽다|đọc</item>
+        <item>그리다|vẽ</item>
+        <item>달|mặt trăng</item>
+        <item>하늘|bầu trời</item>
+        <item>모자|cái mũ</item>
+        <item>아침 식사|bữa sáng</item>
+        <item>설탕|đường</item>
+        <item>여름|mùa hè</item>
+        <item>가을|mùa thu</item>
+        <item>주|tuần</item>
+        <item>숫자|con số</item>
+        <item>게임|trò chơi</item>
+        <item>축구|bóng đá</item>
+        <item>타다|cưỡi/đi xe</item>
+        <item>돕다|giúp đỡ</item>
+        <item>씻다|rửa</item>
+        <item>기억하다|nhớ</item>
+        <item>웃다|cười</item>
+        <item>거리|đường phố</item>
+        <item>강|dòng sông</item>
+        <item>예쁜|xinh đẹp</item>
+        <item>귀여운|dễ thương</item>
+        <item>강한|mạnh</item>
+        <item>방학|kỳ nghỉ</item>
+        <item>편지|lá thư</item>
+        <item>과학|khoa học</item>
+        <item>건강|sức khỏe</item>
+        <item>안경|kính</item>
+        <item>장갑|găng tay</item>
+        <item>돈|tiền</item>
+        <item>시끄러운|ồn ào</item>
+        <item>시작하다|bắt đầu</item>
+        <item>연습하다|luyện tập</item>
+        <item>즐기다|tận hưởng</item>
+        <item>보통|thường</item>
+        <item>정보|thông tin</item>
+        <item>경험|kinh nghiệm</item>
+        <item>언어|ngôn ngữ</item>
+        <item>외국인|người nước ngoài</item>
+        <item>어린이|trẻ em</item>
+        <item>순간|khoảnh khắc</item>
+        <item>평화|hòa bình</item>
+        <item>행성|hành tinh</item>
+        <item>사막|sa mạc</item>
+        <item>온도|nhiệt độ</item>
+        <item>상|giải thưởng</item>
+        <item>짓다|xây</item>
+        <item>해결하다|giải quyết</item>
+        <item>모으다|sưu tầm</item>
+        <item>소개하다|giới thiệu</item>
+        <item>오르다|leo</item>
+        <item>출구|lối ra</item>
+        <item>쓸모없는|vô dụng</item>
+        <item>기념하다|kỷ niệm</item>
+        <item>불평하다|phàn nàn</item>
+        <item>고려하다|cân nhắc</item>
+        <item>덮다|che phủ</item>
+        <item>교육하다|giáo dục</item>
+        <item>교환하다|trao đổi</item>
+        <item>다루다|xử lý</item>
+        <item>도입하다|đưa vào áp dụng</item>
+        <item>언급하다|đề cập</item>
+        <item>선호하다|ưa thích hơn</item>
+        <item>수리하다|sửa chữa</item>
+        <item>교체하다|thay thế</item>
+        <item>고통받다|chịu đựng đau khổ</item>
+        <item>공급하다|cung ứng</item>
+        <item>살아남다|sống sót</item>
+        <item>능력|năng lực</item>
+        <item>에너지|năng lượng</item>
+        <item>세대|thế hệ</item>
+        <item>인구|dân số</item>
+        <item>기술|kỹ năng</item>
+        <item>전통|truyền thống</item>
+        <item>주요한|chủ yếu</item>
+        <item>여유가 되다|đủ khả năng</item>
+        <item>뒤쫓다|đuổi theo</item>
+        <item>혼란스럽게 하다|làm bối rối</item>
+        <item>연결하다|kết nối</item>
+        <item>비판하다|phê bình</item>
+        <item>실망시키다|làm thất vọng</item>
+        <item>겁먹게 하다|làm sợ hãi</item>
+        <item>무시하다|phớt lờ</item>
+        <item>감동시키다|gây ấn tượng</item>
+        <item>출판하다|xuất bản</item>
+        <item>풀어주다|thả ra</item>
+        <item>구조하다|cứu hộ</item>
+        <item>분투하다|vật lộn</item>
+        <item>대기|khí quyển</item>
+        <item>보조하다|hỗ trợ</item>
+        <item>장담하다|cam đoan</item>
+        <item>기초|nền tảng</item>
+        <item>유대|mối gắn kết</item>
+        <item>경계|ranh giới</item>
+        <item>유능한|có năng lực</item>
+        <item>원인|nguyên nhân</item>
+        <item>중단하다|ngừng</item>
+        <item>분류하다|phân loại</item>
+        <item>경쟁하다|cạnh tranh</item>
+        <item>작곡하다|sáng tác</item>
+        <item>동시대의|đương đại</item>
+        <item>위기|khủng hoảng</item>
+        <item>결정적인|then chốt</item>
+        <item>재배하다|canh tác</item>
+        <item>토론|cuộc tranh luận</item>
+        <item>장치|thiết bị</item>
+        <item>진화하다|tiến hóa</item>
+        <item>실행하다|thực thi</item>
+        <item>연장하다|kéo dài</item>
+        <item>시설|cơ sở</item>
+        <item>재정|tài chính</item>
+        <item>겸손한|khiêm tốn</item>
+        <item>피할 수 없는|không thể tránh khỏi</item>
+        <item>고립시키다|cô lập</item>
+        <item>전설|truyền thuyết</item>
+        <item>자유|tự do</item>
+        <item>성숙한|trưởng thành</item>
+        <item>감시하다|giám sát</item>
+        <item>더욱이|hơn nữa</item>
+        <item>협상하다|đàm phán</item>
+        <item>장애물|chướng ngại</item>
+        <item>차지하다|chiếm</item>
+        <item>입찰|đấu thầu</item>
+        <item>동료|đồng nghiệp</item>
+        <item>고용주|chủ lao động</item>
+        <item>임원|lãnh đạo cấp cao</item>
+        <item>본사|trụ sở chính</item>
+        <item>여행 일정표|lịch trình</item>
+        <item>임대차 계약|hợp đồng thuê</item>
+        <item>초과 근무|làm thêm giờ</item>
+        <item>급여|tiền lương</item>
+        <item>제안서|bản đề xuất</item>
+        <item>자격|trình độ chuyên môn</item>
+        <item>수익|doanh thu</item>
+        <item>교대 근무|ca làm việc</item>
+        <item>이체하다|chuyển khoản</item>
+        <item>품질 보증|bảo hành</item>
+        <item>구상하다|hình dung ý tưởng</item>
+        <item>연역하다|suy diễn</item>
+        <item>동등한|tương đương</item>
+        <item>파편|mảnh vỡ</item>
+        <item>유전의|di truyền</item>
+        <item>시행하다|thi hành</item>
+        <item>억제하다|ức chế</item>
+        <item>쓸모없게 된|lỗi thời</item>
+        <item>우세하다|thắng thế</item>
+        <item>비율|tỷ lệ</item>
+        <item>합리적인|hợp lý</item>
+        <item>튼튼한|vững chắc</item>
+        <item>퇴적물|trầm tích</item>
+        <item>보조금|trợ cấp</item>
+        <item>약화시키다|làm suy yếu</item>
+        <item>주문하시겠어요?|Bạn gọi món chưa?</item>
+        <item>부칠 짐이 있으신가요?|Bạn có hành lý ký gửi không?</item>
+        <item>딸기|dâu tây</item>
+        <item>얼룩말|ngựa vằn</item>
+        <item>자전거|xe đạp</item>
+        <item>무지개|cầu vồng</item>
+        <item>당근|cà rốt</item>
+        <item>풍선|bóng bay</item>
+        <item>크레용|bút sáp màu</item>
+        <item>개구리|con ếch</item>
+        <item>가다|đi</item>
+        <item>그것|nó</item>
+        <item>네|vâng</item>
+        <item>~이다(나)|là (tôi)</item>
+        <item>~이다|là</item>
+        <item>가지다|có</item>
+        <item>아니요|không</item>
+        <item>그|anh ấy</item>
+        <item>~이다(복수)|là (số nhiều)</item>
+        <item>할 수 있다|có thể</item>
+        <item>또는|hoặc</item>
+        <item>새로운|mới</item>
+        <item>입|miệng</item>
+        <item>아침|buổi sáng</item>
+        <item>서다|đứng</item>
+        <item>남자|đàn ông</item>
+        <item>시간|thời gian</item>
+        <item>쉬운|dễ</item>
+        <item>믿다|tin</item>
+        <item>미래|tương lai</item>
+        <item>정말|thật sự</item>
+        <item>박물관|bảo tàng</item>
+        <item>구하다|cứu</item>
+        <item>약속|lời hứa</item>
+        <item>안전한|an toàn</item>
+        <item>긴장한|hồi hộp</item>
+        <item>목적|mục đích</item>
+        <item>최근에|gần đây</item>
+        <item>쓰다(시간·돈)|tiêu (thời gian/tiền)</item>
+        <item>숨다|trốn</item>
+        <item>선언하다|tuyên bố</item>
+        <item>의지하다|dựa vào</item>
+        <item>선택지|lựa chọn</item>
+        <item>선출하다|bầu chọn</item>
+        <item>빽빽한|dày đặc</item>
+        <item>완수하다|hoàn thành</item>
+        <item>윤리적인|đạo đức</item>
+        <item>동기를 부여하다|tạo động lực</item>
+        <item>막대한|khổng lồ</item>
+        <item>설문조사|khảo sát</item>
+        <item>자격이 있는|đủ điều kiện</item>
+        <item>절차|thủ tục</item>
+        <item>변수|biến số</item>
+        <item>회복력 있는|kiên cường</item>
+        <item>펜|cây bút</item>
+        <item>책상|bàn học</item>
+        <item>창문|cửa sổ</item>
+        <item>머리|cái đầu</item>
+        <item>하나|một</item>
+        <item>오래된|cũ</item>
+        <item>행복한|hạnh phúc</item>
+        <item>빠른|nhanh</item>
+        <item>점프하다|nhảy</item>
+        <item>앉다|ngồi</item>
+        <item>닫다|đóng</item>
+        <item>안녕하세요|xin chào</item>
+        <item>과일|trái cây</item>
+        <item>소금|muối</item>
+        <item>계절|mùa</item>
+        <item>해(년)|năm</item>
+        <item>노래|bài hát</item>
+        <item>운동 경기|thể thao</item>
+        <item>수영하다|bơi</item>
+        <item>가르치다|dạy</item>
+        <item>대답하다|trả lời</item>
+        <item>요리하다|nấu ăn</item>
+        <item>팔다|bán</item>
+        <item>이야기하다|trò chuyện</item>
+        <item>말하다|nói</item>
+        <item>산책|đi dạo</item>
+        <item>시장|chợ</item>
+        <item>도서관|thư viện</item>
+        <item>식당|nhà hàng</item>
+        <item>마을|thị trấn</item>
+        <item>세계|thế giới</item>
+        <item>맛있는|ngon</item>
+        <item>목마른|khát nước</item>
+        <item>용감한|dũng cảm</item>
+        <item>약한|yếu</item>
+        <item>일찍|sớm</item>
+        <item>선물|món quà</item>
+        <item>여행|chuyến đi</item>
+        <item>일기|nhật ký</item>
+        <item>신문|báo</item>
+        <item>극장|nhà hát</item>
+        <item>농부|nông dân</item>
+        <item>운동|tập thể dục</item>
+        <item>유명한|nổi tiếng</item>
+        <item>같은|giống nhau</item>
+        <item>끝내다|kết thúc</item>
+        <item>도착하다|đến nơi</item>
+        <item>방문하다|thăm</item>
+        <item>가져오다|mang đến</item>
+        <item>돌려주다|trả lại</item>
+        <item>결정하다|quyết định</item>
+        <item>기다리다|chờ đợi</item>
+        <item>냄새가 나다|có mùi</item>
+        <item>곧|sắp</item>
+        <item>문화|văn hóa</item>
+        <item>노력|nỗ lực</item>
+        <item>비밀|bí mật</item>
+        <item>실수|sai lầm</item>
+        <item>곤란|rắc rối</item>
+        <item>전쟁|chiến tranh</item>
+        <item>지구|Trái Đất</item>
+        <item>섬|hòn đảo</item>
+        <item>기상|khí tượng</item>
+        <item>화재|hỏa hoạn</item>
+        <item>대회|cuộc thi</item>
+        <item>동아리|câu lạc bộ</item>
+        <item>이웃 사람|hàng xóm</item>
+        <item>발명하다|phát minh</item>
+        <item>창조하다|sáng tạo</item>
+        <item>초대하다|mời</item>
+        <item>존중하다|tôn trọng</item>
+        <item>일어나다|xảy ra</item>
+        <item>사라지다|biến mất</item>
+        <item>계속하다|tiếp tục</item>
+        <item>멈추다|dừng lại</item>
+        <item>들어가다|đi vào</item>
+        <item>먹이를 주다|cho ăn</item>
+        <item>놀란|ngạc nhiên</item>
+        <item>실망한|thất vọng</item>
+        <item>심각한|nghiêm trọng</item>
+        <item>마침내|cuối cùng</item>
+        <item>참석하다|tham dự</item>
+        <item>세다|đếm</item>
+        <item>증가하다|tăng</item>
+        <item>관리하다|quản lý</item>
+        <item>알아차리다|nhận ra</item>
+        <item>깨닫다|nhận thức ra</item>
+        <item>거절하다|từ chối</item>
+        <item>검색하다|tìm kiếm</item>
+        <item>훔치다|trộm</item>
+        <item>지지하다|ủng hộ</item>
+        <item>공동체|cộng đồng</item>
+        <item>용기|lòng dũng cảm</item>
+        <item>관습|phong tục</item>
+        <item>방향|phương hướng</item>
+        <item>버릇|tật</item>
+        <item>성공|thành công</item>
+        <item>충분한|đủ</item>
+        <item>지역의|địa phương</item>
+        <item>지원하다|ứng tuyển</item>
+        <item>탓하다|đổ lỗi</item>
+        <item>구성되다|gồm có</item>
+        <item>받을 자격이 있다|xứng đáng</item>
+        <item>식별하다|nhận diện</item>
+        <item>고집하다|khăng khăng</item>
+        <item>판단하다|phán đoán</item>
+        <item>측정하다|đo lường</item>
+        <item>공연하다|biểu diễn</item>
+        <item>~인 척하다|giả vờ</item>
+        <item>증명하다|chứng minh</item>
+        <item>알아보다|nhận ra (ai đó)</item>
+        <item>회복하다|hồi phục</item>
+        <item>응답하다|phản hồi</item>
+        <item>만족시키다|làm hài lòng</item>
+        <item>도전|thử thách</item>
+        <item>세부 사항|chi tiết</item>
+        <item>증거|bằng chứng</item>
+        <item>버리다|bỏ rơi</item>
+        <item>학업의|học thuật</item>
+        <item>정확한|chính xác</item>
+        <item>전진하다|tiến lên</item>
+        <item>대안|phương án thay thế</item>
+        <item>배정하다|phân công</item>
+        <item>주장하다|khẳng định</item>
+        <item>논평|bình luận</item>
+        <item>저지르다|phạm phải</item>
+        <item>구성 요소|thành phần</item>
+        <item>건설하다|xây dựng</item>
+        <item>전환하다|chuyển đổi</item>
+        <item>전달하다|truyền đạt</item>
+        <item>대처하다|ứng phó</item>
+        <item>유래하다|bắt nguồn</item>
+        <item>구별하다|phân biệt</item>
+        <item>간절히 바라는|háo hức mong muốn</item>
+        <item>장비를 갖추다|trang bị</item>
+        <item>추정하다|ước tính</item>
+        <item>제외하다|loại trừ</item>
+        <item>희미해지다|phai nhạt</item>
+        <item>특징|đặc điểm</item>
+        <item>격식 있는|trang trọng</item>
+        <item>근본적인|căn bản</item>
+        <item>게다가|ngoài ra</item>
+        <item>진짜의|chân thật</item>
+        <item>속이 빈|rỗng</item>
+        <item>즉각적인|tức thì</item>
+        <item>암시하다|ngụ ý</item>
+        <item>나타내다|biểu thị</item>
+        <item>혁신|đổi mới sáng tạo</item>
+        <item>강렬한|mãnh liệt</item>
+        <item>상호작용하다|tương tác</item>
+        <item>해석하다|diễn giải</item>
+        <item>마찬가지로|tương tự</item>
+        <item>문학|văn học</item>
+        <item>단지 ~에 불과한|chỉ đơn thuần</item>
+        <item>최소화하다|giảm thiểu</item>
+        <item>적당한|vừa phải</item>
+        <item>지원자|ứng viên</item>
+        <item>약속(업무)|cuộc hẹn</item>
+        <item>고객|khách hàng</item>
+        <item>수수료|tiền hoa hồng</item>
+        <item>통근하다|đi làm hằng ngày</item>
+        <item>회의(대규모)|hội nghị</item>
+        <item>직원|nhân viên</item>
+        <item>청구서|hóa đơn thanh toán</item>
+        <item>대출|khoản vay</item>
+        <item>인사(부)|nhân sự</item>
+        <item>승진|thăng chức</item>
+        <item>구매하다|mua sắm</item>
+        <item>환불|hoàn tiền</item>
+        <item>상환하다|hoàn trả chi phí</item>
+        <item>평판|danh tiếng</item>
+        <item>사임하다|từ chức</item>
+        <item>연례의|thường niên</item>
+        <item>경쟁력 있는|cạnh tranh</item>
+        <item>능률적인|hiệu quả</item>
+        <item>의무적인|bắt buộc</item>
+        <item>신속한|mau lẹ</item>
+        <item>옹호하다|biện hộ</item>
+        <item>개정하다|sửa đổi</item>
+        <item>고고학|khảo cổ học</item>
+        <item>~의 탓으로 돌리다|quy cho</item>
+        <item>편향|thiên kiến</item>
+        <item>응축하다|ngưng tụ</item>
+        <item>기준(단수)|tiêu chí</item>
+        <item>딜레마|tình thế tiến thoái lưỡng nan</item>
+        <item>담론|diễn ngôn</item>
+        <item>대체하다|thay chỗ</item>
+        <item>왜곡하다|bóp méo</item>
+        <item>위계|thứ bậc</item>
+        <item>진실성|chính trực</item>
+        <item>상쇄하다|bù trừ</item>
+        <item>선행하다|đi trước</item>
+        <item>전망|triển vọng</item>
+        <item>~하게 만들다|khiến cho</item>
+        <item>몇 정거장인가요?|Đi mấy trạm vậy?</item>
+        <item>얼마나 자주 오나요?|Bao lâu có một chuyến?</item>
+        <item>요금은 얼마예요?|Giá vé bao nhiêu?</item>
+        <item>날씨 정말 좋죠?|Trời đẹp quá nhỉ?</item>
+        <item>닭|con gà</item>
+        <item>나비|con bướm</item>
+        <item>이것|cái này</item>
+        <item>그러나|nhưng</item>
+        <item>~였다|đã là</item>
+        <item>아래로|xuống dưới</item>
+        <item>원하다|muốn</item>
+        <item>문|cửa</item>
+        <item>춤추다|nhảy múa</item>
+        <item>동물|động vật</item>
+        <item>바람|gió</item>
+        <item>야구|bóng chày</item>
+        <item>음악|âm nhạc</item>
+        <item>보다(시청하다)|xem</item>
+        <item>회원|thành viên</item>
+        <item>이웃|láng giềng</item>
+        <item>자연|thiên nhiên</item>
+        <item>다다르다|đến được</item>
+        <item>번역하다|dịch</item>
+        <item>통제하다|kiểm soát</item>
+        <item>추천하다|giới thiệu (đề cử)</item>
+        <item>갈등|xung đột</item>
+        <item>합법적인|hợp pháp</item>
+        <item>후보자|ứng cử viên</item>
+        <item>성과|thành quả</item>
+        <item>착취하다|bóc lột</item>
+        <item>배치|cấu hình bố trí</item>
+        <item>풍부하게 하다|làm phong phú</item>
+        <item>그럴듯한|nghe có lý</item>
+        <item>수렴하다|hội tụ</item>
+        <item>저하시키다|làm suy giảm</item>
+        <item>모호한|mơ hồ</item>
+        <item>취약한|dễ tổn thương</item>
+        <item>물|nước</item>
+        <item>밥|cơm</item>
+        <item>소년|cậu bé</item>
+        <item>소녀|cô bé</item>
+        <item>걷다|đi bộ</item>
+        <item>마시다|uống</item>
+        <item>공부하다|học bài</item>
+        <item>청소하다|dọn dẹp</item>
+        <item>듣다|nghe</item>
+        <item>알다|biết</item>
+        <item>항상|luôn luôn</item>
+        <item>가끔|thỉnh thoảng</item>
+        <item>절대 ~않다|không bao giờ</item>
+        <item>체육관|phòng gym</item>
+        <item>빵집|tiệm bánh</item>
+        <item>의사|bác sĩ</item>
+        <item>치과의사|nha sĩ</item>
+        <item>치마|chân váy</item>
+        <item>목도리|khăn quàng cổ</item>
+        <item>지갑|cái ví</item>
+        <item>신나는|hào hứng</item>
+        <item>웃긴|buồn cười</item>
+        <item>조용한|yên tĩnh</item>
+        <item>다른|khác</item>
+        <item>아픈|ốm</item>
+        <item>다시|lại</item>
+        <item>어른|người lớn</item>
+        <item>선택|sự lựa chọn</item>
+        <item>지도자|nhà lãnh đạo</item>
+        <item>영웅|anh hùng</item>
+        <item>과제|dự án bài tập</item>
+        <item>주제|chủ đề</item>
+        <item>보호하다|bảo vệ</item>
+        <item>낭비하다|lãng phí</item>
+        <item>재활용하다|tái chế</item>
+        <item>표현하다|biểu đạt</item>
+        <item>동의하다|đồng ý</item>
+        <item>말다툼하다|cãi nhau</item>
+        <item>위험한|nguy hiểm</item>
+        <item>완벽한|hoàn hảo</item>
+        <item>훌륭한|tuyệt vời</item>
+        <item>갑자기|đột nhiên</item>
+        <item>귀찮게 하다|làm phiền</item>
+        <item>완료하다|hoàn tất</item>
+        <item>소통하다|giao tiếp</item>
+        <item>손상시키다|làm hư hại</item>
+        <item>기부하다|quyên góp</item>
+        <item>주문하다|đặt hàng</item>
+        <item>상태|trạng thái</item>
+        <item>거리(간격)|khoảng cách</item>
+        <item>교육|giáo dục</item>
+        <item>감정|cảm xúc</item>
+        <item>반응|phản ứng</item>
+        <item>몇몇의|vài</item>
+        <item>사과하다|xin lỗi</item>
+        <item>감사하다|cảm kích</item>
+        <item>끌어들이다|thu hút</item>
+        <item>다치게 하다|làm bị thương</item>
+        <item>놓다|đặt xuống</item>
+        <item>관찰하다|quan sát</item>
+        <item>처벌하다|trừng phạt</item>
+        <item>후회하다|hối hận</item>
+        <item>대표하다|đại diện</item>
+        <item>선택하다|tuyển chọn</item>
+        <item>정착하다|định cư</item>
+        <item>성공하다|thành công</item>
+        <item>~하는 경향이 있다|có xu hướng</item>
+        <item>위협하다|đe dọa</item>
+        <item>효과|hiệu quả</item>
+        <item>습득하다|tiếp thu</item>
+        <item>분석하다|phân tích</item>
+        <item>고대의|cổ đại</item>
+        <item>승인하다|phê duyệt</item>
+        <item>배열하다|sắp xếp</item>
+        <item>첨부하다|đính kèm</item>
+        <item>권위|quyền uy</item>
+        <item>알고 있는|nhận thức được</item>
+        <item>인용하다|trích dẫn</item>
+        <item>보존하다|bảo tồn</item>
+        <item>끊임없는|không ngừng</item>
+        <item>소비하다|tiêu thụ</item>
+        <item>기여하다|đóng góp</item>
+        <item>협력하다|hợp tác</item>
+        <item>현재의|hiện tại</item>
+        <item>헌신하다|cống hiến</item>
+        <item>정의하다|định nghĩa</item>
+        <item>보여주다|minh chứng</item>
+        <item>바치다|dâng hiến</item>
+        <item>분배하다|phân phát</item>
+        <item>효율적인|năng suất</item>
+        <item>마주치다|chạm trán</item>
+        <item>거대한|to lớn</item>
+        <item>비용|chi phí</item>
+        <item>외부의|bên ngoài</item>
+        <item>이전의|trước đây</item>
+        <item>토대|nền móng</item>
+        <item>가혹한|khắc nghiệt</item>
+        <item>가설|giả thuyết</item>
+        <item>사건|sự việc</item>
+        <item>산업|công nghiệp</item>
+        <item>초기의|ban đầu</item>
+        <item>점검하다|kiểm tra rà soát</item>
+        <item>즉각의|lập tức</item>
+        <item>정당화하다|biện minh</item>
+        <item>수많은|vô số</item>
+        <item>영양|dinh dưỡng</item>
+        <item>안건|chương trình nghị sự</item>
+        <item>예산|ngân sách</item>
+        <item>마감일|hạn chót</item>
+        <item>부서|phòng ban</item>
+        <item>장비|thiết bị</item>
+        <item>견적|báo giá ước tính</item>
+        <item>상품|hàng hóa</item>
+        <item>연기하다|hoãn lại</item>
+        <item>견적(가)|báo giá</item>
+        <item>독촉장|thư nhắc nhở</item>
+        <item>은퇴하다|nghỉ hưu</item>
+        <item>일정|lịch trình</item>
+        <item>선적|lô hàng gửi</item>
+        <item>직원(전체)|đội ngũ nhân viên</item>
+        <item>감독관|người giám sát</item>
+        <item>공급업체|nhà cung cấp</item>
+        <item>워크숍|hội thảo thực hành</item>
+        <item>사전의|trước đó</item>
+        <item>축적하다|tích lũy</item>
+        <item>인접한|liền kề</item>
+        <item>할당하다|phân bổ</item>
+        <item>유추|phép loại suy</item>
+        <item>자율성|quyền tự chủ</item>
+        <item>일관성 있는|mạch lạc</item>
+        <item>엮다|biên soạn</item>
+        <item>상관관계가 있다|tương quan</item>
+        <item>흩어지다|phân tán</item>
+        <item>경험적인|thực nghiệm</item>
+        <item>침식하다|xói mòn</item>
+        <item>불러일으키다|gợi lên</item>
+        <item>촉진하다|thúc đẩy</item>
+        <item>실현 가능한|khả thi</item>
+        <item>통합하다|tích hợp</item>
+        <item>정당한|chính đáng</item>
+        <item>조작하다|thao túng</item>
+        <item>분자|phân tử</item>
+        <item>추진력|đà tiến</item>
+        <item>~에도 불구하고|mặc dù</item>
+        <item>광합성|quang hợp</item>
+        <item>강화하다|củng cố</item>
+        <item>정말 감사합니다!|Cảm ơn rất nhiều!</item>
+        <item>표는 어디서 사나요?|Mua vé ở đâu?</item>
+        <item>어디로 가려고 하세요?|Bạn định đi đâu?</item>
+        <item>어디로 모실까요?|Đi đâu ạ?</item>
+        <item>연휴에 계획 있어요?|Có kế hoạch gì cho kỳ nghỉ chưa?</item>
+        <item>눈|mắt</item>
+        <item>포도|quả nho</item>
+        <item>셔츠|áo sơ mi</item>
+        <item>하나의|một (mạo từ)</item>
+        <item>위에|ở trên</item>
+        <item>그래서|vì vậy</item>
+        <item>우리는|chúng tôi</item>
+        <item>눈(날씨)|tuyết</item>
+        <item>미안해요|xin lỗi nhé</item>
+        <item>오늘|hôm nay</item>
+        <item>배고픈|đói</item>
+        <item>가게|cửa hàng</item>
+        <item>사다|mua</item>
+        <item>여행하다|du lịch</item>
+        <item>이기다|thắng</item>
+        <item>지루한|chán</item>
+        <item>맛이 나다|có vị</item>
+        <item>무료의|miễn phí</item>
+        <item>옷|quần áo</item>
+        <item>수학|toán</item>
+        <item>간호사|y tá</item>
+        <item>가입하다|gia nhập</item>
+        <item>디자인하다|thiết kế</item>
+        <item>발전시키다|phát triển</item>
+        <item>축제|lễ hội</item>
+        <item>행동|hành vi</item>
+        <item>빌려주다|cho mượn</item>
+        <item>사회|xã hội</item>
+        <item>세계적인|toàn cầu</item>
+        <item>작동하다|vận hành</item>
+        <item>알리다|thông báo cho</item>
+        <item>이행하다|thực hiện (cam kết)</item>
+        <item>유지하다|duy trì</item>
+        <item>결심하다|quyết tâm</item>
+        <item>퍼지다|lan rộng</item>
+        <item>발표하다|công bố</item>
+        <item>십 년|thập kỷ</item>
+        <item>기준|các tiêu chí</item>
+        <item>인공의|nhân tạo</item>
+        <item>시도하다|thử làm</item>
+        <item>명확히 하다|làm rõ</item>
+        <item>지평선|đường chân trời</item>
+        <item>주도권|quyền chủ động</item>
+        <item>이상한|kỳ lạ</item>
+        <item>개인|cá nhân</item>
+        <item>멸종된|tuyệt chủng</item>
+        <item>이주하다|di cư</item>
+        <item>검토하다|xem xét</item>
+        <item>피드백|phản hồi góp ý</item>
+        <item>기밀의|bảo mật</item>
+        <item>재고|hàng tồn kho</item>
+        <item>~을 경유하여|qua ngả</item>
+        <item>패러다임|hệ hình</item>
+        <item>생존 가능한|có thể tồn tại</item>
+        <item>규모|quy mô</item>
+        <item>미묘한|tinh tế</item>
+        <item>유도하다|dẫn dụ</item>
+        <item>느린|chậm</item>
+        <item>분|phút</item>
+        <item>색깔|màu sắc</item>
+        <item>그림|bức tranh</item>
+        <item>만나다|gặp</item>
+        <item>주말|cuối tuần</item>
+        <item>과목|môn học</item>
+        <item>운동장|sân chơi trường</item>
+        <item>과학자|nhà khoa học</item>
+        <item>약|thuốc</item>
+        <item>싼|rẻ</item>
+        <item>비싼|đắt</item>
+        <item>노력하다|cố gắng</item>
+        <item>우주|vũ trụ</item>
+        <item>자랑스러운|tự hào</item>
+        <item>끔찍한|khủng khiếp</item>
+        <item>피하다|tránh</item>
+        <item>졸업하다|tốt nghiệp</item>
+        <item>생산하다|sản xuất</item>
+        <item>주의|sự chú ý</item>
+        <item>수준|trình độ</item>
+        <item>인정하다|thừa nhận</item>
+        <item>부인하다|phủ nhận</item>
+        <item>검사하다|khám xét</item>
+        <item>발생하다|phát sinh</item>
+        <item>극복하다|vượt qua</item>
+        <item>쟁점|vấn đề tranh luận</item>
+        <item>적응하다|thích nghi</item>
+        <item>예상하다|lường trước</item>
+        <item>계약|hợp đồng</item>
+        <item>편집하다|biên tập</item>
+        <item>요금|phí</item>
+        <item>배당금|cổ tức</item>
+        <item>전략|chiến lược</item>
+        <item>판매업체|nhà bán hàng</item>
+        <item>업무량|khối lượng công việc</item>
+        <item>유인책|biện pháp khuyến khích</item>
+        <item>최적의|tối ưu</item>
+        <item>역설|nghịch lý</item>
+        <item>정밀 조사|sự soi xét</item>
+        <item>영역|lĩnh vực</item>
+        <item>마실 것도 드릴까요?|Bạn có muốn uống gì không?</item>
+        <item>디저트는요?|Tráng miệng thì sao?</item>
+        <item>영수증 가지고 계세요?|Bạn có hóa đơn không?</item>
+        <item>여기서 먼가요?|Có xa đây không?</item>
+        <item>부작용이 있나요?|Có tác dụng phụ không?</item>
+        <item>멋지네요! 어렵나요?|Hay quá! Có khó không?</item>
+        <item>복숭아|quả đào</item>
+        <item>곰인형|gấu bông</item>
+        <item>그는|anh ấy</item>
+        <item>너는|bạn</item>
+        <item>하얀|màu trắng</item>
+        <item>방|căn phòng</item>
+        <item>친절한|tử tế</item>
+        <item>빌리다|mượn</item>
+        <item>건강한|khỏe mạnh</item>
+        <item>주머니|túi áo quần</item>
+        <item>안전|sự an toàn</item>
+        <item>허락하다|cho phép</item>
+        <item>기대하다|kỳ vọng</item>
+        <item>사실은|thật ra</item>
+        <item>결정|quyết định</item>
+        <item>예측하다|dự đoán</item>
+        <item>존재하다|tồn tại</item>
+        <item>극적인|kịch tính</item>
+        <item>조정하다|điều chỉnh</item>
+        <item>불안한|bồn chồn lo lắng</item>
+        <item>유연한|linh hoạt</item>
+        <item>충성스러운|trung thành</item>
+        <item>전시하다|trưng bày</item>
+        <item>설명서|sách hướng dẫn</item>
+        <item>할인|giảm giá</item>
+        <item>중력|trọng lực</item>
+        <item>지속 시간|thời lượng</item>
+        <item>저명한|lỗi lạc</item>
+        <item>신용카드 되나요?|Có nhận thẻ tín dụng không?</item>
+        <item>키가 큰|cao</item>
+        <item>함께|cùng nhau</item>
+        <item>부엌|nhà bếp</item>
+        <item>질문|câu hỏi</item>
+        <item>숲|khu rừng</item>
+        <item>관례|lệ thường</item>
+        <item>범주|phạm trù</item>
+        <item>규범|chuẩn mực</item>
+        <item>침략하다|xâm lược</item>
+        <item>분기|quý</item>
+        <item>동시에 일어나다|trùng hợp</item>
+        <item>물고기가 물속에 있어요.|Con cá ở trong nước.</item>
+        <item>그 나무는 커요.|Cái cây đó to.</item>
+        <item>해는 뜨거워요.|Mặt trời nóng.</item>
+        <item>아기가 자고 있어요.|Em bé đang ngủ.</item>
+        <item>그 자동차는 빨라요.|Chiếc xe đó nhanh.</item>
+        <item>그 고양이는 작아요.|Con mèo đó nhỏ.</item>
+        <item>그 개는 갈색이에요.|Con chó đó màu nâu.</item>
+        <item>우리 아빠는 키가 커요.|Bố tôi cao.</item>
+        <item>나는 빵을 먹어요.|Tôi ăn bánh mì.</item>
+        <item>달을 봐요.|Nhìn mặt trăng kìa.</item>
+        <item>나는 아이스크림을 좋아해요.|Tôi thích kem.</item>
+        <item>나는 손이 두 개예요.|Tôi có hai bàn tay.</item>
+        <item>내 신발은 새것이에요.|Giày của tôi mới.</item>
+        <item>고마워. 너는? 새로운 소식 있어?|Cảm ơn. Còn bạn? Có gì mới không?</item>
+        <item>정말 좋아해요. 당신은요?|Tôi rất thích. Còn bạn thì sao?</item>
+        <item>저는 중학교에서 음악을 가르쳐요.|Tôi dạy nhạc ở trường cấp hai.</item>
+        <item>물론이죠. 여기 있습니다.|Tất nhiên rồi. Của bạn đây.</item>
+        <item>찾으시는 것 도와드릴까요?|Tôi giúp bạn tìm gì nhé?</item>
+        <item>이 수제 그릇은 얼마예요?|Cái bát thủ công này bao nhiêu tiền?</item>
+        <item>실례합니다, 시립 박물관에 어떻게 가나요?|Xin lỗi, đến bảo tàng thành phố đi thế nào ạ?</item>
+        <item>파란 노선을 타고 중앙역에서 환승하세요.|Đi tuyến xanh dương rồi đổi tàu ở ga Trung tâm.</item>
+        <item>이 지도에서 짚어 주시겠어요?|Bạn chỉ giúp trên bản đồ này được không?</item>
+        <item>아, 길을 잘못 드셨네요. 한 블록 북쪽이에요.|À, bạn đi nhầm đường rồi. Cách đây một dãy nhà về phía bắc.</item>
+        <item>오렌지 주스로요. 얼음은 빼 주세요.|Cho nước cam nhé. Đừng bỏ đá.</item>
+        <item>죄송합니다. 바로 사람을 보내겠습니다.|Xin lỗi ạ. Chúng tôi sẽ cử người lên ngay.</item>
+        <item>3시 기차인데 시간 안에 갈 수 있을까요?|Tàu tôi chạy lúc 3 giờ. Kịp không nhỉ?</item>
+        <item>좋아요. 정문에서 내려 주시면 돼요.|Tốt quá. Cho tôi xuống ở cổng chính là được.</item>
+        <item>평소와 다른 걸 드셨나요?|Bạn có ăn gì khác thường không?</item>
+        <item>다음엔 어떻게 해야 하나요?|Tiếp theo tôi phải làm gì?</item>
+        <item>졸릴 수 있으니 운전은 피하세요.|Thuốc có thể gây buồn ngủ, nên tránh lái xe.</item>
+        <item>이런, 등산 가려고 했는데.|Ôi không, tôi định đi leo núi mà.</item>
+        <item>시골에 계신 부모님을 뵈러 가요.|Tôi về quê thăm bố mẹ.</item>
+        <item>나는 행복해요.|Tôi hạnh phúc.</item>
+        <item>나는 자전거를 타요.|Tôi đi xe đạp.</item>
+        <item>우리는 함께 놀아요.|Chúng tôi chơi cùng nhau.</item>
+        <item>나는 무지개를 볼 수 있어요.|Tôi có thể thấy cầu vồng.</item>
+        <item>나는 별을 봐요.|Tôi ngắm sao.</item>
+        <item>저도 만나서 반가워요. 저는 민수예요.|Tôi cũng rất vui được gặp. Tôi là Minsu.</item>
+        <item>민수 씨는 어디에서 오셨어요?|Minsu đến từ đâu vậy?</item>
+        <item>이야, 오랜만이야! 어떻게 지냈어?|Ôi lâu quá không gặp! Dạo này thế nào?</item>
+        <item>재미있겠네요. 그 일이 즐거우세요?|Nghe thú vị đấy. Bạn có thích công việc đó không?</item>
+        <item>나중에 볼게요. 감사해요.|Tôi sẽ xem sau. Cảm ơn nhé.</item>
+        <item>물이면 충분해요, 감사합니다.|Nước lọc là đủ rồi, cảm ơn.</item>
+        <item>좋아요. 음식이 정말 맛있었어요.|Tuyệt. Đồ ăn rất ngon.</item>
+        <item>감사합니다. 또 오세요!|Cảm ơn. Hẹn gặp lại!</item>
+        <item>정말 감사합니다.|Cảm ơn rất nhiều.</item>
+        <item>물론입니다. 주방장께 전달할게요.|Được ạ. Tôi sẽ chuyển lời đến bếp trưởng.</item>
+        <item>이건 어떠세요? 아주 인기가 많아요.|Cái này thì sao? Rất được ưa chuộng đấy.</item>
+        <item>딱 맞네요. 이걸로 살게요.|Vừa in luôn. Tôi lấy cái này.</item>
+        <item>이유를 여쭤봐도 될까요?|Tôi có thể hỏi lý do được không?</item>
+        <item>환불로 부탁드려요.|Cho tôi hoàn tiền nhé.</item>
+        <item>좋아요! 두 개 살게요.|Chốt! Tôi lấy hai cái.</item>
+        <item>좋습니다. 포장해 드릴게요.|Được rồi. Tôi gói lại cho bạn nhé.</item>
+        <item>아니요, 걸어서 10분 정도예요.|Không, đi bộ khoảng 10 phút thôi.</item>
+        <item>발권기는 바로 저쪽에 있어요.|Máy bán vé ở ngay đằng kia.</item>
+        <item>실례합니다, 길을 잃은 것 같아요.|Xin lỗi, hình như tôi bị lạc đường.</item>
+        <item>탑승권입니다. 22번 게이트, 10시 탑승입니다.|Thẻ lên máy bay của bạn đây. Cổng 22, lên máy bay lúc 10 giờ.</item>
+        <item>시내 리버사이드 호텔이요.|Cho tôi đến khách sạn Riverside trong trung tâm.</item>
+        <item>저기요, 담요 하나 주시겠어요?|Cho tôi xin một cái chăn được không?</item>
+        <item>좋아요. 식사 때 깨워 주시겠어요?|Tốt quá. Đến giờ ăn đánh thức tôi nhé?</item>
+        <item>환영합니다, 리 선생님. 더블룸 3박 맞으시죠?|Chào mừng ông Lee. Phòng đôi ba đêm đúng không ạ?</item>
+        <item>네, 아침은 7시부터 10시까지 제공됩니다.|Vâng, bữa sáng phục vụ từ 7 đến 10 giờ.</item>
+        <item>그리고 수건도 좀 더 받을 수 있을까요?|Với lại cho tôi thêm khăn tắm được không?</item>
+        <item>그게 다예요. 감사합니다.|Vậy là đủ rồi. Cảm ơn.</item>
+        <item>체크아웃 할게요. 805호입니다.|Tôi muốn trả phòng. Phòng 805.</item>
+        <item>물 한 병만요.|Chỉ một chai nước thôi.</item>
+        <item>이 버스 해변에 가나요?|Xe buýt này có đến bãi biển không?</item>
+        <item>아니요, 7번 버스를 타셔야 해요.|Không, bạn phải đi xe buýt số 7.</item>
+        <item>기본 보험은 포함이고, 완전 보장은 하루 10달러 추가입니다.|Bảo hiểm cơ bản đã bao gồm. Bảo hiểm toàn diện thêm 10 đô mỗi ngày.</item>
+        <item>여기요. 보험은 포함인가요?|Đây ạ. Có kèm bảo hiểm không?</item>
+        <item>길거리 시장에서 해산물을 먹었어요.|Tôi đã ăn hải sản ở chợ ven đường.</item>
+        <item>약을 처방해 드릴게요. 물을 많이 드세요.|Tôi sẽ kê thuốc. Nhớ uống nhiều nước.</item>
+        <item>언제 어디서 잃어버리셨나요?|Bạn làm mất khi nào và ở đâu?</item>
+        <item>목 아픈 데 먹는 약 있나요?|Có thuốc trị đau họng không?</item>
+        <item>내일 예보를 다시 확인해 보는 게 좋겠어요.|Mai nên xem lại dự báo thời tiết.</item>
+        <item>언젠가 그 빵을 먹어 보고 싶네요.|Hôm nào tôi muốn thử món bánh mì đó.</item>
+        <item>그렇진 않은데 인내심이 필요해요.|Không hẳn, nhưng cần kiên nhẫn.</item>
+        <item>좋아요! 다음에 좀 가져올게요.|Được chứ! Lần sau tôi mang cho ít nhé.</item>
+        <item>차가 안 막히면 세 시간 정도요.|Nếu không kẹt xe thì khoảng ba tiếng.</item>
+        <item>편안하겠네요. 운전은 얼마나 걸려요?|Nghe thư giãn đấy. Lái xe mất bao lâu?</item>
+        <item>새는 날 수 있어요.|Chim có thể bay.</item>
+        <item>그 버스는 커요.|Chiếc xe buýt đó to.</item>
+        <item>이것은 내 개예요.|Đây là con chó của tôi.</item>
+        <item>안녕하세요, 저는 제인이에요. 만나서 반가워요.|Xin chào, tôi là Jane. Rất vui được gặp bạn.</item>
+        <item>한국 서울에서 왔어요. 당신은요?|Tôi đến từ Seoul, Hàn Quốc. Còn bạn?</item>
+        <item>네, 처음이에요. 정말 설레요.|Vâng, lần đầu đấy. Tôi háo hức lắm.</item>
+        <item>저는 런던에서 왔어요. 여기는 처음 오신 거예요?|Tôi đến từ London. Đây là lần đầu bạn đến đây à?</item>
+        <item>언제 커피 마시면서 회포 풀자.|Hôm nào cà phê hàn huyên nhé.</item>
+        <item>잘 지냈어. 새 일을 시작했어.|Mình vẫn khỏe. Mới bắt đầu công việc mới.</item>
+        <item>정말 좋은 소식이다. 축하해!|Tin tốt quá. Chúc mừng nhé!</item>
+        <item>안녕하세요, 소라 씨. 무슨 일을 하세요?|Chào Sora. Bạn làm nghề gì vậy?</item>
+        <item>네. 그릴드 치킨으로 할게요.|Vâng. Cho tôi gà nướng nhé.</item>
+        <item>저기요, 계산서 좀 주시겠어요?|Cho chúng tôi xin hóa đơn được không?</item>
+        <item>네, 주요 카드 모두 받습니다.|Vâng, chúng tôi nhận mọi loại thẻ chính.</item>
+        <item>이 요리에 땅콩이 들어가나요?|Món này có đậu phộng không?</item>
+        <item>별말씀을요. 15분 정도 걸립니다.|Không có gì. Mất khoảng 15 phút ạ.</item>
+        <item>네, 땅콩 소스가 들어가요.|Vâng, có sốt đậu phộng.</item>
+        <item>제가 땅콩 알레르기가 있어서요. 빼고 만들어 주실 수 있나요?|Tôi dị ứng đậu phộng. Làm không có được không?</item>
+        <item>봄에 입을 재킷을 찾고 있어요.|Tôi đang tìm áo khoác mặc mùa xuân.</item>
+        <item>네, 여기 있어요.|Vâng, đây ạ.</item>
+        <item>감사합니다. 환불과 교환 중 어느 것을 원하세요?|Cảm ơn. Bạn muốn hoàn tiền hay đổi hàng?</item>
+        <item>조금 비싸네요. 할인해 주실 수 있나요?|Hơi đắt nhỉ. Giảm giá được không?</item>
+        <item>천만에요. 금방 찾으실 거예요.|Không có gì. Bạn sẽ tìm thấy ngay thôi.</item>
+        <item>두 블록 직진해서 오른쪽으로 도세요.|Đi thẳng hai dãy nhà rồi rẽ phải.</item>
+        <item>어느 노선이 공항에 가나요?|Tuyến nào đi sân bay vậy?</item>
+        <item>여기 있습니다.|Đây ạ.</item>
+        <item>창가 좌석으로 부탁해요.|Cho tôi ghế cạnh cửa sổ nhé.</item>
+        <item>휴가로 왔습니다.|Tôi đến đây nghỉ mát.</item>
+        <item>얼마나 머무르실 건가요?|Bạn sẽ ở lại bao lâu?</item>
+        <item>방문 목적이 무엇인가요?|Mục đích chuyến đi của bạn là gì?</item>
+        <item>어디에서 묵으실 건가요?|Bạn sẽ ở đâu?</item>
+        <item>여기 있습니다. 식사는 한 시간 후에 제공됩니다.|Của bạn đây. Bữa ăn sẽ phục vụ sau một giờ.</item>
+        <item>맞아요. 아침 식사가 포함되나요?|Đúng vậy. Có kèm bữa sáng không?</item>
+        <item>안녕하세요. 리로 예약했습니다.|Xin chào. Tôi đặt phòng tên Lee.</item>
+        <item>키 카드에 적혀 있습니다. 8층 805호입니다.|Ghi trên thẻ phòng ạ. Phòng 805 tầng 8.</item>
+        <item>좋네요. 와이파이 비밀번호는 뭔가요?|Tốt quá. Mật khẩu Wi-Fi là gì vậy?</item>
+        <item>물론입니다. 더 필요하신 건요?|Được ạ. Còn cần gì nữa không?</item>
+        <item>제 방 에어컨이 작동하지 않아요.|Điều hòa phòng tôi không hoạt động.</item>
+        <item>카드로요. 정오까지 짐을 맡아 주실 수 있나요?|Trả bằng thẻ. Giữ hành lý giúp tôi đến trưa được không?</item>
+        <item>총 320달러입니다. 카드인가요, 현금인가요?|Tổng cộng 320 đô. Thẻ hay tiền mặt?</item>
+        <item>물론입니다. 보관증 여기 있습니다.|Được ạ. Phiếu giữ đồ của bạn đây.</item>
+        <item>잠시만요. 미니바를 이용하셨나요?|Chờ chút ạ. Bạn có dùng minibar không?</item>
+        <item>차가 안 막히면 문제없습니다.|Không kẹt xe thì không vấn đề gì.</item>
+        <item>15분마다요.|Cứ 15 phút một chuyến.</item>
+        <item>좋은 선택입니다. 기름을 가득 채워 반납해 주세요.|Lựa chọn tốt. Vui lòng đổ đầy xăng khi trả xe.</item>
+        <item>소형차를 이틀 빌리고 싶어요.|Tôi muốn thuê xe cỡ nhỏ hai ngày.</item>
+        <item>운전면허증을 볼 수 있을까요?|Cho tôi xem bằng lái được không?</item>
+        <item>완전 보장으로 할게요.|Tôi chọn bảo hiểm toàn diện.</item>
+        <item>얼마나 오래 아프셨어요?|Bạn bị đau bao lâu rồi?</item>
+        <item>어젯밤부터요. 어지럽기도 해요.|Từ tối qua. Tôi còn thấy chóng mặt nữa.</item>
+        <item>오늘 오후에요, 아마 지하철에서요.|Chiều nay, có lẽ ở tàu điện ngầm.</item>
+        <item>여권 분실 신고를 하고 싶어요.|Tôi muốn báo mất hộ chiếu.</item>
+        <item>임시 여권을 위해 대사관에 연락하세요.|Hãy liên hệ đại sứ quán để làm hộ chiếu tạm.</item>
+        <item>그럼 이걸 6시간마다 식후에 드세요.|Vậy uống thuốc này mỗi 6 tiếng sau bữa ăn.</item>
+        <item>오늘 아침부터 미열이 있어요.|Tôi hơi sốt từ sáng nay.</item>
+        <item>이 사탕형 약이 잘 들어요. 열은 있나요?|Kẹo ngậm này hiệu quả lắm. Có sốt không?</item>
+        <item>정말 그러네요. 소풍 가기 딱 좋아요.|Đúng vậy. Rất hợp để đi dã ngoại.</item>
+        <item>좋은 생각이에요. 행운을 빌어야죠!|Ý hay đấy. Cầu may thôi!</item>
+        <item>주말엔 보통 뭐 하세요?|Cuối tuần bạn thường làm gì?</item>
+        <item>빵을 구워요. 새로 생긴 취미예요.|Tôi nướng bánh mì. Sở thích mới của tôi đấy.</item>
+        <item>나는 엄마를 사랑해요.|Tôi yêu mẹ.</item>
+        <item>나는 책이 있어요.|Tôi có một quyển sách.</item>
+        <item>그녀는 고양이가 있어요.|Cô ấy có một con mèo.</item>
+        <item>나는 풍선을 원해요.|Tôi muốn một quả bóng bay.</item>
+        <item>나는 사과를 좋아해요.|Tôi thích táo.</item>
+        <item>그 상자는 작아요.|Cái hộp đó nhỏ.</item>
+        <item>비가 오고 있어요.|Trời đang mưa.</item>
+        <item>나는 우유를 마셔요.|Tôi uống sữa.</item>
+        <item>나는 내 친구를 좋아해요.|Tôi quý bạn của tôi.</item>
+        <item>나는 뛸 수 있어요.|Tôi có thể chạy.</item>
+        <item>나는 학교에 가요.|Tôi đi học.</item>
+        <item>별거 없어. 늘 똑같지.|Không có gì. Vẫn như mọi khi.</item>
+        <item>제 소개를 할게요. 저는 김소라입니다.|Để tôi tự giới thiệu. Tôi là Sora Kim.</item>
+        <item>마음에 드네요. 입어 봐도 될까요?|Tôi thích cái này. Mặc thử được không?</item>
+        <item>그럼요, 탈의실은 저쪽이에요.|Được chứ, phòng thử đồ ở đằng kia.</item>
+        <item>이 셔츠를 반품하고 싶어요.|Tôi muốn trả lại chiếc áo này.</item>
+        <item>저한테 너무 작아서요.|Nó quá nhỏ với tôi.</item>
+        <item>그건 40달러입니다.|Cái đó giá 40 đô.</item>
+        <item>두 개 사시면 70달러에 드릴게요.|Mua hai cái tôi để 70 đô.</item>
+        <item>그랜드 호텔을 찾고 있어요.|Tôi đang tìm khách sạn Grand.</item>
+        <item>안녕하세요. 여권 보여 주시겠어요?|Xin chào. Cho tôi xem hộ chiếu được không?</item>
+        <item>네, 여행 가방 하나요.|Vâng, một vali ạ.</item>
+        <item>열흘 동안이요.|Trong mười ngày.</item>
+        <item>즐거운 여행 되세요.|Chúc chuyến đi vui vẻ.</item>
+        <item>물론이죠. 마실 것도 드릴까요?|Được chứ. Bạn uống gì không?</item>
+        <item>물론입니다. 편히 쉬세요.|Vâng ạ. Bạn nghỉ ngơi thoải mái nhé.</item>
+        <item>중앙역으로 가 주세요.|Cho tôi đến ga trung tâm.</item>
+        <item>네. 20분 정도 걸립니다.|Vâng. Mất khoảng 20 phút.</item>
+        <item>이 양식을 작성해 주세요.|Vui lòng điền vào mẫu này.</item>
+        <item>운전 조심하고 좋은 시간 보내요.|Lái xe cẩn thận và chơi vui nhé.</item>
+        <item>고마워요! 연휴 끝나고 봐요.|Cảm ơn! Hết kỳ nghỉ gặp lại nhé.</item>
+        <item>저는 그래픽 디자이너예요. 포스터를 디자인해요.|Tôi là nhà thiết kế đồ họa. Tôi thiết kế áp phích.</item>
+        <item>중앙역까지 여섯, 그다음 네 정거장이요.|Sáu trạm đến ga Trung tâm, rồi thêm bốn trạm nữa.</item>
+        <item>그럼요. 우리는 여기 있고, 호텔은 바로 저기예요.|Được chứ. Mình đang ở đây, khách sạn ngay kia thôi.</item>
+        <item>창가와 통로 중 어느 좌석을 원하세요?|Bạn muốn ghế cạnh cửa sổ hay lối đi?</item>
+        <item>프런트입니다. 무엇을 도와드릴까요?|Lễ tân xin nghe. Tôi có thể giúp gì ạ?</item>
+        <item>2달러요. 카드로 낼 수 있어요.|Hai đô. Trả bằng thẻ cũng được.</item>
+        <item>배가 너무 아파요.|Tôi đau bụng quá.</item>
+        <item>그런데 주말엔 비가 올 수도 있대요.|Nhưng nghe nói cuối tuần có thể mưa đấy.</item>
+        <item>그것은 꽃이에요.|Đó là một bông hoa.</item>
+        <item>내 가방은 빨간색이에요.|Túi của tôi màu đỏ.</item>
+        <item>나는 책을 읽어요.|Tôi đọc sách.</item>
     </string-array>
     <string-array name="tpl_units">
     </string-array>

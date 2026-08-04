@@ -90,3 +90,13 @@ module.exports = {
 "주말 계획": { en:"Weekend Plans", ja:"しゅうまつの よてい", zh:"周末计划", es:"Planes del fin de semana", fr:"Projets du week-end", de:"Wochenendpläne", pt:"Planos do fim de semana", ru:"Планы на выходные", vi:"Kế hoạch cuối tuần", th:"แผนสุดสัปดาห์", in:"Rencana akhir pekan" },
 
 };
+
+// 단어 뜻 사전(자동 배치 번역)은 words_auto/ 폴더에 파일로 나눠 둔다 — 자동 병합
+const fs = require("fs");
+const path = require("path");
+const dir = path.join(__dirname, "words_auto");
+if (fs.existsSync(dir)) {
+  for (const f of fs.readdirSync(dir).sort()) {
+    if (f.endsWith(".js")) Object.assign(module.exports, require(path.join(dir, f)));
+  }
+}

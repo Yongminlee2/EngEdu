@@ -616,6 +616,1414 @@
         <item>날씨 이야기|คุยเรื่องอากาศ</item>
         <item>취미 이야기|คุยเรื่องงานอดิเรก</item>
         <item>주말 계획|แผนสุดสัปดาห์</item>
+        <item>나무|ต้นไม้</item>
+        <item>사과|แอปเปิล</item>
+        <item>개|หมา</item>
+        <item>우유|นม</item>
+        <item>귀|หู</item>
+        <item>좋은|ดี</item>
+        <item>꽃|ดอกไม้</item>
+        <item>기차|รถไฟ</item>
+        <item>소|วัว</item>
+        <item>시계|นาฬิกา</item>
+        <item>미묘한 차이|ความต่างเล็กน้อย</item>
+        <item>새|นก</item>
+        <item>엄마|แม่</item>
+        <item>쿠키|คุกกี้</item>
+        <item>말|ม้า</item>
+        <item>바다|ทะเล</item>
+        <item>반대하다|คัดค้าน</item>
+        <item>얻다|ได้รับ</item>
+        <item>수용력|ความจุ</item>
+        <item>침대|เตียง</item>
+        <item>발|เท้า</item>
+        <item>작은|เล็ก</item>
+        <item>사탕|ลูกอม</item>
+        <item>피자|พิซซ่า</item>
+        <item>사자|สิงโต</item>
+        <item>우산|ร่ม</item>
+        <item>여기|ที่นี่</item>
+        <item>다양한|หลากหลาย</item>
+        <item>가정하다|สมมติ</item>
+        <item>개념|แนวคิด</item>
+        <item>금지하다|ห้าม</item>
+        <item>물고기|ปลา</item>
+        <item>고양이|แมว</item>
+        <item>파란|สีน้ำเงิน</item>
+        <item>보다|เห็น</item>
+        <item>사랑하다|รัก</item>
+        <item>해|ดวงอาทิตย์</item>
+        <item>공|ลูกบอล</item>
+        <item>신발|รองเท้า</item>
+        <item>호랑이|เสือ</item>
+        <item>저기|ที่นั่น</item>
+        <item>이해하다|เข้าใจ</item>
+        <item>향상시키다|ปรับปรุง</item>
+        <item>자라다|เติบโต</item>
+        <item>방해하다|ขัดขวาง</item>
+        <item>감소하다|ลดลง</item>
+        <item>제거하다|กำจัด</item>
+        <item>설득하다|โน้มน้าว</item>
+        <item>설립하다|ก่อตั้ง</item>
+        <item>적절한|เหมาะสม</item>
+        <item>이익|ผลประโยชน์</item>
+        <item>요건|ข้อกำหนด</item>
+        <item>연봉|เงินเดือน</item>
+        <item>주스|น้ำผลไม้</item>
+        <item>배|เรือ</item>
+        <item>그리고|และ</item>
+        <item>학교|โรงเรียน</item>
+        <item>친구|เพื่อน</item>
+        <item>오다|มา</item>
+        <item>좋아하다|ชอบ</item>
+        <item>별|ดาว</item>
+        <item>비|ฝน</item>
+        <item>토끼|กระต่าย</item>
+        <item>곰|หมี</item>
+        <item>보고서|รายงาน</item>
+        <item>포함하다|ประกอบด้วย</item>
+        <item>목표|เป้าหมาย</item>
+        <item>발명품|สิ่งประดิษฐ์</item>
+        <item>영향|อิทธิพล</item>
+        <item>지배하다|ครอบงำ</item>
+        <item>호소하다|อ้างถึง</item>
+        <item>아기|ทารก</item>
+        <item>큰|ใหญ่</item>
+        <item>응원하다|เชียร์</item>
+        <item>본질적인|โดยเนื้อแท้</item>
+        <item>빵|ขนมปัง</item>
+        <item>달걀|ไข่</item>
+        <item>연필|ดินสอ</item>
+        <item>의자|เก้าอี้</item>
+        <item>집|บ้าน</item>
+        <item>아빠|พ่อ</item>
+        <item>선생님|ครู</item>
+        <item>가지고 있다|มี</item>
+        <item>만들다|ทำ</item>
+        <item>자동차|รถยนต์</item>
+        <item>저녁 식사|อาหารเย็น</item>
+        <item>오리|เป็ด</item>
+        <item>습관|นิสัย</item>
+        <item>가격|ราคา</item>
+        <item>~하게 들리다|ฟังดู</item>
+        <item>결과|ผลลัพธ์</item>
+        <item>설명하다|อธิบาย</item>
+        <item>외로운|เหงา</item>
+        <item>집중하다|จดจ่อ</item>
+        <item>가치|คุณค่า</item>
+        <item>흔한|พบได้ทั่วไป</item>
+        <item>입양하다|รับเลี้ยง</item>
+        <item>추상적인|เป็นนามธรรม</item>
+        <item>이용 가능한|ใช้ได้</item>
+        <item>보장하다|รับประกัน</item>
+        <item>기관|สถาบัน</item>
+        <item>보증금|เงินมัดจำ</item>
+        <item>수하물|สัมภาระ</item>
+        <item>언어의|ทางภาษา</item>
+        <item>포식자|นักล่า</item>
+        <item>버스|รถเมล์</item>
+        <item>수박|แตงโม</item>
+        <item>가방|กระเป๋า</item>
+        <item>손|มือ</item>
+        <item>코|จมูก</item>
+        <item>슬픈|เศร้า</item>
+        <item>짧은|สั้น</item>
+        <item>쳐다보다|มอง</item>
+        <item>주다|ให้</item>
+        <item>잘 가|ลาก่อน</item>
+        <item>점심|อาหารกลางวัน</item>
+        <item>돼지|หมู</item>
+        <item>구름|เมฆ</item>
+        <item>생각하다|คิด</item>
+        <item>잊다|ลืม</item>
+        <item>공원|สวนสาธารณะ</item>
+        <item>병원|โรงพยาบาล</item>
+        <item>도시|เมือง</item>
+        <item>피곤한|เหนื่อย</item>
+        <item>미술|ศิลปะ</item>
+        <item>요리사|พ่อครัว</item>
+        <item>두통|ปวดหัว</item>
+        <item>인기 있는|เป็นที่นิยม</item>
+        <item>느끼다|รู้สึก</item>
+        <item>기회|โอกาส</item>
+        <item>법|กฎหมาย</item>
+        <item>손님|แขก</item>
+        <item>신이 난|ตื่นเต้น</item>
+        <item>현대의|สมัยใหม่</item>
+        <item>의존하다|พึ่งพา</item>
+        <item>모이다|รวมตัว</item>
+        <item>추측하다|เดา</item>
+        <item>상상하다|จินตนาการ</item>
+        <item>제공하다|เสนอให้</item>
+        <item>재료|วัสดุ</item>
+        <item>방법|วิธี</item>
+        <item>취소하다|ยกเลิก</item>
+        <item>실험|การทดลอง</item>
+        <item>경고하다|เตือน</item>
+        <item>고발하다|กล่าวหา</item>
+        <item>명백한|ชัดเจน</item>
+        <item>자신감|ความมั่นใจ</item>
+        <item>대조|ความตัดกัน</item>
+        <item>선포하다|ประกาศ</item>
+        <item>감지하다|ตรวจจับ</item>
+        <item>경제|เศรษฐกิจ</item>
+        <item>가능하게 하다|ทำให้เป็นไปได้</item>
+        <item>견디다|ทนทาน</item>
+        <item>전체의|ทั้งหมด</item>
+        <item>추출하다|สกัด</item>
+        <item>모욕하다|ดูหมิ่น</item>
+        <item>조사하다|สอบสวน</item>
+        <item>논리적인|เป็นเหตุเป็นผล</item>
+        <item>여백|ขอบกระดาษ</item>
+        <item>다수의|หลาย</item>
+        <item>상호의|ซึ่งกันและกัน</item>
+        <item>고귀한|สูงส่ง</item>
+        <item>합병하다|ควบรวม</item>
+        <item>통지하다|แจ้ง</item>
+        <item>등록하다|ลงทะเบียน</item>
+        <item>이력서|เรซูเม่</item>
+        <item>거래|ธุรกรรม</item>
+        <item>임의의|ตามอำเภอใจ</item>
+        <item>구성하다|ประกอบขึ้น</item>
+        <item>암묵적인|โดยนัย</item>
+        <item>관성|ความเฉื่อย</item>
+        <item>열쇠|กุญแจ</item>
+        <item>펭귄|เพนกวิน</item>
+        <item>나의|ของฉัน</item>
+        <item>지불하다|จ่ายเงิน</item>
+        <item>믿음|ความเชื่อ</item>
+        <item>검증하다|ตรวจสอบ</item>
+        <item>가족|ครอบครัว</item>
+        <item>팔|แขน</item>
+        <item>빨간|สีแดง</item>
+        <item>검은|สีดำ</item>
+        <item>분홍의|สีชมพู</item>
+        <item>셋|สาม</item>
+        <item>컵|ถ้วย</item>
+        <item>상자|กล่อง</item>
+        <item>채소|ผัก</item>
+        <item>겨울|ฤดูหนาว</item>
+        <item>달(월)|เดือน</item>
+        <item>시간(단위)|ชั่วโมง</item>
+        <item>배우다|เรียนรู้</item>
+        <item>찾다|หา</item>
+        <item>울다|ร้องไห้</item>
+        <item>동물원|สวนสัตว์</item>
+        <item>화장실|ห้องน้ำ</item>
+        <item>음식|อาหาร</item>
+        <item>늦게|สาย</item>
+        <item>계획|แผน</item>
+        <item>역사|ประวัติศาสตร์</item>
+        <item>숙제|การบ้าน</item>
+        <item>시험|การสอบ</item>
+        <item>학년|ชั้นปี</item>
+        <item>교실|ห้องเรียน</item>
+        <item>경찰|ตำรวจ</item>
+        <item>꿈|ความฝัน</item>
+        <item>아침밥|อาหารเช้า</item>
+        <item>기침|อาการไอ</item>
+        <item>가장 좋아하는|ที่ชอบที่สุด</item>
+        <item>나르다|ขน</item>
+        <item>서두르다|รีบ</item>
+        <item>조언|คำแนะนำ</item>
+        <item>사고|อุบัติเหตุ</item>
+        <item>낯선 사람|คนแปลกหน้า</item>
+        <item>메시지|ข้อความ</item>
+        <item>생각|ความคิด</item>
+        <item>바꾸다|เปลี่ยน</item>
+        <item>나누다|แบ่งปัน</item>
+        <item>묘사하다|บรรยาย</item>
+        <item>나타나다|ปรากฏ</item>
+        <item>기르다|เลี้ยงดู</item>
+        <item>전통적인|ตามประเพณี</item>
+        <item>성취하다|บรรลุ</item>
+        <item>배달하다|จัดส่ง</item>
+        <item>남다|เหลืออยู่</item>
+        <item>필요로 하다|ต้องการ</item>
+        <item>소리치다|ตะโกน</item>
+        <item>정부|รัฐบาล</item>
+        <item>책임|ความรับผิดชอบ</item>
+        <item>상황|สถานการณ์</item>
+        <item>광고하다|โฆษณา</item>
+        <item>파괴하다|ทำลาย</item>
+        <item>탐험하다|สำรวจ</item>
+        <item>용서하다|ให้อภัย</item>
+        <item>영감을 주다|สร้างแรงบันดาลใจ</item>
+        <item>이끌다|นำ</item>
+        <item>위치를 찾다|หาตำแหน่ง</item>
+        <item>녹다|ละลาย</item>
+        <item>홍보하다|ประชาสัมพันธ์</item>
+        <item>가라앉다|จม</item>
+        <item>궁금하다|สงสัย</item>
+        <item>태도|ทัศนคติ</item>
+        <item>기후|ภูมิอากาศ</item>
+        <item>논쟁|การโต้เถียง</item>
+        <item>간결한|กระชับ</item>
+        <item>붕괴하다|พังทลาย</item>
+        <item>복잡한|ซับซ้อน</item>
+        <item>수행하다|ดำเนินการ</item>
+        <item>확인하다|ยืนยัน</item>
+        <item>직면하다|เผชิญหน้า</item>
+        <item>호기심 많은|อยากรู้อยากเห็น</item>
+        <item>줄어들다|ลดน้อยลง</item>
+        <item>국내의|ภายในประเทศ</item>
+        <item>요소|องค์ประกอบ</item>
+        <item>열정|ความกระตือรือร้น</item>
+        <item>기능|ฟังก์ชัน</item>
+        <item>수단|วิถีทาง</item>
+        <item>그럼에도|ถึงกระนั้น</item>
+        <item>동봉하다|แนบมาด้วย</item>
+        <item>만료되다|หมดอายุ</item>
+        <item>정책|นโยบาย</item>
+        <item>모집하다|รับสมัคร</item>
+        <item>갱신하다|ต่ออายุ</item>
+        <item>잠정적인|ชั่วคราว</item>
+        <item>미적인|เชิงสุนทรียะ</item>
+        <item>명료하게 말하다|พูดชัดถ้อยชัดคำ</item>
+        <item>모순되다|ขัดแย้ง</item>
+        <item>결핍|ภาวะขาดแคลน</item>
+        <item>역동적인|มีพลวัต</item>
+        <item>직관|สัญชาตญาณ</item>
+        <item>신진대사|เมแทบอลิซึม</item>
+        <item>은유|อุปมา</item>
+        <item>지각하다|รับรู้</item>
+        <item>현상|ปรากฏการณ์</item>
+        <item>상당한|มากพอสมควร</item>
+        <item>촉발하다|จุดชนวน</item>
+        <item>아이스크림|ไอศกรีม</item>
+        <item>케이크|เค้ก</item>
+        <item>눈사람|ตุ๊กตาหิมะ</item>
+        <item>산|ภูเขา</item>
+        <item>위로|ขึ้นข้างบน</item>
+        <item>저것|อันนั้น</item>
+        <item>미소 짓다|ยิ้ม</item>
+        <item>조심하는|ระมัดระวัง</item>
+        <item>취미|งานอดิเรก</item>
+        <item>사실|ข้อเท็จจริง</item>
+        <item>외국의|ต่างประเทศ</item>
+        <item>답장하다|ตอบกลับ</item>
+        <item>보상하다|ชดเชย</item>
+        <item>명세서|ใบแจ้งยอด</item>
+        <item>모의실험하다|จำลอง</item>
+        <item>바나나|กล้วย</item>
+        <item>여자|ผู้หญิง</item>
+        <item>머리카락|เส้นผม</item>
+        <item>얼굴|ใบหน้า</item>
+        <item>갈색의|สีน้ำตาล</item>
+        <item>뜨거운|ร้อน</item>
+        <item>달리다|วิ่ง</item>
+        <item>먹다|กิน</item>
+        <item>자다|นอน</item>
+        <item>쓰다|เขียน</item>
+        <item>열다|เปิด</item>
+        <item>장난감|ของเล่น</item>
+        <item>원숭이|ลิง</item>
+        <item>날씨|สภาพอากาศ</item>
+        <item>영화|หนัง</item>
+        <item>나라|ประเทศ</item>
+        <item>해변|ชายหาด</item>
+        <item>화난|โกรธ</item>
+        <item>무서워하는|กลัว</item>
+        <item>똑똑한|ฉลาด</item>
+        <item>어려운|ยาก</item>
+        <item>생일|วันเกิด</item>
+        <item>휴일|วันหยุด</item>
+        <item>잡지|นิตยสาร</item>
+        <item>문제|ปัญหา</item>
+        <item>소방관|นักดับเพลิง</item>
+        <item>직업|อาชีพ</item>
+        <item>치통|ปวดฟัน</item>
+        <item>바지|กางเกง</item>
+        <item>재킷|แจ็กเก็ต</item>
+        <item>특별한|พิเศษ</item>
+        <item>중요한|สำคัญ</item>
+        <item>흥미로운|น่าสนใจ</item>
+        <item>더러운|สกปรก</item>
+        <item>준비된|พร้อม</item>
+        <item>떠나다|ออกไป</item>
+        <item>이사하다|ย้ายบ้าน</item>
+        <item>보내다|ส่ง</item>
+        <item>받다|ได้รับ</item>
+        <item>고르다|เลือก</item>
+        <item>지다|แพ้</item>
+        <item>걱정하다|กังวล</item>
+        <item>바라다|หวัง</item>
+        <item>입다|สวมใส่</item>
+        <item>자주|บ่อย ๆ</item>
+        <item>십 대|วัยรุ่น</item>
+        <item>기억|ความทรงจำ</item>
+        <item>환경|สิ่งแวดล้อม</item>
+        <item>규칙|กฎ</item>
+        <item>의견|ความคิดเห็น</item>
+        <item>발견하다|ค้นพบ</item>
+        <item>줄이다|ลด</item>
+        <item>따르다|ปฏิบัติตาม</item>
+        <item>건너다|ข้าม</item>
+        <item>준비하다|เตรียม</item>
+        <item>소유하다|เป็นเจ้าของ</item>
+        <item>유용한|มีประโยชน์</item>
+        <item>조심스럽게|อย่างระมัดระวัง</item>
+        <item>격려하다|ให้กำลังใจ</item>
+        <item>예방하다|ป้องกัน</item>
+        <item>~처럼 보이다|ดูเหมือน</item>
+        <item>제공하다(음식)|เสิร์ฟ</item>
+        <item>자원봉사하다|เป็นอาสาสมัคร</item>
+        <item>업적|ความสำเร็จ</item>
+        <item>관객|ผู้ชม</item>
+        <item>회사|บริษัท</item>
+        <item>관계|ความสัมพันธ์</item>
+        <item>해결책|ทางแก้</item>
+        <item>감탄하다|ชื่นชม</item>
+        <item>다가가다|เข้าใกล้</item>
+        <item>숨 쉬다|หายใจ</item>
+        <item>계산하다|คำนวณ</item>
+        <item>방어하다|ป้องกัน</item>
+        <item>요구하다|เรียกร้อง</item>
+        <item>벌다|หาเงิน</item>
+        <item>탈출하다|หลบหนี</item>
+        <item>망설이다|ลังเล</item>
+        <item>의도하다|ตั้งใจ</item>
+        <item>포함시키다|เกี่ยวข้องกับ</item>
+        <item>참가하다|เข้าร่วม</item>
+        <item>긴장을 풀다|ผ่อนคลาย</item>
+        <item>저항하다|ต่อต้าน</item>
+        <item>분리하다|แยก</item>
+        <item>신뢰하다|ไว้วางใจ</item>
+        <item>성격|นิสัยใจคอ</item>
+        <item>결론|ข้อสรุป</item>
+        <item>사례|ตัวอย่างกรณี</item>
+        <item>흡수하다|ดูดซับ</item>
+        <item>동행하다|ไปเป็นเพื่อน</item>
+        <item>장벽|อุปสรรคกีดขวาง</item>
+        <item>결합하다|รวมเข้าด้วยกัน</item>
+        <item>걱정|ความกังวล</item>
+        <item>의무|หน้าที่</item>
+        <item>강조하다|เน้นย้ำ</item>
+        <item>집행하다|บังคับใช้</item>
+        <item>필수적인|จำเป็นอย่างยิ่ง</item>
+        <item>평가하다|ประเมิน</item>
+        <item>초과하다|เกิน</item>
+        <item>확장하다|ขยาย</item>
+        <item>노출시키다|เปิดเผยต่อ</item>
+        <item>극단적인|สุดโต่ง</item>
+        <item>요인|ปัจจัย</item>
+        <item>치명적인|ร้ายแรงถึงชีวิต</item>
+        <item>비옥한|อุดมสมบูรณ์</item>
+        <item>유창한|คล่องแคล่ว</item>
+        <item>좌절시키다|ทำให้ท้อ</item>
+        <item>기금|กองทุน</item>
+        <item>감사하는|รู้สึกขอบคุณ</item>
+        <item>적대적인|เป็นปฏิปักษ์</item>
+        <item>부과하다|กำหนดบังคับ</item>
+        <item>추론하다|อนุมาน</item>
+        <item>물려받다|สืบทอด</item>
+        <item>통찰|ความเข้าใจลึกซึ้ง</item>
+        <item>내부의|ภายใน</item>
+        <item>노동|แรงงาน</item>
+        <item>출시하다|เปิดตัว</item>
+        <item>제조하다|ผลิต</item>
+        <item>수정하다|แก้ไขปรับปรุง</item>
+        <item>협약|ข้อตกลง</item>
+        <item>승인|การอนุมัติ</item>
+        <item>회계 감사|การตรวจสอบบัญชี</item>
+        <item>잔액|ยอดคงเหลือ</item>
+        <item>지점|สาขา</item>
+        <item>소비자|ผู้บริโภค</item>
+        <item>기업의|ขององค์กร</item>
+        <item>유통하다|จัดจำหน่าย</item>
+        <item>설비|สิ่งอำนวยความสะดวก</item>
+        <item>기입하다|กรอก</item>
+        <item>벌금|ค่าปรับ</item>
+        <item>고용하다|จ้าง</item>
+        <item>문의|การสอบถาม</item>
+        <item>협상|การเจรจา</item>
+        <item>영수증|ใบเสร็จ</item>
+        <item>소매|ค้าปลีก</item>
+        <item>제출하다|ยื่นส่ง</item>
+        <item>구독하다|สมัครสมาชิก</item>
+        <item>행사장|สถานที่จัดงาน</item>
+        <item>유효한|ใช้ได้</item>
+        <item>촉매|ตัวเร่งปฏิกิริยา</item>
+        <item>상품(원자재)|สินค้าโภคภัณฑ์</item>
+        <item>연속적인|ติดต่อกัน</item>
+        <item>합의|ฉันทามติ</item>
+        <item>제약하다|จำกัด</item>
+        <item>신뢰성|ความน่าเชื่อถือ</item>
+        <item>생태계|ระบบนิเวศ</item>
+        <item>자세히 설명하다|อธิบายละเอียด</item>
+        <item>깊이 박다|ฝังลงไป</item>
+        <item>유행병|โรคระบาด</item>
+        <item>행사하다|ใช้ (อำนาจ/แรง)</item>
+        <item>변동하다|ผันผวน</item>
+        <item>내재된|ที่มีอยู่ในตัว</item>
+        <item>관개|การชลประทาน</item>
+        <item>지속하다|คงอยู่ต่อไป</item>
+        <item>정밀한|แม่นยำ</item>
+        <item>보유하다|เก็บรักษาไว้</item>
+        <item>엄격한|เข้มงวด</item>
+        <item>회의적인|กังขา</item>
+        <item>그 후의|ภายหลัง</item>
+        <item>종합|การสังเคราะห์</item>
+        <item>유형의|จับต้องได้</item>
+        <item>겪다|ประสบ</item>
+        <item>비행기|เครื่องบิน</item>
+        <item>코끼리|ช้าง</item>
+        <item>옥수수|ข้าวโพด</item>
+        <item>오렌지|ส้ม</item>
+        <item>책|หนังสือ</item>
+        <item>그녀는|เธอ</item>
+        <item>너의|ของคุณ</item>
+        <item>안에|ข้างใน</item>
+        <item>나는|ฉัน</item>
+        <item>밤|กลางคืน</item>
+        <item>다리|ขา</item>
+        <item>봄|ฤดูใบไม้ผลิ</item>
+        <item>물어보다|ถาม</item>
+        <item>열|ไข้</item>
+        <item>심다|ปลูก</item>
+        <item>이유|เหตุผล</item>
+        <item>제안하다|เสนอแนะ</item>
+        <item>주인(초대한)|เจ้าภาพ</item>
+        <item>비교하다|เปรียบเทียบ</item>
+        <item>지식|ความรู้</item>
+        <item>꾸짖다|ดุ</item>
+        <item>투자하다|ลงทุน</item>
+        <item>대하다|ปฏิบัติต่อ</item>
+        <item>재난|ภัยพิบัติ</item>
+        <item>추구하다|ไล่ตาม</item>
+        <item>간청하다|อ้อนวอน</item>
+        <item>뚜렷한|เด่นชัด</item>
+        <item>상담하다|ปรึกษา</item>
+        <item>빈번한|บ่อยครั้ง</item>
+        <item>지시하다|สั่งการ</item>
+        <item>발생시키다|ก่อให้เกิด</item>
+        <item>도매|ค้าส่ง</item>
+        <item>자산|สินทรัพย์</item>
+        <item>규정|ระเบียบข้อบังคับ</item>
+        <item>예약|การจอง</item>
+        <item>중립의|เป็นกลาง</item>
+        <item>눈(신체)|ดวงตา</item>
+        <item>노란|สีเหลือง</item>
+        <item>초록의|สีเขียว</item>
+        <item>둘|สอง</item>
+        <item>나쁜|แย่</item>
+        <item>차가운|เย็น</item>
+        <item>놀다|เล่น</item>
+        <item>노래하다|ร้องเพลง</item>
+        <item>읽다|อ่าน</item>
+        <item>그리다|วาด</item>
+        <item>달|ดวงจันทร์</item>
+        <item>하늘|ท้องฟ้า</item>
+        <item>모자|หมวก</item>
+        <item>아침 식사|อาหารเช้า</item>
+        <item>설탕|น้ำตาล</item>
+        <item>여름|ฤดูร้อน</item>
+        <item>가을|ฤดูใบไม้ร่วง</item>
+        <item>주|สัปดาห์</item>
+        <item>숫자|ตัวเลข</item>
+        <item>게임|เกม</item>
+        <item>축구|ฟุตบอล</item>
+        <item>타다|ขี่</item>
+        <item>돕다|ช่วย</item>
+        <item>씻다|ล้าง</item>
+        <item>기억하다|จำได้</item>
+        <item>웃다|หัวเราะ</item>
+        <item>거리|ถนน</item>
+        <item>강|แม่น้ำ</item>
+        <item>예쁜|สวย</item>
+        <item>귀여운|น่ารัก</item>
+        <item>강한|แข็งแรง</item>
+        <item>방학|ปิดเทอม</item>
+        <item>편지|จดหมาย</item>
+        <item>과학|วิทยาศาสตร์</item>
+        <item>건강|สุขภาพ</item>
+        <item>안경|แว่นตา</item>
+        <item>장갑|ถุงมือ</item>
+        <item>돈|เงิน</item>
+        <item>시끄러운|เสียงดัง</item>
+        <item>시작하다|เริ่ม</item>
+        <item>연습하다|ฝึกซ้อม</item>
+        <item>즐기다|เพลิดเพลิน</item>
+        <item>보통|โดยปกติ</item>
+        <item>정보|ข้อมูล</item>
+        <item>경험|ประสบการณ์</item>
+        <item>언어|ภาษา</item>
+        <item>외국인|ชาวต่างชาติ</item>
+        <item>어린이|เด็ก</item>
+        <item>순간|ชั่วขณะ</item>
+        <item>평화|สันติภาพ</item>
+        <item>행성|ดาวเคราะห์</item>
+        <item>사막|ทะเลทราย</item>
+        <item>온도|อุณหภูมิ</item>
+        <item>상|รางวัล</item>
+        <item>짓다|สร้าง</item>
+        <item>해결하다|แก้ไข</item>
+        <item>모으다|สะสม</item>
+        <item>소개하다|แนะนำให้รู้จัก</item>
+        <item>오르다|ปีน</item>
+        <item>출구|ทางออก</item>
+        <item>쓸모없는|ไร้ประโยชน์</item>
+        <item>기념하다|เฉลิมฉลอง</item>
+        <item>불평하다|บ่น</item>
+        <item>고려하다|พิจารณา</item>
+        <item>덮다|ปกคลุม</item>
+        <item>교육하다|ให้การศึกษา</item>
+        <item>교환하다|แลกเปลี่ยน</item>
+        <item>다루다|จัดการ</item>
+        <item>도입하다|นำมาใช้</item>
+        <item>언급하다|กล่าวถึง</item>
+        <item>선호하다|ชอบมากกว่า</item>
+        <item>수리하다|ซ่อม</item>
+        <item>교체하다|เปลี่ยนแทน</item>
+        <item>고통받다|ทนทุกข์</item>
+        <item>공급하다|จัดหาให้</item>
+        <item>살아남다|อยู่รอด</item>
+        <item>능력|ความสามารถ</item>
+        <item>에너지|พลังงาน</item>
+        <item>세대|รุ่น</item>
+        <item>인구|ประชากร</item>
+        <item>기술|ทักษะ</item>
+        <item>전통|ประเพณี</item>
+        <item>주요한|หลัก</item>
+        <item>여유가 되다|มีกำลังจ่าย</item>
+        <item>뒤쫓다|ไล่ตาม</item>
+        <item>혼란스럽게 하다|ทำให้สับสน</item>
+        <item>연결하다|เชื่อมต่อ</item>
+        <item>비판하다|วิจารณ์</item>
+        <item>실망시키다|ทำให้ผิดหวัง</item>
+        <item>겁먹게 하다|ทำให้กลัว</item>
+        <item>무시하다|เพิกเฉย</item>
+        <item>감동시키다|ทำให้ประทับใจ</item>
+        <item>출판하다|ตีพิมพ์</item>
+        <item>풀어주다|ปล่อย</item>
+        <item>구조하다|กู้ภัย</item>
+        <item>분투하다|ดิ้นรน</item>
+        <item>대기|ชั้นบรรยากาศ</item>
+        <item>보조하다|ช่วยเหลือ</item>
+        <item>장담하다|รับรอง</item>
+        <item>기초|พื้นฐาน</item>
+        <item>유대|สายสัมพันธ์</item>
+        <item>경계|เขตแดน</item>
+        <item>유능한|มีความสามารถ</item>
+        <item>원인|สาเหตุ</item>
+        <item>중단하다|ยุติ</item>
+        <item>분류하다|จำแนก</item>
+        <item>경쟁하다|แข่งขัน</item>
+        <item>작곡하다|แต่งเพลง</item>
+        <item>동시대의|ร่วมสมัย</item>
+        <item>위기|วิกฤต</item>
+        <item>결정적인|ชี้ขาด</item>
+        <item>재배하다|เพาะปลูก</item>
+        <item>토론|การอภิปราย</item>
+        <item>장치|อุปกรณ์</item>
+        <item>진화하다|วิวัฒนาการ</item>
+        <item>실행하다|ปฏิบัติการ</item>
+        <item>연장하다|ขยายเวลา</item>
+        <item>시설|สถานที่และอุปกรณ์</item>
+        <item>재정|การเงิน</item>
+        <item>겸손한|ถ่อมตัว</item>
+        <item>피할 수 없는|เลี่ยงไม่ได้</item>
+        <item>고립시키다|แยกโดดเดี่ยว</item>
+        <item>전설|ตำนาน</item>
+        <item>자유|เสรีภาพ</item>
+        <item>성숙한|เป็นผู้ใหญ่</item>
+        <item>감시하다|เฝ้าติดตาม</item>
+        <item>더욱이|ยิ่งไปกว่านั้น</item>
+        <item>협상하다|เจรจาต่อรอง</item>
+        <item>장애물|สิ่งกีดขวาง</item>
+        <item>차지하다|ครอบครอง</item>
+        <item>입찰|การประมูล</item>
+        <item>동료|เพื่อนร่วมงาน</item>
+        <item>고용주|นายจ้าง</item>
+        <item>임원|ผู้บริหาร</item>
+        <item>본사|สำนักงานใหญ่</item>
+        <item>여행 일정표|กำหนดการเดินทาง</item>
+        <item>임대차 계약|สัญญาเช่า</item>
+        <item>초과 근무|งานล่วงเวลา</item>
+        <item>급여|ค่าจ้าง</item>
+        <item>제안서|ข้อเสนอ</item>
+        <item>자격|คุณสมบัติ</item>
+        <item>수익|รายได้</item>
+        <item>교대 근무|กะทำงาน</item>
+        <item>이체하다|โอนเงิน</item>
+        <item>품질 보증|การรับประกัน</item>
+        <item>구상하다|คิดวางแผน</item>
+        <item>연역하다|นิรนัย</item>
+        <item>동등한|เทียบเท่า</item>
+        <item>파편|เศษชิ้นส่วน</item>
+        <item>유전의|ทางพันธุกรรม</item>
+        <item>시행하다|นำไปปฏิบัติ</item>
+        <item>억제하다|ยับยั้ง</item>
+        <item>쓸모없게 된|ล้าสมัย</item>
+        <item>우세하다|มีชัยเหนือ</item>
+        <item>비율|สัดส่วน</item>
+        <item>합리적인|มีเหตุผล</item>
+        <item>튼튼한|แข็งแกร่ง</item>
+        <item>퇴적물|ตะกอน</item>
+        <item>보조금|เงินอุดหนุน</item>
+        <item>약화시키다|บ่อนทำลาย</item>
+        <item>주문하시겠어요?|พร้อมสั่งอาหารหรือยัง?</item>
+        <item>부칠 짐이 있으신가요?|มีกระเป๋าโหลดใต้เครื่องไหม?</item>
+        <item>딸기|สตรอว์เบอร์รี</item>
+        <item>얼룩말|ม้าลาย</item>
+        <item>자전거|จักรยาน</item>
+        <item>무지개|รุ้ง</item>
+        <item>당근|แครอท</item>
+        <item>풍선|ลูกโป่ง</item>
+        <item>크레용|สีเทียน</item>
+        <item>개구리|กบ</item>
+        <item>가다|ไป</item>
+        <item>그것|มัน</item>
+        <item>네|ใช่</item>
+        <item>~이다(나)|เป็น (ฉัน)</item>
+        <item>~이다|เป็น</item>
+        <item>가지다|มี</item>
+        <item>아니요|ไม่</item>
+        <item>그|เขา</item>
+        <item>~이다(복수)|เป็น (พหูพจน์)</item>
+        <item>할 수 있다|สามารถ</item>
+        <item>또는|หรือ</item>
+        <item>새로운|ใหม่</item>
+        <item>입|ปาก</item>
+        <item>아침|ตอนเช้า</item>
+        <item>서다|ยืน</item>
+        <item>남자|ผู้ชาย</item>
+        <item>시간|เวลา</item>
+        <item>쉬운|ง่าย</item>
+        <item>믿다|เชื่อ</item>
+        <item>미래|อนาคต</item>
+        <item>정말|จริง ๆ</item>
+        <item>박물관|พิพิธภัณฑ์</item>
+        <item>구하다|ช่วยชีวิต</item>
+        <item>약속|คำสัญญา</item>
+        <item>안전한|ปลอดภัย</item>
+        <item>긴장한|ประหม่า</item>
+        <item>목적|จุดประสงค์</item>
+        <item>최근에|เมื่อไม่นานนี้</item>
+        <item>쓰다(시간·돈)|ใช้ (เวลา/เงิน)</item>
+        <item>숨다|ซ่อนตัว</item>
+        <item>선언하다|ประกาศอย่างเป็นทางการ</item>
+        <item>의지하다|พึ่งพิง</item>
+        <item>선택지|ตัวเลือก</item>
+        <item>선출하다|เลือกตั้ง</item>
+        <item>빽빽한|หนาแน่น</item>
+        <item>완수하다|ทำสำเร็จ</item>
+        <item>윤리적인|เชิงจริยธรรม</item>
+        <item>동기를 부여하다|สร้างแรงจูงใจ</item>
+        <item>막대한|มหาศาล</item>
+        <item>설문조사|แบบสำรวจ</item>
+        <item>자격이 있는|มีสิทธิ์</item>
+        <item>절차|ขั้นตอน</item>
+        <item>변수|ตัวแปร</item>
+        <item>회복력 있는|ฟื้นตัวเร็ว</item>
+        <item>펜|ปากกา</item>
+        <item>책상|โต๊ะเรียน</item>
+        <item>창문|หน้าต่าง</item>
+        <item>머리|หัว</item>
+        <item>하나|หนึ่ง</item>
+        <item>오래된|เก่า</item>
+        <item>행복한|มีความสุข</item>
+        <item>빠른|เร็ว</item>
+        <item>점프하다|กระโดด</item>
+        <item>앉다|นั่ง</item>
+        <item>닫다|ปิด</item>
+        <item>안녕하세요|สวัสดี</item>
+        <item>과일|ผลไม้</item>
+        <item>소금|เกลือ</item>
+        <item>계절|ฤดู</item>
+        <item>해(년)|ปี</item>
+        <item>노래|เพลง</item>
+        <item>운동 경기|กีฬา</item>
+        <item>수영하다|ว่ายน้ำ</item>
+        <item>가르치다|สอน</item>
+        <item>대답하다|ตอบ</item>
+        <item>요리하다|ทำอาหาร</item>
+        <item>팔다|ขาย</item>
+        <item>이야기하다|พูดคุย</item>
+        <item>말하다|พูด</item>
+        <item>산책|เดินเล่น</item>
+        <item>시장|ตลาด</item>
+        <item>도서관|ห้องสมุด</item>
+        <item>식당|ร้านอาหาร</item>
+        <item>마을|เมืองเล็ก</item>
+        <item>세계|โลก</item>
+        <item>맛있는|อร่อย</item>
+        <item>목마른|กระหายน้ำ</item>
+        <item>용감한|กล้าหาญ</item>
+        <item>약한|อ่อนแอ</item>
+        <item>일찍|แต่เช้า</item>
+        <item>선물|ของขวัญ</item>
+        <item>여행|การเดินทางท่องเที่ยว</item>
+        <item>일기|ไดอารี่</item>
+        <item>신문|หนังสือพิมพ์</item>
+        <item>극장|โรงละคร</item>
+        <item>농부|ชาวนา</item>
+        <item>운동|การออกกำลังกาย</item>
+        <item>유명한|มีชื่อเสียง</item>
+        <item>같은|เหมือนกัน</item>
+        <item>끝내다|ทำให้เสร็จ</item>
+        <item>도착하다|มาถึง</item>
+        <item>방문하다|เยี่ยมเยือน</item>
+        <item>가져오다|นำมา</item>
+        <item>돌려주다|คืนให้</item>
+        <item>결정하다|ตัดสินใจ</item>
+        <item>기다리다|รอ</item>
+        <item>냄새가 나다|มีกลิ่น</item>
+        <item>곧|เร็ว ๆ นี้</item>
+        <item>문화|วัฒนธรรม</item>
+        <item>노력|ความพยายาม</item>
+        <item>비밀|ความลับ</item>
+        <item>실수|ความผิดพลาด</item>
+        <item>곤란|ความเดือดร้อน</item>
+        <item>전쟁|สงคราม</item>
+        <item>지구|โลก (ดาว)</item>
+        <item>섬|เกาะ</item>
+        <item>기상|ลมฟ้าอากาศ</item>
+        <item>화재|ไฟไหม้</item>
+        <item>대회|การประกวด</item>
+        <item>동아리|ชมรม</item>
+        <item>이웃 사람|เพื่อนบ้าน</item>
+        <item>발명하다|ประดิษฐ์</item>
+        <item>창조하다|สร้างสรรค์</item>
+        <item>초대하다|เชิญ</item>
+        <item>존중하다|เคารพ</item>
+        <item>일어나다|เกิดขึ้น</item>
+        <item>사라지다|หายไป</item>
+        <item>계속하다|ทำต่อไป</item>
+        <item>멈추다|หยุด</item>
+        <item>들어가다|เข้าไป</item>
+        <item>먹이를 주다|ให้อาหาร</item>
+        <item>놀란|ประหลาดใจ</item>
+        <item>실망한|ผิดหวัง</item>
+        <item>심각한|ร้ายแรง</item>
+        <item>마침내|ในที่สุด</item>
+        <item>참석하다|เข้าร่วมงาน</item>
+        <item>세다|นับ</item>
+        <item>증가하다|เพิ่มขึ้น</item>
+        <item>관리하다|บริหารจัดการ</item>
+        <item>알아차리다|สังเกตเห็น</item>
+        <item>깨닫다|ตระหนัก</item>
+        <item>거절하다|ปฏิเสธ</item>
+        <item>검색하다|ค้นหา</item>
+        <item>훔치다|ขโมย</item>
+        <item>지지하다|สนับสนุน</item>
+        <item>공동체|ชุมชน</item>
+        <item>용기|ความกล้า</item>
+        <item>관습|ธรรมเนียม</item>
+        <item>방향|ทิศทาง</item>
+        <item>버릇|นิสัยติดตัว</item>
+        <item>성공|ความสำเร็จ</item>
+        <item>충분한|เพียงพอ</item>
+        <item>지역의|ท้องถิ่น</item>
+        <item>지원하다|สมัคร</item>
+        <item>탓하다|โทษ</item>
+        <item>구성되다|ประกอบไปด้วย</item>
+        <item>받을 자격이 있다|สมควรได้รับ</item>
+        <item>식별하다|ระบุ</item>
+        <item>고집하다|ยืนกราน</item>
+        <item>판단하다|ตัดสิน</item>
+        <item>측정하다|วัด</item>
+        <item>공연하다|แสดง</item>
+        <item>~인 척하다|แกล้งทำ</item>
+        <item>증명하다|พิสูจน์</item>
+        <item>알아보다|จำได้</item>
+        <item>회복하다|ฟื้นตัว</item>
+        <item>응답하다|ตอบสนอง</item>
+        <item>만족시키다|ทำให้พอใจ</item>
+        <item>도전|ความท้าทาย</item>
+        <item>세부 사항|รายละเอียด</item>
+        <item>증거|หลักฐาน</item>
+        <item>버리다|ทอดทิ้ง</item>
+        <item>학업의|ด้านการเรียน</item>
+        <item>정확한|ถูกต้องแม่นยำ</item>
+        <item>전진하다|รุดหน้า</item>
+        <item>대안|ทางเลือก</item>
+        <item>배정하다|มอบหมาย</item>
+        <item>주장하다|อ้างว่า</item>
+        <item>논평|ความคิดเห็น (วิจารณ์)</item>
+        <item>저지르다|ก่อ (ความผิด)</item>
+        <item>구성 요소|ส่วนประกอบ</item>
+        <item>건설하다|ก่อสร้าง</item>
+        <item>전환하다|แปลง</item>
+        <item>전달하다|ถ่ายทอด</item>
+        <item>대처하다|รับมือ</item>
+        <item>유래하다|มีที่มาจาก</item>
+        <item>구별하다|แยกแยะ</item>
+        <item>간절히 바라는|กระตือรือร้นอยากทำ</item>
+        <item>장비를 갖추다|ติดตั้งอุปกรณ์</item>
+        <item>추정하다|ประมาณการ</item>
+        <item>제외하다|ตัดออก</item>
+        <item>희미해지다|จางลง</item>
+        <item>특징|ลักษณะเด่น</item>
+        <item>격식 있는|เป็นทางการ</item>
+        <item>근본적인|ขั้นรากฐาน</item>
+        <item>게다가|นอกจากนี้</item>
+        <item>진짜의|ของแท้</item>
+        <item>속이 빈|กลวง</item>
+        <item>즉각적인|ทันที</item>
+        <item>암시하다|บอกเป็นนัย</item>
+        <item>나타내다|บ่งชี้</item>
+        <item>혁신|นวัตกรรม</item>
+        <item>강렬한|เข้มข้นรุนแรง</item>
+        <item>상호작용하다|มีปฏิสัมพันธ์</item>
+        <item>해석하다|ตีความ</item>
+        <item>마찬가지로|ในทำนองเดียวกัน</item>
+        <item>문학|วรรณกรรม</item>
+        <item>단지 ~에 불과한|เพียงแค่</item>
+        <item>최소화하다|ลดให้เหลือน้อยสุด</item>
+        <item>적당한|พอประมาณ</item>
+        <item>지원자|ผู้สมัคร</item>
+        <item>약속(업무)|นัดหมาย</item>
+        <item>고객|ลูกค้า</item>
+        <item>수수료|ค่าธรรมเนียม</item>
+        <item>통근하다|เดินทางไปทำงาน</item>
+        <item>회의(대규모)|การประชุมใหญ่</item>
+        <item>직원|พนักงาน</item>
+        <item>청구서|ใบแจ้งหนี้</item>
+        <item>대출|เงินกู้</item>
+        <item>인사(부)|ฝ่ายบุคคล</item>
+        <item>승진|การเลื่อนตำแหน่ง</item>
+        <item>구매하다|จัดซื้อ</item>
+        <item>환불|การคืนเงิน</item>
+        <item>상환하다|เบิกคืน</item>
+        <item>평판|ชื่อเสียง</item>
+        <item>사임하다|ลาออก</item>
+        <item>연례의|ประจำปี</item>
+        <item>경쟁력 있는|แข่งขันได้</item>
+        <item>능률적인|มีประสิทธิภาพ</item>
+        <item>의무적인|ภาคบังคับ</item>
+        <item>신속한|ฉับไว</item>
+        <item>옹호하다|สนับสนุนแนวคิด</item>
+        <item>개정하다|แก้ไขปรับปรุง (กฎ)</item>
+        <item>고고학|โบราณคดี</item>
+        <item>~의 탓으로 돌리다|ถือว่าเป็นเพราะ</item>
+        <item>편향|อคติ</item>
+        <item>응축하다|ควบแน่น</item>
+        <item>기준(단수)|เกณฑ์</item>
+        <item>딜레마|สภาวะกลืนไม่เข้าคายไม่ออก</item>
+        <item>담론|วาทกรรม</item>
+        <item>대체하다|เข้าแทนที่</item>
+        <item>왜곡하다|บิดเบือน</item>
+        <item>위계|ลำดับชั้น</item>
+        <item>진실성|ความซื่อตรง</item>
+        <item>상쇄하다|หักล้าง</item>
+        <item>선행하다|มาก่อน</item>
+        <item>전망|แนวโน้มอนาคต</item>
+        <item>~하게 만들다|ทำให้กลายเป็น</item>
+        <item>몇 정거장인가요?|กี่ป้ายถึง?</item>
+        <item>얼마나 자주 오나요?|มาบ่อยแค่ไหน?</item>
+        <item>요금은 얼마예요?|ค่าโดยสารเท่าไหร่?</item>
+        <item>날씨 정말 좋죠?|อากาศดีจังเลยเนอะ?</item>
+        <item>닭|ไก่</item>
+        <item>나비|ผีเสื้อ</item>
+        <item>이것|อันนี้</item>
+        <item>그러나|แต่</item>
+        <item>~였다|เคยเป็น</item>
+        <item>아래로|ลงข้างล่าง</item>
+        <item>원하다|ต้องการ</item>
+        <item>문|ประตู</item>
+        <item>춤추다|เต้น</item>
+        <item>동물|สัตว์</item>
+        <item>바람|ลม</item>
+        <item>야구|เบสบอล</item>
+        <item>음악|ดนตรี</item>
+        <item>보다(시청하다)|ดู</item>
+        <item>회원|สมาชิก</item>
+        <item>이웃|เพื่อนบ้าน</item>
+        <item>자연|ธรรมชาติ</item>
+        <item>다다르다|ไปถึง</item>
+        <item>번역하다|แปล</item>
+        <item>통제하다|ควบคุม</item>
+        <item>추천하다|แนะนำ (เชียร์)</item>
+        <item>갈등|ความขัดแย้ง</item>
+        <item>합법적인|ถูกกฎหมาย</item>
+        <item>후보자|ผู้สมัครชิงตำแหน่ง</item>
+        <item>성과|ผลสำเร็จ</item>
+        <item>착취하다|ขูดรีด</item>
+        <item>배치|การจัดวาง</item>
+        <item>풍부하게 하다|ทำให้อุดม</item>
+        <item>그럴듯한|ฟังขึ้น</item>
+        <item>수렴하다|ลู่เข้าหากัน</item>
+        <item>저하시키다|ทำให้เสื่อม</item>
+        <item>모호한|กำกวม</item>
+        <item>취약한|เปราะบาง</item>
+        <item>물|น้ำ</item>
+        <item>밥|ข้าว</item>
+        <item>소년|เด็กผู้ชาย</item>
+        <item>소녀|เด็กผู้หญิง</item>
+        <item>걷다|เดิน</item>
+        <item>마시다|ดื่ม</item>
+        <item>공부하다|เรียนหนังสือ</item>
+        <item>청소하다|ทำความสะอาด</item>
+        <item>듣다|ฟัง</item>
+        <item>알다|รู้</item>
+        <item>항상|เสมอ</item>
+        <item>가끔|บางครั้ง</item>
+        <item>절대 ~않다|ไม่เคย</item>
+        <item>체육관|โรงยิม</item>
+        <item>빵집|ร้านเบเกอรี่</item>
+        <item>의사|หมอ</item>
+        <item>치과의사|หมอฟัน</item>
+        <item>치마|กระโปรง</item>
+        <item>목도리|ผ้าพันคอ</item>
+        <item>지갑|กระเป๋าสตางค์</item>
+        <item>신나는|น่าตื่นเต้น</item>
+        <item>웃긴|ตลก</item>
+        <item>조용한|เงียบ</item>
+        <item>다른|ต่างกัน</item>
+        <item>아픈|ป่วย</item>
+        <item>다시|อีกครั้ง</item>
+        <item>어른|ผู้ใหญ่</item>
+        <item>선택|ทางเลือก</item>
+        <item>지도자|ผู้นำ</item>
+        <item>영웅|วีรบุรุษ</item>
+        <item>과제|โปรเจกต์</item>
+        <item>주제|หัวข้อ</item>
+        <item>보호하다|ปกป้อง</item>
+        <item>낭비하다|สิ้นเปลือง</item>
+        <item>재활용하다|รีไซเคิล</item>
+        <item>표현하다|แสดงออก</item>
+        <item>동의하다|เห็นด้วย</item>
+        <item>말다툼하다|ทะเลาะกัน</item>
+        <item>위험한|อันตราย</item>
+        <item>완벽한|สมบูรณ์แบบ</item>
+        <item>훌륭한|ยอดเยี่ยม</item>
+        <item>갑자기|ทันใดนั้น</item>
+        <item>귀찮게 하다|รบกวน</item>
+        <item>완료하다|ทำให้เสร็จสมบูรณ์</item>
+        <item>소통하다|สื่อสาร</item>
+        <item>손상시키다|ทำให้เสียหาย</item>
+        <item>기부하다|บริจาค</item>
+        <item>주문하다|สั่ง</item>
+        <item>상태|สภาพ</item>
+        <item>거리(간격)|ระยะทาง</item>
+        <item>교육|การศึกษา</item>
+        <item>감정|อารมณ์</item>
+        <item>반응|การตอบสนอง</item>
+        <item>몇몇의|หลาย ๆ</item>
+        <item>사과하다|ขอโทษ</item>
+        <item>감사하다|ซาบซึ้งใจ</item>
+        <item>끌어들이다|ดึงดูด</item>
+        <item>다치게 하다|ทำให้บาดเจ็บ</item>
+        <item>놓다|วาง</item>
+        <item>관찰하다|สังเกตการณ์</item>
+        <item>처벌하다|ลงโทษ</item>
+        <item>후회하다|เสียใจภายหลัง</item>
+        <item>대표하다|เป็นตัวแทน</item>
+        <item>선택하다|คัดเลือก</item>
+        <item>정착하다|ตั้งถิ่นฐาน</item>
+        <item>성공하다|ประสบความสำเร็จ</item>
+        <item>~하는 경향이 있다|มีแนวโน้มจะ</item>
+        <item>위협하다|ข่มขู่</item>
+        <item>효과|ผล</item>
+        <item>습득하다|เรียนรู้จนได้มา</item>
+        <item>분석하다|วิเคราะห์</item>
+        <item>고대의|โบราณ</item>
+        <item>승인하다|อนุมัติ</item>
+        <item>배열하다|จัดเรียง</item>
+        <item>첨부하다|แนบ</item>
+        <item>권위|อำนาจหน้าที่</item>
+        <item>알고 있는|ตระหนักรู้</item>
+        <item>인용하다|อ้างอิง</item>
+        <item>보존하다|อนุรักษ์</item>
+        <item>끊임없는|ต่อเนื่องไม่หยุด</item>
+        <item>소비하다|บริโภค</item>
+        <item>기여하다|มีส่วนช่วย</item>
+        <item>협력하다|ร่วมมือ</item>
+        <item>현재의|ปัจจุบัน</item>
+        <item>헌신하다|อุทิศตน</item>
+        <item>정의하다|นิยาม</item>
+        <item>보여주다|สาธิตให้เห็น</item>
+        <item>바치다|ทุ่มเทให้</item>
+        <item>분배하다|แจกจ่าย</item>
+        <item>효율적인|ทำงานคุ้มค่า</item>
+        <item>마주치다|เผชิญพบ</item>
+        <item>거대한|มโหฬาร</item>
+        <item>비용|ค่าใช้จ่าย</item>
+        <item>외부의|ภายนอก</item>
+        <item>이전의|ก่อนหน้า</item>
+        <item>토대|รากฐาน</item>
+        <item>가혹한|โหดร้าย</item>
+        <item>가설|สมมติฐาน</item>
+        <item>사건|เหตุการณ์</item>
+        <item>산업|อุตสาหกรรม</item>
+        <item>초기의|เริ่มแรก</item>
+        <item>점검하다|ตรวจตรา</item>
+        <item>즉각의|ฉับพลัน</item>
+        <item>정당화하다|อ้างความชอบธรรม</item>
+        <item>수많은|มากมาย</item>
+        <item>영양|โภชนาการ</item>
+        <item>안건|วาระการประชุม</item>
+        <item>예산|งบประมาณ</item>
+        <item>마감일|เส้นตาย</item>
+        <item>부서|แผนก</item>
+        <item>장비|อุปกรณ์เครื่องมือ</item>
+        <item>견적|ใบประเมินราคา</item>
+        <item>상품|สินค้า</item>
+        <item>연기하다|เลื่อนออกไป</item>
+        <item>견적(가)|ราคาเสนอ</item>
+        <item>독촉장|หนังสือทวงถาม</item>
+        <item>은퇴하다|เกษียณ</item>
+        <item>일정|กำหนดการ</item>
+        <item>선적|การจัดส่งสินค้า</item>
+        <item>직원(전체)|พนักงานทั้งหมด</item>
+        <item>감독관|หัวหน้างาน</item>
+        <item>공급업체|ซัพพลายเออร์</item>
+        <item>워크숍|เวิร์กช็อป</item>
+        <item>사전의|ล่วงหน้า</item>
+        <item>축적하다|สั่งสม</item>
+        <item>인접한|ติดกัน</item>
+        <item>할당하다|จัดสรร</item>
+        <item>유추|การเทียบเคียง</item>
+        <item>자율성|ความเป็นอิสระ</item>
+        <item>일관성 있는|สอดคล้องกัน</item>
+        <item>엮다|รวบรวมเรียบเรียง</item>
+        <item>상관관계가 있다|สัมพันธ์กัน</item>
+        <item>흩어지다|กระจัดกระจาย</item>
+        <item>경험적인|เชิงประจักษ์</item>
+        <item>침식하다|กัดเซาะ</item>
+        <item>불러일으키다|ปลุกเร้า</item>
+        <item>촉진하다|เอื้ออำนวย</item>
+        <item>실현 가능한|ทำได้จริง</item>
+        <item>통합하다|บูรณาการ</item>
+        <item>정당한|ชอบธรรม</item>
+        <item>조작하다|บงการ</item>
+        <item>분자|โมเลกุล</item>
+        <item>추진력|แรงส่ง</item>
+        <item>~에도 불구하고|ทั้ง ๆ ที่</item>
+        <item>광합성|การสังเคราะห์แสง</item>
+        <item>강화하다|เสริมกำลัง</item>
+        <item>정말 감사합니다!|ขอบคุณมาก ๆ!</item>
+        <item>표는 어디서 사나요?|ซื้อตั๋วได้ที่ไหน?</item>
+        <item>어디로 가려고 하세요?|คุณจะไปที่ไหน?</item>
+        <item>어디로 모실까요?|ไปส่งที่ไหนครับ?</item>
+        <item>연휴에 계획 있어요?|วันหยุดยาวมีแผนอะไรไหม?</item>
+        <item>눈|ตา</item>
+        <item>포도|องุ่น</item>
+        <item>셔츠|เสื้อเชิ้ต</item>
+        <item>하나의|หนึ่ง (คำนำหน้า)</item>
+        <item>위에|บน</item>
+        <item>그래서|ดังนั้น</item>
+        <item>우리는|พวกเรา</item>
+        <item>눈(날씨)|หิมะ</item>
+        <item>미안해요|ขอโทษนะ</item>
+        <item>오늘|วันนี้</item>
+        <item>배고픈|หิว</item>
+        <item>가게|ร้านค้า</item>
+        <item>사다|ซื้อ</item>
+        <item>여행하다|เดินทางท่องเที่ยว</item>
+        <item>이기다|ชนะ</item>
+        <item>지루한|น่าเบื่อ</item>
+        <item>맛이 나다|มีรสชาติ</item>
+        <item>무료의|ฟรี</item>
+        <item>옷|เสื้อผ้า</item>
+        <item>수학|คณิตศาสตร์</item>
+        <item>간호사|พยาบาล</item>
+        <item>가입하다|เข้าร่วมเป็นสมาชิก</item>
+        <item>디자인하다|ออกแบบ</item>
+        <item>발전시키다|พัฒนา</item>
+        <item>축제|เทศกาล</item>
+        <item>행동|พฤติกรรม</item>
+        <item>빌려주다|ให้ยืม</item>
+        <item>사회|สังคม</item>
+        <item>세계적인|ระดับโลก</item>
+        <item>작동하다|ทำงาน (เครื่อง)</item>
+        <item>알리다|แจ้งให้ทราบ</item>
+        <item>이행하다|ปฏิบัติตามสัญญา</item>
+        <item>유지하다|คงรักษาไว้</item>
+        <item>결심하다|ตั้งใจแน่วแน่</item>
+        <item>퍼지다|แพร่กระจาย</item>
+        <item>발표하다|แถลง</item>
+        <item>십 년|ทศวรรษ</item>
+        <item>기준|เกณฑ์ต่าง ๆ</item>
+        <item>인공의|เทียม</item>
+        <item>시도하다|พยายามทำ</item>
+        <item>명확히 하다|ทำให้กระจ่าง</item>
+        <item>지평선|เส้นขอบฟ้า</item>
+        <item>주도권|ความริเริ่ม</item>
+        <item>이상한|แปลก</item>
+        <item>개인|ปัจเจกบุคคล</item>
+        <item>멸종된|สูญพันธุ์</item>
+        <item>이주하다|อพยพ</item>
+        <item>검토하다|ทบทวนตรวจสอบ</item>
+        <item>피드백|ฟีดแบ็ก</item>
+        <item>기밀의|เป็นความลับ</item>
+        <item>재고|สินค้าคงคลัง</item>
+        <item>~을 경유하여|ผ่านทาง</item>
+        <item>패러다임|กระบวนทัศน์</item>
+        <item>생존 가능한|อยู่รอดได้</item>
+        <item>규모|ขนาดความใหญ่</item>
+        <item>미묘한|ละเอียดอ่อน</item>
+        <item>유도하다|ชักนำ</item>
+        <item>느린|ช้า</item>
+        <item>분|นาที</item>
+        <item>색깔|สี</item>
+        <item>그림|รูปภาพ</item>
+        <item>만나다|พบกัน</item>
+        <item>주말|สุดสัปดาห์</item>
+        <item>과목|วิชา</item>
+        <item>운동장|สนามโรงเรียน</item>
+        <item>과학자|นักวิทยาศาสตร์</item>
+        <item>약|ยา</item>
+        <item>싼|ถูก</item>
+        <item>비싼|แพง</item>
+        <item>노력하다|พยายาม</item>
+        <item>우주|อวกาศ</item>
+        <item>자랑스러운|ภูมิใจ</item>
+        <item>끔찍한|แย่มาก</item>
+        <item>피하다|หลีกเลี่ยง</item>
+        <item>졸업하다|เรียนจบ</item>
+        <item>생산하다|ผลิต</item>
+        <item>주의|ความใส่ใจ</item>
+        <item>수준|ระดับ</item>
+        <item>인정하다|ยอมรับ</item>
+        <item>부인하다|ปฏิเสธความจริง</item>
+        <item>검사하다|ตรวจสอบละเอียด</item>
+        <item>발생하다|อุบัติขึ้น</item>
+        <item>극복하다|เอาชนะอุปสรรค</item>
+        <item>쟁점|ประเด็น</item>
+        <item>적응하다|ปรับตัว</item>
+        <item>예상하다|คาดการณ์</item>
+        <item>계약|สัญญา</item>
+        <item>편집하다|แก้ไขเรียบเรียง</item>
+        <item>요금|ค่าธรรมเนียม</item>
+        <item>배당금|เงินปันผล</item>
+        <item>전략|กลยุทธ์</item>
+        <item>판매업체|ผู้ขาย</item>
+        <item>업무량|ปริมาณงาน</item>
+        <item>유인책|สิ่งจูงใจ</item>
+        <item>최적의|เหมาะสมที่สุด</item>
+        <item>역설|ปฏิทรรศน์</item>
+        <item>정밀 조사|การตรวจสอบอย่างละเอียด</item>
+        <item>영역|ขอบเขตแวดวง</item>
+        <item>마실 것도 드릴까요?|รับเครื่องดื่มอะไรไหม?</item>
+        <item>디저트는요?|รับของหวานไหม?</item>
+        <item>영수증 가지고 계세요?|มีใบเสร็จไหม?</item>
+        <item>여기서 먼가요?|ไกลจากที่นี่ไหม?</item>
+        <item>부작용이 있나요?|มีผลข้างเคียงไหม?</item>
+        <item>멋지네요! 어렵나요?|เจ๋งเลย! ยากไหม?</item>
+        <item>복숭아|ลูกพีช</item>
+        <item>곰인형|ตุ๊กตาหมี</item>
+        <item>그는|เขา (ชาย)</item>
+        <item>너는|คุณ</item>
+        <item>하얀|สีขาว</item>
+        <item>방|ห้อง</item>
+        <item>친절한|ใจดี</item>
+        <item>빌리다|ยืม</item>
+        <item>건강한|แข็งแรงมีสุขภาพดี</item>
+        <item>주머니|กระเป๋าเสื้อผ้า</item>
+        <item>안전|ความปลอดภัย</item>
+        <item>허락하다|อนุญาต</item>
+        <item>기대하다|คาดหวัง</item>
+        <item>사실은|ที่จริงแล้ว</item>
+        <item>결정|การตัดสินใจ</item>
+        <item>예측하다|พยากรณ์</item>
+        <item>존재하다|ดำรงอยู่</item>
+        <item>극적인|พลิกผัน</item>
+        <item>조정하다|ปรับ</item>
+        <item>불안한|กังวลใจ</item>
+        <item>유연한|ยืดหยุ่น</item>
+        <item>충성스러운|ภักดี</item>
+        <item>전시하다|จัดแสดง</item>
+        <item>설명서|คู่มือ</item>
+        <item>할인|ส่วนลด</item>
+        <item>중력|แรงโน้มถ่วง</item>
+        <item>지속 시간|ระยะเวลา</item>
+        <item>저명한|มีชื่อเสียงโดดเด่น</item>
+        <item>신용카드 되나요?|รับบัตรเครดิตไหม?</item>
+        <item>키가 큰|ตัวสูง</item>
+        <item>함께|ด้วยกัน</item>
+        <item>부엌|ครัว</item>
+        <item>질문|คำถาม</item>
+        <item>숲|ป่า</item>
+        <item>관례|ธรรมเนียมปฏิบัติ</item>
+        <item>범주|หมวดหมู่</item>
+        <item>규범|บรรทัดฐาน</item>
+        <item>침략하다|รุกราน</item>
+        <item>분기|ไตรมาส</item>
+        <item>동시에 일어나다|เกิดขึ้นพร้อมกัน</item>
+        <item>물고기가 물속에 있어요.|ปลาอยู่ในน้ำ</item>
+        <item>그 나무는 커요.|ต้นไม้ต้นนั้นใหญ่</item>
+        <item>해는 뜨거워요.|ดวงอาทิตย์ร้อน</item>
+        <item>아기가 자고 있어요.|เด็กน้อยกำลังนอนหลับ</item>
+        <item>그 자동차는 빨라요.|รถคันนั้นเร็ว</item>
+        <item>그 고양이는 작아요.|แมวตัวนั้นเล็ก</item>
+        <item>그 개는 갈색이에요.|หมาตัวนั้นสีน้ำตาล</item>
+        <item>우리 아빠는 키가 커요.|พ่อของฉันตัวสูง</item>
+        <item>나는 빵을 먹어요.|ฉันกินขนมปัง</item>
+        <item>달을 봐요.|ดูดวงจันทร์สิ</item>
+        <item>나는 아이스크림을 좋아해요.|ฉันชอบไอศกรีม</item>
+        <item>나는 손이 두 개예요.|ฉันมีมือสองข้าง</item>
+        <item>내 신발은 새것이에요.|รองเท้าของฉันเป็นของใหม่</item>
+        <item>고마워. 너는? 새로운 소식 있어?|ขอบใจนะ แล้วเธอล่ะ มีอะไรใหม่ไหม?</item>
+        <item>정말 좋아해요. 당신은요?|ชอบมากเลย แล้วคุณล่ะ?</item>
+        <item>저는 중학교에서 음악을 가르쳐요.|ฉันสอนดนตรีที่โรงเรียนมัธยมต้น</item>
+        <item>물론이죠. 여기 있습니다.|ได้เลยค่ะ นี่ค่ะ</item>
+        <item>찾으시는 것 도와드릴까요?|ให้ช่วยหาอะไรไหมคะ?</item>
+        <item>이 수제 그릇은 얼마예요?|ชามทำมือใบนี้ราคาเท่าไหร่?</item>
+        <item>실례합니다, 시립 박물관에 어떻게 가나요?|ขอโทษนะคะ ไปพิพิธภัณฑ์เมืองยังไงคะ?</item>
+        <item>파란 노선을 타고 중앙역에서 환승하세요.|ขึ้นสายสีน้ำเงินแล้วเปลี่ยนที่สถานีกลาง</item>
+        <item>이 지도에서 짚어 주시겠어요?|ช่วยชี้บนแผนที่นี้ได้ไหมคะ?</item>
+        <item>아, 길을 잘못 드셨네요. 한 블록 북쪽이에요.|อ้อ คุณมาผิดถนนแล้ว อยู่ถัดไปทางเหนือหนึ่งช่วงตึก</item>
+        <item>오렌지 주스로요. 얼음은 빼 주세요.|ขอน้ำส้มค่ะ ไม่ใส่น้ำแข็ง</item>
+        <item>죄송합니다. 바로 사람을 보내겠습니다.|ขออภัยค่ะ จะส่งคนขึ้นไปเดี๋ยวนี้เลย</item>
+        <item>3시 기차인데 시간 안에 갈 수 있을까요?|รถไฟออกบ่ายสาม จะทันไหมคะ?</item>
+        <item>좋아요. 정문에서 내려 주시면 돼요.|ดีค่ะ ส่งฉันที่ประตูหน้าก็พอ</item>
+        <item>평소와 다른 걸 드셨나요?|กินอะไรที่ต่างจากปกติไหมคะ?</item>
+        <item>다음엔 어떻게 해야 하나요?|ต่อไปต้องทำยังไงคะ?</item>
+        <item>졸릴 수 있으니 운전은 피하세요.|อาจทำให้ง่วง เลี่ยงการขับรถนะคะ</item>
+        <item>이런, 등산 가려고 했는데.|แย่จัง กะว่าจะไปเดินเขาซะหน่อย</item>
+        <item>시골에 계신 부모님을 뵈러 가요.|จะไปเยี่ยมพ่อแม่ที่ต่างจังหวัด</item>
+        <item>나는 행복해요.|ฉันมีความสุข</item>
+        <item>나는 자전거를 타요.|ฉันขี่จักรยาน</item>
+        <item>우리는 함께 놀아요.|พวกเราเล่นด้วยกัน</item>
+        <item>나는 무지개를 볼 수 있어요.|ฉันมองเห็นรุ้ง</item>
+        <item>나는 별을 봐요.|ฉันดูดวงดาว</item>
+        <item>저도 만나서 반가워요. 저는 민수예요.|ยินดีที่ได้รู้จักเช่นกัน ผมมินซูครับ</item>
+        <item>민수 씨는 어디에서 오셨어요?|คุณมินซูมาจากไหนคะ?</item>
+        <item>이야, 오랜만이야! 어떻게 지냈어?|โห ไม่เจอกันนานเลย! เป็นไงบ้าง?</item>
+        <item>재미있겠네요. 그 일이 즐거우세요?|น่าสนใจจัง คุณชอบงานนั้นไหม?</item>
+        <item>나중에 볼게요. 감사해요.|เดี๋ยวค่อยดูนะคะ ขอบคุณค่ะ</item>
+        <item>물이면 충분해요, 감사합니다.|น้ำเปล่าก็พอค่ะ ขอบคุณ</item>
+        <item>좋아요. 음식이 정말 맛있었어요.|เยี่ยมค่ะ อาหารอร่อยมาก</item>
+        <item>감사합니다. 또 오세요!|ขอบคุณค่ะ แล้วมาอีกนะคะ!</item>
+        <item>정말 감사합니다.|ขอบคุณมากค่ะ</item>
+        <item>물론입니다. 주방장께 전달할게요.|แน่นอนค่ะ จะแจ้งเชฟให้นะคะ</item>
+        <item>이건 어떠세요? 아주 인기가 많아요.|อันนี้เป็นไงคะ? ขายดีมากเลย</item>
+        <item>딱 맞네요. 이걸로 살게요.|พอดีเป๊ะเลย เอาอันนี้ค่ะ</item>
+        <item>이유를 여쭤봐도 될까요?|ขอทราบเหตุผลได้ไหมคะ?</item>
+        <item>환불로 부탁드려요.|ขอคืนเงินค่ะ</item>
+        <item>좋아요! 두 개 살게요.|ตกลง! เอาสองชิ้นค่ะ</item>
+        <item>좋습니다. 포장해 드릴게요.|ได้ค่ะ จะห่อให้นะคะ</item>
+        <item>아니요, 걸어서 10분 정도예요.|ไม่ไกลค่ะ เดินราวสิบนาที</item>
+        <item>발권기는 바로 저쪽에 있어요.|เครื่องขายตั๋วอยู่ตรงนั้นเลยค่ะ</item>
+        <item>실례합니다, 길을 잃은 것 같아요.|ขอโทษค่ะ ฉันคงหลงทาง</item>
+        <item>탑승권입니다. 22번 게이트, 10시 탑승입니다.|นี่บัตรขึ้นเครื่องค่ะ เกต 22 ขึ้นเครื่องสิบโมง</item>
+        <item>시내 리버사이드 호텔이요.|ไปโรงแรมริเวอร์ไซด์ในเมืองค่ะ</item>
+        <item>저기요, 담요 하나 주시겠어요?|ขอผ้าห่มผืนหนึ่งได้ไหมคะ?</item>
+        <item>좋아요. 식사 때 깨워 주시겠어요?|ดีค่ะ ถึงมื้ออาหารช่วยปลุกด้วยนะคะ</item>
+        <item>환영합니다, 리 선생님. 더블룸 3박 맞으시죠?|ยินดีต้อนรับคุณลีค่ะ ห้องดับเบิลสามคืนใช่ไหมคะ?</item>
+        <item>네, 아침은 7시부터 10시까지 제공됩니다.|ค่ะ อาหารเช้าเสิร์ฟเจ็ดโมงถึงสิบโมง</item>
+        <item>그리고 수건도 좀 더 받을 수 있을까요?|แล้วขอผ้าเช็ดตัวเพิ่มได้ไหมคะ?</item>
+        <item>그게 다예요. 감사합니다.|แค่นั้นค่ะ ขอบคุณ</item>
+        <item>체크아웃 할게요. 805호입니다.|ขอเช็กเอาต์ค่ะ ห้อง 805</item>
+        <item>물 한 병만요.|น้ำขวดเดียวค่ะ</item>
+        <item>이 버스 해변에 가나요?|รถเมล์คันนี้ไปชายหาดไหมคะ?</item>
+        <item>아니요, 7번 버스를 타셔야 해요.|ไม่ค่ะ ต้องขึ้นสาย 7</item>
+        <item>기본 보험은 포함이고, 완전 보장은 하루 10달러 추가입니다.|รวมประกันพื้นฐานแล้ว ประกันเต็มเพิ่มวันละสิบดอลลาร์</item>
+        <item>여기요. 보험은 포함인가요?|นี่ค่ะ รวมประกันไหมคะ?</item>
+        <item>길거리 시장에서 해산물을 먹었어요.|ฉันกินอาหารทะเลที่ตลาดข้างทาง</item>
+        <item>약을 처방해 드릴게요. 물을 많이 드세요.|หมอจะจ่ายยาให้ ดื่มน้ำเยอะ ๆ นะคะ</item>
+        <item>언제 어디서 잃어버리셨나요?|ทำหายเมื่อไหร่ที่ไหนคะ?</item>
+        <item>목 아픈 데 먹는 약 있나요?|มียาแก้เจ็บคอไหมคะ?</item>
+        <item>내일 예보를 다시 확인해 보는 게 좋겠어요.|พรุ่งนี้เช็กพยากรณ์อีกทีดีกว่า</item>
+        <item>언젠가 그 빵을 먹어 보고 싶네요.|อยากลองชิมขนมปังนั้นสักวันจัง</item>
+        <item>그렇진 않은데 인내심이 필요해요.|ก็ไม่เชิง แต่ต้องใจเย็น</item>
+        <item>좋아요! 다음에 좀 가져올게요.|ได้เลย! คราวหน้าจะเอามาฝากนะ</item>
+        <item>차가 안 막히면 세 시간 정도요.|ถ้ารถไม่ติดก็ราวสามชั่วโมง</item>
+        <item>편안하겠네요. 운전은 얼마나 걸려요?|น่าสบายจัง ขับรถนานแค่ไหน?</item>
+        <item>새는 날 수 있어요.|นกบินได้</item>
+        <item>그 버스는 커요.|รถเมล์คันนั้นใหญ่</item>
+        <item>이것은 내 개예요.|นี่คือหมาของฉัน</item>
+        <item>안녕하세요, 저는 제인이에요. 만나서 반가워요.|สวัสดีค่ะ ฉันเจน ยินดีที่ได้รู้จัก</item>
+        <item>한국 서울에서 왔어요. 당신은요?|ฉันมาจากโซล เกาหลีค่ะ แล้วคุณล่ะ?</item>
+        <item>네, 처음이에요. 정말 설레요.|ใช่ค่ะ ครั้งแรกเลย ตื่นเต้นมาก</item>
+        <item>저는 런던에서 왔어요. 여기는 처음 오신 거예요?|ฉันมาจากลอนดอน คุณมาที่นี่ครั้งแรกเหรอคะ?</item>
+        <item>언제 커피 마시면서 회포 풀자.|ไว้ไปจิบกาแฟคุยกันยาว ๆ นะ</item>
+        <item>잘 지냈어. 새 일을 시작했어.|สบายดี เพิ่งเริ่มงานใหม่</item>
+        <item>정말 좋은 소식이다. 축하해!|ข่าวดีจัง ยินดีด้วยนะ!</item>
+        <item>안녕하세요, 소라 씨. 무슨 일을 하세요?|สวัสดีค่ะคุณโซรา ทำงานอะไรคะ?</item>
+        <item>네. 그릴드 치킨으로 할게요.|ค่ะ ขอไก่ย่างค่ะ</item>
+        <item>저기요, 계산서 좀 주시겠어요?|ขอบิลหน่อยค่ะ</item>
+        <item>네, 주요 카드 모두 받습니다.|รับบัตรหลักทุกใบค่ะ</item>
+        <item>이 요리에 땅콩이 들어가나요?|จานนี้มีถั่วลิสงไหมคะ?</item>
+        <item>별말씀을요. 15분 정도 걸립니다.|ยินดีค่ะ ใช้เวลาราวสิบห้านาที</item>
+        <item>네, 땅콩 소스가 들어가요.|ค่ะ มีซอสถั่วลิสง</item>
+        <item>제가 땅콩 알레르기가 있어서요. 빼고 만들어 주실 수 있나요?|ฉันแพ้ถั่วลิสง ทำแบบไม่ใส่ได้ไหมคะ?</item>
+        <item>봄에 입을 재킷을 찾고 있어요.|กำลังหาแจ็กเก็ตใส่หน้าใบไม้ผลิ</item>
+        <item>네, 여기 있어요.|ค่ะ นี่ค่ะ</item>
+        <item>감사합니다. 환불과 교환 중 어느 것을 원하세요?|ขอบคุณค่ะ จะรับเงินคืนหรือเปลี่ยนสินค้าดีคะ?</item>
+        <item>조금 비싸네요. 할인해 주실 수 있나요?|แพงไปหน่อย ลดได้ไหมคะ?</item>
+        <item>천만에요. 금방 찾으실 거예요.|ยินดีค่ะ เดี๋ยวก็เจอค่ะ</item>
+        <item>두 블록 직진해서 오른쪽으로 도세요.|ตรงไปสองช่วงตึกแล้วเลี้ยวขวา</item>
+        <item>어느 노선이 공항에 가나요?|สายไหนไปสนามบินคะ?</item>
+        <item>여기 있습니다.|นี่ค่ะ</item>
+        <item>창가 좌석으로 부탁해요.|ขอที่นั่งริมหน้าต่างค่ะ</item>
+        <item>휴가로 왔습니다.|มาพักร้อนค่ะ</item>
+        <item>얼마나 머무르실 건가요?|จะพักอยู่นานแค่ไหนคะ?</item>
+        <item>방문 목적이 무엇인가요?|มาด้วยจุดประสงค์อะไรคะ?</item>
+        <item>어디에서 묵으실 건가요?|จะพักที่ไหนคะ?</item>
+        <item>여기 있습니다. 식사는 한 시간 후에 제공됩니다.|นี่ค่ะ อาหารจะเสิร์ฟในอีกหนึ่งชั่วโมง</item>
+        <item>맞아요. 아침 식사가 포함되나요?|ใช่ค่ะ รวมอาหารเช้าไหมคะ?</item>
+        <item>안녕하세요. 리로 예약했습니다.|สวัสดีค่ะ จองไว้ในชื่อลีค่ะ</item>
+        <item>키 카드에 적혀 있습니다. 8층 805호입니다.|อยู่บนคีย์การ์ดค่ะ ห้อง 805 ชั้นแปด</item>
+        <item>좋네요. 와이파이 비밀번호는 뭔가요?|เยี่ยมค่ะ รหัสไวไฟอะไรคะ?</item>
+        <item>물론입니다. 더 필요하신 건요?|ได้ค่ะ มีอะไรอีกไหมคะ?</item>
+        <item>제 방 에어컨이 작동하지 않아요.|แอร์ในห้องไม่ทำงานค่ะ</item>
+        <item>카드로요. 정오까지 짐을 맡아 주실 수 있나요?|จ่ายบัตรค่ะ ฝากกระเป๋าถึงเที่ยงได้ไหมคะ?</item>
+        <item>총 320달러입니다. 카드인가요, 현금인가요?|รวม 320 ดอลลาร์ค่ะ บัตรหรือเงินสดคะ?</item>
+        <item>물론입니다. 보관증 여기 있습니다.|ได้ค่ะ นี่ใบรับฝากค่ะ</item>
+        <item>잠시만요. 미니바를 이용하셨나요?|สักครู่ค่ะ ใช้มินิบาร์ไหมคะ?</item>
+        <item>차가 안 막히면 문제없습니다.|ถ้ารถไม่ติดก็ไม่มีปัญหาค่ะ</item>
+        <item>15분마다요.|ทุกสิบห้านาทีค่ะ</item>
+        <item>좋은 선택입니다. 기름을 가득 채워 반납해 주세요.|เลือกได้ดีค่ะ คืนรถพร้อมน้ำมันเต็มถังนะคะ</item>
+        <item>소형차를 이틀 빌리고 싶어요.|อยากเช่ารถเล็กสองวันค่ะ</item>
+        <item>운전면허증을 볼 수 있을까요?|ขอดูใบขับขี่หน่อยค่ะ?</item>
+        <item>완전 보장으로 할게요.|เอาประกันเต็มค่ะ</item>
+        <item>얼마나 오래 아프셨어요?|เป็นมานานแค่ไหนแล้วคะ?</item>
+        <item>어젯밤부터요. 어지럽기도 해요.|ตั้งแต่เมื่อคืนค่ะ แล้วก็เวียนหัวด้วย</item>
+        <item>오늘 오후에요, 아마 지하철에서요.|บ่ายนี้ค่ะ อาจจะบนรถไฟใต้ดิน</item>
+        <item>여권 분실 신고를 하고 싶어요.|อยากแจ้งพาสปอร์ตหายค่ะ</item>
+        <item>임시 여권을 위해 대사관에 연락하세요.|ติดต่อสถานทูตเพื่อทำพาสปอร์ตชั่วคราวนะคะ</item>
+        <item>그럼 이걸 6시간마다 식후에 드세요.|งั้นกินยานี้ทุกหกชั่วโมงหลังอาหารนะคะ</item>
+        <item>오늘 아침부터 미열이 있어요.|มีไข้ต่ำ ๆ ตั้งแต่เช้าค่ะ</item>
+        <item>이 사탕형 약이 잘 들어요. 열은 있나요?|ยาอมนี้ได้ผลดีค่ะ มีไข้ไหมคะ?</item>
+        <item>정말 그러네요. 소풍 가기 딱 좋아요.|จริงด้วยค่ะ เหมาะไปปิกนิกสุด ๆ</item>
+        <item>좋은 생각이에요. 행운을 빌어야죠!|เข้าท่าดี ขอให้โชคดีนะ!</item>
+        <item>주말엔 보통 뭐 하세요?|วันหยุดปกติทำอะไรคะ?</item>
+        <item>빵을 구워요. 새로 생긴 취미예요.|อบขนมปังค่ะ เป็นงานอดิเรกใหม่</item>
+        <item>나는 엄마를 사랑해요.|ฉันรักแม่</item>
+        <item>나는 책이 있어요.|ฉันมีหนังสือ</item>
+        <item>그녀는 고양이가 있어요.|เธอมีแมว</item>
+        <item>나는 풍선을 원해요.|ฉันอยากได้ลูกโป่ง</item>
+        <item>나는 사과를 좋아해요.|ฉันชอบแอปเปิล</item>
+        <item>그 상자는 작아요.|กล่องใบนั้นเล็ก</item>
+        <item>비가 오고 있어요.|ฝนกำลังตก</item>
+        <item>나는 우유를 마셔요.|ฉันดื่มนม</item>
+        <item>나는 내 친구를 좋아해요.|ฉันชอบเพื่อนของฉัน</item>
+        <item>나는 뛸 수 있어요.|ฉันวิ่งได้</item>
+        <item>나는 학교에 가요.|ฉันไปโรงเรียน</item>
+        <item>별거 없어. 늘 똑같지.|ไม่มีอะไร เหมือนเดิมแหละ</item>
+        <item>제 소개를 할게요. 저는 김소라입니다.|ขอแนะนำตัวนะคะ ฉันคิมโซรา</item>
+        <item>마음에 드네요. 입어 봐도 될까요?|ถูกใจเลย ลองใส่ได้ไหมคะ?</item>
+        <item>그럼요, 탈의실은 저쪽이에요.|ได้ค่ะ ห้องลองอยู่ทางนั้น</item>
+        <item>이 셔츠를 반품하고 싶어요.|อยากคืนเสื้อเชิ้ตตัวนี้ค่ะ</item>
+        <item>저한테 너무 작아서요.|มันเล็กเกินไปสำหรับฉัน</item>
+        <item>그건 40달러입니다.|อันนั้นสี่สิบดอลลาร์ค่ะ</item>
+        <item>두 개 사시면 70달러에 드릴게요.|ซื้อสองชิ้นคิดเจ็ดสิบดอลลาร์ค่ะ</item>
+        <item>그랜드 호텔을 찾고 있어요.|กำลังหาโรงแรมแกรนด์ค่ะ</item>
+        <item>안녕하세요. 여권 보여 주시겠어요?|สวัสดีค่ะ ขอดูพาสปอร์ตหน่อยค่ะ</item>
+        <item>네, 여행 가방 하나요.|ค่ะ กระเป๋าเดินทางหนึ่งใบ</item>
+        <item>열흘 동안이요.|สิบวันค่ะ</item>
+        <item>즐거운 여행 되세요.|ขอให้เที่ยวให้สนุกนะคะ</item>
+        <item>물론이죠. 마실 것도 드릴까요?|ได้ค่ะ รับเครื่องดื่มด้วยไหมคะ?</item>
+        <item>물론입니다. 편히 쉬세요.|ได้ค่ะ พักผ่อนตามสบายนะคะ</item>
+        <item>중앙역으로 가 주세요.|ไปสถานีกลางค่ะ</item>
+        <item>네. 20분 정도 걸립니다.|ได้ค่ะ ใช้เวลาราวยี่สิบนาที</item>
+        <item>이 양식을 작성해 주세요.|กรุณากรอกแบบฟอร์มนี้ค่ะ</item>
+        <item>운전 조심하고 좋은 시간 보내요.|ขับรถดี ๆ เที่ยวให้สนุกนะ</item>
+        <item>고마워요! 연휴 끝나고 봐요.|ขอบคุณนะ! เจอกันหลังวันหยุดยาว</item>
+        <item>저는 그래픽 디자이너예요. 포스터를 디자인해요.|ฉันเป็นกราฟิกดีไซเนอร์ ออกแบบโปสเตอร์ค่ะ</item>
+        <item>중앙역까지 여섯, 그다음 네 정거장이요.|หกป้ายถึงสถานีกลาง แล้วต่ออีกสี่ป้าย</item>
+        <item>그럼요. 우리는 여기 있고, 호텔은 바로 저기예요.|ได้ค่ะ เราอยู่ตรงนี้ โรงแรมอยู่ตรงนั้นเอง</item>
+        <item>창가와 통로 중 어느 좌석을 원하세요?|รับที่นั่งริมหน้าต่างหรือริมทางเดินคะ?</item>
+        <item>프런트입니다. 무엇을 도와드릴까요?|ฟรอนต์ค่ะ มีอะไรให้ช่วยคะ?</item>
+        <item>2달러요. 카드로 낼 수 있어요.|สองดอลลาร์ค่ะ จ่ายบัตรได้</item>
+        <item>배가 너무 아파요.|ปวดท้องมากเลยค่ะ</item>
+        <item>그런데 주말엔 비가 올 수도 있대요.|แต่ได้ยินว่าสุดสัปดาห์ฝนอาจตกนะ</item>
+        <item>그것은 꽃이에요.|นั่นคือดอกไม้</item>
+        <item>내 가방은 빨간색이에요.|กระเป๋าของฉันสีแดง</item>
+        <item>나는 책을 읽어요.|ฉันอ่านหนังสือ</item>
     </string-array>
     <string-array name="tpl_units">
     </string-array>

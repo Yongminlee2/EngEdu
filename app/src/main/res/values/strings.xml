@@ -616,6 +616,1414 @@
         <item>날씨 이야기|Talking About Weather</item>
         <item>취미 이야기|Talking About Hobbies</item>
         <item>주말 계획|Weekend Plans</item>
+        <item>나무|tree</item>
+        <item>사과|apple</item>
+        <item>개|dog</item>
+        <item>우유|milk</item>
+        <item>귀|ear</item>
+        <item>좋은|good</item>
+        <item>꽃|flower</item>
+        <item>기차|train</item>
+        <item>소|cow</item>
+        <item>시계|clock</item>
+        <item>미묘한 차이|nuance</item>
+        <item>새|bird</item>
+        <item>엄마|mom</item>
+        <item>쿠키|cookie</item>
+        <item>말|horse</item>
+        <item>바다|sea</item>
+        <item>반대하다|disagree</item>
+        <item>얻다|gain</item>
+        <item>수용력|capacity</item>
+        <item>침대|bed</item>
+        <item>발|foot</item>
+        <item>작은|small</item>
+        <item>사탕|candy</item>
+        <item>피자|pizza</item>
+        <item>사자|lion</item>
+        <item>우산|umbrella</item>
+        <item>여기|here</item>
+        <item>다양한|various</item>
+        <item>가정하다|suppose</item>
+        <item>개념|concept</item>
+        <item>금지하다|prohibit</item>
+        <item>물고기|fish</item>
+        <item>고양이|cat</item>
+        <item>파란|blue</item>
+        <item>보다|see</item>
+        <item>사랑하다|love</item>
+        <item>해|sun</item>
+        <item>공|ball</item>
+        <item>신발|shoe</item>
+        <item>호랑이|tiger</item>
+        <item>저기|there</item>
+        <item>이해하다|understand</item>
+        <item>향상시키다|improve</item>
+        <item>자라다|grow</item>
+        <item>방해하다|hinder</item>
+        <item>감소하다|decrease</item>
+        <item>제거하다|remove</item>
+        <item>설득하다|convince</item>
+        <item>설립하다|establish</item>
+        <item>적절한|adequate</item>
+        <item>이익|benefit</item>
+        <item>요건|requirement</item>
+        <item>연봉|salary</item>
+        <item>주스|juice</item>
+        <item>배|ship</item>
+        <item>그리고|and</item>
+        <item>학교|school</item>
+        <item>친구|friend</item>
+        <item>오다|come</item>
+        <item>좋아하다|like</item>
+        <item>별|star</item>
+        <item>비|rain</item>
+        <item>토끼|rabbit</item>
+        <item>곰|bear</item>
+        <item>보고서|report</item>
+        <item>포함하다|contain</item>
+        <item>목표|goal</item>
+        <item>발명품|invention</item>
+        <item>영향|influence</item>
+        <item>지배하다|dominate</item>
+        <item>호소하다|invoke</item>
+        <item>아기|baby</item>
+        <item>큰|big</item>
+        <item>응원하다|cheer</item>
+        <item>본질적인|intrinsic</item>
+        <item>빵|bread</item>
+        <item>달걀|egg</item>
+        <item>연필|pencil</item>
+        <item>의자|chair</item>
+        <item>집|house</item>
+        <item>아빠|dad</item>
+        <item>선생님|teacher</item>
+        <item>가지고 있다|have</item>
+        <item>만들다|make</item>
+        <item>자동차|car</item>
+        <item>저녁 식사|dinner</item>
+        <item>오리|duck</item>
+        <item>습관|habit</item>
+        <item>가격|price</item>
+        <item>~하게 들리다|sound</item>
+        <item>결과|result</item>
+        <item>설명하다|explain</item>
+        <item>외로운|lonely</item>
+        <item>집중하다|focus</item>
+        <item>가치|value</item>
+        <item>흔한|common</item>
+        <item>입양하다|adopt</item>
+        <item>추상적인|abstract</item>
+        <item>이용 가능한|available</item>
+        <item>보장하다|ensure</item>
+        <item>기관|institution</item>
+        <item>보증금|deposit</item>
+        <item>수하물|luggage</item>
+        <item>언어의|linguistic</item>
+        <item>포식자|predator</item>
+        <item>버스|bus</item>
+        <item>수박|watermelon</item>
+        <item>가방|bag</item>
+        <item>손|hand</item>
+        <item>코|nose</item>
+        <item>슬픈|sad</item>
+        <item>짧은|short</item>
+        <item>쳐다보다|look</item>
+        <item>주다|give</item>
+        <item>잘 가|goodbye</item>
+        <item>점심|lunch</item>
+        <item>돼지|pig</item>
+        <item>구름|cloud</item>
+        <item>생각하다|think</item>
+        <item>잊다|forget</item>
+        <item>공원|park</item>
+        <item>병원|hospital</item>
+        <item>도시|city</item>
+        <item>피곤한|tired</item>
+        <item>미술|art</item>
+        <item>요리사|cook</item>
+        <item>두통|headache</item>
+        <item>인기 있는|popular</item>
+        <item>느끼다|feel</item>
+        <item>기회|chance</item>
+        <item>법|law</item>
+        <item>손님|guest</item>
+        <item>신이 난|excited</item>
+        <item>현대의|modern</item>
+        <item>의존하다|depend</item>
+        <item>모이다|gather</item>
+        <item>추측하다|guess</item>
+        <item>상상하다|imagine</item>
+        <item>제공하다|offer</item>
+        <item>재료|material</item>
+        <item>방법|method</item>
+        <item>취소하다|cancel</item>
+        <item>실험|experiment</item>
+        <item>경고하다|warn</item>
+        <item>고발하다|accuse</item>
+        <item>명백한|apparent</item>
+        <item>자신감|confidence</item>
+        <item>대조|contrast</item>
+        <item>선포하다|declare</item>
+        <item>감지하다|detect</item>
+        <item>경제|economy</item>
+        <item>가능하게 하다|enable</item>
+        <item>견디다|bear</item>
+        <item>전체의|whole</item>
+        <item>추출하다|extract</item>
+        <item>모욕하다|insult</item>
+        <item>조사하다|investigate</item>
+        <item>논리적인|logical</item>
+        <item>여백|margin</item>
+        <item>다수의|multiple</item>
+        <item>상호의|mutual</item>
+        <item>고귀한|noble</item>
+        <item>합병하다|merge</item>
+        <item>통지하다|notify</item>
+        <item>등록하다|enroll</item>
+        <item>이력서|resume</item>
+        <item>거래|transaction</item>
+        <item>임의의|arbitrary</item>
+        <item>구성하다|comprise</item>
+        <item>암묵적인|implicit</item>
+        <item>관성|inertia</item>
+        <item>열쇠|key</item>
+        <item>펭귄|penguin</item>
+        <item>나의|my</item>
+        <item>지불하다|pay</item>
+        <item>믿음|faith</item>
+        <item>검증하다|verify</item>
+        <item>가족|family</item>
+        <item>팔|arm</item>
+        <item>빨간|red</item>
+        <item>검은|black</item>
+        <item>분홍의|pink</item>
+        <item>셋|three</item>
+        <item>컵|cup</item>
+        <item>상자|box</item>
+        <item>채소|vegetable</item>
+        <item>겨울|winter</item>
+        <item>달(월)|month</item>
+        <item>시간(단위)|hour</item>
+        <item>배우다|learn</item>
+        <item>찾다|find</item>
+        <item>울다|cry</item>
+        <item>동물원|zoo</item>
+        <item>화장실|bathroom</item>
+        <item>음식|food</item>
+        <item>늦게|late</item>
+        <item>계획|plan</item>
+        <item>역사|history</item>
+        <item>숙제|homework</item>
+        <item>시험|test</item>
+        <item>학년|grade</item>
+        <item>교실|classroom</item>
+        <item>경찰|police</item>
+        <item>꿈|dream</item>
+        <item>아침밥|breakfast</item>
+        <item>기침|cough</item>
+        <item>가장 좋아하는|favorite</item>
+        <item>나르다|carry</item>
+        <item>서두르다|hurry</item>
+        <item>조언|advice</item>
+        <item>사고|accident</item>
+        <item>낯선 사람|stranger</item>
+        <item>메시지|message</item>
+        <item>생각|idea</item>
+        <item>바꾸다|change</item>
+        <item>나누다|share</item>
+        <item>묘사하다|describe</item>
+        <item>나타나다|appear</item>
+        <item>기르다|raise</item>
+        <item>전통적인|traditional</item>
+        <item>성취하다|achieve</item>
+        <item>배달하다|deliver</item>
+        <item>남다|remain</item>
+        <item>필요로 하다|require</item>
+        <item>소리치다|shout</item>
+        <item>정부|government</item>
+        <item>책임|responsibility</item>
+        <item>상황|situation</item>
+        <item>광고하다|advertise</item>
+        <item>파괴하다|destroy</item>
+        <item>탐험하다|explore</item>
+        <item>용서하다|forgive</item>
+        <item>영감을 주다|inspire</item>
+        <item>이끌다|lead</item>
+        <item>위치를 찾다|locate</item>
+        <item>녹다|melt</item>
+        <item>홍보하다|promote</item>
+        <item>가라앉다|sink</item>
+        <item>궁금하다|wonder</item>
+        <item>태도|attitude</item>
+        <item>기후|climate</item>
+        <item>논쟁|argument</item>
+        <item>간결한|brief</item>
+        <item>붕괴하다|collapse</item>
+        <item>복잡한|complex</item>
+        <item>수행하다|conduct</item>
+        <item>확인하다|confirm</item>
+        <item>직면하다|confront</item>
+        <item>호기심 많은|curious</item>
+        <item>줄어들다|diminish</item>
+        <item>국내의|domestic</item>
+        <item>요소|element</item>
+        <item>열정|enthusiasm</item>
+        <item>기능|function</item>
+        <item>수단|means</item>
+        <item>그럼에도|nevertheless</item>
+        <item>동봉하다|enclose</item>
+        <item>만료되다|expire</item>
+        <item>정책|policy</item>
+        <item>모집하다|recruit</item>
+        <item>갱신하다|renew</item>
+        <item>잠정적인|tentative</item>
+        <item>미적인|aesthetic</item>
+        <item>명료하게 말하다|articulate</item>
+        <item>모순되다|contradict</item>
+        <item>결핍|deficiency</item>
+        <item>역동적인|dynamic</item>
+        <item>직관|intuition</item>
+        <item>신진대사|metabolism</item>
+        <item>은유|metaphor</item>
+        <item>지각하다|perceive</item>
+        <item>현상|phenomenon</item>
+        <item>상당한|substantial</item>
+        <item>촉발하다|trigger</item>
+        <item>아이스크림|ice cream</item>
+        <item>케이크|cake</item>
+        <item>눈사람|snowman</item>
+        <item>산|mountain</item>
+        <item>위로|up</item>
+        <item>저것|that</item>
+        <item>미소 짓다|smile</item>
+        <item>조심하는|careful</item>
+        <item>취미|hobby</item>
+        <item>사실|fact</item>
+        <item>외국의|foreign</item>
+        <item>답장하다|reply</item>
+        <item>보상하다|compensate</item>
+        <item>명세서|statement</item>
+        <item>모의실험하다|simulate</item>
+        <item>바나나|banana</item>
+        <item>여자|woman</item>
+        <item>머리카락|hair</item>
+        <item>얼굴|face</item>
+        <item>갈색의|brown</item>
+        <item>뜨거운|hot</item>
+        <item>달리다|run</item>
+        <item>먹다|eat</item>
+        <item>자다|sleep</item>
+        <item>쓰다|write</item>
+        <item>열다|open</item>
+        <item>장난감|toy</item>
+        <item>원숭이|monkey</item>
+        <item>날씨|weather</item>
+        <item>영화|movie</item>
+        <item>나라|country</item>
+        <item>해변|beach</item>
+        <item>화난|angry</item>
+        <item>무서워하는|scared</item>
+        <item>똑똑한|smart</item>
+        <item>어려운|difficult</item>
+        <item>생일|birthday</item>
+        <item>휴일|holiday</item>
+        <item>잡지|magazine</item>
+        <item>문제|problem</item>
+        <item>소방관|firefighter</item>
+        <item>직업|job</item>
+        <item>치통|toothache</item>
+        <item>바지|pants</item>
+        <item>재킷|jacket</item>
+        <item>특별한|special</item>
+        <item>중요한|important</item>
+        <item>흥미로운|interesting</item>
+        <item>더러운|dirty</item>
+        <item>준비된|ready</item>
+        <item>떠나다|leave</item>
+        <item>이사하다|move</item>
+        <item>보내다|send</item>
+        <item>받다|receive</item>
+        <item>고르다|choose</item>
+        <item>지다|lose</item>
+        <item>걱정하다|worry</item>
+        <item>바라다|hope</item>
+        <item>입다|wear</item>
+        <item>자주|often</item>
+        <item>십 대|teenager</item>
+        <item>기억|memory</item>
+        <item>환경|environment</item>
+        <item>규칙|rule</item>
+        <item>의견|opinion</item>
+        <item>발견하다|discover</item>
+        <item>줄이다|reduce</item>
+        <item>따르다|follow</item>
+        <item>건너다|cross</item>
+        <item>준비하다|prepare</item>
+        <item>소유하다|own</item>
+        <item>유용한|useful</item>
+        <item>조심스럽게|carefully</item>
+        <item>격려하다|encourage</item>
+        <item>예방하다|prevent</item>
+        <item>~처럼 보이다|seem</item>
+        <item>제공하다(음식)|serve</item>
+        <item>자원봉사하다|volunteer</item>
+        <item>업적|achievement</item>
+        <item>관객|audience</item>
+        <item>회사|company</item>
+        <item>관계|relationship</item>
+        <item>해결책|solution</item>
+        <item>감탄하다|admire</item>
+        <item>다가가다|approach</item>
+        <item>숨 쉬다|breathe</item>
+        <item>계산하다|calculate</item>
+        <item>방어하다|defend</item>
+        <item>요구하다|demand</item>
+        <item>벌다|earn</item>
+        <item>탈출하다|escape</item>
+        <item>망설이다|hesitate</item>
+        <item>의도하다|intend</item>
+        <item>포함시키다|involve</item>
+        <item>참가하다|participate</item>
+        <item>긴장을 풀다|relax</item>
+        <item>저항하다|resist</item>
+        <item>분리하다|separate</item>
+        <item>신뢰하다|trust</item>
+        <item>성격|character</item>
+        <item>결론|conclusion</item>
+        <item>사례|instance</item>
+        <item>흡수하다|absorb</item>
+        <item>동행하다|accompany</item>
+        <item>장벽|barrier</item>
+        <item>결합하다|combine</item>
+        <item>걱정|concern</item>
+        <item>의무|duty</item>
+        <item>강조하다|emphasize</item>
+        <item>집행하다|enforce</item>
+        <item>필수적인|essential</item>
+        <item>평가하다|assess</item>
+        <item>초과하다|exceed</item>
+        <item>확장하다|expand</item>
+        <item>노출시키다|expose</item>
+        <item>극단적인|extreme</item>
+        <item>요인|factor</item>
+        <item>치명적인|fatal</item>
+        <item>비옥한|fertile</item>
+        <item>유창한|fluent</item>
+        <item>좌절시키다|frustrate</item>
+        <item>기금|fund</item>
+        <item>감사하는|grateful</item>
+        <item>적대적인|hostile</item>
+        <item>부과하다|impose</item>
+        <item>추론하다|infer</item>
+        <item>물려받다|inherit</item>
+        <item>통찰|insight</item>
+        <item>내부의|internal</item>
+        <item>노동|labor</item>
+        <item>출시하다|launch</item>
+        <item>제조하다|manufacture</item>
+        <item>수정하다|modify</item>
+        <item>협약|agreement</item>
+        <item>승인|approval</item>
+        <item>회계 감사|audit</item>
+        <item>잔액|balance</item>
+        <item>지점|branch</item>
+        <item>소비자|consumer</item>
+        <item>기업의|corporate</item>
+        <item>유통하다|distribute</item>
+        <item>설비|facility</item>
+        <item>기입하다|fill</item>
+        <item>벌금|fine</item>
+        <item>고용하다|hire</item>
+        <item>문의|inquiry</item>
+        <item>협상|negotiation</item>
+        <item>영수증|receipt</item>
+        <item>소매|retail</item>
+        <item>제출하다|submit</item>
+        <item>구독하다|subscribe</item>
+        <item>행사장|venue</item>
+        <item>유효한|valid</item>
+        <item>촉매|catalyst</item>
+        <item>상품(원자재)|commodity</item>
+        <item>연속적인|consecutive</item>
+        <item>합의|consensus</item>
+        <item>제약하다|constrain</item>
+        <item>신뢰성|credibility</item>
+        <item>생태계|ecosystem</item>
+        <item>자세히 설명하다|elaborate</item>
+        <item>깊이 박다|embed</item>
+        <item>유행병|epidemic</item>
+        <item>행사하다|exert</item>
+        <item>변동하다|fluctuate</item>
+        <item>내재된|inherent</item>
+        <item>관개|irrigation</item>
+        <item>지속하다|persist</item>
+        <item>정밀한|precise</item>
+        <item>보유하다|retain</item>
+        <item>엄격한|rigorous</item>
+        <item>회의적인|skeptical</item>
+        <item>그 후의|subsequent</item>
+        <item>종합|synthesis</item>
+        <item>유형의|tangible</item>
+        <item>겪다|undergo</item>
+        <item>비행기|airplane</item>
+        <item>코끼리|elephant</item>
+        <item>옥수수|corn</item>
+        <item>오렌지|orange</item>
+        <item>책|book</item>
+        <item>그녀는|she</item>
+        <item>너의|your</item>
+        <item>안에|in</item>
+        <item>나는|I</item>
+        <item>밤|night</item>
+        <item>다리|leg</item>
+        <item>봄|spring</item>
+        <item>물어보다|ask</item>
+        <item>열|fever</item>
+        <item>심다|plant</item>
+        <item>이유|reason</item>
+        <item>제안하다|suggest</item>
+        <item>주인(초대한)|host</item>
+        <item>비교하다|compare</item>
+        <item>지식|knowledge</item>
+        <item>꾸짖다|scold</item>
+        <item>투자하다|invest</item>
+        <item>대하다|treat</item>
+        <item>재난|disaster</item>
+        <item>추구하다|pursue</item>
+        <item>간청하다|beg</item>
+        <item>뚜렷한|distinct</item>
+        <item>상담하다|consult</item>
+        <item>빈번한|frequent</item>
+        <item>지시하다|instruct</item>
+        <item>발생시키다|generate</item>
+        <item>도매|wholesale</item>
+        <item>자산|asset</item>
+        <item>규정|regulation</item>
+        <item>예약|reservation</item>
+        <item>중립의|neutral</item>
+        <item>눈(신체)|eye</item>
+        <item>노란|yellow</item>
+        <item>초록의|green</item>
+        <item>둘|two</item>
+        <item>나쁜|bad</item>
+        <item>차가운|cold</item>
+        <item>놀다|play</item>
+        <item>노래하다|sing</item>
+        <item>읽다|read</item>
+        <item>그리다|draw</item>
+        <item>달|moon</item>
+        <item>하늘|sky</item>
+        <item>모자|hat</item>
+        <item>아침 식사|breakfast</item>
+        <item>설탕|sugar</item>
+        <item>여름|summer</item>
+        <item>가을|fall</item>
+        <item>주|week</item>
+        <item>숫자|number</item>
+        <item>게임|game</item>
+        <item>축구|soccer</item>
+        <item>타다|ride</item>
+        <item>돕다|help</item>
+        <item>씻다|wash</item>
+        <item>기억하다|remember</item>
+        <item>웃다|laugh</item>
+        <item>거리|street</item>
+        <item>강|river</item>
+        <item>예쁜|pretty</item>
+        <item>귀여운|cute</item>
+        <item>강한|strong</item>
+        <item>방학|vacation</item>
+        <item>편지|letter</item>
+        <item>과학|science</item>
+        <item>건강|health</item>
+        <item>안경|glasses</item>
+        <item>장갑|gloves</item>
+        <item>돈|money</item>
+        <item>시끄러운|loud</item>
+        <item>시작하다|begin</item>
+        <item>연습하다|practice</item>
+        <item>즐기다|enjoy</item>
+        <item>보통|usually</item>
+        <item>정보|information</item>
+        <item>경험|experience</item>
+        <item>언어|language</item>
+        <item>외국인|foreigner</item>
+        <item>어린이|child</item>
+        <item>순간|moment</item>
+        <item>평화|peace</item>
+        <item>행성|planet</item>
+        <item>사막|desert</item>
+        <item>온도|temperature</item>
+        <item>상|prize</item>
+        <item>짓다|build</item>
+        <item>해결하다|solve</item>
+        <item>모으다|collect</item>
+        <item>소개하다|introduce</item>
+        <item>오르다|climb</item>
+        <item>출구|exit</item>
+        <item>쓸모없는|useless</item>
+        <item>기념하다|celebrate</item>
+        <item>불평하다|complain</item>
+        <item>고려하다|consider</item>
+        <item>덮다|cover</item>
+        <item>교육하다|educate</item>
+        <item>교환하다|exchange</item>
+        <item>다루다|handle</item>
+        <item>도입하다|introduce</item>
+        <item>언급하다|mention</item>
+        <item>선호하다|prefer</item>
+        <item>수리하다|repair</item>
+        <item>교체하다|replace</item>
+        <item>고통받다|suffer</item>
+        <item>공급하다|supply</item>
+        <item>살아남다|survive</item>
+        <item>능력|ability</item>
+        <item>에너지|energy</item>
+        <item>세대|generation</item>
+        <item>인구|population</item>
+        <item>기술|skill</item>
+        <item>전통|tradition</item>
+        <item>주요한|main</item>
+        <item>여유가 되다|afford</item>
+        <item>뒤쫓다|chase</item>
+        <item>혼란스럽게 하다|confuse</item>
+        <item>연결하다|connect</item>
+        <item>비판하다|criticize</item>
+        <item>실망시키다|disappoint</item>
+        <item>겁먹게 하다|frighten</item>
+        <item>무시하다|ignore</item>
+        <item>감동시키다|impress</item>
+        <item>출판하다|publish</item>
+        <item>풀어주다|release</item>
+        <item>구조하다|rescue</item>
+        <item>분투하다|struggle</item>
+        <item>대기|atmosphere</item>
+        <item>보조하다|assist</item>
+        <item>장담하다|assure</item>
+        <item>기초|basis</item>
+        <item>유대|bond</item>
+        <item>경계|boundary</item>
+        <item>유능한|capable</item>
+        <item>원인|cause</item>
+        <item>중단하다|cease</item>
+        <item>분류하다|classify</item>
+        <item>경쟁하다|compete</item>
+        <item>작곡하다|compose</item>
+        <item>동시대의|contemporary</item>
+        <item>위기|crisis</item>
+        <item>결정적인|crucial</item>
+        <item>재배하다|cultivate</item>
+        <item>토론|debate</item>
+        <item>장치|device</item>
+        <item>진화하다|evolve</item>
+        <item>실행하다|execute</item>
+        <item>연장하다|extend</item>
+        <item>시설|facility</item>
+        <item>재정|finance</item>
+        <item>겸손한|humble</item>
+        <item>피할 수 없는|inevitable</item>
+        <item>고립시키다|isolate</item>
+        <item>전설|legend</item>
+        <item>자유|liberty</item>
+        <item>성숙한|mature</item>
+        <item>감시하다|monitor</item>
+        <item>더욱이|moreover</item>
+        <item>협상하다|negotiate</item>
+        <item>장애물|obstacle</item>
+        <item>차지하다|occupy</item>
+        <item>입찰|bid</item>
+        <item>동료|colleague</item>
+        <item>고용주|employer</item>
+        <item>임원|executive</item>
+        <item>본사|headquarters</item>
+        <item>여행 일정표|itinerary</item>
+        <item>임대차 계약|lease</item>
+        <item>초과 근무|overtime</item>
+        <item>급여|paycheck</item>
+        <item>제안서|proposal</item>
+        <item>자격|qualification</item>
+        <item>수익|revenue</item>
+        <item>교대 근무|shift</item>
+        <item>이체하다|transfer</item>
+        <item>품질 보증|warranty</item>
+        <item>구상하다|conceive</item>
+        <item>연역하다|deduce</item>
+        <item>동등한|equivalent</item>
+        <item>파편|fragment</item>
+        <item>유전의|genetic</item>
+        <item>시행하다|implement</item>
+        <item>억제하다|inhibit</item>
+        <item>쓸모없게 된|obsolete</item>
+        <item>우세하다|prevail</item>
+        <item>비율|proportion</item>
+        <item>합리적인|rational</item>
+        <item>튼튼한|robust</item>
+        <item>퇴적물|sediment</item>
+        <item>보조금|subsidy</item>
+        <item>약화시키다|undermine</item>
+        <item>주문하시겠어요?|Are you ready to order?</item>
+        <item>부칠 짐이 있으신가요?|Are you checking any bags?</item>
+        <item>딸기|strawberry</item>
+        <item>얼룩말|zebra</item>
+        <item>자전거|bicycle</item>
+        <item>무지개|rainbow</item>
+        <item>당근|carrot</item>
+        <item>풍선|balloon</item>
+        <item>크레용|crayon</item>
+        <item>개구리|frog</item>
+        <item>가다|go</item>
+        <item>그것|it</item>
+        <item>네|yes</item>
+        <item>~이다(나)|am</item>
+        <item>~이다|is</item>
+        <item>가지다|have</item>
+        <item>아니요|no</item>
+        <item>그|he</item>
+        <item>~이다(복수)|are</item>
+        <item>할 수 있다|can</item>
+        <item>또는|or</item>
+        <item>새로운|new</item>
+        <item>입|mouth</item>
+        <item>아침|morning</item>
+        <item>서다|stand</item>
+        <item>남자|man</item>
+        <item>시간|time</item>
+        <item>쉬운|easy</item>
+        <item>믿다|believe</item>
+        <item>미래|future</item>
+        <item>정말|really</item>
+        <item>박물관|museum</item>
+        <item>구하다|save</item>
+        <item>약속|promise</item>
+        <item>안전한|safe</item>
+        <item>긴장한|nervous</item>
+        <item>목적|purpose</item>
+        <item>최근에|recently</item>
+        <item>쓰다(시간·돈)|spend</item>
+        <item>숨다|hide</item>
+        <item>선언하다|declare</item>
+        <item>의지하다|rely</item>
+        <item>선택지|option</item>
+        <item>선출하다|elect</item>
+        <item>빽빽한|dense</item>
+        <item>완수하다|accomplish</item>
+        <item>윤리적인|ethical</item>
+        <item>동기를 부여하다|motivate</item>
+        <item>막대한|immense</item>
+        <item>설문조사|survey</item>
+        <item>자격이 있는|eligible</item>
+        <item>절차|procedure</item>
+        <item>변수|variable</item>
+        <item>회복력 있는|resilient</item>
+        <item>펜|pen</item>
+        <item>책상|desk</item>
+        <item>창문|window</item>
+        <item>머리|head</item>
+        <item>하나|one</item>
+        <item>오래된|old</item>
+        <item>행복한|happy</item>
+        <item>빠른|fast</item>
+        <item>점프하다|jump</item>
+        <item>앉다|sit</item>
+        <item>닫다|close</item>
+        <item>안녕하세요|hello</item>
+        <item>과일|fruit</item>
+        <item>소금|salt</item>
+        <item>계절|season</item>
+        <item>해(년)|year</item>
+        <item>노래|song</item>
+        <item>운동 경기|sport</item>
+        <item>수영하다|swim</item>
+        <item>가르치다|teach</item>
+        <item>대답하다|answer</item>
+        <item>요리하다|cook</item>
+        <item>팔다|sell</item>
+        <item>이야기하다|talk</item>
+        <item>말하다|speak</item>
+        <item>산책|walk</item>
+        <item>시장|market</item>
+        <item>도서관|library</item>
+        <item>식당|restaurant</item>
+        <item>마을|town</item>
+        <item>세계|world</item>
+        <item>맛있는|delicious</item>
+        <item>목마른|thirsty</item>
+        <item>용감한|brave</item>
+        <item>약한|weak</item>
+        <item>일찍|early</item>
+        <item>선물|present</item>
+        <item>여행|trip</item>
+        <item>일기|diary</item>
+        <item>신문|newspaper</item>
+        <item>극장|theater</item>
+        <item>농부|farmer</item>
+        <item>운동|exercise</item>
+        <item>유명한|famous</item>
+        <item>같은|same</item>
+        <item>끝내다|finish</item>
+        <item>도착하다|arrive</item>
+        <item>방문하다|visit</item>
+        <item>가져오다|bring</item>
+        <item>돌려주다|return</item>
+        <item>결정하다|decide</item>
+        <item>기다리다|wait</item>
+        <item>냄새가 나다|smell</item>
+        <item>곧|soon</item>
+        <item>문화|culture</item>
+        <item>노력|effort</item>
+        <item>비밀|secret</item>
+        <item>실수|mistake</item>
+        <item>곤란|trouble</item>
+        <item>전쟁|war</item>
+        <item>지구|earth</item>
+        <item>섬|island</item>
+        <item>기상|weather</item>
+        <item>화재|fire</item>
+        <item>대회|contest</item>
+        <item>동아리|club</item>
+        <item>이웃 사람|neighbor</item>
+        <item>발명하다|invent</item>
+        <item>창조하다|create</item>
+        <item>초대하다|invite</item>
+        <item>존중하다|respect</item>
+        <item>일어나다|happen</item>
+        <item>사라지다|disappear</item>
+        <item>계속하다|continue</item>
+        <item>멈추다|stop</item>
+        <item>들어가다|enter</item>
+        <item>먹이를 주다|feed</item>
+        <item>놀란|surprised</item>
+        <item>실망한|disappointed</item>
+        <item>심각한|serious</item>
+        <item>마침내|finally</item>
+        <item>참석하다|attend</item>
+        <item>세다|count</item>
+        <item>증가하다|increase</item>
+        <item>관리하다|manage</item>
+        <item>알아차리다|notice</item>
+        <item>깨닫다|realize</item>
+        <item>거절하다|refuse</item>
+        <item>검색하다|search</item>
+        <item>훔치다|steal</item>
+        <item>지지하다|support</item>
+        <item>공동체|community</item>
+        <item>용기|courage</item>
+        <item>관습|custom</item>
+        <item>방향|direction</item>
+        <item>버릇|habit</item>
+        <item>성공|success</item>
+        <item>충분한|enough</item>
+        <item>지역의|local</item>
+        <item>지원하다|apply</item>
+        <item>탓하다|blame</item>
+        <item>구성되다|consist</item>
+        <item>받을 자격이 있다|deserve</item>
+        <item>식별하다|identify</item>
+        <item>고집하다|insist</item>
+        <item>판단하다|judge</item>
+        <item>측정하다|measure</item>
+        <item>공연하다|perform</item>
+        <item>~인 척하다|pretend</item>
+        <item>증명하다|prove</item>
+        <item>알아보다|recognize</item>
+        <item>회복하다|recover</item>
+        <item>응답하다|respond</item>
+        <item>만족시키다|satisfy</item>
+        <item>도전|challenge</item>
+        <item>세부 사항|detail</item>
+        <item>증거|evidence</item>
+        <item>버리다|abandon</item>
+        <item>학업의|academic</item>
+        <item>정확한|accurate</item>
+        <item>전진하다|advance</item>
+        <item>대안|alternative</item>
+        <item>배정하다|assign</item>
+        <item>주장하다|claim</item>
+        <item>논평|comment</item>
+        <item>저지르다|commit</item>
+        <item>구성 요소|component</item>
+        <item>건설하다|construct</item>
+        <item>전환하다|convert</item>
+        <item>전달하다|convey</item>
+        <item>대처하다|cope</item>
+        <item>유래하다|derive</item>
+        <item>구별하다|distinguish</item>
+        <item>간절히 바라는|eager</item>
+        <item>장비를 갖추다|equip</item>
+        <item>추정하다|estimate</item>
+        <item>제외하다|exclude</item>
+        <item>희미해지다|fade</item>
+        <item>특징|feature</item>
+        <item>격식 있는|formal</item>
+        <item>근본적인|fundamental</item>
+        <item>게다가|furthermore</item>
+        <item>진짜의|genuine</item>
+        <item>속이 빈|hollow</item>
+        <item>즉각적인|immediate</item>
+        <item>암시하다|imply</item>
+        <item>나타내다|indicate</item>
+        <item>혁신|innovation</item>
+        <item>강렬한|intense</item>
+        <item>상호작용하다|interact</item>
+        <item>해석하다|interpret</item>
+        <item>마찬가지로|likewise</item>
+        <item>문학|literature</item>
+        <item>단지 ~에 불과한|mere</item>
+        <item>최소화하다|minimize</item>
+        <item>적당한|moderate</item>
+        <item>지원자|applicant</item>
+        <item>약속(업무)|appointment</item>
+        <item>고객|client</item>
+        <item>수수료|commission</item>
+        <item>통근하다|commute</item>
+        <item>회의(대규모)|conference</item>
+        <item>직원|employee</item>
+        <item>청구서|invoice</item>
+        <item>대출|loan</item>
+        <item>인사(부)|personnel</item>
+        <item>승진|promotion</item>
+        <item>구매하다|purchase</item>
+        <item>환불|refund</item>
+        <item>상환하다|reimburse</item>
+        <item>평판|reputation</item>
+        <item>사임하다|resign</item>
+        <item>연례의|annual</item>
+        <item>경쟁력 있는|competitive</item>
+        <item>능률적인|efficient</item>
+        <item>의무적인|mandatory</item>
+        <item>신속한|prompt</item>
+        <item>옹호하다|advocate</item>
+        <item>개정하다|amend</item>
+        <item>고고학|archaeology</item>
+        <item>~의 탓으로 돌리다|attribute</item>
+        <item>편향|bias</item>
+        <item>응축하다|condense</item>
+        <item>기준(단수)|criterion</item>
+        <item>딜레마|dilemma</item>
+        <item>담론|discourse</item>
+        <item>대체하다|displace</item>
+        <item>왜곡하다|distort</item>
+        <item>위계|hierarchy</item>
+        <item>진실성|integrity</item>
+        <item>상쇄하다|offset</item>
+        <item>선행하다|precede</item>
+        <item>전망|prospect</item>
+        <item>~하게 만들다|render</item>
+        <item>몇 정거장인가요?|How many stops is that?</item>
+        <item>얼마나 자주 오나요?|How often does it come?</item>
+        <item>요금은 얼마예요?|How much is the fare?</item>
+        <item>날씨 정말 좋죠?|Beautiful day, isn\'t it?</item>
+        <item>닭|chicken</item>
+        <item>나비|butterfly</item>
+        <item>이것|this</item>
+        <item>그러나|but</item>
+        <item>~였다|was</item>
+        <item>아래로|down</item>
+        <item>원하다|want</item>
+        <item>문|door</item>
+        <item>춤추다|dance</item>
+        <item>동물|animal</item>
+        <item>바람|wind</item>
+        <item>야구|baseball</item>
+        <item>음악|music</item>
+        <item>보다(시청하다)|watch</item>
+        <item>회원|member</item>
+        <item>이웃|neighbor</item>
+        <item>자연|nature</item>
+        <item>다다르다|arrive</item>
+        <item>번역하다|translate</item>
+        <item>통제하다|control</item>
+        <item>추천하다|recommend</item>
+        <item>갈등|conflict</item>
+        <item>합법적인|legal</item>
+        <item>후보자|candidate</item>
+        <item>성과|outcome</item>
+        <item>착취하다|exploit</item>
+        <item>배치|configuration</item>
+        <item>풍부하게 하다|enrich</item>
+        <item>그럴듯한|plausible</item>
+        <item>수렴하다|converge</item>
+        <item>저하시키다|degrade</item>
+        <item>모호한|ambiguous</item>
+        <item>취약한|vulnerable</item>
+        <item>물|water</item>
+        <item>밥|rice</item>
+        <item>소년|boy</item>
+        <item>소녀|girl</item>
+        <item>걷다|walk</item>
+        <item>마시다|drink</item>
+        <item>공부하다|study</item>
+        <item>청소하다|clean</item>
+        <item>듣다|listen</item>
+        <item>알다|know</item>
+        <item>항상|always</item>
+        <item>가끔|sometimes</item>
+        <item>절대 ~않다|never</item>
+        <item>체육관|gym</item>
+        <item>빵집|bakery</item>
+        <item>의사|doctor</item>
+        <item>치과의사|dentist</item>
+        <item>치마|skirt</item>
+        <item>목도리|scarf</item>
+        <item>지갑|wallet</item>
+        <item>신나는|exciting</item>
+        <item>웃긴|funny</item>
+        <item>조용한|quiet</item>
+        <item>다른|different</item>
+        <item>아픈|sick</item>
+        <item>다시|again</item>
+        <item>어른|adult</item>
+        <item>선택|choice</item>
+        <item>지도자|leader</item>
+        <item>영웅|hero</item>
+        <item>과제|project</item>
+        <item>주제|subject</item>
+        <item>보호하다|protect</item>
+        <item>낭비하다|waste</item>
+        <item>재활용하다|recycle</item>
+        <item>표현하다|express</item>
+        <item>동의하다|agree</item>
+        <item>말다툼하다|argue</item>
+        <item>위험한|dangerous</item>
+        <item>완벽한|perfect</item>
+        <item>훌륭한|wonderful</item>
+        <item>갑자기|suddenly</item>
+        <item>귀찮게 하다|bother</item>
+        <item>완료하다|complete</item>
+        <item>소통하다|communicate</item>
+        <item>손상시키다|damage</item>
+        <item>기부하다|donate</item>
+        <item>주문하다|order</item>
+        <item>상태|condition</item>
+        <item>거리(간격)|distance</item>
+        <item>교육|education</item>
+        <item>감정|emotion</item>
+        <item>반응|response</item>
+        <item>몇몇의|several</item>
+        <item>사과하다|apologize</item>
+        <item>감사하다|appreciate</item>
+        <item>끌어들이다|attract</item>
+        <item>다치게 하다|injure</item>
+        <item>놓다|lay</item>
+        <item>관찰하다|observe</item>
+        <item>처벌하다|punish</item>
+        <item>후회하다|regret</item>
+        <item>대표하다|represent</item>
+        <item>선택하다|select</item>
+        <item>정착하다|settle</item>
+        <item>성공하다|succeed</item>
+        <item>~하는 경향이 있다|tend</item>
+        <item>위협하다|threaten</item>
+        <item>효과|effect</item>
+        <item>습득하다|acquire</item>
+        <item>분석하다|analyze</item>
+        <item>고대의|ancient</item>
+        <item>승인하다|approve</item>
+        <item>배열하다|arrange</item>
+        <item>첨부하다|attach</item>
+        <item>권위|authority</item>
+        <item>알고 있는|aware</item>
+        <item>인용하다|cite</item>
+        <item>보존하다|conserve</item>
+        <item>끊임없는|constant</item>
+        <item>소비하다|consume</item>
+        <item>기여하다|contribute</item>
+        <item>협력하다|cooperate</item>
+        <item>현재의|current</item>
+        <item>헌신하다|dedicate</item>
+        <item>정의하다|define</item>
+        <item>보여주다|demonstrate</item>
+        <item>바치다|devote</item>
+        <item>분배하다|distribute</item>
+        <item>효율적인|efficient</item>
+        <item>마주치다|encounter</item>
+        <item>거대한|enormous</item>
+        <item>비용|expense</item>
+        <item>외부의|external</item>
+        <item>이전의|former</item>
+        <item>토대|foundation</item>
+        <item>가혹한|harsh</item>
+        <item>가설|hypothesis</item>
+        <item>사건|incident</item>
+        <item>산업|industry</item>
+        <item>초기의|initial</item>
+        <item>점검하다|inspect</item>
+        <item>즉각의|instant</item>
+        <item>정당화하다|justify</item>
+        <item>수많은|numerous</item>
+        <item>영양|nutrition</item>
+        <item>안건|agenda</item>
+        <item>예산|budget</item>
+        <item>마감일|deadline</item>
+        <item>부서|department</item>
+        <item>장비|equipment</item>
+        <item>견적|estimate</item>
+        <item>상품|merchandise</item>
+        <item>연기하다|postpone</item>
+        <item>견적(가)|quote</item>
+        <item>독촉장|reminder</item>
+        <item>은퇴하다|retire</item>
+        <item>일정|schedule</item>
+        <item>선적|shipment</item>
+        <item>직원(전체)|staff</item>
+        <item>감독관|supervisor</item>
+        <item>공급업체|supplier</item>
+        <item>워크숍|workshop</item>
+        <item>사전의|prior</item>
+        <item>축적하다|accumulate</item>
+        <item>인접한|adjacent</item>
+        <item>할당하다|allocate</item>
+        <item>유추|analogy</item>
+        <item>자율성|autonomy</item>
+        <item>일관성 있는|coherent</item>
+        <item>엮다|compile</item>
+        <item>상관관계가 있다|correlate</item>
+        <item>흩어지다|disperse</item>
+        <item>경험적인|empirical</item>
+        <item>침식하다|erode</item>
+        <item>불러일으키다|evoke</item>
+        <item>촉진하다|facilitate</item>
+        <item>실현 가능한|feasible</item>
+        <item>통합하다|integrate</item>
+        <item>정당한|legitimate</item>
+        <item>조작하다|manipulate</item>
+        <item>분자|molecule</item>
+        <item>추진력|momentum</item>
+        <item>~에도 불구하고|notwithstanding</item>
+        <item>광합성|photosynthesis</item>
+        <item>강화하다|reinforce</item>
+        <item>정말 감사합니다!|Thank you so much!</item>
+        <item>표는 어디서 사나요?|Where can I buy a ticket?</item>
+        <item>어디로 가려고 하세요?|Where are you trying to go?</item>
+        <item>어디로 모실까요?|Where to, sir?</item>
+        <item>연휴에 계획 있어요?|Any plans for the holiday?</item>
+        <item>눈|eye</item>
+        <item>포도|grape</item>
+        <item>셔츠|shirt</item>
+        <item>하나의|a</item>
+        <item>위에|on</item>
+        <item>그래서|so</item>
+        <item>우리는|we</item>
+        <item>눈(날씨)|snow</item>
+        <item>미안해요|sorry</item>
+        <item>오늘|today</item>
+        <item>배고픈|hungry</item>
+        <item>가게|store</item>
+        <item>사다|buy</item>
+        <item>여행하다|travel</item>
+        <item>이기다|win</item>
+        <item>지루한|boring</item>
+        <item>맛이 나다|taste</item>
+        <item>무료의|free</item>
+        <item>옷|clothes</item>
+        <item>수학|math</item>
+        <item>간호사|nurse</item>
+        <item>가입하다|join</item>
+        <item>디자인하다|design</item>
+        <item>발전시키다|develop</item>
+        <item>축제|festival</item>
+        <item>행동|behavior</item>
+        <item>빌려주다|lend</item>
+        <item>사회|society</item>
+        <item>세계적인|global</item>
+        <item>작동하다|operate</item>
+        <item>알리다|inform</item>
+        <item>이행하다|fulfill</item>
+        <item>유지하다|maintain</item>
+        <item>결심하다|determine</item>
+        <item>퍼지다|spread</item>
+        <item>발표하다|announce</item>
+        <item>십 년|decade</item>
+        <item>기준|criteria</item>
+        <item>인공의|artificial</item>
+        <item>시도하다|attempt</item>
+        <item>명확히 하다|clarify</item>
+        <item>지평선|horizon</item>
+        <item>주도권|initiative</item>
+        <item>이상한|odd</item>
+        <item>개인|individual</item>
+        <item>멸종된|extinct</item>
+        <item>이주하다|migrate</item>
+        <item>검토하다|review</item>
+        <item>피드백|feedback</item>
+        <item>기밀의|confidential</item>
+        <item>재고|inventory</item>
+        <item>~을 경유하여|via</item>
+        <item>패러다임|paradigm</item>
+        <item>생존 가능한|viable</item>
+        <item>규모|magnitude</item>
+        <item>미묘한|subtle</item>
+        <item>유도하다|induce</item>
+        <item>느린|slow</item>
+        <item>분|minute</item>
+        <item>색깔|color</item>
+        <item>그림|picture</item>
+        <item>만나다|meet</item>
+        <item>주말|weekend</item>
+        <item>과목|subject</item>
+        <item>운동장|playground</item>
+        <item>과학자|scientist</item>
+        <item>약|medicine</item>
+        <item>싼|cheap</item>
+        <item>비싼|expensive</item>
+        <item>노력하다|try</item>
+        <item>우주|space</item>
+        <item>자랑스러운|proud</item>
+        <item>끔찍한|terrible</item>
+        <item>피하다|avoid</item>
+        <item>졸업하다|graduate</item>
+        <item>생산하다|produce</item>
+        <item>주의|attention</item>
+        <item>수준|level</item>
+        <item>인정하다|admit</item>
+        <item>부인하다|deny</item>
+        <item>검사하다|examine</item>
+        <item>발생하다|occur</item>
+        <item>극복하다|overcome</item>
+        <item>쟁점|issue</item>
+        <item>적응하다|adapt</item>
+        <item>예상하다|anticipate</item>
+        <item>계약|contract</item>
+        <item>편집하다|edit</item>
+        <item>요금|fee</item>
+        <item>배당금|dividend</item>
+        <item>전략|strategy</item>
+        <item>판매업체|vendor</item>
+        <item>업무량|workload</item>
+        <item>유인책|incentive</item>
+        <item>최적의|optimal</item>
+        <item>역설|paradox</item>
+        <item>정밀 조사|scrutiny</item>
+        <item>영역|sphere</item>
+        <item>마실 것도 드릴까요?|Would you like anything to drink?</item>
+        <item>디저트는요?|Anything for dessert?</item>
+        <item>영수증 가지고 계세요?|Do you have the receipt?</item>
+        <item>여기서 먼가요?|Is it far from here?</item>
+        <item>부작용이 있나요?|Are there any side effects?</item>
+        <item>멋지네요! 어렵나요?|That\'s cool! Is it difficult?</item>
+        <item>복숭아|peach</item>
+        <item>곰인형|teddy bear</item>
+        <item>그는|he</item>
+        <item>너는|you</item>
+        <item>하얀|white</item>
+        <item>방|room</item>
+        <item>친절한|kind</item>
+        <item>빌리다|borrow</item>
+        <item>건강한|healthy</item>
+        <item>주머니|pocket</item>
+        <item>안전|safety</item>
+        <item>허락하다|allow</item>
+        <item>기대하다|expect</item>
+        <item>사실은|actually</item>
+        <item>결정|decision</item>
+        <item>예측하다|predict</item>
+        <item>존재하다|exist</item>
+        <item>극적인|dramatic</item>
+        <item>조정하다|adjust</item>
+        <item>불안한|anxious</item>
+        <item>유연한|flexible</item>
+        <item>충성스러운|loyal</item>
+        <item>전시하다|exhibit</item>
+        <item>설명서|manual</item>
+        <item>할인|discount</item>
+        <item>중력|gravity</item>
+        <item>지속 시간|duration</item>
+        <item>저명한|prominent</item>
+        <item>신용카드 되나요?|Do you accept credit cards?</item>
+        <item>키가 큰|tall</item>
+        <item>함께|together</item>
+        <item>부엌|kitchen</item>
+        <item>질문|question</item>
+        <item>숲|forest</item>
+        <item>관례|convention</item>
+        <item>범주|category</item>
+        <item>규범|norm</item>
+        <item>침략하다|invade</item>
+        <item>분기|quarter</item>
+        <item>동시에 일어나다|coincide</item>
+        <item>물고기가 물속에 있어요.|The fish is in the water.</item>
+        <item>그 나무는 커요.|The tree is big.</item>
+        <item>해는 뜨거워요.|The sun is hot.</item>
+        <item>아기가 자고 있어요.|The baby is sleeping.</item>
+        <item>그 자동차는 빨라요.|The car is fast.</item>
+        <item>그 고양이는 작아요.|The cat is small.</item>
+        <item>그 개는 갈색이에요.|The dog is brown.</item>
+        <item>우리 아빠는 키가 커요.|My dad is tall.</item>
+        <item>나는 빵을 먹어요.|I eat bread.</item>
+        <item>달을 봐요.|Look at the moon.</item>
+        <item>나는 아이스크림을 좋아해요.|I like ice cream.</item>
+        <item>나는 손이 두 개예요.|I have two hands.</item>
+        <item>내 신발은 새것이에요.|My shoes are new.</item>
+        <item>고마워. 너는? 새로운 소식 있어?|Thanks. How about you? Anything new?</item>
+        <item>정말 좋아해요. 당신은요?|I love it. What about you?</item>
+        <item>저는 중학교에서 음악을 가르쳐요.|I teach music at a middle school.</item>
+        <item>물론이죠. 여기 있습니다.|Of course. Here you are.</item>
+        <item>찾으시는 것 도와드릴까요?|Can I help you find something?</item>
+        <item>이 수제 그릇은 얼마예요?|How much is this handmade bowl?</item>
+        <item>실례합니다, 시립 박물관에 어떻게 가나요?|Excuse me, how do I get to the city museum?</item>
+        <item>파란 노선을 타고 중앙역에서 환승하세요.|Take the blue line and transfer at Central Station.</item>
+        <item>이 지도에서 짚어 주시겠어요?|Could you point it out on this map?</item>
+        <item>아, 길을 잘못 드셨네요. 한 블록 북쪽이에요.|Oh, you\'re on the wrong street. It\'s one block north.</item>
+        <item>오렌지 주스로요. 얼음은 빼 주세요.|Orange juice, please. No ice.</item>
+        <item>죄송합니다. 바로 사람을 보내겠습니다.|I\'m sorry about that. We\'ll send someone right up.</item>
+        <item>3시 기차인데 시간 안에 갈 수 있을까요?|I have a train at three. Can we make it?</item>
+        <item>좋아요. 정문에서 내려 주시면 돼요.|Great. You can drop me at the main gate.</item>
+        <item>평소와 다른 걸 드셨나요?|Did you eat anything unusual?</item>
+        <item>다음엔 어떻게 해야 하나요?|What should I do next?</item>
+        <item>졸릴 수 있으니 운전은 피하세요.|It may make you drowsy, so avoid driving.</item>
+        <item>이런, 등산 가려고 했는데.|Oh no, I was planning to go hiking.</item>
+        <item>시골에 계신 부모님을 뵈러 가요.|I\'m visiting my parents in the countryside.</item>
+        <item>나는 행복해요.|I am happy.</item>
+        <item>나는 자전거를 타요.|I ride a bicycle.</item>
+        <item>우리는 함께 놀아요.|We play together.</item>
+        <item>나는 무지개를 볼 수 있어요.|I can see a rainbow.</item>
+        <item>나는 별을 봐요.|I see the stars.</item>
+        <item>저도 만나서 반가워요. 저는 민수예요.|Nice to meet you too. I\'m Minsu.</item>
+        <item>민수 씨는 어디에서 오셨어요?|Where are you from, Minsu?</item>
+        <item>이야, 오랜만이야! 어떻게 지냈어?|Hey, long time no see! How have you been?</item>
+        <item>재미있겠네요. 그 일이 즐거우세요?|That sounds interesting. Do you enjoy it?</item>
+        <item>나중에 볼게요. 감사해요.|I\'ll look around later. Thank you.</item>
+        <item>물이면 충분해요, 감사합니다.|Just water is fine, thank you.</item>
+        <item>좋아요. 음식이 정말 맛있었어요.|Great. The food was delicious.</item>
+        <item>감사합니다. 또 오세요!|Thank you. Please come again!</item>
+        <item>정말 감사합니다.|Thank you very much.</item>
+        <item>물론입니다. 주방장께 전달할게요.|Certainly. I\'ll let the chef know.</item>
+        <item>이건 어떠세요? 아주 인기가 많아요.|How about this one? It\'s very popular.</item>
+        <item>딱 맞네요. 이걸로 살게요.|It fits perfectly. I\'ll take it.</item>
+        <item>이유를 여쭤봐도 될까요?|May I ask the reason?</item>
+        <item>환불로 부탁드려요.|I\'d like a refund, please.</item>
+        <item>좋아요! 두 개 살게요.|Deal! I\'ll take two.</item>
+        <item>좋습니다. 포장해 드릴게요.|All right. I\'ll wrap them up for you.</item>
+        <item>아니요, 걸어서 10분 정도예요.|No, it\'s about a ten-minute walk.</item>
+        <item>발권기는 바로 저쪽에 있어요.|The ticket machines are right over there.</item>
+        <item>실례합니다, 길을 잃은 것 같아요.|Excuse me, I think I\'m lost.</item>
+        <item>탑승권입니다. 22번 게이트, 10시 탑승입니다.|Here\'s your boarding pass. Gate 22, boarding at ten.</item>
+        <item>시내 리버사이드 호텔이요.|The Riverside Hotel downtown, please.</item>
+        <item>저기요, 담요 하나 주시겠어요?|Excuse me, could I have a blanket?</item>
+        <item>좋아요. 식사 때 깨워 주시겠어요?|Great. Could you wake me up for the meal?</item>
+        <item>환영합니다, 리 선생님. 더블룸 3박 맞으시죠?|Welcome, Mr. Lee. A double room for three nights?</item>
+        <item>네, 아침은 7시부터 10시까지 제공됩니다.|Yes, breakfast is served from seven to ten.</item>
+        <item>그리고 수건도 좀 더 받을 수 있을까요?|Also, could I get extra towels?</item>
+        <item>그게 다예요. 감사합니다.|That\'s all. Thank you.</item>
+        <item>체크아웃 할게요. 805호입니다.|I\'d like to check out, please. Room 805.</item>
+        <item>물 한 병만요.|Just one bottle of water.</item>
+        <item>이 버스 해변에 가나요?|Does this bus go to the beach?</item>
+        <item>아니요, 7번 버스를 타셔야 해요.|No, you need bus number 7.</item>
+        <item>기본 보험은 포함이고, 완전 보장은 하루 10달러 추가입니다.|Basic insurance is included. Full coverage is ten dollars more per day.</item>
+        <item>여기요. 보험은 포함인가요?|Here it is. Is insurance included?</item>
+        <item>길거리 시장에서 해산물을 먹었어요.|I had seafood at a street market.</item>
+        <item>약을 처방해 드릴게요. 물을 많이 드세요.|I\'ll prescribe some medicine. Drink plenty of water.</item>
+        <item>언제 어디서 잃어버리셨나요?|When and where did you lose it?</item>
+        <item>목 아픈 데 먹는 약 있나요?|Do you have anything for a sore throat?</item>
+        <item>내일 예보를 다시 확인해 보는 게 좋겠어요.|Better check the forecast again tomorrow.</item>
+        <item>언젠가 그 빵을 먹어 보고 싶네요.|I\'d love to try your bread someday.</item>
+        <item>그렇진 않은데 인내심이 필요해요.|Not really, but it takes patience.</item>
+        <item>좋아요! 다음에 좀 가져올게요.|Sure! I\'ll bring some next time.</item>
+        <item>차가 안 막히면 세 시간 정도요.|About three hours if there\'s no traffic.</item>
+        <item>편안하겠네요. 운전은 얼마나 걸려요?|That sounds relaxing. How long is the drive?</item>
+        <item>새는 날 수 있어요.|Birds can fly.</item>
+        <item>그 버스는 커요.|The bus is big.</item>
+        <item>이것은 내 개예요.|This is my dog.</item>
+        <item>안녕하세요, 저는 제인이에요. 만나서 반가워요.|Hi, I\'m Jane. Nice to meet you.</item>
+        <item>한국 서울에서 왔어요. 당신은요?|I\'m from Seoul, Korea. How about you?</item>
+        <item>네, 처음이에요. 정말 설레요.|Yes, it is. I\'m really excited.</item>
+        <item>저는 런던에서 왔어요. 여기는 처음 오신 거예요?|I\'m from London. Is this your first trip here?</item>
+        <item>언제 커피 마시면서 회포 풀자.|Let\'s catch up over coffee sometime.</item>
+        <item>잘 지냈어. 새 일을 시작했어.|I\'ve been great. I started a new job.</item>
+        <item>정말 좋은 소식이다. 축하해!|That\'s wonderful news. Congratulations!</item>
+        <item>안녕하세요, 소라 씨. 무슨 일을 하세요?|Hello, Sora. What do you do?</item>
+        <item>네. 그릴드 치킨으로 할게요.|Yes. I\'ll have the grilled chicken, please.</item>
+        <item>저기요, 계산서 좀 주시겠어요?|Excuse me, could we get the bill?</item>
+        <item>네, 주요 카드 모두 받습니다.|Yes, we accept all major cards.</item>
+        <item>이 요리에 땅콩이 들어가나요?|Does this dish contain peanuts?</item>
+        <item>별말씀을요. 15분 정도 걸립니다.|No problem. It\'ll take about fifteen minutes.</item>
+        <item>네, 땅콩 소스가 들어가요.|Yes, it has a peanut sauce.</item>
+        <item>제가 땅콩 알레르기가 있어서요. 빼고 만들어 주실 수 있나요?|I\'m allergic to peanuts. Can you make it without?</item>
+        <item>봄에 입을 재킷을 찾고 있어요.|I\'m looking for a jacket for spring.</item>
+        <item>네, 여기 있어요.|Yes, here it is.</item>
+        <item>감사합니다. 환불과 교환 중 어느 것을 원하세요?|Thank you. Would you like a refund or an exchange?</item>
+        <item>조금 비싸네요. 할인해 주실 수 있나요?|That\'s a bit expensive. Can you give me a discount?</item>
+        <item>천만에요. 금방 찾으실 거예요.|You\'re welcome. You\'ll find it easily.</item>
+        <item>두 블록 직진해서 오른쪽으로 도세요.|Go straight two blocks and turn right.</item>
+        <item>어느 노선이 공항에 가나요?|Which line goes to the airport?</item>
+        <item>여기 있습니다.|Here you are.</item>
+        <item>창가 좌석으로 부탁해요.|I\'d like a window seat, please.</item>
+        <item>휴가로 왔습니다.|I\'m here on vacation.</item>
+        <item>얼마나 머무르실 건가요?|How long will you stay?</item>
+        <item>방문 목적이 무엇인가요?|What\'s the purpose of your visit?</item>
+        <item>어디에서 묵으실 건가요?|Where will you be staying?</item>
+        <item>여기 있습니다. 식사는 한 시간 후에 제공됩니다.|Here you go. We\'ll serve the meal in an hour.</item>
+        <item>맞아요. 아침 식사가 포함되나요?|That\'s right. Is breakfast included?</item>
+        <item>안녕하세요. 리로 예약했습니다.|Good evening. I have a reservation under Lee.</item>
+        <item>키 카드에 적혀 있습니다. 8층 805호입니다.|It\'s on your key card. Room 805 on the eighth floor.</item>
+        <item>좋네요. 와이파이 비밀번호는 뭔가요?|Perfect. What\'s the Wi-Fi password?</item>
+        <item>물론입니다. 더 필요하신 건요?|Of course. Anything else?</item>
+        <item>제 방 에어컨이 작동하지 않아요.|The air conditioner in my room isn\'t working.</item>
+        <item>카드로요. 정오까지 짐을 맡아 주실 수 있나요?|Card, please. Could you keep my luggage until noon?</item>
+        <item>총 320달러입니다. 카드인가요, 현금인가요?|Your total is 320 dollars. Card or cash?</item>
+        <item>물론입니다. 보관증 여기 있습니다.|Of course. Here\'s your claim ticket.</item>
+        <item>잠시만요. 미니바를 이용하셨나요?|One moment. Did you use the minibar?</item>
+        <item>차가 안 막히면 문제없습니다.|No problem if traffic is smooth.</item>
+        <item>15분마다요.|Every fifteen minutes.</item>
+        <item>좋은 선택입니다. 기름을 가득 채워 반납해 주세요.|Good choice. Please return it with a full tank.</item>
+        <item>소형차를 이틀 빌리고 싶어요.|I\'d like to rent a compact car for two days.</item>
+        <item>운전면허증을 볼 수 있을까요?|May I see your driver\'s license?</item>
+        <item>완전 보장으로 할게요.|I\'ll take the full coverage.</item>
+        <item>얼마나 오래 아프셨어요?|How long have you had it?</item>
+        <item>어젯밤부터요. 어지럽기도 해요.|Since last night. I also feel dizzy.</item>
+        <item>오늘 오후에요, 아마 지하철에서요.|This afternoon, maybe on the subway.</item>
+        <item>여권 분실 신고를 하고 싶어요.|I\'d like to report a lost passport.</item>
+        <item>임시 여권을 위해 대사관에 연락하세요.|Contact your embassy for a temporary passport.</item>
+        <item>그럼 이걸 6시간마다 식후에 드세요.|Then take this every six hours after meals.</item>
+        <item>오늘 아침부터 미열이 있어요.|A slight fever since this morning.</item>
+        <item>이 사탕형 약이 잘 들어요. 열은 있나요?|These lozenges work well. Any fever?</item>
+        <item>정말 그러네요. 소풍 가기 딱 좋아요.|It really is. Perfect for a picnic.</item>
+        <item>좋은 생각이에요. 행운을 빌어야죠!|Good idea. Fingers crossed!</item>
+        <item>주말엔 보통 뭐 하세요?|What do you usually do on weekends?</item>
+        <item>빵을 구워요. 새로 생긴 취미예요.|I bake bread. It\'s my new hobby.</item>
+        <item>나는 엄마를 사랑해요.|I love my mom.</item>
+        <item>나는 책이 있어요.|I have a book.</item>
+        <item>그녀는 고양이가 있어요.|She has a cat.</item>
+        <item>나는 풍선을 원해요.|I want a balloon.</item>
+        <item>나는 사과를 좋아해요.|I like apples.</item>
+        <item>그 상자는 작아요.|The box is small.</item>
+        <item>비가 오고 있어요.|It is raining.</item>
+        <item>나는 우유를 마셔요.|I drink milk.</item>
+        <item>나는 내 친구를 좋아해요.|I like my friend.</item>
+        <item>나는 뛸 수 있어요.|I can run.</item>
+        <item>나는 학교에 가요.|I go to school.</item>
+        <item>별거 없어. 늘 똑같지.|Not much. Same as always.</item>
+        <item>제 소개를 할게요. 저는 김소라입니다.|Let me introduce myself. I\'m Sora Kim.</item>
+        <item>마음에 드네요. 입어 봐도 될까요?|I like it. Can I try it on?</item>
+        <item>그럼요, 탈의실은 저쪽이에요.|Sure, the fitting room is over there.</item>
+        <item>이 셔츠를 반품하고 싶어요.|I\'d like to return this shirt.</item>
+        <item>저한테 너무 작아서요.|It\'s too small for me.</item>
+        <item>그건 40달러입니다.|That one is forty dollars.</item>
+        <item>두 개 사시면 70달러에 드릴게요.|If you buy two, I\'ll make it seventy dollars.</item>
+        <item>그랜드 호텔을 찾고 있어요.|I\'m looking for the Grand Hotel.</item>
+        <item>안녕하세요. 여권 보여 주시겠어요?|Good morning. May I see your passport?</item>
+        <item>네, 여행 가방 하나요.|Yes, one suitcase, please.</item>
+        <item>열흘 동안이요.|For ten days.</item>
+        <item>즐거운 여행 되세요.|Enjoy your trip.</item>
+        <item>물론이죠. 마실 것도 드릴까요?|Of course. Would you like something to drink?</item>
+        <item>물론입니다. 편히 쉬세요.|Of course. Have a good rest.</item>
+        <item>중앙역으로 가 주세요.|To the central station, please.</item>
+        <item>네. 20분 정도 걸립니다.|Sure. It\'ll take about twenty minutes.</item>
+        <item>이 양식을 작성해 주세요.|Please fill out this form.</item>
+        <item>운전 조심하고 좋은 시간 보내요.|Drive safely and enjoy your time.</item>
+        <item>고마워요! 연휴 끝나고 봐요.|Thanks! See you after the holiday.</item>
+        <item>저는 그래픽 디자이너예요. 포스터를 디자인해요.|I\'m a graphic designer. I design posters.</item>
+        <item>중앙역까지 여섯, 그다음 네 정거장이요.|Six stops to Central, then four more.</item>
+        <item>그럼요. 우리는 여기 있고, 호텔은 바로 저기예요.|Sure. We are here, and your hotel is right there.</item>
+        <item>창가와 통로 중 어느 좌석을 원하세요?|Would you like a window or an aisle seat?</item>
+        <item>프런트입니다. 무엇을 도와드릴까요?|Front desk. How may I help you?</item>
+        <item>2달러요. 카드로 낼 수 있어요.|Two dollars. You can pay by card.</item>
+        <item>배가 너무 아파요.|I have a terrible stomachache.</item>
+        <item>그런데 주말엔 비가 올 수도 있대요.|I heard it might rain this weekend though.</item>
+        <item>그것은 꽃이에요.|It is a flower.</item>
+        <item>내 가방은 빨간색이에요.|My bag is red.</item>
+        <item>나는 책을 읽어요.|I read a book.</item>
     </string-array>
     <string-array name="tpl_units">
     </string-array>
