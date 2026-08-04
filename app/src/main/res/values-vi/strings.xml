@@ -184,6 +184,57 @@
     <string name="bg_m_all_d">Mọi mảng toán Lv.3+</string>
     <string name="bg_both">Giỏi cả hai môn</string>
     <string name="bg_both_d">Có mảng Lv.3+ ở cả Anh và Toán</string>
+    <string name="home_greeting">Hôm nay cùng học nhé!</string>
+    <string name="home_no_review">Không có lỗi nào để ôn! 🐥</string>
+    <string name="goal_light">Nhẹ nhàng (khoảng 1 bài)</string>
+    <string name="goal_normal">Vừa phải (2–3 bài)</string>
+    <string name="goal_hard">Chăm chỉ (khoảng 5 bài)</string>
+    <string name="goal_beast">Cực chăm (khoảng 10 bài)</string>
+    <string name="goal_set_title">🎯 Đặt mục tiêu hôm nay</string>
+    <string name="cancel">Hủy</string>
+    <string name="home_wrong_count">Ôn %d</string>
+    <string name="home_overall_lv">Tổng thể Lv.%s</string>
+    <string name="rank_next">  →  Danh hiệu tiếp theo %1$s %2$s</string>
+    <string name="rank_next_short">  (→ %1$s cấp %2$.1f)</string>
+    <string name="rank_top">  (danh hiệu cao nhất!)</string>
+    <string name="home_daily_goal">Mục tiêu hôm nay  %1$d / %2$d XP</string>
+    <string name="home_goal_done">  ✅ Đạt rồi!</string>
+    <string name="weak_area">Điểm yếu: %1$s %2$s</string>
+    <string name="not_started">  Chưa bắt đầu</string>
+    <string name="home_placement_math">Tìm đúng lớp bằng bài kiểm tra trình độ!\n25 câu sẽ chọn giai đoạn phù hợp</string>
+    <string name="stats_level_big">⭐ Cấp %1$d</string>
+    <string name="stats_xp_detail">Tổng %1$d XP · còn %2$d XP lên cấp</string>
+    <string name="stats_streak_info">Chuỗi %1$d ngày · kỷ lục %2$d ngày</string>
+    <string name="stats_counters">📚 Bài học hoàn thành  %1$d\n💯 Bài hoàn hảo  %2$d\n💊 Câu sai đã xử lý  %3$d\n🗓 Số ngày học  %4$d</string>
+    <string name="stats_none_yet">Chưa giải câu nào</string>
+    <string name="stats_skill_line">%1$d đúng / %2$d lần  ·  chính xác %3$d%%</string>
+    <string name="stats_next_level">  ·  còn %1$d câu để lên cấp</string>
+    <string name="stats_max_level">  ·  Cấp tối đa!</string>
+    <string name="home_greeting_2">Kiên trì là tài năng lớn nhất 🐥</string>
+    <string name="home_greeting_3">Giải dù một câu thôi, hôm nay đã thành công!</string>
+    <string name="home_greeting_4">Chíp chíp! Sợ tiếng Anh ư? Nhìn tớ này!</string>
+    <string name="home_greeting_5">Hơn mình hôm qua một từ!</string>
+    <string name="home_greeting_6">Đến ngày dùng được khi đi du lịch ✈️</string>
+    <string name="home_placement_en">Tìm trình độ của bạn bằng bài kiểm tra!\n25 câu chọn đúng cấp độ cho bạn</string>
+    <string name="stage_kinder">Tiếng Anh mầm non</string>
+    <string name="stage_kinder_sub">Viết bảng chữ cái · Sân chơi</string>
+    <string name="stage_elem">Tiếng Anh tiểu học</string>
+    <string name="stage_elem_sub">Khóa tiểu học · Cơ bản lớp 1–6</string>
+    <string name="stage_middle">Tiếng Anh THCS · THPT</string>
+    <string name="stage_middle_sub">Cơ bản theo lớp · Ngữ pháp · Đọc hiểu</string>
+    <string name="stage_adult">Tiếng Anh người lớn · thực chiến</string>
+    <string name="stage_adult_sub">Hội thoại · TOEIC · TOEFL</string>
+    <string name="stage_skills">Luyện theo kỹ năng</string>
+    <string name="stage_skills_sub">Nghe · Nói · Viết · Ngữ pháp · Đọc</string>
+    <string-array name="weekday_short">
+        <item>CN</item>
+        <item>T2</item>
+        <item>T3</item>
+        <item>T4</item>
+        <item>T5</item>
+        <item>T6</item>
+        <item>T7</item>
+    </string-array>
 
     <!-- 문제·해설 뼈대 -->
     <string name="tpl_c8b5801d">Từ vừa nghe nghĩa là gì?</string>

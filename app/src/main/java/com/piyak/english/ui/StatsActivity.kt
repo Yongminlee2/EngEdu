@@ -7,6 +7,7 @@ import android.widget.GridLayout
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.piyak.english.R
 import com.piyak.english.databinding.ActivityStatsBinding
 import com.piyak.english.db.Db
 import com.piyak.english.engine.Badges
@@ -29,19 +30,16 @@ class StatsActivity : AppCompatActivity() {
         val db = Db.get(this)
         val xp = db.xp()
         val lv = Economy.levelFor(xp)
-        b.txtLevelBig.text = "⭐ Lv.$lv"
+        b.txtLevelBig.text = getString(R.string.stats_level_big, lv)
         b.xpBar.progress = (Economy.levelProgress(xp) * 100).toInt()
-        b.txtXpDetail.text = "누적 ${xp} XP · 다음 레벨까지 ${Economy.xpForLevel(lv + 1) - xp} XP"
+        b.txtXpDetail.text = getString(R.string.stats_xp_detail, xp, Economy.xpForLevel(lv + 1) - xp)
 
         val days = db.studyDays()
         val (cur, best) = Economy.streak(days, Db.today())
-        b.txtStreakInfo.text = "현재 ${cur}일 연속 · 최고 ${best}일"
+        b.txtStreakInfo.text = getString(R.string.stats_streak_info, cur, best)
 
-        b.txtCounters.text =
-            "📚 완료한 레슨  ${db.lessonsDoneCount()}개\n" +
-            "💯 퍼펙트 레슨  ${db.metaInt("perfect_count")}개\n" +
-            "💊 클리어한 오답  ${db.metaInt("review_cleared")}개\n" +
-            "🗓 공부한 날  ${days.size}일"
+        b.txtCounters.text = getString(R.string.stats_counters,
+            db.lessonsDoneCount(), db.metaInt("perfect_count"), db.metaInt("review_cleared"), days.size)
 
         buildSkills(db)
         buildCalendar(days)
@@ -60,8 +58,8 @@ class StatsActivity : AppCompatActivity() {
         val overall = com.piyak.english.engine.Skills.overallLevel(states)
         val rank = com.piyak.english.engine.Ranks.of(overall)
         val next = com.piyak.english.engine.Ranks.next(overall)
-        b.txtRankLine.text = String.format("%s %s · 종합 Lv.%.1f", rank.emoji, getString(rank.titleRes), overall) +
-            if (next != null) "  (다음: ${getString(next.titleRes)} Lv.${next.minOverall})" else "  (최고 칭호!)"
+        b.txtRankLine.text = String.format("%s %s · Lv.%.1f", rank.emoji, getString(rank.titleRes), overall) +
+            if (next != null) getString(R.string.rank_next_short, getString(next.titleRes), next.minOverall) else getString(R.string.rank_top)
 
         b.skillDetailBox.removeAllViews()
         for (st in states) {
@@ -90,10 +88,10 @@ class StatsActivity : AppCompatActivity() {
                 ).apply { topMargin = dp(6) }
             })
             box.addView(TextView(this).apply {
-                text = if (st.attempts == 0) "아직 풀어본 문제가 없어요"
-                else "정답 ${st.correct} / 시도 ${st.attempts}  ·  정답률 ${st.accuracy}%" +
+                text = if (st.attempts == 0) getString(R.string.stats_none_yet)
+                else getString(R.string.stats_skill_line, st.correct, st.attempts, st.accuracy) +
                     if (st.level < com.piyak.english.engine.Skills.MAX_LEVEL)
-                        "  ·  다음 레벨까지 ${st.nextLevelNeed}문제" else "  ·  최고 레벨!"
+                        getString(R.string.stats_next_level, st.nextLevelNeed) else getString(R.string.stats_max_level)
                 textSize = 12f
                 setTextColor(Color.parseColor("#8D6E63"))
                 setPadding(0, dp(5), 0, 0)
@@ -108,7 +106,7 @@ class StatsActivity : AppCompatActivity() {
         val first = today.withDayOfMonth(1)
         val startCol = first.dayOfWeek.value % 7 // 일요일 시작
 
-        for (h in listOf("일", "월", "화", "수", "목", "금", "토")) {
+        for (h in resources.getStringArray(R.array.weekday_short)) {
             b.calGrid.addView(cell(h, bold = true))
         }
         repeat(startCol) { b.calGrid.addView(cell("")) }

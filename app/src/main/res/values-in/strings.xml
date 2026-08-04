@@ -184,6 +184,57 @@
     <string name="bg_m_all_d">Semua area mtk Lv.3+</string>
     <string name="bg_both">Jago dua mata pelajaran</string>
     <string name="bg_both_d">Area Lv.3+ di Inggris dan matematika</string>
+    <string name="home_greeting">Ayo belajar bersama hari ini!</string>
+    <string name="home_no_review">Tidak ada kesalahan untuk diulang! 🐥</string>
+    <string name="goal_light">Ringan (sekitar 1 pelajaran)</string>
+    <string name="goal_normal">Sedang (2–3 pelajaran)</string>
+    <string name="goal_hard">Rajin (sekitar 5 pelajaran)</string>
+    <string name="goal_beast">Mode gaspol (sekitar 10 pelajaran)</string>
+    <string name="goal_set_title">🎯 Tetapkan target hari ini</string>
+    <string name="cancel">Batal</string>
+    <string name="home_wrong_count">Ulangi %d</string>
+    <string name="home_overall_lv">Level total Lv.%s</string>
+    <string name="rank_next">  →  Gelar berikutnya %1$s %2$s</string>
+    <string name="rank_next_short">  (→ %1$s Lv.%2$.1f)</string>
+    <string name="rank_top">  (gelar tertinggi!)</string>
+    <string name="home_daily_goal">Target hari ini  %1$d / %2$d XP</string>
+    <string name="home_goal_done">  ✅ Tercapai!</string>
+    <string name="weak_area">Bidang terlemah: %1$s %2$s</string>
+    <string name="not_started">  Belum dimulai</string>
+    <string name="home_placement_math">Temukan tingkatmu lewat tes penempatan!\n25 soal memilih tahap yang pas</string>
+    <string name="stats_level_big">⭐ Lv.%1$d</string>
+    <string name="stats_xp_detail">Total %1$d XP · %2$d XP lagi naik level</string>
+    <string name="stats_streak_info">Beruntun %1$d hari · terbaik %2$d hari</string>
+    <string name="stats_counters">📚 Pelajaran selesai  %1$d\n💯 Pelajaran sempurna  %2$d\n💊 Kesalahan tuntas  %3$d\n🗓 Hari belajar  %4$d</string>
+    <string name="stats_none_yet">Belum ada soal dikerjakan</string>
+    <string name="stats_skill_line">%1$d benar / %2$d percobaan  ·  akurasi %3$d%%</string>
+    <string name="stats_next_level">  ·  %1$d lagi untuk naik level</string>
+    <string name="stats_max_level">  ·  Level maksimum!</string>
+    <string name="home_greeting_2">Konsisten adalah bakat terbaik 🐥</string>
+    <string name="home_greeting_3">Kerjakan satu soal saja, hari ini sudah sukses!</string>
+    <string name="home_greeting_4">Ciap! Takut bahasa Inggris? Lihat aku!</string>
+    <string name="home_greeting_5">Satu kata lebih banyak dari kemarin!</string>
+    <string name="home_greeting_6">Sampai hari kamu memakainya saat liburan ✈️</string>
+    <string name="home_placement_en">Temukan levelmu lewat tes penempatan!\n25 soal menentukan level yang pas</string>
+    <string name="stage_kinder">Inggris TK</string>
+    <string name="stage_kinder_sub">Menulis alfabet · Taman bermain</string>
+    <string name="stage_elem">Inggris SD</string>
+    <string name="stage_elem_sub">Kursus SD · Dasar kelas 1–6</string>
+    <string name="stage_middle">Inggris SMP · SMA</string>
+    <string name="stage_middle_sub">Dasar per kelas · Tata bahasa · Membaca</string>
+    <string name="stage_adult">Inggris dewasa · praktis</string>
+    <string name="stage_adult_sub">Percakapan · TOEIC · TOEFL</string>
+    <string name="stage_skills">Latihan per area</string>
+    <string name="stage_skills_sub">Menyimak · Berbicara · Menulis · Tata bahasa · Membaca</string>
+    <string-array name="weekday_short">
+        <item>Min</item>
+        <item>Sen</item>
+        <item>Sel</item>
+        <item>Rab</item>
+        <item>Kam</item>
+        <item>Jum</item>
+        <item>Sab</item>
+    </string-array>
 
     <!-- 문제·해설 뼈대 -->
     <string name="tpl_c8b5801d">Apa arti kata yang kamu dengar?</string>

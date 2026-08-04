@@ -184,6 +184,57 @@
     <string name="bg_m_all_d">さんすう ぜんいき Lv.3 いじょう</string>
     <string name="bg_both">りょうかもく バッチリ</string>
     <string name="bg_both_d">えいごも さんすうも Lv.3 いじょう</string>
+    <string name="home_greeting">きょうもいっしょにべんきょう！</string>
+    <string name="home_no_review">ふくしゅうするもんだいはありません！🐥</string>
+    <string name="goal_light">かるく (レッスン 1こくらい)</string>
+    <string name="goal_normal">ふつう (レッスン 2〜3こ)</string>
+    <string name="goal_hard">がんばる (レッスン 5こくらい)</string>
+    <string name="goal_beast">ハード (レッスン 10こくらい)</string>
+    <string name="goal_set_title">🎯 きょうの もくひょうを きめる</string>
+    <string name="cancel">キャンセル</string>
+    <string name="home_wrong_count">まちがい %d</string>
+    <string name="home_overall_lv">そうごう Lv.%s</string>
+    <string name="rank_next">  →  つぎの しょうごう %1$s %2$s</string>
+    <string name="rank_next_short">  (→ %1$s Lv.%2$.1f)</string>
+    <string name="rank_top">  (さいこうの しょうごう!)</string>
+    <string name="home_daily_goal">きょうのもくひょう  %1$d / %2$d XP</string>
+    <string name="home_goal_done">  ✅ たっせい！</string>
+    <string name="weak_area">よわい りょういき: %1$s %2$s</string>
+    <string name="not_started">  まだ</string>
+    <string name="home_placement_math">レベルテストで じぶんの がくねんを さがそう!\n25もんで ぴったりの だんかいを きめるよ</string>
+    <string name="stats_level_big">⭐ Lv.%1$d</string>
+    <string name="stats_xp_detail">るいけい %1$d XP · つぎの レベルまで %2$d XP</string>
+    <string name="stats_streak_info">いま %1$d日 れんぞく · さいこう %2$d日</string>
+    <string name="stats_counters">📚 おわった レッスン  %1$d\n💯 パーフェクト  %2$d\n💊 クリアした まちがい  %3$d\n🗓 べんきょうした日  %4$d</string>
+    <string name="stats_none_yet">まだ といた もんだいが ないよ</string>
+    <string name="stats_skill_line">せいかい %1$d / ちょうせん %2$d  ·  せいかいりつ %3$d%%</string>
+    <string name="stats_next_level">  ·  つぎの レベルまで %1$d もん</string>
+    <string name="stats_max_level">  ·  さいこう レベル!</string>
+    <string name="home_greeting_2">つづける ことが さいこうの さいのう 🐥</string>
+    <string name="home_greeting_3">1もんでも とけたら きょうは せいこう!</string>
+    <string name="home_greeting_4">ピヨ! えいごが こわいときは わたしを みてね!</string>
+    <string name="home_greeting_5">きのうの じぶんより 1たんご おおく!</string>
+    <string name="home_greeting_6">りょこうで つかえる ひまで ✈️</string>
+    <string name="home_placement_en">レベルテストで じぶんの いちを みつけよう!\n25もんで ぴったりの レベルを きめるよ</string>
+    <string name="stage_kinder">ようちえん えいご</string>
+    <string name="stage_kinder_sub">アルファベット かき · あそびば</string>
+    <string name="stage_elem">しょうがく えいご</string>
+    <string name="stage_elem_sub">しょうがく コース · きそ 1~6ねん</string>
+    <string name="stage_middle">ちゅうがく · こうこう えいご</string>
+    <string name="stage_middle_sub">がくねんべつ きそ · ぶんぽう · どっかい</string>
+    <string name="stage_adult">おとな · じっせん えいご</string>
+    <string name="stage_adult_sub">かいわ · TOEIC · TOEFL</string>
+    <string name="stage_skills">ぶんやべつ トレーニング</string>
+    <string name="stage_skills_sub">リスニング · スピーキング · ライティング · ぶんぽう · どっかい</string>
+    <string-array name="weekday_short">
+        <item>日</item>
+        <item>月</item>
+        <item>火</item>
+        <item>水</item>
+        <item>木</item>
+        <item>金</item>
+        <item>土</item>
+    </string-array>
 
     <!-- 문제·해설 뼈대 -->
     <string name="tpl_c8b5801d">きこえた たんごの いみは?</string>

@@ -184,6 +184,57 @@
     <string name="bg_m_all_d">Toutes les compétences de maths niv.3+</string>
     <string name="bg_both">Champion des deux matières</string>
     <string name="bg_both_d">Niv.3+ en anglais et en maths</string>
+    <string name="home_greeting">Étudions ensemble aujourd\'hui !</string>
+    <string name="home_no_review">Aucune erreur à réviser ! 🐥</string>
+    <string name="goal_light">Léger (environ 1 leçon)</string>
+    <string name="goal_normal">Normal (2 à 3 leçons)</string>
+    <string name="goal_hard">Intense (environ 5 leçons)</string>
+    <string name="goal_beast">Mode bête (environ 10 leçons)</string>
+    <string name="goal_set_title">🎯 Fixe l\'objectif du jour</string>
+    <string name="cancel">Annuler</string>
+    <string name="home_wrong_count">Réviser %d</string>
+    <string name="home_overall_lv">Niveau global Lv.%s</string>
+    <string name="rank_next">  →  Titre suivant %1$s %2$s</string>
+    <string name="rank_next_short">  (→ %1$s niv.%2$.1f)</string>
+    <string name="rank_top">  (titre suprême !)</string>
+    <string name="home_daily_goal">Objectif du jour  %1$d / %2$d XP</string>
+    <string name="home_goal_done">  ✅ Atteint !</string>
+    <string name="weak_area">Point faible : %1$s %2$s</string>
+    <string name="not_started">  Pas commencé</string>
+    <string name="home_placement_math">Trouve ton niveau avec le test !\n25 questions choisissent l\'étape qui te convient</string>
+    <string name="stats_level_big">⭐ Niv.%1$d</string>
+    <string name="stats_xp_detail">%1$d XP au total · %2$d XP avant le niveau suivant</string>
+    <string name="stats_streak_info">Série de %1$d jours · record %2$d jours</string>
+    <string name="stats_counters">📚 Leçons terminées  %1$d\n💯 Leçons parfaites  %2$d\n💊 Erreurs corrigées  %3$d\n🗓 Jours étudiés  %4$d</string>
+    <string name="stats_none_yet">Aucune question résolue pour l\'instant</string>
+    <string name="stats_skill_line">%1$d bonnes / %2$d essais  ·  %3$d%% de réussite</string>
+    <string name="stats_next_level">  ·  %1$d de plus pour monter</string>
+    <string name="stats_max_level">  ·  Niveau max !</string>
+    <string name="home_greeting_2">La régularité est le plus grand talent 🐥</string>
+    <string name="home_greeting_3">Une seule question résolue et la journée est gagnée !</string>
+    <string name="home_greeting_4">Cui-cui ! Peur de l\'anglais ? Regarde-moi !</string>
+    <string name="home_greeting_5">Un mot de plus qu\'hier !</string>
+    <string name="home_greeting_6">Jusqu\'au jour où tu t\'en serviras en voyage ✈️</string>
+    <string name="home_placement_en">Trouve ton niveau avec le test !\n25 questions choisissent le bon niveau</string>
+    <string name="stage_kinder">Anglais maternelle</string>
+    <string name="stage_kinder_sub">Écriture de l\'alphabet · Aire de jeux</string>
+    <string name="stage_elem">Anglais primaire</string>
+    <string name="stage_elem_sub">Cours primaire · Bases années 1–6</string>
+    <string name="stage_middle">Anglais collège · lycée</string>
+    <string name="stage_middle_sub">Bases par niveau · Grammaire · Lecture</string>
+    <string name="stage_adult">Anglais adulte · pratique</string>
+    <string name="stage_adult_sub">Conversation · TOEIC · TOEFL</string>
+    <string name="stage_skills">Entraînement par compétence</string>
+    <string name="stage_skills_sub">Écoute · Oral · Écriture · Grammaire · Lecture</string>
+    <string-array name="weekday_short">
+        <item>Dim</item>
+        <item>Lun</item>
+        <item>Mar</item>
+        <item>Mer</item>
+        <item>Jeu</item>
+        <item>Ven</item>
+        <item>Sam</item>
+    </string-array>
 
     <!-- 문제·해설 뼈대 -->
     <string name="tpl_c8b5801d">Que veut dire le mot entendu ?</string>

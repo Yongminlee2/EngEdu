@@ -184,6 +184,57 @@
     <string name="bg_m_all_d">All math skills Lv.3+</string>
     <string name="bg_both">Double subject star</string>
     <string name="bg_both_d">Lv.3+ area in both English &amp; math</string>
+    <string name="home_greeting">Let\'s study together today!</string>
+    <string name="home_no_review">No mistakes to review! 🐥</string>
+    <string name="goal_light">Light (about 1 lesson)</string>
+    <string name="goal_normal">Normal (2–3 lessons)</string>
+    <string name="goal_hard">Hard (about 5 lessons)</string>
+    <string name="goal_beast">Beast mode (about 10 lessons)</string>
+    <string name="goal_set_title">🎯 Set today\'s goal</string>
+    <string name="cancel">Cancel</string>
+    <string name="home_wrong_count">Review %d</string>
+    <string name="home_overall_lv">Overall Lv.%s</string>
+    <string name="rank_next">  →  Next title %1$s %2$s</string>
+    <string name="rank_next_short">  (→ %1$s Lv.%2$.1f)</string>
+    <string name="rank_top">  (top title!)</string>
+    <string name="home_daily_goal">Today\'s goal  %1$d / %2$d XP</string>
+    <string name="home_goal_done">  ✅ Done!</string>
+    <string name="weak_area">Weakest area: %1$s %2$s</string>
+    <string name="not_started">  Not started</string>
+    <string name="home_placement_math">Find your grade with a placement test!\n25 questions pick the right level for you</string>
+    <string name="stats_level_big">⭐ Lv.%1$d</string>
+    <string name="stats_xp_detail">%1$d XP total · %2$d XP to next level</string>
+    <string name="stats_streak_info">%1$d-day streak · best %2$d days</string>
+    <string name="stats_counters">📚 Lessons finished  %1$d\n💯 Perfect lessons  %2$d\n💊 Mistakes cleared  %3$d\n🗓 Days studied  %4$d</string>
+    <string name="stats_none_yet">No questions solved yet</string>
+    <string name="stats_skill_line">%1$d correct / %2$d tries  ·  %3$d%% accuracy</string>
+    <string name="stats_next_level">  ·  %1$d more to level up</string>
+    <string name="stats_max_level">  ·  Max level!</string>
+    <string name="home_greeting_2">Consistency is the greatest talent 🐥</string>
+    <string name="home_greeting_3">Solve even one question and today\'s a win!</string>
+    <string name="home_greeting_4">Peep! Scared of English? Look at me!</string>
+    <string name="home_greeting_5">One more word than yesterday\'s me!</string>
+    <string name="home_greeting_6">Until the day you use it on a trip ✈️</string>
+    <string name="home_placement_en">Find your level with a placement test!\n25 questions pick the right level for you</string>
+    <string name="stage_kinder">Preschool English</string>
+    <string name="stage_kinder_sub">Alphabet writing · Playground</string>
+    <string name="stage_elem">Elementary English</string>
+    <string name="stage_elem_sub">Elementary course · Basics grades 1–6</string>
+    <string name="stage_middle">Middle &amp; high school English</string>
+    <string name="stage_middle_sub">Basics by grade · Grammar · Reading</string>
+    <string name="stage_adult">Adult &amp; practical English</string>
+    <string name="stage_adult_sub">Conversation · TOEIC · TOEFL</string>
+    <string name="stage_skills">Skill-by-skill training</string>
+    <string name="stage_skills_sub">Listening · Speaking · Writing · Grammar · Reading</string>
+    <string-array name="weekday_short">
+        <item>Sun</item>
+        <item>Mon</item>
+        <item>Tue</item>
+        <item>Wed</item>
+        <item>Thu</item>
+        <item>Fri</item>
+        <item>Sat</item>
+    </string-array>
 
     <!-- 문제·해설 뼈대 -->
     <string name="tpl_c8b5801d">What does the word you heard mean?</string>

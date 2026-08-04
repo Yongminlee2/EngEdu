@@ -184,6 +184,57 @@
     <string name="bg_m_all_d">ทุกด้านคณิต Lv.3 ขึ้นไป</string>
     <string name="bg_both">เก่งทั้งสองวิชา</string>
     <string name="bg_both_d">มีด้าน Lv.3+ ทั้งอังกฤษและคณิต</string>
+    <string name="home_greeting">วันนี้มาเรียนด้วยกันนะ!</string>
+    <string name="home_no_review">ไม่มีข้อผิดที่ต้องทบทวน! 🐥</string>
+    <string name="goal_light">เบา ๆ (ราว 1 บท)</string>
+    <string name="goal_normal">ปานกลาง (2–3 บท)</string>
+    <string name="goal_hard">ขยัน (ราว 5 บท)</string>
+    <string name="goal_beast">โหดสุด (ราว 10 บท)</string>
+    <string name="goal_set_title">🎯 ตั้งเป้าหมายวันนี้</string>
+    <string name="cancel">ยกเลิก</string>
+    <string name="home_wrong_count">ทบทวน %d</string>
+    <string name="home_overall_lv">ระดับรวม Lv.%s</string>
+    <string name="rank_next">  →  ฉายาถัดไป %1$s %2$s</string>
+    <string name="rank_next_short">  (→ %1$s Lv.%2$.1f)</string>
+    <string name="rank_top">  (ฉายาสูงสุด!)</string>
+    <string name="home_daily_goal">เป้าหมายวันนี้  %1$d / %2$d XP</string>
+    <string name="home_goal_done">  ✅ สำเร็จ!</string>
+    <string name="weak_area">จุดอ่อน: %1$s %2$s</string>
+    <string name="not_started">  ยังไม่เริ่ม</string>
+    <string name="home_placement_math">หาระดับชั้นของคุณด้วยแบบทดสอบ!\n25 ข้อจะเลือกขั้นที่เหมาะสมให้</string>
+    <string name="stats_level_big">⭐ Lv.%1$d</string>
+    <string name="stats_xp_detail">รวม %1$d XP · อีก %2$d XP ถึงระดับถัดไป</string>
+    <string name="stats_streak_info">ต่อเนื่อง %1$d วัน · สูงสุด %2$d วัน</string>
+    <string name="stats_counters">📚 บทที่เรียนจบ  %1$d\n💯 บทที่ได้เต็ม  %2$d\n💊 ข้อผิดที่แก้แล้ว  %3$d\n🗓 วันที่เรียน  %4$d</string>
+    <string name="stats_none_yet">ยังไม่ได้ทำโจทย์</string>
+    <string name="stats_skill_line">ถูก %1$d / ลอง %2$d  ·  ความแม่นยำ %3$d%%</string>
+    <string name="stats_next_level">  ·  อีก %1$d ข้อจะเลื่อนระดับ</string>
+    <string name="stats_max_level">  ·  ระดับสูงสุด!</string>
+    <string name="home_greeting_2">ความสม่ำเสมอคือพรสวรรค์ที่ดีที่สุด 🐥</string>
+    <string name="home_greeting_3">แค่ทำได้ข้อเดียว วันนี้ก็สำเร็จแล้ว!</string>
+    <string name="home_greeting_4">จิ๊บ! กลัวภาษาอังกฤษเหรอ มองฉันสิ!</string>
+    <string name="home_greeting_5">มากกว่าเมื่อวานอีกหนึ่งคำ!</string>
+    <string name="home_greeting_6">จนถึงวันที่ได้ใช้ตอนไปเที่ยว ✈️</string>
+    <string name="home_placement_en">หาระดับของคุณด้วยแบบทดสอบ!\n25 ข้อช่วยเลือกระดับที่เหมาะสม</string>
+    <string name="stage_kinder">อังกฤษอนุบาล</string>
+    <string name="stage_kinder_sub">หัดเขียนตัวอักษร · สนามเด็กเล่น</string>
+    <string name="stage_elem">อังกฤษประถม</string>
+    <string name="stage_elem_sub">คอร์สประถม · พื้นฐาน ป.1–6</string>
+    <string name="stage_middle">อังกฤษมัธยม</string>
+    <string name="stage_middle_sub">พื้นฐานตามชั้น · ไวยากรณ์ · การอ่าน</string>
+    <string name="stage_adult">อังกฤษผู้ใหญ่ · ใช้จริง</string>
+    <string name="stage_adult_sub">สนทนา · TOEIC · TOEFL</string>
+    <string name="stage_skills">ฝึกตามทักษะ</string>
+    <string name="stage_skills_sub">ฟัง · พูด · เขียน · ไวยากรณ์ · อ่าน</string>
+    <string-array name="weekday_short">
+        <item>อา</item>
+        <item>จ</item>
+        <item>อ</item>
+        <item>พ</item>
+        <item>พฤ</item>
+        <item>ศ</item>
+        <item>ส</item>
+    </string-array>
 
     <!-- 문제·해설 뼈대 -->
     <string name="tpl_c8b5801d">คำที่ได้ยินแปลว่าอะไร?</string>
