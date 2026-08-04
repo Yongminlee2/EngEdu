@@ -25,11 +25,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var b: ActivityMainBinding
     private var sfx: com.piyak.english.audio.Sfx? = null
     private var subject: com.piyak.english.model.Subject = com.piyak.english.model.Subject.ENGLISH
-    private val greetings = listOf(
-        "오늘도 삐약삐약 공부해요!", "꾸준함이 최고의 재능이에요 🐥",
-        "한 문제라도 풀면 오늘은 성공!", "삐약! 영어가 무서우면 저를 봐요!",
-        "어제의 나보다 한 단어 더!", "여행 가서 써먹을 그날까지 ✈️",
-    )
+    // 필드 초기화 시점에는 Context 가 없다 — 처음 쓸 때 리소스에서 읽는다
+    private val greetings by lazy {
+        listOf(
+            getString(R.string.home_greeting), getString(R.string.home_greeting_2),
+            getString(R.string.home_greeting_3), getString(R.string.home_greeting_4),
+            getString(R.string.home_greeting_5), getString(R.string.home_greeting_6),
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         b.btnReview.setOnClickListener {
             val db = Db.get(this)
             if (db.wrongCount() == 0) {
-                android.widget.Toast.makeText(this, "복습할 오답이 없어요! 삐약 🐥", android.widget.Toast.LENGTH_SHORT).show()
+                android.widget.Toast.makeText(this, getString(R.string.home_no_review), android.widget.Toast.LENGTH_SHORT).show()
             } else {
                 startActivity(Intent(this, LessonActivity::class.java).putExtra("mode", "review"))
             }
@@ -96,20 +99,20 @@ class MainActivity : AppCompatActivity() {
         val db = Db.get(this)
         val labels = DailyGoal.OPTIONS.map { xp ->
             val note = when (xp) {
-                20 -> "가볍게 (레슨 1개쯤)"
-                50 -> "보통 (레슨 2~3개)"
-                100 -> "열심히 (레슨 5개쯤)"
-                else -> "빡세게 (레슨 10개쯤)"
+                20 -> getString(R.string.goal_light)
+                50 -> getString(R.string.goal_normal)
+                100 -> getString(R.string.goal_hard)
+                else -> getString(R.string.goal_beast)
             }
             "$xp XP — $note"
         }.toTypedArray()
         androidx.appcompat.app.AlertDialog.Builder(this)
-            .setTitle("🎯 오늘의 목표 정하기")
+            .setTitle(getString(R.string.goal_set_title))
             .setItems(labels) { _, i ->
                 db.setDailyGoal(DailyGoal.OPTIONS[i])
                 refresh()
             }
-            .setNegativeButton("취소", null)
+            .setNegativeButton(getString(R.string.cancel), null)
             .show()
     }
 
@@ -144,14 +147,14 @@ class MainActivity : AppCompatActivity() {
         b.txtStreak.text = "$streak"
         b.txtLevel.text = "Lv.$lv"
         b.xpBar.progress = (Economy.levelProgress(xp) * 100).toInt()
-        b.txtReview.text = "오답 ${db.wrongCount()}"
+        b.txtReview.text = getString(R.string.home_wrong_count, db.wrongCount())
         // 배치고사 배너: 과목별로 아직 안 본 경우에만
         val placedKey = if (subject == com.piyak.english.model.Subject.MATH)
             "math_placement_done" else "placement_done"
         b.bannerPlacement.visibility = if (db.meta(placedKey) == "1") View.GONE else View.VISIBLE
         b.txtPlacement.text = if (subject == com.piyak.english.model.Subject.MATH)
-            "수학 레벨테스트로 내 학년 찾기!\n25문제로 딱 맞는 단계를 정해줘요"
-        else "레벨테스트로 내 위치 찾기!\n25문제로 딱 맞는 레벨을 정해줘요"
+            getString(R.string.home_placement_math)
+        else getString(R.string.home_placement_en)
 
         // 상점에서 산 테마 배경 적용
         val theme = Color.parseColor(db.themeColor())
@@ -178,13 +181,13 @@ class MainActivity : AppCompatActivity() {
         b.txtRank.text = "${rank.emoji} ${getString(rank.titleRes)}" + if (sticker.isNotEmpty()) " $sticker" else ""
         b.rankBar.progress = (Ranks.progress(overall) * 100).toInt()
         val next = Ranks.next(overall)
-        b.txtOverall.text = String.format("종합 실력 Lv.%.1f", overall) +
-            if (next != null) "  →  다음 칭호 ${next.emoji} ${getString(next.titleRes)}" else "  (최고 칭호!)"
+        b.txtOverall.text = getString(R.string.home_overall_lv, String.format("%.1f", overall)) +
+            if (next != null) getString(R.string.rank_next, next.emoji, getString(next.titleRes)) else getString(R.string.rank_top)
 
         val goal = db.dailyGoal()
         val todayXp = db.xpToday()
         val done = DailyGoal.isDone(todayXp, goal)
-        b.txtGoal.text = "오늘의 목표  $todayXp / $goal XP" + if (done) "   ✅ 달성!" else ""
+        b.txtGoal.text = getString(R.string.home_daily_goal, todayXp, goal) + if (done) getString(R.string.home_goal_done) else ""
         b.goalBar.progress = (DailyGoal.progress(todayXp, goal) * 100).toInt()
         b.goalBar.progressTintList = ColorStateList.valueOf(
             Color.parseColor(if (done) "#66BB6A" else "#FF8A80")
@@ -192,7 +195,7 @@ class MainActivity : AppCompatActivity() {
 
         val weak = Skills.weakest(states)
         b.txtWeakest.text = if (weak != null && weak.attempts >= 0)
-            "약한 영역: ${weak.def.emoji} ${getString(weak.def.titleRes)}" else ""
+            getString(R.string.weak_area, weak.def.emoji, getString(weak.def.titleRes)) else ""
 
         b.skillsBox.removeAllViews()
         for (st in states) b.skillsBox.addView(skillRow(st))
@@ -226,7 +229,7 @@ class MainActivity : AppCompatActivity() {
             layoutParams = LinearLayout.LayoutParams(0, dp(10f).toInt(), 1f)
         })
         row.addView(TextView(this).apply {
-            text = if (st.attempts == 0) "  시작 전" else "  ${st.accuracy}%"
+            text = if (st.attempts == 0) getString(R.string.not_started) else "  ${st.accuracy}%"
             textSize = 12f
             setTextColor(Color.parseColor("#8D6E63"))
             width = dp(58f).toInt()
@@ -238,13 +241,13 @@ class MainActivity : AppCompatActivity() {
     /** 홈의 단계 카드 5장 — 유치원/초등/중등·고등/성인·실전/영역별 */
     private fun buildTrackCards(db: Db) {
         b.tracksBox.removeAllViews()
-        data class Stage(val emoji: String, val title: String, val sub: String, val color: String, val id: String)
+        data class Stage(val emoji: String, val title: Int, val sub: Int, val color: String, val id: String)
         val stages = listOf(
-            Stage("🐣", "유치원 영어", "알파벳 쓰기 · 놀이터", "#FFF3D6", "kinder"),
-            Stage("📗", "초등 영어", "초등영어 코스 · 기초 1~6학년", "#E8F6EA", "elementary"),
-            Stage("📘", "중등 · 고등 영어", "학년별 기초 · 문법 · 독해", "#E3F4FD", "middle"),
-            Stage("✈️", "성인 · 실전 영어", "회화 · 토익 · 토플", "#F3EDFB", "adult"),
-            Stage("🎯", "영역별 훈련", "듣기 · 말하기 · 쓰기 · 문법 · 독해", "#FDE2E2", "skills"),
+            Stage("🐣", R.string.stage_kinder, R.string.stage_kinder_sub, "#FFF3D6", "kinder"),
+            Stage("📗", R.string.stage_elem, R.string.stage_elem_sub, "#E8F6EA", "elementary"),
+            Stage("📘", R.string.stage_middle, R.string.stage_middle_sub, "#E3F4FD", "middle"),
+            Stage("✈️", R.string.stage_adult, R.string.stage_adult_sub, "#F3EDFB", "adult"),
+            Stage("🎯", R.string.stage_skills, R.string.stage_skills_sub, "#FDE2E2", "skills"),
         )
         // codex 단계 일러스트 (발주서 #04) — 없으면 이모지 동그라미로
         fun stageArt(id: String): Int =
@@ -294,13 +297,13 @@ class MainActivity : AppCompatActivity() {
                 setPadding(dp(14f).toInt(), 0, 0, 0)
             }
             col.addView(TextView(this).apply {
-                text = s.title
+                text = getString(s.title)
                 textSize = 18f
                 setTypeface(typeface, android.graphics.Typeface.BOLD)
                 setTextColor(Color.parseColor("#4E342E"))
             })
             col.addView(TextView(this).apply {
-                text = s.sub
+                text = getString(s.sub)
                 textSize = 13f
                 setTextColor(Color.parseColor("#8D6E63"))
             })

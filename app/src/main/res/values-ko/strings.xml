@@ -184,4 +184,55 @@
     <string name="bg_m_all_d">수학 모든 영역 Lv.3 이상</string>
     <string name="bg_both">두 과목 척척</string>
     <string name="bg_both_d">영어·수학 모두 Lv.3 이상 영역 보유</string>
+    <string name="home_greeting">오늘도 삐약삐약 공부해요!</string>
+    <string name="home_no_review">복습할 오답이 없어요! 삐약 🐥</string>
+    <string name="goal_light">가볍게 (레슨 1개쯤)</string>
+    <string name="goal_normal">보통 (레슨 2~3개)</string>
+    <string name="goal_hard">열심히 (레슨 5개쯤)</string>
+    <string name="goal_beast">빡세게 (레슨 10개쯤)</string>
+    <string name="goal_set_title">🎯 오늘의 목표 정하기</string>
+    <string name="cancel">취소</string>
+    <string name="home_wrong_count">오답 %d</string>
+    <string name="home_overall_lv">종합 실력 Lv.%s</string>
+    <string name="rank_next">  →  다음 칭호 %1$s %2$s</string>
+    <string name="rank_next_short">  (→ %1$s Lv.%2$.1f)</string>
+    <string name="rank_top">  (최고 칭호!)</string>
+    <string name="home_daily_goal">오늘의 목표  %1$d / %2$d XP</string>
+    <string name="home_goal_done">   ✅ 달성!</string>
+    <string name="weak_area">약한 영역: %1$s %2$s</string>
+    <string name="not_started">  시작 전</string>
+    <string name="home_placement_math">레벨테스트로 내 학년 찾기!\n25문제로 딱 맞는 단계를 정해줘요</string>
+    <string name="stats_level_big">⭐ Lv.%1$d</string>
+    <string name="stats_xp_detail">누적 %1$d XP · 다음 레벨까지 %2$d XP</string>
+    <string name="stats_streak_info">현재 %1$d일 연속 · 최고 %2$d일</string>
+    <string name="stats_counters">📚 완료한 레슨  %1$d개\n💯 퍼펙트 레슨  %2$d개\n💊 클리어한 오답  %3$d개\n🗓 공부한 날  %4$d일</string>
+    <string name="stats_none_yet">아직 풀어본 문제가 없어요</string>
+    <string name="stats_skill_line">정답 %1$d / 시도 %2$d  ·  정답률 %3$d%%</string>
+    <string name="stats_next_level">  ·  다음 레벨까지 %1$d문제</string>
+    <string name="stats_max_level">  ·  최고 레벨!</string>
+    <string name="home_greeting_2">꾸준함이 최고의 재능이에요 🐥</string>
+    <string name="home_greeting_3">한 문제라도 풀면 오늘은 성공!</string>
+    <string name="home_greeting_4">삐약! 영어가 무서우면 저를 봐요!</string>
+    <string name="home_greeting_5">어제의 나보다 한 단어 더!</string>
+    <string name="home_greeting_6">여행 가서 써먹을 그날까지 ✈️</string>
+    <string name="home_placement_en">레벨테스트로 내 위치 찾기!\n25문제로 딱 맞는 레벨을 정해줘요</string>
+    <string name="stage_kinder">유치원 영어</string>
+    <string name="stage_kinder_sub">알파벳 쓰기 · 놀이터</string>
+    <string name="stage_elem">초등 영어</string>
+    <string name="stage_elem_sub">초등영어 코스 · 기초 1~6학년</string>
+    <string name="stage_middle">중등 · 고등 영어</string>
+    <string name="stage_middle_sub">학년별 기초 · 문법 · 독해</string>
+    <string name="stage_adult">성인 · 실전 영어</string>
+    <string name="stage_adult_sub">회화 · 토익 · 토플</string>
+    <string name="stage_skills">영역별 훈련</string>
+    <string name="stage_skills_sub">듣기 · 말하기 · 쓰기 · 문법 · 독해</string>
+    <string-array name="weekday_short">
+        <item>일</item>
+        <item>월</item>
+        <item>화</item>
+        <item>수</item>
+        <item>목</item>
+        <item>금</item>
+        <item>토</item>
+    </string-array>
 </resources>

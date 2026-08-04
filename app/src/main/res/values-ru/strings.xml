@@ -184,6 +184,57 @@
     <string name="bg_m_all_d">Все области математики ур.3+</string>
     <string name="bg_both">Силён в двух предметах</string>
     <string name="bg_both_d">Область ур.3+ и в английском, и в математике</string>
+    <string name="home_greeting">Позанимаемся сегодня вместе!</string>
+    <string name="home_no_review">Нет ошибок для повторения! 🐥</string>
+    <string name="goal_light">Легко (около 1 урока)</string>
+    <string name="goal_normal">Обычно (2–3 урока)</string>
+    <string name="goal_hard">Усердно (около 5 уроков)</string>
+    <string name="goal_beast">На максимум (около 10 уроков)</string>
+    <string name="goal_set_title">🎯 Задай цель на сегодня</string>
+    <string name="cancel">Отмена</string>
+    <string name="home_wrong_count">Ошибки %d</string>
+    <string name="home_overall_lv">Общий Ур.%s</string>
+    <string name="rank_next">  →  Следующее звание %1$s %2$s</string>
+    <string name="rank_next_short">  (→ %1$s ур.%2$.1f)</string>
+    <string name="rank_top">  (высшее звание!)</string>
+    <string name="home_daily_goal">Цель дня  %1$d / %2$d XP</string>
+    <string name="home_goal_done">  ✅ Готово!</string>
+    <string name="weak_area">Слабая область: %1$s %2$s</string>
+    <string name="not_started">  Не начато</string>
+    <string name="home_placement_math">Найди свой класс с помощью теста!\n25 вопросов подберут подходящий уровень</string>
+    <string name="stats_level_big">⭐ Ур.%1$d</string>
+    <string name="stats_xp_detail">Всего %1$d XP · до следующего уровня %2$d XP</string>
+    <string name="stats_streak_info">Серия %1$d дней · рекорд %2$d дней</string>
+    <string name="stats_counters">📚 Пройдено уроков  %1$d\n💯 Идеальных уроков  %2$d\n💊 Закрыто ошибок  %3$d\n🗓 Дней занятий  %4$d</string>
+    <string name="stats_none_yet">Пока нет решённых задач</string>
+    <string name="stats_skill_line">%1$d верно / %2$d попыток  ·  точность %3$d%%</string>
+    <string name="stats_next_level">  ·  ещё %1$d до уровня</string>
+    <string name="stats_max_level">  ·  Максимальный уровень!</string>
+    <string name="home_greeting_2">Постоянство — главный талант 🐥</string>
+    <string name="home_greeting_3">Решил хоть одну задачу — день удался!</string>
+    <string name="home_greeting_4">Пи-пи! Боишься английского? Смотри на меня!</string>
+    <string name="home_greeting_5">На одно слово больше, чем вчера!</string>
+    <string name="home_greeting_6">До того дня, когда пригодится в путешествии ✈️</string>
+    <string name="home_placement_en">Найди свой уровень с тестом!\n25 вопросов подберут подходящий уровень</string>
+    <string name="stage_kinder">Английский для малышей</string>
+    <string name="stage_kinder_sub">Письмо алфавита · Игровая площадка</string>
+    <string name="stage_elem">Английский для начальной школы</string>
+    <string name="stage_elem_sub">Курс начальной школы · Базовый 1–6 класс</string>
+    <string name="stage_middle">Английский для средней и старшей школы</string>
+    <string name="stage_middle_sub">База по классам · Грамматика · Чтение</string>
+    <string name="stage_adult">Английский для взрослых · практика</string>
+    <string name="stage_adult_sub">Разговор · TOEIC · TOEFL</string>
+    <string name="stage_skills">Тренировка по областям</string>
+    <string name="stage_skills_sub">Аудирование · Говорение · Письмо · Грамматика · Чтение</string>
+    <string-array name="weekday_short">
+        <item>Вс</item>
+        <item>Пн</item>
+        <item>Вт</item>
+        <item>Ср</item>
+        <item>Чт</item>
+        <item>Пт</item>
+        <item>Сб</item>
+    </string-array>
 
     <!-- 문제·해설 뼈대 -->
     <string name="tpl_c8b5801d">Что означает услышанное слово?</string>

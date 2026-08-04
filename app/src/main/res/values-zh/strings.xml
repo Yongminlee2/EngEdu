@@ -184,6 +184,57 @@
     <string name="bg_m_all_d">数学所有领域 Lv.3 以上</string>
     <string name="bg_both">两科都拿手</string>
     <string name="bg_both_d">英语·数学都有 Lv.3 以上领域</string>
+    <string name="home_greeting">今天也一起学习吧！</string>
+    <string name="home_no_review">没有需要复习的错题！🐥</string>
+    <string name="goal_light">轻松 (约1课)</string>
+    <string name="goal_normal">普通 (2~3课)</string>
+    <string name="goal_hard">努力 (约5课)</string>
+    <string name="goal_beast">硬核 (约10课)</string>
+    <string name="goal_set_title">🎯 设定今天的目标</string>
+    <string name="cancel">取消</string>
+    <string name="home_wrong_count">错题 %d</string>
+    <string name="home_overall_lv">综合水平 Lv.%s</string>
+    <string name="rank_next">  →  下一个称号 %1$s %2$s</string>
+    <string name="rank_next_short">  (→ %1$s Lv.%2$.1f)</string>
+    <string name="rank_top">  (最高称号!)</string>
+    <string name="home_daily_goal">今日目标  %1$d / %2$d XP</string>
+    <string name="home_goal_done">  ✅ 达成！</string>
+    <string name="weak_area">薄弱领域: %1$s %2$s</string>
+    <string name="not_started">  未开始</string>
+    <string name="home_placement_math">用分级测试找到适合的年级!\n25道题为你定好合适的阶段</string>
+    <string name="stats_level_big">⭐ Lv.%1$d</string>
+    <string name="stats_xp_detail">累计 %1$d XP · 距下一级 %2$d XP</string>
+    <string name="stats_streak_info">当前连续 %1$d 天 · 最长 %2$d 天</string>
+    <string name="stats_counters">📚 完成的课程  %1$d\n💯 满分课程  %2$d\n💊 攻克的错题  %3$d\n🗓 学习天数  %4$d</string>
+    <string name="stats_none_yet">还没做过题</string>
+    <string name="stats_skill_line">答对 %1$d / 尝试 %2$d  ·  正确率 %3$d%%</string>
+    <string name="stats_next_level">  ·  距升级还差 %1$d 题</string>
+    <string name="stats_max_level">  ·  已达最高等级!</string>
+    <string name="home_greeting_2">坚持就是最好的天赋 🐥</string>
+    <string name="home_greeting_3">哪怕只做一题，今天也算成功!</string>
+    <string name="home_greeting_4">叽叽! 怕英语的话就看看我!</string>
+    <string name="home_greeting_5">比昨天的自己多一个单词!</string>
+    <string name="home_greeting_6">直到旅行时用上的那天 ✈️</string>
+    <string name="home_placement_en">用分级测试找到你的位置!\n25道题帮你定好合适的级别</string>
+    <string name="stage_kinder">幼儿英语</string>
+    <string name="stage_kinder_sub">字母书写 · 游乐场</string>
+    <string name="stage_elem">小学英语</string>
+    <string name="stage_elem_sub">小学课程 · 基础1~6年级</string>
+    <string name="stage_middle">初中·高中英语</string>
+    <string name="stage_middle_sub">按年级基础 · 语法 · 阅读</string>
+    <string name="stage_adult">成人·实用英语</string>
+    <string name="stage_adult_sub">会话 · 托业 · 托福</string>
+    <string name="stage_skills">分领域训练</string>
+    <string name="stage_skills_sub">听力 · 口语 · 写作 · 语法 · 阅读</string>
+    <string-array name="weekday_short">
+        <item>日</item>
+        <item>一</item>
+        <item>二</item>
+        <item>三</item>
+        <item>四</item>
+        <item>五</item>
+        <item>六</item>
+    </string-array>
 
     <!-- 문제·해설 뼈대 -->
     <string name="tpl_c8b5801d">听到的单词是什么意思?</string>
