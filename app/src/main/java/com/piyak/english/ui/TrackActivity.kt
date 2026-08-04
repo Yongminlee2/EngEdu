@@ -89,8 +89,12 @@ class TrackActivity : AppCompatActivity() {
                     }
                     if (!isDone && unlocked) {
                         // 다음에 풀 레슨 위에 병아리가 서 있다 (듀오링고처럼)
+                        //
+                        // 사방 9dp 로 균등하게 넣으면 발과 몸통 양옆이 원 테두리에 닿아
+                        // **잘린 것처럼 보인다.** 위를 줄이고 아래를 늘려 살짝 띄운다.
+                        // 좌우 합(22)과 상하 합(22)이 같아야 상자가 정사각형이라 안 찌그러진다.
                         foreground = android.graphics.drawable.InsetDrawable(
-                            getDrawable(R.drawable.ck_idle), dp(9)
+                            getDrawable(R.drawable.ck_idle), dp(11), dp(7), dp(11), dp(15)
                         )
                     }
                     textSize = if (isDone) 11f else 22f
