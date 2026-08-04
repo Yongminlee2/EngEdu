@@ -17,4 +17,4 @@
     banner_* 배너
 -->
 <resources xmlns:tools="http://schemas.android.com/tools"
-    tools:keep="@drawable/word_*,@drawable/ck_*,@drawable/scene_*,@drawable/stage_*,@drawable/shop_*,@drawable/stk_*,@drawable/ui_*,@drawable/banner_*" />
+    tools:keep="@string/tpl_*,@array/tpl_words,@array/tpl_units,@drawable/word_*,@drawable/ck_*,@drawable/scene_*,@drawable/stage_*,@drawable/shop_*,@drawable/stk_*,@drawable/ui_*,@drawable/banner_*" />
