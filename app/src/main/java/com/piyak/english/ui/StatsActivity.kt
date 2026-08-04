@@ -154,6 +154,10 @@ class StatsActivity : AppCompatActivity() {
                 // 칸이 화면 1/3 이라 한 줄로는 "Estudiante ejemplar" 같은 이름이 잘린다
                 maxLines = 2
                 ellipsize = android.text.TextUtils.TruncateAt.END
+                // 낱말 중간에서 끊지 않는다 — 러시아어 "Цыплёнок-универсал" 이
+                // "универс / ал" 로 갈라지던 것
+                breakStrategy = android.text.Layout.BREAK_STRATEGY_BALANCED
+                hyphenationFrequency = android.text.Layout.HYPHENATION_FREQUENCY_NONE
                 androidx.core.widget.TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(
                     this, 9, 12, 1, android.util.TypedValue.COMPLEX_UNIT_SP)
 
