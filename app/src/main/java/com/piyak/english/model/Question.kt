@@ -34,6 +34,22 @@ sealed class Question {
         override val explain: String? = null,
         /** 문제 위에 크게 띄울 그림 이모지 (초등영어 그림 문제) */
         val bigEmoji: String? = null,
+        /**
+         * 보기를 **그림으로** 보여줄 때의 drawable 이름들 (choices 와 같은 순서).
+         *
+         * 뜻을 한국어 낱말로 물으면 그 문제는 한국어 화자 전용이 된다.
+         * 그림으로 물으면 **어느 나라 아이도 그대로 풀 수 있고**,
+         * 그림·소리·철자가 한 화면에 붙는 편이 학습에도 낫다.
+         * 비어 있으면 예전처럼 글자 보기를 쓴다.
+         */
+        val choiceArt: List<String> = emptyList(),
+        /**
+         * 문제 위에 크게 띄울 **그림 이름**.
+         *
+         * 뜻을 한국어로 적는 대신 그림을 보여 주고 영어를 묻는 문제에 쓴다.
+         * 문제문에 한국어 낱말이 없으므로 문장만 번역하면 어느 언어에서도 그대로 쓸 수 있다.
+         */
+        val bigArt: String? = null,
     ) : Question()
 
     /** TTS 로 tts 를 들려준 뒤 4지선다. */
@@ -129,7 +145,9 @@ sealed class Question {
                 "mcq", "reading" -> Mcq(
                     id, o.getString("prompt"), strList(o.getJSONArray("choices")),
                     o.getInt("answer"), o.optString("passage").ifEmpty { null }, explain,
-                    o.optString("bigEmoji").ifEmpty { null }
+                    o.optString("bigEmoji").ifEmpty { null },
+                    strListOpt(o.optJSONArray("choiceArt")),
+                    o.optString("bigArt").ifEmpty { null }
                 )
                 "listen_mcq" -> ListenMcq(
                     id, o.getString("tts"), o.optString("prompt", "무엇을 들었나요?"),

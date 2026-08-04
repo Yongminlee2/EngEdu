@@ -512,6 +512,78 @@ class LessonActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * 보기를 **그림 2×2** 로 보여준다.
+     *
+     * 뜻을 한국어 낱말로 물으면 그 문제는 한국어 화자 전용이 된다.
+     * 그림으로 물으면 어느 나라 아이도 그대로 풀 수 있고, 저학년에게는
+     * 글자를 읽는 것보다 그림을 고르는 편이 애초에 더 맞는 방식이다.
+     *
+     * 채점은 그대로 answer(인덱스)로 한다 — 보기 글자가 무엇이든 상관없다.
+     */
+    private fun renderArtChoices(
+        box: LinearLayout, choices: List<String>, choiceArt: List<String>,
+        answer: Int, explain: String?, answerText: String,
+    ) {
+        val grid = android.widget.GridLayout(this).apply {
+            columnCount = 2
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+        }
+        var selected = -1
+        val cards = ArrayList<View>()
+        choices.indices.forEach { i ->
+            val card = LinearLayout(this).apply {
+                orientation = LinearLayout.VERTICAL
+                gravity = android.view.Gravity.CENTER
+                setPadding(dp(6), dp(8), dp(6), dp(8))
+                background = getDrawable(R.drawable.bg_tile)
+                layoutParams = android.widget.GridLayout.LayoutParams().apply {
+                    width = 0
+                    height = dp(132)
+                    columnSpec = android.widget.GridLayout.spec(
+                        android.widget.GridLayout.UNDEFINED, 1f
+                    )
+                    setMargins(dp(5), dp(5), dp(5), dp(5))
+                }
+            }
+            val res = artRes(choiceArt.getOrNull(i))
+            if (res != 0) {
+                card.addView(android.widget.ImageView(this).apply {
+                    setImageResource(res)
+                    layoutParams = LinearLayout.LayoutParams(dp(96), dp(96))
+                })
+            } else {
+                // 그림이 없으면 글자로라도 보여 준다 (빈 칸은 절대 만들지 않는다)
+                card.addView(TextView(this).apply {
+                    text = choices[i]
+                    textSize = 17f
+                    gravity = android.view.Gravity.CENTER
+                    setTextColor(Color.parseColor("#4E342E"))
+                })
+            }
+            card.setOnClickListener {
+                selected = i
+                sfx.piyak()
+                cards.forEachIndexed { j, c ->
+                    val on = j == i
+                    c.alpha = if (on) 1f else 0.4f
+                    c.scaleX = if (on) 1.04f else 1f
+                    c.scaleY = if (on) 1.04f else 1f
+                }
+                b.btnCheck.isEnabled = true
+            }
+            cards.add(card)
+            grid.addView(card)
+        }
+        box.addView(grid)
+        checkAction = {
+            val ok = selected == answer
+            submitAnswer(ok, if (ok) null else "정답: $answerText", explain)
+        }
+    }
+
     /** 짧은 보기: 버블로 띄운다. 시간 압박은 없고 움직임과 터치감만 더한다. */
     private fun renderBubbleChoices(
         box: LinearLayout, choices: List<String>, answer: Int,
@@ -557,6 +629,8 @@ class LessonActivity : AppCompatActivity() {
         when {
             // 독해는 지문·보기가 길다. 그림은 책 병아리 하나만 작게 (아래에서 붙인다)
             q.passage != null -> Unit
+            // 문제가 그림을 직접 지정했으면 그게 최우선 (뜻을 글자 대신 그림으로 묻는 문제)
+            q.bigArt != null && artRes(q.bigArt) != 0 -> addArt(v, artRes(q.bigArt), 175)
             quotedArt != 0 -> addArt(v, quotedArt, 175)
             // 초등영어처럼 이모지가 붙어 온 문제도 낱말 그림이 있으면 그걸 먼저 쓴다
             q.bigEmoji != null -> {
@@ -603,7 +677,15 @@ class LessonActivity : AppCompatActivity() {
             }
         }
         v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
-        renderChoices(v.findViewById(R.id.choicesBox), q.choices, q.answer, q.explain, q.choices[q.answer])
+        // 그림 보기가 붙어 오면 글자 대신 그림으로 고르게 한다 (언어를 안 타는 문제)
+        if (q.choiceArt.isNotEmpty()) {
+            renderArtChoices(
+                v.findViewById(R.id.choicesBox), q.choices, q.choiceArt,
+                q.answer, q.explain, q.choices[q.answer]
+            )
+        } else {
+            renderChoices(v.findViewById(R.id.choicesBox), q.choices, q.answer, q.explain, q.choices[q.answer])
+        }
     }
 
     private fun showListenMcq(q: Question.ListenMcq) {
