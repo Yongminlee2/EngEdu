@@ -118,7 +118,31 @@ function readJsonl(file) {
 
 // ---------- 검증 ----------
 let total = 0;
+/**
+ * 번역 가능한 문제문을 만든다.
+ *
+ *   tp("a1b2c3d4", [w], `"${w}" 의 뜻은?`)
+ *
+ * String 객체를 돌려주므로 **문자열처럼 그대로 쓸 수 있고**, 한국어 원문이 그대로 남는다.
+ * 문제 빌더에 넘기면 팩에 tk(뼈대 키) + ta(값)가 함께 실리고,
+ * 앱은 폰 언어의 tpl_<키> 를 찾아 값을 끼워 넣는다. 없으면 한국어 그대로.
+ * 이 호출은 tools/i18n/keyify.js 가 자동으로 심는다 — 손으로 쓰지 말 것.
+ */
+function tp(key, args, ko) {
+  const s = new String(ko);
+  s.tk = key;
+  s.ta = args.map((v) => String(v));
+  return s;
+}
+
+/** tp() 로 감싼 문장이면 키·값을 문제에 옮겨 담고 알맹이 문자열을 돌려준다 */
+function unwrapTp(q, v) {
+  if (v instanceof String && v.tk) { q.tk = v.tk; q.ta = v.ta; }
+  return v == null ? v : String(v);
+}
+
 function validate(q) {
+  if (q.prompt != null) q.prompt = unwrapTp(q, q.prompt);
   const fail = (m) => { throw new Error(`검증 실패 [${q.id}] ${m}: ${JSON.stringify(q).slice(0, 200)}`); };
   if (["mcq", "reading", "listen_mcq", "listen_dialog"].includes(q.type)) {
     if (!q.choices || q.choices.length !== 4) fail("선택지 4개 아님");
@@ -316,12 +340,12 @@ function scenePick(key, arr) {
   return arr[Math.abs(h) % arr.length];
 }
 const SCENE_MEAN = [
-  (w) => `"${w}" 의 뜻은?`,
-  (w) => `삐약이가 "${w}!" 하고 외쳤어요. 무슨 뜻일까요?`,
-  (w) => `칠판에 "${w}" 라고 적혀 있어요. 뜻을 골라 보세요!`,
-  (w) => `토끼가 물었어요. "${w} 가 무슨 뜻이야?"`,
-  (w) => `그림책에서 "${w}" 를 봤어요. 무슨 뜻일까요?`,
-  (w) => `오늘의 단어는 "${w}"! 뜻을 맞혀 볼까요?`,
+  (w) => tp("a933e669", [w], `"${w}" 의 뜻은?`),
+  (w) => tp("55f8727e", [w], `삐약이가 "${w}!" 하고 외쳤어요. 무슨 뜻일까요?`),
+  (w) => tp("452676ab", [w], `칠판에 "${w}" 라고 적혀 있어요. 뜻을 골라 보세요!`),
+  (w) => tp("01751329", [w], `토끼가 물었어요. "${w} 가 무슨 뜻이야?"`),
+  (w) => tp("98393c1b", [w], `그림책에서 "${w}" 를 봤어요. 무슨 뜻일까요?`),
+  (w) => tp("f3b29e08", [w], `오늘의 단어는 "${w}"! 뜻을 맞혀 볼까요?`),
 ];
 /**
  * 그림 보기 문제의 문제문.
@@ -334,17 +358,17 @@ const PROMPT_WHAT_EN = "이 그림을 영어로 뭐라고 할까요?";
 /** 듣고 그림을 고른다 */
 const PROMPT_HEARD_PIC = "들린 단어의 그림은?";
 const SCENE_PICK_ART = [
-  (w) => `"${w}" 는 어떤 그림일까요?`,
-  (w) => `"${w}" 를 그림에서 찾아 보세요!`,
-  (w) => `삐약이가 "${w}" 를 찾고 있어요. 어떤 그림일까요?`,
-  (w) => `"${w}" 에 어울리는 그림을 골라 보세요.`,
+  (w) => tp("375f518e", [w], `"${w}" 는 어떤 그림일까요?`),
+  (w) => tp("ad76c0d4", [w], `"${w}" 를 그림에서 찾아 보세요!`),
+  (w) => tp("6dc70e58", [w], `삐약이가 "${w}" 를 찾고 있어요. 어떤 그림일까요?`),
+  (w) => tp("a0168b2f", [w], `"${w}" 에 어울리는 그림을 골라 보세요.`),
 ];
 const SCENE_TOEN = [
-  (k) => `"${k}" 를 영어로?`,
-  (k) => `삐약이에게 "${k}" 를 영어로 알려 주세요!`,
-  (k) => `펭귄이 궁금해해요. "${k}" 는 영어로?`,
-  (k) => `영어 시간! "${k}" 를 영어로 골라 보세요.`,
-  (k) => `엄마가 물었어요. "${k} 가 영어로 뭐야?"`,
+  (k) => tp("b797909f", [k], `"${k}" 를 영어로?`),
+  (k) => tp("21a6d4b2", [k], `삐약이에게 "${k}" 를 영어로 알려 주세요!`),
+  (k) => tp("4002700b", [k], `펭귄이 궁금해해요. "${k}" 는 영어로?`),
+  (k) => tp("b5f5d7a9", [k], `영어 시간! "${k}" 를 영어로 골라 보세요.`),
+  (k) => tp("b2ecaffb", [k], `엄마가 물었어요. "${k} 가 영어로 뭐야?"`),
 ];
 
     const exLine = (w) => (w.exEn ? `\n예문: ${w.exEn}\n      ${w.exKo}` : "");
@@ -380,7 +404,7 @@ const SCENE_TOEN = [
         // 보기는 한국어 뜻 그대로, 그림을 나란히 싣는다 (한국 폰은 예전 그대로)
         const others3 = pickDistinctBy(words, 3, w, (x) => x.ko);
         const d = others3.map((x) => x.ko);
-        stream.push(listenMcq("b", w.word, "들린 단어의 뜻은?", w.ko, d,
+        stream.push(listenMcq("b", w.word, tp("c8b5801d", [], "들린 단어의 뜻은?"), w.ko, d,
           `🔊 들려준 단어: ${w.word} = ${w.ko}${exLine(w)}\n\n다른 선택지는 각각: ${glossK(d)} 의 뜻이에요.`, koArtOf(words)));
       }
       // 4R: 받아쓰기(짧은 단어) / 빈칸(긴 단어)
@@ -473,7 +497,7 @@ function genDailyUnits() {
       // 레슨 A: 표현 익히기
       const qa = [];
       for (const [, en, ko] of lines.slice(0, 5))
-        qa.push(listenMcq("d", en, "들린 문장의 뜻은?", ko,
+        qa.push(listenMcq("d", en, tp("366dec85", [], "들린 문장의 뜻은?"), ko,
           pickDistinct(koPool.length >= 4 ? koPool : koPool.concat(GENERIC_KO), 3, [ko]), `${en}\n= ${ko}`));
       for (const [, en, ko] of lines) {
         const toks = en.split(" ").filter(Boolean);
@@ -676,7 +700,7 @@ function genListeningUnits() {
     const qs = [];
     for (const w of words) {
       const d = pickDistinct(koPool, 3, [w.ko]);
-      qs.push(listenMcq("L", w.word, "들린 단어의 뜻은?", w.ko, d,
+      qs.push(listenMcq("L", w.word, tp("c8b5801d", [], "들린 단어의 뜻은?"), w.ko, d,
         `🔊 ${w.word} = ${w.ko}\n\n다른 선택지: ${d.map((k) => `'${k}'`).join(" · ")}\n귀로 들은 소리와 철자를 함께 떠올려 보세요.`));
       if (w.word.length <= 10 && !w.word.includes(" "))
         qs.push(dictationQ("L", w.word, w.word, w.ko, `📌 ${w.word} = ${w.ko}\n철자: ${w.word.split("").join("-")}`));
@@ -852,7 +876,7 @@ function genPlacement() {
     const words = shuffled(vocab[L] || []).slice(0, 8);
     const koPool = (vocab[L] || []).map((w) => w.ko);
     for (const w of words) {
-      const q = mcq("p", `"${w.word}" 의 뜻은?`, w.ko, pickDistinct(koPool, 3, [w.ko]));
+      const q = mcq("p", tp("a933e669", [w.word], `"${w.word}" 의 뜻은?`), w.ko, pickDistinct(koPool, 3, [w.ko]));
       q.level = L;
       questions.push(q);
     }

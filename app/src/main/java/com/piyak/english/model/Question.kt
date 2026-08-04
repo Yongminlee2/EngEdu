@@ -204,6 +204,19 @@ sealed class Question {
             }
         }
 
+        /**
+         * 문제문을 **폰 언어로** 조립한다.
+         *
+         * 팩에는 한국어 원문(prompt)과 함께 뼈대 키(tk)·값(ta)이 실려 있다.
+         * 한국 폰이거나 번역이 없으면 **한국어 원문을 그대로** 돌려준다.
+         */
+        private fun tpl(o: JSONObject, fallback: String? = null): String {
+            val ko = fallback ?: o.getString("prompt")
+            return com.piyak.english.i18n.Tpl.sentence(
+                o.optString("tk").ifEmpty { null }, strListOpt(o.optJSONArray("ta")), ko
+            )
+        }
+
         private fun strList(a: JSONArray): List<String> = (0 until a.length()).map { a.getString(it) }
         private fun strListOpt(a: JSONArray?): List<String> =
             if (a == null) emptyList() else (0 until a.length()).map { a.getString(it) }
