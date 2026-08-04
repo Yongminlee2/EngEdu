@@ -18,6 +18,13 @@ data class GameDef(
 /** 게임에서 내는 한 문제 — 물음과 보기(정답 하나 + 오답들) */
 data class GameRound(
     val question: String,
+    /**
+     * 물음을 **폰 언어로** 다시 만들 때 쓰는 뼈대와 값.
+     * MiniGames 는 Context 가 없는 순수 로직이라 여기서는 한국어 원문만 만들고,
+     * 화면(GameActivity)이 이 두 값으로 번역문을 조립한다. 0 이면 원문을 그대로 쓴다.
+     */
+    val questionRes: Int = 0,
+    val questionArgs: List<String> = emptyList(),
     /** 화면에 띄울 항목들. 정답은 answer 와 같은 문자열 */
     val options: List<String>,
     val answer: String,
@@ -126,6 +133,8 @@ object MiniGames {
         val options = (listOf(target) + pool.drop(1).take(5)).shuffled(rnd)
         return GameRound(
             question = "${target.second} 를 찾아 터뜨려요!",
+            questionRes = R.string.game_q_balloon,
+            questionArgs = listOf(target.second),
             options = options.map { it.first },
             answer = target.first,
             speak = target.second,
@@ -142,6 +151,8 @@ object MiniGames {
         val thing = THINGS.random(rnd)
         return GameRound(
             question = "${thing} 를 $n 개 담아요",
+            questionRes = R.string.game_q_basket,
+            questionArgs = listOf(thing, n.toString()),
             options = listOf(thing),
             answer = n.toString(),
             speak = "$n 개 담아 보세요",

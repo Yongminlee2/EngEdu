@@ -443,6 +443,29 @@
     <string name="ly_play_desc">เกมที่เล่นด้วยการแตะและลาก 🐥</string>
     <string name="btn_play">ฟัง</string>
     <string name="btn_play_slow">ช้า</string>
+    <string name="play_paid_left">เกมที่ยังได้เงินวันนี้: เหลือ %1$d ตา</string>
+    <string name="game_q_balloon">หาและเจาะลูกโป่ง %1$s!</string>
+    <string name="game_q_basket">ใส่ %1$s จำนวน %2$s ชิ้น</string>
+    <string name="tr_praise_1">เก่งมาก! 🎉</string>
+    <string name="tr_praise_2">เพอร์เฟกต์! 🌟</string>
+    <string name="tr_praise_3">จิ๊บ! เยี่ยมที่สุด!</string>
+    <string name="tr_praise_4">เยี่ยม! 👏</string>
+    <string name="tr_praise_5">ว้าว เขียนสวยจัง!</string>
+    <string name="tr_off_path">อุ๊ย ออกนอกเส้นแล้ว ลองช้า ๆ อีกครั้ง! 🐥</string>
+    <string name="tr_case_upper">ตัวพิมพ์ใหญ่</string>
+    <string name="tr_case_lower">ตัวพิมพ์เล็ก</string>
+    <string name="tr_written_n">เขียนไปแล้ว %1$d ครั้ง เขียนอีกไหม? ✏️</string>
+    <string name="tr_stroke_of">เส้นที่ %1$d / %2$d</string>
+    <string name="tr_stroke_done">เส้นที่ %1$d / %1$d ✅</string>
+    <string name="tr_next_stroke">ดีมาก! ต่อไปเส้นที่ %1$d ✏️</string>
+    <string name="tr_done_msg">%1$s\n%2$s  เขียนไป %3$d ครั้ง!</string>
+    <string name="tr_done_coins">เสร็จแล้ว! +%1$s 🎁  · กด «เขียนอีกครั้ง» เพื่อฝึกต่อ!</string>
+    <string name="tr_done_more">เสร็จแล้ว! เขียนอีกครั้งไหม? ✏️</string>
+    <string name="tr_done_many">เขียนตัวนี้ไป %1$d ครั้งแล้ว! เก่งมาก 🌟</string>
+    <string name="tr_write_again">✏️ เขียนอีกครั้ง</string>
+    <string name="tr_first_write">%1$s เขียนครั้งแรก</string>
+    <string name="tr_nth_write">%1$s การเขียนครั้งที่ %2$d</string>
+    <string name="tr_times">%1$s %2$d ครั้ง</string>
     <string-array name="weekday_short">
         <item>อา</item>
         <item>จ</item>
@@ -2026,6 +2049,12 @@
         <item>그것은 꽃이에요.|นั่นคือดอกไม้</item>
         <item>내 가방은 빨간색이에요.|กระเป๋าของฉันสีแดง</item>
         <item>나는 책을 읽어요.|ฉันอ่านหนังสือ</item>
+        <item>강아지|ลูกหมา</item>
+        <item>공책|สมุด</item>
+        <item>여왕|ราชินี</item>
+        <item>바이올린|ไวโอลิน</item>
+        <item>크리스마스트리|ต้นคริสต์มาส</item>
+        <item>요요|โยโย่</item>
     </string-array>
     <string-array name="tpl_units">
     </string-array>

@@ -91,4 +91,13 @@ module.exports = {
 "그것은 꽃이에요.": { en:"It is a flower.", ja:"それは花です。", zh:"那是一朵花。", es:"Es una flor.", fr:"C'est une fleur.", de:"Das ist eine Blume.", pt:"É uma flor.", ru:"Это цветок.", vi:"Đó là một bông hoa.", th:"นั่นคือดอกไม้", in:"Itu bunga." },
 "내 가방은 빨간색이에요.": { en:"My bag is red.", ja:"わたしのかばんは赤いです。", zh:"我的包是红色的。", es:"Mi bolsa es roja.", fr:"Mon sac est rouge.", de:"Meine Tasche ist rot.", pt:"Minha bolsa é vermelha.", ru:"Моя сумка красная.", vi:"Túi của tôi màu đỏ.", th:"กระเป๋าของฉันสีแดง", in:"Tasku berwarna merah." },
 "나는 책을 읽어요.": { en:"I read a book.", ja:"わたしは本を読みます。", zh:"我读书。", es:"Leo un libro.", fr:"Je lis un livre.", de:"Ich lese ein Buch.", pt:"Eu leio um livro.", ru:"Я читаю книгу.", vi:"Tôi đọc sách.", th:"ฉันอ่านหนังสือ", in:"Aku membaca buku." },
+
+// ---------- 알파벳 낱말 뜻 (사전에 없던 6개) ----------
+"강아지": { en:"puppy", ja:"こいぬ", zh:"小狗", es:"cachorro", fr:"chiot", de:"Welpe", pt:"filhote", ru:"щенок", vi:"chó con", th:"ลูกหมา", in:"anak anjing" },
+"공책": { en:"notebook", ja:"ノート", zh:"笔记本", es:"cuaderno", fr:"cahier", de:"Heft", pt:"caderno", ru:"тетрадь", vi:"quyển vở", th:"สมุด", in:"buku tulis" },
+"여왕": { en:"queen", ja:"じょおう", zh:"女王", es:"reina", fr:"reine", de:"Königin", pt:"rainha", ru:"королева", vi:"nữ hoàng", th:"ราชินี", in:"ratu" },
+"바이올린": { en:"violin", ja:"バイオリン", zh:"小提琴", es:"violín", fr:"violon", de:"Geige", pt:"violino", ru:"скрипка", vi:"đàn vĩ cầm", th:"ไวโอลิน", in:"biola" },
+"크리스마스트리": { en:"Christmas tree", ja:"クリスマスツリー", zh:"圣诞树", es:"árbol de Navidad", fr:"sapin de Noël", de:"Weihnachtsbaum", pt:"árvore de Natal", ru:"ёлка", vi:"cây thông Noel", th:"ต้นคริสต์มาส", in:"pohon Natal" },
+"요요": { en:"yo-yo", ja:"ヨーヨー", zh:"悠悠球", es:"yoyó", fr:"yo-yo", de:"Jo-Jo", pt:"ioiô", ru:"йо-йо", vi:"yo-yo", th:"โยโย่", in:"yoyo" },
+
 };

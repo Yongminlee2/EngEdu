@@ -19,21 +19,28 @@
         android:textSize="14sp" android:textColor="@color/brown_soft" />
 
     <!-- 난이도 -->
+    <!-- 라벨을 같은 줄에 두면 번역이 긴 언어에서 버튼 글자가 두 줄로 접힌다("Обычн/о") -->
     <LinearLayout
         android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:orientation="horizontal" android:padding="16dp">
+        android:orientation="vertical" android:padding="16dp">
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:text="@string/ly_difficulty" android:textSize="15sp" android:textStyle="bold"
-            android:layout_gravity="center_vertical" android:layout_marginEnd="10dp" />
-        <Button android:id="@+id/btnLv1" android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_weight="1" android:text="@string/ly_easy" android:textSize="13sp"
-            android:backgroundTint="@color/chick_yellow" android:textColor="@color/brown_text" />
-        <Button android:id="@+id/btnLv2" android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_weight="1" android:layout_marginStart="6dp" android:text="@string/ly_normal" android:textSize="13sp"
-            android:backgroundTint="@color/cream_dark" android:textColor="@color/brown_text" />
-        <Button android:id="@+id/btnLv3" android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_weight="1" android:layout_marginStart="6dp" android:text="@string/ly_hard" android:textSize="13sp"
-            android:backgroundTint="@color/cream_dark" android:textColor="@color/brown_text" />
+            android:layout_marginBottom="8dp" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button android:id="@+id/btnLv1" android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:text="@string/ly_easy" android:textSize="13sp"
+                android:paddingHorizontal="2dp" android:minWidth="0dp"
+                android:backgroundTint="@color/chick_yellow" android:textColor="@color/brown_text" />
+            <Button android:id="@+id/btnLv2" android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:layout_marginStart="6dp" android:text="@string/ly_normal" android:textSize="13sp"
+                android:paddingHorizontal="2dp" android:minWidth="0dp"
+                android:backgroundTint="@color/cream_dark" android:textColor="@color/brown_text" />
+            <Button android:id="@+id/btnLv3" android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:layout_marginStart="6dp" android:text="@string/ly_hard" android:textSize="13sp"
+                android:paddingHorizontal="2dp" android:minWidth="0dp"
+                android:backgroundTint="@color/cream_dark" android:textColor="@color/brown_text" />
+        </LinearLayout>
     </LinearLayout>
 
     <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">

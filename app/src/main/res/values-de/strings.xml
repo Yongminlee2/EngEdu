@@ -443,6 +443,29 @@
     <string name="ly_play_desc">Spiele zum Anfassen und Bewegen 🐥</string>
     <string name="btn_play">Anhören</string>
     <string name="btn_play_slow">Langsam</string>
+    <string name="play_paid_left">Spiele mit Taschengeld heute: noch %1$d</string>
+    <string name="game_q_balloon">Platze den %1$s-Ballon!</string>
+    <string name="game_q_basket">Leg %2$s %1$s in den Korb</string>
+    <string name="tr_praise_1">Gut gemacht! 🎉</string>
+    <string name="tr_praise_2">Perfekt! 🌟</string>
+    <string name="tr_praise_3">Piep! Du bist super!</string>
+    <string name="tr_praise_4">Klasse! 👏</string>
+    <string name="tr_praise_5">Wow, so schön geschrieben!</string>
+    <string name="tr_off_path">Ups, vom Weg abgekommen. Nochmal langsam! 🐥</string>
+    <string name="tr_case_upper">Großbuchstabe</string>
+    <string name="tr_case_lower">Kleinbuchstabe</string>
+    <string name="tr_written_n">Du hast es %1$d Mal geschrieben. Noch mal? ✏️</string>
+    <string name="tr_stroke_of">Strich %1$d / %2$d</string>
+    <string name="tr_stroke_done">Strich %1$d / %1$d ✅</string>
+    <string name="tr_next_stroke">Gut! Jetzt Strich %1$d ✏️</string>
+    <string name="tr_done_msg">%1$s\n%2$s  %3$d Mal geschrieben!</string>
+    <string name="tr_done_coins">Fertig! +%1$s 🎁  · Tippe auf „Nochmal schreiben“!</string>
+    <string name="tr_done_more">Fertig! Noch mal schreiben? ✏️</string>
+    <string name="tr_done_many">Du hast diesen Buchstaben %1$d Mal geschrieben! Toll 🌟</string>
+    <string name="tr_write_again">✏️ Nochmal schreiben</string>
+    <string name="tr_first_write">%1$s erstes Schreiben</string>
+    <string name="tr_nth_write">%1$s Schreiben Nr. %2$d</string>
+    <string name="tr_times">%1$s ×%2$d</string>
     <string-array name="weekday_short">
         <item>So</item>
         <item>Mo</item>
@@ -2026,6 +2049,12 @@
         <item>그것은 꽃이에요.|Das ist eine Blume.</item>
         <item>내 가방은 빨간색이에요.|Meine Tasche ist rot.</item>
         <item>나는 책을 읽어요.|Ich lese ein Buch.</item>
+        <item>강아지|Welpe</item>
+        <item>공책|Heft</item>
+        <item>여왕|Königin</item>
+        <item>바이올린|Geige</item>
+        <item>크리스마스트리|Weihnachtsbaum</item>
+        <item>요요|Jo-Jo</item>
     </string-array>
     <string-array name="tpl_units">
     </string-array>

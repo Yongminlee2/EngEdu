@@ -22,13 +22,19 @@ class TraceActivity : AppCompatActivity() {
     private var index = 0
     private var uppercase = true
 
-    private val praises = listOf("잘했어요! 🎉", "완벽해요! 🌟", "삐약! 최고예요!", "멋져요! 👏", "우와, 예쁘게 썼네요!")
+    // 필드 초기화 시점에는 Context 가 없다 — 처음 쓸 때 리소스에서 읽는다
+    private val praises by lazy {
+        listOf(getString(R.string.tr_praise_1), getString(R.string.tr_praise_2),
+            getString(R.string.tr_praise_3), getString(R.string.tr_praise_4),
+            getString(R.string.tr_praise_5))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         b = ActivityTraceBinding.inflate(layoutInflater)
         setContentView(b.root)
         db = Db.get(this)
+        com.piyak.english.i18n.Tpl.init(this)   // 낱말 뜻 번역에 필요
         sfx = Sfx(this)
         tts = Tts(this) { ready -> if (ready) b.root.postDelayed({ sayLetter() }, 400) }
         tts.rate = db.meta("tts_rate", "1.0").toFloatOrNull() ?: 1.0f
@@ -49,7 +55,7 @@ class TraceActivity : AppCompatActivity() {
         // 소리는 글자를 다 썼을 때 한 번만 (onLetterComplete 의 sfx.done()).
         b.traceView.onStrokeDone = { updateStrokeInfo() }
         b.traceView.onStrokeFail = {
-            b.txtHint.text = "앗, 길을 벗어났어요. 다시 천천히! 🐥"
+            b.txtHint.text = getString(R.string.tr_off_path)
             b.traceView.startAnimation(AnimationUtils.loadAnimation(this, R.anim.shake))
         }
         b.traceView.onAllDone = { onLetterComplete() }
@@ -68,7 +74,8 @@ class TraceActivity : AppCompatActivity() {
         index = i
         uppercase = upper
         val d = def()
-        b.txtTitle.text = "${d.glyph(true)} ${d.glyph(false)}   (${if (upper) "대문자" else "소문자"})"
+        b.txtTitle.text = "${d.glyph(true)} ${d.glyph(false)}   (" +
+            getString(if (upper) R.string.tr_case_upper else R.string.tr_case_lower) + ")"
         // 낱말 그림이 있으면 이모지 대신 (알파벳 23자 전부 있다)
         val art = resources.getIdentifier("word_" + d.word.lowercase(), "drawable", packageName)
         if (art != 0) {
@@ -81,13 +88,13 @@ class TraceActivity : AppCompatActivity() {
             b.txtEmoji.text = d.emoji
         }
         b.txtWord.text = d.word
-        b.txtWordKo.text = d.ko
+        b.txtWordKo.text = com.piyak.english.i18n.Tpl.word(d.ko)   // 뜻은 폰 언어로
         b.donePanel.visibility = View.GONE
-        b.btnAgain.text = "↻ 지우기"
+        b.btnAgain.text = getString(R.string.ly_clear2)
         val writes = db.letterWrites(Letters.key(d, upper))
         b.txtHint.text = if (writes > 0)
-            "지금까지 ${writes}번 썼어요. 또 써 볼까요? ✏️"
-        else "초록 ① 부터 길을 따라 그려 보세요!"
+            getString(R.string.tr_written_n, writes)
+        else getString(R.string.ly_trace_hint)
         b.traceView.setLetter(d.strokes(upper), d.glyph(upper).toString())
         updateStrokeInfo()
         // 처음 여는 글자는 병아리가 먼저 시범을 보여준다
@@ -98,8 +105,8 @@ class TraceActivity : AppCompatActivity() {
     private fun updateStrokeInfo() {
         val total = b.traceView.totalStrokes
         val done = b.traceView.doneStrokes
-        b.txtStrokeInfo.text = "${minOf(done + 1, total)} / $total 획"
-        if (done in 1 until total) b.txtHint.text = "좋아요! 다음은 ${done + 1}번 획이에요 ✏️"
+        b.txtStrokeInfo.text = getString(R.string.tr_stroke_of, minOf(done + 1, total), total)
+        if (done in 1 until total) b.txtHint.text = getString(R.string.tr_next_stroke, done + 1)
     }
 
     private fun onLetterComplete() {
@@ -114,10 +121,10 @@ class TraceActivity : AppCompatActivity() {
         var coins = 0
         if (first) {
             db.addXp(Letters.XP_PER_LETTER)
-            coins = db.earnCoins(W.PER_LETTER, "LETTER", "${def().glyph(uppercase)} 처음 쓰기")
+            coins = db.earnCoins(W.PER_LETTER, "LETTER", getString(R.string.tr_first_write, def().glyph(uppercase)))
         } else if (writes <= W.LETTER_REPEAT_LIMIT) {
             db.addXp(2)
-            coins = db.earnCoins(W.PER_LETTER_REPEAT, "LETTER", "${def().glyph(uppercase)} ${writes}번째 쓰기")
+            coins = db.earnCoins(W.PER_LETTER_REPEAT, "LETTER", getString(R.string.tr_nth_write, def().glyph(uppercase), writes))
         }
 
         val stars = if (writes >= 5) 3 else if (writes >= 3) 2 else 1
@@ -133,20 +140,20 @@ class TraceActivity : AppCompatActivity() {
             b.txtDoneBig.visibility = View.VISIBLE
             b.txtDoneBig.text = def().emoji
         }
-        b.txtDoneMsg.text = "${praises.random()}\n${"⭐".repeat(stars)}  ${writes}번 썼어요!"
+        b.txtDoneMsg.text = getString(R.string.tr_done_msg, praises.random(), "⭐".repeat(stars), writes)
         b.donePanel.visibility = View.VISIBLE
         b.donePanel.alpha = 0f
         b.donePanel.scaleX = 0.5f; b.donePanel.scaleY = 0.5f
         b.donePanel.animate().alpha(1f).scaleX(1f).scaleY(1f).setDuration(420).start()
 
         b.txtHint.text = when {
-            coins > 0 -> "완성! 용돈 +${W.format(this@TraceActivity, coins)} 🎁  · '한 번 더 쓰기'로 연습해요!"
-            writes < 5 -> "완성! 한 번 더 써 볼까요? ✏️"
-            else -> "이 글자는 ${writes}번이나 썼어요! 정말 잘하네요 🌟"
+            coins > 0 -> getString(R.string.tr_done_coins, W.format(this@TraceActivity, coins))
+            writes < 5 -> getString(R.string.tr_done_more)
+            else -> getString(R.string.tr_done_many, writes)
         }
-        b.txtStrokeInfo.text = "${b.traceView.totalStrokes} / ${b.traceView.totalStrokes} 획 ✅"
+        b.txtStrokeInfo.text = getString(R.string.tr_stroke_done, b.traceView.totalStrokes)
         // 반복 연습이 쉽도록 버튼을 '한 번 더 쓰기'로 바꾼다
-        b.btnAgain.text = "✏️ 한 번 더 쓰기"
+        b.btnAgain.text = getString(R.string.tr_write_again)
         sayLetter()
     }
 
