@@ -253,7 +253,7 @@
     <string name="st_gram_sub">Build solid rules</string>
     <string name="st_read_sub">Read and understand</string>
     <string name="stage_progress">%1$d / %2$d lessons</string>
-    <string name="wallet_amount">%1$s won</string>
+    <string name="wallet_amount">🪙 %1$s</string>
     <string name="wallet_earned">Earned so far: %1$s</string>
     <string name="wallet_spent">Spent in shop: %1$s · Cashed out: %2$s</string>
     <string name="wallet_no_log">No history yet. Solve problems to earn pocket money! 🐥</string>

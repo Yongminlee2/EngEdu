@@ -253,7 +253,7 @@
     <string name="st_gram_sub">ルールを かためる</string>
     <string name="st_read_sub">よんで りかいする</string>
     <string name="stage_progress">%1$d / %2$d レッスン</string>
-    <string name="wallet_amount">%1$s ウォン</string>
+    <string name="wallet_amount">🪙 %1$s</string>
     <string name="wallet_earned">これまでに ためた お金 %1$s</string>
     <string name="wallet_spent">ショップで つかった %1$s · 現金で もらった %2$s</string>
     <string name="wallet_no_log">まだ きろくが ないよ。もんだいを といて おこづかいを ためよう! 🐥</string>

@@ -253,7 +253,7 @@
     <string name="st_gram_sub">Consolide les règles</string>
     <string name="st_read_sub">Lis et comprends</string>
     <string name="stage_progress">%1$d / %2$d leçons</string>
-    <string name="wallet_amount">%1$s wons</string>
+    <string name="wallet_amount">🪙 %1$s</string>
     <string name="wallet_earned">Gagné jusqu\'ici : %1$s</string>
     <string name="wallet_spent">Dépensé en boutique : %1$s · Retiré : %2$s</string>
     <string name="wallet_no_log">Pas encore d\'historique. Résous des problèmes pour gagner de l\'argent ! 🐥</string>

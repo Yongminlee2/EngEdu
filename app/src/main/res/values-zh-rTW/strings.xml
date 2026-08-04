@@ -253,7 +253,7 @@
     <string name="st_gram_sub">打牢規則</string>
     <string name="st_read_sub">讀懂文章</string>
     <string name="stage_progress">%1$d / %2$d 課</string>
-    <string name="wallet_amount">%1$s 韓元</string>
+    <string name="wallet_amount">🪙 %1$s</string>
     <string name="wallet_earned">目前攢到 %1$s</string>
     <string name="wallet_spent">商店花费 %1$s · 已兌現 %2$s</string>
     <string name="wallet_no_log">還沒有記錄。做題來攢零花錢吧! 🐥</string>

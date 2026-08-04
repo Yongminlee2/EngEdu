@@ -253,7 +253,7 @@
     <string name="st_gram_sub">Regeln festigen</string>
     <string name="st_read_sub">Lesen und verstehen</string>
     <string name="stage_progress">%1$d / %2$d Lektionen</string>
-    <string name="wallet_amount">%1$s Won</string>
+    <string name="wallet_amount">🪙 %1$s</string>
     <string name="wallet_earned">Bisher verdient: %1$s</string>
     <string name="wallet_spent">Im Shop ausgegeben: %1$s · Ausgezahlt: %2$s</string>
     <string name="wallet_no_log">Noch kein Verlauf. Löse Aufgaben und verdiene Taschengeld! 🐥</string>
