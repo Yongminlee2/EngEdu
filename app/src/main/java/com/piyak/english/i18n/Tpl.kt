@@ -34,6 +34,14 @@ object Tpl {
 
     private val HANGUL = Regex("[가-힣]+")
 
+    /**
+     * 이 폰이 한국어인가.
+     *
+     * 한국어면 팩에 실린 한국어를 **그대로** 쓴다 — 지금까지의 경험이 하나도 안 바뀐다.
+     * 다른 언어일 때만 그림 보기처럼 언어를 안 타는 방식으로 바꿔 준다.
+     */
+    val isKorean: Boolean get() = passthrough
+
     fun init(ctx: Context) {
         val c = ctx.applicationContext
         val r = c.resources

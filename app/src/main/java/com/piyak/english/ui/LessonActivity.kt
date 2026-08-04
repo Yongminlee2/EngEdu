@@ -629,8 +629,9 @@ class LessonActivity : AppCompatActivity() {
         when {
             // 독해는 지문·보기가 길다. 그림은 책 병아리 하나만 작게 (아래에서 붙인다)
             q.passage != null -> Unit
-            // 문제가 그림을 직접 지정했으면 그게 최우선 (뜻을 글자 대신 그림으로 묻는 문제)
-            q.bigArt != null && artRes(q.bigArt) != 0 -> addArt(v, artRes(q.bigArt), 175)
+            // 한국어를 못 읽는 폰에서는 문제가 지정한 그림이 곧 문제문이 된다
+            q.bigArt != null && !com.piyak.english.i18n.Tpl.isKorean &&
+                artRes(q.bigArt) != 0 -> addArt(v, artRes(q.bigArt), 175)
             quotedArt != 0 -> addArt(v, quotedArt, 175)
             // 초등영어처럼 이모지가 붙어 온 문제도 낱말 그림이 있으면 그걸 먼저 쓴다
             q.bigEmoji != null -> {
@@ -677,8 +678,9 @@ class LessonActivity : AppCompatActivity() {
             }
         }
         v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
-        // 그림 보기가 붙어 오면 글자 대신 그림으로 고르게 한다 (언어를 안 타는 문제)
-        if (q.choiceArt.isNotEmpty()) {
+        // 한국 폰은 예전 그대로 한국어 글자 보기로 푼다.
+        // 한국어를 못 읽는 폰에서만 같은 문제를 그림 보기로 바꿔 준다 (정답 자리는 같다).
+        if (q.choiceArt.isNotEmpty() && !com.piyak.english.i18n.Tpl.isKorean) {
             renderArtChoices(
                 v.findViewById(R.id.choicesBox), q.choices, q.choiceArt,
                 q.answer, q.explain, q.choices[q.answer]
