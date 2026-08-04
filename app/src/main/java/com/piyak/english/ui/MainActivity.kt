@@ -212,10 +212,14 @@ class MainActivity : AppCompatActivity() {
         // 고정 폭으로 두면 글자가 접히면서 막대와 어긋나므로 **가변 폭 + 한 줄**로 둔다.
         row.addView(TextView(this).apply {
             text = "${st.def.emoji} ${getString(st.def.titleRes)}"
-            textSize = 14f
             maxLines = 1
             ellipsize = android.text.TextUtils.TruncateAt.END
-            layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.7f)
+            // 말줄임("Словарный запа…")이 나지 않게 칸에 맞춰 글자가 스스로 줄어든다.
+            // 언어마다 폭을 재서 맞추는 대신 자동 축소로 두면 14개 언어가 한 번에 해결된다.
+            androidx.core.widget.TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(
+                this, 10, 14, 1, android.util.TypedValue.COMPLEX_UNIT_SP
+            )
+            layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 2.0f)
         })
         row.addView(TextView(this).apply {
             text = "Lv.${st.level}"

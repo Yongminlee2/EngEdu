@@ -253,7 +253,7 @@
     <string name="st_gram_sub">Củng cố quy tắc</string>
     <string name="st_read_sub">Đọc và hiểu</string>
     <string name="stage_progress">%1$d / %2$d bài</string>
-    <string name="wallet_amount">%1$s won</string>
+    <string name="wallet_amount">🪙 %1$s</string>
     <string name="wallet_earned">Đã kiếm được: %1$s</string>
     <string name="wallet_spent">Đã tiêu ở cửa hàng: %1$s · Đã đổi tiền: %2$s</string>
     <string name="wallet_no_log">Chưa có lịch sử. Giải bài để kiếm tiền tiêu vặt nhé! 🐥</string>

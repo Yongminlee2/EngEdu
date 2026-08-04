@@ -6,7 +6,9 @@
  */
 module.exports = {
 
-wallet_amount: { ko:"%1$s원", en:"%1$s won", ja:"%1$s ウォン", zh:"%1$s 韩元", es:"%1$s wones", fr:"%1$s wons", de:"%1$s Won", pt:"%1$s wons", ru:"%1$s вон", vi:"%1$s won", th:"%1$s วอน", in:"%1$s won" },
+// 용돈 단위: 한국은 "원", 그 외 나라는 통화를 못 박지 않고 동전+숫자로만 —
+// 러시아 부모에게 "300 вон"은 틀린 표기다. 실제 지급 화폐는 부모가 정한다.
+wallet_amount: { ko:"%1$s원", en:"🪙 %1$s", ja:"🪙 %1$s", zh:"🪙 %1$s", es:"🪙 %1$s", fr:"🪙 %1$s", de:"🪙 %1$s", pt:"🪙 %1$s", ru:"🪙 %1$s", vi:"🪙 %1$s", th:"🪙 %1$s", in:"🪙 %1$s" },
 wallet_earned: { ko:"지금까지 모은 돈 %1$s", en:"Earned so far: %1$s", ja:"これまでに ためた お金 %1$s", zh:"目前攒到 %1$s", es:"Ganado hasta ahora: %1$s", fr:"Gagné jusqu'ici : %1$s", de:"Bisher verdient: %1$s", pt:"Ganho até agora: %1$s", ru:"Накоплено: %1$s", vi:"Đã kiếm được: %1$s", th:"สะสมได้แล้ว %1$s", in:"Terkumpul sejauh ini: %1$s" },
 wallet_spent: { ko:"상점에서 쓴 돈 %1$s · 현금으로 받은 돈 %2$s", en:"Spent in shop: %1$s · Cashed out: %2$s", ja:"ショップで つかった %1$s · 現金で もらった %2$s", zh:"商店花费 %1$s · 已兑现 %2$s", es:"Gastado en la tienda: %1$s · Cobrado: %2$s", fr:"Dépensé en boutique : %1$s · Retiré : %2$s", de:"Im Shop ausgegeben: %1$s · Ausgezahlt: %2$s", pt:"Gasto na loja: %1$s · Sacado: %2$s", ru:"Потрачено в магазине: %1$s · Выплачено: %2$s", vi:"Đã tiêu ở cửa hàng: %1$s · Đã đổi tiền: %2$s", th:"ใช้ในร้าน %1$s · แลกเป็นเงินสด %2$s", in:"Dibelanjakan: %1$s · Dicairkan: %2$s" },
 wallet_no_log: { ko:"아직 기록이 없어요. 문제를 풀어 용돈을 모아 봐요! 🐥", en:"No history yet. Solve problems to earn pocket money! 🐥", ja:"まだ きろくが ないよ。もんだいを といて おこづかいを ためよう! 🐥", zh:"还没有记录。做题来攒零花钱吧! 🐥", es:"Aún no hay historial. ¡Resuelve problemas para ganar dinero! 🐥", fr:"Pas encore d'historique. Résous des problèmes pour gagner de l'argent ! 🐥", de:"Noch kein Verlauf. Löse Aufgaben und verdiene Taschengeld! 🐥", pt:"Ainda sem histórico. Resolva problemas para ganhar mesada! 🐥", ru:"Пока нет записей. Решай задачи и копи карманные! 🐥", vi:"Chưa có lịch sử. Giải bài để kiếm tiền tiêu vặt nhé! 🐥", th:"ยังไม่มีประวัติ ทำโจทย์เพื่อสะสมเงินกันเถอะ! 🐥", in:"Belum ada riwayat. Kerjakan soal untuk dapat uang saku! 🐥" },

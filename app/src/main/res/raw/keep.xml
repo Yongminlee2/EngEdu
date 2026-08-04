@@ -7,6 +7,7 @@
   막지 않으면 통째로 잘려 나간다. 그러면 릴리스 빌드에서만 그림이 사라지는,
   디버그로는 절대 재현 안 되는 사고가 난다.
 
+    sfx_*    효과음 4종(raw)     (audio/Sfx.kt — R.raw 로 직접 참조하는 곳이 한 군데도 없다)
     word_*   단어 그림 1,213장   (WordArt / 문제 화면)
     ck_*     병아리 포즈          ("ck_" + 포즈 이름)
     scene_*  장면 그림
@@ -17,4 +18,4 @@
     banner_* 배너
 -->
 <resources xmlns:tools="http://schemas.android.com/tools"
-    tools:keep="@string/tpl_*,@array/tpl_words,@array/tpl_units,@drawable/word_*,@drawable/ck_*,@drawable/scene_*,@drawable/stage_*,@drawable/shop_*,@drawable/stk_*,@drawable/ui_*,@drawable/banner_*" />
+    tools:keep="@string/tpl_*,@array/tpl_words,@array/tpl_units,@drawable/word_*,@drawable/ck_*,@drawable/scene_*,@drawable/stage_*,@drawable/shop_*,@drawable/stk_*,@drawable/ui_*,@drawable/banner_*,@raw/sfx_*" />

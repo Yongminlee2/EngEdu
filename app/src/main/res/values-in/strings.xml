@@ -253,7 +253,7 @@
     <string name="st_gram_sub">Perkuat aturan</string>
     <string name="st_read_sub">Baca dan pahami</string>
     <string name="stage_progress">%1$d / %2$d pelajaran</string>
-    <string name="wallet_amount">%1$s won</string>
+    <string name="wallet_amount">🪙 %1$s</string>
     <string name="wallet_earned">Terkumpul sejauh ini: %1$s</string>
     <string name="wallet_spent">Dibelanjakan: %1$s · Dicairkan: %2$s</string>
     <string name="wallet_no_log">Belum ada riwayat. Kerjakan soal untuk dapat uang saku! 🐥</string>
