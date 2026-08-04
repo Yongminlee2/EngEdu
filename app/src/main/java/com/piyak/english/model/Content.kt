@@ -40,6 +40,7 @@ object ContentRepo {
     @Synchronized
     fun track(ctx: Context, trackId: String): TrackData? {
         cache[trackId]?.let { return it }
+        com.piyak.english.i18n.Tpl.init(ctx)      // 문제를 만들기 전에 언어부터 확인
         return try {
             val json = ctx.assets.open("packs/$trackId.json").bufferedReader().use { it.readText() }
             val t = parseTrack(JSONObject(json))

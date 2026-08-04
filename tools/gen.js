@@ -47,6 +47,36 @@ function shuffled(arr) {
   }
   return a;
 }
+/**
+ * 낱말 **객체**로 오답을 뽑는다 (뜻과 그림을 함께 알아야 하므로).
+ * key(x) 가 겹치지 않는 것만 고른다.
+ */
+function pickDistinctBy(pool, n, exclude, key) {
+  const out = [];
+  const seen = new Set([key(exclude)]);
+  for (const c of shuffled(pool)) {
+    if (out.length >= n) break;
+    const k = key(c);
+    if (seen.has(k)) continue;
+    seen.add(k);
+    out.push(c);
+  }
+  return out;
+}
+
+/**
+ * 한국어 뜻 → 그림 이름. 보기가 한국어 뜻으로 섞인 뒤에도 짝을 찾을 수 있게,
+ * 그 레슨의 낱말 목록으로 역색인을 만들어 돌려준다.
+ */
+function koArtOf(words) {
+  const map = new Map();
+  for (const w of words) {
+    const a = artOf(w.word);
+    if (a && !map.has(w.ko)) map.set(w.ko, a);
+  }
+  return (ko) => map.get(ko) || null;
+}
+
 function pickDistinct(pool, n, exclude) {
   const out = [];
   const cand = shuffled(pool);
@@ -151,17 +181,12 @@ function orderQ(prefix, ko, en, explain) {
   return validate(q);
 }
 function dictationQ(prefix, tts, answer, hintKo, explain) {
-  // 그림이 있으면 한국어 힌트를 빼고 그림에 맡긴다 — 언어를 안 타는 문제가 된다.
-  // 받아쓰기의 본질은 "들은 대로 쓰기"라 뜻풀이는 거들 뿐이다.
-  if (artOf(answer) || artOf(tts)) hintKo = null;
   const q = { id: qid(prefix), type: "dictation", tts, answer };
   if (hintKo) q.hintKo = hintKo;
   if (explain) q.explain = explain;
   return validate(q);
 }
 function speakQ(prefix, en, ko) {
-  // 읽을 문장은 영어다. 그림이 있으면 한국어 해석은 빼도 된다
-  if (artOf(en)) ko = null;
   return validate({ id: qid(prefix), type: "speak", en, ko });
 }
 function translateQ(prefix, ko, answer, alts, explain) {
@@ -330,51 +355,33 @@ const SCENE_TOEN = [
       if (group.length < 4) continue;
       // 1R: 뜻 고르기
       for (const w of group) {
-        // 그림이 있는 단어는 **그림 보기**로 낸다 — 뜻을 한국어로 안 물어도 되고,
-        // 어느 나라 아이든 그대로 풀 수 있다. 오답도 그림 있는 단어로만 고른다.
-        if (artOf(w.word)) {
-          const dEn = pickDistinct(enPool.filter(artOf), 3, [w.word]);
-          if (dEn.length === 3) {
-            stream.push(mcq("b", scenePick(w.word, SCENE_PICK_ART)(w.word), w.word, dEn,
-              `📌 ${w.word} (${w.pos}) = ${w.ko}${exLine(w)}`,
-              null, null, artOf));
-            continue;
-          }
-        }
-        const d = pickDistinct(koPool, 3, [w.ko]);
+        // 보기는 **한국어 뜻 그대로** 두고, 같은 뜻의 그림을 나란히 싣는다.
+        // 한국 폰은 예전과 똑같이 글자 보기로 풀고,
+        // 다른 언어 폰만 같은 문제를 그림 보기로 푼다 (정답 자리는 같다).
+        const others = pickDistinctBy(words, 3, w, (x) => x.ko);
+        const d = others.map((x) => x.ko);
         stream.push(mcq("b", scenePick(w.word, SCENE_MEAN)(w.word), w.ko, d,
-          `📌 ${w.word} (${w.pos}) = ${w.ko}${exLine(w)}\n\n다른 선택지는 각각: ${glossK(d)} 의 뜻이라 오답이에요.`));
+          `📌 ${w.word} (${w.pos}) = ${w.ko}${exLine(w)}\n\n다른 선택지는 각각: ${glossK(d)} 의 뜻이라 오답이에요.`,
+          null, null, koArtOf(words)));
       }
       // 2R: 영어로
       for (const w of group) {
         const d = pickDistinct(enPool, 3, [w.word]);
-        // 그림이 있으면 **그림을 보여 주고** 영어를 고르게 한다.
-        // 문제문에 한국어 뜻을 적지 않으므로 어느 나라 아이도 그대로 풀 수 있다.
+        // 문제문은 한국어 그대로 두고, 그림만 얹는다.
+        // 한국 폰은 "사과 를 영어로?" 로 읽고, 다른 언어 폰은 그림을 보고 푼다.
         const art = artOf(w.word);
-        if (art) {
-          const q = mcq("b", PROMPT_WHAT_EN, w.word, d,
-            `📌 ${w.ko} = ${w.word} (${w.pos})${exLine(w)}`);
-          q.bigArt = art;
-          stream.push(q);
-          continue;
-        }
-        stream.push(mcq("b", scenePick(w.ko, SCENE_TOEN)(w.ko), w.word, d,
-          `📌 ${w.ko} = ${w.word} (${w.pos})${exLine(w)}\n\n다른 선택지는 각각: ${glossE(d)} 라는 뜻이라 오답이에요.`));
+        const q2 = mcq("b", scenePick(w.ko, SCENE_TOEN)(w.ko), w.word, d,
+          `📌 ${w.ko} = ${w.word} (${w.pos})${exLine(w)}\n\n다른 선택지는 각각: ${glossE(d)} 라는 뜻이라 오답이에요.`);
+        if (art) q2.bigArt = art;   // 한국어를 못 읽는 폰은 이 그림이 문제가 된다
+        stream.push(q2);
       }
       // 3R: 듣고 고르기
       for (const w of group) {
-        // 듣고 **그림**을 고르면 뜻을 한국어로 늘어놓지 않아도 된다
-        if (artOf(w.word)) {
-          const dEn = pickDistinct(enPool.filter(artOf), 3, [w.word]);
-          if (dEn.length === 3) {
-            stream.push(listenMcq("b", w.word, PROMPT_HEARD_PIC, w.word, dEn,
-              `🔊 들려준 단어: ${w.word} = ${w.ko}${exLine(w)}`, artOf));
-            continue;
-          }
-        }
-        const d = pickDistinct(koPool, 3, [w.ko]);
+        // 보기는 한국어 뜻 그대로, 그림을 나란히 싣는다 (한국 폰은 예전 그대로)
+        const others3 = pickDistinctBy(words, 3, w, (x) => x.ko);
+        const d = others3.map((x) => x.ko);
         stream.push(listenMcq("b", w.word, "들린 단어의 뜻은?", w.ko, d,
-          `🔊 들려준 단어: ${w.word} = ${w.ko}${exLine(w)}\n\n다른 선택지는 각각: ${glossK(d)} 의 뜻이에요.`));
+          `🔊 들려준 단어: ${w.word} = ${w.ko}${exLine(w)}\n\n다른 선택지는 각각: ${glossK(d)} 의 뜻이에요.`, koArtOf(words)));
       }
       // 4R: 받아쓰기(짧은 단어) / 빈칸(긴 단어)
       for (const w of group) {
