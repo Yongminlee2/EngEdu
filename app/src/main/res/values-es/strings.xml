@@ -443,6 +443,29 @@
     <string name="ly_play_desc">Juegos para tocar y mover con el dedo 🐥</string>
     <string name="btn_play">Escuchar</string>
     <string name="btn_play_slow">Despacio</string>
+    <string name="play_paid_left">Partidas que aún dan dinero hoy: quedan %1$d</string>
+    <string name="game_q_balloon">¡Explota el globo de %1$s!</string>
+    <string name="game_q_basket">Mete %2$s %1$s en la cesta</string>
+    <string name="tr_praise_1">¡Muy bien! 🎉</string>
+    <string name="tr_praise_2">¡Perfecto! 🌟</string>
+    <string name="tr_praise_3">¡Pío! ¡Eres el mejor!</string>
+    <string name="tr_praise_4">¡Genial! 👏</string>
+    <string name="tr_praise_5">¡Guau, qué bonita letra!</string>
+    <string name="tr_off_path">¡Ups, te saliste! Inténtalo despacio 🐥</string>
+    <string name="tr_case_upper">mayúscula</string>
+    <string name="tr_case_lower">minúscula</string>
+    <string name="tr_written_n">Lo has escrito %1$d veces. ¿Otra vez? ✏️</string>
+    <string name="tr_stroke_of">Trazo %1$d / %2$d</string>
+    <string name="tr_stroke_done">Trazo %1$d / %1$d ✅</string>
+    <string name="tr_next_stroke">¡Bien! Ahora el trazo %1$d ✏️</string>
+    <string name="tr_done_msg">%1$s\n%2$s  ¡Escrito %3$d veces!</string>
+    <string name="tr_done_coins">¡Listo! +%1$s 🎁  · ¡Pulsa «Escribir otra vez»!</string>
+    <string name="tr_done_more">¡Listo! ¿Lo escribes otra vez? ✏️</string>
+    <string name="tr_done_many">¡Has escrito esta letra %1$d veces! Increíble 🌟</string>
+    <string name="tr_write_again">✏️ Escribir otra vez</string>
+    <string name="tr_first_write">%1$s primera escritura</string>
+    <string name="tr_nth_write">%1$s escritura n.º %2$d</string>
+    <string name="tr_times">%1$s ×%2$d</string>
     <string-array name="weekday_short">
         <item>Dom</item>
         <item>Lun</item>
@@ -2026,6 +2049,12 @@
         <item>그것은 꽃이에요.|Es una flor.</item>
         <item>내 가방은 빨간색이에요.|Mi bolsa es roja.</item>
         <item>나는 책을 읽어요.|Leo un libro.</item>
+        <item>강아지|cachorro</item>
+        <item>공책|cuaderno</item>
+        <item>여왕|reina</item>
+        <item>바이올린|violín</item>
+        <item>크리스마스트리|árbol de Navidad</item>
+        <item>요요|yoyó</item>
     </string-array>
     <string-array name="tpl_units">
     </string-array>

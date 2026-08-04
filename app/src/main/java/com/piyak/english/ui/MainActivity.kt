@@ -233,10 +233,13 @@ class MainActivity : AppCompatActivity() {
             layoutParams = LinearLayout.LayoutParams(0, dp(10f).toInt(), 1f)
         })
         row.addView(TextView(this).apply {
+            // "Не начато"(시작 전)는 58dp 고정 폭에서 두 줄로 접힌다 — 최소 폭만 주고 늘어나게
             text = if (st.attempts == 0) getString(R.string.not_started) else "  ${st.accuracy}%"
             textSize = 12f
             setTextColor(Color.parseColor("#8D6E63"))
-            width = dp(58f).toInt()
+            minWidth = dp(52f).toInt()
+            maxLines = 1
+            setPadding(dp(6f).toInt(), 0, 0, 0)
             gravity = Gravity.END
         })
         return row

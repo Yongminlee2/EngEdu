@@ -443,6 +443,29 @@
     <string name="ly_play_desc">Des jeux où l\'on touche et déplace 🐥</string>
     <string name="btn_play">Écouter</string>
     <string name="btn_play_slow">Lentement</string>
+    <string name="play_paid_left">Parties qui rapportent encore aujourd\'hui : %1$d</string>
+    <string name="game_q_balloon">Éclate le ballon %1$s !</string>
+    <string name="game_q_basket">Mets %2$s %1$s dans le panier</string>
+    <string name="tr_praise_1">Bien joué ! 🎉</string>
+    <string name="tr_praise_2">Parfait ! 🌟</string>
+    <string name="tr_praise_3">Cui-cui ! Tu es le meilleur !</string>
+    <string name="tr_praise_4">Super ! 👏</string>
+    <string name="tr_praise_5">Waouh, quelle belle écriture !</string>
+    <string name="tr_off_path">Oups, tu es sorti du chemin. Recommence doucement ! 🐥</string>
+    <string name="tr_case_upper">majuscule</string>
+    <string name="tr_case_lower">minuscule</string>
+    <string name="tr_written_n">Tu l\'as écrit %1$d fois. Encore une fois ? ✏️</string>
+    <string name="tr_stroke_of">Trait %1$d / %2$d</string>
+    <string name="tr_stroke_done">Trait %1$d / %1$d ✅</string>
+    <string name="tr_next_stroke">Bien ! Maintenant le trait %1$d ✏️</string>
+    <string name="tr_done_msg">%1$s\n%2$s  Écrit %3$d fois !</string>
+    <string name="tr_done_coins">Terminé ! +%1$s 🎁  · Appuie sur « Écrire encore » !</string>
+    <string name="tr_done_more">Terminé ! Tu l\'écris encore ? ✏️</string>
+    <string name="tr_done_many">Tu as écrit cette lettre %1$d fois ! Bravo 🌟</string>
+    <string name="tr_write_again">✏️ Écrire encore</string>
+    <string name="tr_first_write">%1$s première écriture</string>
+    <string name="tr_nth_write">%1$s écriture n° %2$d</string>
+    <string name="tr_times">%1$s ×%2$d</string>
     <string-array name="weekday_short">
         <item>Dim</item>
         <item>Lun</item>
@@ -2026,6 +2049,12 @@
         <item>그것은 꽃이에요.|C\'est une fleur.</item>
         <item>내 가방은 빨간색이에요.|Mon sac est rouge.</item>
         <item>나는 책을 읽어요.|Je lis un livre.</item>
+        <item>강아지|chiot</item>
+        <item>공책|cahier</item>
+        <item>여왕|reine</item>
+        <item>바이올린|violon</item>
+        <item>크리스마스트리|sapin de Noël</item>
+        <item>요요|yo-yo</item>
     </string-array>
     <string-array name="tpl_units">
     </string-array>

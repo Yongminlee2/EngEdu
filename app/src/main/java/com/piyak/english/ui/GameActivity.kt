@@ -194,7 +194,7 @@ class GameActivity : AppCompatActivity() {
         if (!first && !countRound()) return
         val r = if (subject == Subject.MATH) MiniGames.balloonMath(level)
         else MiniGames.balloonEnglish()
-        b.txtQuestion.text = r.question
+        b.txtQuestion.text = questionOf(r)
         balloon?.setRound(r)
     }
 
@@ -202,7 +202,7 @@ class GameActivity : AppCompatActivity() {
         if (finished) return
         if (!first && !countRound()) return
         val r = MiniGames.basketRound(level)
-        b.txtQuestion.text = r.question
+        b.txtQuestion.text = questionOf(r)
         basket?.setRound(r)
     }
 
@@ -251,4 +251,10 @@ class GameActivity : AppCompatActivity() {
         }
         b.resultPanel.visibility = View.VISIBLE
     }
+
+    /** 게임 물음을 폰 언어로 — 뼈대가 없으면 원문(한국어)을 그대로 */
+    private fun questionOf(r: com.piyak.english.engine.GameRound): String =
+        if (r.questionRes == 0) r.question
+        else getString(r.questionRes, *r.questionArgs.toTypedArray())
+
 }

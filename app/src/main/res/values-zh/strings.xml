@@ -443,6 +443,29 @@
     <string name="ly_play_desc">用手指触摸移动来玩的游戏 🐥</string>
     <string name="btn_play">听</string>
     <string name="btn_play_slow">慢速</string>
+    <string name="play_paid_left">今天还能拿零花钱的局数: 还剩 %1$d 局</string>
+    <string name="game_q_balloon">找到 %1$s 并戳破!</string>
+    <string name="game_q_basket">把 %2$s 个 %1$s 装进去</string>
+    <string name="tr_praise_1">做得好! 🎉</string>
+    <string name="tr_praise_2">完美! 🌟</string>
+    <string name="tr_praise_3">叽叽! 你最棒!</string>
+    <string name="tr_praise_4">太棒了! 👏</string>
+    <string name="tr_praise_5">哇，写得真漂亮!</string>
+    <string name="tr_off_path">哎呀，出线了。慢慢再来一次! 🐥</string>
+    <string name="tr_case_upper">大写</string>
+    <string name="tr_case_lower">小写</string>
+    <string name="tr_written_n">已经写了 %1$d 次。再写一次吗? ✏️</string>
+    <string name="tr_stroke_of">第 %1$d / %2$d 笔</string>
+    <string name="tr_stroke_done">第 %1$d / %1$d 笔 ✅</string>
+    <string name="tr_next_stroke">很好! 接下来是第 %1$d 笔 ✏️</string>
+    <string name="tr_done_msg">%1$s\n%2$s  写了 %3$d 次!</string>
+    <string name="tr_done_coins">完成! 零花钱 +%1$s 🎁  · 点「再写一次」继续练习!</string>
+    <string name="tr_done_more">完成! 再写一次好吗? ✏️</string>
+    <string name="tr_done_many">这个字母写了 %1$d 次! 真厉害 🌟</string>
+    <string name="tr_write_again">✏️ 再写一次</string>
+    <string name="tr_first_write">%1$s 第一次书写</string>
+    <string name="tr_nth_write">%1$s 第 %2$d 次书写</string>
+    <string name="tr_times">%1$s %2$d次</string>
     <string-array name="weekday_short">
         <item>日</item>
         <item>一</item>
@@ -2026,6 +2049,12 @@
         <item>그것은 꽃이에요.|那是一朵花。</item>
         <item>내 가방은 빨간색이에요.|我的包是红色的。</item>
         <item>나는 책을 읽어요.|我读书。</item>
+        <item>강아지|小狗</item>
+        <item>공책|笔记本</item>
+        <item>여왕|女王</item>
+        <item>바이올린|小提琴</item>
+        <item>크리스마스트리|圣诞树</item>
+        <item>요요|悠悠球</item>
     </string-array>
     <string-array name="tpl_units">
     </string-array>

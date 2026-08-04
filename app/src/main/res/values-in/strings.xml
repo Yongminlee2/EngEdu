@@ -443,6 +443,29 @@
     <string name="ly_play_desc">Gim yang dimainkan dengan sentuhan 🐥</string>
     <string name="btn_play">Dengarkan</string>
     <string name="btn_play_slow">Pelan</string>
+    <string name="play_paid_left">Permainan berhadiah hari ini: sisa %1$d</string>
+    <string name="game_q_balloon">Pecahkan balon %1$s!</string>
+    <string name="game_q_basket">Masukkan %2$s %1$s ke keranjang</string>
+    <string name="tr_praise_1">Bagus sekali! 🎉</string>
+    <string name="tr_praise_2">Sempurna! 🌟</string>
+    <string name="tr_praise_3">Ciap! Kamu hebat!</string>
+    <string name="tr_praise_4">Keren! 👏</string>
+    <string name="tr_praise_5">Wah, tulisannya bagus!</string>
+    <string name="tr_off_path">Ups, keluar jalur. Coba pelan-pelan lagi! 🐥</string>
+    <string name="tr_case_upper">huruf besar</string>
+    <string name="tr_case_lower">huruf kecil</string>
+    <string name="tr_written_n">Sudah ditulis %1$d kali. Tulis lagi? ✏️</string>
+    <string name="tr_stroke_of">Goresan %1$d / %2$d</string>
+    <string name="tr_stroke_done">Goresan %1$d / %1$d ✅</string>
+    <string name="tr_next_stroke">Bagus! Sekarang goresan %1$d ✏️</string>
+    <string name="tr_done_msg">%1$s\n%2$s  Ditulis %3$d kali!</string>
+    <string name="tr_done_coins">Selesai! +%1$s 🎁  · Tekan «Tulis lagi» untuk latihan!</string>
+    <string name="tr_done_more">Selesai! Mau tulis lagi? ✏️</string>
+    <string name="tr_done_many">Huruf ini sudah ditulis %1$d kali! Hebat 🌟</string>
+    <string name="tr_write_again">✏️ Tulis lagi</string>
+    <string name="tr_first_write">%1$s tulisan pertama</string>
+    <string name="tr_nth_write">%1$s tulisan ke-%2$d</string>
+    <string name="tr_times">%1$s ×%2$d</string>
     <string-array name="weekday_short">
         <item>Min</item>
         <item>Sen</item>
@@ -2026,6 +2049,12 @@
         <item>그것은 꽃이에요.|Itu bunga.</item>
         <item>내 가방은 빨간색이에요.|Tasku berwarna merah.</item>
         <item>나는 책을 읽어요.|Aku membaca buku.</item>
+        <item>강아지|anak anjing</item>
+        <item>공책|buku tulis</item>
+        <item>여왕|ratu</item>
+        <item>바이올린|biola</item>
+        <item>크리스마스트리|pohon Natal</item>
+        <item>요요|yoyo</item>
     </string-array>
     <string-array name="tpl_units">
     </string-array>

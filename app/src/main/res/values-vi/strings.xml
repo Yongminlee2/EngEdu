@@ -443,6 +443,29 @@
     <string name="ly_play_desc">Trò chơi chạm và kéo bằng ngón tay 🐥</string>
     <string name="btn_play">Nghe</string>
     <string name="btn_play_slow">Chậm</string>
+    <string name="play_paid_left">Số ván còn được thưởng hôm nay: %1$d</string>
+    <string name="game_q_balloon">Tìm và bắn quả bóng %1$s!</string>
+    <string name="game_q_basket">Bỏ %2$s %1$s vào giỏ</string>
+    <string name="tr_praise_1">Giỏi lắm! 🎉</string>
+    <string name="tr_praise_2">Hoàn hảo! 🌟</string>
+    <string name="tr_praise_3">Chíp! Bạn giỏi nhất!</string>
+    <string name="tr_praise_4">Tuyệt vời! 👏</string>
+    <string name="tr_praise_5">Ồ, viết đẹp quá!</string>
+    <string name="tr_off_path">Ối, lệch khỏi đường rồi. Thử lại chậm thôi! 🐥</string>
+    <string name="tr_case_upper">chữ hoa</string>
+    <string name="tr_case_lower">chữ thường</string>
+    <string name="tr_written_n">Bạn đã viết %1$d lần. Viết nữa nhé? ✏️</string>
+    <string name="tr_stroke_of">Nét %1$d / %2$d</string>
+    <string name="tr_stroke_done">Nét %1$d / %1$d ✅</string>
+    <string name="tr_next_stroke">Tốt! Giờ đến nét %1$d ✏️</string>
+    <string name="tr_done_msg">%1$s\n%2$s  Đã viết %3$d lần!</string>
+    <string name="tr_done_coins">Xong! +%1$s 🎁  · Bấm «Viết lại» để luyện thêm!</string>
+    <string name="tr_done_more">Xong! Viết lại lần nữa nhé? ✏️</string>
+    <string name="tr_done_many">Bạn đã viết chữ này %1$d lần! Giỏi quá 🌟</string>
+    <string name="tr_write_again">✏️ Viết lại</string>
+    <string name="tr_first_write">%1$s viết lần đầu</string>
+    <string name="tr_nth_write">%1$s lần viết thứ %2$d</string>
+    <string name="tr_times">%1$s ×%2$d</string>
     <string-array name="weekday_short">
         <item>CN</item>
         <item>T2</item>
@@ -2026,6 +2049,12 @@
         <item>그것은 꽃이에요.|Đó là một bông hoa.</item>
         <item>내 가방은 빨간색이에요.|Túi của tôi màu đỏ.</item>
         <item>나는 책을 읽어요.|Tôi đọc sách.</item>
+        <item>강아지|chó con</item>
+        <item>공책|quyển vở</item>
+        <item>여왕|nữ hoàng</item>
+        <item>바이올린|đàn vĩ cầm</item>
+        <item>크리스마스트리|cây thông Noel</item>
+        <item>요요|yo-yo</item>
     </string-array>
     <string-array name="tpl_units">
     </string-array>

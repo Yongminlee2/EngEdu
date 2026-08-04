@@ -63,7 +63,7 @@ class PlaygroundActivity : AppCompatActivity() {
 
         b.gamesBox.removeAllViews()
         b.gamesBox.addView(TextView(this).apply {
-            text = "오늘 용돈 받을 수 있는 판: $paidLeft 판 남음"
+            text = getString(R.string.play_paid_left, paidLeft)
             textSize = 12f
             setTextColor(Color.parseColor("#8D6E63"))
             setPadding(dp(6), 0, 0, dp(8))

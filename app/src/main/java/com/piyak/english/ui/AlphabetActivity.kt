@@ -1,5 +1,6 @@
 package com.piyak.english.ui
 
+import com.piyak.english.R
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -94,7 +95,7 @@ class AlphabetActivity : AppCompatActivity() {
             })
             val writes = db.letterWrites(Letters.key(d, uppercase))
             card.addView(TextView(this).apply {
-                text = if (done) "${"⭐".repeat(db.letterStars(Letters.key(d, uppercase)))} ${writes}번"
+                text = if (done) getString(R.string.tr_times, "⭐".repeat(db.letterStars(Letters.key(d, uppercase))), writes)
                 else d.word
                 textSize = 11f
                 gravity = Gravity.CENTER

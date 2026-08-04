@@ -443,6 +443,29 @@
     <string name="ly_play_desc">Игры, где трогаешь и двигаешь 🐥</string>
     <string name="btn_play">Слушать</string>
     <string name="btn_play_slow">Медленно</string>
+    <string name="play_paid_left">Игр с карманными сегодня: осталось %1$d</string>
+    <string name="game_q_balloon">Лопни шарик «%1$s»!</string>
+    <string name="game_q_basket">Положи %2$s «%1$s» в корзину</string>
+    <string name="tr_praise_1">Молодец! 🎉</string>
+    <string name="tr_praise_2">Идеально! 🌟</string>
+    <string name="tr_praise_3">Пи-пи! Ты лучший!</string>
+    <string name="tr_praise_4">Отлично! 👏</string>
+    <string name="tr_praise_5">Ух ты, как красиво написано!</string>
+    <string name="tr_off_path">Ой, сбился с линии. Попробуй медленно! 🐥</string>
+    <string name="tr_case_upper">заглавная</string>
+    <string name="tr_case_lower">строчная</string>
+    <string name="tr_written_n">Ты написал это %1$d раз. Ещё раз? ✏️</string>
+    <string name="tr_stroke_of">Черта %1$d / %2$d</string>
+    <string name="tr_stroke_done">Черта %1$d / %1$d ✅</string>
+    <string name="tr_next_stroke">Отлично! Теперь черта %1$d ✏️</string>
+    <string name="tr_done_msg">%1$s\n%2$s  Написано %3$d раз!</string>
+    <string name="tr_done_coins">Готово! +%1$s 🎁  · Нажми «Написать ещё раз»!</string>
+    <string name="tr_done_more">Готово! Напишешь ещё раз? ✏️</string>
+    <string name="tr_done_many">Ты написал эту букву %1$d раз! Здорово 🌟</string>
+    <string name="tr_write_again">✏️ Написать ещё раз</string>
+    <string name="tr_first_write">%1$s первое письмо</string>
+    <string name="tr_nth_write">%1$s письмо №%2$d</string>
+    <string name="tr_times">%1$s ×%2$d</string>
     <string-array name="weekday_short">
         <item>Вс</item>
         <item>Пн</item>
@@ -2026,6 +2049,12 @@
         <item>그것은 꽃이에요.|Это цветок.</item>
         <item>내 가방은 빨간색이에요.|Моя сумка красная.</item>
         <item>나는 책을 읽어요.|Я читаю книгу.</item>
+        <item>강아지|щенок</item>
+        <item>공책|тетрадь</item>
+        <item>여왕|королева</item>
+        <item>바이올린|скрипка</item>
+        <item>크리스마스트리|ёлка</item>
+        <item>요요|йо-йо</item>
     </string-array>
     <string-array name="tpl_units">
     </string-array>

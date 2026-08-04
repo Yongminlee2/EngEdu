@@ -443,6 +443,29 @@
     <string name="ly_play_desc">ゆびで さわって うごかして あそぶ ゲームだよ 🐥</string>
     <string name="btn_play">きく</string>
     <string name="btn_play_slow">ゆっくり</string>
+    <string name="play_paid_left">きょう おこづかいが もらえる かず: のこり %1$d かい</string>
+    <string name="game_q_balloon">%1$s を さがして わろう!</string>
+    <string name="game_q_basket">%1$s を %2$s こ いれよう</string>
+    <string name="tr_praise_1">よく できました! 🎉</string>
+    <string name="tr_praise_2">かんぺき! 🌟</string>
+    <string name="tr_praise_3">ピヨ! さいこう!</string>
+    <string name="tr_praise_4">すてき! 👏</string>
+    <string name="tr_praise_5">わあ、きれいに かけたね!</string>
+    <string name="tr_off_path">あっ、みちを はずれたよ。ゆっくり もういちど! 🐥</string>
+    <string name="tr_case_upper">おおもじ</string>
+    <string name="tr_case_lower">こもじ</string>
+    <string name="tr_written_n">いままで %1$d かい かいたよ。もういちど かく? ✏️</string>
+    <string name="tr_stroke_of">%1$d / %2$d かくめ</string>
+    <string name="tr_stroke_done">%1$d / %1$d かく ✅</string>
+    <string name="tr_next_stroke">いいね! つぎは %1$d かくめ ✏️</string>
+    <string name="tr_done_msg">%1$s\n%2$s  %3$d かい かいたよ!</string>
+    <string name="tr_done_coins">かんせい! おこづかい +%1$s 🎁  · 「もういちど かく」で れんしゅう!</string>
+    <string name="tr_done_more">かんせい! もういちど かいてみる? ✏️</string>
+    <string name="tr_done_many">この もじを %1$d かいも かいたよ! すごい 🌟</string>
+    <string name="tr_write_again">✏️ もういちど かく</string>
+    <string name="tr_first_write">%1$s はじめて かいた</string>
+    <string name="tr_nth_write">%1$s %2$d かいめ</string>
+    <string name="tr_times">%1$s %2$dかい</string>
     <string-array name="weekday_short">
         <item>日</item>
         <item>月</item>
@@ -2026,6 +2049,12 @@
         <item>그것은 꽃이에요.|それは花です。</item>
         <item>내 가방은 빨간색이에요.|わたしのかばんは赤いです。</item>
         <item>나는 책을 읽어요.|わたしは本を読みます。</item>
+        <item>강아지|こいぬ</item>
+        <item>공책|ノート</item>
+        <item>여왕|じょおう</item>
+        <item>바이올린|バイオリン</item>
+        <item>크리스마스트리|クリスマスツリー</item>
+        <item>요요|ヨーヨー</item>
     </string-array>
     <string-array name="tpl_units">
     </string-array>
