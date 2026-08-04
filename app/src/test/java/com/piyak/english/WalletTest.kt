@@ -34,11 +34,11 @@ class WalletTest {
     }
 
     @Test fun moneyFormatting() {
-        assertEquals("0원", Wallet.format(0))
-        assertEquals("150원", Wallet.format(150))
-        assertEquals("1,000원", Wallet.format(1000))
-        assertEquals("147,520원", Wallet.format(147520))
-        assertEquals("-300원", Wallet.format(-300))
+        assertEquals("0", Wallet.formatNumber(0))
+        assertEquals("150", Wallet.formatNumber(150))
+        assertEquals("1,000", Wallet.formatNumber(1000))
+        assertEquals("147,520", Wallet.formatNumber(147520))
+        assertEquals("-300", Wallet.formatNumber(-300))
     }
 
     @Test fun dailyBonusesAreCapped() {

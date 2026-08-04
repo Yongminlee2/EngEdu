@@ -140,7 +140,7 @@ class TraceActivity : AppCompatActivity() {
         b.donePanel.animate().alpha(1f).scaleX(1f).scaleY(1f).setDuration(420).start()
 
         b.txtHint.text = when {
-            coins > 0 -> "완성! 용돈 +${W.format(coins)} 🎁  · '한 번 더 쓰기'로 연습해요!"
+            coins > 0 -> "완성! 용돈 +${W.format(this@TraceActivity, coins)} 🎁  · '한 번 더 쓰기'로 연습해요!"
             writes < 5 -> "완성! 한 번 더 써 볼까요? ✏️"
             else -> "이 글자는 ${writes}번이나 썼어요! 정말 잘하네요 🌟"
         }

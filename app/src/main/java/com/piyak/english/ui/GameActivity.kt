@@ -245,7 +245,7 @@ class GameActivity : AppCompatActivity() {
         b.txtResultTitle.text = "$title ${"⭐".repeat(stars)}"
         b.txtResultBody.text = buildString {
             append("점수 ${score}점 · +${xp} XP")
-            if (coins > 0) append("\n💰 용돈 +${Wallet.format(coins)}")
+            if (coins > 0) append("\n💰 용돈 +${Wallet.format(this@GameActivity, coins)}")
             else append("\n오늘 게임 용돈은 다 받았어요\n(공부하면 더 받을 수 있어요!)")
         }
         b.resultPanel.visibility = View.VISIBLE

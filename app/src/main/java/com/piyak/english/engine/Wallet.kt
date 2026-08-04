@@ -36,8 +36,17 @@ object Wallet {
     fun lessonReward(firstTryCorrect: Int, perfect: Boolean): Int =
         firstTryCorrect * PER_QUESTION + if (perfect) PERFECT_BONUS else 0
 
-    /** 1,234 → "1,234원" */
-    fun format(won: Int): String = "%,d원".format(won)
+    /**
+     * 자릿수만 넣은 숫자 ("1,234"). 안드로이드에 기대지 않으므로 단위테스트가 쓴다.
+     */
+    fun formatNumber(won: Int): String = "%,d".format(won)
+
+    /**
+     * 화면에 뜨는 금액. 통화는 **원(₩) 그대로**다 — 부모가 실제로 주는 돈이 원화라서
+     * 달러로 바꾸면 오히려 거짓말이 된다. 대신 언어마다 "1,200 won" 처럼 읽어 준다.
+     */
+    fun format(ctx: android.content.Context, won: Int): String =
+        ctx.getString(com.piyak.english.R.string.wallet_amount, formatNumber(won))
 }
 
 enum class ShopKind { CONSUMABLE, UPGRADE, STICKER, THEME }
