@@ -33,8 +33,24 @@ const qid = () => "E" + String(++seq).padStart(5, "0");
 let lseq = 0;
 const lid = () => "el" + ++lseq;
 
+/**
+ * 번역 가능한 문제문 (gen.js 의 tp 와 동일한 규칙).
+ * keyify.js 가 자동으로 심는다 — 손으로 쓰지 말 것.
+ */
+function tp(key, args, ko) {
+  const s = new String(ko);
+  s.tk = key;
+  s.ta = args.map((v) => String(v));
+  return s;
+}
+function unwrapTp(q, v) {
+  if (v instanceof String && v.tk) { q.tk = v.tk; q.ta = v.ta; }
+  return v == null ? v : String(v);
+}
+
 let total = 0;
 function validate(q) {
+  if (q.prompt != null) q.prompt = unwrapTp(q, q.prompt);
   const fail = (m) => { throw new Error(`검증 실패 [${q.id}] ${m}`); };
   if (q.type === "mcq") {
     if (!q.choices || q.choices.length !== 4) fail("선택지 4개 아님");
@@ -238,7 +254,7 @@ const units = [];
 units.push(makeUnit("알파벳 찾기 (대문자)", "🔠", 1, gen(60, () => {
   const [ch, emoji, word, ko] = pick(ABC);
   const others = shuffled(ABC.filter((x) => x[0] !== ch)).slice(0, 3).map((x) => x[0]);
-  return mcq(`${word} (${ko})\n첫 글자는 무엇일까요?`, ch, others,
+  return mcq(tp("2310939c", [word, ko], `${word} (${ko})\n첫 글자는 무엇일까요?`), ch, others,
     `${word}는 ${ch}로 시작해요. ${ch} = ${word} (${ko})`,
     { bigEmoji: emoji, skill: "vocab" });
 }), 8));
@@ -248,7 +264,7 @@ units.push(makeUnit("대문자와 소문자 짝꿍", "🔡", 1, gen(50, () => {
   const [ch] = pick(ABC);
   const lower = ch.toLowerCase();
   const others = shuffled(ABC.filter((x) => x[0] !== ch)).slice(0, 3).map((x) => x[0].toLowerCase());
-  return mcq(`대문자 ${ch} 의 소문자는?`, lower, others,
+  return mcq(tp("20ff9e96", [ch], `대문자 ${ch} 의 소문자는?`), lower, others,
     `${ch}의 소문자는 ${lower}예요. 모양이 비슷하죠?`, { skill: "vocab" });
 }), 8));
 
@@ -256,7 +272,7 @@ units.push(makeUnit("대문자와 소문자 짝꿍", "🔡", 1, gen(50, () => {
 units.push(makeUnit("알파벳 소리 듣기", "🔊", 1, gen(50, () => {
   const [ch] = pick(ABC);
   const others = shuffled(ABC.filter((x) => x[0] !== ch)).slice(0, 3).map((x) => x[0]);
-  return listenMcq(ch, "어떤 알파벳이 들렸나요?", ch, others,
+  return listenMcq(ch, tp("c087bfe9", [], "어떤 알파벳이 들렸나요?"), ch, others,
     `들린 소리는 ${ch}예요.`);
 }), 8));
 
@@ -265,7 +281,7 @@ units.push(makeUnit("첫소리 찾기 (파닉스)", "🐣", 2, gen(50, () => {
   const [word, emoji, ko] = pick(PHONICS);
   const first = word[0].toUpperCase();
   const others = shuffled(ABC.filter((x) => x[0] !== first)).slice(0, 3).map((x) => x[0]);
-  return mcq(`${ko} 그림이에요.\n${word} 의 첫소리는?`, first, others,
+  return mcq(tp("887a7a17", [ko, word], `${ko} 그림이에요.\n${word} 의 첫소리는?`), first, others,
     `${word}는 [${word[0]}] 소리로 시작해요. 첫 글자는 ${first}예요.`,
     { bigEmoji: emoji, skill: "vocab" });
 }), 8));
@@ -274,7 +290,7 @@ units.push(makeUnit("첫소리 찾기 (파닉스)", "🐣", 2, gen(50, () => {
 units.push(makeUnit("가운데 소리 (모음)", "🎵", 2, gen(45, () => {
   const [word, emoji, ko, vowel] = pick(PHONICS);
   const others = shuffled(["a", "e", "i", "o", "u"].filter((v) => v !== vowel)).slice(0, 3);
-  return mcq(`${word} (${ko})\n가운데 모음은 무엇일까요?`, vowel, others,
+  return mcq(tp("02bc90d3", [word, ko], `${word} (${ko})\n가운데 모음은 무엇일까요?`), vowel, others,
     `${word}의 가운데 소리는 [${vowel}]예요. 소리 내어 읽어 보세요: ${word}`,
     { bigEmoji: emoji, skill: "vocab" });
 }), 8));
@@ -283,7 +299,7 @@ units.push(makeUnit("가운데 소리 (모음)", "🎵", 2, gen(45, () => {
 units.push(makeUnit("그림 보고 단어 찾기", "🎨", 2, gen(70, () => {
   const [emoji, word, ko] = pick(PICTURE_WORDS);
   const others = shuffled(PICTURE_WORDS.filter((x) => x[1] !== word)).slice(0, 3).map((x) => x[1]);
-  return mcq(`이 그림은 영어로 무엇일까요?`, word, others,
+  return mcq(tp("1aa85738", [], `이 그림은 영어로 무엇일까요?`), word, others,
     `${emoji} = ${word} (${ko})`, { bigEmoji: emoji, skill: "vocab" });
 }), 8));
 
@@ -291,7 +307,7 @@ units.push(makeUnit("그림 보고 단어 찾기", "🎨", 2, gen(70, () => {
 units.push(makeUnit("단어 뜻 맞히기", "💡", 2, gen(60, () => {
   const [emoji, word, ko] = pick(PICTURE_WORDS);
   const others = shuffled(PICTURE_WORDS.filter((x) => x[2] !== ko)).slice(0, 3).map((x) => x[2]);
-  return mcq(`"${word}" 는 무슨 뜻일까요?`, ko, others,
+  return mcq(tp("e320ea2b", [word], `"${word}" 는 무슨 뜻일까요?`), ko, others,
     `${word} = ${ko} ${emoji}`, { skill: "vocab" });
 }), 8));
 
@@ -299,14 +315,14 @@ units.push(makeUnit("단어 뜻 맞히기", "💡", 2, gen(60, () => {
 units.push(makeUnit("듣고 그림 찾기", "🎧", 2, gen(55, () => {
   const [emoji, word, ko] = pick(PICTURE_WORDS);
   const others = shuffled(PICTURE_WORDS.filter((x) => x[2] !== ko)).slice(0, 3).map((x) => x[2]);
-  return listenMcq(word, "무엇이 들렸나요?", ko, others, `${word} = ${ko} ${emoji}`);
+  return listenMcq(word, tp("4d6281c4", [], "무엇이 들렸나요?"), ko, others, `${word} = ${ko} ${emoji}`);
 }), 8));
 
 // 9) 사이트워드
 units.push(makeUnit("자주 나오는 낱말", "👀", 3, gen(55, () => {
   const [w, ko] = pick(SIGHT);
   const others = shuffled(SIGHT.filter((x) => x[1] !== ko)).slice(0, 3).map((x) => x[1]);
-  return mcq(`"${w}" 는 무슨 뜻일까요?`, ko, others,
+  return mcq(tp("e320ea2b", [w], `"${w}" 는 무슨 뜻일까요?`), ko, others,
     `${w} = ${ko}\n책에 아주 자주 나오는 낱말이에요. 통째로 외워 두면 좋아요!`,
     { skill: "vocab" });
 }), 8));
@@ -322,7 +338,7 @@ units.push(makeUnit("단어 써 보기", "✍️", 3, gen(50, () => {
 units.push(makeUnit("문장 읽기", "📖", 3, gen(40, () => {
   const [en, ko, emoji] = pick(EASY_SENTENCES);
   const others = shuffled(EASY_SENTENCES.filter((x) => x[1] !== ko)).slice(0, 3).map((x) => x[1]);
-  return mcq(`"${en}"\n무슨 뜻일까요?`, ko, others, `${en}\n= ${ko}`,
+  return mcq(tp("12f8c41c", [en], `"${en}"\n무슨 뜻일까요?`), ko, others, `${en}\n= ${ko}`,
     { bigEmoji: emoji, skill: "reading" });
 }), 8));
 

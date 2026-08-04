@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 자동 생성: node tools/i18n/gen_strings.js — 직접 고치지 말 것 -->
+<resources>
+    <string name="app_name">Piyak English</string>
+    <string name="ask_pic_en">Как это будет по-английски?</string>
+    <string name="listen_arrange">Послушай и расставь слова по порядку</string>
+    <string name="listen_type">Послушай и напиши, что услышал</string>
+    <string name="play_again">🔊 Прослушать ещё раз</string>
+
+    <!-- 문제·해설 뼈대 -->
+    <string name="tpl_c8b5801d">Что означает услышанное слово?</string>
+    <string name="tpl_366dec85">Что означает услышанное предложение?</string>
+    <string name="tpl_4d6281c4">Что ты услышал?</string>
+    <string name="tpl_c087bfe9">Какую букву ты услышал?</string>
+    <string name="tpl_018ef4e1">Что означает фраза «%1$s...» из диалога?</string>
+    <string name="tpl_a933e669">Что означает «%1$s»?</string>
+    <string name="tpl_e320ea2b">Как думаешь, что значит «%1$s»?</string>
+    <string name="tpl_12f8c41c">«%1$s»\nЧто это значит?</string>
+    <string name="tpl_55f8727e">Пияк крикнул «%1$s!» Что это значит?</string>
+    <string name="tpl_452676ab">На доске написано «%1$s». Выбери значение!</string>
+    <string name="tpl_01751329">Кролик спросил: «Что значит %1$s?»</string>
+    <string name="tpl_98393c1b">Ты увидел «%1$s» в книжке с картинками. Что это значит?</string>
+    <string name="tpl_f3b29e08">Слово дня — «%1$s»! Угадаешь значение?</string>
+    <string name="tpl_375f518e">Какая картинка — «%1$s»?</string>
+    <string name="tpl_ad76c0d4">Найди «%1$s» среди картинок!</string>
+    <string name="tpl_6dc70e58">Пияк ищет «%1$s». Какая это картинка?</string>
+    <string name="tpl_a0168b2f">Выбери картинку, подходящую к «%1$s».</string>
+    <string name="tpl_1aa85738">Как это будет по-английски?</string>
+    <string name="tpl_b797909f">Как сказать «%1$s» по-английски?</string>
+    <string name="tpl_21a6d4b2">Подскажи Пияку, как сказать «%1$s» по-английски!</string>
+    <string name="tpl_4002700b">Пингвину интересно: как будет «%1$s» по-английски?</string>
+    <string name="tpl_b5f5d7a9">Урок английского! Выбери английское слово для «%1$s».</string>
+    <string name="tpl_b2ecaffb">Мама спросила: «Как по-английски %1$s?»</string>
+    <string name="tpl_2310939c">%1$s (%2$s)\nКакая первая буква?</string>
+    <string name="tpl_20ff9e96">Какая строчная буква у заглавной %1$s?</string>
+    <string name="tpl_887a7a17">Это картинка %1$s.\nКакой первый звук в %2$s?</string>
+    <string name="tpl_02bc90d3">%1$s (%2$s)\nКакая гласная в середине?</string>
+    <string name="tpl_363ce10c">%1$s</string>
+
+    <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
+    <string-array name="tpl_words">
+    </string-array>
+    <string-array name="tpl_units">
+    </string-array>
+</resources>
