@@ -312,7 +312,10 @@ class MainActivity : AppCompatActivity() {
                 setTextColor(Color.parseColor("#8D6E63"))
             })
             card.addView(col)
-            card.addView(TextView(this).apply { text = "▶"; textSize = 16f; setTextColor(Color.parseColor("#C9A25E")) })
+            card.addView(TextView(this).apply {
+                text = "▶"; textSize = 16f; setTextColor(Color.parseColor("#C9A25E"))
+                setPadding(dp(8f).toInt(), 0, 0, 0)   // 긴 번역 부제와 맞붙지 않게
+            })
             b.tracksBox.addView(card)
         }
     }

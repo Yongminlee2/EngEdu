@@ -46,6 +46,15 @@ function esc(s) {
     .replace(/\n/g, "\\n");
 }
 
+/**
+ * XML 은 값의 **앞뒤 공백을 먹어 버린다** — "  ✅ 달성!" 이 "✅ 달성!" 이 되면서
+ * 앞 글자에 딱 붙는다("110 / 50 XP✅ 달성!"). 따옴표로 감싸면 그대로 살아남는다.
+ */
+function xmlValue(s) {
+  const e = esc(s);
+  return s !== s.trim() ? '"' + e + '"' : e;
+}
+
 let missing = 0;
 for (const lang of langs) {
   const dir = path.join(RES, lang === "en" ? "values" : "values-" + lang);
@@ -62,7 +71,7 @@ for (const lang of langs) {
       v = byLang.en;             // 번역이 없으면 영어로 (빈칸 방지)
       if (lang !== "en") missing++;
     }
-    lines.push(`    <string name="${key}">${esc(v)}</string>`);
+    lines.push(`    <string name="${key}">${xmlValue(v)}</string>`);
   }
 
   // ---- 순서 있는 묶음 (요일 등) ----
@@ -74,7 +83,7 @@ for (const lang of langs) {
     }
     if (!items) items = byLang.en;
     lines.push(`    <string-array name="${name}">`);
-    for (const it of items) lines.push(`        <item>${esc(it)}</item>`);
+    for (const it of items) lines.push(`        <item>${xmlValue(it)}</item>`);
     lines.push("    </string-array>");
   }
 
@@ -88,7 +97,7 @@ for (const lang of langs) {
       if (!byLang.en) continue;
       if (!tplKo[key]) continue;                    // 생성기에서 사라진 뼈대
       const v = pick(byLang, lang) || byLang.en;
-      lines.push(`    <string name="tpl_${key}">${esc(v)}</string>`);
+      lines.push(`    <string name="tpl_${key}">${xmlValue(v)}</string>`);
     }
 
     // ---- 인자·라벨 낱말 사전 ----
