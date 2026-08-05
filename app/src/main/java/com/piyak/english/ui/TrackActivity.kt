@@ -58,8 +58,14 @@ class TrackActivity : AppCompatActivity() {
             }
             b.unitsBox.addView(header)
 
-            // 아래 여백이 0 이면 **맨 아랫줄 원의 그림자가 부모에 잘려** 살짝 가려 보인다
-            val flow = FlowLayout(this).apply { setPadding(dp(4), dp(2), dp(4), dp(10)) }
+            // 맨 아랫줄 원이 "살짝 가려" 보이던 것 — 원의 그림자는 뷰 **바깥**에 그려지는데
+            // 안드로이드는 기본으로 자식을 부모 경계에서 잘라낸다(clipChildren).
+            // 여백만 줘도 부모가 다시 자를 수 있어서 잘라내기 자체를 꺼 둔다.
+            val flow = FlowLayout(this).apply {
+                setPadding(dp(4), dp(2), dp(4), dp(10))
+                clipChildren = false
+                clipToPadding = false
+            }
             // 배치고사 결과 이하는 전체 해금 — 영어는 기초 트랙의 레벨, 수학은 학년 단위
             val mathLevel = com.piyak.english.model.MathGrades.of(trackId)
                 ?.let { com.piyak.english.model.MathGrades.levelOf(trackId) }

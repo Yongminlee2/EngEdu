@@ -16,8 +16,10 @@
     </LinearLayout>
 
     <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <!-- 원의 그림자가 잘리지 않도록 이 줄기 전체가 자식을 안 자른다 -->
         <LinearLayout android:id="@+id/unitsBox"
             android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="vertical" android:padding="12dp" android:paddingBottom="32dp" />
+            android:orientation="vertical" android:padding="12dp" android:paddingBottom="32dp"
+            android:clipChildren="false" android:clipToPadding="false" />
     </ScrollView>
 </LinearLayout>
