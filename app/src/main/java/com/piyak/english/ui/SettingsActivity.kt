@@ -26,6 +26,7 @@ class SettingsActivity : AppCompatActivity() {
         sfx = com.piyak.english.audio.Sfx(this)
 
         b.btnBack.setOnClickListener { finish() }
+        setupLanguageRow()
 
         // 발음 속도: 0.5x ~ 1.9x (0.1 단위)
         val savedRate = db.meta("tts_rate", "1.0").toFloatOrNull() ?: 1.0f
@@ -107,4 +108,54 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() { super.onDestroy(); tts.shutdown(); sfx.release() }
+
+    /**
+     * 앱 언어 고르기.
+     *
+     * 폰 전체 언어를 바꾸지 않고 이 앱만 다른 언어로 볼 수 있어야 한다.
+     * 목록의 언어 이름은 **그 언어로** 적는다(Deutsch, ไทย …) — 번역하지 않는다.
+     */
+    private val langTags = listOf(
+        "", "ko", "en", "ja", "zh", "zh-TW", "zh-HK", "es", "fr", "de", "pt", "ru", "vi", "id", "th"
+    )
+    private val langNames by lazy {
+        listOf(
+            getString(R.string.ly_lang_system), "한국어", "English", "日本語", "简体中文",
+            "繁體中文（台灣）", "繁體中文（香港）", "Español", "Français", "Deutsch",
+            "Português", "Русский", "Tiếng Việt", "Bahasa Indonesia", "ไทย"
+        )
+    }
+
+    private fun currentLangIndex(): Int {
+        val cur = androidx.appcompat.app.AppCompatDelegate.getApplicationLocales()
+        if (cur.isEmpty) return 0
+        val tag = cur.toLanguageTags().substringBefore(',')
+        val exact = langTags.indexOfFirst { it.isNotEmpty() && it.equals(tag, true) }
+        if (exact >= 0) return exact
+        // "ru-RU" 처럼 지역이 붙어 오면 언어만 맞춰 본다
+        val lang = tag.substringBefore('-')
+        val loose = langTags.indexOfFirst { it.isNotEmpty() && it.substringBefore('-').equals(lang, true) }
+        return if (loose >= 0) loose else 0
+    }
+
+    private fun setupLanguageRow() {
+        b.txtLanguage.text = langNames[currentLangIndex()]
+        b.rowLanguage.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle(R.string.ly_language)
+                .setSingleChoiceItems(langNames.toTypedArray(), currentLangIndex()) { d, which ->
+                    d.dismiss()
+                    // 팩은 언어에 맞춰 걸러 놓은 것이라 캐시를 비워야 새 언어로 다시 읽힌다
+                    com.piyak.english.model.ContentRepo.clearCache()
+                    androidx.appcompat.app.AppCompatDelegate.setApplicationLocales(
+                        if (langTags[which].isEmpty())
+                            androidx.core.os.LocaleListCompat.getEmptyLocaleList()
+                        else androidx.core.os.LocaleListCompat.forLanguageTags(langTags[which])
+                    )
+                }
+                .setNegativeButton(android.R.string.cancel, null)
+                .show()
+        }
+    }
+
 }
