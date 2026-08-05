@@ -1,0 +1,98 @@
+<en-US>
+First release 🐥
+· One path from tracing the alphabet to real conversation
+· Listening, speaking, writing, grammar, reading and vocabulary each have their own level
+· Every question carries a picture, so you can follow the meaning
+· 14 languages, switchable in Settings
+</en-US>
+<de-DE>
+Erste Version 🐥
+· Ein Weg vom Alphabet bis zum echten Gespräch
+· Hören, Sprechen, Schreiben, Grammatik, Lesen und Wortschatz mit je eigenem Level
+· Jede Aufgabe hat ein Bild
+· 14 Sprachen, in den Einstellungen umschaltbar
+</de-DE>
+<es-ES>
+Primera versión 🐥
+· Un camino del abecedario a la conversación real
+· Comprensión oral, habla, escritura, gramática, lectura y vocabulario, cada uno con su nivel
+· Cada pregunta lleva un dibujo
+· 14 idiomas, cambiables en Ajustes
+</es-ES>
+<fr-FR>
+Première version 🐥
+· Un parcours de l'alphabet à la vraie conversation
+· Écoute, expression orale, écriture, grammaire, lecture et vocabulaire, chacun son niveau
+· Chaque question porte une image
+· 14 langues, modifiables dans les Réglages
+</fr-FR>
+<id>
+Rilis pertama 🐥
+· Satu jalur dari alfabet sampai percakapan nyata
+· Menyimak, berbicara, menulis, tata bahasa, membaca, dan kosakata punya levelnya sendiri
+· Setiap soal disertai gambar
+· 14 bahasa, bisa diganti di Pengaturan
+</id>
+<ja-JP>
+はじめてのリリースです 🐥
+・アルファベットから実際の会話まで一続き
+・リスニング・スピーキング・ライティング・文法・読解・語彙をそれぞれのレベルで
+・どの問題にも絵がついています
+・14言語対応(設定でいつでも変更)
+</ja-JP>
+<ko-KR>
+첫 출시입니다 🐥
+· 알파벳 따라쓰기부터 실전 회화까지 한 흐름으로 이어져요
+· 듣기 · 말하기 · 쓰기 · 문법 · 독해 · 어휘를 영역별로 따로 연습
+· 문제마다 그림이 있어 눈으로 짚어 가며 풀 수 있어요
+· 14개 언어 지원 (설정에서 언제든 변경)
+</ko-KR>
+<pt-PT>
+Primeira versão 🐥
+· Um caminho do alfabeto à conversa real
+· Compreensão oral, fala, escrita, gramática, leitura e vocabulário, cada um com o seu nível
+· Cada questão traz um desenho
+· 14 idiomas, alteráveis nas Definições
+</pt-PT>
+<ru-RU>
+Первый выпуск 🐥
+· Один путь от алфавита до настоящего разговора
+· Аудирование, говорение, письмо, грамматика, чтение и лексика — у каждого свой уровень
+· К каждому заданию есть картинка
+· 14 языков, переключаются в настройках
+</ru-RU>
+<th>
+เปิดตัวครั้งแรก 🐥
+· เส้นทางเดียวตั้งแต่ตัวอักษรจนถึงบทสนทนาจริง
+· การฟัง พูด เขียน ไวยากรณ์ อ่าน และคำศัพท์ มีระดับของตัวเอง
+· ทุกข้อมีรูปประกอบ
+· รองรับ 14 ภาษา เปลี่ยนได้ในการตั้งค่า
+</th>
+<vi>
+Bản phát hành đầu tiên 🐥
+· Một mạch từ bảng chữ cái đến hội thoại thật
+· Nghe, nói, viết, ngữ pháp, đọc và từ vựng đều có cấp độ riêng
+· Mỗi câu hỏi đều có hình minh hoạ
+· 14 ngôn ngữ, đổi trong Cài đặt
+</vi>
+<zh-CN>
+首次发布 🐥
+· 从字母到真实会话，一条线贯通
+· 听力、口语、写作、语法、阅读、词汇各有等级
+· 每道题都配图
+· 支持 14 种语言，可在设置中更换
+</zh-CN>
+<zh-HK>
+首次推出 🐥
+· 由字母到真實會話，一條線貫通
+· 聆聽、口語、寫作、文法、閱讀、詞彙各有等級
+· 每題都有圖
+· 支援 14 種語言，可喺設定更換
+</zh-HK>
+<zh-TW>
+首次發布 🐥
+· 從字母到真實會話，一條線貫通
+· 聽力、口說、寫作、文法、閱讀、字彙各有等級
+· 每道題都配圖
+· 支援 14 種語言，可在設定中更換
+</zh-TW>
