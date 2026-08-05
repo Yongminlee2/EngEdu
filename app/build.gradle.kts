@@ -7,11 +7,11 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.piyak.english"
+        applicationId = "com.peep.english"
         minSdk = 26
         targetSdk = 36
-        versionCode = 77
-        versionName = "3.58"
+        versionCode = 78
+        versionName = "3.59"
     }
 
     buildTypes {

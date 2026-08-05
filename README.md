@@ -1163,7 +1163,7 @@ v2.10 에서 획 데이터 52자를 전수 검사하고도 못 찾은 이유가 
 
 ### 삐약수학은 어디에
 
-`C:\workAndroid\PiyakMath` — 이 저장소를 분기해서 만든 독립 앱(`com.piyak.math`).
+`C:\workAndroid\PiyakMath` — 이 저장소를 분기해서 만든 독립 앱(`com.peep.math`).
 지갑·하트·스트릭도 앱마다 따로다 (기존 250원은 이쪽, 삐약영어에 남는다).
 원격: https://github.com/Yongminlee2/MathEdu
 
@@ -1232,8 +1232,9 @@ v2.10 에서 획 데이터 52자를 전수 검사하고도 못 찾은 이유가 
 - 말하기 채점은 오프라인 음성인식 모델이 없으면 인터넷 연결 시 더 정확하다.
 - 콘텐츠를 재생성하면 **`node tools/gen_index.js` 를 반드시 함께** 돌려야 한다
   (안 돌리면 시작 화면 진행률이 어긋난다 — 테스트가 잡아 준다).
-- 앱을 설치할 때 `applicationId`(`com.piyak.english`)는 **절대 바꾸지 말 것.**
-  바꾸면 새 앱으로 설치되어 진행도·지갑·용돈이 전부 사라진다.
+- `applicationId` 는 **`com.peep.english`** (2026-08-05 에 `com.piyak.english` 에서 바꿨다).
+  앞으로는 **절대 바꾸지 말 것** — 바꾸면 새 앱으로 설치되어 진행도·지갑·용돈이 전부 사라진다.
+  소스 패키지(namespace)는 `com.piyak.english` 그대로다 — 파일을 옮기지 말 것.
 
 ## 2026-08-02 ~ 08-03: 그림·연출 대공사 (v3.2 → v3.26)
 
@@ -1480,3 +1481,34 @@ UI 덤프의 `text` 속성은 **화면에서 말줄임되어도 전체 문자열
 **⚠ 폰이 빠진 상태라 이 두 수정은 화면으로 확인하지 못했다.** 다음에 폰을 연결하면
 ①레슨 목록 맨 아랫줄 원 ②설정 > 언어 > 다른 언어 선택 후 재시작까지 유지되는지
 두 가지를 먼저 볼 것.
+
+### v3.59 / 수학 v1.61 — 패키지명 변경 (piyak → peep)
+
+| | 전 | 후 |
+|---|---|---|
+| 삐약영어 | `com.piyak.english` | **`com.peep.english`** |
+| 삐약수학 | `com.piyak.math` | **`com.peep.math`** |
+
+**소스 패키지(namespace)는 `com.piyak.english` 그대로다.** 바꾼 것은 `applicationId`
+한 줄씩뿐 — 파일을 옮기지 않았다.
+
+**여기서 깨질 수 있었던 것**: 매니페스트가 액티비티를 `.ui.MainActivity` 처럼 상대
+이름으로 적는다. 이게 applicationId 기준으로 풀리면 `com.peep.english.ui.MainActivity`
+가 되어 앱이 켜지자마자 죽는다. AGP 7+ 는 **namespace 기준**으로 푸는 게 맞지만
+추측으로 넘기지 않고 빌드한 APK 의 매니페스트를 열어 확인했다:
+
+```
+패키지: com.peep.english
+액티비티: com.piyak.english.ui.MainActivity  (…외 12개 전부 com.piyak.english.*)
+```
+
+리소스도 같이 확인 — 리소스 표의 패키지 이름이 새 applicationId(`com.peep.english`)로
+바뀌었다. `getIdentifier(name, type, context.packageName)` 로 찾아 쓰는 그림·소리가
+여기에 의존하므로 중요하다. 개수도 그대로: `sfx 4 · stk 12 · shop 15 · word 1213 · ck 17 · tpl 87`.
+
+**⚠ 폰에서는 전혀 다른 앱이 된다.** 기존에 깔린 `com.piyak.*` 앱은 그대로 남고,
+새 패키지는 별도로 설치된다. 진행도·용돈·오답 노트는 **넘어오지 않는다**.
+출시 전이라 그대로 두기로 했다.
+
+**⚠ 폰이 빠져 있어 실행은 확인하지 못했다.** 매니페스트·리소스 표 검증까지가 지금 할 수
+있는 전부다. 폰을 연결하면 두 앱이 켜지는지부터 볼 것.
