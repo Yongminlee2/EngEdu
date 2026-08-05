@@ -7,3 +7,14 @@ local.properties
 *.apk
 .codex/
 avd-runtime/
+
+# 서명 키 — 절대 올리지 말 것
+*.jks
+*.keystore
+keystore.properties
+
+# 스크린샷 원본 — 다듬은 것만 올린다
+/store/screenshots/
+
+# 업로드용 AAB — 저장소에 넣지 않는다 (bundleRelease 로 언제든 다시 만든다)
+store/업로드/*.aab

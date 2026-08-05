@@ -1,6 +1,18 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
 }
+
+// 업로드 키. keystore.properties 와 upload.jks 는 **git 에 없다**(.gitignore).
+// 없으면 디버그 키로 서명해 빌드만 되게 두고, 있으면 릴리스 키로 서명한다 —
+// 다른 사람이 저장소만 받아도 빌드가 깨지지 않게.
+val keystoreProps = Properties().apply {
+    val f = rootProject.file("keystore.properties")
+    if (f.exists()) f.inputStream().use { load(it) }
+}
+val hasReleaseKey = keystoreProps.getProperty("storeFile") != null &&
+    rootProject.file(keystoreProps.getProperty("storeFile")).exists()
 
 android {
     namespace = "com.piyak.english"
@@ -14,6 +26,17 @@ android {
         versionName = "3.63"
     }
 
+    signingConfigs {
+        if (hasReleaseKey) {
+            create("release") {
+                storeFile = rootProject.file(keystoreProps.getProperty("storeFile"))
+                storePassword = keystoreProps.getProperty("storePassword")
+                keyAlias = keystoreProps.getProperty("keyAlias")
+                keyPassword = keystoreProps.getProperty("keyPassword")
+            }
+        }
+    }
+
     buildTypes {
         release {
             // 코드·리소스를 줄인다. **이름으로 찾아 쓰는** 그림(word_*, ck_* …)은
@@ -25,8 +48,8 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
             )
-            // TODO: 정식 키스토어가 생기면 signingConfigs.release 로 바꾼다
-            signingConfig = signingConfigs.getByName("debug")
+            // 업로드 키가 있으면 그걸로, 없으면 디버그 키로 (빌드는 항상 되게)
+            signingConfig = signingConfigs.getByName(if (hasReleaseKey) "release" else "debug")
         }
     }
 
