@@ -111,6 +111,8 @@
     <string name="result_stats">Benar %1$d%% · +%2$d XP</string>
     <string name="lesson_check">Periksa</string>
     <string name="lesson_review_mode">Ulangan</string>
+    <string name="hint_choice_only">Petunjuk hanya untuk soal pilihan ganda</string>
+    <string name="hint_already">Kamu sudah memakai petunjuk di soal ini</string>
     <string name="hint_none">Tidak ada tiket petunjuk. Beli di toko! 💡</string>
     <string name="sk_calc">Berhitung</string>
     <string name="sk_number">Kepekaan bilangan</string>

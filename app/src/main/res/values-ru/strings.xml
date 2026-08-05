@@ -111,6 +111,8 @@
     <string name="result_stats">Точность %1$d%% · +%2$d XP</string>
     <string name="lesson_check">Проверить</string>
     <string name="lesson_review_mode">Повтор</string>
+    <string name="hint_choice_only">Подсказки работают только в вопросах с выбором ответа</string>
+    <string name="hint_already">Для этого вопроса подсказка уже использована</string>
     <string name="hint_none">Подсказок нет. Их можно купить в магазине! 💡</string>
     <string name="sk_calc">Вычисления</string>
     <string name="sk_number">Чувство числа</string>

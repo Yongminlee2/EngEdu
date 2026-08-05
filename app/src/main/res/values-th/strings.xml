@@ -111,6 +111,8 @@
     <string name="result_stats">ถูก %1$d%% · +%2$d XP</string>
     <string name="lesson_check">ตรวจคำตอบ</string>
     <string name="lesson_review_mode">ทบทวน</string>
+    <string name="hint_choice_only">คำใบ้ใช้ได้เฉพาะข้อสอบแบบเลือกตอบ</string>
+    <string name="hint_already">คุณใช้คำใบ้กับข้อนี้ไปแล้ว</string>
     <string name="hint_none">ไม่มีบัตรคำใบ้ ซื้อได้ที่ร้านค้า! 💡</string>
     <string name="sk_calc">การคำนวณ</string>
     <string name="sk_number">ความรู้สึกเชิงจำนวน</string>

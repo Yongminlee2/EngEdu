@@ -284,13 +284,21 @@ class LessonActivity : AppCompatActivity() {
     private fun refreshHintButton() {
         val n = db.itemCount("hint")
         b.btnHint.text = "$n"
-        b.btnHint.isEnabled = n > 0 && choiceButtons.size >= 4 && !hintUsedHere
-        b.btnHint.alpha = if (b.btnHint.isEnabled) 1f else 0.45f
+        b.btnHint.isEnabled = true
+        b.btnHint.alpha = if (n > 0 && choiceButtons.size >= 4 && !hintUsedHere) 1f else 0.5f
     }
 
     /** 오답 2개를 지워 준다 (4지선다에서만) */
     private fun useHint() {
-        if (hintUsedHere || choiceButtons.size < 4 || choiceAnswer < 0) return
+        // 아무 반응 없이 무시하면 왜 안 되는지 알 수 없다 — 이유를 알려 준다
+        if (hintUsedHere) {
+            Toast.makeText(this, getString(R.string.hint_already), Toast.LENGTH_SHORT).show()
+            return
+        }
+        if (choiceButtons.size < 4 || choiceAnswer < 0) {
+            Toast.makeText(this, getString(R.string.hint_choice_only), Toast.LENGTH_SHORT).show()
+            return
+        }
         if (db.itemCount("hint") <= 0) {
             Toast.makeText(this, getString(R.string.hint_none), Toast.LENGTH_SHORT).show()
             return

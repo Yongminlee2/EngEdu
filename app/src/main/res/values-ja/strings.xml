@@ -111,6 +111,8 @@
     <string name="result_stats">せいかいりつ %1$d%% · +%2$d XP</string>
     <string name="lesson_check">こたえあわせ</string>
     <string name="lesson_review_mode">ふくしゅう</string>
+    <string name="hint_choice_only">ヒントは4択問題でだけ使えます</string>
+    <string name="hint_already">この問題ではもうヒントを使いました</string>
     <string name="hint_none">ヒント券がありません。ショップで買えます! 💡</string>
     <string name="sk_calc">けいさん</string>
     <string name="sk_number">かずのかんかく</string>

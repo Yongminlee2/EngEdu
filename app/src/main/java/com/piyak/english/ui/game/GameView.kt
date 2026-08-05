@@ -69,3 +69,19 @@ abstract class GameView @JvmOverloads constructor(
 
     protected fun dp(v: Float): Float = v * resources.displayMetrics.density
 }
+
+/**
+ * 이 글자가 그림문자(이모지)인가.
+ *
+ * ⚠ 예전에는 `text[0].code > 0x2000` 으로 봤는데 **한글(U+AC00~)·한자·가나가 전부
+ * 걸려서** 한글 보기가 이모지 크기(훨씬 큼)로 그려지고 폭에 맞춰 줄이는 처리도
+ * 건너뛰었다. 영어 옆에 한글이 유독 크게 나오던 원인.
+ */
+internal fun isEmojiText(s: String): Boolean {
+    if (s.isEmpty()) return false
+    val cp = s.codePointAt(0)
+    return cp >= 0x1F000 ||           // 🍎 🐥 … 그림문자 평면
+        cp in 0x2190..0x21FF ||       // 화살표
+        cp in 0x2600..0x27BF ||       // ⭐ ✏️ ✔ 기타 기호
+        cp in 0x2B00..0x2BFF          // ⬅ ⭕ 등
+}

@@ -111,6 +111,8 @@
     <string name="result_stats">%1$d%% correct · +%2$d XP</string>
     <string name="lesson_check">Check</string>
     <string name="lesson_review_mode">Review</string>
+    <string name="hint_choice_only">Hints only work on multiple-choice questions</string>
+    <string name="hint_already">You already used a hint on this question</string>
     <string name="hint_none">No hint tickets. You can buy them in the shop! 💡</string>
     <string name="sk_calc">Calculation</string>
     <string name="sk_number">Number sense</string>

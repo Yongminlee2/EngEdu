@@ -111,6 +111,8 @@
     <string name="result_stats">正确率 %1$d%% · +%2$d XP</string>
     <string name="lesson_check">确认</string>
     <string name="lesson_review_mode">复习</string>
+    <string name="hint_choice_only">提示只能用于四选一的题目</string>
+    <string name="hint_already">这道题已经用过提示了</string>
     <string name="hint_none">没有提示券了。可以在商店购买! 💡</string>
     <string name="sk_calc">计算</string>
     <string name="sk_number">数感</string>

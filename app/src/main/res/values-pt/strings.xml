@@ -111,6 +111,8 @@
     <string name="result_stats">%1$d%% de acerto · +%2$d XP</string>
     <string name="lesson_check">Verificar</string>
     <string name="lesson_review_mode">Revisão</string>
+    <string name="hint_choice_only">As dicas só funcionam em questões de múltipla escolha</string>
+    <string name="hint_already">Você já usou uma dica nesta questão</string>
     <string name="hint_none">Sem dicas. Você pode comprar na loja! 💡</string>
     <string name="sk_calc">Cálculo</string>
     <string name="sk_number">Senso numérico</string>
