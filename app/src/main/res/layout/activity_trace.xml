@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <LinearLayout
@@ -44,8 +45,17 @@
             android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
             android:layout_margin="10dp" android:background="@drawable/bg_tile" />
 
+        <!--
+          완성 문구("완성! 용돈 +10원 🎁 · '한 번 더 쓰기'로 연습해요!")는 두 줄이다.
+          한 줄짜리 안내문 기준으로 자리를 잡아 두면 **아랫줄이 잘린다.**
+          두 줄 자리를 못 박고, 더 긴 언어에서는 글자가 스스로 줄어들게 한다.
+        -->
         <TextView android:id="@+id/txtHint" android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:gravity="center" android:textSize="15sp" android:textColor="@color/brown_soft"
+            android:gravity="center" android:textColor="@color/brown_soft"
+            android:minLines="2" android:maxLines="2"
+            android:paddingHorizontal="12dp" android:paddingBottom="2dp"
+            android:textSize="15sp"
+            app:autoSizeTextType="uniform" app:autoSizeMinTextSize="11sp" app:autoSizeMaxTextSize="15sp"
             android:text="@string/ly_trace_hint" />
 
         <LinearLayout

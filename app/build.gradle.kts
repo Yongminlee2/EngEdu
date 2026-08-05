@@ -10,8 +10,8 @@ android {
         applicationId = "com.peep.english"
         minSdk = 26
         targetSdk = 36
-        versionCode = 78
-        versionName = "3.59"
+        versionCode = 79
+        versionName = "3.60"
     }
 
     buildTypes {
