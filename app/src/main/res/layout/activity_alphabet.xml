@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:orientation="vertical">
 
@@ -20,10 +21,10 @@
         android:orientation="horizontal" android:paddingHorizontal="12dp">
         <Button android:id="@+id/btnUpper" android:layout_width="0dp" android:layout_height="wrap_content"
             android:layout_weight="1" android:text="@string/ly_upper" android:textSize="16sp"
-            android:backgroundTint="@color/chick_yellow" android:textColor="@color/brown_text" />
+            android:backgroundTint="@color/chick_yellow" android:textColor="@color/brown_text"  android:maxLines="1" app:autoSizeTextType="uniform" app:autoSizeMinTextSize="9sp" app:autoSizeMaxTextSize="16sp" />
         <Button android:id="@+id/btnLower" android:layout_width="0dp" android:layout_height="wrap_content"
             android:layout_weight="1" android:layout_marginStart="8dp" android:text="@string/ly_lower" android:textSize="16sp"
-            android:backgroundTint="@color/cream_dark" android:textColor="@color/brown_text" />
+            android:backgroundTint="@color/cream_dark" android:textColor="@color/brown_text"  android:maxLines="1" app:autoSizeTextType="uniform" app:autoSizeMinTextSize="9sp" app:autoSizeMaxTextSize="16sp" />
     </LinearLayout>
 
     <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">

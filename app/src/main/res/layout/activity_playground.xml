@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:orientation="vertical">
 
@@ -31,15 +32,15 @@
             <Button android:id="@+id/btnLv1" android:layout_width="0dp" android:layout_height="wrap_content"
                 android:layout_weight="1" android:text="@string/ly_easy" android:textSize="13sp"
                 android:paddingHorizontal="2dp" android:minWidth="0dp"
-                android:backgroundTint="@color/chick_yellow" android:textColor="@color/brown_text" />
+                android:backgroundTint="@color/chick_yellow" android:textColor="@color/brown_text"  android:maxLines="1" app:autoSizeTextType="uniform" app:autoSizeMinTextSize="9sp" app:autoSizeMaxTextSize="16sp" />
             <Button android:id="@+id/btnLv2" android:layout_width="0dp" android:layout_height="wrap_content"
                 android:layout_weight="1" android:layout_marginStart="6dp" android:text="@string/ly_normal" android:textSize="13sp"
                 android:paddingHorizontal="2dp" android:minWidth="0dp"
-                android:backgroundTint="@color/cream_dark" android:textColor="@color/brown_text" />
+                android:backgroundTint="@color/cream_dark" android:textColor="@color/brown_text"  android:maxLines="1" app:autoSizeTextType="uniform" app:autoSizeMinTextSize="9sp" app:autoSizeMaxTextSize="16sp" />
             <Button android:id="@+id/btnLv3" android:layout_width="0dp" android:layout_height="wrap_content"
                 android:layout_weight="1" android:layout_marginStart="6dp" android:text="@string/ly_hard" android:textSize="13sp"
                 android:paddingHorizontal="2dp" android:minWidth="0dp"
-                android:backgroundTint="@color/cream_dark" android:textColor="@color/brown_text" />
+                android:backgroundTint="@color/cream_dark" android:textColor="@color/brown_text"  android:maxLines="1" app:autoSizeTextType="uniform" app:autoSizeMinTextSize="9sp" app:autoSizeMaxTextSize="16sp" />
         </LinearLayout>
     </LinearLayout>
 

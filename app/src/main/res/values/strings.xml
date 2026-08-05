@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 자동 생성: node tools/i18n/gen_strings.js — 직접 고치지 말 것 -->
 <resources>
-    <string name="app_name">Piyak English</string>
+    <string name="app_name">Peep English</string>
     <string name="ask_pic_en">What is this picture in English?</string>
     <string name="listen_arrange">Listen and arrange the words in order</string>
     <string name="listen_type">Listen and type what you hear</string>
@@ -120,7 +120,7 @@
     <string name="sk_word">Word problems</string>
     <string name="rk_seed">Sprout in the egg</string>
     <string name="rk_hatch">Newly hatched chick</string>
-    <string name="rk_piyak">Piyak</string>
+    <string name="rk_piyak">Peep</string>
     <string name="rk_brave">Brave chick</string>
     <string name="rk_sparrow">Chatty sparrow</string>
     <string name="rk_dove">Free dove</string>
@@ -442,7 +442,7 @@
     <string name="ly_heart_use">❤️ Use hearts</string>
     <string name="ly_reset_all">🗑 Reset all progress</string>
     <string name="ly_errlog">🐞 View last error log</string>
-    <string name="ly_about">Piyak English 🐥 your very own English study app\nSpeaking scores are more accurate with internet</string>
+    <string name="ly_about">Peep English 🐥 your very own English study app\nSpeaking scores are more accurate with internet</string>
     <string name="ly_alpha_write">✏️ Alphabet writing</string>
     <string name="ly_alpha_full">Alphabet writing (ABC)</string>
     <string name="ly_alpha_sub2">Trace A to Z with your finger or a pen</string>
@@ -487,18 +487,18 @@
     <string name="tpl_a933e669">What does \"%1$s\" mean?</string>
     <string name="tpl_e320ea2b">What does \"%1$s\" mean?</string>
     <string name="tpl_12f8c41c">\"%1$s\"\nWhat does it mean?</string>
-    <string name="tpl_55f8727e">Piyak shouted \"%1$s!\" What does it mean?</string>
+    <string name="tpl_55f8727e">Peep shouted \"%1$s!\" What does it mean?</string>
     <string name="tpl_452676ab">\"%1$s\" is written on the board. Pick its meaning!</string>
     <string name="tpl_01751329">The rabbit asked, \"What does %1$s mean?\"</string>
     <string name="tpl_98393c1b">You saw \"%1$s\" in a picture book. What does it mean?</string>
     <string name="tpl_f3b29e08">Today\'s word is \"%1$s\"! Can you guess its meaning?</string>
     <string name="tpl_375f518e">Which picture is \"%1$s\"?</string>
     <string name="tpl_ad76c0d4">Find \"%1$s\" among the pictures!</string>
-    <string name="tpl_6dc70e58">Piyak is looking for \"%1$s\". Which picture is it?</string>
+    <string name="tpl_6dc70e58">Peep is looking for \"%1$s\". Which picture is it?</string>
     <string name="tpl_a0168b2f">Pick the picture that matches \"%1$s\".</string>
     <string name="tpl_1aa85738">What is this picture in English?</string>
     <string name="tpl_b797909f">How do you say \"%1$s\" in English?</string>
-    <string name="tpl_21a6d4b2">Tell Piyak how to say \"%1$s\" in English!</string>
+    <string name="tpl_21a6d4b2">Tell Peep how to say \"%1$s\" in English!</string>
     <string name="tpl_4002700b">The penguin wonders: what is \"%1$s\" in English?</string>
     <string name="tpl_b5f5d7a9">English time! Pick the English word for \"%1$s\".</string>
     <string name="tpl_b2ecaffb">Mom asked, \"What is %1$s in English?\"</string>

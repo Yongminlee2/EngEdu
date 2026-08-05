@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 자동 생성: node tools/i18n/gen_strings.js — 직접 고치지 말 것 -->
 <resources>
-    <string name="app_name">Piyak English</string>
+    <string name="app_name">Peep English</string>
     <string name="ask_pic_en">รูปนี้ภาษาอังกฤษเรียกว่าอะไร?</string>
     <string name="listen_arrange">ฟังแล้วเรียงคำตามลำดับ</string>
     <string name="listen_type">ฟังแล้วพิมพ์สิ่งที่ได้ยิน</string>
@@ -442,7 +442,7 @@
     <string name="ly_heart_use">❤️ ใช้หัวใจ</string>
     <string name="ly_reset_all">🗑 รีเซ็ตความคืบหน้าทั้งหมด</string>
     <string name="ly_errlog">🐞 ดูบันทึกข้อผิดพลาดล่าสุด</string>
-    <string name="ly_about">Piyak English 🐥 แอปเรียนอังกฤษของคุณ\nการให้คะแนนพูดแม่นยำขึ้นเมื่อมีเน็ต</string>
+    <string name="ly_about">Peep English 🐥 แอปเรียนอังกฤษของคุณ\nการให้คะแนนพูดแม่นยำขึ้นเมื่อมีเน็ต</string>
     <string name="ly_alpha_write">✏️ หัดเขียนตัวอักษร</string>
     <string name="ly_alpha_full">หัดเขียนตัวอักษร (ABC)</string>
     <string name="ly_alpha_sub2">ลากตาม A ถึง Z ด้วยนิ้วหรือปากกา</string>

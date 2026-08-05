@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 자동 생성: node tools/i18n/gen_strings.js — 직접 고치지 말 것 -->
 <resources>
-    <string name="app_name">Piyak English</string>
+    <string name="app_name">Peep English</string>
     <string name="ask_pic_en">Comment dit-on cette image en anglais ?</string>
     <string name="listen_arrange">Écoute et mets les mots dans l\'ordre</string>
     <string name="listen_type">Écoute et écris ce que tu entends</string>
@@ -120,7 +120,7 @@
     <string name="sk_word">Problèmes</string>
     <string name="rk_seed">Pousse dans l\'œuf</string>
     <string name="rk_hatch">Poussin fraîchement éclos</string>
-    <string name="rk_piyak">Piyak</string>
+    <string name="rk_piyak">Peep</string>
     <string name="rk_brave">Poussin courageux</string>
     <string name="rk_sparrow">Moineau bavard</string>
     <string name="rk_dove">Colombe libre</string>
@@ -442,7 +442,7 @@
     <string name="ly_heart_use">❤️ Utiliser les cœurs</string>
     <string name="ly_reset_all">🗑 Réinitialiser toute la progression</string>
     <string name="ly_errlog">🐞 Voir le dernier journal d\'erreurs</string>
-    <string name="ly_about">Piyak English 🐥 ton appli d\'anglais à toi\nLa note d\'oral est plus précise avec internet</string>
+    <string name="ly_about">Peep English 🐥 ton appli d\'anglais à toi\nLa note d\'oral est plus précise avec internet</string>
     <string name="ly_alpha_write">✏️ Écrire l\'alphabet</string>
     <string name="ly_alpha_full">Écrire l\'alphabet (ABC)</string>
     <string name="ly_alpha_sub2">Trace de A à Z au doigt ou au stylo</string>
@@ -487,18 +487,18 @@
     <string name="tpl_a933e669">Que veut dire « %1$s » ?</string>
     <string name="tpl_e320ea2b">Que peut bien vouloir dire « %1$s » ?</string>
     <string name="tpl_12f8c41c">« %1$s »\nQue veut-elle dire ?</string>
-    <string name="tpl_55f8727e">Piyak a crié « %1$s ! ». Qu\'est-ce que ça veut dire ?</string>
+    <string name="tpl_55f8727e">Peep a crié « %1$s ! ». Qu\'est-ce que ça veut dire ?</string>
     <string name="tpl_452676ab">« %1$s » est écrit au tableau. Choisis son sens !</string>
     <string name="tpl_01751329">Le lapin a demandé : « Que veut dire %1$s ? »</string>
     <string name="tpl_98393c1b">Tu as vu « %1$s » dans un livre d\'images. Que veut-il dire ?</string>
     <string name="tpl_f3b29e08">Le mot du jour est « %1$s » ! Devine son sens !</string>
     <string name="tpl_375f518e">Quelle image est « %1$s » ?</string>
     <string name="tpl_ad76c0d4">Trouve « %1$s » parmi les images !</string>
-    <string name="tpl_6dc70e58">Piyak cherche « %1$s ». Quelle image est-ce ?</string>
+    <string name="tpl_6dc70e58">Peep cherche « %1$s ». Quelle image est-ce ?</string>
     <string name="tpl_a0168b2f">Choisis l\'image qui correspond à « %1$s ».</string>
     <string name="tpl_1aa85738">Comment dit-on cette image en anglais ?</string>
     <string name="tpl_b797909f">Comment dit-on « %1$s » en anglais ?</string>
-    <string name="tpl_21a6d4b2">Dis à Piyak comment dire « %1$s » en anglais !</string>
+    <string name="tpl_21a6d4b2">Dis à Peep comment dire « %1$s » en anglais !</string>
     <string name="tpl_4002700b">Le pingouin se demande : comment dit-on « %1$s » en anglais ?</string>
     <string name="tpl_b5f5d7a9">C\'est l\'heure d\'anglais ! Choisis le mot anglais pour « %1$s ».</string>
     <string name="tpl_b2ecaffb">Maman a demandé : « Comment dit-on %1$s en anglais ? »</string>

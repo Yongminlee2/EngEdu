@@ -14,7 +14,7 @@ module.exports = {
   langs: ["en", "ko", "ja", "zh", "zh-rTW", "zh-rHK", "es", "fr", "de", "pt", "ru", "vi", "th", "in"],
   strings: {
     // 앱 이름 — 영어권 표기는 로마자, 각 언어는 제 문자로
-    app_name: { ko: "삐약영어", en: "Piyak English", ja: "ピヤックえいご", zh: "啾啾英语", es: "Piyak English", fr: "Piyak English", de: "Piyak English", pt: "Piyak English", ru: "Piyak English", vi: "Piyak English", th: "Piyak English", in: "Piyak English" },
+    app_name: { ko: "삐약영어", en: "Peep English", ja: "ピープえいご", zh: "啾啾英语", es: "Peep English", fr: "Peep English", de: "Peep English", pt: "Peep English", ru: "Peep English", vi: "Peep English", th: "Peep English", in: "Peep English" },
 
     // ---------- 한국어를 못 읽는 폰에서의 문제 전환 ----------
     // 그림을 보여 주고 영어를 묻는다 (원래는 "…를 영어로?" 에 한국어 뜻이 들어간다)
