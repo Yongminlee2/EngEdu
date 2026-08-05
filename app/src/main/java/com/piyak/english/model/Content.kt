@@ -37,6 +37,10 @@ object ContentRepo {
 
     private val cache = HashMap<String, TrackData>()
 
+    /** 앱 언어를 바꾸면 걸러 놓은 결과가 달라진다 — 캐시를 버려야 새 언어로 다시 읽힌다 */
+    @Synchronized
+    fun clearCache() = cache.clear()
+
     @Synchronized
     fun track(ctx: Context, trackId: String): TrackData? {
         cache[trackId]?.let { return it }

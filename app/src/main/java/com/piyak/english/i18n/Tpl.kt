@@ -45,7 +45,11 @@ object Tpl {
     fun init(ctx: Context) {
         val c = ctx.applicationContext
         val r = c.resources
-        val lang = r.configuration.locales.get(0).language
+        // 앱 안에서 고른 언어가 있으면 그게 우선이다.
+        // 안드로이드 12 이하에서는 applicationContext 의 설정이 안 따라오기 때문.
+        val picked = androidx.appcompat.app.AppCompatDelegate.getApplicationLocales()
+        val lang = if (!picked.isEmpty) picked.get(0)!!.language
+                   else r.configuration.locales.get(0).language
         res = r
         pkg = c.packageName
         passthrough = lang == "ko"

@@ -58,7 +58,8 @@ class TrackActivity : AppCompatActivity() {
             }
             b.unitsBox.addView(header)
 
-            val flow = FlowLayout(this).apply { setPadding(dp(4), 0, dp(4), 0) }
+            // 아래 여백이 0 이면 **맨 아랫줄 원의 그림자가 부모에 잘려** 살짝 가려 보인다
+            val flow = FlowLayout(this).apply { setPadding(dp(4), dp(2), dp(4), dp(10)) }
             // 배치고사 결과 이하는 전체 해금 — 영어는 기초 트랙의 레벨, 수학은 학년 단위
             val mathLevel = com.piyak.english.model.MathGrades.of(trackId)
                 ?.let { com.piyak.english.model.MathGrades.levelOf(trackId) }

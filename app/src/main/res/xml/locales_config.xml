@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  이 앱이 지원하는 언어 목록.
+
+  안드로이드 13+ 는 이걸 보고 [설정 > 시스템 > 언어 > 앱 언어] 에 앱을 띄운다.
+  앱 안의 언어 고르기(SettingsActivity)도 같은 목록을 쓴다.
+-->
+<locale-config xmlns:android="http://schemas.android.com/apk/res/android">
+    <locale android:name="ko" />
+    <locale android:name="en" />
+    <locale android:name="ja" />
+    <locale android:name="zh" />
+    <locale android:name="zh-TW" />
+    <locale android:name="zh-HK" />
+    <locale android:name="es" />
+    <locale android:name="fr" />
+    <locale android:name="de" />
+    <locale android:name="pt" />
+    <locale android:name="ru" />
+    <locale android:name="vi" />
+    <locale android:name="id" />
+    <locale android:name="th" />
+</locale-config>
