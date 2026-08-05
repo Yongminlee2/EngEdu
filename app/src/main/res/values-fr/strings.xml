@@ -111,6 +111,8 @@
     <string name="result_stats">%1$d%% de réussite · +%2$d XP</string>
     <string name="lesson_check">Vérifier</string>
     <string name="lesson_review_mode">Révision</string>
+    <string name="hint_choice_only">Les indices ne marchent que sur les questions à choix multiples</string>
+    <string name="hint_already">Tu as déjà utilisé un indice sur cette question</string>
     <string name="hint_none">Plus d\'indices. Tu peux en acheter dans la boutique ! 💡</string>
     <string name="sk_calc">Calcul</string>
     <string name="sk_number">Sens du nombre</string>

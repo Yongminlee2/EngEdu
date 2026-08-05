@@ -170,7 +170,7 @@ class BalloonGameView @JvmOverloads constructor(
                 )
                 art.draw(canvas)
             } else {
-                val isEmoji = b.text.isNotEmpty() && b.text[0].code > 0x2000
+                val isEmoji = isEmojiText(b.text)
                 textPaint.textSize = if (isEmoji) radius * 0.95f else radius * 0.78f
                 // 긴 글자가 풍선 밖으로 나가지 않게
                 val maxW = radius * 1.62f

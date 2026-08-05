@@ -10,6 +10,14 @@ class FlowLayout @JvmOverloads constructor(
     ctx: Context, attrs: AttributeSet? = null,
 ) : ViewGroup(ctx, attrs) {
 
+    init {
+        // 자식(레슨 원·낱말 타일)의 **그림자는 뷰 바깥에 그려진다.**
+        // 기본값이면 부모 경계에서 잘려 아랫줄만 "살짝 가려진" 것처럼 보인다.
+        // 여백을 줘도 소용없다 — clipToPadding 이 기본 true 라 여백 안쪽에서 자르기 때문.
+        clipChildren = false
+        clipToPadding = false
+    }
+
     var hGap = dp(8)
     var vGap = dp(8)
 

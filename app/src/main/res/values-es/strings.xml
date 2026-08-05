@@ -111,6 +111,8 @@
     <string name="result_stats">%1$d%% de acierto · +%2$d XP</string>
     <string name="lesson_check">Comprobar</string>
     <string name="lesson_review_mode">Repaso</string>
+    <string name="hint_choice_only">Las pistas solo funcionan en preguntas de opción múltiple</string>
+    <string name="hint_already">Ya usaste una pista en esta pregunta</string>
     <string name="hint_none">No tienes pistas. ¡Puedes comprarlas en la tienda! 💡</string>
     <string name="sk_calc">Cálculo</string>
     <string name="sk_number">Sentido numérico</string>

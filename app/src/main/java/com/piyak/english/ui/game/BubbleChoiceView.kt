@@ -169,7 +169,7 @@ class BubbleChoiceView @JvmOverloads constructor(
             )
 
             // 글자 (버블 안에 들어가도록 크기를 줄인다)
-            val isEmoji = b.text.isNotEmpty() && b.text[0].code > 0x2000
+            val isEmoji = isEmojiText(b.text)
             var size = if (isEmoji) r * 0.95f else r * 0.62f
             textPaint.textSize = size
             var guard = 0

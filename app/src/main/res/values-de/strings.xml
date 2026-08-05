@@ -111,6 +111,8 @@
     <string name="result_stats">%1$d%% richtig · +%2$d XP</string>
     <string name="lesson_check">Prüfen</string>
     <string name="lesson_review_mode">Wiederholung</string>
+    <string name="hint_choice_only">Tipps gibt es nur bei Multiple-Choice-Fragen</string>
+    <string name="hint_already">Für diese Frage hast du schon einen Tipp benutzt</string>
     <string name="hint_none">Keine Tipp-Tickets. Im Shop erhältlich! 💡</string>
     <string name="sk_calc">Rechnen</string>
     <string name="sk_number">Zahlenverständnis</string>

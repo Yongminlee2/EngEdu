@@ -57,8 +57,12 @@ class LineMatchView @JvmOverloads constructor(
     /** 항목 글자(이모지) → 일러스트. 있으면 카드에 그림을 그린다 */
     var artResolver: ((String) -> android.graphics.drawable.Drawable?)? = null
 
+    /** 다 이었을 때 넘어가기를 한 번만 예약하려고 둔 표시 */
+    private var finishPosted = false
+
     fun setPairs(pairs: List<Pair<String, String>>) {
         left.clear(); right.clear(); matched.clear()
+        finishPosted = false
         pairs.forEachIndexed { i, (l, _) -> left.add(Node(l, i)) }
         pairs.mapIndexed { i, (_, r) -> Node(r, i) }.shuffled(rnd).forEach { right.add(it) }
         layoutNodes()
@@ -134,7 +138,7 @@ class LineMatchView @JvmOverloads constructor(
                 )
                 art.draw(canvas)
             } else {
-                val isEmoji = node.text.isNotEmpty() && node.text[0].code > 0x2000
+                val isEmoji = isEmojiText(node.text)
                 textPaint.textSize = if (isEmoji) box.height() * 0.55f else (box.height() * 0.36f)
                     .coerceAtMost(dp(22f))
                 // 긴 한글·영어가 칸 밖으로 나가지 않게 폭에 맞춰 줄인다
@@ -202,7 +206,12 @@ class LineMatchView @JvmOverloads constructor(
                         if (hit.key == from.key) {
                             matched[from.key] = hit.key
                             onHit?.invoke()
-                            if (isCleared) onFinish?.invoke()
+                            if (isCleared && !finishPosted) {
+                                finishPosted = true
+                                // 마지막 짝을 잇는 순간 바로 판이 바뀌면 **맞은 건지 알 수 없다.**
+                                // 네 줄이 다 초록으로 이어진 모습을 잠깐 보여 준 뒤 넘어간다.
+                                postDelayed({ onFinish?.invoke() }, 900L)
+                            }
                         } else {
                             shakeKey = hit.key
                             shakeTime = 0.35f
