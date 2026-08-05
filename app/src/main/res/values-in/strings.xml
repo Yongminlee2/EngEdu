@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 자동 생성: node tools/i18n/gen_strings.js — 직접 고치지 말 것 -->
 <resources>
-    <string name="app_name">Piyak English</string>
+    <string name="app_name">Peep English</string>
     <string name="ask_pic_en">Gambar ini bahasa Inggrisnya apa?</string>
     <string name="listen_arrange">Dengarkan lalu susun kata-katanya</string>
     <string name="listen_type">Dengarkan lalu ketik yang kamu dengar</string>
@@ -120,7 +120,7 @@
     <string name="sk_word">Soal cerita</string>
     <string name="rk_seed">Tunas dalam telur</string>
     <string name="rk_hatch">Anak ayam baru menetas</string>
-    <string name="rk_piyak">Piyak</string>
+    <string name="rk_piyak">Peep</string>
     <string name="rk_brave">Anak ayam pemberani</string>
     <string name="rk_sparrow">Burung pipit cerewet</string>
     <string name="rk_dove">Merpati bebas</string>
@@ -442,7 +442,7 @@
     <string name="ly_heart_use">❤️ Pakai hati</string>
     <string name="ly_reset_all">🗑 Reset semua progres</string>
     <string name="ly_errlog">🐞 Lihat log kesalahan terakhir</string>
-    <string name="ly_about">Piyak English 🐥 aplikasi belajar Inggrismu\nPenilaian bicara lebih akurat dengan internet</string>
+    <string name="ly_about">Peep English 🐥 aplikasi belajar Inggrismu\nPenilaian bicara lebih akurat dengan internet</string>
     <string name="ly_alpha_write">✏️ Menulis alfabet</string>
     <string name="ly_alpha_full">Menulis alfabet (ABC)</string>
     <string name="ly_alpha_sub2">Jiplak A sampai Z dengan jari atau pena</string>
@@ -487,18 +487,18 @@
     <string name="tpl_a933e669">Apa arti \"%1$s\"?</string>
     <string name="tpl_e320ea2b">Kira-kira apa arti \"%1$s\"?</string>
     <string name="tpl_12f8c41c">\"%1$s\"\nApa artinya?</string>
-    <string name="tpl_55f8727e">Piyak berteriak \"%1$s!\" Apa artinya?</string>
+    <string name="tpl_55f8727e">Peep berteriak \"%1$s!\" Apa artinya?</string>
     <string name="tpl_452676ab">Di papan tertulis \"%1$s\". Pilih artinya!</string>
     <string name="tpl_01751329">Kelinci bertanya, \"Apa arti %1$s?\"</string>
     <string name="tpl_98393c1b">Kamu melihat \"%1$s\" di buku bergambar. Apa artinya?</string>
     <string name="tpl_f3b29e08">Kata hari ini \"%1$s\"! Bisa tebak artinya?</string>
     <string name="tpl_375f518e">Gambar mana yang \"%1$s\"?</string>
     <string name="tpl_ad76c0d4">Cari \"%1$s\" di antara gambar-gambar!</string>
-    <string name="tpl_6dc70e58">Piyak sedang mencari \"%1$s\". Gambar yang mana ya?</string>
+    <string name="tpl_6dc70e58">Peep sedang mencari \"%1$s\". Gambar yang mana ya?</string>
     <string name="tpl_a0168b2f">Pilih gambar yang cocok dengan \"%1$s\".</string>
     <string name="tpl_1aa85738">Gambar ini bahasa Inggrisnya apa?</string>
     <string name="tpl_b797909f">Bagaimana mengatakan \"%1$s\" dalam bahasa Inggris?</string>
-    <string name="tpl_21a6d4b2">Beritahu Piyak cara mengatakan \"%1$s\" dalam bahasa Inggris!</string>
+    <string name="tpl_21a6d4b2">Beritahu Peep cara mengatakan \"%1$s\" dalam bahasa Inggris!</string>
     <string name="tpl_4002700b">Penguin penasaran: apa bahasa Inggrisnya \"%1$s\"?</string>
     <string name="tpl_b5f5d7a9">Waktunya bahasa Inggris! Pilih kata Inggris untuk \"%1$s\".</string>
     <string name="tpl_b2ecaffb">Ibu bertanya, \"Apa bahasa Inggrisnya %1$s?\"</string>

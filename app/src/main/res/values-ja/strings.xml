@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 자동 생성: node tools/i18n/gen_strings.js — 직접 고치지 말 것 -->
 <resources>
-    <string name="app_name">ピヤックえいご</string>
+    <string name="app_name">ピープえいご</string>
     <string name="ask_pic_en">この えは えいごで なに?</string>
     <string name="listen_arrange">きいて じゅんばんに ならべよう</string>
     <string name="listen_type">きいて えいごで かいてみよう</string>
@@ -120,7 +120,7 @@
     <string name="sk_word">ぶんしょうだい</string>
     <string name="rk_seed">たまごの中のめ</string>
     <string name="rk_hatch">かえったばかりのひよこ</string>
-    <string name="rk_piyak">ピヤック</string>
+    <string name="rk_piyak">ピープ</string>
     <string name="rk_brave">げんきなひよこ</string>
     <string name="rk_sparrow">おしゃべりすずめ</string>
     <string name="rk_dove">じゆうなはと</string>
@@ -442,7 +442,7 @@
     <string name="ly_heart_use">❤️ ハートを つかう</string>
     <string name="ly_reset_all">🗑 しんこうを ぜんぶ リセット</string>
     <string name="ly_errlog">🐞 さいごの エラーきろくを みる</string>
-    <string name="ly_about">ピヤックえいご 🐥 じぶんだけの えいご アプリ\nスピーキングの さいてんは インターネットが あると せいかく</string>
+    <string name="ly_about">ピープえいご 🐥 じぶんだけの えいご アプリ\nスピーキングの さいてんは インターネットが あると せいかく</string>
     <string name="ly_alpha_write">✏️ アルファベットを かく</string>
     <string name="ly_alpha_full">アルファベットを かく (ABC)</string>
     <string name="ly_alpha_sub2">ゆびや ペンで AからZまで なぞろう</string>
@@ -487,18 +487,18 @@
     <string name="tpl_a933e669">「%1$s」の いみは?</string>
     <string name="tpl_e320ea2b">「%1$s」は どういう いみ?</string>
     <string name="tpl_12f8c41c">「%1$s」\nどういう いみ?</string>
-    <string name="tpl_55f8727e">ピヤックが「%1$s!」と さけんだよ。どういう いみ?</string>
+    <string name="tpl_55f8727e">ピープが「%1$s!」と さけんだよ。どういう いみ?</string>
     <string name="tpl_452676ab">こくばんに「%1$s」と かいてあるよ。いみを えらぼう!</string>
     <string name="tpl_01751329">うさぎが きいたよ。「%1$s って どういう いみ?」</string>
     <string name="tpl_98393c1b">えほんで「%1$s」を みつけたよ。どういう いみ?</string>
     <string name="tpl_f3b29e08">きょうの たんごは「%1$s」! いみを あててみよう!</string>
     <string name="tpl_375f518e">「%1$s」は どの え?</string>
     <string name="tpl_ad76c0d4">えの 中から「%1$s」を さがそう!</string>
-    <string name="tpl_6dc70e58">ピヤックが「%1$s」を さがしているよ。どの え?</string>
+    <string name="tpl_6dc70e58">ピープが「%1$s」を さがしているよ。どの え?</string>
     <string name="tpl_a0168b2f">「%1$s」に あう えを えらぼう。</string>
     <string name="tpl_1aa85738">この えは えいごで なに?</string>
     <string name="tpl_b797909f">「%1$s」は えいごで?</string>
-    <string name="tpl_21a6d4b2">ピヤックに「%1$s」を えいごで おしえてあげよう!</string>
+    <string name="tpl_21a6d4b2">ピープに「%1$s」を えいごで おしえてあげよう!</string>
     <string name="tpl_4002700b">ペンギンが しりたがっているよ。「%1$s」は えいごで?</string>
     <string name="tpl_b5f5d7a9">えいごの じかん!「%1$s」の えいごを えらぼう。</string>
     <string name="tpl_b2ecaffb">ママが きいたよ。「%1$s って えいごで なに?」</string>

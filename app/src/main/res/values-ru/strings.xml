@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 자동 생성: node tools/i18n/gen_strings.js — 직접 고치지 말 것 -->
 <resources>
-    <string name="app_name">Piyak English</string>
+    <string name="app_name">Peep English</string>
     <string name="ask_pic_en">Как это будет по-английски?</string>
     <string name="listen_arrange">Послушай и расставь слова по порядку</string>
     <string name="listen_type">Послушай и напиши, что услышал</string>
@@ -120,7 +120,7 @@
     <string name="sk_word">Текстовые задачи</string>
     <string name="rk_seed">Росток в яйце</string>
     <string name="rk_hatch">Только вылупившийся цыплёнок</string>
-    <string name="rk_piyak">Пияк</string>
+    <string name="rk_piyak">Пип</string>
     <string name="rk_brave">Смелый цыплёнок</string>
     <string name="rk_sparrow">Болтливый воробей</string>
     <string name="rk_dove">Свободный голубь</string>
@@ -442,7 +442,7 @@
     <string name="ly_heart_use">❤️ Использовать сердечки</string>
     <string name="ly_reset_all">🗑 Сбросить весь прогресс</string>
     <string name="ly_errlog">🐞 Показать последний журнал ошибок</string>
-    <string name="ly_about">Piyak English 🐥 твоё приложение для английского\nОценка речи точнее с интернетом</string>
+    <string name="ly_about">Peep English 🐥 твоё приложение для английского\nОценка речи точнее с интернетом</string>
     <string name="ly_alpha_write">✏️ Письмо алфавита</string>
     <string name="ly_alpha_full">Письмо алфавита (ABC)</string>
     <string name="ly_alpha_sub2">Обводи от A до Z пальцем или ручкой</string>
@@ -487,18 +487,18 @@
     <string name="tpl_a933e669">Что означает «%1$s»?</string>
     <string name="tpl_e320ea2b">Как думаешь, что значит «%1$s»?</string>
     <string name="tpl_12f8c41c">«%1$s»\nЧто это значит?</string>
-    <string name="tpl_55f8727e">Пияк крикнул «%1$s!» Что это значит?</string>
+    <string name="tpl_55f8727e">Пип крикнул «%1$s!» Что это значит?</string>
     <string name="tpl_452676ab">На доске написано «%1$s». Выбери значение!</string>
     <string name="tpl_01751329">Кролик спросил: «Что значит %1$s?»</string>
     <string name="tpl_98393c1b">Ты увидел «%1$s» в книжке с картинками. Что это значит?</string>
     <string name="tpl_f3b29e08">Слово дня — «%1$s»! Угадаешь значение?</string>
     <string name="tpl_375f518e">Какая картинка — «%1$s»?</string>
     <string name="tpl_ad76c0d4">Найди «%1$s» среди картинок!</string>
-    <string name="tpl_6dc70e58">Пияк ищет «%1$s». Какая это картинка?</string>
+    <string name="tpl_6dc70e58">Пип ищет «%1$s». Какая это картинка?</string>
     <string name="tpl_a0168b2f">Выбери картинку, подходящую к «%1$s».</string>
     <string name="tpl_1aa85738">Как это будет по-английски?</string>
     <string name="tpl_b797909f">Как сказать «%1$s» по-английски?</string>
-    <string name="tpl_21a6d4b2">Подскажи Пияку, как сказать «%1$s» по-английски!</string>
+    <string name="tpl_21a6d4b2">Подскажи Пипу, как сказать «%1$s» по-английски!</string>
     <string name="tpl_4002700b">Пингвину интересно: как будет «%1$s» по-английски?</string>
     <string name="tpl_b5f5d7a9">Урок английского! Выбери английское слово для «%1$s».</string>
     <string name="tpl_b2ecaffb">Мама спросила: «Как по-английски %1$s?»</string>
