@@ -22,8 +22,8 @@ android {
         applicationId = "com.peep.english"
         minSdk = 26
         targetSdk = 36
-        versionCode = 82
-        versionName = "3.63"
+        versionCode = 83
+        versionName = "3.64"
     }
 
     signingConfigs {
