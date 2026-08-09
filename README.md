@@ -1747,3 +1747,119 @@ registerActivityLifecycleCallbacks(...)   // 모든 액티비티의 content 루�
 4. 구형 기기(안드로이드 13)에서 위아래 여백이 과하지 않은가
 
 문제가 없으면 같은 AAB 를 프로덕션으로 승격하면 된다.
+
+---
+
+# 🐥 이어서 개발하는 사람에게 (Codex·새 세션용)
+
+개발일지는 위에 시간순으로 다 있다. 여기는 **읽지 않으면 사고가 나는 것**만 모았다.
+작업 전에 이 절만은 처음부터 끝까지 읽을 것.
+
+## 절대 규칙
+
+| 규칙 | 어기면 |
+|---|---|
+| **커밋 메시지에 AI 표기(Co-Authored-By, Generated with 등)를 넣지 않는다** | 사용자가 명시적으로 금지했다. 과거 커밋 87개를 지우는 작업을 따로 해야 했다 |
+| **빌드는 `GRADLE_USER_HOME=C:/gradle-home` 로** | 홈 경로에 한글이 있어 그냥 돌리면 Gradle 워커가 죽는다 |
+| **`applicationId` 를 바꾸지 않는다** | 바꾸면 새 앱이 되어 사용자 진행도가 전부 사라진다. 이미 스토어에 올라가 있다 |
+| **소스 패키지(`namespace`)는 `com.piyak.english`** — 두 앱 다 그렇다 | 파일을 `com/peep/...` 로 옮기지 말 것. applicationId 만 `com.peep.*` 다 |
+| **폰 설치는 사용자가 요청할 때만** | adb 를 백그라운드로 대기시키지 말 것 |
+| **`codex-restyle`·`backup-before-msg-cleanup` 브랜치를 머지하지 않는다** | 전자는 미채택 리스타일(디자인이 뒤집힌다), 후자는 커밋 메시지 정리 **전** 이력이다 |
+
+## 두 저장소 체제 — 공용 코드는 양쪽 다 고쳐야 한다
+
+`C:\workAndroid\PiyakEnglish` 와 `C:\workAndroid\PiyakMath` 는 **소스가 복제돼 있다.**
+`Db` · `Sfx` · `Tts` · `Wallet` · `BubbleChoiceView` · `LineMatchView` · `FlowLayout` ·
+`PiyakApp` · `StatsActivity` … 는 파일이 각각 따로 있다.
+
+**한쪽만 고치면 다른 앱에 버그가 남는다.** 실제로 여러 번 그랬다(사용자가 "왜 수학은 안 고쳐?"
+라고 지적한 적 있음). 공용 파일을 건드렸으면 반대쪽 저장소에서 같은 파일을 확인할 것.
+
+## 생성물을 직접 고치지 말 것
+
+| 파일 | 진짜 원본 |
+|---|---|
+| `app/src/main/res/values*/strings.xml` | `tools/i18n/` 의 원장 → `node tools/i18n/gen_strings.js` |
+| `tools/i18n/ui_rest.js` · `ui_home.js` · `ui_skills.js` | `make_ui_*.js` 의 `COPY`/`EXTRA` |
+| `app/src/main/assets/packs/*.json` | `tools/gen.js`(영어) · `tools/gen_math.js`(수학) |
+
+생성물을 직접 고치면 **다음 생성 때 조용히 사라진다.** 실제로 영어 전용 키 25개를 그렇게
+날렸다가 빌드 실패로 발견했다. `EXTRA` 는 백틱 템플릿이라 `\n` 을 넣으려면 역슬래시를 한 겹 더.
+
+콘텐츠를 재생성하면 **반드시 함께 돌릴 것**: `node tools/gen_index.js`,
+그리고 영어는 `node tools/i18n/tag_titles.js`(안 돌리면 제목 번역이 죽는다),
+`node tools/gen_wordart.js`(낱말 그림 색인).
+
+## 릴리스에서만 터지는 것들
+
+**① 이름으로 부르는 리소스는 잘린다.**
+`resources.getIdentifier("word_apple", ...)` 처럼 이름을 조합해 찾는 리소스는
+`shrinkResources` 가 "안 쓴다"고 보고 지운다. **소리(`res/raw`)도 똑같이 지워진다.**
+새로 만들면 `res/raw/keep.xml` 에 패턴을 넣고, 릴리스 빌드 후 개수를 셀 것:
+
+```bash
+aapt2 dump resources app-release.apk | grep -c 'raw/sfx'
+```
+
+디버그로는 절대 재현되지 않는다. 실제로 효과음 4종이 통째로 잘려 출시본이 무음이 될 뻔했다.
+
+**② 안드로이드 15+ 는 시스템 바 뒤까지 그리게 강제한다(edge-to-edge).**
+`PiyakApp.fitSystemBarsEverywhere()` 가 모든 액티비티 루트에
+`systemBars + displayCutout + ime` 만큼 padding 을 준다. **이 처리를 지우지 말 것.**
+안드로이드 14 이하에서는 강제가 없어 멀쩡해 보이므로 **구형 기기 검증으로는 못 잡는다.**
+UI 를 건드렸으면 안드로이드 15 이상 기기에서 볼 것.
+
+## 검증에서 반복해 속은 것
+
+- **UI 덤프(`uiautomator dump`)의 `text` 는 화면에서 잘려도 원문을 그대로 준다.**
+  잘림·겹침 판정은 **반드시 스크린샷을 눈으로** 볼 것. 이 폰에서는 덤프가 이전 화면을
+  보고하는 일도 잦다 — 그럴 땐 좌표로 직접 조작할 것.
+- **빌드 통과 ≠ 동작.** 테스트가 다 녹색인데 정답이 전부 1번이던 적이 있다.
+- 스크린샷 탭 좌표는 **매번 배율을 곱할 것**(읽은 이미지 900px ↔ 실제 1080px).
+
+## 스토어에 손댈 때
+
+- **광고·인앱결제·무료 이야기를 등록정보에 한 줄도 쓰지 않는다.** 나중에 붙일 계획이라
+  지금 "없음"이라고 쓰면 그때 거짓말이 된다. 반대로 **데이터 보안·콘텐츠 등급 신고**는
+  올리는 빌드의 실제 모습대로 적어야 한다(신고와 앱이 다르면 앱이 내려간다).
+- **대상 연령을 13세 이상으로 신고했다.** 그래서 등록정보·legal 페이지에서
+  "아이가 / 부모가 / 유치원생 대상" 같은 **대상을 지목하는 표현**을 전부 걷어냈다.
+  커리큘럼 범위("알파벳부터", "수 세기부터")는 사실이라 남겼다. 새 문구를 쓸 때 이 선을 지킬 것.
+- **TOEIC·TOEFL 은 ETS 등록상표다.** 등록정보에 쓰지 말 것("시험 대비" 로 표현).
+- 개인정보처리방침·소개·지원 페이지는 **공개 저장소** `github.com/Yongminlee2/legal` 의
+  `peepenglish/` `peepmath/` 에 있다. 이 저장소가 비공개가 되어도 스토어가 읽어야 하므로
+  그쪽에 둔 것이다. 앱 문구를 바꾸면 거기도 같이 고칠 것.
+
+## 서명 키
+
+`upload.jks` 와 `keystore.properties` 는 **git 에 없다**(`.gitignore`).
+삐약푸쉬·왁뿌볼과 **같은 업로드 키**를 쓴다 — 원본은 `C:\workAndroid\PiyakPush\android\upload.jks`.
+저장소만 새로 받으면 이 두 파일을 앱 루트에 넣어야 릴리스 키로 서명된다.
+없으면 디버그 키로 빌드되어 스토어에 못 올린다(빌드 자체는 된다).
+
+## 자주 쓰는 명령
+
+```bash
+# 빌드 (ASCII 경로 필수)
+GRADLE_USER_HOME=C:/gradle-home ./gradlew testDebugUnitTest assembleRelease bundleRelease
+
+# 문자열 재생성 → 검사
+node tools/i18n/gen_strings.js && node tools/i18n/check_scripts.js
+
+# 스토어 스크린샷 (폰 연결 필요) — 14개 언어
+python tool/shoot_all_langs.py        # 찍기 (언어마다 자동 검증·재시도)
+python tool/check_shots.py            # 장수·정답화면·중복 검사
+python tool/prep_screenshots.py       # 상태바·내비바 제거 후 업로드 폴더로 (원본 삭제)
+python tool/make_icon512.py           # 스토어 아이콘 512
+```
+
+이 PC 에 파이썬은 `C:\Users\사용자\AppData\Local\Programs\Python\Python312\python.exe`.
+한글을 출력하면 `sys.stdout.reconfigure(encoding="utf-8")` 를 먼저 할 것.
+
+## 지금 상태와 남은 일
+
+- 플레이 콘솔 **비공개 테스트** 트랙에 올라가 있다 (영어 v3.64/83 · 수학 v1.66/65).
+- **안드로이드 15 이상 기기에서 아직 확인 못 한 것**: 시스템 바 겹침 수정이 실제로 먹는지,
+  쓰기 문제에서 키보드가 입력칸을 안 덮는지. 확인되면 프로덕션 승격.
+- 스크린샷에 코스 이름 `Preschool English`·`Kindergarten · Elementary` 가 그대로 있다.
+  심사에서 지적받으면 코스 이름을 바꾸고 `tool/shoot_all_langs.py` 로 재촬영(14개 언어, 2~3시간).
