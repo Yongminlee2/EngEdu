@@ -18,3 +18,8 @@ keystore.properties
 
 # 업로드용 AAB — 저장소에 넣지 않는다 (bundleRelease 로 언제든 다시 만든다)
 store/업로드/*.aab
+
+# 아이폰 빌드 결과
+ios/build/
+xcuserdata/
+*.xcuserstate
