@@ -1750,6 +1750,22 @@ registerActivityLifecycleCallbacks(...)   // 모든 액티비티의 content 루�
 
 ---
 
+### 2026-10-11 — 아이폰판 (삐약영어, 앱스토어 심사 제출)
+
+안드로이드 화면 코드(View·Canvas·Activity)를 SwiftUI 로 다시 짜지 않고, **안드로이드 API 를 같은 이름으로 흉내 내는
+호환 층**(`ios/PeepEnglish/Droid/`)을 만든 뒤 코틀린 파일을 한 파일씩 같은 이름으로 옮겼다. 그래서
+- 레이아웃 XML·`strings.xml`(14개 언어)·색·그림·문제 팩은 **안드로이드 한 벌을 그대로 읽는다** — 빌드 때 `ios/tools/copy-assets.sh` 가 번들로 복사.
+  문구·그림·레이아웃을 안드로이드에서 고치면 아이폰은 다시 빌드만 하면 된다.
+- `R.string.x`·바인딩(`ActivityMainBinding`)은 `ios/tools/gen-r.py` 가 res 에서 만든다(`ios/PeepEnglish/Gen/`). 리소스를 더하면 다시 돌린다.
+- 효과음 OGG 는 아이폰이 못 틀어 `ios/tools/convert-sfx.sh` 로 만든 m4a 사본(`ios/Sound/`).
+- 저장은 같은 SQLite 표(`piyak.db`), 같은 마이그레이션.
+- 단위 시험은 코틀린 시험을 그대로 옮겼다(`ios/PeepEnglishTests/`, 숫자 그대로).
+- 말하기 채점은 애플 Speech 프레임워크(`Core/audio/Stt.swift`) — 안드로이드 인식기처럼 말이 멈추면(1.2초) 끝내고, 기기에서 인식할 수 있으면 기기 안에서만.
+- 낱말 그림 표(`WordArt.kt`)는 `ios/tools/gen-wordart.py` 가 `Gen/WordArt.swift` 로 옮긴다.
+- 시뮬레이터에 탭을 넣을 수 없는 맥이라 화면 확인·스토어 스크린샷은 DEBUG 실행 인자로 띄운다(`-shot lesson -track … -lesson …`, `-scroll bottom`, `-answer 1`) — `ios/tools/shots.py`, `ios/tools/store-shots.py`.
+- App Store Connect: 앱 `6821401363`, 13개 언어 등록(`store/앱스토어-작성내용.md` → `store/appstore-listing.json`), 스크린샷 `store/ios-screenshots/`(1206×2622),
+  광고 없음·권한 마이크·음성 인식만·데이터 수집 안 함·연령 13+·중국 본토 제외. 승인되면 자동 출시.
+
 # 🐥 이어서 개발하는 사람에게 (새 세션용)
 
 개발일지는 위에 시간순으로 다 있다. 여기는 **읽지 않으면 사고가 나는 것**만 모았다.
@@ -1855,6 +1871,14 @@ python tool/make_icon512.py           # 스토어 아이콘 512
 
 이 PC 에 파이썬은 `C:\Users\사용자\AppData\Local\Programs\Python\Python312\python.exe`.
 한글을 출력하면 `sys.stdout.reconfigure(encoding="utf-8")` 를 먼저 할 것.
+
+## 아이폰판 (`ios/`)
+
+- **공용 코드를 고치면 아이폰도 같은 이름의 Swift 파일을 고친다** — `ui/X.kt` ↔ `ios/PeepEnglish/UI/X.swift`, `engine/X.kt` ↔ `ios/PeepEnglish/Core/engine/X.swift`.
+  옮기는 규칙은 `ios/PORTING.md`. 레이아웃·문구·그림만 바꿨으면 아이폰은 다시 빌드만 하면 된다(리소스를 새로 더했으면 `python3 ios/tools/gen-r.py`).
+- `ios/PeepEnglish/Droid/` 는 두 앱(삐약수학·삐약영어)이 **똑같은 사본**을 쓴다. 한쪽을 고치면 다른 쪽에도 복사한다.
+- 버전·빌드 번호는 안드로이드 `versionName`·`versionCode` 와 같게(Xcode `MARKETING_VERSION`·`CURRENT_PROJECT_VERSION`). 올리기: `ios/tools/archive-upload.sh upload`.
+- 앱 안에 Google Play·안드로이드 이야기가 나오면 안 된다(심사 지침 2.3.10).
 
 ## 지금 상태와 남은 일
 
