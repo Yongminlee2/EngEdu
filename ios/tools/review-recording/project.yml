@@ -1,0 +1,39 @@
+# 앱 심사 회신용 실기기 화면 녹화(삐약영어). 화면 요소(글자)는 이름으로, 그림 문제·버블은 좌표로 누른다.
+#   xcodegen generate && ./record.sh <기기 UDID 또는 시뮬레이터 UDID>
+name: EnglishReview
+options:
+  bundleIdPrefix: com.peep
+settings:
+  base:
+    DEVELOPMENT_TEAM: 3276G27R59
+    CODE_SIGN_STYLE: Automatic
+    GENERATE_INFOPLIST_FILE: YES
+    IPHONEOS_DEPLOYMENT_TARGET: "16.0"
+    SWIFT_VERSION: "5.0"
+targets:
+  ReviewHost:
+    type: application
+    platform: iOS
+    sources: [Host]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.peep.english.reviewhost
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+  ReviewUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [UITests]
+    dependencies:
+      - target: ReviewHost
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.peep.english.reviewuitests
+        TEST_TARGET_NAME: ReviewHost
+schemes:
+  ReviewUITests:
+    build:
+      targets:
+        ReviewHost: all
+        ReviewUITests: [test]
+    test:
+      targets: [ReviewUITests]

@@ -1,0 +1,19 @@
+Hello, thank you for the review. Here is the information you asked for. The attached screen recording (review_peep_english.mp4, 4 min 40 s) was captured on an iPhone 16 Pro running iOS 26.5, from launching the app, with the same code as the submitted build 3.65 (84).
+
+1. Screen recording
+The recording starts at launch and shows the typical flow: home screen → Preschool English → Alphabet writing (tracing the letter A by finger) → Playground → Balloon pop game → Elementary English → Elementary course → first lesson with three questions (feedback with the answer) → Skill-by-skill training → Speaking: the sentence is read aloud ("Preview"), then "🎤 Speak" shows the Microphone and Speech Recognition permission prompts → My wallet and Shop → My stats → Settings. The app has no account registration or login, no user-generated content shared with others, and no paid content or in-app purchases.
+
+2. Purpose and audience
+Peep English is an English practice app that goes from tracing the alphabet to everyday conversation, for learners age 13 and up (and families studying together). It covers vocabulary with pictures, listening, dictation, sentence ordering, reading, writing and speaking, with a review list of mistakes and progress in six skill areas.
+
+3. How to use
+No login or setup is needed. Open the app → choose a course card (for example "Elementary English" → "Elementary course") → tap the lesson circle → answer and tap "Check". For speaking practice: "Skill-by-skill training" → "Speaking" → first lesson → "🎤 Speak". Microphone and Speech Recognition are requested only at that moment and are used only to compare what was said with the sentence on screen; audio is never recorded, stored or sent to us. The wallet's "allowance" is only a number stored on the device; "Cash out (parent)" just records that pocket money was handed over in real life, and the optional 4-digit PIN (My wallet → "Parent settings" → "Set a PIN (locks cash payouts)") protects that record. No payment is processed anywhere.
+
+4. External services
+Apple's Speech framework (speech-to-text for the speaking questions; on-device when the device supports it) and Apple's AVSpeechSynthesizer (reading words and sentences aloud). Nothing else: no analytics, no ads, no third-party SDKs, no servers of our own. All content is bundled in the app and progress is stored only on the device.
+
+5. Regional differences
+The app works the same in all regions. The interface is available in 14 languages (device language or Settings → Language). For non-Korean languages some questions show picture choices instead of Korean translations; the features are the same.
+
+6. Regulated industry / third-party material
+Not applicable. All questions, illustrations and sounds were created for this app by the developer. Course names such as "TOEIC" and "TOEFL" describe the test topics only; the app is not affiliated with ETS.
