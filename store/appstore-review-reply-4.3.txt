@@ -1,0 +1,28 @@
+Hello App Review team, thank you for the detailed questions. Peep English is an independent app made and maintained by me (Yongmin Lee), not from a template or an app generation service. Answers below.
+
+1. What the app does
+It is an English course that goes from tracing the alphabet to everyday conversation. Learners trace each letter by finger following the stroke order, learn about 1,200 words with pictures, and practise listening, dictation, sentence ordering, reading passages, writing translations and speaking. In speaking questions the app reads a sentence aloud and then scores the learner's pronunciation with on-device speech recognition. Progress is tracked in six skill areas, and mistakes go into a review list. The problem it solves: learning English usually needs several apps (alphabet, vocabulary, listening, speaking); this app puts one step-by-step path in one place, without ads, accounts or a network connection.
+
+2. Intended users
+Korean-speaking learners who want to build English from the basics up to conversation, and families who study together at home (a parent can turn correct answers into real pocket money through the on-device allowance wallet). The App Store age rating is 13+. The interface is available in 14 languages.
+
+3. Gap it addresses
+Most apps cover only one piece (alphabet tracing, flash cards, or conversation) or require subscriptions and accounts. Peep English connects letter tracing, picture vocabulary, listening, speaking scoring, reading and writing in one course with per-skill levels, works offline, and lets the learner change the app language independently of the phone.
+
+4. Beta testing
+The Android version has been used by my family throughout development and went through a Google Play closed test. Feedback applied to this build: "I want speaking, listening, writing and grammar as separate chapters" → skill-by-skill tracks; "I can't tell what level I am" → per-skill levels, ranks and badges; "sound effects are so loud I can't hear the spoken sentence" → effects lowered to 30% with a volume slider; "the touch interactions of the playground should be in normal questions too" → draggable questions; the status bar overlapped the first line on the newest phones → fixed. The iPhone version was tested on an iPhone 16 Pro and with 74 unit tests.
+
+5. Suite
+It is a standalone product. Under the same "Peep" chick brand I also publish Peep Math (a separate math curriculum), Peep Push (a sokoban puzzle game) and Peep Science (a physics puzzle game). Peep English is the only English course; the others contain no English lessons.
+
+6. Could it be part of another app?
+English and math started as one app and I split them on purpose: each subject is a full curriculum of its own (alphabet tracing, listening, speaking with speech recognition and reading here; about 13,000 diagram-based math questions in Peep Math), the combined app was heavy and confusing, learners wanted to open straight into their subject with separate progress, levels and wallet, and only Peep English needs the microphone and speech recognition.
+
+7. Shared code with my other apps
+Yes, with Peep Math only: the in-house UI layer that draws the screens, and the local progress modules (on-device database, allowance wallet and shop, hearts, streaks, badges, levels), plus the chick mascot illustrations and sound effects. I wrote these myself for both apps. The English content, word pictures, alphabet tracing, listening/speaking screens and mini games are unique to Peep English. No code is shared with Peep Push or Peep Science; they only use the same chick mascot style.
+
+8. Third-party code
+None. The app uses only Apple frameworks (Speech for speaking scores, AVSpeechSynthesizer for reading aloud); no third-party SDKs, analytics or ads.
+
+9. Client or third party
+No. The concept, branding, lessons, word pictures and sounds were made for this app, and it is submitted under my own account.
